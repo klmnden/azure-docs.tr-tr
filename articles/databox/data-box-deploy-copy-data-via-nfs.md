@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/15/2019
+ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 672bcc3d0cb15ef348d090ed6c5a38d6912465ef
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: c74ed93383ea880900a5428a6f24b5b44a3ff135
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496302"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443141"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Öğretici: Azure Data Box NFS aracılığıyla veri kopyalayın
 
@@ -88,6 +88,12 @@ Data Box paylaşımlarına bağlandıktan sonra veri kopyalamaya başlayabilirsi
 - Data Box tarafından yüklenen verilerin Data Box haricinde başka bir uygulama tarafından da yüklenmesi durumunda yükleme işinde hata oluşabilir ve veri bozulması yaşanabilir.
 - Aynı anda hem SMB hem de NFS kullanmamanızı veya aynı verileri Azure'daki aynı uç hedefe kopyalamamanızı öneririz. Bu gibi durumlarda nihai sonucu kestirmek mümkün olmayabilir.
 - **Her zaman kopyalamayı düşündüğünüz dosyalar için paylaşımda bir klasör oluşturun ve ardından dosyaları bu klasöre kopyalayın**. Blok blobu altında klasör oluşturulur ve sayfa blob paylaşımları veriler BLOB olarak karşıya bir kapsayıcıyı temsil eder. Dosyaları doğrudan kopyalanamıyor *kök* depolama hesabında klasör.
+- Büyük/küçük harfe dizin ve dosya adları bir NFS paylaşımına Data Box NFS için başlayan kümeniz varsa: 
+    - Durum adı korunur.
+    - Dosyaları büyük/küçük harfe duyarsızdır.
+    
+    Örneğin, kopyalama `SampleFile.txt` ve `Samplefile.Txt`, durum Data Box kopyalandığında adında korunur ancak olarak bunlar aynı dosyaya kabul ikinci dosyası birinci üzerine yazar.
+
 
 Linux ana bilgisayar kullanıyorsanız Robocopy ile benzer bir kopyalama yardımcı programı kullanabilirsiniz. Linux için kullanabileceğiniz bazı alternatifler: [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) veya [Ultracopier](https://ultracopier.first-world.info/).  
 

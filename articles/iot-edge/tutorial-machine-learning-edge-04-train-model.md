@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: af91dc09f8ed68d7bd4f2378c13d99eb67c52e9e
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: acf0b1984eb3e68858be6ed68731612448e672f4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155635"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67432701"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Öğretici: Bir Azure Machine Learning modelini eğitme ve dağıtma
 
@@ -56,7 +56,7 @@ Olarak daha önce Geliştirici sanal makineyle Azure not defterlerini kullanarak
 
 Azure not defteri hesapları Azure aboneliklerinden bağımsızdır. Azure not defterleri kullanılacak bir hesabı oluşturmanız gerekir.
 
-1. Gidin [Azure not defterleri](http://notebooks.azure.com).
+1. Gidin [Azure not defterleri](https://notebooks.azure.com).
 
 2. Tıklayın **oturum** sayfanın üst, sağ üst köşesinde.
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.author: v-pettur
 author: PeterTurcan
 ms.date: 05/01/2019
-ms.openlocfilehash: 48dde6ebe19f5a6c14008fd4e5e27a9fb0151928
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 01c0819fd0bf525739675ad756031cafc1a51673
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304155"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434746"
 ---
 # <a name="c-tutorial-add-autocompletion-and-suggestions---azure-search"></a>C#öğretici: Otomatik Tamamlama ve öneriler - Azure Search Ekle
 
@@ -69,11 +69,11 @@ Yukarıdaki komut Otomatik Tamamlama işlevi biz jquery Kitaplığı'nda kullan�
     ```cs
     <head>
         <meta charset="utf-8">
-        <title>Autocomplete demo</title>
-        <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+        <title>Typeahead</title>
+        <link href="https://code.jquery.com/ui/1.12.1/themes/start/jquery-ui.css"
               rel="stylesheet">
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <link rel="stylesheet" href="~/css/hotels.css" />
     </head>
@@ -461,9 +461,9 @@ Aşağıdaki paketler bu projedeki göz önünde bulundurun:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Otomatik Tamamlama ve öneriler ile ilgili sorunlar, sunucuya yinelenen çağrılar (en az karakter sayısını yazılan sonra her anahtar vuruş birinde ulaşıldı) içeren biridir. Bu beklenen yanıt daha yavaş çağrılar sonuçlarında yinelenir, sonra kullanıcı deneyimini azalır. Özellikleri kullanarak, biz sonraki görüneceğini yinelenen bu çağrılar önlemek için ilgi çekici bir alternatif sağlar.
+Sonraki öğreticide, kullanıcı deneyimini geliştiriyor bir başka yolu göz aramaları tek bir tıklamayla daraltmak için modelleri kullanarak sahibiz.
 
 > [!div class="nextstepaction"]
-> [C#Öğretici: Gezinti ve ağ verimliliği için - Azure Search modelleri kullanma](tutorial-csharp-facets.md)
+> [C#Öğretici: Gezinti - Azure Search yardımcı olmak için modelleri kullanma](tutorial-csharp-facets.md)
 
 

@@ -3,19 +3,19 @@ title: Soru-Cevap Oluşturma nedir?
 titleSuffix: Azure Cognitive Services
 description: Soru-Cevap Oluşturma, kullanıcı tarafından yöneltilen doğal dil sorularına en iyi yanıtı vermek için özel makine öğrenimi zekası uygulayan bulut tabanlı bir API hizmetidir.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 04/05/2019
-ms.author: tulasim
-ms.openlocfilehash: 963769315302ba4e7d1600253b617c7cb0f02bc5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: diberry
+ms.openlocfilehash: bfb6c5b7cc5a4bd1717fdd96f6d232cc269e702d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794254"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439581"
 ---
 # <a name="what-is-qna-maker"></a>Soru-Cevap Oluşturma nedir?
 

@@ -9,12 +9,12 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 0dc672f0efc420ab73fd923191c2bd52fb571a4f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1785faf718b940794aebc045a3491be45eea03f5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056838"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435205"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Hızlı Başlangıç: Dijital Mürekkep mürekkep tanıyıcı REST API ve JavaScript ile tanıması
 
@@ -154,19 +154,20 @@ Bu Hızlı Başlangıç için kaynak kodu bulunabilir [GitHub](https://go.micros
         xhttp.setRequestHeader("content-type", "application/json");
         xhttp.send(JSON.stringify(sampleJson));
         };
+        ```
 
-## Run the application and view the response
+## <a name="run-the-application-and-view-the-response"></a>Uygulamayı çalıştırmak ve yanıtı görüntüleyin
 
-This application can be run within your web browser. A successful response is returned in JSON format. You can also find the JSON response on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-response.json):
+Bu uygulama, web tarayıcınızdan çalıştırılabilir. Başarılı bir yanıt JSON biçiminde döndürülür. Üzerinde JSON yanıt bulabilirsiniz [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-response.json):
 
-## Next steps
+## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [REST API reference](https://go.microsoft.com/fwlink/?linkid=2089907)
+> [REST API başvurusu](https://go.microsoft.com/fwlink/?linkid=2089907)
 
-To see how the Ink Recognition API works in a digital inking app, take a look at the following sample applications on GitHub:
-* [C# and Universal Windows Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
-* [C# and Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
-* [Javascript web-browser app](https://go.microsoft.com/fwlink/?linkid=2089908)       
-* [Java and Android mobile app](https://go.microsoft.com/fwlink/?linkid=2089906)
-* [Swift and iOS mobile app](https://go.microsoft.com/fwlink/?linkid=2089805)
+Mürekkep tanıma API'si dijital mürekkep bir uygulamada nasıl çalıştığını görmek için Github'da aşağıdaki örnek uygulamaları göz atın:
+* [C# Evrensel Windows Platformu (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# Windows Presentation Foundation (WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
+* [JavaScript web tarayıcı uygulaması](https://go.microsoft.com/fwlink/?linkid=2089908)       
+* [Java ve Android mobil uygulaması](https://go.microsoft.com/fwlink/?linkid=2089906)
+* [Swift ve iOS mobil uygulaması](https://go.microsoft.com/fwlink/?linkid=2089805)

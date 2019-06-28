@@ -3,19 +3,19 @@ title: "Hızlı Başlangıç: İki dilli sözlük, Java - Translator metin çevi
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, bir dönem için alternatif Çevirileri Alma öğreneceksiniz ve ayrıca bu kullanım örneklerini Çeviriler, Java ve Translator Text API kullanarak diğer.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 027e895ffbeb3cc0ff5b3348c2d7a8b76b930cf3
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: d4c8f06b1689f3aaa5a88e39583a48cf990dd532
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514819"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445137"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-java"></a>Hızlı Başlangıç: Java kullanarak iki dilli sözlük ile sözcük arayın
 
@@ -108,6 +108,8 @@ Bu satırları ekleyin `AltTranslation` sınıfı. İle birlikte olduğunu fark 
 String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es";
 ```
+
+Bilişsel hizmetler çok hizmet aboneliği kullanıyorsanız de içermelidir `Ocp-Apim-Subscription-Region` , istek parametreleri. [Birden çok hizmet aboneliği ile kimlik doğrulaması hakkında daha fazla bilgi](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="create-a-client-and-build-a-request"></a>Bir istemci oluşturup bir istek oluşturun
 

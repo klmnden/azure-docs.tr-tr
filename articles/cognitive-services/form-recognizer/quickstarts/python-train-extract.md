@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Bir modeli eğitmek ve Python ile - Form tanıyıcı REST API kullanarak form verileri ayıklayın.'
+title: 'Hızlı Başlangıç: Bir modeli eğitmek ve Python ile - Form tanıyıcı REST API kullanarak form verilerini ayıklama'
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, modeli eğitmek ve formlardaki verileri ayıklamak için Form tanıyıcı REST API ile Python kullanacaksınız.
 author: PatrickFarley
@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 04c7663073a710fe39017b01edd0623a837d6354
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: b01b42af99575f512ccc76b0a56e4d18106c319f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331797"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441793"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Hızlı Başlangıç: Bir Form tanıyıcı modeli eğitmek ve Python ile REST API kullanarak form verileri ayıklayın
 
@@ -53,7 +53,6 @@ Azure blob kapsayıcınızdaki belgeleri kullanarak bir Form tanıyıcı modeli 
 
 1. Değiştirin `<Endpoint>` Form tanıyıcı kaynak abonelik anahtarlarınızın aldığınız burada bir Azure bölgesinde uç nokta URL'si ile.
 1. Değiştirin `<SAS URL>` Azure Blob Depolama kapsayıcısı paylaşılan erişim imzası (SAS) URL'si. Bu almak için Microsoft Azure Depolama Gezgini'ni açın, kapsayıcınızın sağ tıklatın ve seçin **Get paylaşılan erişim imzası**. Sonraki iletişim kutusunda'a tıklayın ve değeri kopyalayın **URL** bölümü. Form olması gereken: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-1. Değiştirin `<file type>` dosya türüne sahip. Desteklenen türler: `application/pdf`, `image/jpeg`, `image/png`.
 1. Değiştirin `<Subscription key>` önceki adımda kopyaladığınız abonelik anahtarı.
     ```python
     ########### Python Form Recognizer Train #############
@@ -64,7 +63,7 @@ Azure blob kapsayıcınızdaki belgeleri kullanarak bir Form tanıyıcı modeli 
     source = r"<SAS URL>"
     headers = {
         # Request headers
-        'Content-Type': '<file type>',
+        'Content-Type': 'application/json',
         'Ocp-Apim-Subscription-Key': '<Subscription Key>',
     }
     url = base_url + "/train" 

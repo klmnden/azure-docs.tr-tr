@@ -5,26 +5,27 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a0530739428e18d01209f94345ae53dfb743d80b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 12b141f9aa75231adae9f64c57709f290883b420
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239680"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433950"
 ---
-# <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Öğretici: Uç cihazlarında özel görüntü işleme hizmeti ile görüntü sınıflandırma gerçekleştirin
+# <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Öğretici: Özel Görüntü İşleme Hizmeti ile uçta görüntü sınıflandırması yapma
 
-Azure IoT Edge, iş yüklerini buluttan uca taşıyarak IoT çözümünüzü daha verimli hale getirmenizi sağlayabilir. Bu özellik, özel görüntü işleme modelleri gibi çok miktarda veri işleyen hizmetler için uygundur. [Özel Görüntü İşleme Hizmeti](../cognitive-services/custom-vision-service/home.md), özel görüntü sınıflandırıcıları derlemenizi ve bunları cihazlara kapsayıcı olarak dağıtmanızı sağlar. Bu iki hizmet birlikte tüm verileri aktarmak zorunda kalmadan görüntülerden veya video akışlarından içgörü elde etmenizi sağlar. Özel Görüntü İşleme Hizmeti, içgörü oluşturmak için bir görüntüyü eğitilmiş modelle karşılaştıran bir sınıflandırıcı sunar. 
+Azure IoT Edge, iş yüklerini buluttan uca taşıyarak IoT çözümünüzü daha verimli hale getirmenizi sağlayabilir. Bu özellik, özel görüntü işleme modelleri gibi çok miktarda veri işleyen hizmetler için uygundur. [Özel Görüntü İşleme Hizmeti](../cognitive-services/custom-vision-service/home.md), özel görüntü sınıflandırıcıları derlemenizi ve bunları cihazlara kapsayıcı olarak dağıtmanızı sağlar. Bu iki hizmet birlikte tüm verileri aktarmak zorunda kalmadan görüntülerden veya video akışlarından içgörü elde etmenizi sağlar. Özel Görüntü İşleme Hizmeti, içgörü oluşturmak için bir görüntüyü eğitilmiş modelle karşılaştıran bir sınıflandırıcı sunar.
 
-Örneğin bir IoT Edge cihazı üzerinde çalışan Özel Görüntü İşleme Hizmeti bir otoyoldaki trafik yoğunluğunun beklenenden daha yüksek veya düşük olduğunu veya bir otoparkta yeterli yer bulunup bulunmadığını belirleyebilir. Bu içgörüler eylem gerçekleştirmek üzere başka bir hizmetle paylaşılabilir. 
+Örneğin bir IoT Edge cihazı üzerinde çalışan Özel Görüntü İşleme Hizmeti bir otoyoldaki trafik yoğunluğunun beklenenden daha yüksek veya düşük olduğunu veya bir otoparkta yeterli yer bulunup bulunmadığını belirleyebilir. Bu içgörüler eylem gerçekleştirmek üzere başka bir hizmetle paylaşılabilir.
 
-Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz: 
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
+>
 > * Özel Görüntü İşleme Hizmeti ile bir görüntü sınıflandırıcı derleme.
 > * Cihazınızdaki Özel Görüntü İşleme Hizmeti web sunucusunu sorgulayan bir IoT Edge modülü dağıtma.
 > * Görüntü sınıflandırıcı sonuçlarını IoT Hub'a gönderme.
@@ -72,10 +73,11 @@ Görüntü sınıflandırıcıyı derleyip eğittikten sonra Docker kapsayıcıs
    | ----- | ----- |
    | Ad | Projeniz için bir ad belirleyin, örneğin: **EdgeTreeClassifier**. |
    | Açıklama | İsteğe bağlı proje açıklaması. |
-   | Kaynak Grubu | Varsayılan **Limited trial** (Sınırlı deneme sürümü) ayarını kabul edin. |
+   | Kaynak Grubu | Özel görüntü işleme hizmeti kaynağı içeren Azure kaynak gruplarınızdaki birini seçin veya **Yeni Oluştur** , henüz bir eklemediniz. |
    | Proje Türleri | **Classification** (Sınıflandırma) |
-   | Sınıflandırma Türleri | **Multiclass (single tag per image)** (Çok sınıflı (görüntü başına tek bir etiket)) | 
+   | Sınıflandırma Türleri | **Multiclass (single tag per image)** (Çok sınıflı (görüntü başına tek bir etiket)) |
    | Etki Alanları | **General (compact)** (Genel (kompakt)) |
+   | Dışarı aktarma özellikleri | **Temel platformları (Tensorflow, CoreML, ONNX,...)** |
 
 5. **Create project** (Proje oluştur) öğesini seçin.
 

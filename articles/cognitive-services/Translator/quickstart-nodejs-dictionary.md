@@ -3,19 +3,19 @@ title: "Hızlı Başlangıç: İki dilli sözlük, Node.js - Translator metin ç
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta Node.js ve Translator Metin Çevirisi API'sini kullanarak belirtilen bir metnin alternatif çevirilerini ve kullanım örneklerini bulmayı öğreneceksiniz.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 9c1fa5435e8700072a26b1f9b2f00a8db12c20ba
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 3fa8d57f3f94a08bc7a7530dde3ae1080f233533
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514828"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445031"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-nodejs"></a>Hızlı Başlangıç: Node.js kullanarak iki dilli sözlük ile sözcük arayın
 
@@ -92,9 +92,11 @@ let options = {
 };
 ```
 
-### <a name="authentication"></a>Kimlik Doğrulaması
+Bir isteğin kimliğini doğrulamanın en kolay yolu, abonelik anahtarınızda bir `Ocp-Apim-Subscription-Key` üst bilgisi olarak geçirmektir. Bu örnekte bu yöntem kullanılır. Alternatif olarak, abonelik anahtarınızı bir erişim belirteciyle değiştirebilir ve isteğinizi doğrulamak için erişim belirtecini bir `Authorization` üst bilgisi olarak geçirebilirsiniz. 
 
-Bir isteğin kimliğini doğrulamanın en kolay yolu, abonelik anahtarınızda bir `Ocp-Apim-Subscription-Key` üst bilgisi olarak geçirmektir. Bu örnekte bu yöntem kullanılır. Alternatif olarak, abonelik anahtarınızı bir erişim belirteciyle değiştirebilir ve isteğinizi doğrulamak için erişim belirtecini bir `Authorization` üst bilgisi olarak geçirebilirsiniz. Daha fazla bilgi için bkz. [Kimlik doğrulaması](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Bilişsel hizmetler çok hizmet aboneliği kullanıyorsanız de içermelidir `Ocp-Apim-Subscription-Region` istek üst bilgilerinizi içinde. 
+
+Daha fazla bilgi için bkz. [Kimlik doğrulaması](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="make-the-request-and-print-the-response"></a>İstekte bulunma ve yanıtı yazdırma
 

@@ -3,20 +3,20 @@ title: "Hızlı Başlangıç: Translator konuşma tanıma API'si Java"
 titlesuffix: Azure Cognitive Services
 description: Translator Konuşma Çevirisi API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
 services: cognitive-services
-author: v-jaswel
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
-ms.author: v-jaswel
+ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: b9cf9a5e60ff5f66a3956170b4f5fb41d4b6d66c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 587c55148d3c5ee2bdad5b25747e5dd8dadc35ba
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537505"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442169"
 ---
 # <a name="quickstart-translator-speech-api-with-java"></a>Hızlı Başlangıç: Translator konuşma tanıma API'si ile Java
 <a name="HOLTop"></a>

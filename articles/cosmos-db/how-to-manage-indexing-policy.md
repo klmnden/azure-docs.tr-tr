@@ -4,14 +4,14 @@ description: Azure Cosmos DB'de dizinleme ilkeleri yönetmeyi öğrenin
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 06/27/2019
 ms.author: thweiss
-ms.openlocfilehash: 05fd369cfebba03c814507f82755fa6cb6a89400
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 9fe58e9d49a46fd03a2938f2860a3a5d476813af
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66386792"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441781"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB'de dizinleme ilkeleri yönetme
 
@@ -357,7 +357,7 @@ Birden çok farklı Bileşik dizinler aynı dizin oluşturma ilkesini içinde ta
                     "path":"/age",
                     "order":"ascending"
                 }
-            ]
+            ],
             [  
                 {  
                     "path":"/name",

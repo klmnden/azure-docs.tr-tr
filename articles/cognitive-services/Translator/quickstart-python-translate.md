@@ -3,19 +3,19 @@ title: "Hızlı Başlangıç: Metin, Python - Translator metin çevirisi API'si 
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, 10 dakikadan daha kısa bir sürede Python ile Translator Metin Çevirisi API'sini kullanarak metni bir dilden diğerine çevireceksiniz.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 6edfabc898df8de94eb546039f87a12c965f8831
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.author: swmachan
+ms.openlocfilehash: 689aa655967910c0114f50eac522df00c5659d1b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340924"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444904"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Hızlı Başlangıç: Python kullanarak bir dizeye çevirmek için Translator Text API kullanın
 
@@ -94,6 +94,8 @@ headers = {
     'X-ClientTraceId': str(uuid.uuid4())
 }
 ```
+
+Bilişsel hizmetler çok hizmet aboneliği kullanıyorsanız de içermelidir `Ocp-Apim-Subscription-Region` , istek parametreleri. [Birden çok hizmet aboneliği ile kimlik doğrulaması hakkında daha fazla bilgi](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="create-a-request-to-translate-text"></a>Metni çevirmek için bir istek oluşturun
 

@@ -11,12 +11,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s '
-ms.openlocfilehash: c3a988a831ad1069e5988f9c67e92a85a7a44840
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 53c870ad135fe13eb3bf7556678cac29352911aa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65765199"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442922"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Azure Dev Spaces ile ekip geliştirmesi
 
@@ -65,8 +65,8 @@ _Olmadan_ geliştirme alanları'nı kullanarak, Scott hiçbirinin ideal gelişti
 1. **Çözüm Gezgini**’nde projeye sağ tıklayın ve **Özellikler**’i seçin.
 1. Azure Dev Spaces ayarlarını göstermek için sol tarafta bulunan **Hata ayıkla** sekmesini seçin.
 1. Seçin **değişiklik** olacak alanı oluşturmak için kullanılabilir F5 ya da Ctrl + F5 hizmet.
-1. Alan açılır menüden seçin  **\<yeni alan oluştur... \>**.
-1. Üst alanı emin olun kümesine  **\<hiçbiri\>**, alan adı girin **geliştirme**. Tamam'a tıklayın.
+1. Alan açılır menüden seçin  **\<yeni alan oluştur... \>** .
+1. Üst alanı emin olun kümesine  **\<hiçbiri\>** , alan adı girin **geliştirme**. Tamam'a tıklayın.
 1. Çalıştırmak için CTRL + F5 tuşlarına basın _mywebapi_ bağlı hata ayıklayıcı olmadan.
 1. İle Visual Studio penceresine geçiş _webfrontend_ proje ve de çalıştırmak için Ctrl + F5 tuşuna basın.
 
@@ -90,11 +90,11 @@ Yeni bir alan oluşturmak için aşağıdakileri yapın:
 2. **Çözüm Gezgini**’nde projeye sağ tıklayın ve **Özellikler**’i seçin.
 3. Azure Dev Spaces ayarlarını göstermek için sol tarafta bulunan **Hata ayıkla** sekmesini seçin.
 4. Buradan, F5 veya Ctrl+F5 tuşlarına basarken kullanılacak olan küme ve/veya alanı değiştirebilir ya da oluşturabilirsiniz. *Daha önce oluşturduğunuz Azure Dev Space’in seçildiğinden emin olun*.
-5. Alan açılır menüden seçin  **\<yeni alan oluştur... \>**.
+5. Alan açılır menüden seçin  **\<yeni alan oluştur... \>** .
 
     ![](media/get-started-netcore-visualstudio/Settings.png)
 
-6. İçinde **alanı Ekle** iletişim kutusunda, üst alan kümesine **geliştirme**ve yeni alanınız için bir ad girin. İş arkadaşlarınızın hangi alanda çalıştığınızı tanımlayabilmesi adına yeni alan için adınızı kullanabilirsiniz (örneğin, "scott"). **Tamam**'ı tıklatın.
+6. İçinde **alanı Ekle** iletişim kutusunda, üst alan kümesine **geliştirme**ve yeni alanınız için bir ad girin. İş arkadaşlarınızın hangi alanda çalıştığınızı tanımlayabilmesi adına yeni alan için adınızı kullanabilirsiniz (örneğin, "scott"). **Tamam** düğmesine tıklayın.
 
     ![](media/get-started-netcore-visualstudio/AddSpace.png)
 
@@ -124,9 +124,9 @@ Aşağıda, farklı alanların nasıl çalıştığını anlamanıza yardımcı 
 Azure Dev Spaces’ın bu yerleşik özelliği, her bir geliştiricinin alanlarındaki hizmetlerin tam yığınını yeniden oluşturmasına gerek kalmadan kodu paylaşılan bir ortamda uçtan uca test etmenize olanak sağlar. Bu yönlendirme, bu kılavuzun önceki adımında gösterildiği gibi yayma üst bilgilerinin uygulama kodunuzda iletilmesini gerektirir.
 
 ### <a name="test-code-running-in-the-devscott-space"></a>Test çalıştırma kod _dev/scott_ alanı
-Yeni sürümünüzü test etmek için *mywebapi* birlikte *webfrontend*, genel erişim noktası URL'sini tarayıcınızda *webfrontend* (örneğin, http://dev.webfrontend.123456abcdef.eus.azds.io)ve hakkında sayfasına gidin. "Hello from webfrontend and Hello from mywebapi" özgün iletisini görmelisiniz.
+Yeni sürümünüzü test etmek için *mywebapi* birlikte *webfrontend*, genel erişim noktası URL'sini tarayıcınızda *webfrontend* (örneğin, http://dev.webfrontend.123456abcdef.eus.azds.io) ve hakkında sayfasına gidin. "Hello from webfrontend and Hello from mywebapi" özgün iletisini görmelisiniz.
 
-Şimdi de http://scott.s.dev.webfrontend.123456abcdef.eus.azds.io gibi bir şekilde olması için "scott.s." kısmını URL’ye ekleyin ve tarayıcıyı yenileyin. Ayarladığınız kesme noktası, *mywebapi* proje isabet. Devam etmek için F5’e tıkladığınızda tarayıcınızda yeni "Hello from webfrontend and mywebapi now says something new." iletisini artık görmeniz gerekir. Bunun nedeni, güncelleştirilmiş kodunuzdaki yolu *mywebapi* çalıştığı _dev/scott_ alanı.
+Şimdi de aşağıdakine benzer http yazacak şekilde URL parçası\://scott.s.dev.webfrontend.123456abcdef.eus.azds.io ve tarayıcıyı yenileyin. Ayarladığınız kesme noktası, *mywebapi* proje isabet. Devam etmek için F5’e tıkladığınızda tarayıcınızda yeni "Hello from webfrontend and mywebapi now says something new." iletisini artık görmeniz gerekir. Bunun nedeni, güncelleştirilmiş kodunuzdaki yolu *mywebapi* çalıştığı _dev/scott_ alanı.
 
 Sonra bir _geliştirme_ her zaman en son değişikliklerinizi ve uygulamanızı varsayılarak içeren alan uzay tabanlı Bu öğretici bölümünde anlatıldığı gibi yönlendirme DevSpace'nın yararlanmak için tasarlanmıştır, Umarım kolayca görebilir olur nasıl geliştirme boşluklar önemli ölçüde daha büyük uygulama bağlamında yeni özellikleri test size yardımcı olabilir. Dağıtmak zorunda yerine _tüm_ hizmetler için özel alanınızı öğesinden türetilen özel bir alan oluşturabilirsiniz _geliştirme_ve "yedekleme" yalnızca gerçekten üzerinde çalıştığınız hizmetler. Bu, çalışan en son sürüme geri varsayarak bulabileceğinden kadar Hizmetleri özel alanınızı dışında yararlanarak rest geliştirme alanları yönlendirme altyapısını işleyecek _geliştirme_ alanı. Ve daha iyi yine de _birden çok_ geliştiriciler etkin olarak kullanılmak üzere farklı Hizmetleri aynı anda kendi alanı birbiriyle kesintiye uğratmadan.
 

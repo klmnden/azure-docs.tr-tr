@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 8463ffcb9d9983ff435c01f75dd48f68bde31767
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 72602cb1fda88497172b1837eab98d5e9ce41776
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62117594"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435440"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Öğretici: Özel bir görüntü oluşturun ve App Service'te özel bir kayıt defterinden çalıştırın
 
-[App Service](app-service-linux-intro.md) yerleşik Docker görüntüleri Linux'ta PHP 7.0 ve Node.js 4.5 gibi belirli sürümleri için destek sağlar. App Service, bir hizmet olarak platform olarak hem yerleşik görüntüleri hem de özel görüntüleri barındırmak için Docker kapsayıcı teknolojisini kullanır. Bu öğreticide, özel bir görüntü oluşturun ve App Service'te çalıştırma hakkında bilgi edinin. Bu desen, yerleşik görüntülerin sizin tercih ettiğiniz dili içermediği veya uygulamanızın yerleşik görüntülerde sağlanmayan belirli bir yapılandırma gerektirdiği durumlarda yararlı olur.
+[App Service](app-service-linux-intro.md) 7.3 PHP ve Node.js 10.14 gibi belirli sürümleri destekleyen yerleşik Docker görüntüleri Linux'ta sağlar. App Service, bir hizmet olarak platform olarak hem yerleşik görüntüleri hem de özel görüntüleri barındırmak için Docker kapsayıcı teknolojisini kullanır. Bu öğreticide, özel bir görüntü oluşturun ve App Service'te çalıştırma hakkında bilgi edinin. Bu desen, yerleşik görüntülerin sizin tercih ettiğiniz dili içermediği veya uygulamanızın yerleşik görüntülerde sağlanmayan belirli bir yapılandırma gerektirdiği durumlarda yararlı olur.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -211,7 +211,7 @@ Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan çıktıdaki gi
 
 ### <a name="configure-registry-credentials-in-web-app"></a>Web uygulaması kayıt defteri kimlik bilgilerini yapılandırma
 
-App Service'nın özel görüntü çekmek kayıt defteri ve görüntü hakkında bilgi gerekiyor. Cloud Shell'de ile bunları sağlamanız [ `az webapp config container set` ](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) komutu. Değiştirin  *\<-adı >*,  *\<azure kapsayıcı kayıt defteri adı >*,  _\<registry-username >_ ve  _\<parola >_.
+App Service'nın özel görüntü çekmek kayıt defteri ve görüntü hakkında bilgi gerekiyor. Cloud Shell'de ile bunları sağlamanız [ `az webapp config container set` ](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) komutu. Değiştirin  *\<-adı >* ,  *\<azure kapsayıcı kayıt defteri adı >* ,  _\<registry-username >_ ve  _\<parola >_ .
 
 ```azurecli-interactive
 az webapp config container set --name <app-name> --resource-group myResourceGroup --docker-custom-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0 --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>

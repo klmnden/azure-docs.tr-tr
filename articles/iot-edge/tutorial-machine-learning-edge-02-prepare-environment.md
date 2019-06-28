@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f36b706213639c5bea383ec20ffc7f6d7ed01021
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: fd3b5766ec2bd8d1babf847598f1fbe5b6511ce7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155706"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67432839"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Öğretici: Machine learning IOT Edge üzerinde için bir ortamı ayarlama
 
@@ -190,7 +190,7 @@ Betiği çalıştırmak için yaklaşık iki dakika sürer. İşlem tamamlandık
 
 IOT hub'ı oluşturma bir parçası olarak, önceki bölümde karşılaştık betik özel bir uç noktası ve yol oluşturuldu. IOT hub'ı yollar, bir sorgu ifadesi ve bir uç nokta oluşur. Bir ileti ifade eşleşirse, veriler yol boyunca ilişkili uç noktasına gönderilir. Uç noktaları, Event Hubs, Service Bus kuyrukları ve konuları olabilir. Bu durumda, bir depolama hesabındaki Blob kapsayıcısına uç noktadır. Şimdi bizim betiği tarafından oluşturulan rota gözden geçirmek için Azure portalını kullanın.
 
-1. [Azure portalı](http://portal.azure.com) açın.
+1. [Azure portalı](https://portal.azure.com) açın.
 
 1. Tüm hizmetleri soldaki Gezgin seçin, IOT arama kutusuna yazın ve seçin **IOT hub'ı**.
 

@@ -4,11 +4,11 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/06/2019
-ms.openlocfilehash: 71f6c5790ac98e819a7f251432b7cb0a731adc58
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8ba1f0fdae5e971bae1400f058bfd8ebf40e2590
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67188693"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435216"
 ---
-Olmalıdır bir [Bilişsel hizmetler API hesabı](../articles/cognitive-services/cognitive-services-apis-create-account.md) mürekkep tanıyıcı API'sine erişim ile. Azure aboneliğiniz yoksa ücretsiz olarak [hesap oluşturabilirsiniz](https://azure.microsoft.com/try/cognitive-services/). Abonelik anahtarınızı alabilirsiniz [Azure portalında](../articles/cognitive-services/cognitive-services-apis-create-account.md#access-your-resource) hesabınızı oluşturduktan sonra veya [Azure Web sitesi](https://azure.microsoft.com/try/cognitive-services/my-apis) sonra ücretsiz deneme sürümü etkinleştiriliyor.
+Olmalıdır bir [Bilişsel hizmetler API hesabı](../articles/cognitive-services/cognitive-services-apis-create-account.md) mürekkep tanıyıcı API'sine erişim ile. Azure aboneliğiniz yoksa ücretsiz olarak [hesap oluşturabilirsiniz](https://azure.microsoft.com/try/cognitive-services/). Abonelik anahtarınızı alabilirsiniz [Azure portalında](../articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-subscription) hesabınızı oluşturduktan sonra veya [Azure Web sitesi](https://azure.microsoft.com/try/cognitive-services/my-apis) sonra ücretsiz deneme sürümü etkinleştiriliyor.

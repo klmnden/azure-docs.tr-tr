@@ -3,19 +3,19 @@ title: "Hızlı Başlangıç: Translator metin çevirisi API'si - Python olan de
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Python ile Translator Metin Çevirisi API’sini kullanarak çeviri, başka alfabeye çevirme ve sözlük arama için desteklenen dillerin ve örneklerin bir listesini alacaksınız.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 81b2ed578e1731c1848e05a986f27c044c976e7b
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.author: swmachan
+ms.openlocfilehash: 23a850723e4f7b4df2a8fca969380156586d6aae
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340952"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444917"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>Hızlı Başlangıç: Translator metin çevirisi API'si, Python kullanarak desteklenen dillerin listesini almak için kullanın
 
@@ -69,6 +69,8 @@ headers = {
     'X-ClientTraceId': str(uuid.uuid4())
 }
 ```
+
+Bilişsel hizmetler çok hizmet aboneliği kullanıyorsanız de içermelidir `Ocp-Apim-Subscription-Region` , istek parametreleri. [Birden çok hizmet aboneliği ile kimlik doğrulaması hakkında daha fazla bilgi](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="create-a-request-to-get-a-list-of-supported-languages"></a>Desteklenen dillerin listesini almak için bir istek oluşturma
 

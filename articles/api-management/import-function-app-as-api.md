@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/28/2018
+ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: e5e8ffc18db902eeaa8484122e3844f35046191f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f9e5c531e387ba8d2c61c6d46b1e8935bc7d42cf
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243026"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67429053"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Azure İşlev Uygulamalarını Azure API Management'a API olarak aktarma
 
@@ -69,7 +69,7 @@ Bir Azure İşlev Uygulamasından yeni API oluşturmak için aşağıdaki adıml
     ![İşlev Uygulamasından ekleme](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
-    > Yalnızca HTTP tetikleyicisine dayalı ve yetkilendirme düzeyi *Anonim* veya *İşlev* olarak ayarlanmış olan İşlevleri içeri aktarabilirsiniz. Şu anda Linux işlevi uygulamaları desteklenmez.
+    > Yalnızca HTTP tetikleyicisine dayalı ve yetkilendirme düzeyi *Anonim* veya *İşlev* olarak ayarlanmış olan İşlevleri içeri aktarabilirsiniz.
 
 7. **Tam** görünümüne geçiş yapın ve yeni API’nize **Ürün** atayın. Gerekirse, önceden doldurulmuş diğer alanları düzenleyin.
 

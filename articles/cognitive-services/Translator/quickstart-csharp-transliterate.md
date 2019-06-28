@@ -3,19 +3,19 @@ title: 'Hızlı Başlangıç: Metin komut dönüştürme C# -Translator metin ç
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, başka bir .NET Core ve Translator Text REST API kullanarak bir komut dosyasından (dönüştürme) metin alfabeye öğreneceksiniz. Bu örnekte Japonca, Latin alfabesine dönüştürülmektedir.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/13/2019
-ms.author: erhopf
-ms.openlocfilehash: 8e08372e591c9d600b42ae8e66baf7addf7806c9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: f09f9081dd535762afd2e26e5e86476eb06f5133
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67123366"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445247"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-c"></a>Hızlı Başlangıç: Translator metin çevirisi API'si kullanarak metin alfabeye için kullanınC#
 
@@ -157,6 +157,8 @@ foreach (TransliterationResult o in deserializedOutput)
     Console.WriteLine("Transliterated to {0} script: {1}", o.Script, o.Text);
 }
 ```
+
+Bilişsel hizmetler çok hizmet aboneliği kullanıyorsanız de içermelidir `Ocp-Apim-Subscription-Region` , istek parametreleri. [Birden çok hizmet aboneliği ile kimlik doğrulaması hakkında daha fazla bilgi](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="put-it-all-together"></a>Hepsini bir araya getirin
 

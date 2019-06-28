@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: edjez
-ms.openlocfilehash: a5bdee7ec99367d004260bd77e3b0695a1877dd6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 783bfcd5ad9e114a5329892449f35f6ed8316948
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055524"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428442"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Personalizer sorumlu uygulaması için yönergeler
 
@@ -197,7 +197,7 @@ Microsoft araçları ve aşağıdaki sorumluluklara göre hareket yardımcı ola
 * [Etik kurallara ve veri bilimi](https://www.oreilly.com/library/view/ethics-and-data/9781492043898/) DJ Patil, Hilary Mason Mike Loukides tarafından.
 * [ACM kodunu Ethics](https://www.acm.org/code-of-ethics)
 * [Genetik bilgi Nondiscrimination Act - GINA](https://en.wikipedia.org/wiki/Genetic_Information_Nondiscrimination_Act)
-* [Sorumlu algoritmaları için FATML ilkeleri](http://www.fatml.org/resources/principles-for-accountable-algorithms)
+* [Sorumlu algoritmaları için FATML ilkeleri](https://www.fatml.org/resources/principles-for-accountable-algorithms)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

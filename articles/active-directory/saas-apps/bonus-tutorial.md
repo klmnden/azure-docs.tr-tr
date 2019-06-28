@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 298f25e151d4c52749d646a9457f0962c68bf4d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f605398896c93d15b7475c05c79361fdcefcfcab
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106140"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442769"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Öğretici: Bonusly ile Azure Active Directory Tümleştirme
 
@@ -148,7 +148,7 @@ Azure AD çoklu oturum açma ile Bonusly yapılandırmak için aşağıdaki adı
 
     c. İçinde **IDP veren** metin değerini yapıştırın **Azure AD tanımlayıcısı**, hangi Azure Portalı'ndan kopyaladığınız.
     
-    d. Yapıştırma **parmak izi** değeri kopyalanan Azure portalından **sertifika parmak izi** metin.
+    d. Yapıştırma **parmak izi** değeri kopyalanan Azure portalından **sertifika parmak izi** metin.
     
     e. **Kaydet**’e tıklayın.
 

@@ -9,16 +9,16 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 04/08/2019
 ms.author: pafarley
-ms.openlocfilehash: 8fb382227c71fce7ebe062057adf5edfb90a1a92
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 82ee2aa5627ac5fa4584f5af6b6b80cc2813c667
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601633"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441828"
 ---
 # <a name="what-is-form-recognizer"></a>Form Tanıma nedir?
 
-Azure Form Tanıma, form belgelerinden anahtar-değer çiftlerini ve tablo verilerini tanımlamak ve ayıklamak için makine öğrenimi teknolojisini kullanan bir bilişsel hizmettir. Ardından, asıl dosyadaki ilişkileri de içeren yapılandırılmış verinin çıktısını verir. Basit bir REST API kullanarak kolayca, iş akışı veya uygulama tümleştirmenize karmaşıklığını azaltmak için Özel Form tanıyıcı modelinizi çağırabilirsiniz. Başlamak için beş form belgelerine ya da boş bir form, giriş malzeme olarak aynı türde yeterlidir. Uyarlandığından doğru sonuçlar, belirli bir içeriğe ağır el ile müdahale veya kapsamlı veri bilimi uzmanlığına gerek kalmadan hızla alın.
+Azure Form Tanıma, form belgelerinden anahtar-değer çiftlerini ve tablo verilerini tanımlamak ve ayıklamak için makine öğrenimi teknolojisini kullanan bir bilişsel hizmettir. Ardından, asıl dosyadaki ilişkileri de içeren yapılandırılmış verinin çıktısını verir. Basit bir REST API kullanarak kolayca, iş akışı veya uygulama tümleştirmenize karmaşıklığını azaltmak için Özel Form tanıyıcı modelinizi çağırabilirsiniz. Başlamak için beş doldurulmuş form belgeler veya doldurulmuş iki forms artı, giriş malzeme olarak aynı türde boş bir form yeterlidir. Uyarlandığından doğru sonuçlar, belirli bir içeriğe ağır el ile müdahale veya kapsamlı veri bilimi uzmanlığına gerek kalmadan hızla alın.
 
 ## <a name="request-access"></a>Erişim izni iste
 Form tanıyıcı erişimi sınırlı önizlemede kullanıma sunulmuştur. Önizleme erişim elde etmek için doldurun ve gönderme [Form tanıyıcı erişim isteği](https://aka.ms/FormRecognizerRequestAccess) formu. Form, şirketiniz ve Form tanıyıcı kullanacağınız kullanıcı senaryosu hakkında bilgi ister. Azure Bilişsel hizmetler ekibi tarafından isteğiniz onaylanırsa, hizmete erişmek için yönergeleri içeren bir e-posta alacaksınız.
@@ -35,22 +35,7 @@ Form tanıyıcı, REST API olarak kullanılabilir. Oluşturmak, eğitmek ve API 
 
 ## <a name="input-requirements"></a>Giriş gereksinimleri
 
-Form tanıyıcı bu gereksinimleri karşılayan giriş belgeler üzerinde çalışır:
-
-* JPG, PNG veya PDF biçiminde olmalıdır (metin veya taranan). Metin katıştırılmış PDF karakter ayıklama ve konumda hata kaybetme riski olduğu için idealdir.
-* Dosya boyutu küçüktür 4 megabayt (MB) olmalıdır.
-* Görüntüler için boyutları 4200 x 4200 piksel ve 50 x 50 piksel arasında olmalıdır.
-* Kağıt belgelerden taranan forms yüksek kaliteli taramalar olması gerekir.
-* Metin Latin alfabesi (İngilizce karakterler) kullanmanız gerekir.
-* Veri (değil resimlerdeki el yazısı) yazdırılan gerekir.
-* Veri anahtarları ve değerleri içermesi gerekir.
-* Anahtarları yukarıda veya değerlerin ancak değil aşağıda sola veya sağa görünür.
-
-Form tanıyıcı şu anda bu giriş veri türlerini desteklemez:
-
-* Karmaşık tablolar (iç içe yerleştirilmiş tablolar, birleştirilen üstbilgi veya hücre vb.).
-* Onay kutusu veya radyo düğmeleri.
-* PDF belgeleri 50 sayfaları uzun.
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ## <a name="where-do-i-start"></a>Nereden başlamalıyım?
 
@@ -68,7 +53,7 @@ Eğitim ve forms yapılandırılmış verileri ayıklamak için aşağıdaki API
 
 | REST API | Açıklama |
 |-----|-------------|
-| Eğit | Aynı türden beş forms veya boş bir form kullanılarak formlarınızı analiz etmek için yeni bir modeli eğitin.  |
+| Eğitim | Aynı türde beş formları kullanarak formlarınızı analiz etmek için yeni bir modeli eğitin. Ya da boş bir form ile doldurulmuş iki biçimde eğitin.  |
 | Çözümle  |Formun modeliniz özel anahtar-değer çiftleri ve tabloları ayıklamak için bir akış olarak geçirilen bir tek belge analiz edin.  |
 
 Keşfedin [REST API başvuru belgesini](https://aka.ms/form-recognizer/api). 

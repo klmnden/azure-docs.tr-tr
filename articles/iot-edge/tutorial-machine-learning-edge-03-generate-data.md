@@ -8,14 +8,14 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f3cf23f491aad1766f2d4087c440cc080dbe345e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a93b1128fe1ea0e03efc9060f2c3c4a93145f838
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057655"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67432848"
 ---
-# <a name="tutorial-generate-simulated-device-data"></a>Öğretici: Sanal cihaz verileri üretme
+# <a name="tutorial-generate-simulated-device-data"></a>Öğretici: Simülasyon cihazı verileri üretme
 
 > [!NOTE]
 > Bu makale bir serinin IOT Edge üzerinde Azure Machine Learning'i kullanma hakkında bir öğretici için parçasıdır. Bu makalede doğrudan gelmiş, başlangıç öneriyoruz [makaleyi](tutorial-machine-learning-edge-01-intro.md) serisindeki en iyi sonuçlar için.
@@ -153,7 +153,7 @@ IOT hub'ınıza DeviceHarness tarafından gönderilen verilerin geçti. Veri mer
 
 1. Etiketli veri dosyalarını bulmak için bu klasörleri birine tıklayın **00** ve **01** bölümüne karşılık gelen.
 
-1. Dosyaları yazılır [Avro](http://avro.apache.org/) biçimi ancak bu dosyalardan biri çift başka bir tarayıcı sekmesinde açılır ve kısmen veri işleme. Bunun yerine bir programda dosyasını açmanız istenir, VS Code seçebilirsiniz ve doğru bir şekilde işlenir.
+1. Dosyaları yazılır [Avro](https://avro.apache.org/) biçimi ancak bu dosyalardan biri çift başka bir tarayıcı sekmesinde açılır ve kısmen veri işleme. Bunun yerine bir programda dosyasını açmanız istenir, VS Code seçebilirsiniz ve doğru bir şekilde işlenir.
 
 1. Okuma veya şu anda verileri yorumlamak için gerek yoktur; sonraki makalede bunu yapacağız.
 

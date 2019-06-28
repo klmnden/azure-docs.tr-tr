@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/02/2019
-ms.openlocfilehash: 3dead1bdedb75a1b6fafb947da9c88094f0c4de9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/24/2019
+ms.openlocfilehash: 7a23d30e940417a6191cf14ad5d60159bd11c3da
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724143"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446410"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Öğretici: Apache Kafka üretici ve tüketici API'lerini kullanma
 
@@ -54,7 +54,7 @@ API’ler hakkında daha fazla bilgi için [Üretici API’si](https://kafka.apa
 
 `pom.xml` dosyasında aşağıdaki önemli şeyler anlaşılır:
 
-* Bağımlılıklar: Kafka üretici ve tüketici API'lerini tarafından sağlanan bu proje dayanan `kafka-clients` paket. Aşağıdaki XML kodu, bu bağımlılığı tanımlar:
+* Bağımlılıkları: Kafka üretici ve tüketici API'lerini tarafından sağlanan bu proje dayanan `kafka-clients` paket. Aşağıdaki XML kodu, bu bağımlılığı tanımlar:
 
     ```xml
     <!-- Kafka client for producer/consumer operations -->
@@ -65,8 +65,7 @@ API’ler hakkında daha fazla bilgi için [Üretici API’si](https://kafka.apa
     </dependency>
     ```
 
-    > [!NOTE]  
-    > `${kafka.version}` girişi, `pom.xml` dosyasının `<properties>..</properties>` bölümünde bildirilir ve HDInsight kümesinin Kafka sürümüne yapılandırılır.
+    `${kafka.version}` girişi, `pom.xml` dosyasının `<properties>..</properties>` bölümünde bildirilir ve HDInsight kümesinin Kafka sürümüne yapılandırılır.
 
 * Eklentiler: Maven eklentileri çeşitli özellikler sunar. Bu projede aşağıdaki eklentiler kullanılır:
 
@@ -220,10 +219,19 @@ Aynı gruptaki istemcilerin tüketimi, konu başlığının bölümleri aracıl�
 
 Kafka’ya depolanan kayıtlar bir bölümde alındıkları sırayla depolanır. *Bir bölüm* içindeki kayıtlar için sıralı teslim sağlamak üzere, tüketici örneklerinin bölüm sayısıyla eşleştiği bir tüketici grubu oluşturun. *Konu başlığı içindeki* kayıtların sıralı teslim edilmesini sağlayabilmek için, yalnızca bir tüketici örneği içeren bir tüketici grubu oluşturun.
 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Bu öğretici ile oluşturulan kaynakları temizlemek için kaynak grubunu silebilirsiniz. Kaynak grubunun silinmesi, ilişkili HDInsight kümesini ve kaynak grubuyla ilişkili diğer tüm kaynakları da siler.
+
+Azure portalını kullanarak kaynak grubunu kaldırmak için:
+
+1. Azure portalında sol taraftaki menüyü genişleterek hizmet menüsünü açın ve sonra __Kaynak Grupları__'nı seçerek kaynak gruplarınızın listesini görüntüleyin.
+2. Silinecek kaynak grubunu bulun ve sonra listenin sağ tarafındaki __Daha fazla__ düğmesine (...) sağ tıklayın.
+3. __Kaynak grubunu sil__'i seçip onaylayın.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu belgede, HDInsight üzerinde Kafka ile Apache Kafka üretici ve tüketici API'sini kullanma hakkında bilgi edindiniz. Kafka ile çalışma hakkında daha fazla bilgi için aşağıdakileri kullanın:
 
-* [Apache Kafka günlüklerini çözümleme](apache-kafka-log-analytics-operations-management.md)
-* [Apache Kafka kümeleri arasında verileri çoğaltma](apache-kafka-mirroring.md)
-* [Apache Kafka akışlar API'si ile HDInsight](apache-kafka-streams-api.md)
+> [!div class="nextstepaction"]
+> [Apache Kafka günlüklerini çözümleme](apache-kafka-log-analytics-operations-management.md)

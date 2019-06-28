@@ -12,18 +12,18 @@ ms.author: joke
 ms.reviwer: sstein
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: eb5066185f9301450a68276dd4b2ce2123231b34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 53e10636535c553ac5fa17b5f4aac1000cd138bc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476077"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445380"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>PowerShell kullanarak Elastik İş aracısı oluşturma
 
 [Elastik işler](sql-database-job-automation-overview.md#elastic-database-jobs), bir veya daha fazla Transact-SQL (T-SQL) betiğinin birden fazla veritabanında paralel olarak çalıştırılmasını sağlar.
 
-Bu öğreticide birden fazla veritabanında sorgu çalıştırmak için gerekli adımları öğreneceksiniz:
+Bu öğreticide, birden fazla veritabanında bir sorgu çalıştırmak için gereken adımları öğrenin:
 
 > [!div class="checklist"]
 > * Elastik İş aracısı oluşturma
@@ -71,7 +71,7 @@ Get-Module Az.Sql
 
 Elastik İş aracısı oluşturmak için [İş veritabanı](sql-database-job-automation-overview.md#job-database) olarak kullanılacak bir veritabanı (S0 veya üzeri) gerekir. 
 
-*Aşağıdaki betik yeni bir kaynak grubu ve sunucunun yanı sıra İş veritabanı olarak kullanılacak bir veritabanı oluşturur. Aşağıdaki betik ayrıca işlerin çalıştırılacağı 2 boş veritabanına sahip ikinci bir sunucu oluşturur.*
+*Aşağıdaki betik yeni bir kaynak grubu ve sunucunun yanı sıra İş veritabanı olarak kullanılacak bir veritabanı oluşturur. Aşağıdaki betiği ikinci bir sunucusuna karşı işleri yürütmek için iki boş veritabanı ile de oluşturur.*
 
 Elastik İşlere özel adlandırma gereksinimleri olmadığından [Azure gereksinimlerine](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) uygun olduğu sürece istediğiniz adlandırma kuralını kullanabilirsiniz.
 
@@ -285,6 +285,23 @@ $JobExecution | Get-AzSqlElasticJobStepExecution
 # Get the job target execution details
 $JobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 ```
+
+### <a name="job-execution-states"></a>İş yürütme durumları
+
+Aşağıdaki tabloda, olası iş yürütme durumları listelenmiştir:
+
+|Eyalet|Açıklama|
+|:---|:---|
+|**Oluşturulan** | İş yürütme yalnızca oluşturuldu ve henüz devam eden değil.|
+|**Devam ediyor** | Şu anda iş yürütme işlemi devam ediyor.|
+|**WaitingForRetry** | İş yürütme eylemi tamamlaması mümkün değildi ve yeniden denemek için bekliyor.|
+|**Başarılı oldu** | İş yürütme başarıyla tamamlandı.|
+|**SucceededWithSkipped** | İş yürütme başarıyla tamamlandı, ancak alt bazıları atlandı.|
+|**Başarısız** | İş yürütme başarısız olup kendi yeniden deneme bitti.|
+|**Zaman aşımına uğradı** | İş yürütme zaman aşımına uğradı.|
+|**İptal edildi** | İş yürütme iptal edildi.|
+|**Atlandı** | Aynı hedef aynı iş adımı başka bir yürütme zaten çalıştığından, iş yürütme atlandı.|
+|**WaitingForChildJobExecutions** | İş yürütme tamamlanması için kendi alt yürütmeleri bekliyor.|
 
 ## <a name="schedule-the-job-to-run-later"></a>İşi daha sonra çalışmak üzere zamanlama
 

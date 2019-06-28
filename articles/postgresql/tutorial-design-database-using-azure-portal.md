@@ -6,13 +6,13 @@ ms.author: raagyema
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 5/16/2019
-ms.openlocfilehash: 94988f4f287730c69b51e44bcbfa4e3d63d139fa
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.date: 06/25/2019
+ms.openlocfilehash: 421d5cde46b466c0c13a52755abdf137e52f2f6b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515723"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443094"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Öğretici: -Tek sunucu Azure portalını kullanarak PostgreSQL için Azure veritabanı tasarlama
 
@@ -88,7 +88,7 @@ PostgreSQL için Azure Veritabanı hizmeti, sunucu düzeyinde bir güvenlik duva
 
 2. Sunucu sayfasında **Bağlantı güvenliği**’ni seçin. 
 
-3. **Kural Adı** altında metin kutusuna tıklayın ve IP aralığını bağlantı için beyaz listeye alacak yeni bir güvenlik duvarı kuralı ekleyin. IP aralığınızı girin. **Kaydet**’e tıklayın.
+3. ' A tıklayın metin kutusundaki altında **kural adı** ve IP aralığını bağlantı belirtmek için yeni bir güvenlik duvarı kuralı ekleyin. IP aralığınızı girin. **Kaydet**’e tıklayın.
 
    ![PostgreSQL için Azure Veritabanı - Güvenlik Duvarı Kuralı Oluşturma](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 
@@ -113,38 +113,36 @@ PostgreSQL sunucusu için Azure Veritabanını oluşturduğunuzda, varsayılan *
    ![PostgreSQL için Azure Veritabanı - Sunucu Yöneticisi Oturum Açma](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
 
 
-## <a name="connect-to-postgresql-database-using-psql-in-cloud-shell"></a>Cloud Shell’de psql’i kullanarak PostgreSQL veritabanına bağlanma
+## <a name="connect-to-postgresql-database-using-psql"></a>psql’yi kullanarak PostgreSQL veritabanına bağlanma
+İstemci bilgisayarınızda PostgreSQL yüklüyse, [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html)’nin yerel bir örneğini veya Azure Bulut Konsolu’nu kullanarak Azure PostgreSQL sunucusuna bağlanabilirsiniz. Şimdi PostgreSQL için Azure Veritabanı sunucusuna bağlanmak üzere psql komut satır yardımcı programını kullanalım.
 
-Şimdi PostgreSQL sunucusu için Azure Veritabanına bağlanmak üzere [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) komut satırı yardımcı programını kullanalım. 
-1. Sol gezinme bölmesindeki terminal simgesiyle Azure Cloud Shell’i başlatın.
-
-   ![PostgreSQL için Azure Veritabanı - Azure Cloud Shell terminal simgesi](./media/tutorial-design-database-using-azure-portal/7-cloud-shell.png)
-
-2. Azure Cloud Shell, tarayıcınızda açılarak bash komutları yazmanıza imkan tanır.
-
-   ![PostgreSQL için Azure Veritabanı - Azure Shell Bash İstemi](./media/tutorial-design-database-using-azure-portal/8-bash.png)
-
-3. Cloud Shell isteminde, psql komutlarını kullanarak PostgreSQL için Azure Veritabanı sunucunuza bağlanın. Aşağıdaki biçim, [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) yardımcı programıyla PostgreSQL için Azure Veritabanı sunucusuna bağlanmak amacıyla kullanılır:
-   ```bash
-   psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
+1. PostgreSQL için Azure Veritabanı veritabanına bağlanmak üzere aşağıdaki psql komutunu çalıştırın:
+   ```
+   psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
    ```
 
-   Örneğin aşağıdaki komut, erişim kimlik bilgilerini kullanarak **mydemoserver.postgres.database.azure.com** PostgreSQL sunucunuzda **postgres** adlı varsayılan veritabanına bağlanır. İstendiğinde sunucu yönetici parolanızı girin.
-
-   ```bash
+   Örneğin aşağıdaki komut, erişim kimlik bilgilerini kullanarak **mydemoserver.postgres.database.azure.com** PostgreSQL sunucunuzda **postgres** adlı varsayılan veritabanına bağlanır. Parola istendiğinde seçtiğiniz `<server_admin_password>` değerini girin.
+  
+   ```
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
 
-## <a name="create-a-new-database"></a>Yeni veritabanı oluşturma
-Sunucuya bağlandıktan sonra, istemde boş bir veritabanı oluşturun.
-```bash
-CREATE DATABASE mypgsqldb;
-```
+   > [!TIP]
+   > Postgres için bağlanmak için bir URL yolu kullanmayı tercih ederseniz, URL kodlaması ile kullanıcı oturum @ `%40`. Örneğin, bağlantı dizesini psql olacaktır,
+   > ```
+   > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
+   > ```
 
-İstemde, bağlantıyı yeni oluşturulan **mypgsqldb** veritabanına geçirmek için aşağıdaki komutu yürütün.
-```bash
-\c mypgsqldb
-```
+2. Sunucuya bağlandıktan sonra, istemde boş bir veritabanı oluşturun:
+   ```sql
+   CREATE DATABASE mypgsqldb;
+   ```
+
+3. İstemde, bağlantıyı yeni oluşturulan **mypgsqldb** veritabanına geçirmek için aşağıdaki komutu yürütün:
+   ```sql
+   \c mypgsqldb
+   ```
+
 ## <a name="create-tables-in-the-database"></a>Veritabanında tablo oluşturma
 Artık PostgreSQL için Azure Veritabanına nasıl bağlanacağınızı bildiğinize göre bazı temel görevleri tamamlayabilirsiniz:
 

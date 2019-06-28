@@ -3,19 +3,19 @@ title: "Öğretici: Çevirme, sentezlemek ve metin - Translator Text API'analiz 
 titleSuffix: Azure Cognitive Services
 description: Bu öğreticide, Azure Bilişsel hizmetler metin çevirme, duyguları çözümleyin ve çevrilen metni konuşmaya sentezlemek için kullanan Flask tabanlı web uygulaması oluşturacaksınız. Bizim Python kodu ve uygulamamızı sağlayan yollar Flask biridir. Size olmaz uygulamayı denetleyen JavaScript'i çok vakit ancak incelemek, tüm dosyaları sağlar.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 4df2de7f0428ffe35712a29bfef645b6feb66813
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: cef747e82e7d039952bec73e822f28eab2adaa97
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515001"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434900"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Öğretici: Azure Bilişsel hizmetler ile bir Flask uygulaması derleme
 

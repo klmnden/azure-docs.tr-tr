@@ -3,19 +3,19 @@ title: "Hızlı Başlangıç: Metin komut, Java - Translator metin çevirisi API
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, başka bir Java ve Translator Text REST API kullanarak bir komut dosyasından (dönüştürme) metin alfabeye öğreneceksiniz. Bu örnekte Japonca, Latin alfabesine dönüştürülmektedir.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 353d5950372fe9a1255bf2b17dea4f8148d3ee6e
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 599ff4d2e888e6495044bb2161bc11813064399b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514780"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445067"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-java"></a>Hızlı Başlangıç: Java kullanarak metin alfabeye için Translator Text API kullanın
 
@@ -108,6 +108,7 @@ Bu satırları ekleyin `Transliterate` sınıfı. İle birlikte olduğunu fark e
 String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=jpan&toScript=latn";
 ```
+Bilişsel hizmetler çok hizmet aboneliği kullanıyorsanız de içermelidir `Ocp-Apim-Subscription-Region` , istek parametreleri. [Birden çok hizmet aboneliği ile kimlik doğrulaması hakkında daha fazla bilgi](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## <a name="create-a-client-and-build-a-request"></a>Bir istemci oluşturup bir istek oluşturun
 

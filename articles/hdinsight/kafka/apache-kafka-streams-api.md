@@ -7,24 +7,23 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/02/2019
-ms.openlocfilehash: d76ac8cc1673f1df8981a543321d34aa57cd0896
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.date: 06/25/2019
+ms.openlocfilehash: 0639ecaa0e4ae0581a6c88e1ea9a47de870a8355
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295472"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446387"
 ---
-# <a name="tutorial-apache-kafka-streams-api"></a>Öğretici: Apache Kafka akışlar API'si
+# <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Öğretici: Azure HDInsight, Apache Kafka streams API'sini kullanma
 
-Apache Kafka akışlar API'si kullanan bir uygulama oluşturun ve HDInsight üzerinde Kafka ile çalıştırma hakkında bilgi edinin. 
+Apache Kafka akışlar API'si kullanan bir uygulama oluşturun ve HDInsight üzerinde Kafka ile çalıştırma hakkında bilgi edinin.
 
 Bu öğreticide kullanılan uygulama, akışa alma sözcük sayısıdır. Bir Kafka konusundan metin verilerini okur, tek tek sözcükleri ayıklar ve sonra sözcüğü ve sayıyı başka bir Kafka konusunda depolar.
 
-> [!NOTE]  
-> Kafka akış işleme yapılan genellikle Apache Spark veya Apache Storm kullanma. Kafka (HDInsight 3.5 ve 3.6), sürüm 1.1.0 Kafka akış API'sini kullanıma sunmuştur. Bu API, girdi ve çıktı konuları arasında veri akışlarını dönüştürmenize olanak sağlar. Bazı durumlarda bu, bir Spark veya Storm akış çözümü oluşturulmasına alternatif olabilir. 
->
-> Kafka Akışları hakkında daha fazla bilgi için, Apache.org adresindeki [Akışların Tanıtımı](https://kafka.apache.org/10/documentation/streams/) belgelerine bakın.
+Kafka akış işleme yapılan genellikle Apache Spark veya Apache Storm kullanma. Kafka (HDInsight 3.5 ve 3.6), sürüm 1.1.0 Kafka akış API'sini kullanıma sunmuştur. Bu API, girdi ve çıktı konuları arasında veri akışlarını dönüştürmenize olanak sağlar. Bazı durumlarda bu, bir Spark veya Storm akış çözümü oluşturulmasına alternatif olabilir.
+
+Kafka Akışları hakkında daha fazla bilgi için, Apache.org adresindeki [Akışların Tanıtımı](https://kafka.apache.org/10/documentation/streams/) belgelerine bakın.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -68,8 +67,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
     </dependency>
     ```
 
-    > [!NOTE]  
-    > `${kafka.version}` girişi, `pom.xml` dosyasının `<properties>..</properties>` bölümünde bildirilir ve HDInsight kümesinin Kafka sürümüne yapılandırılır.
+    `${kafka.version}` girişi, `pom.xml` dosyasının `<properties>..</properties>` bölümünde bildirilir ve HDInsight kümesinin Kafka sürümüne yapılandırılır.
 
 * Eklentiler: Maven eklentileri çeşitli özellikler sunar. Bu projede aşağıdaki eklentiler kullanılır:
 
@@ -206,8 +204,7 @@ Projeyi derlemek ve HDInsight kümesi üzerinde Kafka’nıza dağıtmak için a
    * `RekeyedIntermediateTopic`: Bu konu sayısı tarafından güncelleştirildiğinden verileri bölümlemek için kullanılan `countByKey` işleci.
    * `wordcount-example-Counts-changelog`: Bu konu tarafından kullanılan bir durumu deposudur `countByKey` işlemi
 
-     > [!IMPORTANT]  
-     > HDInsight üzerinde Kafka otomatik olarak konular oluşturmak için de yapılandırılabilir. Daha fazla bilgi için [Otomatik konu oluşturmayı yapılandırma](apache-kafka-auto-create-topics.md) belgesine bakın.
+    HDInsight üzerinde Kafka otomatik olarak konular oluşturmak için de yapılandırılabilir. Daha fazla bilgi için [Otomatik konu oluşturmayı yapılandırma](apache-kafka-auto-create-topics.md) belgesine bakın.
 
 ## <a name="run-the-code"></a>Kodu çalıştırma
 
@@ -217,8 +214,7 @@ Projeyi derlemek ve HDInsight kümesi üzerinde Kafka’nıza dağıtmak için a
     java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS &
     ```
 
-    > [!NOTE]  
-    > Apache log4j hakkında uyarı alabilirsiniz. Bunu yoksayabilirsiniz.
+    Apache log4j hakkında uyarı alabilirsiniz. Bunu yoksayabilirsiniz.
 
 2. `test` konusuna kayıtlar göndermek için aşağıdaki komutu kullanarak üretici uygulamasını başlatın:
 
@@ -232,8 +228,7 @@ Projeyi derlemek ve HDInsight kümesi üzerinde Kafka’nıza dağıtmak için a
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --from-beginning
     ```
 
-    > [!NOTE]  
-    > `--property` parametreleri, konsol tüketicisine sayı (değer) ile birlikte anahtarı (sözcük) yazdırmasını bildirir. Bu parametre, Kafka’dan bu değerler okunurken kullanılacak seri kaldırıcıyı da yapılandırır.
+    `--property` parametreleri, konsol tüketicisine sayı (değer) ile birlikte anahtarı (sözcük) yazdırmasını bildirir. Bu parametre, Kafka’dan bu değerler okunurken kullanılacak seri kaldırıcıyı da yapılandırır.
 
     Çıktı aşağıdaki metne benzer:
    
@@ -250,8 +245,7 @@ Projeyi derlemek ve HDInsight kümesi üzerinde Kafka’nıza dağıtmak için a
         jumped  13640
         jumped  13641
    
-    > [!NOTE]  
-    > `--from-beginning` parametresi, tüketiciyi konuda depolanan kayıtların başında başlayacak şekilde yapılandırır. Her sözcükle karşılaşıldığında sayı artar, bu nedenle konu, artan sayıyla birlikte her sözcük için birden fazla giriş içerir.
+    `--from-beginning` parametresi, tüketiciyi konuda depolanan kayıtların başında başlayacak şekilde yapılandırır. Her sözcükle karşılaşıldığında sayı artar, bu nedenle konu, artan sayıyla birlikte her sözcük için birden fazla giriş içerir.
 
 4. Üreticiden çıkış yapmak için __Ctrl + C__ tuşlarını kullanın. Uygulamadan ve tüketiciden çıkış yapmak için __Ctrl + C__ tuşlarını kullanmaya devam edin.
 
@@ -264,9 +258,19 @@ Projeyi derlemek ve HDInsight kümesi üzerinde Kafka’nıza dağıtmak için a
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
     ```
 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Bu öğretici ile oluşturulan kaynakları temizlemek için kaynak grubunu silebilirsiniz. Kaynak grubunun silinmesi, ilişkili HDInsight kümesini ve kaynak grubuyla ilişkili diğer tüm kaynakları da siler.
+
+Azure portalını kullanarak kaynak grubunu kaldırmak için:
+
+1. Azure portalında sol taraftaki menüyü genişleterek hizmet menüsünü açın ve sonra __Kaynak Grupları__'nı seçerek kaynak gruplarınızın listesini görüntüleyin.
+2. Silinecek kaynak grubunu bulun ve sonra listenin sağ tarafındaki __Daha fazla__ düğmesine (...) sağ tıklayın.
+3. __Kaynak grubunu sil__'i seçip onaylayın.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu belgede, HDInsight üzerinde Kafka ile Apache Kafka akışlar API'si kullanmayı öğrendiniz. Kafka ile çalışma hakkında daha fazla bilgi için aşağıdakileri kullanın:
+Bu belgede, HDInsight üzerinde Kafka ile Apache Kafka akışlar API'si kullanmayı öğrendiniz. Kafka ile çalışma hakkında daha fazla bilgi için aşağıdakileri kullanın.
 
-* [Apache Kafka günlüklerini çözümleme](apache-kafka-log-analytics-operations-management.md)
-* [Apache Kafka kümeleri arasında verileri çoğaltma](apache-kafka-mirroring.md)
+> [!div class="nextstepaction"]
+> [Apache Kafka günlüklerini çözümleme](apache-kafka-log-analytics-operations-management.md)

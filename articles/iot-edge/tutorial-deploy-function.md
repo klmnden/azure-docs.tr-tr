@@ -4,23 +4,24 @@ description: Bu öğreticide, geliştirdiğiniz bir Azure IOT Edge modülü işl
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/04/2019
+ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 5b7d903c8be74e4c0561bb4a857619c9c62f95a9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2c2a2659b6b9c77b36001af1602c904e7d200b56
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239651"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433042"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Öğretici: Azure'da dağıtma işlevleri IOT Edge modülleri
 
-İş mantığınızı doğrudan Azure IoT Edge cihazlarınıza uygulayan kodu dağıtmak için Azure İşlevleri'ni kullanabilirsiniz. Bu öğreticide, benzetimi yapılan IoT Edge cihazındaki algılayıcı verilerini filtreleyen bir Azure işlevi oluşturma ve dağıtma işlemlerinde size yol gösterilir. [Windows](quickstart.md)'da veya [Linux](quickstart-linux.md)'ta bir simülasyon cihazına Azure IoT Edge dağıtma hızlı başlangıçlarında oluşturduğunuz simülasyon IoT Edge cihazınızı kullanacaksınız. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:     
+İş mantığınızı doğrudan Azure IoT Edge cihazlarınıza uygulayan kodu dağıtmak için Azure İşlevleri'ni kullanabilirsiniz. Bu öğreticide, benzetimi yapılan IoT Edge cihazındaki algılayıcı verilerini filtreleyen bir Azure işlevi oluşturma ve dağıtma işlemlerinde size yol gösterilir. [Windows](quickstart.md)'da veya [Linux](quickstart-linux.md)'ta bir simülasyon cihazına Azure IoT Edge dağıtma hızlı başlangıçlarında oluşturduğunuz simülasyon IoT Edge cihazınızı kullanacaksınız. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
+>
 > * Visual Studio Code kullanarak Azure işlevi oluşturma.
 > * VS Code ve Docker kullanarak Docker görüntüsü oluşturma ve bunu kapsayıcı kayıt defterinde yayımlama.
 > * Kapsayıcı kayıt defterindeki modülü IoT Edge cihazınıza dağıtma.
@@ -57,7 +58,7 @@ Azure işlevleri ile IOT Edge modülü geliştirme için geliştirme makinenizde
 
 Önkoşullar yüklü Visual Studio Code için Azure IOT araçları, bazı kod şablonları yanı sıra, yönetim özellikleri sağlar. Bu bölümde Visual Studio Code'u kullanarak Azure işlevi içeren bir IoT Edge çözümü oluşturacaksınız. 
 
-### <a name="create-a-new-project"></a>Yeni bir proje oluşturun
+### <a name="create-a-new-project"></a>Yeni bir proje oluşturma
 
 Oluşturma bir C# kendi kodunuzla özelleştirebilirsiniz işlevi çözüm şablonu.
 
@@ -136,14 +137,14 @@ Böylece IOT Hub'ına iletmeden önce modülün uçta iletileri işleyen ek bira
 
                    if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
                    {
-                       // Send the message to the output as the temperature value is greater than the threashold.
+                       // Send the message to the output as the temperature value is greater than the threshold.
                        var filteredMessage = new Message(messageBytes);
                        // Copy the properties of the original message into the new Message object.
                        foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
                        {filteredMessage.Properties.Add(prop.Key, prop.Value);}
                        // Add a new property to the message to indicate it is an alert.
                        filteredMessage.Properties.Add("MessageType", "Alert");
-                       // Send the message.       
+                       // Send the message.
                        await output.AddAsync(filteredMessage);
                        logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
                    }
@@ -160,12 +161,12 @@ Böylece IOT Hub'ına iletmeden önce modülün uçta iletileri işleyen ek bira
        class Machine
        {
            public double temperature {get; set;}
-           public double pressure {get; set;}         
+           public double pressure {get; set;}
        }
        class Ambient
        {
            public double temperature {get; set;}
-           public int humidity {get; set;}         
+           public int humidity {get; set;}
        }
    }
    ```
@@ -176,17 +177,17 @@ Böylece IOT Hub'ına iletmeden önce modülün uçta iletileri işleyen ek bira
 
 Bir önceki bölümde bir IoT Edge çözümü oluşturdunuz ve **CSharpFunction** modülüne makine sıcaklığının kabul edilebilir eşiğin altında olduğunu bildiren iletileri filtrelemek için kod eklediniz. Şimdi çözümü kapsayıcı görüntüsü olarak derlemeniz ve kapsayıcı kayıt defterine göndermeniz gerekiyor.
 
-Bu bölümde kapsayıcı kayıt defterinizin kimlik bilgilerini iki kez belirteceksiniz. Birincisi Visual Studio Code'un görüntüleri kayıt defterinize gönderebilmesi için geliştirme makinenizden oturum açma amacıyla olacak. İkincisi ise IoT Edge cihazınıza kayıt defterinden görüntü çekme izni vermek için IoT Edge çözümünüzün **.env** dosyasında olacak. 
+Bu bölümde, kimlik bilgilerini kapsayıcı kayıt defteriniz için ikinci kez sağlamanız (ilk olduğu **.env** IOT Edge çözümünüzün dosya) Visual Studio Code böylece geliştirme makinenizden yerel olarak oturum açarak görüntüleri kayıt defterinize gönderin.
 
 1. **Görünüm** > **Terminal**'i seçerek VS Code tümleşik terminalini açın. 
 
 2. Tümleşik terminale aşağıdaki komutu girerek kapsayıcı kayıt defterinizde oturum açın. Önceki adımlarda Azure kapsayıcı kayıt defterinden kopyaladığınız kullanıcı adını ve oturum açma sunucusunu kullanın.
-     
+
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
     ```
 
-    Parola sorulduğunda kapsayıcı kayıt defterinizin parolasını yapıştırın ve **Enter** tuşuna basın.
+    Parola sorulduğunda, kapsayıcı kayıt defteri ve ENTER tuşuna (Bu olmayacaktır görünür terminal penceresinde) parolası yapıştırın **Enter**.
 
     ```csh/sh
     Password: <paste in the ACR password and press enter>

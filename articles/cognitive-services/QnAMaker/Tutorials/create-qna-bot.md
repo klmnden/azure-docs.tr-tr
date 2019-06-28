@@ -3,20 +3,20 @@ title: Soru-cevap Robotu - Azure robot hizmeti - soru-cevap Oluşturucu
 titleSuffix: Azure Cognitive Services
 description: Yayımlama sayfasında var olan bir Bilgi Bankası için soru-cevap sohbet Robotu oluşturun. Bu bot, Bot Framework SDK v4 kullanır. Bot oluşturmak için kod yazmanız gerekmez, tüm kod size sağlanır.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 06/11/2019
-ms.author: tulasim
-ms.openlocfilehash: b3bae01d65685aa9ea7bfc95d1f1454741d37b5e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.topic: tutorial
+ms.date: 06/24/2019
+ms.author: diberry
+ms.openlocfilehash: 1d475d988847bd4cc9e37b91a0c5d28678cb05f2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053229"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446644"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Öğretici: Azure ile soru-cevap Robotu oluşturun v4 Bot hizmeti
 
@@ -84,12 +84,6 @@ Bilgi Bankası için bir istemci uygulaması olarak bir bot oluşturulabilir.
 
     Azure bot hakkında daha fazla bilgi için bkz: [soruları yanıtlamak için kullanım soru-cevap Oluşturucu](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs)
 
-## <a name="related-to-qna-maker-bots"></a>Soru-cevap Oluşturucu botlar için ilgili
-
-* Soru-cevap Oluşturucu Portalı'nda kullanılan soru-cevap Oluşturucu Yardım bot olarak kullanılabilir bir [bot örnek](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot).
-    ![Soru-cevap Oluşturucu Yardım bot kırmızı robot simgedir](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
-* [Sağlık Hizmeti botlarınız](https://docs.microsoft.com/HealthBot/qna_model_howto) soru-cevap Oluşturucu birini kullanın. kendi [dil modellerini](https://docs.microsoft.com/HealthBot/qna_model_howto).
-
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Bu öğreticinin bot ile işiniz bittiğinde, Azure portalında bot kaldırın. 
@@ -103,6 +97,16 @@ Yeni bir kaynak grubu oluşturmadıysanız, bot ile ilişkili kaynakları bulmak
 * Bilişsel hizmet
 * App service
 * İsteğe bağlı olarak, bu da application ınsights hizmeti ve depolama için application ınsights verilerini içerebilir
+
+
+## <a name="related-to-qna-maker-bots"></a>Soru-cevap Oluşturucu botlar için ilgili
+
+* Soru-cevap Oluşturucu Portalı'nda kullanılan soru-cevap Oluşturucu Yardım bot olarak kullanılabilir bir [bot örnek](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot).
+    ![Soru-cevap Oluşturucu Yardım bot kırmızı robot simgedir](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
+* [Sağlık Hizmeti botlarınız](https://docs.microsoft.com/HealthBot/qna_model_howto) soru-cevap Oluşturucu birini kullanın. kendi [dil modellerini](https://docs.microsoft.com/HealthBot/qna_model_howto).
+
+
+[!INCLUDE [Bot Information](../../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

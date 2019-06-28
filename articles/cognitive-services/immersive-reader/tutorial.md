@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 98b46636be321bfe87c08687600894d0c8ab54db
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: ac90496c950d8a563bf8794b4c1bb105b6c12232
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311702"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444075"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Öğretici: Tam Ekran Okuyucu’yu Başlatma (Node.js)
 
@@ -186,7 +186,7 @@ Matematik içeriği kullanarak derinlikli okuyucusunda dahil edebilirsiniz [Math
 1. Değiştirme _views\index.pug_ çağrısı üstüne aşağıdaki kodu içerecek şekilde `ImmersiveReader.launchAsync`:
 
     ```javascript
-    const mathML = '<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"> \
+    const mathML = '<math xmlns="https://www.w3.org/1998/Math/MathML" display="block"> \
       <munderover> \
         <mo>∫</mo> \
         <mn>0</mn> \

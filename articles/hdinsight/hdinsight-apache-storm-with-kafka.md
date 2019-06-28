@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 06/13/2019
-ms.openlocfilehash: fba9159fc4752a701c891fbe92a2e7e8023f0a54
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 06/25/2019
+ms.openlocfilehash: b6ef08be346aebd220b7234253ce45c4615e38a9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165942"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445519"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Öğretici: Apache Storm'u HDInsight üzerinde Apache Kafka ile kullanma
 
@@ -629,15 +629,9 @@ Azure portalını kullanarak kaynak grubunu kaldırmak için:
 2. Silinecek kaynak grubunu bulun ve sonra listenin sağ tarafındaki __Daha fazla__ düğmesine (...) sağ tıklayın.
 3. __Kaynak grubunu sil__'i seçip onaylayın.
 
-> [!WARNING]  
-> HDInsight kümesi faturalandırması küme oluşturulduğunda başlar ve küme silindiğinde sona erer. Fatura dakikalara eşit olarak dağıtıldığından, kullanılmayan kümelerinizi mutlaka silmelisiniz.
-> 
-> HDInsight üzerinde Kafka kümesinin silinmesi Kafka’da depolanmış tüm verileri siler.
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğretici sayesinde nasıl kullanacağınızı öğrendiniz bir [Apache Storm](https://storm.apache.org/) yazma ve okuma için topoloji [Apache Kafka](https://kafka.apache.org/) HDInsight üzerinde. Ayrıca verileri depolamak nasıl öğrendiniz [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) HDInsight tarafından kullanılan uyumlu depolama.
 
-HDInsight üzerinde Kafka kullanma hakkında daha fazla bilgi edinmek için [Apache Kafka üretici ve tüketici API'si](kafka/apache-kafka-producer-consumer-api.md) belge.
-
-Linux tabanlı HDInsight'ta topolojileri dağıtma ve izleme hakkında bilgi için bkz. [Linux tabanlı HDInsight'ta Apache Storm topolojilerini dağıtma ve yönetme](storm/apache-storm-deploy-monitor-topology-linux.md)
+> [!div class="nextstepaction"]
+> [Apache Kafka üretici ve tüketici API'sini kullanma](kafka/apache-kafka-producer-consumer-api.md)

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: cb8b188f8d5313852ce57481031faafc28e247b3
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 5dbdeeba68ae75069b61bd6dc069279ec3c5e5de
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204260"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443008"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Azure VM'lerindeki SQL Server Backup hakkında
 
@@ -59,7 +59,7 @@ Azure yedekleme desteği kısa süre önce duyurulan [EOS SQL Server'lar](https:
 2. .NET framework 4.5.2 ve üzeri VM'de yüklü gerekiyor
 3. Durum, FCI ve yansıtılmış veritabanları için yedekleme desteklenmiyor
 
-Diğer tüm [özellik önemli noktalar ve sınırlamalar](#feature-consideration-and-limitations) bu sürümler için geçerlidir. Müşteri, bu özellik genel olarak kullanılabilir olduğu saat kasa için ücretlendirilmezsiniz.
+Kullanıcılar, bu özellik genel olarak kullanılabilir olduğu saat kasa için ücretlendirilmez. Diğer tüm [özellik önemli noktalar ve sınırlamalar](#feature-consideration-and-limitations) bu sürümler için geçerlidir. Genişliğinizin başvurmak [önkoşulları](backup-sql-server-database-azure-vms.md#prerequisites) SQL Server 2008 ve 2008 R2 ayarını dahil korumayı yapılandırmadan önce [kayıt defteri anahtarı](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) (genellikle özelliğidir, bu adım gerekli olacaktır kullanılabilir).
 
 
 ## <a name="feature-consideration-and-limitations"></a>Özellik önemli noktalar ve sınırlamalar
@@ -148,7 +148,7 @@ Diğer tüm sürümler için aşağıdaki adımlarla izinleri düzeltin:
 
       ![Oturum Aç - yeni iletişim kutusu, Ara'yı seçin](./media/backup-azure-sql-database/new-login-search.png)
 
-  4. Windows sanal hizmet hesabı **NT SERVICE\AzureWLBackupPluginSvc** SQL bulma aşamasından ve sanal makine kaydı sırasında oluşturuldu. Gösterildiği gibi hesap adını girin **Seçilecek nesne adını girin**. Seçin **Adları Denetle** adı çözümlenemedi. **Tamam** düğmesine tıklayın.
+  4. Windows sanal hizmet hesabı **NT SERVICE\AzureWLBackupPluginSvc** SQL bulma aşamasından ve sanal makine kaydı sırasında oluşturuldu. Gösterildiği gibi hesap adını girin **Seçilecek nesne adını girin**. Seçin **Adları Denetle** adı çözümlenemedi. **Tamam**'ı tıklatın.
 
       ![Bilinmeyen hizmet adını çözümlemek için adları denetle seçin](./media/backup-azure-sql-database/check-name.png)
 
@@ -193,13 +193,13 @@ Ekleme **NT AUTHORITY\SYSTEM** ve **NT Service\AzureWLBackupPluginSvc** SQL Serv
 8. Aynı adımlar (yukarıda, 1-7) dizisini NT Service\AzureWLBackupPluginSvc oturum açma SQL Server örneğine eklemek için yineleyin. Oturum açma zaten varsa, sysadmin sunucu rolüne sahip ve isteğe bağlı olarak durumu altında Veritabanı Altyapısı'na bağlanma izni ve etkin olarak oturum açma izni olduğundan emin olun.
 9. İzin verme sonra **yeniden bulma DBs** Portalı'nda: Kasa **->** Yedekleme Altyapısı **->** iş yükü Azure sanal makinede:
 
-    ![Azure portalında vt'leri yeniden Bul](media/backup-azure-sql-database/sql-rediscover-dbs.png)
+    ![Azure portalında vt'leri](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 
 Alternatif olarak, Yönetici modunda aşağıdaki PowerShell komutlarını çalıştırarak izinleri vermeyi otomatik hale getirebilirsiniz. Örnek adı için MSSQLSERVER, varsayılan olarak ayarlanır. Örnek adı komut bağımsız değişkeni, bir değişiklik olması gerekir:
 
 ```powershell
 param(
-    [Parameter(Mandatory=$false)] 
+    [Parameter(Mandatory=$false)]
     [string] $InstanceName = "MSSQLSERVER"
 )
 if ($InstanceName -eq "MSSQLSERVER")
@@ -211,7 +211,7 @@ else
     $fullInstance = $env:COMPUTERNAME + "\" + $InstanceName   # In case of named instance
 }
 try
-{ 
+{
     sqlcmd.exe -S $fullInstance -Q "sp_addsrvrolemember 'NT Service\AzureWLBackupPluginSvc', 'sysadmin'" # Adds login with sysadmin permission if already not available
 }
 catch
@@ -220,7 +220,7 @@ catch
     Write-Host $_.Exception|format-list -force
 }
 try
-{ 
+{
     sqlcmd.exe -S $fullInstance -Q "sp_addsrvrolemember 'NT AUTHORITY\SYSTEM', 'sysadmin'" # Adds login with sysadmin permission if already not available
 }
 catch

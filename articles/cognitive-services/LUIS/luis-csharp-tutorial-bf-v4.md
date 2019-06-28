@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: f74becc24e5d04cefdd05066b8431946578cc35e
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 8a03d87441f26d3116aff8af33fd94da0ef9a909
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151114"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67438450"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Öğretici: Kullanım Language Understanding ile etkin bir Web App BotuC#
 
@@ -358,14 +358,7 @@ Visual Studio'da robotu başlatın. Web uygulaması robotunun `http://localhost:
 
     [![Temel robot yanıt öykünücüsü](./media/bfv4-csharp/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-csharp/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 
-## <a name="learn-more-about-the-web-app-bot-and-framework"></a>Web App Botu ve framework hakkında daha fazla bilgi edinin
-
-Azure Bot hizmeti, Bot Framework SDK'sını kullanır. SDK ve bot çerçevesi hakkında daha fazla bilgi edinin:
-
-* [Azure Bot Hizmeti](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4 belgeleri
-* [Bot Builder Örnekleri](https://github.com/Microsoft/botbuilder-samples)
-* [Bot Builder C# SDK'sı](https://github.com/Microsoft/botbuilder-dotnet)
-* [Bot Builder araçları](https://github.com/Microsoft/botbuilder-tools):
+[!INCLUDE [Bot Information](../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

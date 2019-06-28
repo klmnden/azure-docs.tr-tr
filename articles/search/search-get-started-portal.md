@@ -1,6 +1,6 @@
 ---
-title: 'Hızlı Başlangıç: Oluşturma, yüklemek ve Azure portalı - Azure Search dizini sorgulama'
-description: Derleme ve Azure portalında yerleşik örnek veriler ve verileri İçeri Aktarma Sihirbazı'nı kullanarak Azure Search'te ilk dizininizi sorgulama.
+title: 'Hızlı Başlangıç: Azure portal - Azure Search kullanarak dizin sorgulama oluşturma ve yükleme'
+description: Verileri İçeri Aktarma Sihirbazı'nı, Azure portalında oluşturma, yükleme ve İlk Azure Search dizininizi sorgulama için kullanın.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e5baa0876dc976553e8e541cef6b481329500bf6
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 90857ec2fabb1b807d3e3001f99ea3897d7d628a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606454"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443859"
 ---
-# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Hızlı Başlangıç: Azure Search içeri aktarma, dizin oluşturma ve sorgular için yerleşik portal araçlarını kullanma
+# <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak bir Azure Search dizini oluşturma
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
@@ -56,7 +56,7 @@ Arama sorguları aranabilir veriler, meta veriler ve arama davranışlarını iy
 
 Bu öğreticide **Verileri içeri aktar** sihirbazı aracılığıyla bir [*dizin oluşturucu*](search-indexer-overview.md) kullanılarak gezilebilen yerleşik bir örnek veri kümesi kullanacağız. Dizin oluşturucu, kaynağa özgü bir gezgindir ve desteklenen Azure veri kaynaklarındaki meta verileri ve içeriği okuyabilir. Normalde, dizin oluşturucular programlı olarak kullanılır, ancak bloblarda erişim Portalı'nda **verileri içeri aktarma** Sihirbazı. 
 
-### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>1. adım - Veri Alma Sihirbazı'nı başlatın ve bir veri kaynağı oluşturun
+### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>1\. adım - Veri Alma Sihirbazı'nı başlatın ve bir veri kaynağı oluşturun
 
 1. Azure Search Hizmeti panosunda **verileri içeri aktarma** oluşturmak ve search dizinini doldurmak için komut çubuğunda.
 
@@ -81,7 +81,7 @@ Biz şimdilik bu adımı atlayın ve doğrudan geçin **hedef dizini Özelleşti
 > [!TIP]
 > Yapay ZEKA dizin örneği de adım adım bir [hızlı](cognitive-search-quickstart-blob.md) veya [öğretici](cognitive-search-tutorial-blob.md).
 
-### <a name="step-3---configure-index"></a>3. adım: dizin yapılandırın
+### <a name="step-3---configure-index"></a>3\. adım: dizin yapılandırın
 
 Genellikle dizin oluşturma, veriler yüklenmeden önce tamamlanan kod tabanlı bir alıştırma, oluşur. Ancak, bu öğreticide da anlaşılacağı gibi sihirbaz gezinebileceği tüm veri kaynağı için temel bir dizin oluşturabilirsiniz. Dizin için en azından bir ad ve alan koleksiyonu gerekir ve her belgenin benzersiz olarak tanımlanabilmesi için bir alanın belge anahtarı olarak işaretlenmiş olması gerekir. Ayrıca, otomatik tamamlama veya önerilen sorgular istiyorsanız dil Çözümleyicileri veya öneri araçları belirtebilirsiniz.
 
@@ -106,7 +106,7 @@ Varsayılan olarak sihirbaz tarafından anahtar alanının temeli olarak benzers
 
    ![Sonraki sayfaya dizin oluşturucu oluşturma](media/search-get-started-portal/next-button-create-indexer.png)
 
-### <a name="step-4---configure-indexer"></a>4. adım: dizin oluşturucuyu yapılandırma
+### <a name="step-4---configure-indexer"></a>4\. adım: dizin oluşturucuyu yapılandırma
 
 **Verileri içeri aktarma** sihirbazından çıkmadan **Dizin Oluşturucu** > **Ad**’a tıklayın ve dizin oluşturucu için bir ad yazın.
 
@@ -200,7 +200,7 @@ Model filtreleri arama isteklerine dahil edilir. Sağladığınız model değeri
 
 #### <a name="example-faceted-with-scope-reduction-searchfacetcitytop2"></a>Örnek (kapsamı azaltılarak modellenmiş): `search=*&facet=city&$top=2`
 
-* **search=*** boş bir aramadır. Boş aramalar her şeyi arar. Boş sorgu göndermenin nedenlerinden biri, belge kümesinin tamamını filtrelemek veya görüntülemektir. Örneğin, dizindeki tüm şehirleri içeren bir gezinme yapısı görünümü oluşturmak isteyebilirsiniz.
+* **search=** * boş bir aramadır. Boş aramalar her şeyi arar. Boş sorgu göndermenin nedenlerinden biri, belge kümesinin tamamını filtrelemek veya görüntülemektir. Örneğin, dizindeki tüm şehirleri içeren bir gezinme yapısı görünümü oluşturmak isteyebilirsiniz.
 
 * **facet**, bir kullanıcı arabirimi denetimine geçirebileceğiniz bir gezinti yapısı döndürür. Kategorileri ve bir sayımı döndürür. Bu durumda, kategoriler şehir sayısını temel alır. Azure Search'te toplama yoktur ancak her kategorideki belge sayısını veren `facet` ile tahmini bir toplama gerçekleştirebilirsiniz.
 

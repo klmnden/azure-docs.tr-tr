@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 126bb05109e624fb1198ea16b07cd7836103f9e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e76ca7198bfded725d89f04fd162d470a85da904
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67100872"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442848"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Öğretici: Azure Active Directory tarafından Merces HR2day ile tümleştirmesi
 
@@ -112,7 +112,7 @@ Azure AD çoklu oturum açma HR2day Merces tarafından ile yapılandırmak için
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirin. İlgili kişi [Merces istemci destek ekibi tarafından HR2day](mailto:servicedesk@merces.nl) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-5. HR2day Merces uygulama tarafından özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekliyor. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** açmak için simgeyi **kullanıcı öznitelikleri** iletişim.
+5. HR2day Merces uygulama tarafından özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekliyor. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** açmak için simgeyi **kullanıcı öznitelikleri** iletişim.
 
     ![image](common/edit-attribute.png)
 
@@ -218,7 +218,7 @@ Bu bölümde, Azure çoklu oturum açma için HR2day Merces tarafından erişim 
 
 ### <a name="create-hr2day-by-merces-test-user"></a>HR2day tarafından Merces test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon HR2day içinde Merces tarafından adlı bir kullanıcı oluşturun. Çalışmak [HR2day Merces tarafından Destek ekibine](mailto:servicedesk@merces.nl) Merces platforma göre HR2day içinde kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon HR2day içinde Merces tarafından adlı bir kullanıcı oluşturun. Çalışmak [HR2day Merces tarafından Destek ekibine](mailto:servicedesk@merces.nl) Merces platforma göre HR2day içinde kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 > [!NOTE]
 > Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Merces istemci destek ekibi tarafından HR2day](mailto:servicedesk@merces.nl).
