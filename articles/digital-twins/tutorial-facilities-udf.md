@@ -6,18 +6,18 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 06/26/2019
 ms.author: dkshir
-ms.openlocfilehash: ad6c2625dc56dc3a3155183a04b712122a3b10f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 738e78ce06d98960c87414948e045cc4abe37d6b
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60533545"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462198"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Öğretici: Yapı ve Azure dijital İkizlerini koşullarla çalışma İzleyici sağlayın
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Öğretici: Yapı ve izleyici ile Azure dijital İkizlerini Önizleme koşulları çalışma sağlayın
 
-Bu öğreticide sıcaklık koşullarının ve konfor düzeyinin istediğiniz gibi olup olmadığını belirleme amacıyla alanlarınızı izlemek için Azure Digital Twins'i kullanma adımları gösterilmektedir. Çalıştırdıktan sonra [, örnek yapı yapılandırma](tutorial-facilities-setup.md), sağlama, yapı ve Bu öğreticide adımları kullanarak özel işlevler sensör verileriniz üzerinde çalıştırın.
+Bu öğreticide, Azure dijital İkizlerini önizlemesi alanlarınıza istenen sıcaklık koşullardan ve konfor düzeyini izlemek için nasıl kullanılacağı gösterilmektedir. Çalıştırdıktan sonra [, örnek yapı yapılandırma](tutorial-facilities-setup.md), sağlama, yapı ve Bu öğreticide adımları kullanarak özel işlevler sensör verileriniz üzerinde çalıştırın.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -43,14 +43,14 @@ Bir dizi adlı cihaz veya algılayıcı verileri, izlemek için belirli koşulla
 
 Gelen **doluluk-quickstart** örnek proje, dosyayı açma **src\actions\provisionSample.yaml** Visual Studio code'da. **matchers** türü ile başlayan bölümü bulun. Her girişin altında bu tür bir Eşleştiricisi belirtilen oluşturur **adı**. Eşleştiricisi algılayıcı türündeki izleyecektir **dataTypeValue**. Adlı alanın nasıl ilişkili olduğunu fark *odak odası A1*, sahip olduğu bir **cihazları** birkaç algılayıcıdan içeren düğüm. Bu sensörlerden birini izleyeceği Eşleştiricisi sağlamak için emin olun, **dataTypeValue** algılayıcının eşleşen **dataType**. 
 
-Aşağıdaki Eşleştiricisi mevcut matchers altına ekleyin. Anahtarları hizalanır ve boşluklar, sekmeler olarak değiştirilmez emin olun.
+Aşağıdaki Eşleştiricisi mevcut matchers altına ekleyin. Anahtarları hizalanır ve boşluklar, sekmeler olarak değiştirilmez emin olun. Bu satırlar da içinde mevcut *provisionSample.yaml* dosyası olarak geçersiz kılınan satır. Bunları kaldırarak açıklamasını `#` önünde her satırın karakter.
 
 ```yaml
       - name: Matcher Temperature
         dataTypeValue: Temperature
 ```
 
-Bu Eşleştiricisi eklediğiniz SAMPLE_SENSOR_TEMPERATURE algılayıcı izleyeceği [ilk öğreticide](tutorial-facilities-setup.md). Bu satırlar da içinde mevcut *provisionSample.yaml* dosyası olarak geçersiz kılınan satır. Bunları kaldırarak açıklamasını `#` önünde her satırın karakter.
+Bu Eşleştiricisi eklediğiniz SAMPLE_SENSOR_TEMPERATURE algılayıcı izleyeceği [ilk öğreticide](tutorial-facilities-setup.md). 
 
 <a id="udf"></a>
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 06/13/2019
+ms.date: 06/25/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 0314c0e03402d53c7f79eed2efe11db953d184e6
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 7e7a1f119a2f2b0e60645cb776b26c124910cacb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147501"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448204"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Öğretici: Azure Data Box Disk geri dönün ve verileri karşıya yükleme azure'a doğrulayın
 
@@ -88,7 +88,7 @@ Cihaz Avrupa'da döndüren, aşağıdaki adımları uygulayın.
 
 ### <a name="pick-up-in-asia-pacific-region"></a>Asya Pasifik bölgesinde öğrenilip
 
-Bu bölge, Japonca, Kore ve Avustralya ile ilgili yönergeleri içerir.
+Bu bölge, Japonca, Kore, Avustralya ve Singapur ilgili yönergeleri içerir.
 
 #### <a name="pick-up-in-australia"></a>Avustralya'da öğrenilip
 
@@ -103,43 +103,64 @@ Bir ek güvenlik bildirimi Avustralya'da Azure veri merkezleri vardır. Tüm gel
 
 #### <a name="pick-up-in-japan"></a>Japonya'da öğrenilip
 
-1. Japonya Post Chakubarai'nın dönüş connote eklediğinizden emin olun.
-2. Şirketiniz connote ad ve adres bilgi gönderen bilgilerinizi olarak yazın.
-3. Japonya Post çekme isteği numarasını 0800 0800 111 (ücretsiz arama) arayın. 7 haneli posta kodu alma adresi için arama yapın ve ardından yakın post ofisiniz iletin.
-    - Çekme isteği yönelik uygun zamanları üzerinde ilgili post ofisleri bağlıdır.
-    - Sevkiyat Japonya Post Chakubarai Yu-paketi olduğunu bildirir.
-    - Kullanım Chakubarai connote dahil olduğu.
-4. Japonya Post Chakubarai connote ise dahil değil, e-posta *Quantium çözümleri* adresindeki `Customerservice.JP@quantiumsolutions.com`. *Quantium çözümleri* Japonya Postala toplayın ve connote toplama getirin isteyin ister.
-    - Başvuru göstermek Chakubarai sayısına connote Japonya Post getirecek açıklama sütun.
-    - Teslimat adresi, aşağıda gösterildiği gibi girin:   
-        ```
-        3F N7 Prologis Park Tokyo Ohta, 1-3-6 Tokai Ohta-ku, Tokyo 143-0001
-        Microsoft Service Center c/o Quantium Solutions Japan
-        TEL: 03-5755-0150
-        ```
+1. Şirketiniz konsinye unutmayın ad ve adres bilgilerini gönderen bilgilerinizi olarak yazın.
+2. Aşağıdaki e-posta şablonu kullanarak Quantium çözüm e-posta.
 
-Chakubarai connote ise eksik, e-posta yoluyla alma isteğinde bulunabilirsiniz. Toplama istemek için aşağıdaki e-posta şablonu kullanın.
+    - Japonya Post Chakubarai konsinye Not dahil edilmedi veya eksik, bu e-postada unutmayın. Quantium çözümleri Japonya Japonya konsinye Not alımı sırasında getirmek için Post ister.
+    - Birden çok siparişler varsa, tek tek toplama emin olmak için e-posta.
 
-```
-To: Customerservice.JP@quantiumsolutions.com
-Subject: Pickup request for Azure Data Box Disk｜Job Name： 
-Body: 
-- Azure Data Box Disk job name：
-- Reference number:  
-- Requested pickup date：mmdd (Select a requested time slot from below).
-    a. 08：00-13：00 
-    b. 13：00-15：00 
-    c. 15：00-17：00 
-    d. 17：00-19：00 
-```
+    ```
+    To: Customerservice.JP@quantiumsolutions.com
+    Subject: Pickup request for Azure Data Box Disk｜Job Name： 
+    Body: 
+    - Japan Post Yu-Pack tracking number (reference number)：
+    - Requested pickup date：mmdd (Select a requested time slot from below).
+        a. 08：00-13：00 
+        b. 13：00-15：00 
+        c. 15：00-17：00 
+        d. 17：00-19：00 
+    ```
+
+3. Bir toplama ayrılmış sonra bir e-posta onayı Quantium çözümlerinden alırsınız. E-posta onayı, ayrıca Chakubarai konsinye not hakkındaki bilgileri içerir.
+
+Gerekirse, aşağıdaki bilgileri Quantium çözümü desteği (Japonca) başvurabilirsiniz: 
+
+- E-posta:Customerservice.JP@quantiumsolutions.com 
+- Telefon: 03-5755-0150 
 
 #### <a name="pick-up-in-korea"></a>Kore'de öğrenilip
 
-1. Dönüş connote eklediğinizden emin olun.
-2. Toplama istemek için:
-    1. Çağrı *Quantium Solutions International* hattını 8231 070 1418 office saatleri (10: 00 için 17: 00, Pazartesi-Cuma). Teklif *Microsoft toplama* ve düzenlemek için bir koleksiyon için connote sayısı.  
-    2. Hattı meşgul ise, e-posta `microsoft@rocketparcel.com`, e-posta konusu ile *Microsoft Pickup* ve başvuru olarak connote numarası.
+1. Dönüş konsinye Not eklediğinizden emin olun.
+2. Toplama konsinye Not bulunduğunda istemek için:
+    1. Çağrı *Quantium Solutions International* hattını 8231 070 1418 office saatleri (10: 00 için 17: 00, Pazartesi-Cuma). Teklif *Microsoft Azure alma* ve düzenlemek için bir koleksiyon için hizmet isteği sayısı.  
+    2. Hattı meşgul ise, e-posta `microsoft@rocketparcel.com`, e-posta konusu ile *Microsoft Azure alma* ve başvuru olarak hizmet isteği sayısı.
     3. Courier koleksiyonu için gelmezse, çağrı *Quantium Solutions International* hattı alternatif düzenlemeleri için. 
+    4. Onay alma zamanlama için bir e-postası alırsınız.
+3. Yalnızca konsinye Not mevcut değilse, bu adımı uygulayın. Toplama istemek için:
+    1. Çağrı *Quantium Solutions International* hattını 8231 070 1418 office saatleri (10: 00 için 17: 00, Pazartesi-Cuma). Teklif *Microsoft Azure alma* ve düzenlemek için bir koleksiyon için hizmet isteği sayısı. Bir koleksiyon için düzenlemek için yeni konsinye Not gerektiğini belirtin. (Müşteri) gönderen, alıcı bilgi (Azure veri merkezi) ve başvuru numarası (hizmet isteği) sağlar. 
+    2. Hattı meşgul ise, e-posta `microsoft@rocketparcel.com`, e-posta konusu ile *Microsoft Azure alma* ve başvuru olarak hizmet isteği sayısı.
+    3. Courier koleksiyonu için gelmezse, çağrı *Quantium Solutions International* hattı alternatif düzenlemeleri için. 
+    4. Telefon istek yapıldığında sözlü onaylamanız istenir.
+
+### <a name="pick-up-in-singapore"></a>Singapur içinde öğrenilip
+
+1. Sevkiyat etiketi yazdırma ve kutunun ekleyin. Etiket hasar görür veya varsa:
+    - **Genel bakış > Sevkiyat etiketi indir** bölümüne gidin.
+
+        ![Sevkiyat etiketini indirme](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
+
+        Bu eylem aşağıda gösterildiği gibi bir sevkiyat etiketi indirir.
+
+        ![Örnek sevkiyat etiketi](media/data-box-disk-deploy-picked-up/exmple-shipping-label.png)
+    - Cihaz etiketi eklemesi. Etiket görünür olduğundan emin olun.
+
+2. Toplama istemek için:
+    - Çağrı **SingPost** hattını **6845 6485** office saatleri (09: 00 için 17: 00, Pazartesi-Cuma).  
+    - Teklif *Microsoft Azure alma* ve numarası (izleme iade sevkiyat etiketini) düzenlemek için bir koleksiyon için istek hizmeti. 
+    - Toplama zamanlama için sözlü bir onay alırsınız. 
+    - Courier koleksiyonu için gelmezse, çağrı **SingPost** adresindeki **6845 6485** alternatif düzenlemeleri için. 
+3. Courier'e el. 
+
 
 ## <a name="verify-data-upload-to-azure"></a>Azure'a verilerin yüklendiğini doğrulama
 

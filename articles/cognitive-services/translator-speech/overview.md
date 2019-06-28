@@ -3,20 +3,20 @@ title: Translator Konuşma Çevirisi hizmeti nedir?
 titleSuffix: Azure Cognitive Services
 description: Translator Konuşma Çevirisi hizmeti API'sini kullanarak uygulamalarınıza konuşmayı konuşmaya ve konuşmayı metne çevirme özelliklerini ekleyebilirsiniz.
 services: cognitive-services
-author: Jann-Skotdal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
-ms.author: v-jansko
+ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 24014bb06a779c214f18f966dfb1d26d61adee8d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ed425cd6545d85cdf3b2f76038b381a0f09045f9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60827536"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449664"
 ---
 # <a name="what-is-translator-speech-api"></a>Translator Konuşma Çevirisi API'si nedir?
 

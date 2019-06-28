@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: fc4db12f722d1330f0642e155c02a1936373e256
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 48733a8c2a554fc62c7731b6c0fb4ef5b8d45159
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520484"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450187"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Öğretici: Bir ön kapısı özel etki alanı üzerinde HTTPS yapılandırma
 
 Bu öğreticide ön uç konakları bölümü altında Front Door’unuzla ilişkili özel bir etki alanı için HTTPS protokolünün nasıl etkinleştirileceği gösterilir. Özel etki alanınızda HTTPS protokolünü kullanarak (örneğin, https:\//www.contoso.com), hassas veriler internet üzerinden gönderildiğinde bunların TLS/SSL şifrelemesi ile güvenli bir şekilde teslim edilmesini sağlarsınız. Web tarayıcınız HTTPS üzerinden bir web sitesine bağlanırken, web sitesinin güvenlik sertifikasını onaylar ve bu sertifikanın yasal bir sertifika yetkilisi tarafından verildiğini doğrular. Bu işlem güvenlik sağlar ve web uygulamalarınızı saldırılara karşı korur.
 
-Azure Front Door Service, varsayılan olarak Front Door varsayılan konak adında HTTPS’yi destekler. Örneğin, bir Front Door (https:\//contoso.azurefd.net gibi) oluşturursanız, https://contoso.azurefd.net'e yönelik istekler için HTTPS otomatik olarak etkinleştirilir. Öte yandan, 'www.contoso.com' özel etki alanını ekledikten sonra bu ön uç konağı için HTTPS'yi etkinleştirmeniz gerekecektir.   
+Azure Front Door Service, varsayılan olarak Front Door varsayılan konak adında HTTPS’yi destekler. Örneğin, bir Front Door (https:\//contoso.azurefd.net gibi) oluşturursanız, https://contoso.azurefd.net 'e yönelik istekler için HTTPS otomatik olarak etkinleştirilir. Öte yandan, 'www.contoso.com' özel etki alanını ekledikten sonra bu ön uç konağı için HTTPS'yi etkinleştirmeniz gerekecektir.   
 
 Özel HTTPS özelliğinin en önemli niteliklerinden bazıları şunlardır:
 
@@ -70,19 +70,18 @@ Azure Front Door Service tarafından yönetilen bir sertifika kullandığınızd
 5. [Etki alanını doğrulama](#validate-the-domain) adımına ilerleyin.
 
 
-### <a name="option-2-use-your-own-certificate"></a>2. seçenek: Kendi sertifikanızı kullanma
+### <a name="option-2-use-your-own-certificate"></a>2\. seçenek: Kendi sertifikanızı kullanma
 
 HTTPS özelliğini etkinleştirmek için kendi sertifikanızı kullanabilirsiniz. Bu işlem, sertifikalarınızı güvenli bir şekilde depolamanıza olanak tanıyan Azure Key Vault ile tümleştirme yoluyla gerçekleştirilir. Azure Front Door Service, sertifikanızı almak için bu güvenli mekanizmayı kullanır ve birkaç ek adım gerektirir. SSL sertifikanızı oluştururken, bunu izin verilen bir sertifika yetkilisiyle (CA) oluşturmanız gerekir. Buna karşılık, izin verilmeyen bir CA kullanırsanız isteğiniz reddedilir. İzin verilen CA'ların listesi için bkz. [Azure Front Door Service'te özel HTTPS'leri etkinleştirmek için izin verilen sertifika yetkilileri](front-door-troubleshoot-allowed-ca.md).
 
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Azure Key Vault hesabınızı ve sertifikanızı hazırlama
  
 1. Azure anahtar Kasası: Özel HTTPS etkinleştirmek istediğiniz, ön kapısı aynı abonelik altında çalışan bir Azure anahtar kasası hesabı olması gerekir. Azure Key Vault hesabınız yoksa oluşturun.
- 
-2. Azure Key Vault sertifikaları: Bir sertifika zaten varsa, Azure Key Vault hesabınızda doğrudan yükleyebilirsiniz veya oluşturabilirsiniz, doğrudan Azure Key Vault'tan bir ortak CA'ları, Azure Key Vault aracılığıyla yeni bir sertifika ile tümleşir.
 
 > [!WARNING]
-> </br> - Azure Front Door Service şu anda yalnızca Front Door yapılandırmasıyla aynı abonelikte olan Key Vault hesaplarını destekler. Front Door’dan farklı bir abonelik altındaki Key Vault’un seçilmesi hatayla sonuçlanır.
-> </br> - Azure Front Door Service şu anda parola **olmadan** yalnızca PFX ile karşıya yüklenen sertifikaları destekler.
+> Azure ön kapısı hizmeti şu anda yalnızca Key Vault hesaplarını ön kapısı yapılandırması ile aynı abonelikte destekler. Front Door’dan farklı bir abonelik altındaki Key Vault’un seçilmesi hatayla sonuçlanır.
+
+2. Azure Key Vault sertifikaları: Bir sertifika zaten varsa, Azure Key Vault hesabınızda doğrudan yükleyebilirsiniz veya oluşturabilirsiniz, doğrudan Azure Key Vault'tan bir ortak CA'ları, Azure Key Vault aracılığıyla yeni bir sertifika ile tümleşir.
 
 #### <a name="register-azure-front-door-service"></a>Azure Front Door Service’i kaydetme
 
@@ -141,13 +140,13 @@ Kendi sertifikanızı kullanıyorsanız etki alanı doğrulaması gerekmez.
 
 CNAME kaydınız, *Ad*’ın özel etki alanınız, *Değer*’in ise Front Door’unuzun varsayılan .azurefd.net konak adı olduğu aşağıdaki biçimde olmalıdır:
 
-| Ad            | Tür  | Value                 |
+| Ad            | Tür  | Değer                 |
 |-----------------|-------|-----------------------|
 | < www.contoso.com> | CNAME | contoso.azurefd.net |
 
 CNAME kayıtları hakkında daha fazla bilgi için bkz. [CNAME DNS kaydı oluşturma](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
 
-CNAME kaydınız doğru biçimdeyse DigiCert, özel etki alanı adınızı otomatik olarak doğrular ve etki alanı adınız için ayrılmış bir sertifika oluşturur. DigitCert size doğrulama e-postası göndermez ve isteğinizi onaylamanız gerekmez. Sertifika bir yıl süreyle geçerlidir ve süresi dolmadan önce otomatik olarak yenilenir. [Yayılma için bekleme](#wait-for-propagation) adımına geçin. 
+CNAME kaydınız doğru biçimdeyse DigiCert, özel etki alanı adınızı otomatik olarak doğrular ve etki alanı adınız için ayrılmış bir sertifika oluşturur. DigitCert size doğrulama e-postası göndermez ve isteğinizi onaylamanız gerekmez. Sertifika bir yıl süreyle geçerlidir ve süresi dolmadan önce otomatik olarak olacaktır. [Yayılma için bekleme](#wait-for-propagation) adımına geçin. 
 
 Otomatik doğrulama genellikle birkaç dakika sürer. Bir saat içinde etki alanınızı doğrulanmış olarak görmüyorsanız destek bileti açın.
 
@@ -170,7 +169,7 @@ webmaster@&lt;etki-alanı-adınız.com&gt;
 hostmaster@&lt;etki-alanı-adınız.com&gt;  
 postmaster@&lt;.com&gt;  
 
-Birkaç dakika içinde sizden isteği onaylamanızı isteyen, aşağıdaki örneğe benzer bir e-posta alırsınız. İstenmeyen posta filtresi kullanıyorsanız admin@digicert.com adresini bu filtrenin beyaz listesine ekleyin. E-postayı 24 saat içinde almazsanız Microsoft destek ekibine başvurun.
+Birkaç dakika içinde sizden isteği onaylamanızı isteyen, aşağıdaki örneğe benzer bir e-posta alırsınız. İstenmeyen posta Filtresi kullanıyorsanız, ekleyin admin@digicert.com için kendi izin verilenler listesi. E-postayı 24 saat içinde almazsanız Microsoft destek ekibine başvurun.
 
 Onay bağlantısına tıkladığınızda, çevrimiçi bir onay formuna yönlendirilirsiniz. Formdaki yönergeleri uygulayın. İki doğrulama seçeneğiniz vardır:
 
@@ -178,7 +177,7 @@ Onay bağlantısına tıkladığınızda, çevrimiçi bir onay formuna yönlendi
 
 - Yalnızca bu istekte kullanılan söz konusu ana bilgisayar adını onaylayabilirsiniz. Sonraki istekler için ek onay gereklidir.
 
-DigiCert onaydan sonra özel etki alanı adınız için sertifika oluşturma işlemlerini tamamlar. Sertifika bir yıl süreyle geçerlidir ve süresi dolmadan önce otomatik olarak yenilenir.
+DigiCert onaydan sonra özel etki alanı adınız için sertifika oluşturma işlemlerini tamamlar. Sertifika bir yıl süreyle geçerlidir ve süresi dolmadan önce otomatik olarak olacaktır.
 
 ## <a name="wait-for-propagation"></a>Yayılma için bekleme
 
@@ -197,7 +196,7 @@ Aşağıdaki tabloda, HTTPS’yi etkinleştirdiğinizde oluşan işlem ilerleme 
 | | Etki alanı sahipliğiniz başarıyla doğrulandı. |
 | | Etki alanı doğrulama isteğinin süresi doldu. (Müşteri büyük olasılıkla 6 gün içinde yanıt vermedi.) HTTPS, etki alanınızda etkinleştirilmeyecek. * |
 | | Etki alanı sahipliğini doğrulama isteği, müşteri tarafından reddedildi. HTTPS, etki alanınızda etkinleştirilmeyecek. * |
-| 3 Sertifika sağlanıyor | Sertifika yetkilisi şu anda etki alanınızda HTTPS'yi etkinleştirmek için gereken sertifikayı veriyor. |
+| 3 Sertifika sağlanıyor | Sertifika yetkilisi şu anda etki alanınızdaki HTTPS'nin etkinleştirilmesi için gereken sertifikayı veriyor. |
 | | Sertifika verildi ve şu anda Front Door’unuz için dağıtılıyor. Bu işlem 1 saat kadar sürebilir. |
 | | Sertifika, Front Door’unuz için başarıyla dağıtıldı. |
 | 4 Tamamlandı | HTTPS, etki alanınızda başarıyla etkinleştirildi. |

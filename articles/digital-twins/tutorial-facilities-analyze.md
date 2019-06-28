@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: 0c441974b40f35bcc39aec05e5ffe66b68e46c10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 897050513449c099ce75c248eef00a38aac98ad9
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60534814"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462271"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Öğretici: Time Series Insights'ı kullanarak Azure dijital İkizlerini alanlarınıza olayları çözümleyin
 
@@ -52,7 +52,7 @@ Kullanabileceğiniz [Event Hubs](../event-hubs/event-hubs-about.md) hizmet, veri
 
 1. Girin bir **adı** Event Hubs ad alanınız için. Seçin **standart** için **fiyatlandırma katmanı**, **abonelik**, **kaynak grubu** dijital İkizlerini Örneğiniz için kullanılan ve **konumu**. **Oluştur**’u seçin.
 
-1. Event Hubs ad alanı dağıtımı, ad alanı altında seçin **kaynak**.
+1. Event Hubs ad alanı dağıtımı seçin **genel bakış** bölmesinde seçip **kaynağa Git**.
 
     ![Event Hubs ad alanı dağıtımdan sonra](./media/tutorial-facilities-analyze/open-event-hub-ns.png)
 
@@ -65,7 +65,7 @@ Kullanabileceğiniz [Event Hubs](../event-hubs/event-hubs-about.md) hizmet, veri
 
 1. Seçin **tüketici grubu** düğmesinin üstünde ve gibi bir ad girin **tsievents** tüketici grubu için. **Oluştur**’u seçin.
 
-    ![Olay Hub'ı tüketici grubu](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)
+    ![Olay hub'ı tüketici grubu](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)
 
    Tüketici grubu oluşturulduktan sonra olay hub'ın altındaki listede görünür **genel bakış** bölmesi.
 
@@ -132,17 +132,19 @@ Kullanabileceğiniz [Event Hubs](../event-hubs/event-hubs-about.md) hizmet, veri
 
 1. **Time Series Insights** araması yapın ve yeni bir kaynak oluşturun. **Oluştur**’u seçin.
 
-1. Time Series Insights örneğiniz için bir **Ad** girin ve **Abonelik** girişinizi seçin. Seçin **kaynak grubu** dijital İkizlerini Örneğiniz için kullanılan ve **konumu**. **Oluştur**’u seçin.
+1. Time Series Insights örneğiniz için bir **Ad** girin ve **Abonelik** girişinizi seçin. Seçin **kaynak grubu** dijital İkizlerini Örneğiniz için kullanılan ve **konumu**. Seçin **sonraki: Olay kaynağı** düğmesini veya **olay kaynağı** sekmesi.
 
     ![Time Series Insights örneği oluşturma seçimleri](./media/tutorial-facilities-analyze/create-tsi.png)
 
-1. Örneği dağıtıldıktan sonra zaman serisi görüşleri ortamı açın ve ardından açın, **olay kaynakları** bölmesi. Seçin **Ekle** üstünde bir tüketici grubu eklemek için düğme.
-
-1. **Yeni olay kaynağı** bölmesinde bir **Ad** girin ve diğer değerlerin doğru şekilde seçildiğinden emin olun. Seçin **ManageSend** için **olay hub'ı ilke adı**ve ardından önceki bölümünde oluşturduğunuz tüketici grubu seçin **Event hub tüketici grubu**. **Oluştur**’u seçin.
+1. İçinde **olay kaynağı** sekmesinde bir **adı**seçin **olay hub'ı** olarak **kaynak türünü**ve diğer değerleri seçili olduğundan emin olun doğru. Seçin **ManageSend** için **olay hub'ına erişim ilkesi adı**ve ardından önceki bölümünde oluşturduğunuz tüketici grubu seçin **olay hub'ı tüketici grubu**. **İncele ve oluştur**’u seçin.
 
     ![Olay kaynağını oluşturmak için seçim](./media/tutorial-facilities-analyze/tsi-event-source.png)
 
-1. Açık **genel bakış** bölmesinde seçin ve zaman serisi görüşleri ortamı için **ortama Git** üstünde düğme. Veri erişim uyarı alırsanız, açık **veri erişimi ilkeleri** bölmesinde seçin, zaman serisi görüşleri örneği için **Ekle**seçin **katkıda bulunan** rol ve seçin uygun kullanıcı.
+1. İçinde **gözden geçir + Oluştur** bölmesinde, girdiğiniz bilgileri gözden geçirin ve seçin **Oluştur**.
+
+1. Dağıtım bölmesinde, az önce oluşturduğunuz Time Series Insights kaynağı seçin. Bu açılır **genel bakış** bölmesinde zaman serisi görüşleri ortamınız için.
+
+1. Seçin **ortama Git** üstünde düğme. Veri erişim uyarı alırsanız, açık **veri erişimi ilkeleri** bölmesinde seçin, zaman serisi görüşleri örneği için **Ekle**seçin **katkıda bulunan** rol ve seçin uygun kullanıcı.
 
 1. **Ortama Git** açılır düğme [Time Series Insights gezgininin](../time-series-insights/time-series-insights-explorer.md). Hiçbir olay görüntülenmiyorsa göz atarak cihaz olaylarının benzetimini yapma **cihaz bağlantısı** dijital İkizlerini örnek ve çalışan proje `dotnet run`.
 

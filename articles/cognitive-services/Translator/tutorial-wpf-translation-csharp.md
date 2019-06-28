@@ -3,19 +3,19 @@ title: "Öğretici: WPF ile bir çeviri uygulaması oluşturma C# -Translator me
 titleSuffix: Azure Cognitive Services
 description: Bu öğreticide, metin çevirisi, dil algılama ve tek bir abonelik anahtarı ile yazım Bilişsel hizmet API'lerini kullanan bir Windows Presentation Foundation (WPF) uygulaması oluşturacaksınız. Bu alıştırmada Translator metin çevirisi API'si ve Bing yazım denetimi API'si özelliklerinin nasıl kullanılacağını gösterir.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 1945d1ae74cbcffbbc0864ea4470b4f199f1d95b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: swmachan
+ms.openlocfilehash: b300c40b4a9c832a0df87f7cfc6e6a9558d766f6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051593"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448221"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Öğretici: WPF ile bir çeviri uygulaması oluşturma
 

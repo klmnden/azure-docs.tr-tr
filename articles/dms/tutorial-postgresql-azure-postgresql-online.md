@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: d7bd2555753df4c12404844c86be8f0339d88e23
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 06/28/2019
+ms.openlocfilehash: 96bfb80602efe8e63f814fc9bf6cff3ae52e5983
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415695"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461529"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Öğretici: DMS kullanarak PostgreSQL’i çevrimiçi ortamda PostgreSQL için Azure Veritabanına geçirme
 
@@ -24,6 +24,7 @@ ms.locfileid: "65415695"
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
+>
 > * Örnek şemanın pg_dump yardımcı programını kullanarak geçirin.
 > * Azure Veritabanı Geçiş Hizmeti örneği oluşturma.
 > * Azure Veritabanı Geçiş Hizmeti'ni kullanarak geçiş projesi oluşturma.
@@ -65,11 +66,11 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 * Sunucu düzeyinde oluşturma [güvenlik duvarı kuralı](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) hedef veritabanlarına erişmek Azure veritabanı geçiş hizmeti izin vermek PostgreSQL için Azure veritabanı. Azure veritabanı geçiş hizmeti için kullanılan sanal ağ alt ağ aralığını belirtin.
 * CLI’yi çağırmak için iki yöntem vardır:
 
-    * Azure portalın sağ üst köşesindeki Cloud Shell düğmesini seçin:
+  * Azure portalın sağ üst köşesindeki Cloud Shell düğmesini seçin:
 
        ![Azure portaldaki Cloud Shell düğmesi](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
 
-    * CLI’yi yerel olarak yükleyip çalıştırın. CLI 2.0, Azure kaynaklarını yönetmeye yönelik komut satırı aracıdır.
+  * CLI’yi yerel olarak yükleyip çalıştırın. CLI 2.0, Azure kaynaklarını yönetmeye yönelik komut satırı aracıdır.
 
        CLI’yi indirmek için [Azure CLI 2.0’ı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) makalesindeki yönergeleri izleyin. Makalede ayrıca CLI 2.0'ı destekleyen platformlar listelenir.
 
@@ -77,9 +78,9 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 
 * postgresql.config dosyasında mantıksal çoğaltmayı etkinleştirin ve aşağıdaki parametreleri ayarlayın:
 
-    * wal_level = **logical**
-    * max_replication_slots = [yuva sayısı], önerilen ayar **5 yuva**
-    * max_wal_senders =[eşzamanlı görev sayısı] - max_wal_senders parametresi, çalışabilecek eşzamanlı görevlerin sayısını ayarlar; önerilen ayar **10 görevdir**
+  * wal_level = **logical**
+  * max_replication_slots = [yuva sayısı], önerilen ayar **5 yuva**
+  * max_wal_senders =[eşzamanlı görev sayısı] - max_wal_senders parametresi, çalışabilecek eşzamanlı görevlerin sayısını ayarlar; önerilen ayar **10 görevdir**
 
 ## <a name="migrate-the-sample-schema"></a>Örnek şemayı geçirme
 
@@ -115,8 +116,7 @@ Tablo şemaları, dizinler ve saklı yordamlar gibi tüm veritabanı nesnelerini
     ```
 
 4. Şemanızda yabancı anahtarlar varsa geçişe ilişkin ilk yük ve sürekli eşitleme başarısız olur. Hedefte (PostgreSQL için Azure Veritabanı) bırakma yabancı anahtar betiği ve ekleme yabancı anahtar betiğini ayıklamak için PgAdmin veya psql içinde aşağıdaki betiği yürütün.
-
-    
+  
     ```
     SELECT Queries.tablename
            ,concat('alter table ', Queries.tablename, ' ', STRING_AGG(concat('DROP CONSTRAINT ', Queries.foreignkey), ',')) as DropQuery
@@ -141,7 +141,7 @@ Tablo şemaları, dizinler ve saklı yordamlar gibi tüm veritabanı nesnelerini
           AND ccu.table_schema = tc.table_schema
     WHERE constraint_type = 'FOREIGN KEY') Queries
       GROUP BY Queries.tablename;
-     ```
+    ```
 
     Sorgu sonucunda bırakma yabancı anahtarını (ikinci sütun) çalıştırın.
 
@@ -213,7 +213,7 @@ Tablo şemaları, dizinler ve saklı yordamlar gibi tüm veritabanı nesnelerini
 
    * Konum: Doğu ABD 2
    * Abonelik: 97181df2-909d-420b-ab93-1bff15acb6b7
-   * Kaynak Grubu Adı: PostgresDemo
+   * Kaynak grubu adı: PostgresDemo
    * DMS hizmeti adı: PostgresCLI
 
    ```
@@ -260,9 +260,9 @@ Tablo şemaları, dizinler ve saklı yordamlar gibi tüm veritabanı nesnelerini
 
     Örneğin, aşağıdaki komut bu parametreleri kullanarak bir proje oluşturur:
 
-   * Konum: Orta Batı ABD
-   * Kaynak Grubu Adı: PostgresDemo
-   * Hizmet Adı: PostgresCLI
+   * Konum: Batı Orta ABD
+   * Kaynak grubu adı: PostgresDemo
+   * Hizmet adı: PostgresCLI
    * Proje adı: PGMigration
    * Kaynak platform: PostgreSQL
    * Hedef platform: AzureDbForPostgreSql
@@ -359,7 +359,7 @@ Tablo şemaları, dizinler ve saklı yordamlar gibi tüm veritabanı nesnelerini
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
    ```
 
-   VEYA
+   OR
 
     ```
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output

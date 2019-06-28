@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 5/24/2019
 ms.author: travisw
-ms.openlocfilehash: 5991388e47981c83eec24b0d8f955f7c292180da
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7e82b2ef9500defe0d08351da1e3487e4671155f
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67081536"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467034"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Speech SDK'sı kullanarak bir ses öncelikli sanal asistan Android üzerinde Java oluşturun
 
@@ -30,15 +30,12 @@ Bu uygulama, konuşma SDK Maven paketini ve Android Studio 3.3 ile oluşturulmu�
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Konuşma Hizmetleri için bir Azure aboneliği anahtarı **westus2** bölge. Bu aboneliği oluşturun [Azure portalında](https://portal.azure.com).
+* Konuşma Hizmetleri için bir Azure aboneliği anahtarı. [Ücretsiz edinin](get-started.md) ya da üzerinde oluşturma [Azure portalında](https://portal.azure.com).
 * Yapılandırılmış önceden oluşturulmuş bir bot [doğrudan satır konuşma kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 * [Android Studio](https://developer.android.com/studio/) v3.3 veya üzeri
- 
-    > [!NOTE]
-    > Doğrudan satır okuma (Önizleme) şu anda yalnızca bulunan **westus2** bölge.
 
     > [!NOTE]
-    > 30 günlük deneme için standart fiyatlandırma katmanı açıklanan [konuşma Hizmetleri ücretsiz olarak deneyin](get-started.md) sınırlıdır **westus** (değil **westus2**) ve bu nedenle uyumlu değil doğrudan ile Satır konuşma. Ücretsiz ve standart katmanı **westus2** abonelikleri uyumludur.
+    > Doğrudan satır okuma (Önizleme) şu anda konuşma Hizmetleri bölgelerin alt kümesinde kullanılabilir. Lütfen [ses öncelikli sanal Yardımcıları için desteklenen bölgelerin listesini](regions.md#Voice-first virtual assistants) ve kaynaklarınız bu bölgelerden birinde dağıtıldığı emin olun.
 
 ## <a name="create-and-configure-a-project"></a>Projeyi oluşturma ve yapılandırma
 
@@ -126,8 +123,8 @@ Metin ve grafik temsilini kullanıcı Arabirimi artık şöyle görünmelidir:
 
     import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
     import com.microsoft.cognitiveservices.speech.audio.PullAudioOutputStream;
-    import com.microsoft.cognitiveservices.speech.dialog.BotConnectorConfig;
-    import com.microsoft.cognitiveservices.speech.dialog.SpeechBotConnector;
+    import com.microsoft.cognitiveservices.speech.dialog.DialogServiceConfig;
+    import com.microsoft.cognitiveservices.speech.dialog.DialogServiceConnector;
 
     import org.json.JSONException;
     import org.json.JSONObject;
@@ -139,10 +136,10 @@ Metin ve grafik temsilini kullanıcı Arabirimi artık şöyle görünmelidir:
         private static String channelSecret = "YourChannelSecret";
         // Replace below with your own speech subscription key
         private static String speechSubscriptionKey = "YourSpeechSubscriptionKey";
-        // Replace below with your own speech service region (note: only 'westus2' is currently supported)
+        // Replace below with your own speech service region (note: only a subset of regions are currently supported)
         private static String serviceRegion = "YourSpeechServiceRegion";
 
-        private SpeechBotConnector botConnector;
+        private DialogServiceConnector connector;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -160,24 +157,24 @@ Metin ve grafik temsilini kullanıcı Arabirimi artık şöyle görünmelidir:
         }
 
         public void onBotButtonClicked(View v) {
-            // Recreate the SpeechBotConnector on each button press, ensuring that the existing one is closed
-            if (botConnector != null) {
-                botConnector.close();
-                botConnector = null;
+            // Recreate the DialogServiceConnector on each button press, ensuring that the existing one is closed
+            if (connector != null) {
+                connector.close();
+                connector = null;
             }
 
-            // Create the SpeechBotConnector from the channel and speech subscription information
-            BotConnectorConfig config = BotConnectorConfig.fromSecretKey(channelSecret, speechSubscriptionKey, serviceRegion);
-            botConnector = new SpeechBotConnector(config, AudioConfig.fromDefaultMicrophoneInput());
+            // Create the DialogServiceConnector from the channel and speech subscription information
+            DialogServiceConfig config = DialogServiceConfig.fromBotSecret(channelSecret, speechSubscriptionKey, serviceRegion);
+            connector = new DialogServiceConnector(config, AudioConfig.fromDefaultMicrophoneInput());
 
             // Optional step: preemptively connect to reduce first interaction latency
-            botConnector.connectAsync();
+            connector.connectAsync();
 
-            // Register the SpeechBotConnector's event listeners
+            // Register the DialogServiceConnector's event listeners
             registerEventListeners();
 
             // Begin sending audio to your bot
-            botConnector.listenOnceAsync();
+            connector.listenOnceAsync();
         }
 
         private void registerEventListeners() {
@@ -185,32 +182,32 @@ Metin ve grafik temsilini kullanıcı Arabirimi artık şöyle görünmelidir:
             TextView activityText = (TextView) this.findViewById(R.id.activityText); // 'activityText' is the ID of your text view
 
             // Recognizing will provide the intermediate recognized text while an audio stream is being processed
-            botConnector.recognizing.addEventListener((o, recoArgs) -> {
+            connector.recognizing.addEventListener((o, recoArgs) -> {
                 recoText.setText("  Recognizing: " + recoArgs.getResult().getText());
             });
 
             // Recognized will provide the final recognized text once audio capture is completed
-            botConnector.recognized.addEventListener((o, recoArgs) -> {
+            connector.recognized.addEventListener((o, recoArgs) -> {
                 recoText.setText("  Recognized: " + recoArgs.getResult().getText());
             });
 
             // SessionStarted will notify when audio begins flowing to the service for a turn
-            botConnector.sessionStarted.addEventListener((o, sessionArgs) -> {
+            connector.sessionStarted.addEventListener((o, sessionArgs) -> {
                 recoText.setText("Listening...");
             });
 
             // SessionStopped will notify when a turn is complete and it's safe to begin listening again
-            botConnector.sessionStopped.addEventListener((o, sessionArgs) -> {
+            connector.sessionStopped.addEventListener((o, sessionArgs) -> {
             });
 
             // Canceled will be signaled when a turn is aborted or experiences an error condition
-            botConnector.canceled.addEventListener((o, canceledArgs) -> {
+            connector.canceled.addEventListener((o, canceledArgs) -> {
                 recoText.setText("Canceled (" + canceledArgs.getReason().toString() + ") error details: {}" + canceledArgs.getErrorDetails());
-                botConnector.disconnectAsync();
+                connector.disconnectAsync();
             });
 
             // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities.
-            botConnector.activityReceived.addEventListener((o, activityArgs) -> {
+            connector.activityReceived.addEventListener((o, activityArgs) -> {
                 try {
                     // Here we use JSONObject only to "pretty print" the condensed Activity JSON
                     String rawActivity = activityArgs.getActivity().serialize();
@@ -257,7 +254,7 @@ Metin ve grafik temsilini kullanıcı Arabirimi artık şöyle görünmelidir:
 
    * `onBotButtonClicked` yöntemi daha önce de belirtildiği gibi düğme tıklama işleyicisidir. Bir düğme basma tek etkileşim ("Aç") ile botunuza tetikler.
 
-   * `registerEventListeners` Yöntemi SpeechBotConnector ve temel işleme gelen etkinlik tarafından kullanılan olayları gösterir.
+   * `registerEventListeners` Yöntemi tarafından kullanılan olayları gösterir `DialogServiceConnector` ve temel işlemenin gelen etkinlikleri.
 
 1. Aynı dosyada, yapılandırma dizeleri kaynaklarınızı eşleşecek şekilde değiştirin:
 
@@ -265,7 +262,7 @@ Metin ve grafik temsilini kullanıcı Arabirimi artık şöyle görünmelidir:
 
     * `YourSpeechSubscriptionKey` değerini abonelik anahtarınızla değiştirin.
 
-    * Değiştirin `YourServiceRegion` ile [bölge](regions.md) aboneliğinizle ilişkili (Not: yalnızca 'westus2' şu anda desteklenmiyor).
+    * Değiştirin `YourServiceRegion` ile [bölge](regions.md) doğrudan satır Konuşma ile desteklenen yalnızca bir alt bölgelerin konuşma Hizmetleri aboneliğinizle ilişkili. Daha fazla bilgi için [bölgeleri](regions.md#voice-first-virtual-assistants).
 
 ## <a name="build-and-run-the-app"></a>Uygulamayı derleme ve çalıştırma
 
@@ -286,9 +283,11 @@ Uygulama ve onun etkinlik başlattıktan sonra botunuzun için konuşma başlatm
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [GitHub üzerinde Java örnekleri keşfedin](https://aka.ms/csspeech/samples)
-> [doğrudan satır konuşma botunuzun bağlanma](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> [Temel robot oluşturup](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 - [Ses öncelikli sanal Yardımcıları](voice-first-virtual-assistants.md)
+- [Bir konuşma Hizmetleri abonelik anahtarı ücretsiz olarak edinin](get-started.md)
 - [Özel Uyandırma sözcükler](speech-devices-sdk-create-kws.md)
+- [Botunuz için doğrudan satır konuşma bağlanma](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [GitHub üzerinde Java örnekleri keşfedin](https://aka.ms/csspeech/samples)

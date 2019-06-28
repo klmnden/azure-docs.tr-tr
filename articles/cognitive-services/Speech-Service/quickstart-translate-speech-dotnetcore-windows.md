@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: fa516c5050bfd53add761bea56c74a58057263c7
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 8f246e5b3d96855bd40ff50e2f382d8576fee021
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465696"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466096"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-core"></a>Hızlı Başlangıç: Konuşma Speech SDK'sı ile .NET Core için çevir
 
-Hızlı Başlangıçlar ücret karşılığında ayrıca [konuşma metin](quickstart-csharp-dotnet-windows.md) ve [metin okuma](quickstart-text-to-speech-dotnet-windows.md).
+Hızlı Başlangıçlar ücret karşılığında ayrıca [konuşma metin](quickstart-csharp-dotnet-windows.md) ve [metin okuma](quickstart-text-to-speech-dotnetcore.md).
 
 Bu hızlı başlangıçta, bilgisayarınızın mikrofondan gelen kullanıcı konuşma yakalar, konuşma çevirir ve gerçek zamanlı olarak komut satırında çevrilmiş metne dönüştürür basit bir .NET Core uygulaması oluşturacaksınız. Bu uygulama, 64 bit Windows üzerinde çalışacak şekilde tasarlanmıştır ve ile oluşturulmuş [konuşma SDK'sı NuGet paketi](https://aka.ms/csspeech/nuget) ve Microsoft Visual Studio 2017.
 
@@ -37,7 +37,7 @@ Bu hızlı başlangıç şunları gerektirir:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-dotnetcore-create-proj.md)]
 
-## <a name="add-sample-code"></a>Örnek kod ekleyin
+## <a name="add-sample-code"></a>Örnek kodu ekleme
 
 1. `Program.cs` dosyasını açın ve tüm kodu aşağıdakiyle değiştirin.
 

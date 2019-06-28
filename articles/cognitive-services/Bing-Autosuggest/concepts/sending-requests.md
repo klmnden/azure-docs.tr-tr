@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 06/25/2019
 ms.author: scottwhi
-ms.openlocfilehash: abcce52e126e01d25434a90260a220c9aa337f5b
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: be3262daf7ea2a637133ad658efe07ba9426415b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382708"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449081"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Bing otomatik öneri API'si isteği gönderme.
 
@@ -95,11 +95,11 @@ Aşağıdaki örnekte, *sail* için önerilen sorgu dizelerini döndüren bir is
 
 Bing API'lerinden birini ilk kez çağırıyorsanız istemci kimliği üst bilgisini eklemeyin. İstemci kimliği üst bilgisini yalnızca önceden bir Bing API'sini çağırdıysanız ve Bing, kullanıcı ve cihaz birleşimi için bir istemci kimliği döndürdüyse dahil edin.
 
-Aşağıdaki kod önceki isteğin yanıtını göstermektedir. Yanıtta arama sorgusu önerilerinin listesini içeren bir web önerisi grubu bulunmaktadır. Her öneri `displayText`, `query` ve `url` alanlarını içerir.
+Aşağıdaki web öneri yukarıdaki isteğe yanıt grubudur. Grubu arama Sorgu önerileri dahil her öneri ile listesini içeren bir `displayText`, `query`, ve `url` alan.
 
 `displayText` alanı, arama kutunuzun açılır listesini doldurmak için kullandığınız önerilen sorguyu içerir. Yanıtın içerdiği tüm önerileri, verilen sırada görüntülemeniz gerekir.  
 
-Kullanıcının açılan listeden bir sorgu seçerse, biri olan arama için kullanabileceğiniz [Bing arama API'leri](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) ve sonuçları kendiniz görüntülemek veya kullanıcı döndürülen kullanarak Bing sonuçları sayfasına gönderin `url` alan. Aşağıdaki örnek, Bing Web araması API'si kullanır.
+Kullanıcının açılan listeden bir sorgu seçerse, biri olan arama için kullanabileceğiniz [Bing arama API'leri](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) ve sonuçları kendiniz görüntülemek veya kullanıcı döndürülen kullanarak Bing sonuçları sayfasına gönderin `url` alan.
 
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 7d405c1e4ac5de7591f92b391071cfd66371c088
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: aca7a114fb6e00ab1bbf6ab24492056fca3059f4
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003140"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466637"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Hızlı Başlangıç: Speech SDK'sı kullanarak iOS Objective-C, konuşma tanıma
 
@@ -67,7 +67,7 @@ Takip eden iletişim kutularında, aşağıdaki seçimleri yapın:
 
 Örnek uygulama, çok basit bir kullanıcı Arabirimi vardır: Konuşma tanıma dosyasından veya mikrofon girişi ve sonucu görüntülemek için bir metin etiketi başlatmak için iki düğme.
 Kullanıcı arabirimi projenin `Main.storyboard` bölümünde ayarlanır.
-Proje ağacında `Main.storyboard` girdisine sağ tıklayıp **Farklı Aç...** > **Kaynak Kod** seçeneklerini belirleyerek görsel taslağın XML görünümünü açın.
+Proje ağacında `Main.storyboard` girdisine sağ tıklayıp **Farklı Aç...**  > **Kaynak Kod** seçeneklerini belirleyerek görsel taslağın XML görünümünü açın.
 Otomatik olarak oluşturulan XML şu kodla değiştirin:
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/Base.lproj/Main.storyboard)]
@@ -90,9 +90,8 @@ Otomatik olarak oluşturulan XML şu kodla değiştirin:
 ## <a name="building-and-running-the-sample"></a>Örneği Derleme ve Çalıştırma
 
 1. Hata ayıklama çıkışını görünür hale getirin (**Görünüm** > **Hata Ayıklama Alanı** > **Konsolu Etkinleştir**).
-1. İOS simülatörü veya listeden bir uygulama için hedef olarak geliştirme makinenize bağlı bir iOS cihazını seçin **ürün** -> **hedef** menüsü.
-1. Menüden **Ürün** -> **Çalıştır** seçeneklerini belirleyerek veya **Oynat** düğmesine tıklayarak iOS simülatöründe örnek kodu derleyin ve çalıştırın.
-   Konuşma SDK’sı şu anda yalnızca 64 bit iOS platformlarını desteklemektedir.
+1. İOS simülatörü veya listeden bir uygulama için hedef olarak geliştirme makinenize bağlı bir iOS cihazını seçin **ürün** > **hedef** menüsü.
+1. Menüden **Ürün** > **Çalıştır** seçeneklerini belirleyerek veya **Oynat** düğmesine tıklayarak iOS simülatöründe örnek kodu derleyin ve çalıştırın.
 1. Uygulamada "Tanı (Dosya)" düğmesine tıkladığınızda, ekranın alt kısmında "What's the weather like?" ses dosyasının içeriklerini görmeniz gerekir.
 
    ![iOS Uygulaması Simülasyonu](media/sdk/qs-objectivec-simulated-app.png)

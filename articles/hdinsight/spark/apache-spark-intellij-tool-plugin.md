@@ -1,37 +1,48 @@
 ---
-title: 'Intellij için Azure Araç Seti: Spark uygulamaları için bir HDInsight kümesi oluşturma '
-description: Spark Scala içinde yazılmış uygulamalar geliştirmek için Intellij için Azure araç takımı kullanın ve bunları bir HDInsight Spark kümesine göndermek.
+title: 'Öğretici - Intellij için Azure Araç Seti: Spark uygulamaları için bir HDInsight kümesi oluşturma'
+description: Öğretici - Spark Scala içinde yazılmış uygulamalar geliştirmek için Intellij için Azure araç takımı kullanın ve bunları bir HDInsight Spark kümesine göndermek.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 02/15/2019
-ms.author: maxluk
-ms.openlocfilehash: d03fbcc59b0340e8a99d71f9b08f4405a89b30f3
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 06/26/2019
+ms.author: hrasheed
+ms.openlocfilehash: 0a434246791e73e24af1ffe7abd722f5265ca5b6
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274032"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462373"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Öğretici: Bir HDInsight kümesi için Apache Spark uygulamaları oluşturmak için Intellij için Azure Araç Seti'ni kullanma
 
-Geliştirmek için eklenti Intellij için Azure Araç Seti'ni kullanma [Apache Spark](https://spark.apache.org/) yazılan uygulamalar [Scala](https://www.scala-lang.org/)ve ardından bir HDInsight Spark kümesine doğrudan Intellij tümleşik geliştirme gönderin Ortamı (IDE). Birkaç yöntemle eklenti kullanabilirsiniz:
+Bu eğitimde yazılan Apache Spark uygulamaları geliştirmek için eklenti Intellij için Azure Araç Seti'ni kullanma [Scala](https://www.scala-lang.org/)ve ardından bir HDInsight Spark kümesine doğrudan tümleştirilmiş olan Intellij gönderin geliştirme ortamı (IDE). Birkaç yöntemle eklenti kullanabilirsiniz:
 
 * Geliştirin ve bir HDInsight Spark kümesi üzerinde bir Scala Spark uygulaması gönderin.
 * Azure HDInsight Spark kümesi kaynaklarınıza erişin.
 * Geliştirin ve yerel olarak Scala Spark uygulamasını çalıştırın.
 
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+> [!div class="checklist"]
+> * Eklenti Intellij için Azure araç takımı kullanın
+> * Apache Spark uygulamaları geliştirin
+> * Azure HDInsight kümesine uygulama gönderme
+
 ## <a name="prerequisites"></a>Önkoşullar
 
 * HDInsight üzerinde bir Apache Spark kümesi. Yönergeler için bkz. [Azure HDInsight'ta Apache Spark kümeleri oluşturma](apache-spark-jupyter-spark-sql.md).
+
 * [Oracle Java Development kit](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  Bu öğreticide, Java Sürüm 8.0.202 kullanılır.
+
 * IntelliJ IDEA. Bu makalede [Intellij Idea topluluk ver.  2018.3.4](https://www.jetbrains.com/idea/download/).
+
 * Intellij için Azure Araç Seti.  Bkz: [Intellij için Azure araç setini yükleme](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
+
 * WINUTILS. EXE.  Bkz: [Windows üzerinde Hadoop çalıştırırken sorun](https://wiki.apache.org/hadoop/WindowsProblems).
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>IntelliJ IDEA için Scala eklentisini yükleme
+
 Scala eklentisini yüklemek için aşağıdaki adımları gerçekleştirin:
 
 1. IntelliJ IDEA’yı açın.
@@ -45,7 +56,6 @@ Scala eklentisini yüklemek için aşağıdaki adımları gerçekleştirin:
     ![Scala eklentisini yükleme](./media/apache-spark-intellij-tool-plugin/install-scala-plugin.png)
 
 4. Eklenti başarıyla yüklendikten sonra IDE’yi yeniden başlatmanız gerekir.
-
 
 ## <a name="create-a-spark-scala-application-for-an-hdinsight-spark-cluster"></a>Bir Scala Spark uygulaması için bir HDInsight Spark kümesi oluşturma
 
@@ -133,7 +143,6 @@ Kullanıcı şunları yapabilir ya da [Azure aboneliği için oturum açın](#si
    
    ![Azure Gezgini bağlantısı](./media/apache-spark-intellij-tool-plugin/explorer-rightclick-azure.png)
 
-
 3. İçinde **Azure oturum açma** iletişim kutusunda **cihaz oturum açma**ve ardından **oturum**.
 
     ![Azure oturum açma iletişim kutusu](./media/apache-spark-intellij-tool-plugin/view-explorer-2.png)
@@ -163,6 +172,7 @@ Kullanıcı şunları yapabilir ya da [Azure aboneliği için oturum açın](#si
     ![Genişletilmiş bir küme adı düğümü](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
 ### <a name="link-a-cluster"></a>Küme bağlantı
+
 Yönetilen Apache Ambari kullanıcı adını kullanarak bir HDInsight kümesine bağlayabilirsiniz. Benzer şekilde, bir etki alanına katılmış HDInsight kümesi için etki alanı ve kullanıcı adı, aşağıdaki gibi kullanarak bağlayabilirsiniz user1@contoso.com. Ayrıca, Livy Service kümesi bağlayabilirsiniz.
 
 1. Menü çubuğundan gidin **görünümü** > **aracı Windows** > **Azure Gezgini**.
@@ -183,7 +193,7 @@ Yönetilen Apache Ambari kullanıcı adını kullanarak bir HDInsight kümesine 
         |Kullanıcı adı| Küme kullanıcı adı girin, varsayılan admin'dir.|
         |Parola| Parola için kullanıcı adı girin.|
     
-        ![Hdınsight küme iletişim bağlantı](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
+        ![HDInsight küme iletişim bağlantı](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
 
     * **Livy hizmeti**  
   
@@ -208,6 +218,7 @@ Yönetilen Apache Ambari kullanıcı adını kullanarak bir HDInsight kümesine 
    ![bağlantısız küme](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
 ## <a name="run-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>Bir HDInsight Spark kümesi üzerinde bir Scala Spark uygulamasını çalıştırma
+
 Scala uygulama oluşturduktan sonra küme gönderebilirsiniz.
 
 1. Projeden gidin **myApp** > **src** > **ana** > **scala**  >  **myApp**.  Sağ **myApp**seçip **gönderme Spark uygulaması** (Bu büyük olasılıkla listesinin en altında bulunan olacaktır).
@@ -225,23 +236,25 @@ Scala uygulama oluşturduktan sonra küme gönderebilirsiniz.
     |Ana sınıf adı|Seçili dosya ana sınıftan varsayılan değerdir. Sınıfı üç nokta seçerek değiştirebilirsiniz ( **...** ) ve başka bir sınıfı seçme.|
     |Proje yapılandırmaları|Varsayılan anahtarlar ve/veya değerleri değiştirebilirsiniz. Daha fazla bilgi için [Apache Livy REST API](https://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Komut satırı bağımsız değişkenleri|Gerekirse ana sınıfı için boşluk tarafından ayrılmış bağımsız değişkenleri girebilirsiniz.|
-    |Başvurulan jar dosyaları dışındaki ve başvurulan dosyaları|Varsa, başvurulan jar dosyaları dışındaki ve dosyaları için yol girebilirsiniz. Daha fazla bilgi için: [Apache Spark yapılandırma](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  Ayrıca bkz [küme kaynaklarını karşıya nasıl](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
+    |Başvurulan jar dosyaları dışındaki ve başvurulan dosyaları|Varsa, başvurulan jar dosyaları dışındaki ve dosyaları için yol girebilirsiniz. Şu anda yalnızca ADLS Gen 2 küme destekleyen Azure sanal dosya sisteminde dosyaları da göz atabilirsiniz. Daha fazla bilgi için: [Apache Spark yapılandırma](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  Ayrıca bkz [küme kaynaklarını karşıya nasıl](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
     |İşi karşıya yükleme depolama|Ek seçenekleri görmek için genişletin.|
     |Depolama türü|Seçin **karşıya yüklemek için kullanım Azure Blob** aşağı açılan listeden.|
     |Depolama Hesabı|Depolama hesabınızı girin.|
     |Depolama anahtarı|Depolama anahtarınızı girin.|
     |Depolama kapsayıcısı|Aşağı açılan listeden depolama kapsayıcısını seçmek **depolama hesabı** ve **depolama anahtarı** girildi.|
 
-    ![Spark gönderim iletişim kutusu](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-2.png)
+    ![Spark gönderim iletişim kutusu](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png)
 
 4. Seçin **SparkJobRun** seçili küme projenize göndermek için. **Kümedeki uzak bir Spark işi** sekmesi altındaki iş yürütme ilerleme durumunu görüntüler. Kırmızı düğmeye tıklayarak uygulama durdurabilirsiniz. İş çıktısı erişim öğrenmek için bkz. "erişim ve Intellij için Azure araç setini kullanarak HDInsight Spark kümeleri yönetme" bölümünde bu makalenin sonraki bölümlerinde.  
       
     ![Spark gönderimi penceresi](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
 
 ## <a name="debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>Apache Spark uygulamaları bir HDInsight kümesi üzerinde yerel olarak veya uzaktan hata ayıklama 
+
 Spark uygulamayı kümeye gönderilirken bir başka yolu da öneririz. Parametreleri ayarlayarak bunu yapabilirsiniz **Çalıştır/hata ayıklama yapılandırmaları** IDE. Daha fazla bilgi için [Apache Spark uygulamaları yerel olarak veya uzaktan Azure araç seti ile HDInsight kümesinde SSH üzerinden Intellij için hata ayıklama](apache-spark-intellij-tool-debug-remotely-through-ssh.md).
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Erişim ve Intellij için Azure Araç Seti'ni kullanarak HDInsight Spark kümeleri yönetme
+
 Intellij için Azure Araç Seti'ni kullanarak çeşitli işlemler gerçekleştirebilirsiniz.  İşlemlerin çoğu başlatılan **Azure Gezgini**.  Menü çubuğundan gidin **görünümü** > **aracı Windows** > **Azure Gezgini**.
 
 ### <a name="access-the-job-view"></a>İş görünümü erişim
@@ -278,6 +291,7 @@ Intellij için Azure Araç Seti'ni kullanarak çeşitli işlemler gerçekleştir
 2. İstendiğinde, küme için yönetici kimlik bilgilerini girin. Küme kurulumu sırasında bu kimlik bilgileri belirtirsiniz.
 
 ### <a name="manage-azure-subscriptions"></a>Azure aboneliklerini yönetme
+
 Varsayılan olarak, tüm Azure abonelik Spark kümeleri Intellij için Azure Araç Seti listeler. Gerekirse, erişmek istediğiniz abonelikleri belirtebilirsiniz.  
 
 1. Azure Gezgini'nden sağ **Azure** kök düğümünü ve ardından **abonelikleri seçin**.  
@@ -285,9 +299,11 @@ Varsayılan olarak, tüm Azure abonelik Spark kümeleri Intellij için Azure Ara
 2. Gelen **abonelikleri seçin** penceresindeki onay kutularını yanındaki Abonelikleri, açık erişim ve daha sonra seçmek istemiyorsanız **Kapat**.
 
 ## <a name="spark-console"></a>Spark Konsolu
+
 Spark yerel Console(Scala) çalıştırın ya da Spark Livy etkileşimli oturumu Console(Scala) çalıştırın.
 
 ### <a name="spark-local-consolescala"></a>Spark yerel Console(Scala)
+
 WINUTILS uyduğunuzdan emin olun. EXE önkoşul.
 
 1. Menü çubuğundan gidin **çalıştırma** > **yapılandırmalarını Düzenle...** .
@@ -320,8 +336,8 @@ WINUTILS uyduğunuzdan emin olun. EXE önkoşul.
 
     ![Yerel konsol sonucu](./media/apache-spark-intellij-tool-plugin/local-console-result.png)
 
-
 ### <a name="spark-livy-interactive-session-consolescala"></a>Livy etkileşimli oturumu Console(Scala) spark
+
 Yalnızca, Intellij 2018.2 ve 2018.3 desteklenir.
 
 1. Menü çubuğundan gidin **çalıştırma** > **yapılandırmalarını Düzenle...** .
@@ -354,6 +370,7 @@ Komut dosyası sonucu yerel konsol veya Livy etkileşimli oturumu Console(Scala)
    ![Spark konsola seçimi Gönder](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
 
 ## <a name="reader-only-role"></a>Salt okuyucu rolü
+
 Kullanıcıların gönderme salt okuyucu rolü izni olan bir küme için iş, Ambari kimlik bilgileri gereklidir.
 
 ### <a name="link-cluster-from-context-menu"></a>Bağlam menüsünden bağlantı kümesi
@@ -364,7 +381,7 @@ Kullanıcıların gönderme salt okuyucu rolü izni olan bir küme için iş, Am
 
     ![HDInsight Spark kümeleri, Azure Gezgini](./media/apache-spark-intellij-tool-plugin/view-explorer-15.png)
 
-3. Sağ salt okuyucu rolü izni ile kümeye tıklayın. Seçin **bu kümeye bağlantı** bağlamak için bağlam menüsünden küme. Ambari kullanıcı adı ve parola girin.
+3. Salt okuyucu rolü izni olan bir kümeye sağ tıklayın. Seçin **bu kümeye bağlantı** bağlamak için bağlam menüsünden küme. Ambari kullanıcı adı ve parola girin.
 
   
     ![HDInsight Spark kümeleri, Azure Gezgini](./media/apache-spark-intellij-tool-plugin/view-explorer-11.png)
@@ -373,8 +390,6 @@ Kullanıcıların gönderme salt okuyucu rolü izni olan bir küme için iş, Am
    Aşama kümenin bağlı olur.
   
     ![HDInsight Spark kümeleri, Azure Gezgini](./media/apache-spark-intellij-tool-plugin/view-explorer-8.png)
-
-
 
 ### <a name="link-cluster-by-expanding-jobs-node"></a>İşleri düğümünü genişleterek bağlantı kümesi
 
@@ -404,9 +419,7 @@ Kullanıcıların gönderme salt okuyucu rolü izni olan bir küme için iş, Am
      
    ![HDInsight Spark kümeleri, Azure Gezgini](./media/apache-spark-intellij-tool-plugin/view-explorer-13.png)
 
-
    ![HDInsight Spark kümeleri, Azure Gezgini](./media/apache-spark-intellij-tool-plugin/view-explorer-12.png)
-  
 
 ## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>Intellij için Azure Araç Seti kullanmak için Intellij Idea uygulamalara dönüştürün
 
@@ -424,70 +437,25 @@ Mevcut Spark Scala dönüştürebilirsiniz Intellij için Azure araç seti ile u
 
 3. Değişiklikleri kaydedin. Uygulamanız artık Intellij için Azure araç seti ile uyumlu olmalıdır. Projedeki proje adını sağ tıklayarak test edebilirsiniz. Açılır menü seçeneği artık etkin **gönderin, HDInsight için Spark uygulaması**.
 
-## <a name="troubleshooting"></a>Sorun giderme
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-### <a name="error-in-local-run-use-a-larger-heap-size"></a>Yerel çalıştırma hatası: *Daha büyük bir yığın boyutu kullanın*
-Spark 1.6 içinde yerel çalıştırma sırasında bir 32-bit Java SDK'sı kullanıyorsanız, şu hatalarla karşılaşabilirsiniz:
+Bu uygulamayı kullanmaya devam etmeyecekseniz aşağıdaki adımlarla oluşturduğunuz kümeyi silin:
 
-    Exception in thread "main" java.lang.IllegalArgumentException: System memory 259522560 must be at least 4.718592E8. Please use a larger heap size.
-        at org.apache.spark.memory.UnifiedMemoryManager$.getMaxMemory(UnifiedMemoryManager.scala:193)
-        at org.apache.spark.memory.UnifiedMemoryManager$.apply(UnifiedMemoryManager.scala:175)
-        at org.apache.spark.SparkEnv$.create(SparkEnv.scala:354)
-        at org.apache.spark.SparkEnv$.createDriverEnv(SparkEnv.scala:193)
-        at org.apache.spark.SparkContext.createSparkEnv(SparkContext.scala:288)
-        at org.apache.spark.SparkContext.<init>(SparkContext.scala:457)
-        at LogQuery$.main(LogQuery.scala:53)
-        at LogQuery.main(LogQuery.scala)
-        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
-        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-        at java.lang.reflect.Method.invoke(Method.java:606)
-        at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-Yığın boyutu, çalıştırılacak Spark için yeterince büyük olmadığı için bu hataları gerçekleşir. Spark, en az 471 MB gerekir. (Daha fazla bilgi için [SPARK 12081](https://issues.apache.org/jira/browse/SPARK-12081).) Basit bir çözüm, bir 64 bit Java SDK'sı kullanmaktır. Aşağıdaki seçenekler ekleyerek Intellij JVM ayarlarını da değiştirebilirsiniz:
+1. İçinde **arama** kutusunun üstündeki türü **HDInsight**.
 
-    -Xms128m -Xmx512m -XX:MaxPermSize=300m -ea
+1. Seçin **HDInsight kümeleri** altında **Hizmetleri**.
 
-![Intellij "VM Seçenekleri" kutusunda seçenekleri ekleme](./media/apache-spark-intellij-tool-plugin/change-heap-size.png)
+1. Görüntülenen listeden HDInsight kümelerinin, seçin **...**  yanında, Bu öğretici için oluşturduğunuz küme.
 
-## <a name="faq"></a>SSS
-Küme meşgul ise, aşağıdaki hata alabilirsiniz.
+1. **Sil**’i seçin. Seçin **Evet**.
 
-![Intellij alma hatası ne zaman meşgul küme](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-upload.png)
+![HDInsight kümesini silme](./media/apache-spark-intellij-tool-plugin/hdinsight-azure-portal-delete-cluster.png "HDInsight kümesini silme")
 
-![Intellij alma hatası ne zaman meşgul küme](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-submit.png)
+## <a name="next-steps"></a>Sonraki adımlar
 
-## <a name="known-issues"></a>Bilinen sorunlar
+Bu öğreticide, yazılan Apache Spark uygulamaları geliştirmek için eklenti Intellij için Azure Araç Seti kullanmayı öğrendiniz [Scala](https://www.scala-lang.org/)ve ardından bir HDInsight Spark kümesine doğrudan tümleştirilmiş olan Intellij gönderildi geliştirme ortamı (IDE). Power BI gibi bir BI analiz aracı Apache Spark, kayıtlı verileri nasıl çekilebilir görmek için sonraki makaleye ilerleyin.
 
-Şu anda, Spark çıkışları doğrudan görüntüleme desteklenmiyor.
-
-## <a name="seealso"></a>Sonraki adımlar
-
-* [Genel Bakış: Azure HDInsight üzerinde Apache Spark](apache-spark-overview.md)
-
-### <a name="demo"></a>Tanıtım
-* Scala proje (video) oluşturun: [Apache Spark Scala uygulamaları oluşturma](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
-* Uzaktan hata ayıklama (video): [Apache Spark uygulamaları HDInsight kümesi üzerinde uzaktan hata ayıklama için Intellij için Azure araç takımı kullanın](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
-
-### <a name="scenarios"></a>Senaryolar
-* [Apache Spark ile BI: BI araçları ile HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
-* [Apache Spark Machine Learning ile: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark Machine Learning ile: Gıda denetimi sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
-* [HDInsight Apache Spark'ı kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
-
-### <a name="creating-and-running-applications"></a>Oluşturma ve uygulamaları çalıştırma
-* [Scala kullanarak tek başına uygulama oluşturma](apache-spark-create-standalone-application.md)
-* [Apache Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
-
-### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
-* [Apache Spark uygulamalar VPN üzerinden uzaktan hata ayıklama için Intellij için Azure araç takımı kullanın](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Apache Spark uygulamalarında SSH üzerinden uzaktan hata ayıklama için Intellij için Azure araç takımı kullanın](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Apache Spark uygulamaları oluşturmak için Eclipse için Azure araç seti, HDInsight araçları kullanma](apache-spark-eclipse-tool-plugin.md)
-* [HDInsight üzerinde Apache Spark kümesi ile Apache Zeppelin not defterlerini kullanma](apache-spark-zeppelin-notebook.md)
-* [HDInsight için Apache Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](apache-spark-jupyter-notebook-kernels.md)
-* [Jupyter not defterleri ile dış paketleri kullanma](apache-spark-jupyter-notebook-use-external-packages.md)
-* [Jupyter’i bilgisayarınıza yükleme ve bir HDInsight Spark kümesine bağlanma](apache-spark-jupyter-notebook-install-locally.md)
-
-### <a name="managing-resources"></a>Kaynakları yönetme
-* [Azure HDInsight’ta Apache Spark kümesi kaynaklarını yönetme](apache-spark-resource-manager.md)
-* [HDInsight’ta bir Apache Spark kümesinde çalışan işleri izleme ve hata ayıklama](apache-spark-job-debugging.md)
+> [!div class="nextstepaction"]
+> [BI araçlarını kullanarak verileri analiz etme](apache-spark-use-bi-tools.md)

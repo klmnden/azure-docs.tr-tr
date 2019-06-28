@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: 524ca96687e9395b65ec513326ad0fd4f7c6d429
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a2364068a1fcba46509408672e5be7440fcfba5
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60533745"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462224"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Öğretici: Logic Apps'i kullanarak, Azure dijital İkizlerini boşlukları bildirimleri alma
 
@@ -76,16 +76,16 @@ Bir [olay Kılavuzu konusu](../event-grid/concepts.md#topics) kullanıcı tanım
       - SpaceChange
       - TopologyOperation
       - UdfCustom
-      connectionString: Primary_connection_string_for_your_Event_Grid
-      secondaryConnectionString: Secondary_connection_string_for_your_Event_Grid
-      path: Event_Grid_Topic_Path
+      connectionString: <Primary connection string for your Event Grid>
+      secondaryConnectionString: <Secondary connection string for your Event Grid>
+      path: <Event Grid Topic Name without https:// and /api/events, e.g. eventgridname.region.eventgrid.azure.net>
     ```
 
-1. Yer tutucusunu değiştirin `Primary_connection_string_for_your_Event_Grid` değeriyle **YOUR_KEY_1**.
+1. Yer tutucusunu değiştirin `<Primary connection string for your Event Grid>` değeriyle **YOUR_KEY_1**.
 
-1. Yer tutucusunu değiştirin `Secondary_connection_string_for_your_Event_Grid` değeriyle **YOUR_KEY_2**.
+1. Yer tutucusunu değiştirin `<Secondary connection string for your Event Grid>` değeriyle **YOUR_KEY_2**.
 
-1. `Event_Grid_Topic_Path` yer tutucusunu Event Grid konu başlığının yoluyla değiştirin. Bu yolu kaldırarak almak **https://** ve sondaki kaynak yolları **konu başlığı uç noktası** URL'si. Şu biçime benzer görünmelidir: *EventGridAdı.Konumunuz.eventgrid.azure.net*.
+1. Yer tutucusunu değiştirin **yolu** yoluyla olay ızgarası konu. Bu yolu kaldırarak almak **https://** ve sondaki kaynak yolları **konu başlığı uç noktası** URL'si. Şu biçime benzer görünmelidir: *EventGridAdı.Konumunuz.eventgrid.azure.net*.
 
     > [!IMPORTANT]
     > Değerleri girerken tırnak işaretlerini dahil etmeyin. YAML dosyası iki nokta üst üste sonra en az bir boşluk karakteri olduğundan emin olun. Tüm çevrimiçi YAML Doğrulayıcı gibi kullanarak, YAML dosyası içeriği doğrulayabilirsiniz [bu araç](https://onlineyamltools.com/validate-yaml).
@@ -114,7 +114,7 @@ Kullanabileceğiniz [Azure Logic Apps](../logic-apps/logic-apps-overview.md) di�
 
 1. Açık dağıtıldığında, Logic Apps kaynak ve açın **mantıksal Uygulama Tasarımcısı** bölmesi. 
 
-1. **When an Event Grid event occurs** (Bir Event Grid olayı gerçekleştiğinde) tetikleyicisini seçin. Kiracınızın istendiğinde Azure hesabınızda oturum açın. Seçin **erişime izin ver** istendiğinde, Event Grid kaynağınız için. **Devam**'ı seçin.
+1. Seçin **bir Event Grid, kaynak gerçekleştiğinde** tetikleyici. Kiracınızın istendiğinde Azure hesabınızda oturum açın. Seçin **erişime izin ver** istenirse Event Grid kaynağınızın. Seçin **devam**.
 
 1. İçinde **(Önizleme) kaynak olayı gerçekleştiğinde** penceresi: 
    
@@ -134,7 +134,7 @@ Kullanabileceğiniz [Azure Logic Apps](../logic-apps/logic-apps-overview.md) di�
 
    b. İçinde **içeriği** alanın, Seç **gövdesi** gelen **dinamik içerik** listesi.
 
-   c. Seçin **şema oluşturmak için yük kullanım örneğine**. Aşağıdaki JSON yükü yapıştırın ve ardından **Bitti**.
+   c. **Şema oluşturmak için örnek yük kullanma** öğesini seçin. Aşağıdaki JSON yükü yapıştırın ve ardından **Bitti**.
 
     ```JSON
     {
@@ -174,7 +174,7 @@ Kullanabileceğiniz [Azure Logic Apps](../logic-apps/logic-apps-overview.md) di�
 
    a. Seçin **Eylem Ekle**seçip **Office 365 Outlook**.
 
-   b. Gelen **eylemleri** listesinden **bir e-posta**. Seçin **oturum** ve e-posta hesabı kimlik bilgilerinizi kullanın. Seçin **erişime izin ver** istendiğinde.
+   b. Gelen **eylemleri** listesinden **bir e-posta**. Seçin **oturum** ve e-posta hesabı kimlik bilgilerinizi kullanın. Seçin **erişime izin ver** istenirse.
 
    c. **Alıcı** kutusuna bildirimlerin gönderilmesi için e-posta adresinizi yazın. İçinde **konu**, metin girin **dijital İkizlerini bildirim alanında kötü uzaktan kalite için**. Ardından **TopologyObjectId** gelen **dinamik içerik** için liste **JSON Ayrıştır**.
 

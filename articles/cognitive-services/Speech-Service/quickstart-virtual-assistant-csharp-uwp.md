@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: 9d29fdbfc82f221dac3b304dcf9de8c230b4d5e2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4044f8d48efae4e8423f780c85e0f3ccfde12461
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056799"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467050"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Hızlı Başlangıç: Ses öncelikli sanal asistan UWP konuşma SDK ile oluşturma
 
-Hızlı Başlangıçlar ücret karşılığında ayrıca [konuşma metin](quickstart-csharp-uwp.md) ve [konuşma çevirisi](quickstart-translate-speech-uwp.md).
+Hızlı Başlangıçlar ücret karşılığında ayrıca [konuşma metin](quickstart-csharp-uwp.md), [metin okuma](quickstart-text-to-speech-csharp-uwp.md) ve [konuşma çevirisi](quickstart-translate-speech-uwp.md).
 
 Bu makalede, geliştireceksiniz bir C# kullanarak evrensel Windows Platformu (UWP) uygulama [Speech SDK'sı](speech-sdk.md). Programın istemci uygulamadan alınan bir ses öncelikli sanal asistan deneyimi etkinleştirmek için daha önce yazılmış ve yapılandırılmış bir bot bağlanır. Uygulama [Konuşma SDK'sı NuGet Paketi](https://aka.ms/csspeech/nuget) ve Microsoft Visual Studio 2017 (herhangi bir sürüm) ile geliştirilmiştir.
 
@@ -32,14 +32,11 @@ Bu makalede, geliştireceksiniz bir C# kullanarak evrensel Windows Platformu (UW
 Bu hızlı başlangıç şunları gerektirir:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* Konuşma Hizmetleri için bir Azure aboneliği anahtar **westus2** bölge. Bu aboneliği oluşturun [Azure portalında](https://portal.azure.com).
+* Konuşma Hizmetleri için bir Azure aboneliği anahtarı. [Ücretsiz edinin](get-started.md) ya da üzerinde oluşturma [Azure portalında](https://portal.azure.com).
 * Yapılandırılmış önceden oluşturulmuş bir bot [doğrudan satır konuşma kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
     > [!NOTE]
-    > Doğrudan satır okuma (Önizleme) şu anda yalnızca bulunan **westus2** bölge.
-
-    > [!NOTE]
-    > 30 günlük deneme için standart fiyatlandırma katmanı açıklanan [konuşma Hizmetleri ücretsiz olarak deneyin](get-started.md) sınırlıdır **westus** (değil **westus2**) ve bu nedenle uyumlu değil doğrudan ile Satır konuşma. Ücretsiz ve standart katmanı **westus2** abonelikleri uyumludur.
+    > Doğrudan satır okuma (Önizleme) şu anda konuşma Hizmetleri bölgelerin alt kümesinde kullanılabilir. Lütfen [ses öncelikli sanal Yardımcıları için desteklenen bölgelerin listesini](regions.md#voice-first-virtual-assistants) ve kaynaklarınız bu bölgelerden birinde dağıtıldığı emin olun.
 
 ## <a name="optional-get-started-fast"></a>İsteğe bağlı: Hızla kullanmaya başlayın
 
@@ -63,7 +60,7 @@ Bu hızlı başlangıçta, adım adım konuşma özellikli botunuzun bağlanmak 
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
+
         <Grid>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center"  Margin="20,50,0,0" VerticalAlignment="Center" Width="800">
                 <Button x:Name="EnableMicrophoneButton" Content="Enable Microphone"  Margin="0,0,10,0" Click="EnableMicrophone_ButtonClicked" Height="35"/>
@@ -111,7 +108,7 @@ Bu hızlı başlangıçta, adım adım konuşma özellikli botunuzun bağlanmak 
     {
         public sealed partial class MainPage : Page
         {
-            private SpeechBotConnector botConnector;
+            private DialogServiceConnector connector;
 
             private enum NotifyType
             {
@@ -230,7 +227,7 @@ Bu hızlı başlangıçta, adım adım konuşma özellikli botunuzun bağlanmak 
                 });
             }
 
-            private void InitializeBotConnector()
+            private void InitializeDialogServiceConnector()
             {
                 // New code will go here
             }
@@ -243,31 +240,31 @@ Bu hızlı başlangıçta, adım adım konuşma özellikli botunuzun bağlanmak 
     }
     ```
 
-1. Ardından, oluşturacağınız `SpeechBotConnector` abonelik bilgilerinizle. Yöntem gövdesi için aşağıdakileri ekleyin `InitializeBotConnector`, dizeleri değiştirme `YourChannelSecret`, `YourSpeechSubscriptionKey`, ve `YourServiceRegion` konuşma abonelik botunuza ilişkin kendi değerlerinizle ve [bölge](regions.md).
+1. Ardından, oluşturacağınız `DialogServiceConnector` abonelik bilgilerinizle. Yöntem gövdesi için aşağıdakileri ekleyin `InitializeDialogServiceConnector`, dizeleri değiştirme `YourChannelSecret`, `YourSpeechSubscriptionKey`, ve `YourServiceRegion` konuşma abonelik botunuza ilişkin kendi değerlerinizle ve [bölge](regions.md).
 
     > [!NOTE]
-    > Önizlemede, doğrudan satır konuşma kanal şu anda yalnızca destekleyen **westus2** bölge.
+    > Doğrudan satır okuma (Önizleme) şu anda konuşma Hizmetleri bölgelerin alt kümesinde kullanılabilir. Lütfen [ses öncelikli sanal Yardımcıları için desteklenen bölgelerin listesini](regions.md#voice-first-virtual-assistants) ve kaynaklarınız bu bölgelerden birinde dağıtıldığı emin olun.
 
     > [!NOTE]
     > Botunuzun yapılandırma ve kanal gizli dizi alma hakkında daha fazla bilgi için Bot Framework belgelerine bakın [doğrudan satır konuşma kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
     ```csharp
-    // create a BotConnectorConfig by providing a bot secret key and Cognitive Services subscription key
+    // create a DialogServiceConfig by providing a bot secret key and Cognitive Services subscription key
     // the RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
     const string channelSecret = "YourChannelSecret"; // Your channel secret
     const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
-    const string region = "YourServiceRegion"; // Your subscription service region. Note: only 'westus2' is currently supported
+    const string region = "YourServiceRegion"; // Your subscription service region. Note: only a subset of regions are currently supported
 
-    var botConnectorConfig = BotConnectorConfig.FromSecretKey(channelSecret, speechSubscriptionKey, region);
-    botConnectorConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
-    botConnector = new SpeechBotConnector(botConnectorConfig);
+    var botConfig = DialogServiceConfig.FromBotSecret(channelSecret, speechSubscriptionKey, region);
+    botConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
+    connector = new DialogServiceConnector(botConfig);
     ```
 
-1. `SpeechBotConnector` bot etkinlikleriyle, konuşma tanıma sonuçları ve diğer bilgileri iletişim kurmak için çeşitli olayları kullanır. Aşağıdaki yöntem gövdesini sonuna ekleme, bu olayları için işleyiciler eklemek `InitializeBotConnector`.
+1. `DialogServiceConnector` bot etkinlikleriyle, konuşma tanıma sonuçları ve diğer bilgileri iletişim kurmak için çeşitli olayları kullanır. Aşağıdaki yöntem gövdesini sonuna ekleme, bu olayları için işleyiciler eklemek `InitializeDialogServiceConnector`.
 
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities
-    botConnector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
+    connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
     {
         NotifyUser($"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");
 
@@ -277,7 +274,7 @@ Bu hızlı başlangıçta, adım adım konuşma özellikli botunuzun bağlanmak 
         }
     };
     // Canceled will be signaled when a turn is aborted or experiences an error condition
-    botConnector.Canceled += (sender, canceledEventArgs) =>
+    connector.Canceled += (sender, canceledEventArgs) =>
     {
         NotifyUser($"Canceled, reason={canceledEventArgs.Reason}");
         if (canceledEventArgs.Reason == CancellationReason.Error)
@@ -286,47 +283,47 @@ Bu hızlı başlangıçta, adım adım konuşma özellikli botunuzun bağlanmak 
         }
     };
     // Recognizing (not 'Recognized') will provide the intermediate recognized text while an audio stream is being processed
-    botConnector.Recognizing += (sender, recognitionEventArgs) =>
+    connector.Recognizing += (sender, recognitionEventArgs) =>
     {
         NotifyUser($"Recognizing! in-progress text={recognitionEventArgs.Result.Text}");
     };
     // Recognized (not 'Recognizing') will provide the final recognized text once audio capture is completed
-    botConnector.Recognized += (sender, recognitionEventArgs) =>
+    connector.Recognized += (sender, recognitionEventArgs) =>
     {
         NotifyUser($"Final speech-to-text result: '{recognitionEventArgs.Result.Text}'");
     };
     // SessionStarted will notify when audio begins flowing to the service for a turn
-    botConnector.SessionStarted += (sender, sessionEventArgs) =>
+    connector.SessionStarted += (sender, sessionEventArgs) =>
     {
         NotifyUser($"Now Listening! Session started, id={sessionEventArgs.SessionId}");
     };
     // SessionStopped will notify when a turn is complete and it's safe to begin listening again
-    botConnector.SessionStopped += (sender, sessionEventArgs) =>
+    connector.SessionStopped += (sender, sessionEventArgs) =>
     {
         NotifyUser($"Listening complete. Session ended, id={sessionEventArgs.SessionId}");
     };
     ```
 
-1. Oluşturulan yapılandırmasını ve kayıtlı olay işleyicilerinin `SpeechBotConnector` artık yalnızca dinleme gerekiyor. Gövdesi için aşağıdakileri ekleyin `ListenButton_ButtonClicked` yönteminde `MainPage` sınıfı.
+1. Oluşturulan yapılandırmasını ve kayıtlı olay işleyicilerinin `DialogServiceConnector` artık yalnızca dinleme gerekiyor. Gövdesi için aşağıdakileri ekleyin `ListenButton_ButtonClicked` yönteminde `MainPage` sınıfı.
 
     ```csharp
     private async void ListenButton_ButtonClicked(object sender, RoutedEventArgs e)
     {
-        if (botConnector == null)
+        if (connector == null)
         {
-            InitializeBotConnector();
+            InitializeDialogServiceConnector();
             // Optional step to speed up first interaction: if not called, connection happens automatically on first use
-            var connectTask = botConnector.ConnectAsync();
+            var connectTask = connector.ConnectAsync();
         }
 
         try
         {
             // Start sending audio to your speech-enabled bot
-            var listenTask = botConnector.ListenOnceAsync();
+            var listenTask = connector.ListenOnceAsync();
 
             // You can also send activities to your bot as JSON strings -- Microsoft.Bot.Schema can simplify this
             string speakActivity = @"{""type"":""message"",""text"":""Greeting Message"", ""speak"":""Hello there!""}";
-            await botConnector.SendActivityAsync(speakActivity);
+            await connector.SendActivityAsync(speakActivity);
 
         }
         catch (Exception ex)
@@ -359,10 +356,12 @@ Bu hızlı başlangıçta, adım adım konuşma özellikli botunuzun bağlanmak 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Keşfedin C# github'da örnekleri](https://aka.ms/csspeech/samples)
+> [Temel robot oluşturup](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-- [Konuşmayı çevirme](how-to-translate-speech-csharp.md)
-- [Akustik modelleri özelleştirme](how-to-customize-acoustic-models.md)
-- [Dil modellerini özelleştirme](how-to-customize-language-model.md)
+- [Ses öncelikli sanal Yardımcıları](voice-first-virtual-assistants.md)
+- [Bir konuşma Hizmetleri abonelik anahtarı ücretsiz olarak edinin](get-started.md)
+- [Özel Uyandırma sözcükler](speech-devices-sdk-create-kws.md)
+- [Botunuz için doğrudan satır konuşma bağlanma](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Keşfedin C# github'da örnekleri](https://aka.ms/csspeech/samples)

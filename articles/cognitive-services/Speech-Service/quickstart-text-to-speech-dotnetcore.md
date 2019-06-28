@@ -1,30 +1,27 @@
 ---
-title: 'Hızlı Başlangıç: Konuşma tanıma C# (.NET Core) - konuşma Hizmetleri'
+title: 'Hızlı Başlangıç: Konuşma sentezlemek C# (.NET Core) - konuşma Hizmetleri'
 titleSuffix: Azure Cognitive Services
-description: İçinde Konuşma tanımayı öğrenmesine C# altındaki Windows veya Speech SDK'sı kullanarak macOS üzerinde .NET Core
+description: Konuşma dilinde sentezlemek öğrenin C# Speech SDK'sı kullanarak Windows üzerinde .NET Core altında
 services: cognitive-services
-author: wolfma61
+author: yinhew
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
-ms.author: wolfma
-ms.openlocfilehash: 873145cf9d418433ba241ce06d7d594fb3e6322b
+ms.date: 6/24/2019
+ms.author: yinhew
+ms.openlocfilehash: 7b4a018e38ca625e38dc1658a95d3ce0e677f711
 ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/28/2019
-ms.locfileid: "67465729"
+ms.locfileid: "67467428"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Hızlı Başlangıç: .NET Core için Speech SDK'sı ile Konuşma tanıma
+# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-core"></a>Hızlı Başlangıç: Konuşma Speech SDK'sı ile .NET Core için sentezlemek
 
-Hızlı Başlangıçlar ücret karşılığında ayrıca [metin okuma](quickstart-text-to-speech-dotnetcore.md) ve [konuşma çevirisi](quickstart-translate-speech-dotnetcore-windows.md).
+Hızlı Başlangıçlar ücret karşılığında ayrıca [konuşma tanıma](quickstart-csharp-dotnetcore-windows.md) ve [konuşma çevirisi](quickstart-translate-speech-dotnetcore-windows.md).
 
-İsterseniz, farklı programlama dili ve/veya ortamı seçin:<br/>
-[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
-
-Bu makalede, oluşturduğunuz bir C# Bilişsel hizmetler kullanarak uygulama Windows veya macOS üzerinde .NET Core konsol [Speech SDK'sı](speech-sdk.md). Bilgisayarınızın mikrofonundan gerçek zamanda konuşmayı metne dönüştüreceksiniz. Uygulama [Konuşma SDK'sı NuGet paketi](https://aka.ms/csspeech/nuget) ve Microsoft Visual Studio 2017 (herhangi bir sürüm) ile geliştirilmiştir.
+Bu makalede Bilişsel Hizmetler[Konuşma SDK'sı](speech-sdk.md)'nı kullanarak Windows'da .NET Core için bir C# konsol uygulaması oluşturacaksınız. Bilgisayarınızın Konuşmacı gerçek zamanlı olarak metinden konuşmaya sentezlemek. Uygulama [Konuşma SDK'sı NuGet paketi](https://aka.ms/csspeech/nuget) ve Microsoft Visual Studio 2017 (herhangi bir sürüm) ile geliştirilmiştir.
 
 > [!NOTE]
 > .NET Core, [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) teknik özelliklerini gerçekleştiren açık kaynaklı, platformlar arası bir .NET platformudur.
@@ -47,7 +44,7 @@ Bu hızlı başlangıç şunları gerektirir:
 
 1. `Program.cs` dosyasını açın ve tüm kodu aşağıdakiyle değiştirin.
 
-    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore/helloworld/Program.cs#code)]
+    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/csharp-dotnetcore/helloworld/Program.cs#code)]
 
 1. Aynı dosyada `YourSubscriptionKey` dizesini abonelik anahtarınız ile değiştirin.
 
@@ -65,18 +62,18 @@ Bu hızlı başlangıç şunları gerektirir:
 
     ![Visual Studio uygulamasının, Hata Ayıklamayı Başlat seçeneği vurgulanmış olarak ekran görüntüsü](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Uygulamayı hata ayıklamada başlatma")
 
-1. Bir şey söylemenizi isteyen bir konsol penceresi görünür. İngilizce bir deyim ya da cümle söyleyin. Konuşma konuşma hizmetlere iletilen ve transcribed aynı pencerede görünen metin.
+1. Bir metin yazın isteyip istemediğinizi soran bir konsol penceresi görünür. Birkaç sözcük veya bir cümle yazın. Yazdığınız metni konuşma hizmetlere iletilen ve konuşma tanıma, hoparlöründen için oluşturulan.
 
-    ![Başarılı tanımadan sonra konsol çıktısının ekran görüntüsü](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "Başarılı tanımadan sonra konsol çıktısı")
+    ![Başarılı sentezi sonra konsol çıktısı ekran görüntüsü](media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "başarılı birleştirmesinden sonra konsol çıktısı")
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Konuşma bir ses dosyasından okuma gibi ek örnekler Github'da kullanılabilir.
+Ses dosyası, konuşma sentezlemek nasıl gibi ek örnekler Github'da kullanılabilir.
 
 > [!div class="nextstepaction"]
 > [Keşfedin C# github'da örnekleri](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-- [Akustik modelleri özelleştirme](how-to-customize-acoustic-models.md)
-- [Dil modellerini özelleştirme](how-to-customize-language-model.md)
+- [Ses tiplerini özelleştirme](how-to-customize-voice-font.md)
+- [Kayıt ses örnekleri](record-custom-voice-samples.md)

@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 83aef90702e4a4cc4fd9bdfda486841f9b2a63a4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 0415dcae08c188c1758150c4b8b0df4dee014ce6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124493"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448598"
 ---
 # <a name="add-faces-to-a-persongroup"></a>Yüz için bir PersonGroup Ekle
 
 Bu kılavuz, çok sayıda kişi ve yüz PersonGroup nesnesine eklemek gösterilmiştir. Strateji de LargePersonGroup FaceList ve LargeFaceList nesneler için geçerlidir. Bu örnekte yazılan C# Azure Bilişsel hizmetler yüz tanıma API'si .NET istemci kitaplığı kullanarak.
 
-## <a name="step-1-initialization"></a>1. Adım: Başlatma
+## <a name="step-1-initialization"></a>1\. adım: Başlatma
 
 Aşağıdaki kod, birkaç değişken ve yüz zamanlamak için bir yardımcı işlevini eklemek uygulayan istekleri bildirir:
 
@@ -58,17 +58,19 @@ static async Task WaitCallLimitPerSecondAsync()
 }
 ```
 
-## <a name="step-2-authorize-the-api-call"></a>2. Adım: API çağrısı Yetkilendir
+## <a name="step-2-authorize-the-api-call"></a>2\. adım: API çağrısı Yetkilendir
 
-Bir istemci kitaplığı kullandığınızda, abonelik anahtarınızı FaceServiceClient sınıf oluşturucusuna geçmesi gerekir. Örneğin:
+Bir istemci kitaplığı kullandığınızda, abonelik anahtarınızı oluşturucusuna geçirmeniz gerekir **FaceClient** sınıfı. Örneğin:
 
 ```csharp
-FaceServiceClient faceServiceClient = new FaceServiceClient("<Subscription Key>");
+private readonly IFaceClient faceClient = new FaceClient(
+    new ApiKeyServiceClientCredentials("<SubscriptionKey>"),
+    new System.Net.Http.DelegatingHandler[] { });
 ```
 
 Abonelik anahtarını almak için Azure portalından Azure Marketi'nde gidin. Daha fazla bilgi için [abonelikleri](https://www.microsoft.com/cognitive-services/sign-up).
 
-## <a name="step-3-create-the-persongroup"></a>3. adım: PersonGroup oluşturma
+## <a name="step-3-create-the-persongroup"></a>3\. adım: PersonGroup oluşturma
 
 Kişileri kaydetmek için "MyPersonGroup" adlı bir PersonGroup oluşturulur.
 Genel doğrulama sağlamak için istek süresi, `_timeStampQueue` hedefinde kuyruğa alınır.
@@ -77,10 +79,10 @@ Genel doğrulama sağlamak için istek süresi, `_timeStampQueue` hedefinde kuyr
 const string personGroupId = "mypersongroupid";
 const string personGroupName = "MyPersonGroup";
 _timeStampQueue.Enqueue(DateTime.UtcNow);
-await faceServiceClient.CreatePersonGroupAsync(personGroupId, personGroupName);
+await faceClient.LargePersonGroup.CreateAsync(personGroupId, personGroupName);
 ```
 
-## <a name="step-4-create-the-persons-for-the-persongroup"></a>4. Adım: Kişiler için PersonGroup oluşturma
+## <a name="step-4-create-the-persons-for-the-persongroup"></a>4\. Adım: Kişiler için PersonGroup oluşturma
 
 Kişi aynı anda oluşturulur ve `await WaitCallLimitPerSecondAsync()` çağrı sınırını aşmamak için de uygulanır.
 
@@ -91,11 +93,11 @@ Parallel.For(0, PersonCount, async i =>
     await WaitCallLimitPerSecondAsync();
 
     string personName = $"PersonName#{i}";
-    persons[i] = await faceServiceClient.CreatePersonAsync(personGroupId, personName);
+    persons[i] = await faceClient.PersonGroupPerson.CreateAsync(personGroupId, personName);
 });
 ```
 
-## <a name="step-5-add-faces-to-the-persons"></a>5. Adım: Yüzleri kişilere ekleyin
+## <a name="step-5-add-faces-to-the-persons"></a>5\. Adım: Yüzleri kişilere ekleyin
 
 Farklı kişilere eklenen yüzeyleri aynı anda işlenir. İçin belirli bir kişi yüzleri sıralı olarak işlenir.
 Yeniden `await WaitCallLimitPerSecondAsync()` isteği sıklığı sınırlama kapsamında olduğundan emin olmak için çağrılır.
@@ -112,7 +114,7 @@ Parallel.For(0, PersonCount, async i =>
 
         using (Stream stream = File.OpenRead(imagePath))
         {
-            await faceServiceClient.AddPersonFaceAsync(personGroupId, personId, stream);
+            await faceClient.PersonGroupPerson.AddFaceFromStreamAsync(personGroupId, personId, stream);
         }
     }
 });

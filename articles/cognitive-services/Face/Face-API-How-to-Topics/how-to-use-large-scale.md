@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
-ms.openlocfilehash: 5a4085f713d66859a464ab59b00d856921db8ec3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: dcbec817f771324219a68de96eb5dd262a887fc1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124474"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449038"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Örnek: Büyük ölçek özelliğini kullanma
 
@@ -28,21 +28,24 @@ LargePersonGroup ve LargeFaceList topluca için büyük ölçekli işlem olarak 
 > [!NOTE]
 > Büyük ölçek tanımlama ve FindSimilar için yüz Arama performansını LargeFaceList ve LargePersonGroup önişle için Train işlemi dağıtır. Eğitim süresini saniyelerden gerçek kapasiteye bağlı yaklaşık yarım saat için farklılık gösterir. Eğitim dönemi boyunca işletim başarılı eğitim önce yapıldıysa tanımlama ve FindSimilar gerçekleştirmek mümkündür. Dezavantajı, büyük ölçekli eğitim için yeni bir gönderi Geçiş tamamlanana kadar yeni eklenen kişi ve yüz sonucunda görüntülenmediğini olmasıdır.
 
-## <a name="step-1-initialize-the-client-object"></a>1. Adım: İstemci nesnesini başlatır
+## <a name="step-1-initialize-the-client-object"></a>1\. adım: İstemci nesnesini başlatır
 
-Yüz tanıma API'si istemci kitaplığı kullandığınızda, abonelik anahtarını ve abonelik uç noktası FaceServiceClient sınıf oluşturucu üzerinden geçirilir. Örneğin:
+Yüz tanıma API'si istemci kitaplığı kullandığınızda, abonelik anahtarını ve abonelik uç noktası FaceClient sınıf oluşturucu üzerinden geçirilir. Örneğin:
 
 ```CSharp
 string SubscriptionKey = "<Subscription Key>";
 // Use your own subscription endpoint corresponding to the subscription key.
-string SubscriptionRegion = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/";
-FaceServiceClient FaceServiceClient = new FaceServiceClient(SubscriptionKey, SubscriptionRegion);
+string SubscriptionEndpoint = "https://westus.api.cognitive.microsoft.com";
+private readonly IFaceClient faceClient = new FaceClient(
+            new ApiKeyServiceClientCredentials(subscriptionKey),
+            new System.Net.Http.DelegatingHandler[] { });
+faceClient.Endpoint = SubscriptionEndpoint
 ```
 
 Kendi karşılık gelen uç noktası ile aboneliği anahtarı almak için Azure portalından Azure Marketi'nde gidin.
 Daha fazla bilgi için [abonelikleri](https://azure.microsoft.com/services/cognitive-services/directory/vision/).
 
-## <a name="step-2-code-migration"></a>2. Adım: Kod geçişi
+## <a name="step-2-code-migration"></a>2\. adım: Kod geçişi
 
 Bu bölümde LargePersonGroup veya LargeFaceList PersonGroup veya FaceList uygulama geçirme ele alınmaktadır. LargePersonGroup veya LargeFaceList PersonGroup veya FaceList tasarım ve iç uygulama farklı olsa da, geriye dönük uyumluluk için API Arabirimi benzerdir.
 
@@ -60,12 +63,12 @@ Tüm yüzleri ve kişiler için yeni LargePersonGroup PersonGroup ekleyin. Daha 
 
 | FaceList API’leri | LargeFaceList API’leri |
 |:---:|:---:|
-| Oluştur | Oluştur |
+| Create | Create |
 | Sil | Sil |
 | Al | Al |
 | Liste | Liste |
-| Güncelle | Güncelle |
-| - | Eğit |
+| Güncelleştirme | Güncelleştirme |
+| - | Eğitim |
 | - | Eğitim Durumunu Alma |
 
 Yukarıdaki tabloda, FaceList ile LargeFaceList arasındaki liste düzeyinde işlemlerin karşılaştırması yer almaktadır. Gösterildiği, LargeFaceList yeni işlemleriyle eğitme ve eğitim durumunu Al FaceList ile karşılaştırıldığında gelir. Bir önkoşulu olan LargeFaceList eğitim [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) işlemi. Eğitim için FaceList gerekli değildir. Aşağıdaki kod parçacığında, bir LargeFaceList eğitim için beklenecek bir yardımcı işlevdir:
@@ -94,13 +97,13 @@ private static async Task TrainLargeFaceList(
     int timeIntervalInMilliseconds = 1000)
 {
     // Trigger a train call.
-    await FaceServiceClient.TrainLargeFaceListAsync(largeFaceListId);
+    await FaceClient.LargeTrainLargeFaceListAsync(largeFaceListId);
 
     // Wait for training finish.
     while (true)
     {
         Task.Delay(timeIntervalInMilliseconds).Wait();
-        var status = await FaceServiceClient.GetLargeFaceListTrainingStatusAsync(largeFaceListId);
+        var status = await faceClient.LargeFaceList.TrainAsync(largeFaceListId);
 
         if (status.Status == Status.Running)
         {
@@ -125,7 +128,7 @@ Eklenen yüzlerin ve FindSimilar tipik bir kullanımı FaceList, daha önce aşa
 const string FaceListId = "myfacelistid_001";
 const string FaceListName = "MyFaceListDisplayName";
 const string ImageDir = @"/path/to/FaceList/images";
-FaceServiceClient.CreateFaceListAsync(FaceListId, FaceListName).Wait();
+faceClient.FaceList.CreateAsync(FaceListId, FaceListName).Wait();
 
 // Add Faces to the FaceList.
 Parallel.ForEach(
@@ -134,7 +137,7 @@ Parallel.ForEach(
         {
             using (Stream stream = File.OpenRead(imagePath))
             {
-                await FaceServiceClient.AddFaceToFaceListAsync(FaceListId, stream);
+                await faceClient.FaceList.AddFaceFromStreamAsync(FaceListId, stream);
             }
         });
 
@@ -143,10 +146,10 @@ const string QueryImagePath = @"/path/to/query/image";
 var results = new List<SimilarPersistedFace[]>();
 using (Stream stream = File.OpenRead(QueryImagePath))
 {
-    var faces = FaceServiceClient.DetectAsync(stream).Result;
+    var faces = faceClient.Face.DetectWithStreamAsync(stream).Result;
     foreach (var face in faces)
     {
-        results.Add(await FaceServiceClient.FindSimilarAsync(face.FaceId, FaceListId, 20));
+        results.Add(await faceClient.Face.FindSimilarAsync(face.FaceId, FaceListId, 20));
     }
 }
 ```
@@ -158,7 +161,7 @@ LargeFaceList için geçiş sırasında aşağıdakiler olur:
 const string LargeFaceListId = "mylargefacelistid_001";
 const string LargeFaceListName = "MyLargeFaceListDisplayName";
 const string ImageDir = @"/path/to/FaceList/images";
-FaceServiceClient.CreateLargeFaceListAsync(LargeFaceListId, LargeFaceListName).Wait();
+faceClient.LargeFaceList.CreateAsync(LargeFaceListId, LargeFaceListName).Wait();
 
 // Add Faces to the LargeFaceList.
 Parallel.ForEach(
@@ -167,7 +170,7 @@ Parallel.ForEach(
         {
             using (Stream stream = File.OpenRead(imagePath))
             {
-                await FaceServiceClient.AddFaceToLargeFaceListAsync(LargeFaceListId, stream);
+                await faceClient.LargeFaceList.AddFaceFromStreamAsync(LargeFaceListId, stream);
             }
         });
 
@@ -180,17 +183,17 @@ const string QueryImagePath = @"/path/to/query/image";
 var results = new List<SimilarPersistedFace[]>();
 using (Stream stream = File.OpenRead(QueryImagePath))
 {
-    var faces = FaceServiceClient.DetectAsync(stream).Result;
+    var faces = faceClient.Face.DetectWithStreamAsync(stream).Result;
     foreach (var face in faces)
     {
-        results.Add(await FaceServiceClient.FindSimilarAsync(face.FaceId, largeFaceListId: LargeFaceListId));
+        results.Add(await faceClient.Face.FindSimilarAsync(face.FaceId, largeFaceListId: LargeFaceListId));
     }
 }
 ```
 
 Daha önce gösterildiği, veri yönetimi ve FindSimilar bölümü neredeyse aynıdır. Tek özel durum FindSimilar çalışır önce yeni bir ön işleme Train işlemi içinde LargeFaceList tamamlamalısınız ' dir.
 
-## <a name="step-3-train-suggestions"></a>3. adım: Train önerileri
+## <a name="step-3-train-suggestions"></a>3\. adım: Train önerileri
 
 Train işlemi hızlandırır rağmen [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) ve [kimlik](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), özellikle büyük ölçek Bekletmeden çıkarken eğitim süresini düşebilir. Aşağıdaki tabloda farklı ölçekler tahmini eğitim sürede listelenir.
 
@@ -199,7 +202,7 @@ Train işlemi hızlandırır rağmen [FindSimilar](https://westus.dev.cognitive.
 | 1000 | 1-2 sn |
 | 10,000 | 5-10 sn |
 | 100,000 | 1-2 dk |
-| 1.000.000 | 10-30 dakika |
+| 1\.000.000 | 10-30 dakika |
 
 Büyük ölçekli özellik daha iyi kullanmak için aşağıdaki stratejilerden öneririz.
 
@@ -236,7 +239,7 @@ private static void Main()
     // Create a LargePersonGroup.
     const string LargePersonGroupId = "mylargepersongroupid_001";
     const string LargePersonGroupName = "MyLargePersonGroupDisplayName";
-    FaceServiceClient.CreateLargePersonGroupAsync(LargePersonGroupId, LargePersonGroupName).Wait();
+    faceClient.LargePersonGroup.CreateAsync(LargePersonGroupId, LargePersonGroupName).Wait();
 
     // Set up standalone training at regular intervals.
     const int TimeIntervalForStatus = 1000 * 60; // 1-minute interval for getting training status.

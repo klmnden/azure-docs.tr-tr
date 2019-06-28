@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 06/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 5628a1b3ea42c91f49f78699c37bb2b306275e9e
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 1c432ee5851115e029b55722b6b238b4672e8345
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730850"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446710"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>SharePoint Online'a erişimi, dosya paylaşımı içeriğinizi geçirmek için Azure veri kutusu ağır kullanın
 
@@ -81,7 +81,7 @@ En iyi performans ve bağlantı için bir Azure sanal makine (VM) oluşturmanız
 
 1. Azure Portalı'nda oturum açın ve ardından [sanal makine oluşturma](../virtual-machines/windows/quick-create-portal.md).
 2. [Azure dosya paylaşımını VM üzerine](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share-with-file-explorer).
-3. [SharePoint Geçiş Aracı'nı indirme](http://spmtreleasescus.blob.core.windows.net/install/default.htm) ve Azure sanal Makinenize yükleyin.
+3. [SharePoint Geçiş Aracı'nı indirme](https://spmtreleasescus.blob.core.windows.net/install/default.htm) ve Azure sanal Makinenize yükleyin.
 4. SharePoint geçiş aracını başlatın. Tıklayın **oturum** ve Office 365 kullanıcı kimliğiniz ve parolanızı girin.
 5. İstendiğinde **verileriniz nerede?** seçin **dosya paylaşımı**. Yol, verilerinizin bulunduğu Azure dosya paylaşımınızı girin.
 6. Hedef konumunuz dahil olmak üzere normal, kalan yönergeleri izleyin. Daha fazla bilgi için Git [SharePoint geçiş aracının nasıl kullanılacağını](https://docs.microsoft.com/sharepointmigration/how-to-use-the-sharepoint-migration-tool).

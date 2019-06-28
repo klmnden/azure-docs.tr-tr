@@ -6,18 +6,18 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/17/2018
+ms.date: 06/26/2019
 ms.author: dkshir
-ms.openlocfilehash: 096df62305af91ac85ce9ddbcff5b0160aaa4e8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f826c6652937caab8b140b489626eef97612baea
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60534649"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462213"
 ---
-# <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Öğretici: Azure Digital Twins’i dağıtma ve uzamsal graf yapılandırma
+# <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Öğretici: Azure dijital İkizlerini önizlemesi dağıtma ve uzamsal graph'ı yapılandırma
 
-Azure dijital İkizlerini hizmeti, kişiler, yerler ve cihazlarda tutarlı bir uzamsal sistemde bir araya getirmek için kullanabilirsiniz. Bu öğretici serisinde, Azure dijital İkizlerini odası doluluk sıcaklık ve Uzaktan kalite en uygun koşullarla algılamak için nasıl kullanılacağını gösterir. 
+Azure dijital İkizlerini Önizleme hizmeti, kişiler, yerler ve cihazlarda tutarlı bir uzamsal sistemde bir araya getirmek için kullanabilirsiniz. Bu öğretici serisinde, Azure dijital İkizlerini odası doluluk sıcaklık ve Uzaktan kalite en uygun koşullarla algılamak için nasıl kullanılacağını gösterir. 
 
 Bu öğreticiler bir ofis binasındaki bir senaryo oluşturmak için bir .NET konsol uygulaması size yol gösterir. Yapı, her zemin içinde birden çok Katlar ve odaları sahiptir. Odaları ile ortam sıcaklığı, hareket algılayan ve kalite hava, bağlı sensörlerden cihazları içerir. 
 
@@ -103,7 +103,7 @@ Ayıklanan örnek klasöründe dosyasını açın **digital-twins-samples-csharp
 1. Visual Studio Code'da açmak [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) dosyası **doluluk-quickstart** proje. Aşağıdaki değerleri güncelleştirin:
    * **ClientID**: Azure AD uygulama kaydınızı uygulama Kimliğini girin. Bölümünde bu kimliği not ettiğiniz Burada, [uygulama izinleri ayarla](#permissions).
    * **Kiracı**: Dizin kimliği girin, [Azure AD kiracısı](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Ayrıca bu kimliği bölümünde belirtildiği Burada, [uygulama izinleri ayarla](#permissions).
-   * **BaseUrl**: Dijital İkizlerini örneğinizin URL'sini girin. Bu URL almak için değerlerle Örneğiniz için bu URL'yi içindeki yer tutucuları değiştirin: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Yönetim API'si URL'den değiştirerek bu URL'yi alabilirsiniz [dağıtım bölümü](#deploy). Değiştirin **swagger /** ile **api/v1.0/**.
+   * **BaseUrl**: Dijital İkizlerini örneğinizin URL'sini girin. Bu URL almak için değerlerle Örneğiniz için bu URL'yi içindeki yer tutucuları değiştirin: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Yönetim API'si URL'den değiştirerek bu URL'yi alabilirsiniz [dağıtım bölümü](#deploy). Değiştirin **swagger /** ile **api/v1.0/** .
 
 1. Örnek kullanarak keşfedebilirsiniz dijital İkizlerini özelliklerin bir listesi bakın. Şu komutu çalıştırın:
 

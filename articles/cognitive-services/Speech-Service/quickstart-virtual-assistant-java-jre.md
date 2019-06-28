@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: bidishac
-ms.openlocfilehash: b463e2bd3df0c38bf446745a2eade221b00324da
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f2cf65f9ee920b50af6242cee6b53cd07e53f0bc
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072531"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467028"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>Hızlı Başlangıç: Ses öncelikli sanal asistan konuşma SDK, Java oluşturma
 
@@ -30,14 +30,11 @@ Bu hızlı başlangıç şunları gerektirir:
 * İşletim Sistemi: (64-bit) Windows, Ubuntu Linux 16.04/18.04 (64-bit) ve macOS 10.13 veya üzeri
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) veya [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* Konuşma Hizmetleri için bir Azure aboneliği anahtar **westus2** bölge. Bu aboneliği oluşturun [Azure portalında](https://portal.azure.com).
+* Konuşma Hizmetleri için bir Azure aboneliği anahtarı. [Ücretsiz edinin](get-started.md) ya da üzerinde oluşturma [Azure portalında](https://portal.azure.com).
 * Bot Framework 4.2 sürümü kullanılarak oluşturulan önceden yapılandırılmış bir bot veya üzeri. Bot, ses giriş almak için yeni "Satır konuşma doğrudan" kanala abone olmak gerekir.
 
     > [!NOTE]
-    > Doğrudan satır okuma (Önizleme) şu anda yalnızca bulunan **westus2** bölge.
-
-    > [!NOTE]
-    > 30 günlük deneme için standart fiyatlandırma katmanı açıklanan [konuşma Hizmetleri ücretsiz olarak deneyin](get-started.md) sınırlıdır **westus** (değil **westus2**) ve bu nedenle uyumlu değil doğrudan ile Satır konuşma. Ücretsiz ve standart katmanı **westus2** abonelikleri uyumludur.
+    > Doğrudan satır okuma (Önizleme) şu anda konuşma Hizmetleri bölgelerin alt kümesinde kullanılabilir. Lütfen [ses öncelikli sanal Yardımcıları için desteklenen bölgelerin listesini](regions.md#Voice-first virtual assistants) ve kaynaklarınız bu bölgelerden birinde dağıtıldığı emin olun.
 
 Ubuntu 16.04/18.04 çalıştırıyorsanız, Eclipse başlatmadan önce bu bağımlılıkların yüklü olduğundan emin olun:
 
@@ -82,8 +79,8 @@ Ayrıca, günlük kaydını etkinleştirmek için güncelleştirmesi **pom.xml**
 
     import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
     import com.microsoft.cognitiveservices.speech.audio.PullAudioOutputStream;
-    import com.microsoft.cognitiveservices.speech.dialog.BotConnectorConfig;
-    import com.microsoft.cognitiveservices.speech.dialog.SpeechBotConnector;
+    import com.microsoft.cognitiveservices.speech.dialog.DialogServiceConfig;
+    import com.microsoft.cognitiveservices.speech.dialog.DialogServiceConnector;
     import org.slf4j.Logger;
     import org.slf4j.LoggerFactory;
 
@@ -142,62 +139,59 @@ Ayrıca, günlük kaydını etkinleştirmek için güncelleştirmesi **pom.xml**
     }
     ```
 
-1. İçinde **ana** yöntemi, ilk yapılandıracağınız, `BotConnectorConfig` ve oluşturmak için kullanmak bir `SpeechBotConnector` örneği. Bu, robotla etkileşim kurmak için doğrudan hat konuşma kanal bağlanır. Bir `AudioConfig` örneği ayrıca ses giriş kaynağını belirtmek için kullanılır. Bu örnekte, varsayılan mikrofon ile kullanılan `AudioConfig.fromDefaultMicrophoneInput()`.
+1. İçinde **ana** yöntemi, ilk yapılandıracağınız, `DialogServiceConfig` ve oluşturmak için kullanmak bir `DialogServiceConnector` örneği. Bu, robotla etkileşim kurmak için doğrudan hat konuşma kanal bağlanır. Bir `AudioConfig` örneği ayrıca ses giriş kaynağını belirtmek için kullanılır. Bu örnekte, varsayılan mikrofon ile kullanılan `AudioConfig.fromDefaultMicrophoneInput()`.
 
     * Dize değiştirin `YourSubscriptionKey` sayfasından edinebilirsiniz abonelik anahtarınızı [burada](get-started.md).
     * Dize değiştirin `YourServiceRegion` ile [bölge](regions.md) aboneliğinizle ilişkili.
     * Dize değiştirin `YourChannelSecret` ile doğrudan hat konuşma kanal gizli anahtarı.
 
     > [!NOTE]
-    > Önizlemede, doğrudan satır konuşma kanal şu anda yalnızca destekleyen **westus2** bölge.
-
-    > [!NOTE]
-    > 30 günlük deneme için standart fiyatlandırma katmanı açıklanan [konuşma Hizmetleri ücretsiz olarak deneyin](get-started.md) sınırlıdır **westus** (değil **westus2**) ve bu nedenle uyumlu değil doğrudan ile Satır konuşma. Ücretsiz ve standart katmanı **westus2** abonelikleri uyumludur.
+    > Doğrudan satır okuma (Önizleme) şu anda konuşma Hizmetleri bölgelerin alt kümesinde kullanılabilir. Lütfen [ses öncelikli sanal Yardımcıları için desteklenen bölgelerin listesini](regions.md#voice-first-virtual-assistants) ve kaynaklarınız bu bölgelerden birinde dağıtıldığı emin olun.
 
     ```java
     final String channelSecret = "YourChannelSecret"; // Your channel secret
     final String subscriptionKey = "YourSubscriptionKey"; // Your subscription key
-    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: only 'westus2' is currently supported
-    final BotConnectorConfig botConnectorConfig = BotConnectorConfig.fromSecretKey(channelSecret, subscriptionKey, region);
+    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: only a subset of regions are currently supported
+    final DialogServiceConfig botConfig = DialogServiceConfig.fromBotSecret(channelSecret, subscriptionKey, region);
 
     // Configure audio input from microphone.
     final AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
 
-    // Create a SpeechjBotConnector instance
-    final SpeechBotConnector botConnector = new SpeechBotConnector(botConnectorConfig, audioConfig);
+    // Create a DialogServiceConnector instance
+    final DialogServiceConnector connector = new DialogServiceConnector(botConfig, audioConfig);
     ```
 
-1. `SpeechBotConnector` bot etkinlikleriyle, konuşma tanıma sonuçları ve diğer bilgileri iletişim kurmak için çeşitli olayları kullanır. Ardından bu olay dinleyicileri ekleyin.
+1. `DialogServiceConnector` bot etkinlikleriyle, konuşma tanıma sonuçları ve diğer bilgileri iletişim kurmak için çeşitli olayları kullanır. Ardından bu olay dinleyicileri ekleyin.
 
     ```java
     // Recognizing will provide the intermediate recognized text while an audio stream is being processed
-    botConnector.recognizing.addEventListener((o, speechRecognitionResultEventArgs) -> {
+    connector.recognizing.addEventListener((o, speechRecognitionResultEventArgs) -> {
         log.info("Recognizing speech event text: {}", speechRecognitionResultEventArgs.getResult().getText());
     });
 
     // Recognized will provide the final recognized text once audio capture is completed
-    botConnector.recognized.addEventListener((o, speechRecognitionResultEventArgs) -> {
+    connector.recognized.addEventListener((o, speechRecognitionResultEventArgs) -> {
         log.info("Recognized speech event reason text: {}", speechRecognitionResultEventArgs.getResult().getText());
     });
 
     // SessionStarted will notify when audio begins flowing to the service for a turn
-    botConnector.sessionStarted.addEventListener((o, sessionEventArgs) -> {
+    connector.sessionStarted.addEventListener((o, sessionEventArgs) -> {
         log.info("Session Started event id: {} ", sessionEventArgs.getSessionId());
     });
 
     // SessionStopped will notify when a turn is complete and it's safe to begin listening again
-    botConnector.sessionStopped.addEventListener((o, sessionEventArgs) -> {
+    connector.sessionStopped.addEventListener((o, sessionEventArgs) -> {
         log.info("Session stopped event id: {}", sessionEventArgs.getSessionId());
     });
 
     // Canceled will be signaled when a turn is aborted or experiences an error condition
-    botConnector.canceled.addEventListener((o, canceledEventArgs) -> {
+    connector.canceled.addEventListener((o, canceledEventArgs) -> {
         log.info("Canceled event details: {}", canceledEventArgs.getErrorDetails());
-        botConnector.disconnectAsync();
+        connector.disconnectAsync();
     });
 
     // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities.
-    botConnector.activityReceived.addEventListener((o, activityEventArgs) -> {
+    connector.activityReceived.addEventListener((o, activityEventArgs) -> {
         final String act = activityEventArgs.getActivity().serialize();
             log.info("Received activity {} audio", activityEventArgs.hasAudio() ? "with" : "without");
             if (activityEventArgs.hasAudio()) {
@@ -206,15 +200,15 @@ Ayrıca, günlük kaydını etkinleştirmek için güncelleştirmesi **pom.xml**
         });
     ```
 
-1. Connect `SpeechBotConnector` çağırarak doğrudan satır konuşmaya `connectAsync()` yöntemi. Botunuzun test etmek için çağırabilirsiniz `listenOnceAsync` ses girişi mikrofondan göndermek için yöntemi. Ayrıca, ayrıca kullanabileceğiniz `sendActivityAsync` seri hale getirilmiş bir dize olarak özel etkinlik göndermek için yöntemi. Bu özel Aktiviteler botunuzun konuşmada kullanacağı ek veriler sağlayabilir.
+1. Connect `DialogServiceConnector` çağırarak doğrudan satır konuşmaya `connectAsync()` yöntemi. Botunuzun test etmek için çağırabilirsiniz `listenOnceAsync` ses girişi mikrofondan göndermek için yöntemi. Ayrıca, ayrıca kullanabileceğiniz `sendActivityAsync` seri hale getirilmiş bir dize olarak özel etkinlik göndermek için yöntemi. Bu özel Aktiviteler botunuzun konuşmada kullanacağı ek veriler sağlayabilir.
 
     ```java
-    botConnector.connectAsync();
+    connector.connectAsync();
     // Start listening.
     System.out.println("Say something ...");
-    botConnector.listenOnceAsync();
+    connector.listenOnceAsync();
 
-    // botConnector.sendActivityAsync(...)
+    // connector.sendActivityAsync(...)
     ```
 
 1. Değişiklikleri kaydedilsin `Main` dosya.
@@ -479,10 +473,12 @@ Konsolu bir ileti "Deyin sorun" Bu noktada görüntüler, bir İngilizce ifade v
 Konuşma bir ses dosyasından okuma gibi ek örnekler Github'da kullanılabilir.
 
 > [!div class="nextstepaction"]
-> [GitHub üzerinde Java örnekleri keşfedin](https://aka.ms/csspeech/samples)
+> [Temel robot oluşturup](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-- [Hızlı Başlangıç: Java (Windows, Linux) konuşma Çevir](quickstart-translate-speech-java-jre.md)
-- [Akustik modelleri özelleştirme](how-to-customize-acoustic-models.md)
-- [Dil modellerini özelleştirme](how-to-customize-language-model.md)
+- [Ses öncelikli sanal Yardımcıları](voice-first-virtual-assistants.md)
+- [Bir konuşma Hizmetleri abonelik anahtarı ücretsiz olarak edinin](get-started.md)
+- [Özel Uyandırma sözcükler](speech-devices-sdk-create-kws.md)
+- [Botunuz için doğrudan satır konuşma bağlanma](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [GitHub üzerinde Java örnekleri keşfedin](https://aka.ms/csspeech/samples)

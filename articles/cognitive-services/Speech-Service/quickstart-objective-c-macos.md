@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: chlandsi
-ms.openlocfilehash: 67f2531b24796de1e00505fdc757f3c2244c5054
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 3eb65b5d41317a4cfc31917a4b08d931ba9c7aa6
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002345"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466620"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Hızlı Başlangıç: Objective C'de konuşma Speech SDK'sı kullanarak Macos'ta tanıması
 
@@ -67,13 +67,7 @@ Takip eden iletişim kutularında, aşağıdaki seçimleri yapın:
 ## <a name="install-the-sdk-as-a-cocoapod"></a>Bir CocoaPod SDK'sını yükleyin
 
 1. CocoaPod bağımlılık Yöneticisi bölümünde anlatılan şekilde yükleyin, [yükleme yönergeleri](https://guides.cocoapods.org/using/getting-started.html).
-1. Örnek uygulamanızın dizine gidin (`helloworld`). Bir metin dosyası adıyla yerleştirmek `Podfile` ve aşağıdaki içeriği dizindeki:
-    ```
-    target 'helloworld' do
-        platform :osx, '10.13'
-        pod 'MicrosoftCognitiveServicesSpeech-macOS', '~> 1.5.1'
-    end
-    ```
+1. Örnek uygulamanızın dizine gidin (`helloworld`). Bir metin dosyası adıyla yerleştirmek `Podfile` ve aşağıdaki içeriği dizindeki: [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/Podfile)]
 1. Gidin `helloworld` terminal ve şu komutu çalıştırın, dizin `pod install`. Bu oluşturacak bir `helloworld.xcworkspace` hem örnek uygulamasını ve Speech SDK'sı bağımlılık olarak içeren bir Xcode çalışma alanı. Bu çalışma alanı aşağıdaki kullanılır.
 
 ## <a name="add-the-sample-code"></a>Örnek kod ekleme
@@ -87,7 +81,7 @@ Takip eden iletişim kutularında, aşağıdaki seçimleri yapın:
 ## <a name="build-and-run-the-sample"></a>Örneği derleme ve çalıştırma
 
 1. Hata ayıklama çıkışını görünür hale getirin (**Görünüm** > **Hata Ayıklama Alanı** > **Konsolu Etkinleştir**).
-1. Derleme ve seçerek örnek kodu çalıştırma **ürün** -> **çalıştırmak** menüsünden veya **Play** düğmesi.
+1. Derleme ve seçerek örnek kodu çalıştırma **ürün** > **çalıştırmak** menüsünden veya **Play** düğmesi.
 1. Düğmesine tıklayın ve birkaç sözcük söyleyin sonra ekranın alt bölümünde, konuşulan metnin görmeniz gerekir. Uygulamayı ilk kez çalıştırdığınızda, bilgisayarınızın mikrofon için uygulama erişimi vermek için istenecektir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
