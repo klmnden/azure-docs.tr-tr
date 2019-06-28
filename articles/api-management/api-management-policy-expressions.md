@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a19165f9ac15f7a40aea0501f960b06efbd63a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6446919c80e7e3fd379e6e39eb51712f9736ea7e
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304371"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341204"
 ---
 # <a name="api-management-policy-expressions"></a>API Management ilke ifadeleri
 İlke ifadeleri söz dizimi anlatılmaktadır C# 7. Her ifadesi örtük olarak sağlanan erişimi olan [bağlam](api-management-policy-expressions.md#ContextVariables) değişkeni ve izin verilen [alt](api-management-policy-expressions.md#CLRTypes) .NET Framework türleri.
@@ -74,7 +74,7 @@ Birden fazla deyim ifadeleri içine alınmıştır `@{expression}`. Birden fazla
 ## <a name="CLRTypes"></a> .NET framework türleri içinde ilke ifadelere izin veriliyor
 Aşağıdaki tablo, .NET Framework türlerini ve ilke ifadelerinde izin üyeleri listeler.
 
-|Tür|Desteklenen üyeleri|
+|Type|Desteklenen üyeleri|
 |--------------|-----------------------|
 |Newtonsoft.Json.Formatting|Tümü|
 |Newtonsoft.Json.JsonConvert|SerializeObject, DeserializeObject|
@@ -94,19 +94,19 @@ Aşağıdaki tablo, .NET Framework türlerini ve ilke ifadelerinde izin üyeleri
 |System.Byte|Tümü|
 |System.Char|Tümü|
 |System.Collections.Generic.Dictionary < TKey, TValue >|Tümü|
-|System.Collections.Generic.HashSet<T>|Tümü|
-|System.Collections.Generic.ICollection<T>|Tümü|
+|System.Collections.Generic.HashSet\<T >|Tümü|
+|System.Collections.Generic.ICollection\<T >|Tümü|
 |System.Collections.Generic.IDictionary < TKey, TValue >|Tümü|
-|.IEnumerable örneği<T>|Tümü|
-|System.Collections.Generic.IEnumerator<T>|Tümü|
-|System.Collections.Generic.IList<T>|Tümü|
-|System.Collections.Generic.IReadOnlyCollection<T>|Tümü|
+|.IEnumerable örneği\<T >|Tümü|
+|System.Collections.Generic.IEnumerator\<T >|Tümü|
+|System.Collections.Generic.IList\<T >|Tümü|
+|System.Collections.Generic.IReadOnlyCollection\<T >|Tümü|
 |System.Collections.Generic.IReadOnlyDictionary < TKey, TValue >|Tümü|
-|System.Collections.Generic.ISet<T>|Tümü|
+|System.Collections.Generic.ISet\<T >|Tümü|
 |System.Collections.Generic.KeyValuePair < TKey, TValue >|Tümü|
-|System.Collections.Generic.List<T>|Tümü|
-|Sıra System.Collections.Generic.Queue<T>|Tümü|
-|System.Collections.Generic.Stack<T>|Tümü|
+|System.Collections.Generic.List\<T >|Tümü|
+|Sıra System.Collections.Generic.Queue\<T >|Tümü|
+|System.Collections.Generic.Stack\<T >|Tümü|
 |System.Convert|Tümü|
 |System.DateTime|(Oluşturucu), ekleme, AddDays, AddHours, AddMilliseconds, AddMinutes, AddMonths, saniyeEkle, AddTicks, AddYears, tarih, gün, DayOfWeek, DayOfYear, DaysInMonth, saat, IsDaylightSavingTime, IsLeapYear, MaxValue, milisaniye, dakika, MinValue, ay, artık , Ayrıştırma, ikinci olarak, çıkarma, saat tıklaması, TimeOfDay, bugün, ToString, UtcNow, yıl|
 |System.DateTimeKind|UTC|

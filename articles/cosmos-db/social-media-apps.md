@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: 8206bff765b59ddc5d6be2388145bf51e1000241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45e27b37ca7a1718674914fbe9203b7dc64475b1
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66256871"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342099"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB ile iletişim
 
@@ -96,7 +96,7 @@ Akışlar oluşturma verilen ilgi sipariş kimlikleri gönderiyle listesini içe
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Oluşturma tarihine göre sıralanmış gönderiler ile "son" bir akışa sahip olabilir. Veya bu son 24 saat içindeki daha beğenilerin gönderilerinize "sıcak" bir akışa sahip olabilirsiniz. Özel bir akış izleyicilerinizle ve ilgi alanları gibi mantıksal göre her bir kullanıcı için bile uygulayabilirsiniz. Gönderi listesini olmaya. Sağlasa da, bu listeleri oluşturmak nasıl olduğu halde okuma performansını unhindered kalır. Bu listelerden birine edindiğiniz sonra Cosmos DB kullanarak tek bir sorgu alınmamış [İŞLECİNDE](how-to-sql-query.md#WhereClause) teker teker gönderilerin sayfaları almak için.
+Oluşturma tarihine göre sıralanmış gönderiler ile "son" bir akışa sahip olabilir. Veya bu son 24 saat içindeki daha beğenilerin gönderilerinize "sıcak" bir akışa sahip olabilirsiniz. Özel bir akış izleyicilerinizle ve ilgi alanları gibi mantıksal göre her bir kullanıcı için bile uygulayabilirsiniz. Gönderi listesini olmaya. Sağlasa da, bu listeleri oluşturmak nasıl olduğu halde okuma performansını unhindered kalır. Bu listelerden birine edindiğiniz sonra Cosmos DB kullanarak tek bir sorgu alınmamış [anahtar SÖZCÜĞÜ](sql-query-keywords.md#in) teker teker gönderilerin sayfaları almak için.
 
 Akış akışları kullanılarak oluşturulabilir. [Azure uygulama hizmetleri](https://azure.microsoft.com/services/app-service/) arka plan işlemleri: [Webjobs](../app-service/webjobs-create.md). Bir gönderi oluşturulduğunda, arka plan işlemesi kullanarak tetiklenebilir [Azure depolama](https://azure.microsoft.com/services/storage/) [kuyrukları](../storage/queues/storage-dotnet-how-to-use-queues.md) ve kullanarak Tetiklenmiş Web işleri [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), uygulama kendi özel mantığı temelinde akışlar içinde yayma gönderin.
 

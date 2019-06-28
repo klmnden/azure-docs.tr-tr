@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: aaeee4238110faa7a842073af8431b30b885db3c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 4ae22a5cd6ad044a86db88986daf9cc7c05c00a2
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870043"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342307"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-function"></a>Bir Azure depolama kuyruğu bağlaması işlevinize ekleyin
 
@@ -51,7 +51,7 @@ Değer ihtiyacınız `AzureWebJobsStorage`, depolama hesabı bağlantı dizesi o
 
 Bir bağlamayı oluşturmak için bir bağlama yapılandırma nesnesine ekleme `function.json` dosya. Bir nesneye eklemek için HttpTrigger klasörünüze function.json dosyayı düzenleyin `bindings` dizi aşağıdaki özelliklere sahiptir:
 
-| Özellik | Değer | Açıklama |
+| Özellik | Value | Açıklama |
 | -------- | ----- | ----------- |
 | **`name`** | `msg` | Kodunuzda başvurulan bağlama parametresi tanımlayan ad. |
 | **`type`** | `queue` | Bir Azure depolama kuyruğu bağlaması bağlamadır. |
@@ -117,8 +117,8 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
         return func.HttpResponse(f"Hello {name}!")
     else:
         return func.HttpResponse(
-             "Please pass a name on the query string or in the request body",
-             status_code=400
+            "Please pass a name on the query string or in the request body",
+            status_code=400
         )
 ```
 
@@ -139,7 +139,7 @@ func host start
 
 Bu kez, çıkış bağlaması da adlı bir sıra oluşturur `outqueue` , depolama hesabı ve bu aynı dize içeren bir ileti ekler.
 
-Ardından, yeni sıranın görüntülemek ve bir ileti eklendiğini doğrulamak için Azure CLI'yı kullanın. Kuyruk kullanarak görüntüleyebilirsiniz [Microsoft Azure Depolama Gezgini] [ Azure Storage Explorer] veya [Azure portalında](https://portal.azure.com).
+Ardından, yeni sıranın görüntülemek ve bir ileti eklendiğini doğrulamak için Azure CLI'yı kullanın. Kuyruk kullanarak görüntüleyebilirsiniz [Microsoft Azure Depolama Gezgini][Azure Storage Explorer] veya [Azure portalında](https://portal.azure.com).
 
 ### <a name="set-the-storage-account-connection"></a>Depolama hesabı bağlantısı
 

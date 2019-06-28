@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 6d95e4a0a7aeedef2fc7e635d2e49ea68c3ba0ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b74238ee49fe0d96d218f1800a33a9d60badc6d5
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992044"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341706"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Python ile Service Bus kuyruklarını kullanma
 
@@ -45,13 +45,13 @@ Bu öğreticide, bir Service Bus kuyruğundaki iletileri alıp ileti göndermek 
 from azure.servicebus import ServiceBusClient
 ```
 
-Aşağıdaki kod oluşturur bir **ServiceBusClient** nesne. Değiştirin `mynamespace`, `sharedaccesskeyname`, ve `sharedaccesskey` ad alanı, paylaşılan erişim imzası (SAS) anahtar adını ve değeri.
+Aşağıdaki kod oluşturur bir **ServiceBusClient** nesne. Değiştirin `<CONNECTION STRING>` , Service Bus bağlantı dizesi ile.
 
 ```python
 sb_client = ServiceBusClient.from_connection_string('<CONNECTION STRING>')
 ```
 
-SAS anahtar adını ve değerini değerleri bulunabilir [Azure portalında] [ Azure portal] bağlantı bilgilerini veya Visual Studio **özellikleri** hizmet seçerken bölmesi Sunucu Gezgini'ndeki (önceki bölümde gösterildiği gibi) veri yolu ad alanı.
+SAS anahtar adını ve değerini değerleri bulunabilir [Azure portalında][Azure portal] bağlantı bilgilerini veya Visual Studio **özellikleri** Service Bus ad alanı (olarak sunucu Gezgini'nde seçerken bölmesi önceki bölümde gösterilmiştir).
 
 ```python
 sb_client.create_queue("taskqueue")
@@ -128,7 +128,7 @@ Uygulama iletiyi ancak önce çökmesi durumunda, **Sil** yöntemi çağrılır,
 ## <a name="next-steps"></a>Sonraki adımlar
 Service Bus kuyruklarına ilişkin temel bilgileri öğrendiniz, daha fazla bilgi için şu makalelere bakın.
 
-* [Kuyruklar, konular ve abonelikler][Queues, topics, and subscriptions]
+* [Kuyruklar, konu başlıkları ve abonelikler][Queues, topics, and subscriptions]
 
 [Azure portal]: https://portal.azure.com
 [Python Azure Service Bus package]: https://pypi.python.org/pypi/azure-servicebus  

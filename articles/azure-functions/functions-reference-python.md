@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: d25082c429c58c074726c75f7ff6f248daee4151
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 249e5ac33b1420ada2cda45ea729471351f21adf
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050611"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342001"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure işlevleri Python Geliştirici Kılavuzu
 
@@ -73,10 +73,11 @@ def main(req):
 ```python
 import azure.functions
 
+
 def main(req: azure.functions.HttpRequest) -> str:
     user = req.params.get('user')
     return f'Hello, {user}!'
-```  
+```
 
 Dahil Python ek açıklamalarını kullanma [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) giriş ve çıkışları için yöntemlerinizi bağlamak için paket.
 
@@ -154,6 +155,7 @@ Girişler, Azure işlevleri'nde iki kategoriye ayrılmıştır: Tetikleyici giri
 import azure.functions as func
 import logging
 
+
 def main(req: func.HttpRequest,
          obj: func.InputStream):
 
@@ -163,7 +165,7 @@ def main(req: func.HttpRequest,
 İşlev çağrıldığında, HTTP isteği olarak işleve geçirilir `req`. Bir giriş temel Azure Blob depolama alanından alınan _kimliği_ yönlendirme URL'sindeki ve olarak kullanıma sunulan `obj` işlev gövdesindeki.  Burada depolama hesabı bağlantı dizesi bulunursa belirtilen `AzureWebJobsStorage` işlev uygulaması için kullanılan aynı depolama hesabı olduğu.
 
 
-## <a name="outputs"></a>Çıkışlar
+## <a name="outputs"></a>outputs
 
 Çıkış, dönüş değeri ve çıkış parametresi belirtilebilir. Yalnızca bir çıkış varsa, dönüş değeri kullanmanızı öneririz. Birden çok çıkış için çıktı parametreleri kullanmak zorunda kalırsınız.
 
@@ -200,6 +202,7 @@ Birden çok çıktı üretmek için kullanmak `set()` yöntemi tarafından sağl
 ```python
 import azure.functions as func
 
+
 def main(req: func.HttpRequest,
          msg: func.Out[func.QueueMessage]) -> str:
 
@@ -216,6 +219,7 @@ Bir HTTP tetikleyici işlevi çağrıldığında, aşağıdaki örnek bir bilgi 
 
 ```python
 import logging
+
 
 def main(req):
     logging.info('Python HTTP trigger function processed a request.')
@@ -237,6 +241,8 @@ Azure işlevinizi kullanarak bir zaman uyumsuz bir eş yordam olarak yazma öner
 
 ```python
 # Will be run with asyncio directly
+
+
 async def main():
     await some_nonblocking_socket_io_op()
 ```
@@ -245,6 +251,8 @@ Main() işlevi zaman uyumlu ise (hiçbir `async` niteleyicisi) size bir otomatik
 
 ```python
 # Would be run in an asyncio thread-pool
+
+
 def main():
     some_blocking_socket_io()
 ```
@@ -258,8 +266,9 @@ Yürütme sırasında bir işlev çağırma bağlamı almak için dahil `context
 ```python
 import azure.functions
 
+
 def main(req: azure.functions.HttpRequest,
-            context: azure.functions.Context) -> str:
+         context: azure.functions.Context) -> str:
     return f'{context.invocation_id}'
 ```
 
@@ -280,6 +289,7 @@ Bunun için sonraki yürütmeleri uygulamanızın durumunu korunur garanti edilm
 
 ```python
 CACHED_DATA = None
+
 
 def main(req):
     global CACHED_DATA
@@ -335,6 +345,7 @@ Python'da yazılmış işlevleri standart test çerçeveleri kullanarak başka b
 import azure.functions as func
 import logging
 
+
 def main(req: func.HttpRequest,
          obj: func.InputStream):
 
@@ -348,13 +359,14 @@ import unittest
 import azure.functions as func
 from . import my_function
 
+
 class TestFunction(unittest.TestCase):
     def test_my_function(self):
         # Construct a mock HTTP request.
         req = func.HttpRequest(
             method='GET',
             body=None,
-            url='/my_function', 
+            url='/my_function',
             params={'name': 'Test'})
 
         # Call the function.
@@ -362,7 +374,7 @@ class TestFunction(unittest.TestCase):
 
         # Check the output.
         self.assertEqual(
-            resp.get_body(), 
+            resp.get_body(),
             'Hello, Test!',
         )
 ```
@@ -372,6 +384,7 @@ Kuyruk ile tetiklenen bir işlev ile başka bir örnek aşağıda verilmiştir:
 ```python
 # myapp/__init__.py
 import azure.functions as func
+
 
 def my_function(msg: func.QueueMessage) -> str:
     return f'msg body: {msg.get_body().decode()}'
@@ -384,6 +397,7 @@ import unittest
 import azure.functions as func
 from . import my_function
 
+
 class TestFunction(unittest.TestCase):
     def test_my_function(self):
         # Construct a mock Queue message.
@@ -395,10 +409,10 @@ class TestFunction(unittest.TestCase):
 
         # Check the output.
         self.assertEqual(
-            resp, 
+            resp,
             'msg body: test',
         )
-``` 
+```
 
 ## <a name="known-issues-and-faq"></a>Bilinen sorunlar ve SSS
 

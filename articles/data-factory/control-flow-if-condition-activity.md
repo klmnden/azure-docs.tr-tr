@@ -67,8 +67,8 @@ If Koşulu etkinliği, programlama dilerindeki If deyimiyle aynı işlevselliği
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
 name | IF-condition etkinliği adı. | String | Evet
-type | Ayarlanmalıdır **IfCondition** | String | Evet
-expression | True veya false değerlendirmelidir ifadesi | İfade sonucu ile Boole türü | Evet
+türü | Ayarlanmalıdır **IfCondition** | String | Evet
+İfade | True veya false değerlendirmelidir ifadesi | İfade sonucu ile Boole türü | Evet
 ifTrueActivities | İfade sonucunu verdiğinde çalıştırılan etkinlik kümesini `true`. | Array | Evet
 ifFalseActivities | İfade sonucunu verdiğinde çalıştırılan etkinlik kümesini `false`. | Array | Evet
 

@@ -15,16 +15,16 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
-ms.openlocfilehash: 0ca22cfe99e77cd2ed3c5a966fb2412444103d71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5cda3f99a263e8eef13ee2e8d8e6453eda0f4cb6
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922436"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341185"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Batch hizmeti çözümlerinin Active Directory ile kimlik doğrulaması
 
-Azure Batch ile kimlik doğrulamasını destekleyen [Azure Active Directory] [ aad_about] (Azure AD). Azure AD sağlayan bir Microsoft'un çok kiracılı bulut tabanlı dizin ve kimlik yönetimi hizmetidir. Azure kendisi, müşteriler, hizmet yöneticileri ve kurumsal kullanıcıların kimliğini doğrulamak için Azure AD kullanır.
+Azure Batch ile kimlik doğrulamasını destekleyen [Azure Active Directory][aad_about] (Azure AD). Azure AD sağlayan bir Microsoft'un çok kiracılı bulut tabanlı dizin ve kimlik yönetimi hizmetidir. Azure kendisi, müşteriler, hizmet yöneticileri ve kurumsal kullanıcıların kimliğini doğrulamak için Azure AD kullanır.
 
 Azure Batch ile Azure AD kimlik doğrulamasını kullanırken, iki yoldan biriyle kimlik doğrulaması yapabilir:
 
@@ -64,7 +64,7 @@ Kullanım **Azure Batch kaynak uç noktası** Batch hizmeti isteklerine kimlik d
 
 ## <a name="register-your-application-with-a-tenant"></a>Bir kiracı ile uygulamanızı kaydetme
 
-Azure AD kimlik doğrulaması kullanarak ilk adımı, uygulamanızı bir Azure AD kiracısında kaydediyor. Uygulamanızı kaydetmek, sağlayan Azure çağırmanızı [Active Directory Authentication Library] [ aad_adal] (ADAL) kodunuzdan. ADAL, uygulamanızın Azure AD ile kimlik doğrulaması için bir API sağlar. Uygulamanızı kaydetmek tümleşik kimlik doğrulaması veya hizmet sorumlusu kullanmayı planladığınız gereklidir.
+Azure AD kimlik doğrulaması kullanarak ilk adımı, uygulamanızı bir Azure AD kiracısında kaydediyor. Uygulamanızı kaydetmek, sağlayan Azure çağırmanızı [Active Directory Authentication Library][aad_adal] (ADAL) kodunuzdan. ADAL, uygulamanızın Azure AD ile kimlik doğrulaması için bir API sağlar. Uygulamanızı kaydetmek tümleşik kimlik doğrulaması veya hizmet sorumlusu kullanmayı planladığınız gereklidir.
 
 Uygulamanızı kaydettiğinizde, Azure AD'ye uygulamanız ile ilgili bilgileri sağlayın. Ardından Azure AD uygulama kimliği sağlar (olarak da adlandırılan bir *istemci kimliği*), uygulamanızın çalışma zamanında Azure AD ile ilişkilendirmek için kullanın. Uygulama kimliği hakkında daha fazla bilgi için bkz: [uygulaması ve Azure Active Directory'de Hizmet sorumlusu nesneleri](../active-directory/develop/app-objects-and-service-principals.md).
 
@@ -324,31 +324,31 @@ from azure.common.credentials import ServicePrincipalCredentials
 Bir hizmet sorumlusunu kullanırken, Kiracı kimliğini sağlamanız gerekir Kiracı Kimliğini almak için özetlenen adımları izleyin. [için Azure Active Directory Kiracı Kimliğinizi öğrenmenin](#get-the-tenant-id-for-your-active-directory):
 
 ```python
-TENANT_ID = "<tenant-id>";
+TENANT_ID = "<tenant-id>"
 ```
 
 Başvuru Batch hizmeti kaynak uç noktası:  
 
 ```python
-RESOURCE = "https://batch.core.windows.net/";
+RESOURCE = "https://batch.core.windows.net/"
 ```
 
 Batch hesabınıza başvuru:
 
 ```python
-BATCH_ACCOUNT_URL = "https://myaccount.mylocation.batch.azure.com";
+BATCH_ACCOUNT_URL = "https://myaccount.mylocation.batch.azure.com"
 ```
 
 Uygulamanız için uygulama kimliği (istemci kimliği) belirtin. Uygulama kimliği, Azure portalında uygulama kaydınızı edinilebilir:
 
 ```python
-CLIENT_ID = "<application-id>";
+CLIENT_ID = "<application-id>"
 ```
 
 Azure Portalı'ndan kopyaladığınız gizli anahtarını belirtin:
 
 ```python
-SECRET = "<secret-key>";
+SECRET = "<secret-key>"
 ```
 
 Oluşturma bir **ServicePrincipalCredentials** nesnesi:

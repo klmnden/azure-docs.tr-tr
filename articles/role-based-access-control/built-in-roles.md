@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 0789ab981590ac1b7531c1f05d85d7ada3a9f56b
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 5a63053cc7fa1c1c86669ce2cea56b68f1a7b4b6
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295281"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341496"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure kaynakları için yerleşik roller
 
@@ -98,8 +98,8 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 | [Laboratuvar oluşturan](#lab-creator) | Oluşturma, yönetme, Azure Laboratuvar hesaplarınız altında yönetilen Laboratuvarları Sil olanak sağlar. |
 | [Log Analytics katkıda bulunan](#log-analytics-contributor) | Log Analytics katkıda bulunan tüm izleme verilerini okuyabilir ve izleme ayarlarını düzenleyin. İzleme ayarlarını düzenleme Vm'lere VM uzantısı ekleme içerir; Azure Depolama'dan günlüklerin toplanmasını yapılandırma yapabilmek için depolama hesabı anahtarlarını okuma; oluşturma ve Otomasyon hesapları yapılandırma; çözümler eklenerek; ve tüm Azure kaynaklarında Azure tanılamayı yapılandırma. |
 | [Log Analytics okuyucusu](#log-analytics-reader) | Log Analytics okuyucusu görüntüleyebilir ve tüm izleme verilerini ve ayarları, tüm Azure kaynaklarındaki Azure Tanılama yapılandırmasını görüntüleme dahil olmak üzere izleme görünümü yanı arayın. |
-| [Mantıksal uygulama katkıda bulunanı](#logic-app-contributor) | Mantıksal uygulama, ancak onlara yönelik erişimi yönetmenize olanak tanır. |
-| [Mantıksal uygulama operatörü](#logic-app-operator) | Okumanıza, etkinleştirmenize ve mantıksal uygulama devre dışı sağlar. |
+| [Mantıksal uygulama katkıda bulunanı](#logic-app-contributor) | Sağlayan mantıksal uygulamaları yönetme, ancak erişim için değiştiremez. |
+| [Mantıksal uygulama operatörü](#logic-app-operator) | Okuma, etkinleştirmek ve logic apps, devre dışı ancak düzenleyemeyeceği ya güncelleştirmenize olanak tanır. |
 | [Yönetilen uygulama operatörü rolü](#managed-application-operator-role) | Okuma ve yönetilen uygulama kaynaklarında işlemleri sağlar |
 | [Yönetilen uygulamaların okuyucusu](#managed-applications-reader) | Yönetilen bir uygulama ve istek JIT erişim kaynaklarında okumanıza olanak tanır. |
 | [Yönetilen kimlik Katılımcısı](#managed-identity-contributor) | Oluşturun, okuyun, güncelleştirin ve kullanıcı tarafından atanan Kimliği Sil |
@@ -1620,7 +1620,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Mantıksal uygulama, ancak onlara yönelik erişimi yönetmenize olanak tanır. |
+> | **Açıklama** | Sağlayan mantıksal uygulamaları yönetme, ancak erişim için değiştiremez. |
 > | **Kimlik** | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
@@ -1654,7 +1654,7 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Okumanıza, etkinleştirmenize ve mantıksal uygulama devre dışı sağlar. |
+> | **Açıklama** | Okuma, etkinleştirmek ve logic apps, devre dışı ancak düzenleyemeyeceği ya güncelleştirmenize olanak tanır. |
 > | **Kimlik** | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |

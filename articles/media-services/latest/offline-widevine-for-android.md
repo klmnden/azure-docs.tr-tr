@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 5102720242edd3ffc0a377bbddf0f7f3ade68b63
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9e90951f810c5101a46c29570af8ad71b42be637
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937215"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341026"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Android için akış çevrimdışı Widevine
 
@@ -38,6 +38,9 @@ Android oynatıcı uygulamaları oluşturmak için şu üç seçenek özetlemekt
 > * Chrome mobil tarayıcı v62 veya sonraki bir sürümde şifreli medya uzantısı'nı (EME) ve medya kaynak uzantısı'nı (MSE) kullanarak bir Yürütücüsü oluşturun
 
 Makaleyi de çevrimdışı Widevine korumalı içeriğini ilgili bazı sık sorulan soruları yanıtlar.
+
+> [!NOTE]
+> Çevrimdışı DRM yalnızca tek bir istek için bir lisans içeriği indirdiklerinde yapmak için faturalandırılır. Hataları faturalandırılmaz.
 
 ## <a name="prerequisites"></a>Önkoşullar 
 

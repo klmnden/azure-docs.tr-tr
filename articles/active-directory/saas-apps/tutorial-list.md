@@ -17,12 +17,12 @@ ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d26dffa005ac4bf8df0ecc0cee2c570960a38d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49a87346d76bbf1502a073f4bcb4d11eb659929d
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66239948"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67358148"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler
 
@@ -46,7 +46,7 @@ Diğer öğreticiler bulmak için sol taraftaki İçindekiler'i kullanın.
 
 | Logo | Çoklu oturum açma için uygulaması Öğreticisi | Kullanıcı sağlama uygulaması Öğreticisi |
 | :--- | :--- | :--- |
-| ![Logo](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Amazon Web Services (AWS) Konsolu](amazon-web-service-tutorial.md)| [Amazon Web Services (AWS) konsolu - rolü sağlama](amazon-web-service-tutorial.md#configure-azure-ad-single-sign-on) |
+| ![Logo](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Amazon Web Services (AWS) Konsolu](amazon-web-service-tutorial.md)| [Amazon Web Services (AWS) konsolu - rolü sağlama](amazon-web-service-tutorial.md#configure-azure-ad-sso) |
 | ![Logo](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Alibaba bulut hizmeti (Rol tabanları SSO)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
 | ![Logo](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google bulut platformu](google-apps-tutorial.md)| [Google bulut platformu - kullanıcı sağlama](google-apps-provisioning-tutorial.md) |
 | ![Logo](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Salesforce - kullanıcı sağlama](salesforce-provisioning-tutorial.md) |

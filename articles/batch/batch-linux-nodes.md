@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24576a46b47b22ef447793b4105730ed2755701d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 10a3c5a4f1c6eaceecb9dc5262d8694ee4265b48
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050622"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340172"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Batch havuzlarında Linux işlem düğümleri sağlama
 
-Azure Batch hem Linux hem de Windows sanal makinelerde paralel işlem iş yüklerini çalıştırmak için kullanabilirsiniz. Bu makalede her ikisini de kullanarak Batch hizmetinde Linux işlem düğümü havuzlarını oluşturma ayrıntıları [Batch Python] [ py_batch_package] ve [Batch .NET] [ api_net]istemci kitaplıkları.
+Azure Batch hem Linux hem de Windows sanal makinelerde paralel işlem iş yüklerini çalıştırmak için kullanabilirsiniz. Bu makalede her ikisini de kullanarak Batch hizmetinde Linux işlem düğümü havuzlarını oluşturma ayrıntıları [Batch Python][py_batch_package] and [Batch .NET][api_net] istemci kitaplıkları.
 
 > [!NOTE]
 > Uygulama paketleri 5 Temmuz 2017’den sonra oluşturulmuş tüm Batch havuzlarında desteklenir. Bunların 10 Mart 2016 ve 5 Haziran 2017 arasında oluşturulmuş Batch havuzlarında desteklenebilmesi için, havuzun Bulut Hizmeti yapılandırması kullanılarak oluşturulmuş olması gerekir. 10 Mart 2016’dan önce oluşturulan Batch havuzları uygulama paketlerini desteklemez. Uygulama paketlerini kullanarak uygulamalarınızı Batch düğümlerine dağıtma hakkında daha fazla bilgi için bkz. [Batch uygulama paketleriyle işlem düğümlerine uygulama dağıtımı](batch-application-packages.md).
@@ -48,7 +48,7 @@ Bir sanal makine görüntü başvurusunu yapılandırdığınızda, sanal makine
 | Yayımcı |Canonical |
 | Sunduğu |UbuntuServer |
 | SKU |14.04.4-LTS |
-| Version |en son |
+| Version |latest |
 
 > [!TIP]
 > Bu özellikler ve Market görüntüleri listeleme hakkında daha fazla bilgi [seçin CLI veya PowerShell ile azure'da Linux sanal makine görüntülerine erişin ve](../virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Tüm Market görüntüleri şu anda Batch ile uyumlu olduğunu unutmayın. Daha fazla bilgi için [düğüm Aracısı SKU](#node-agent-sku).
@@ -68,9 +68,9 @@ Batch düğüm Aracısı, havuzdaki her düğümde çalışan ve Batch hizmeti d
 >
 
 ## <a name="create-a-linux-pool-batch-python"></a>Linux havuzu oluşturun: Batch Python
-Aşağıdaki kod parçacığını nasıl kullanılacağına ilişkin bir örnektir [Python için Microsoft Azure Batch istemci kitaplığını] [ py_batch_package] işlem düğümleri havuzu Ubuntu Server oluşturmak için. Batch Python modülünde için başvuru belgeleri bulunabilir [azure.batch paket] [ py_batch_docs] okunur belgeleri.
+Aşağıdaki kod parçacığını nasıl kullanılacağına ilişkin bir örnektir [Python için Microsoft Azure Batch istemci kitaplığını][py_batch_package] to create a pool of Ubuntu Server compute nodes. Reference documentation for the Batch Python module can be found at [azure.batch package][py_batch_docs] okunur belgeleri.
 
-Bu kod parçacığı oluşturur bir [Imagereference] [ py_imagereference] açıkça ve her özelliklerini (yayımcı, teklif, SKU, sürüm) belirtir. Üretim kodunda ancak kullanmanızı öneririz [list_node_agent_skus] [ py_list_skus] yöntemini belirlemek ve kullanılabilir görüntü ve düğüm Aracısı SKU birleşimlerini zamanında seçin.
+Bu kod parçacığı oluşturur bir [Imagereference][py_imagereference] explicitly and specifies each of its properties (publisher, offer, SKU, version). In production code, however, we recommend that you use the [list_node_agent_skus][py_list_skus] yöntemini belirlemek ve kullanılabilir görüntü ve düğüm Aracısı SKU birleşimlerini zamanında seçin.
 
 ```python
 # Import the required modules from the
@@ -95,7 +95,7 @@ config = batch.BatchServiceClientConfiguration(creds, batch_url)
 client = batch.BatchServiceClient(creds, batch_url)
 
 # Create the unbound pool
-new_pool = batchmodels.PoolAddParameter(id = pool_id, vm_size = vm_size)
+new_pool = batchmodels.PoolAddParameter(id=pool_id, vm_size=vm_size)
 new_pool.target_dedicated = node_count
 
 # Configure the start task for the pool
@@ -107,17 +107,17 @@ new_pool.start_task = start_task
 # Create an ImageReference which specifies the Marketplace
 # virtual machine image to install on the nodes.
 ir = batchmodels.ImageReference(
-    publisher = "Canonical",
-    offer = "UbuntuServer",
-    sku = "14.04.2-LTS",
-    version = "latest")
+    publisher="Canonical",
+    offer="UbuntuServer",
+    sku="14.04.2-LTS",
+    version="latest")
 
 # Create the VirtualMachineConfiguration, specifying
 # the VM image reference and the Batch node agent to
 # be installed on the node.
 vmc = batchmodels.VirtualMachineConfiguration(
-    image_reference = ir,
-    node_agent_sku_id = "batch.node.ubuntu 14.04")
+    image_reference=ir,
+    node_agent_sku_id="batch.node.ubuntu 14.04")
 
 # Assign the virtual machine configuration to the pool
 new_pool.virtual_machine_configuration = vmc
@@ -126,14 +126,15 @@ new_pool.virtual_machine_configuration = vmc
 client.pool.add(new_pool)
 ```
 
-Daha önce belirtildiği gibi oluşturmak yerine öneririz [Imagereference] [ py_imagereference] açıkça kullandığınız [list_node_agent_skus] [ py_list_skus] dinamik şu anda desteklenen düğüm Aracısı/Market görüntü birleşimleri arasından seçim yapmak için yöntemi. Aşağıdaki Python kod parçacığında bu yöntemin nasıl kullanılacağı gösterilmektedir.
+Daha önce belirtildiği gibi oluşturmak yerine öneririz [Imagereference][py_imagereference] explicitly, you use the [list_node_agent_skus][py_list_skus] dinamik şu anda desteklenen düğüm Aracısı/Market görüntü birleşimleri arasından seçim yapmak için yöntemi. Aşağıdaki Python kod parçacığında bu yöntemin nasıl kullanılacağı gösterilmektedir.
 
 ```python
 # Get the list of node agents from the Batch service
 nodeagents = client.account.list_node_agent_skus()
 
 # Obtain the desired node agent
-ubuntu1404agent = next(agent for agent in nodeagents if "ubuntu 14.04" in agent.id)
+ubuntu1404agent = next(
+    agent for agent in nodeagents if "ubuntu 14.04" in agent.id)
 
 # Pick the first image reference from the list of verified references
 ir = ubuntu1404agent.verified_image_references[0]
@@ -141,14 +142,14 @@ ir = ubuntu1404agent.verified_image_references[0]
 # Create the VirtualMachineConfiguration, specifying the VM image
 # reference and the Batch node agent to be installed on the node.
 vmc = batchmodels.VirtualMachineConfiguration(
-    image_reference = ir,
-    node_agent_sku_id = ubuntu1404agent.id)
+    image_reference=ir,
+    node_agent_sku_id=ubuntu1404agent.id)
 ```
 
 ## <a name="create-a-linux-pool-batch-net"></a>Linux havuzu oluşturun: Batch .NET
-Aşağıdaki kod parçacığını nasıl kullanılacağına ilişkin bir örnektir [Batch .NET] [ nuget_batch_net] işlem düğümleri havuzu Ubuntu Server oluşturmak için istemci kitaplığı. Bulabilirsiniz [Batch .NET başvuru belgeleri] [ api_net] docs.microsoft.com'da.
+Aşağıdaki kod parçacığını nasıl kullanılacağına ilişkin bir örnektir [Batch .NET][nuget_batch_net] client library to create a pool of Ubuntu Server compute nodes. You can find the [Batch .NET reference documentation][api_net] docs.microsoft.com'da.
 
-Aşağıdaki kod parçacığı kullandığı [PoolOperations][net_pool_ops].[ ListNodeAgentSkus] [ net_list_skus] listesinden şu anda seçmek için Market görüntüsü ve düğüm Aracısı SKU bileşimleri desteklenir. Desteklenen kombinasyonlar listesini zaman zaman değişebilir olduğundan bu arzu bir tekniktir. En yaygın olarak desteklenen kombinasyonlar eklenir.
+Aşağıdaki kod parçacığı kullandığı [PoolOperations][net_pool_ops] .[ListNodeAgentSkus][net_list_skus] listesinden şu anda seçmek için Market görüntüsü ve düğüm Aracısı SKU bileşimleri desteklenir. Desteklenen kombinasyonlar listesini zaman zaman değişebilir olduğundan bu arzu bir tekniktir. En yaygın olarak desteklenen kombinasyonlar eklenir.
 
 ```csharp
 // Pool settings
@@ -196,7 +197,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 await pool.CommitAsync();
 ```
 
-Önceki kod parçacığı kullansa [PoolOperations][net_pool_ops].[ ListNodeAgentSkus] [ net_list_skus] dinamik olarak listelemek ve seçin için yöntemi (önerilen) görüntü ve düğüm Aracısı SKU birleşimlerini desteklenmez, ayrıca yapılandırabilirsiniz bir [Imagereference] [ net_imagereference] açıkça:
+Önceki kod parçacığı kullansa [PoolOperations][net_pool_ops] .[ListNodeAgentSkus][net_list_skus] dinamik olarak listelemek ve seçin için yöntemi (önerilen) görüntü ve düğüm Aracısı SKU birleşimlerini desteklenmez, ayrıca yapılandırabilirsiniz bir [ Imagereference][net_imagereference] açıkça:
 
 ```csharp
 ImageReference imageReference = new ImageReference(
@@ -207,7 +208,7 @@ ImageReference imageReference = new ImageReference(
 ```
 
 ## <a name="list-of-virtual-machine-images"></a>Sanal makine görüntülerinin listesi
-Aşağıdaki tabloda, bu makalenin son güncelleştirildiği zaman kullanılabilir Batch düğüm aracı ile uyumlu olan Market sanal makine görüntülerini listeler. Görüntüleri ve aracılarını eklenebilir veya herhangi bir zamanda kaldırıldı çünkü bu liste eksiksiz olmadığına dikkat edin önemlidir. Batch uygulamalarınızı ve hizmetlerinizi her zaman kullanmanızı öneririz [list_node_agent_skus] [ py_list_skus] (Python) veya [ListNodeAgentSkus] [ net_list_skus] () Şu anda kullanılabilen SKU'ları belirlemek ve batch .NET).
+Aşağıdaki tabloda, bu makalenin son güncelleştirildiği zaman kullanılabilir Batch düğüm aracı ile uyumlu olan Market sanal makine görüntülerini listeler. Görüntüleri ve aracılarını eklenebilir veya herhangi bir zamanda kaldırıldı çünkü bu liste eksiksiz olmadığına dikkat edin önemlidir. Batch uygulamalarınızı ve hizmetlerinizi her zaman kullanmanızı öneririz [list_node_agent_skus][py_list_skus] (Python) or [ListNodeAgentSkus][net_list_skus] belirlemek ve şu anda kullanılabilen SKU'ları seçin (Batch .NET).
 
 > [!WARNING]
 > Aşağıdaki listede, herhangi bir zamanda değişebilir. Her zaman **listesi düğüm Aracısı SKU** Batch API'leri, Batch işleriniz çalıştırdığınızda uyumlu sanal makine ve düğüm Aracısı SKU'ları listelemek için kullanılabilen yöntemler.
@@ -216,33 +217,33 @@ Aşağıdaki tabloda, bu makalenin son güncelleştirildiği zaman kullanılabil
 
 | **Yayımcı** | **Teklif** | **Görüntü SKU'su** | **Sürüm** | **Düğüm Aracısı SKU kimliği** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-| toplu iş | işleme centos73 | işleme | en son | Batch.node.centos 7 |
-| toplu iş | rendering-windows2016 | işleme | en son | Batch.node.Windows amd64 |
-| Canonical | UbuntuServer | 16.04-LTS | en son | Batch.node.ubuntu 16.04 |
-| Canonical | UbuntuServer | 14.04.5-LTS | en son | Batch.node.ubuntu 14.04 |
-| credativ | Debian | 9 | en son | batch.node.debian 9 |
-| credativ | Debian | 8 | en son | batch.node.debian 8 |
-| Microsoft reklamları | linux-data-science-vm | linuxdsvm | en son | Batch.node.centos 7 |
-| Microsoft reklamları | standard-data-science-vm | standard-data-science-vm | en son | Batch.node.Windows amd64 |
-| Microsoft azure batch | centos kapsayıcı | 7-4 | en son | Batch.node.centos 7 |
-| Microsoft azure batch | centos kapsayıcı rdma | 7-4 | en son | Batch.node.centos 7 |
-| Microsoft azure batch | ubuntu server kapsayıcı | 16-04-lts | en son | Batch.node.ubuntu 16.04 |
-| Microsoft azure batch | ubuntu-server-container-rdma | 16-04-lts | en son | Batch.node.ubuntu 16.04 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | en son | Batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016 Datacenter smalldisk | en son | Batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers | en son | Batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | en son | Batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk | en son | Batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | en son | Batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-smalldisk | en son | Batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | en son | Batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1-smalldisk | en son | Batch.node.Windows amd64 |
-| OpenLogic | CentOS | 7.4 | en son | Batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.4 | en son | Batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.3 | en son | Batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.1 | en son | Batch.node.centos 7 |
-| Oracle | Oracle-Linux | 7.4 | en son | Batch.node.centos 7 |
-| SUSE | SLES-HPC | 12-SP2 | en son | Batch.node.opensuse 42.1 |
+| toplu iş | işleme centos73 | işleme | latest | Batch.node.centos 7 |
+| toplu iş | rendering-windows2016 | işleme | latest | Batch.node.Windows amd64 |
+| Canonical | UbuntuServer | 16.04-LTS | latest | Batch.node.ubuntu 16.04 |
+| Canonical | UbuntuServer | 14.04.5-LTS | latest | Batch.node.ubuntu 14.04 |
+| credativ | Debian | 9 | latest | batch.node.debian 9 |
+| credativ | Debian | 8 | latest | batch.node.debian 8 |
+| Microsoft reklamları | linux-data-science-vm | linuxdsvm | latest | Batch.node.centos 7 |
+| Microsoft reklamları | standard-data-science-vm | standard-data-science-vm | latest | Batch.node.Windows amd64 |
+| Microsoft azure batch | centos kapsayıcı | 7-4 | latest | Batch.node.centos 7 |
+| Microsoft azure batch | centos kapsayıcı rdma | 7-4 | latest | Batch.node.centos 7 |
+| Microsoft azure batch | ubuntu server kapsayıcı | 16-04-lts | latest | Batch.node.ubuntu 16.04 |
+| Microsoft azure batch | ubuntu-server-container-rdma | 16-04-lts | latest | Batch.node.ubuntu 16.04 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | latest | Batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016 Datacenter smalldisk | latest | Batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers | latest | Batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | latest | Batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk | latest | Batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | latest | Batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-smalldisk | latest | Batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | latest | Batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1-smalldisk | latest | Batch.node.Windows amd64 |
+| OpenLogic | CentOS | 7.4 | latest | Batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.4 | latest | Batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.3 | latest | Batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.1 | latest | Batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.4 | latest | Batch.node.centos 7 |
+| SUSE | SLES-HPC | 12-SP2 | latest | Batch.node.opensuse 42.1 |
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>SSH kullanarak Linux düğümlere bağlanma
 Geliştirme sırasında veya sorun giderme sırasında havuzunuzdaki düğümler için oturum açmak gerekli bulabilirsiniz. Windows işlem düğümleri, Linux düğümlerine bağlanmak için Uzak Masaüstü Protokolü (RDP) kullanamazsınız. Bunun yerine, Batch hizmeti için Uzak bağlantı SSH erişimini her düğümde sağlar.
@@ -275,8 +276,8 @@ credentials = batchauth.SharedKeyCredentials(
     batch_account_key
 )
 batch_client = batch.BatchServiceClient(
-        credentials,
-        base_url=batch_account_url
+    credentials,
+    base_url=batch_account_url
 )
 
 # Create the user that will be added to each node in the pool
@@ -316,16 +317,16 @@ tvm-1219235766_3-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50002
 tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 ```
 
-Bir parola yerine bir kullanıcı bir düğümde oluştururken bir SSH ortak anahtarı belirtebilirsiniz. Python SDK'sını içinde **ssh_public_key** parametresi [ComputeNodeUser][py_computenodeuser]. .NET ile kullanma [ComputeNodeUser][net_computenodeuser].[ SshPublicKey] [ net_ssh_key] özelliği.
+Bir parola yerine bir kullanıcı bir düğümde oluştururken bir SSH ortak anahtarı belirtebilirsiniz. Python SDK'sını içinde **ssh_public_key** parametresi [ComputeNodeUser][py_computenodeuser]. In .NET, use the [ComputeNodeUser][net_computenodeuser].[ SshPublicKey][net_ssh_key] özelliği.
 
 ## <a name="pricing"></a>Fiyatlandırma
-Azure Batch, Azure Cloud Services ve Azure sanal makineler teknolojisi üzerine kurulmuştur. Batch hizmeti, Batch hesaplarınızın kullandığı yalnızca işlem kaynakları için ücretlendirilirsiniz anlamına gelir ücretsiz olarak sunulur. Seçeneğini belirlediğinizde **Cloud Services Yapılandırması**, temel alınarak ücretlendirilir [bulut Hizmetleri fiyatlandırması] [ cloud_services_pricing] yapısı. Seçeneğini belirlediğinizde **sanal makine yapılandırması**, temel alınarak ücretlendirilir [sanal makineleri fiyatlandırması] [ vm_pricing] yapısı. 
+Azure Batch, Azure Cloud Services ve Azure sanal makineler teknolojisi üzerine kurulmuştur. Batch hizmeti, Batch hesaplarınızın kullandığı yalnızca işlem kaynakları için ücretlendirilirsiniz anlamına gelir ücretsiz olarak sunulur. Seçeneğini belirlediğinizde **Cloud Services Yapılandırması**, temel alınarak ücretlendirilir [bulut Hizmetleri fiyatlandırması][cloud_services_pricing] yapısı. Seçeneğini belirlediğinizde **sanal makine yapılandırması**, temel alınarak ücretlendirilir [sanal makineleri fiyatlandırması][vm_pricing] yapısı. 
 
 Uygulama kullanarak Batch düğümlerine dağıtıyorsanız [uygulama paketleri](batch-application-packages.md), uygulama paketlerinizi kullanmamasından Azure Storage kaynakları için ücretlendirilirsiniz. Genel olarak, Azure depolama maliyetlerini en az düzeydedir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Python kod örnekleri] [ github_samples_py] içinde [azure-batch-samples] [ github_samples] GitHub deposunu nasıl gerçekleştirileceğini göstereceğiz betikleri içerir havuz, iş ve görev oluşturma gibi ortak toplu işlemleri. [Benioku] [ github_py_readme] , Python eşlik örnekleri olan gerekli paketleri yükleme hakkında ayrıntılar.
+[Python kod örnekleri][github_samples_py] in the [azure-batch-samples][github_samples] GitHub deposunu havuz, iş ve görev oluşturma gibi ortak Batch işlemlerini nasıl gerçekleştireceğinizi gösteren betikleri içerir. [Benioku][github_py_readme] , Python eşlik örnekleri olan gerekli paketleri yükleme hakkında ayrıntılar.
 
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx

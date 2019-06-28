@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 865fb2ebf0d02c40a8f7c9e9c818e26432e5734a
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: d34da8928e06f04756e24f5cc3e4c430c2892f79
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272361"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341578"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB SQL API'si için .NET SDK: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -48,10 +48,8 @@ ms.locfileid: "67272361"
 * Akışları için destek. 
 * Durum kodu döndürür ve yanıt döndürüldüğünde yalnızca durum sunucudan CosmosResponseMessage güncelleştirildi. 
 
-### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 
-* Özgün biri başarısız olursa farklı bir bölgeye geri yazma isteklerine izin ver
-* Oturumu yeniden deneme ilkesi için yazma isteği Ekle
 * Düzeltmeleri boş sayfalar neden sorgular için yarış durumu izleme
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
@@ -228,7 +226,7 @@ ms.locfileid: "67272361"
 * Burada görüntülerle sorgu devamlılığı sırası tarafından çapraz bölüm sıralarken dize alanı üzerinde çalıştığı değil bir sorun düzeltildi.
 
 ### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
-* Toplama sorguları (sayısı, MIN, MAX, toplam ve ortalama) için destek eklendi. Bkz: [toplama Destek](how-to-sql-query.md#Aggregates).
+* Toplama sorguları (sayısı, MIN, MAX, toplam ve ortalama) için destek eklendi. Bkz: [toplama Destek](sql-query-aggregates.md).
 * Bölümlenmiş koleksiyonlardan 10,100 RU/sn 2500 RU/sn için en düşük aktarım hızını düşürdü.
 
 ### <a name="a-name11141114"></a><a name="1.11.4"/>1.11.4
@@ -381,7 +379,7 @@ Devre dışı bırakılan bir SDK'sı kullanarak Azure Cosmos DB yapılan tüm i
 
 | Version | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
-| [2.5.0](#2.5.0) |18 Haziran 2019 |--- |
+| [2.4.1](#2.4.1) |20 Haziran 2019 |--- |
 | [2.4.0](#2.4.0) |05 Mayıs 2019 |--- |
 | [2.3.0](#2.3.0) |04 Nisan 2019 |--- |
 | [2.2.3](#2.2.3) |11 Şubat 2019 |--- |

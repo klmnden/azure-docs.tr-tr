@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 92cb427149e6e6cbddfb96c6e4488017641e6482
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7dbb04a9d002fdcff49d28f69ee0975500bb7ed0
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761752"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340785"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure Stream Analytics çıkışları sorunlarını giderme
 
@@ -90,6 +90,10 @@ IGNORE_DUP_KEY dizin çeşitli türleri için yapılandırırken aşağıdaki g�
 * Bir birincil anahtar veya ALTER INDEX kullanan benzersiz kısıtlama IGNORE_DUP_KEY ayarlayamazsınız, bırakın ve dizini yeniden oluşturmanız gerekir.  
 * BİRİNCİL anahtar benzersiz kısıtlamasından farklıdır ve CREATE INDEX veya dizin tanımı kullanılarak oluşturulan benzersiz bir dizin için ALTER INDEX kullanarak IGNORE_DUP_KEY seçeneği ayarlayabilirsiniz.  
 * Bu dizinlerin benzersizlik olamaz çünkü IGNORE_DUP_KEY sütun deposu dizinleri için geçerli değildir.  
+
+## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>Azure Stream Analytics tarafından küçük harfleri sütun adları
+Özgün uyumluluk düzeyini (1.0) kullanırken, Azure Stream Analytics küçük harflere sütun adlarını değiştirmek için kullanılır. Bu davranış, sonraki Uyumluluk Düzeyleri düzeltildi. Durum korumak için biz 1.1 ve üzeri uyumluluk düzeyine geçmeye müşterilerimize. Daha fazla bilgi bulabilirsiniz [Azure Stream Analytics işleri için uyumluluk düzeyi](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
+
 
 ## <a name="get-help"></a>Yardım alın
 

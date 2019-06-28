@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: miparker
-ms.openlocfilehash: a4773ddd8114659118e89cfee57e73ddb39ff6b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c35044918876b2c7710e26f6b868bc1096c2f538
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116647"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340396"
 ---
 # <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>Öğretici: Notification Hubs REST API'si kullanan Swift iOS uygulamaları için anında iletme bildirimleri
 
@@ -87,12 +87,12 @@ Bu bölümde, bildirim hub'ına bağlanan bir iOS uygulaması oluşturacaksını
 
 1. Güncelleştirme **devsettings.plist** sağladığınız bildirim hub'ından kendi değerlerini kullanarak aşağıdaki yapılandırma girdileri eklemek için:
 
-   | Anahtar                            | Tür                     | Değer                     |
+   | Anahtar                            | Type                     | Value                     |
    |--------------------------------| -------------------------| --------------------------|
-   | notificationHubKey             | String                   | <hubKey>                  |
-   | notificationHubKeyName         | String                   | <hubKeyName>              |
-   | notificationHubName            | String                   | <hubName>                 |
-   | notificationHubNamespace       | String                   | <hubNamespace>            |
+   | notificationHubKey             | String                   | \<hubKey >                  |
+   | notificationHubKeyName         | String                   | \<hubKeyName >              |
+   | notificationHubName            | String                   | \<hubName>                 |
+   | notificationHubNamespace       | String                   | \<hubNamespace >            |
 
    Gereken değerleri, Azure Portalı'ndaki bildirim hub'ı kaynağına giderek bulabilirsiniz. Özellikle, **notificationHubName** ve **notificationHubNamespace** değerler sağ üst köşesinde **Essentials** içindeÖzet**Genel bakış** sayfası.
 
@@ -408,10 +408,10 @@ Not için bir uygun şekilde yerleştirilen yazdırma deyimi veya kesme noktası
 
 1. İstek üst bilgilerini aşağıdaki gibi yapılandırın:
 
-   | Anahtar           | Değer            |
+   | Anahtar           | Value            |
    | ------------- | ---------------- |
    | İçerik türü  | uygulama/json |
-   | Yetkilendirme | <sasToken>       |
+   | Yetkilendirme | \<sasToken >       |
    | x-ms-version  | 2015-01          |
 
 1. Seçin **kod** sağ üst altında görünen düğme **Kaydet** düğmesi. İstek aşağıdaki örneğe benzer olmalıdır:
@@ -656,10 +656,10 @@ Aracılığıyla bildirim gönderebilen [REST API](/rest/api/notificationhubs/) 
 
 1. İstek üst bilgilerini aşağıdaki gibi yapılandırın:
 
-   | Anahtar                            | Değer                          |
+   | Anahtar                            | Value                          |
    | ------------------------------ | ------------------------------ |
    | İçerik türü                   | Uygulama/json; charset = utf-8 |
-   | Yetkilendirme                  | <sasToken>                     |
+   | Yetkilendirme                  | \<sasToken >                     |
    | ServiceBusNotification-Format  | şablon                       |
    | Tags                           | "12345"                        |
 

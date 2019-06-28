@@ -144,8 +144,6 @@
           items:
             - name: Azure VM yedeklemelerini yönetme
               href: backup-azure-manage-vms.md
-            - name: Azure VM yedeklemeleri için uyarıları izleme
-              href: backup-azure-monitor-vms.md
         - name: Azure VM'lerini geri yükleme
           items:
             - name: Portalda Azure VM’lerini geri yükleme

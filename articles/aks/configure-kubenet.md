@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/03/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 94a6ce87cf313fe283631e594a63f210c775c7a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f57c1af4c497b51f5289559737fad5ce4cf2e85b
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808564"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67358040"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Kubernetes kendi IP adresi aralıklarını Azure Kubernetes Service (AKS) ile ağ kullanma
 
@@ -38,9 +38,9 @@ Birçok ortamlarda, sanal ağlar ve alt ağa sahip ayrılmış IP adresi aralık
 
 ![Kubernetes AKS kümesi ile ağ modeli](media/use-kubenet/kubenet-overview.png)
 
-Azure, en fazla 400 yolların bir UDR'de destekler, böylece bir AKS kümesi 400 düğümlerinden daha büyük olamaz. AKS özellikleri gibi [sanal düğümü] [ virtual-nodes] veya ağ ilkeleri ile desteklenmeyen *kubernetes*.
+Azure, en fazla 400 yolların bir UDR'de destekler, böylece bir AKS kümesi 400 düğümlerinden daha büyük olamaz. AKS özellikleri gibi [sanal düğümü][virtual-nodes] veya ağ ilkeleri ile desteklenmeyen *kubernetes*.
 
-İle *Azure CNI*, her pod IP alt ağda bir IP adresi alır ve diğer pod'ların ve Hizmetleri ile doğrudan iletişim kurabilir. Kümeleri, belirttiğiniz IP adresi aralığı büyük olabilir. Ancak IP adresi aralığı önceden planlanmalıdır ve tüm IP adreslerini desteklemek pod'ları, maksimum sayısına göre AKS düğümleri tarafından kullanılır. Ağ özelliklerini ve senaryoları gibi gelişmiş [sanal düğümü] [ virtual-nodes] veya ağ ilkeleri ile desteklenen *Azure CNI*.
+İle *Azure CNI*, her pod IP alt ağda bir IP adresi alır ve diğer pod'ların ve Hizmetleri ile doğrudan iletişim kurabilir. Kümeleri, belirttiğiniz IP adresi aralığı büyük olabilir. Ancak IP adresi aralığı önceden planlanmalıdır ve tüm IP adreslerini desteklemek pod'ları, maksimum sayısına göre AKS düğümleri tarafından kullanılır. Ağ özelliklerini ve senaryoları gibi gelişmiş [sanal düğümü][virtual-nodes] veya ağ ilkeleri ile desteklenen *Azure CNI*.
 
 ### <a name="ip-address-availability-and-exhaustion"></a>IP adresi kullanılabilirlik ve tükendi
 
@@ -62,7 +62,7 @@ Aşağıdaki temel hesaplamaları ağ modellerini farkı Karşılaştır:
 
 ### <a name="virtual-network-peering-and-expressroute-connections"></a>Sanal Ağ eşlemesi ve ExpressRoute bağlantıları
 
-Şirket içi bağlantı sağlamak için her ikisi de *kubernetes* ve *Azure CNI* ağ yaklaşımları kullanabilirsiniz [Azure sanal ağ eşlemesi] [ vnet-peering]veya [ExpressRoute bağlantıları][express-route]. Çakışma ve yanlış trafiği yönlendirmeyi dikkatli bir şekilde önlemek için IP adresi aralıklarınızı planlama. Örneğin, birçok şirket içi ağları kullanın. bir *10.0.0.0/8* adres ExpressRoute bağlantısı üzerinden tanıtılan aralığı. Bu adres aralığının dışında Azure sanal ağ alt ağları, AKS kümeye gibi oluşturmak için önerilen *172.16.0.0/16*.
+Şirket içi bağlantı sağlamak için her ikisi de *kubernetes* ve *Azure CNI* ağ yaklaşımları kullanabilirsiniz [Azure sanal ağ eşlemesi][vnet-peering] or [ExpressRoute connections][express-route]. Çakışma ve yanlış trafiği yönlendirmeyi dikkatli bir şekilde önlemek için IP adresi aralıklarınızı planlama. Örneğin, birçok şirket içi ağları kullanın. bir *10.0.0.0/8* adres ExpressRoute bağlantısı üzerinden tanıtılan aralığı. Bu adres aralığının dışında Azure sanal ağ alt ağları, AKS kümeye gibi oluşturmak için önerilen *172.16.0.0/16*.
 
 ### <a name="choose-a-network-model-to-use"></a>Kullanılacak ağ modeli seçin
 
@@ -81,18 +81,20 @@ Kullanım *Azure CNI* olduğunda:
 - Udr'leri yönetmek istemediğiniz.
 - Sanal düğümler ve ağ ilkesi gibi gelişmiş özellikleri ihtiyacınız vardır.
 
+Hangi ağ modeli kullanmaya karar vermenize yardımcı olacak daha fazla bilgi için bkz. [karşılaştırma ağ modelleri ve Destek kapsamlarına][network-comparisons].
+
 > [!NOTE]
 > Kuberouter kubernetes kullanırken, ağ ilkesi sağlamak mümkün kılar ve bir AKS kümesindeki bir daemonset olarak yüklenebilir. Lütfen kube-yönlendirici hala beta sürümünde olan ve hiçbir destek proje için Microsoft tarafından sunulan unutmayın.
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Sanal ağ ve alt ağ oluşturma
 
-Kullanmaya başlamak için *kubernetes* ve ilk kullanarak bir kaynak grubu oluşturun, kendi sanal ağ alt [az grubu oluşturma] [ az-group-create] komutu. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
+Kullanmaya başlamak için *kubernetes* ve ilk kullanarak bir kaynak grubu oluşturun, kendi sanal ağ alt [az grubu oluşturma][az-group-create] komutu. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Bu ağ kaynaklarını kullanarak bir sanal ağınız ve kullanmak için alt ağ yoksa, oluşturma [az ağ sanal ağ oluşturma] [ az-network-vnet-create] komutu. Aşağıdaki örnekte, sanal ağ olarak adlandırılır *myVnet* adres ön eki ile *192.168.0.0/16*. Bir alt ağ adında oluşturulur *myAKSSubnet* adres ön eki ile *192.168.1.0/24*.
+Bu ağ kaynaklarını kullanarak bir sanal ağınız ve kullanmak için alt ağ yoksa, oluşturma [az ağ sanal ağ oluşturma][az-network-vnet-create] komutu. Aşağıdaki örnekte, sanal ağ olarak adlandırılır *myVnet* adres ön eki ile *192.168.0.0/16*. Bir alt ağ adında oluşturulur *myAKSSubnet* adres ön eki ile *192.168.1.0/24*.
 
 ```azurecli-interactive
 az network vnet create \
@@ -105,7 +107,7 @@ az network vnet create \
 
 ## <a name="create-a-service-principal-and-assign-permissions"></a>Hizmet sorumlusu oluşturma ve izinleri atama
 
-Bir AKS kümesinin diğer Azure kaynaklarıyla etkileşime geçmesini sağlamak için bir Azure Active Directory hizmet sorumlusu kullanılır. Hizmet sorumlusu AKS düğümleri kullanan bir alt ağ ve sanal ağ'ı yönetmek için izinleri olmalıdır. Bir hizmet sorumlusu oluşturmak için kullanın [az ad sp create-for-rbac] [ az-ad-sp-create-for-rbac] komutu:
+Bir AKS kümesinin diğer Azure kaynaklarıyla etkileşime geçmesini sağlamak için bir Azure Active Directory hizmet sorumlusu kullanılır. Hizmet sorumlusu AKS düğümleri kullanan bir alt ağ ve sanal ağ'ı yönetmek için izinleri olmalıdır. Bir hizmet sorumlusu oluşturmak için kullanın [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] komutu:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -125,14 +127,14 @@ $ az ad sp create-for-rbac --skip-assignment
 }
 ```
 
-Kalan adımlarda doğru temsilcilerden atama [az ağ vnet show] [ az-network-vnet-show] ve [az ağ sanal ağ alt ağı show] [ az-network-vnet-subnet-show] gerekli kaynak kimliklerini almak için komutlar içerir. Bu kaynak kimliklerinin değişkenleri olarak depolanır ve kalan adımları, başvurulan:
+Kalan adımlarda doğru temsilcilerden atama [az ağ vnet show][az-network-vnet-show] and [az network vnet subnet show][az-network-vnet-subnet-show] gerekli kaynak kimliklerini almak için komutları. Bu kaynak kimliklerinin değişkenleri olarak depolanır ve kalan adımları, başvurulan:
 
 ```azurecli-interactive
 VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet --query id -o tsv)
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Hizmet sorumlusu AKS kümenizin atayarak *katkıda bulunan* kullanarak sanal ağ üzerindeki izinleri [az rol ataması oluşturma] [ az-role-assignment-create] komutu. Kendi sağlamak  *\<AppID >* hizmet sorumlusunu oluşturmak için önceki komutun çıktısında gösterildiği gibi:
+Hizmet sorumlusu AKS kümenizin atayarak *katkıda bulunan* kullanarak sanal ağ üzerindeki izinleri [az rol ataması oluşturma][az-role-assignment-create] komutu. Kendi sağlamak  *\<AppID >* hizmet sorumlusunu oluşturmak için önceki komutun çıktısında gösterildiği gibi:
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -140,7 +142,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Sanal ağda bir AKS kümesi oluşturma
 
-Artık bir sanal ağ ve alt ağ, oluşturulan ve oluşturduğunuz ve bu ağ kaynakları kullanmak için bir hizmet sorumlusu izinleri atanmış. Artık, sanal ağ ve alt ağ kullanarak AKS kümesi oluşturma [az aks oluşturma] [ az-aks-create] komutu. Kendi hizmet sorumlusu tanımlama  *\<AppID >* ve  *\<parola >* hizmet sorumlusunu oluşturmak için önceki komutun çıktısında gösterildiği gibi.
+Artık bir sanal ağ ve alt ağ, oluşturulan ve oluşturduğunuz ve bu ağ kaynakları kullanmak için bir hizmet sorumlusu izinleri atanmış. Artık, sanal ağ ve alt ağ kullanarak AKS kümesi oluşturma [az aks oluşturma][az-aks-create] komutu. Kendi hizmet sorumlusu tanımlama  *\<AppID >* ve  *\<parola >* hizmet sorumlusunu oluşturmak için önceki komutun çıktısında gösterildiği gibi.
 
 Kümenin parçası oluşturma işlemi aşağıdaki IP adresi aralıklarını da olarak tanımlanır:
 
@@ -174,7 +176,7 @@ Bir AKS kümesi oluşturduğunuzda, bir ağ güvenlik grubu ve rota tablosu olu�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-AKS kümesi, var olan bir sanal ağ alt ağa dağıtılan bir artık küme normal olarak kullanabilirsiniz. Kullanmaya başlama [Azure geliştirme alanları kullanılarak uygulama yazmaya] [ dev-spaces] veya [Draft'ı kullanarak][use-draft], veya [Helmkullanarakuygulamadağıtma] [use-helm].
+AKS kümesi, var olan bir sanal ağ alt ağa dağıtılan bir artık küme normal olarak kullanabilirsiniz. Kullanmaya başlama [Azure geliştirme alanları kullanılarak uygulama yazmaya][dev-spaces] or [using Draft][use-draft], veya [Helm kullanarak uygulama dağıtma][kullanım helm].
 
 <!-- LINKS - External -->
 [dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
@@ -196,3 +198,4 @@ AKS kümesi, var olan bir sanal ağ alt ağa dağıtılan bir artık küme norma
 [virtual-nodes]: virtual-nodes-cli.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md
+[network-comparisons]: concepts-network.md#compare-network-models

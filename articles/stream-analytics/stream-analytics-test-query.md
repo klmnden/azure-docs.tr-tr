@@ -7,18 +7,18 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 6/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: fca76b632e9bcc27ed762886eaea696a5696ad3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0a76ecd12143e0bbaa9997bfc6d7295df9c4ec7
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761943"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340874"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>Örnek verilerle bir Stream Analytics sorgu testi
 
-Azure Stream Analytics'i kullanarak Azure portalında örnek veri ve test sorguları başlatma veya bir işi durduruluyor yükleyebilirsiniz.
+Azure Stream Analytics kullanarak örnek giriş verileri veya sorguları Azure Portalı'nda başlangıç veya bir işi durduruluyor test etmek için örnek verileri karşıya yükleme.
 
 ## <a name="upload-sample-data-and-test-the-query"></a>Örnek verileri karşıya yükleme ve sorgu testi
 
@@ -28,11 +28,15 @@ Azure Stream Analytics'i kullanarak Azure portalında örnek veri ve test sorgul
 
 3. Sayfasında, üzerinde Stream Analytics işi, altında **iş topolojisi** başlığı seçin **sorgu** sorgu Düzenleyicisi penceresini açın. 
 
-4. Sorgunuzu örnek giriş verileri ile test etmek için tüm girişlerinizi sağ tıklayın.  Ardından **örnek verileri dosyadan karşıya**. Veri, JSON, CSV veya AVRO seri hale getirilmelidir. Örnek giriş UTF-8 olarak kodlanmış ve sıkıştırılmaz. Yalnızca virgül (,) sınırlayıcı CSV giriş portalında test etme için desteklenir.
+4. Sorgunuz test etmek için ardından ya da bir canlı girdi veya bir dosyadan karşıya veri örnekleme yapabilirsiniz. Veri, JSON, CSV veya AVRO seri hale getirilmelidir. Örnek giriş UTF-8 olarak kodlanmış ve sıkıştırılmaz. Yalnızca virgül (,) sınırlayıcı CSV giriş portalında test etme için desteklenir.
+
+    1. Canlı girişini kullanarak: girişlerinizi birini sağ tıklayın. Ardından **örnek giriş verileri**. Sonraki ekranda, örnek süresini ayarlayabilirsiniz.
+
+    1. Dosyasıyla: girişlerinizi birini sağ tıklayın. Ardından **örnek verileri dosyadan karşıya**. 
 
     ![Stream analytics sorgu Düzenleyicisi'ni test sorgusu](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
-5. Karşıya yükleme tamamlandıktan sonra seçip **Test** bu sorguyu sağladığınız örnek verilere karşı test etmek için.
+5. Örnekleme veya karşıya yükleme tamamlandıktan sonra seçin **Test** bu sorguyu sağladığınız örnek verilere karşı test etmek için.
 
     ![Stream analytics sorgu Düzenleyicisi'ni test örnek veriler](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
 

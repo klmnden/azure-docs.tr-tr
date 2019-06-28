@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: e1b3b5fe603072069cb3a19c7597fcc1872fefd7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 5884bb5dc389e6abfd4fa23d28dd71ecd16ff423
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67188353"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67347122"
 ---
 Standart sanal makine (VM) görüntülerini kuruluşların buluta taşımayı ve dağıtımlarında tutarlılığı sağlar. Görüntüler genellikle önceden tanımlı güvenlik ve yapılandırma ayarlarını ve gerekli yazılımı da içerir. Kendi görüntü işlem hattı ayarlama süresi, altyapı ve Kurulum gerektirir ancak Azure VM Görüntü Oluşturucu ile yalnızca görüntünüzü açıklayan basit bir yapılandırma sağlayın, hizmete gönderme ve görüntü oluşturulan dağıtılmış ve.
  
@@ -65,9 +65,9 @@ Azure Görüntü Oluşturucu, bir Azure kaynak sağlayıcısı tarafından eriş
 ![Azure Görüntü Oluşturucu işlemi kavramsal çizimi](./media/virtual-machines-image-builder-overview/image-builder-process.png)
 
 1. Görüntüyü şablon bir .json dosyası oluşturun. Bu bir .json dosyası görüntü kaynağı, özelleştirmeler ve dağıtım hakkında bilgi içerir. Birden çok örnekler vardır [Azure Görüntü Oluşturucu GitHub deposu](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
-1. Hizmete gönderme, bu belirttiğiniz kaynak grubunda bir görüntü şablon yapıt oluşturur. Arka planda Görüntü Oluşturucu kaynak görüntüsü veya ISO ve gerektiğinde betikleri indirir. Bu biçimde aboneliğinizi otomatik olarak oluşturulan ayrı bir kaynak grubu depolanır: IT_<DestinationResourceGroup>_<TemplateName>. 
-1. Görüntü şablonu oluşturulduktan sonra görüntü oluşturabilirsiniz. Arka planda görüntü Oluşturucusu bir VM, ağ ve depolama içinde IT_ oluşturmak için şablon ve kaynak dosyalarını kullanır<DestinationResourceGroup>_<TemplateName> kaynak grubu.
-1. Görüntü oluşturmanın bir parçası, görüntünün Görüntü Oluşturucu dağıtır IT_ ek kaynakları ardından siler şablon göre<DestinationResourceGroup>_<TemplateName> işlem için oluşturulan kaynak grubu.
+1. Hizmete gönderme, bu belirttiğiniz kaynak grubunda bir görüntü şablon yapıt oluşturur. Arka planda Görüntü Oluşturucu kaynak görüntüsü veya ISO ve gerektiğinde betikleri indirir. Bu biçimde aboneliğinizi otomatik olarak oluşturulan ayrı bir kaynak grubu depolanır: IT_\<DestinationResourceGroup>_\<TemplateName>. 
+1. Görüntü şablonu oluşturulduktan sonra görüntü oluşturabilirsiniz. Arka planda görüntü Oluşturucusu bir VM, ağ ve depolama içinde IT_ oluşturmak için şablon ve kaynak dosyalarını kullanır\<DestinationResourceGroup > _\<TemplateName > kaynak grubu.
+1. Görüntü oluşturmanın bir parçası, görüntünün Görüntü Oluşturucu dağıtır IT_ ek kaynakları ardından siler şablon göre\<DestinationResourceGroup > _\<TemplateName > için oluşturulan kaynak grubu işlemi.
 
 
 ## <a name="permissions"></a>İzinler

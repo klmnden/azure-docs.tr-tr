@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 069345f9c2d0fff0b580365153d8be13bb4ba204
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d364da9506124a35c724209c68ff72db4243e80
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952146"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341570"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Güvenlik Merkezi özelliklerini (Temmuz 2019) devre dışı bırakma
 
@@ -114,16 +114,18 @@ Güvenlik Merkezi ile oluşturulan uyarılar Haritası işlevini kullanmanızı 
 
 ## Özel uyarı kuralları (Önizleme)<a name="menu_customalerts"></a>
 
-Duyuyoruz [özel devre dışı bırakma uyarı deneyimi](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) 30 Haziran 2019 tarihinde olduğundan, temel alınan altyapıyla devre dışı bırakılıyor. O zamana kadar mevcut özel uyarı kuralları düzenleyebilirsiniz ancak yenilerini eklemek mümkün değildir. Etkinleştirmenizi öneririz [Azure Gözcü](https://azure.microsoft.com/services/azure-sentinel/) otomatik olarak mevcut uyarılarınızı geçirme ve yenilerini oluşturun. Alternatif olarak, Azure İzleyici ile günlük uyarıları uyarılarınızı da oluşturabilirsiniz.
+Duyuyoruz [özel devre dışı bırakma uyarı deneyimi](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) 30 Haziran 2019 tarihinde olduğundan, temel alınan altyapıyla devre dışı bırakılıyor. O zamana kadar mevcut özel uyarı kuralları düzenleyebilirsiniz ancak yenilerini eklemek mümkün değildir. O tarihten tanımlanan herhangi bir özel uyarı etkinleşmez ve bu kurallara göre güvenlik uyarıları oluşturulmaz.
+Etkinleştirmenizi öneririz [Azure Gözcü](https://azure.microsoft.com/services/azure-sentinel/) ve özel uyarılar var. yeniden oluşturun. Alternatif olarak, Azure İzleyici ile günlük uyarıları uyarılarınızı da oluşturabilirsiniz.
 
-Mevcut uyarılarınızı tutun ve bunları Azure Gözcü için geçirmek için:
+Mevcut uyarılarınızı tutun ve bunları Azure Gözcü ile oluşturmak için:
 
-1. Azure Gözcü açın ve özel uyarıları depolandığı çalışma alanını seçin.
-1. Seçin **Analytics** menüsünde uyarıları otomatik olarak geçirilecek.
+1. [Açık Azure Gözcü](https://portal.azure.com/#create/Microsoft.ASI/preview) ve özel uyarıları depolandığı çalışma alanı seçin
+1. Seçin **Analytics** menüsünden
+1. Aşağıdaki yönergeleri [öğretici](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) Azure Gözcü içinde özel uyarılar oluşturma
+
+Azure Gözcü kullanarak ilgilenmezseniz günlük uyarıları ile Azure izleme, uyarılar oluşturabilirsiniz. Yönergeler için [oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak günlük uyarıları yönetin](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) ve [Azure İzleyici'de günlük uyarıları](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 
 ![Özel uyarılar][13]
-
-Azure Gözcü için geçiş aşamasında ilgilenmezseniz uyarıları ile Azure izleyici günlüğü uyarıları oluşturma geçirmenizi öneririz. Yönergeler için [oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak günlük uyarıları yönetin](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) ve [Azure İzleyici'de günlük uyarıları](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 
 Özel uyarılar devre dışı bırakma hakkında daha fazla bilgi için bkz. [(Önizleme) Azure Güvenlik Merkezi'nde özel uyarı kuralları](https://docs.microsoft.com/azure/security-center/security-center-custom-alert).
 

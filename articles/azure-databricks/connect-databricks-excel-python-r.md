@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: mamccrea
-ms.openlocfilehash: c57550a8b683ad8f184884374c4f09216417fc40
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1805f04d7833dea180847defadd865cb23e9df62
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60236271"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340848"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Azure Databricks için Excel, Python veya R bağlanma
 
@@ -54,7 +54,7 @@ Bir veri kaynağı adı (DSN) belirli bir veri kaynağına hakkındaki bilgileri
 
     Aşağıdaki tabloda, iletişim kutusunda sağlanacak değerlerin hakkında bilgiler sağlar.
     
-    |Alan  | Değer  |
+    |Alan  | Value  |
     |---------|---------|
     |**Veri kaynağı adı**     | Veri kaynağı için bir ad sağlayın.        |
     |**Konaklarında**     | Databricks çalışma için kopyaladığınız değeri sağlamak *sunucusu konak adı*.        |
@@ -65,7 +65,7 @@ Bir veri kaynağı adı (DSN) belirli bir veri kaynağına hakkındaki bilgileri
     
     DSN Kurulum iletişim kutusunda aşağıdaki ek adımları gerçekleştirin.
     
-    * Tıklayın **HTTP OPTIONS**. Açılan iletişim kutusunda, değeri yapıştırın *HTTP yolu* , Databricks çalışma alanından kopyalar. **Tamam**'ı tıklatın.
+    * Tıklayın **HTTP OPTIONS**. Açılan iletişim kutusunda, değeri yapıştırın *HTTP yolu* , Databricks çalışma alanından kopyalar. **Tamam** düğmesine tıklayın.
     * Tıklayın **SSL seçeneklerini**. Açılan iletişim kutusunda seçin **SSL'yi etkinleştir** onay kutusu. **Tamam**'ı tıklatın.
     * Tıklayın **Test** Azure Databricks bağlantısını test etmek için. Tıklayın **Tamam** yapılandırmayı kaydetmek için.
     * İçinde **ODBC Veri Kaynağı Yöneticisi** iletişim kutusu, tıklayın **Tamam**.
@@ -152,7 +152,7 @@ Aşağıdaki kod parçacığını bu görevleri gerçekleştirir:
 import pyodbc
 
 # establish a connection using the DSN you created earlier
-conn = pyodbc.connect("DSN=<ENTER DSN NAME HERE>", autocommit = True)
+conn = pyodbc.connect("DSN=<ENTER DSN NAME HERE>", autocommit=True)
 
 # run a SQL query using the connection you created
 cursor = conn.cursor()
@@ -161,7 +161,6 @@ cursor.execute("SELECT * FROM radio_sample_data")
 # print the rows retrieved by the query.
 for row in cursor.fetchall():
     print(row)
-
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

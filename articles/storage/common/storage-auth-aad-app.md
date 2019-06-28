@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/05/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 30ebfec88182684f8e852808e978a51854389898
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e57291292d8957fd323f9be03bb7df0492484ea8
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073481"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341628"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>BLOB'lar ve Kuyruklar için erişim için bir uygulamadan Azure Active Directory kimlik doğrulaması
 
@@ -121,7 +121,7 @@ Ardından, açıkça atama **depolama Blob verileri katkıda bulunan** role kull
 
 Uygulamanızı Azure Storage'a eriştiğinde, bu kullanıcı adına, oturum açmış olan kullanıcının izinlerini kullanarak blob veya kuyruğa kaynaklara erişildiğini anlamı benzeri. Bu kod örneği denemek için bir Azure AD kimliğini kullanarak oturum açmasını ister bir web uygulaması gerekir. Kendi uzantınızı oluşturun veya Microsoft tarafından sağlanan örnek bir uygulama.
 
-Bir belirteç alır ve Azure Depolama'da bir blob oluşturmak için kullandığı bir tamamlanmış örnek web uygulaması üzerinde kullanılabilir [GitHub](http://aka.ms/aadstorage). Gözden geçirme ve tamamlanan örnek çalışan kod örneklerini anlamak için yararlı olabilir. Tamamlanan örnek çalıştırma gösteren yönergeler karşınıza için bölümüne [görünümü ve çalıştırma tamamlanmış örnek](#view-and-run-the-completed-sample).
+Bir belirteç alır ve Azure Depolama'da bir blob oluşturmak için kullandığı bir tamamlanmış örnek web uygulaması üzerinde kullanılabilir [GitHub](https://aka.ms/aadstorage). Gözden geçirme ve tamamlanan örnek çalışan kod örneklerini anlamak için yararlı olabilir. Tamamlanan örnek çalıştırma gösteren yönergeler karşınıza için bölümüne [görünümü ve çalıştırma tamamlanmış örnek](#view-and-run-the-completed-sample).
 
 #### <a name="add-references-and-using-statements"></a>Başvurular ekleyin ve using deyimleri  
 
@@ -235,7 +235,7 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
 
 ## <a name="view-and-run-the-completed-sample"></a>Görüntüleme ve tamamlanan örnek çalıştırma
 
-Örnek uygulamayı çalıştırmak için önce klonlayın veya indirdiği [GitHub](http://aka.ms/aadstorage). Ardından uygulama, aşağıdaki bölümlerde açıklandığı gibi güncelleştirin.
+Örnek uygulamayı çalıştırmak için önce klonlayın veya indirdiği [GitHub](https://aka.ms/aadstorage). Ardından uygulama, aşağıdaki bölümlerde açıklandığı gibi güncelleştirin.
 
 ### <a name="provide-values-in-the-settings-file"></a>Ayarlar dosyasındaki değerleri sağlayın
 

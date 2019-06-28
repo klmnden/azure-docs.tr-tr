@@ -3,19 +3,19 @@ title: "Hızlı Başlangıç: Metin, Node.js - Translator metin çevirisi API'si
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Node.js ile Translator Metin Çevirisi API’sini kullanarak metni bir dilden diğerine çevireceksiniz.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 7c4ec0304211d4ce311d3db2275b065219f37f0f
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 1180049b38681275904c3fd8b35ab8a9db7e3a74
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514758"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357973"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>Hızlı Başlangıç: Translator metin çevirisi API'si Node.js dizesiyle çevirmek için kullanın
 

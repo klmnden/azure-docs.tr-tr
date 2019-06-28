@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: bcb0c806d916b9dff4461cad829a1d75e8df7cf6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35193380cc890a93d93c68bf5fc405572b5aa409
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60766276"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67339890"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Sertifikalar ve App Service ortamı 
 
@@ -85,7 +85,9 @@ Uygulamanıza ASE'nizi sertifikayı karşıya yüklemek için:
 
     84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 
-Sertifika aynı app service planında söz konusu ayarın yapılandırılmış uygulama olarak tüm uygulamalar tarafından kullanılabilir. Farklı bir App Service planındaki uygulamaları için kullanılabilir olması gerekiyorsa, bu App Service planında bir uygulamada uygulama ayarlama işlemini tekrarlamanız gerekir. Sertifika ayarlandığını kontrol etmek için Kudu konsoluna gidin ve bu komut dir cert: \localmachine\root PowerShell hata ayıklama konsolunda vermek. 
+Sertifika aynı app service planında söz konusu ayarın yapılandırılmış uygulama olarak tüm uygulamalar tarafından kullanılabilir. Farklı bir App Service planındaki uygulamaları için kullanılabilir olması gerekiyorsa, bu App Service planında bir uygulamada uygulama ayarlama işlemini tekrarlamanız gerekir. Sertifika ayarlandığını denetlemek için Kudu konsoluna gidin ve hata ayıklama PowerShell konsolunda aşağıdaki komutu yürütün:
+
+    dir cert:\localmachine\root
 
 Test gerçekleştirmek için kendinden imzalı bir sertifika oluşturabilir ve oluşturma bir *.cer* aşağıdaki PowerShell ile dosya: 
 

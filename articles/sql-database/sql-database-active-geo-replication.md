@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/26/2019
-ms.openlocfilehash: ca53f4bfa80d6fdead24dc7d562c2240bb3fa86d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/18/2019
+ms.openlocfilehash: 826944fd3713f5cc3e99f20cb140055bfdb11a14
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387460"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341440"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Oluşturma ve etkin coğrafi çoğaltma kullanma
 
@@ -100,9 +100,6 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
   Her ikincil veritabanı, bir elastik havuzda ayrı olarak katılan ya da herhangi bir elastik havuzda hiç olmaması. Her bir ikincil veritabanı için havuz seçeneği ayrıdır ve diğer bir ikincil yapılandırmanıza bağlı değildir (birincil veya ikincil olup olmadığını) veritabanı. Her esnek havuzun tek bir bölgede yer alan, bu nedenle aynı topoloji birden fazla ikincil veritabanları elastik havuz hiçbir zaman paylaşabilirsiniz.
 
-- **İkincil veritabanının yapılandırılabilir işlem boyutu**
-
-  Birincil ve ikincil veritabanları aynı hizmet katmanı için gereklidir. Aynı işlem boyutu (Dtu veya sanal çekirdekler) olarak birincil ile ikincil veritabanı oluşturulan de önemle tavsiye edilir. İkincil bir alt işlem boyutu ile olası olmadığından, ikincil bir artan çoğaltma gecikmesi'nin süresi, risk altındadır ve sonuç olarak bir yük devretme sonrasında önemli veri kaybı riski. Sonuç olarak, yayımlanan RPO = 5 sn olamaz garanti edilir. Diğer sorununa neden daha yüksek bir işlem boyutu için yükseltilene kadar yük devretmeden sonra uygulama performansını işlem kapasitesi yeni birincil eksikliği nedeniyle etkilenecek emin olur. Yükseltme süresini veritabanı boyutuna bağlıdır. Ayrıca, şu anda bu tür yükseltme birincil ve ikincil veritabanları çevrimiçi olduğundan ve bu nedenle, kesinti giderildikten kadar tamamlanamıyor, gerektirir. Alt işlem boyutu ile ikincil oluşturmaya karar verirseniz, Azure portalında günlük g/ç yüzdesi grafik ikincil çoğaltma yükü sürdürebilmek için gereken en düşük işlem boyutunu tahmin etmek için iyi bir yol sağlar. Örneğin, birincil veritabanınız P6 ise (1000 DTU) ve kendi günlük g/ç yüzdesi 50 ikincil en az olması gerekir % P4 (500 DTU). Kullanarak günlük GÇ veri de alabilirsiniz [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) veya [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) veritabanı görünümleri.  SQL veritabanı işlem boyutları hakkında daha fazla bilgi için bkz. [SQL veritabanı hizmet katmanları nelerdir](sql-database-purchase-models.md).
 
 - **Kullanıcı tarafından denetlenen bir yük devretme ve yeniden çalışma**
 
@@ -112,7 +109,19 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
 Kullanmanızı öneririz [veritabanı düzeyinde güvenlik duvarı kuralları IP](sql-database-firewall-configure.md) bu kurallar, tüm ikincil veritabanlarını birincil olarak aynı IP güvenlik duvarı kuralları olduğundan emin olmak için veritabanı kullanılarak çoğaltılabilir. Bu nedenle coğrafi çoğaltmalı veritabanı. Bu yaklaşım el ile yapılandırmak ve hem birincil ve ikincil veritabanlarını barındıran sunucu güvenlik duvarı kurallarını sağlamak müşterilerin ihtiyacını ortadan kaldırır. Benzer şekilde, kullanarak [kapsanan veritabanı kullanıcıları](sql-database-manage-logins.md) veriler için birincil ve ikincil veritabanları her zaman sahip aynı erişim sağlar. kullanıcı kimlik bilgilerini bir yük devretme sırasında bu yüzden hiçbir kesinti nedeniyle oturum açma ve parolaları ile uyuşmuyor. Ek olarak [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), müşteriler, hem birincil hem de ikincil veritabanları için kullanıcı erişimini yönetebilir ve yönetme gereksinimini ortadan kimlik bilgileri veritabanlarında tamamen.
 
-## <a name="upgrading-or-downgrading-a-primary-database"></a>Yükseltme veya bir birincil veritabanı önceki sürüme indirme
+## <a name="configuring-secondary-database"></a>İkincil veritabanı yapılandırılıyor
+
+Birincil ve ikincil veritabanları aynı hizmet katmanı için gereklidir. Aynı işlem boyutu (Dtu veya sanal çekirdekler) olarak birincil ile ikincil veritabanı oluşturulan de önemle tavsiye edilir. Birincil veritabanı ağır yazma iş yükü yaşanıyorsa, ikincil bir alt işlem boyutu ile birlikte kalmasını sağlamak mümkün olmayabilir. İkincil, olası kullanılamazlık Yinele lag neden olur ve bu nedenle bir yük devretme sonrasında önemli veri kaybı riski. Sonuç olarak, yayımlanan RPO = 5 sn olamaz garanti edilir. Hataları veya diğer iş yüklerinin birincil bekletilen da neden olabilir. 
+
+Yük devretmeden sonra nedeniyle yeterli işlem kapasitesine yeni birincil uygulama performansını olumsuz bir sonuç imbalanced ikincil yapılandırmasının olur. Daha yüksek bir işlem kesinti kalkana kadar mümkün olmayacak gerekli düzeyine yükseltmek için gerekli olacaktır. 
+
+> [!NOTE]
+> Şu anda, birincil veritabanını yükseltmeden ikincil çevrimdışıysa mümkün değildir. 
+
+
+Alt işlem boyutu ile ikincil oluşturmaya karar verirseniz, Azure portalında günlük g/ç yüzdesi grafik ikincil çoğaltma yükü sürdürebilmek için gereken en düşük işlem boyutunu tahmin etmek için iyi bir yol sağlar. Örneğin, birincil veritabanınız P6 ise (1000 DTU) ve kendi günlük g/ç yüzdesi 50 ikincil en az olması gerekir % P4 (500 DTU). Kullanarak günlük GÇ veri de alabilirsiniz [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) veya [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) veritabanı görünümleri.  SQL veritabanı işlem boyutları hakkında daha fazla bilgi için bkz. [SQL veritabanı hizmet katmanları nelerdir](sql-database-purchase-models.md).
+
+## <a name="upgrading-or-downgrading-primary-database"></a>Yükseltme veya birincil veritabanı önceki sürüme indirme
 
 Yükseltme veya birincil farklı işlem boyuta (aynı hizmet katmanında, genel amaçlı ve iş açısından kritik arasında değil) tüm ikincil veritabanlarını kesmeden düşürebilirsiniz. Yükseltme sırasında ikincil veritabanı yükseltmeniz ve ardından birincil yükseltmeniz önerilir. Önceki sürüme indirirken ters sırada: birincil ilk düşürmek ve ardından ikincil düşürme. Bu öneri, yükseltme ya da farklı bir hizmet katmanına düşürebilirsiniz zorlanır.
 
@@ -134,7 +143,7 @@ Geniş alan ağları yüksek gecikme nedeniyle, sürekli kopyalama bir zaman uyu
 
 ## <a name="monitoring-geo-replication-lag"></a>Coğrafi çoğaltma gecikmesi izleme
 
-Lag RPO'ya göre izlemek için kullanabilirsiniz *replication_lag_sec* sütununun [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) birincil veritabanı. Kabul edilen birincil ve ikincil kalıcı işlemleri arasındaki saniye cinsinden gecikme gösterir. Örneğin gecikme değeri 1 saniyedir, birincil şu anda bir kesintisinden etkilenirse anlamına gelir ve yük devretme intiated, 1 saniye, en son transtions kaydedilmeyecek. 
+Lag RPO'ya göre izlemek için kullanabilirsiniz *replication_lag_sec* sütununun [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) birincil veritabanı. Kabul edilen birincil ve ikincil kalıcı işlemleri arasındaki saniye cinsinden gecikme gösterir. Örneğin gecikme değeri 1 saniyedir, geldiğini birincil şu anda bir kesintiden etkilenip ve yük devretme başlatılır, 1 saniye en son geçiş kaydedilmeyecek. 
 
 İkincil bölgeden okumak başka bir deyişle kullanılabilir ikincil uygulanmış olan değişikliklere birincil veritabanında lag ölçmek için karşılaştırma *last_commit* zaman ikincil veritabanı birincil aynı değere sahip Veritabanı.
 

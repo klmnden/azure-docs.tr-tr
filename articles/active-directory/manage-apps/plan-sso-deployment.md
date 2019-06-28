@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd8cebbd7c60715bc90412d9f53458edfee6c56d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5278d504c43688bf064b869982938db52b1b1bf
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108193"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164948"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Tek bir oturum açma dağıtımı planlama
 
@@ -61,9 +61,9 @@ Kullanıcılarınız için çoklu oturum açma uygulamalarınıza olarak etkinle
 
 Azure AD için parola tabanlı SSO kullanarak oturum açma formları doldurmak güvenli bir şekilde kimlik bilgilerini almak ve bir tarayıcı uzantısı dağıtma gerektirir. Uygun ölçekte uzantısını dağıtmak için bir mekanizma tanımlamak [Desteklenen tarayıcılar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Şu seçenekler mevcuttur:
 
-- [Internet Explorer için Grup İlkesi ](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-- [Internet Explorer için Sistem Merkezi Yapılandırma Yöneticisi (SCCM) ](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
-- [Kullanıcı karşıdan yükleme ve yapılandırma için Chrome, Firefox, Microsoft Edge ve IE güdümlü ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+- [Internet Explorer için Grup İlkesi](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
+- [Internet Explorer için Sistem Merkezi Yapılandırma Yöneticisi (SCCM)](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
+- [Kullanıcı karşıdan yükleme ve yapılandırma için Chrome, Firefox, Microsoft Edge ve IE güdümlü](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 Daha fazla bilgi için bkz. [yapılandırmak için parola tek oturum açma nasıl](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
 

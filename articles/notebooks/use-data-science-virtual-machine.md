@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: getroyer
-ms.openlocfilehash: 9b762f1b3f1c17e15b051e72f5d2cf98bef446bf
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 0ac50a5f52682c4315b8d08cf5632c4a6fa5242f
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137764"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357579"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Azure veri bilimi sanal makinelerini kullanın
 
@@ -51,9 +51,9 @@ DSVM sayfasından Azure portalında bu değerleri alın.
 
 ## <a name="accessing-azure-notebooks-files-from-the-dsvm"></a>DSVM Azure not defterleri dosyalardan erişme
 
-Dosya yollarının ile eşlik korumak için **ücretsiz işlem** katmanı tarafından yalnızca bir DSVM üzerinde bir seferde bir proje açın. Yeni bir proje açmak için açık projenin ilk kapatmanız gerekir.
+Dosya sistemi erişimini DSVM sürümleri 19.06.15 veya üzeri. Sürümü denetlemek için önce DSVM'ye (IP adresini Azure portalında kullanılabilir) SSH aracılığıyla bağlanın. Ardından aşağıdaki komutla çalıştırın, `<ip_address>`: `curl -H Metadata:true "http://<ip_address>/metadata/instance?api-version=2018-10-01"`. Sürüm numarası, "Sürüm" için çıktıda gösterilir.
 
-![Azure not defterlerinde kapatma düğmesi](media/shutdown.png)
+Dosya yollarının ile eşlik korumak için **ücretsiz işlem** katmanı tarafından yalnızca bir DSVM üzerinde bir seferde bir proje açın. Yeni bir proje açmak için açık projenin ilk kapatmanız gerekir.
 
 Bir VM üzerinde bir proje çalıştırıldığında, dosyaları (dizin JupyterHub gösterilen), Jupyter sunucu kök dizininin bağlı varsayılan Azure not defterleri dosyaları değiştirme. Ne zaman bilgisayarı tuşunu kullanarak VM'yi **kapatma** not defterini kullanıcı Arabirimi, Azure Not Defterleri düğmede varsayılan dosyaları geri yükler.
 

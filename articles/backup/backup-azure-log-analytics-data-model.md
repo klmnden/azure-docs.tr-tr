@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: adigan
-ms.openlocfilehash: dd4dad2cc3e541d3b6866c02341161dc1d9e1e6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 801516ae2cfad891098c16f8cd6e9a4c7f157a93
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61234984"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342006"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Verileri Azure Backup için log Analytics veri modeli
 
@@ -50,7 +50,7 @@ Bu tabloda uyarı ilgili alanları hakkındaki ayrıntılar verilmektedir.
 | OperationName |Text |Geçerli işlem, örneğin, uyarı adı |
 | Kategori |Text |Tanılama veri kategorisini Azure İzleyici günlüklerine gönderildi. Her zaman AzureBackupReport |
 | Resource |Text |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
-| ProtectedServerUniqueId_s |Text |Uyarıyla ilişkili korumalı sunucunun benzersiz tanıtıcısı |
+| ProtectedContainerUniqueId_s |Text |Uyarı (V1'de ProtectedServerUniqueId_s edildi) ile ilişkilendirilen korumalı sunucu benzersiz tanıtıcısı|
 | VaultUniqueId_s |Text |Uyarıyla ilişkili korumalı kasa benzersiz tanıtıcısı |
 | SourceSystem |Text |Geçerli verileri - Azure'nın kaynak sistem |
 | ResourceId |Text |Toplanan veriler hakkında kaynağın benzersiz tanımlayıcısı. Örneğin, bir kurtarma Hizmetleri kasasının kaynak kimliği |
@@ -67,10 +67,12 @@ Bu tablo, yedekleme öğesi ile ilgili alanlar hakkında ayrıntılar sağlar.
 | --- | --- | --- |
 | EventName_s |Text |Olayın adı. Her zaman AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Text |Yedekleme öğenin benzersiz tanıtıcısı |
-| BackupItemId_s |Text |Yedekleme öğesi tanıtıcısı |
+| BackupItemId_s |Text |(Bu alan yalnızca v1 şema için olan) yedekleme öğesi tanıtıcısı |
 | BackupItemName_s |Text |Yedekleme öğesinin adı |
 | BackupItemFriendlyName_s |Text |Yedekleme öğesi kolay adı |
 | BackupItemType_s |Text |Yedekleme öğesi, örneğin, VM Dosyaklasörü türü |
+| BackupItemProtectionState_s |Text |Yedekleme öğesinin koruma durumu |
+| BackupItemAppVersion_s |Text |Yedekleme öğesi uygulama sürümü |
 | ProtectionState_s |Text |Örneğin, korumalı, ProtectionStopped yedekleme öğesi geçerli koruma durumu |
 | ProtectionGroupName_s |Text | Yedekleme öğesi koruma grubunun adı, SC DPM ve MABS, varsa korunuyor|
 | SecondaryBackupProtectionState_s |Text |Yedekleme öğesi için ikincil koruma etkinleştirilip etkinleştirilmediği|
@@ -103,8 +105,7 @@ Bu tabloda, çeşitli varlıklar ile yedekleme öğesi ilişkilendirmeleri hakk�
 | Kategori |Text |Bu alan, Log Analytics'e gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
 | OperationName |Text |Bu alan geçerli işlem - BackupItemAssociation adını temsil eder. |
 | Resource |Text |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
-| PolicyUniqueId_g |Text |Yedekleme öğesi ile ilişkilendirilen ilkesi için benzersiz tanımlayıcı |
-| ProtectedServerUniqueId_s |Text |Yedekleme öğesi ile ilişkilendirilen korumalı sunucu benzersiz tanıtıcısı |
+| ProtectedContainerUniqueId_s |Text |Korumalı sunucu yedekleme öğesi (V1'de ProtectedServerUniqueId_s edildi) ile ilişkilendirilmiş benzersiz tanıtıcısı |
 | VaultUniqueId_s |Text |Yedekleme öğesi içeren kasa benzersiz tanıtıcısı |
 | SourceSystem |Text |Geçerli verileri - Azure'nın kaynak sistem |
 | ResourceId |Text |Toplanmakta olan veriler için kaynak tanımlayıcısı. Örneğin, Kurtarma Hizmetleri kasasının kaynak kimliği |
@@ -249,13 +250,14 @@ Bu tabloda korumalı kapsayıcılar hakkında temel alan sağlar. (V1'de Protect
 | ProtectedContainerOSType_s |Text |Korumalı kapsayıcı işletim sistemi türü |
 | ProtectedContainerOSVersion_s |Text |Korumalı kapsayıcının işletim sistemi sürümü |
 | AgentVersion_s |Text |Sürüm numarasını Aracısı yedekleme veya koruma Aracısı (durumunda, SC DPM ve MABS) |
-| BackupManagementType_s |Text |Yedekleme gibi IaaSVM Dosyaklasörü gerçekleştirmek için sağlayıcı türü |
-| EntityState_s |Text |Örneğin, etkin, silinen korumalı sunucu nesnenin geçerli durumu |
+| BackupManagementType_s |Text |Yedekleme gerçekleştirmek için sağlayıcısı türü. Örneğin, IaaSVM, Dosyaklasörü |
+| EntityState_s |Text |Korumalı sunucu nesnenin geçerli durumu. Örneğin, etkin, silindi |
 | ProtectedContainerFriendlyName_s |Text |Korumalı sunucu kolay adı |
 | ProtectedContainerName_s |Text |Korumalı kapsayıcının adı |
-| ProtectedContainerWorkloadType_s |Text |Örneğin, IaaSVMContainer korumalı kapsayıcı türü desteklenen |
+| ProtectedContainerWorkloadType_s |Text |Korumalı yedeklenen kapsayıcının türü. Örneğin, IaaSVMContainer |
 | ProtectedContainerLocation_s |Text |Korumalı kapsayıcı şirket içinde ister azure'da |
 | ProtectedContainerType_s |Text |Korumalı kapsayıcı bir sunucu veya bir kapsayıcı olup |
+| ProtectedContainerProtectionState_s  |Text |Korumalı kapsayıcı koruma durumu |
 
 ### <a name="storage"></a>Depolama
 
@@ -263,7 +265,7 @@ Bu tablo depolama ile ilgili alanlar hakkında ayrıntılar sağlar.
 
 | Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
-| CloudStorageInBytes_s |Ondalık sayı |Hesaplanan yedeklemeler tarafından kullanılan yedekleme depolama en son değeri temel alarak bulut |
+| CloudStorageInBytes_s |Ondalık sayı |Hesaplanan yedeklemeler tarafından kullanılan bulut yedekleme depolama alanı (Bu alan için yalnızca v1 şema) en son değeri temel|
 | ProtectedInstances_s |Ondalık sayı |Ön uç depolama faturalandırma, hesaplanmış dayalı olarak en son değeri hesaplamak için kullanılan korunan örnek sayısı |
 | EventName_s |Text |Bu alan, bu olayın adını temsil eder, her zaman AzureBackupCentralReport olur |
 | SchemaVersion_s |Text |Bu alan geçerli şema sürümünü gösterir, **V2** |
@@ -280,6 +282,10 @@ Bu tablo depolama ile ilgili alanlar hakkında ayrıntılar sağlar.
 | ResourceGroup |Text |Kaynak (ör kaynak grubu. Toplanan veriler için kurtarma Hizmetleri kasası) |
 | ResourceProvider |Text |Toplanan veriler için kaynak sağlayıcısı. Örneğin, Microsoft.RecoveryServices |
 | ResourceType |Text |Kaynak türü için verileri toplanır. Örneğin, kasaları |
+| StorageUniqueId_s |Text |Depolama varlık tanımlamak için kullanılan benzersiz kimliği |
+| StorageType_s |Text |Depolama, örneğin bulut birimi, Disk türü |
+| StorageName_s |Text |Örneğin E:\ depolama varlığın adı |
+| StorageTotalSizeInGBs_s |Text |Depolama, depolama varlık tarafından tüketilen GB toplam boyutu|
 
 ### <a name="storageassociation"></a>StorageAssociation
 
@@ -342,7 +348,7 @@ Bu tablo, bir birim ilişkilendirildiği workload(s) belirtir.
 
 ### <a name="protectedinstance"></a>ProtectedInstance
 
-Bu tablo, ilgili alanları temel korumalı örnekler sağlar.
+Bu tabloda örnekleri ile ilgili temel korumalı alanlar sağlar.
 
 | Alan | Veri Türü |Geçerli sürümler | Açıklama |
 | --- | --- | --- | --- |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: a5deee4209001d8c2212033c2d547d7c4199bd25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab7165c3315e3a53f90900be8eaf1b9c614a2b07
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192615"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341121"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Azure Güvenlik Merkezi'ndeki Özel Uyarı Kuralları (Önizleme)
 Bu belge, Azure Güvenlik Merkezi'nde özel uyarı kuralları oluşturmanıza yardımcı olur.
@@ -29,17 +29,15 @@ Bu belge, Azure Güvenlik Merkezi'nde özel uyarı kuralları oluşturmanıza ya
 
 ## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde devre dışı bırakılması özel uyarı kuralları
 
-Özel uyarı deneyimi 30 Haziran 2019 dayanır emeklilik altyapının nedeniyle kullanımdan kaldırılacaktır. Zaman çerçevesinde kullanımdan kaldırma kadar kullanıcılar var olan özel uyarı kuralları düzenlemek mümkün olacaktır, ancak yenilerini eklemek mümkün olmayacaktır.
+Özel uyarı deneyimi 30 Haziran 2019 dayanır emeklilik altyapının nedeniyle kullanımdan kaldırılacaktır. Zaman çerçevesinde kullanımdan kaldırma kadar kullanıcılar var olan özel uyarı kuralları düzenlemek mümkün olacaktır, ancak yenilerini eklemek mümkün olmayacaktır. Kullanımdan kaldırma, tanımlanan herhangi bir özel uyarı etkinleşmez ve bu özel uyarılar kurallara göre güvenlik uyarıları oluşturulmaz.
 Kullanıcılar için önerilir:
-- Etkinleştirme [Azure Gözcü](https://azure.microsoft.com/services/azure-sentinel/) ile otomatik olarak mevcut uyarılarını geçirme ve yenilerini oluşturmak için tek tıklamayla ekleme
+- Etkinleştirme [Azure Gözcü](https://azure.microsoft.com/services/azure-sentinel/) ve yerleşik [analytics](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) işlevselliği, uyarı kuralları yeniden oluşturmak için
 - Azure izleyici günlüğü uyarıları, uyarılarla yeniden oluşturun
                                      
-Mevcut uyarılarınızı tutun ve bunları Azure Gözcü için geçirmek için lütfen [Azure Gözcü başlatma](https://portal.azure.com/#create/Microsoft.ASI/preview). İlk adımı olarak özel uyarıları depolandığı çalışma alanını seçin ve sonra uyarıları otomatik olarak geçirilecek 'Analytics' menü öğesini seçin.
+Mevcut uyarılarınızı tutun ve bunları Azure Gözcü için geçirmek için lütfen [Azure Gözcü başlatma](https://portal.azure.com/#create/Microsoft.ASI/preview). İlk adımı olarak özel uyarıları depolandığı çalışma alanını seçin ve ardından, özel uyarı kuralları ayarlamak için 'Analytics' menü öğesini seçin. Lütfen [belgeleri](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) ek bilgi için.
 
 > [!NOTE]
-> Özel uyarılar geçiş Azure Gözcü için seçilen çalışma alanındaki tüm özel uyarı tek seferlik bir geçiş olur. Geçiş tamamlandıktan sonra özel uyarıları, seçilen çalışma alanı için Azure Güvenlik Merkezi erişilemez.
->
-> Kullanarak özel uyarılar [arama](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries) veya [birleşim](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) deyimleri sorgular Azure Gözcü içinde desteklenmez ve geçişi yapılmaz. Geçişi gerçekleştirmeden önce lütfen bu uyarılar düzenleyin.
+> Kullanarak özel uyarılar [arama](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries) veya [birleşim](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) deyimleri sorgular Azure Gözcü içinde desteklenmez. Geçişi gerçekleştirmeden önce lütfen bu uyarılar düzenleyin.
 
 Azure İzleyici günlük uyarıları kullanarak uyarıları yeniden oluşturmak için lütfen bkz: [Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak günlük uyarıları yönetme](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) günlüğü uyarıları oluşturma hakkında yönergeler için. Azure İzleyici'de günlüğü uyarılarına genel bakış için tıklayın [burada](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Logic Apps erişimin güvenliğini sağlama | Microsoft Docs
+title: Azure Logic Apps güvenli erişim
 description: Güvenlik tetikleyicileri, girdileri ve çıktıları, parametreleri ve diğer hizmetleri de dahil olmak üzere Azure Logic Apps için ekleyin
 services: logic-apps
 ms.service: logic-apps
@@ -7,15 +7,14 @@ ms.suite: integration
 author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
-ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
-ms.openlocfilehash: 31b18e2dfbad1f572b5c9b0ae59f5e076db7cde2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 65369e5747f17c0e420d5775f1c5704cac9ca21b
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60995731"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341101"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Azure Logic apps'te güvenli erişim
 
@@ -156,9 +155,9 @@ Daha fazla yetkilendirme protokolleri mantıksal uygulamanıza eklemek için kul
 
 Yalnızca belirli kullanıcılar veya mantıksal uygulamanızı işlemleri çalıştırma gruplarına izin vermek için yönetmek, düzenleme ve görüntüleme gibi görevleri erişimi kısıtlayabilirsiniz. Logic Apps destekler [Azure rol tabanlı Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md), özelleştirme veya örneğin, aboneliğinizde yerleşik roller üyelerine atayın:
 
-* [Mantıksal uygulama katkıda bulunanı](../role-based-access-control/built-in-roles.md#logic-app-contributor): Kullanıcılar görüntülemek, düzenlemek ve mantıksal uygulamanızı güncelleştirin. 
+* [Mantıksal uygulama katkıda bulunanı](../role-based-access-control/built-in-roles.md#logic-app-contributor): Sağlayan mantıksal uygulamaları yönetme, ancak bunlara erişimi değiştiremezsiniz.
 
-* [Mantıksal uygulama operatörü](../role-based-access-control/built-in-roles.md#logic-app-operator): Kullanıcıların mantıksal uygulamanız ve çalıştırma geçmişini görüntülemek ve etkinleştirebilir veya mantıksal uygulama devre dışı bırakın. Bu rol, düzenlemek veya mantıksal uygulamanızı güncelleştirin.
+* [Mantıksal uygulama operatörü](../role-based-access-control/built-in-roles.md#logic-app-operator): Etkinleştirme ve logic apps, devre dışı bırakmak, okuma, yönetmenizi sağlar ancak düzenleyemez veya bunları güncelleştirin.
 
 Mantıksal uygulamanızı silme veya değiştirme diğerlerinden önlemek için kullanabileceğiniz [Azure kaynak kilidi](../azure-resource-manager/resource-group-lock-resources.md). Bu özellik, değiştirme veya silme üretim kaynakları diğerlerinden engellemenize yardımcı olur.
 

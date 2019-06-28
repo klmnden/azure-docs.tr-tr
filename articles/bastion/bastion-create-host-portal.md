@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: d8012fb75282d64f7d1858e02b842b1c770200f9
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 5fbd64d2f001a0fbe91de2d954889816a1819479
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191778"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67339446"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>Bir Azure Burcu ana bilgisayarı (Önizleme) oluşturma
 
@@ -41,7 +41,7 @@ Bu önizlemeye katılmak için kaydetmeniz gerekir. Önizlemeye kaydolmak için 
 
 Bu bölümde, Azure portalından yeni Azure savunma kaynak oluşturmanıza yardımcı olur.
 
-1. İçinde giriş sayfasından [ Azure portalı - preview](http://aka.ms/BastionHost), tıklayın **+ kaynak Oluştur**. Bu önizleme, normal Azure portalın değil için portala erişmek için sağlanan bağlantıyı kullandığınızdan emin olun.
+1. İçinde giriş sayfasından [ Azure portalı - preview](https://aka.ms/BastionHost), tıklayın **+ kaynak Oluştur**. Bu önizleme, normal Azure portalın değil için portala erişmek için sağlanan bağlantıyı kullandığınızdan emin olun.
 
 1. Üzerinde **yeni** sayfasında *markette Ara* alanına **savunma**, ardından **Enter** arama sonuçlarını almak için.
 
