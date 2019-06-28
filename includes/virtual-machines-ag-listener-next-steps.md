@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 27b09ea9cc7ce3cf2559304a26d0c04f3ea30b54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165399"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188323"
 ---
 İstemcileri birincil çoğaltmaya otomatik olarak bağlama ek olarak, bir dinleyici salt okunur iş yükleri için ikincil veritabanı yeniden yönlendirmek için kullanılabilir. Bu kullanım, performans ve genel çözümünüzün ölçeklenebilirliği artırabilirsiniz. Daha fazla bilgi için [kullanım ReadIntent yönlendirme Azure Always On kullanılabilirlik grubu dinleyicisi ile](https://go.microsoft.com/fwlink/?LinkId=522515).
 

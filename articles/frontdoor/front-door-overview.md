@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/29/2018
+ms.date: 04/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 2d4c93b7ef707f5b09bc2f5f93d56c50c1bb3458
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 20cfcea4a8b58c1c01a7c710163b7320ff96d65c
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736335"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330830"
 ---
 # <a name="what-is-azure-front-door-service"></a>Azure Front Door Hizmeti nedir?
 Azure Front Door Service, yüksek kullanılabilirliğe yönelik en iyi performans ve anında genel yük devretme için iyileştirerek, web trafiğinizin genel yönlendirmesini tanımlamanızı, yönetmenizi ve izlemenizi sağlar. Front Door ile, genel (çok bölgeli) tüketici ve kurumsal uygulamalarınızı Azure ile küresel çapta bir hedef kitleye ulaşan sağlam, yüksek performanslı, kişiselleştirilmiş modern uygulamalara, API’lere ve içeriğe dönüştürebilirsiniz.
@@ -60,6 +60,13 @@ Front Door özel etki alanı adlarında HTTPS’yi de destekler. Trafiğiniz iç
 Azure Front Door, HTTP/HTTPS iş yükünüzü istemci IP adreslerine, ülke koduna ve http parametrelerine dayalı istismardan korumaya yönelik erişim denetimi için özel web uygulaması güvenlik duvarı (WAF) kuralları yazmanıza olanak tanır. Buna ek olarak, Front Door kötü amaçlı bot trafiğiyle mücadele etmek için hız sınırlaması kuralları oluşturmanızı da sağlar. 
 
 Front Door platformunun kendisi Temel [Azure DDoS Koruması](../virtual-network/ddos-protection-overview.md) ile korunur. Korumayı artırmak için, sanal ağlarınızda Azure DDoS Koruması Standart etkinleştirilebilir ve kaynakları ağ katmanı (TCP/UDP) saldırılarına karşı otomatik ayar ve risk azaltma yoluyla koruma altına alır. Front Door bir 7. katman ters ara sunucudur; web trafiğinin yalnızca arka uçlardan geçmesine izin verir ve diğer trafik türlerini varsayılan olarak engeller.
+
+## <a name="url-redirection"></a>URL yeniden yönlendirme
+Yalnızca güvenli iletişim desteklemek üzerinde güçlü sektör itme ile web uygulamalarını otomatik olarak tüm HTTP trafiğini HTTPS'ye yönlendirmek beklenir. Bu, kullanıcıların uygulama arasındaki tüm iletişimi şifrelenmiş bir yolu gerçekleştirilmesini sağlar. 
+
+Geleneksel olarak, uygulama sahipleri HTTP, HTTPS için aldığı isteklerini yeniden yönlendirmek için tek amacı olan, adanmış bir hizmet oluşturarak bu gereksinimi ele. Azure ön kapısı hizmeti, HTTP gelen HTTPS trafiğini yeniden yönlendirme özelliğini destekler. Bu uygulama yapılandırmasını basitleştirir, kaynak kullanımını en iyi duruma getirir ve genel ve yol tabanlı yeniden yönlendirme dahil yeni yeniden yönlendirme senaryolarını destekler. Azure ön kapısı hizmetinden URL yeniden yönlendirme, HTTP için tek başına yeniden ancak farklı bir yola yönlendirmek ve hatta yeni bir sorgu dizesini URL'ye yeniden yönlendirme farklı bir konak yeniden yönlendirmek için sınırlı değildir.
+
+Daha fazla bilgi için [trafik yönlendirme](front-door-url-redirect.md) Azure ön kapısı Service.
 
 ## <a name="url-rewrite"></a>URL yeniden yazma
 Front Door, isteği arka uca yönlendirecek şekilde hazırlarken isteğe bağlı bir Özel İletme Yolu yapılandırmanıza olanak tanıyarak [URL yeniden yazma](front-door-url-rewrite.md) desteği sağlar. Front Door, istek arka ucunuza iletildiğinde gönderilecek Host üst bilgisini yapılandırmanıza da izin verir.

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: 8df4f17c9afbf10c6507e505c6540c3f66a42309
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 51de1c4ac17360282877f05d52c3ea8fa2c6d712
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275642"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310759"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasasını silme
 
@@ -114,7 +114,7 @@ Bu yordam, yedekleme verilerini Azure dosyaları ' kaldırma gösteren bir örne
 1. Kasa Panosu menüsünden tıklayın **Yedekleme Altyapısı**.
 2. Tıklayın **yedekleme yönetim sunucuları** sunucuları görüntülemek için.
 
-    ![panosunu açmak için kasanızı seçin](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
+    ![Kasa panosunu açmak için seçin](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
 3. Öğeye sağ tıklayın > **Sil**.
 4. Üzerinde **Sil** menüsünden sunucu adını yazın ve tıklayın **Sil**.
@@ -124,7 +124,7 @@ Bu yordam, yedekleme verilerini Azure dosyaları ' kaldırma gösteren bir örne
 
 > [!NOTE]
 > Yönetim Sunucusu konsolunu veya bir korumalı sunucu üzerindeki MARS konsolunda öğeleri kaldırmak için korumayı durdurun ve yedeklemeleri silin. Yedekleme öğeleri kalırsa, sunucunun kaydını silip denediğinizde aşağıdaki hata görünür:
-> 
+>
 >![silme işlemi başarısız oldu](./media/backup-azure-delete-vault/deletion-failed.png)
 
 6. Silme işlemi tamamlanmış olduğunu doğrulamak için Azure iletileri denetleyin ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/messages.png).
@@ -159,8 +159,8 @@ Bu yordam, yedekleme verilerini Azure dosyaları ' kaldırma gösteren bir örne
 
 > [!NOTE]
 > Bu sunucunun kayıtları silinmeden önce bir yedek yönetim sunucusu veya Azure Backup Aracısı sunucusu ile ilişkili yedekleme öğesi silinmesi gerekir. Yedekleme öğeleri kaldırmak için SC DPM veya MABS sunucuya geçerli MARS Yönetim Konsolu gidin ve korumasını durdurun ve yedekleri silmek için uygun seçenekleri seçin. Yedekleme öğeleri halen ilişkilendirilmiş durumda, aşağıdaki hatayı görürsünüz:
-> 
-> 
+>
+>
 >![silme işlemi başarısız oldu](./media/backup-azure-delete-vault/deletion-failed.png)
 
 8. Silme işlemi tamamlanmış olduğunu doğrulamak için Azure iletileri denetleyin ![Yedekleme verilerini sil](./media/backup-azure-delete-vault/messages.png).

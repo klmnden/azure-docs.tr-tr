@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: c4ab5fe4625bce1ed66258a5b9aab597dae17a1a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: b5a08b9b998f8d0b30091af016af564e836d4651
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303991"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331674"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -39,7 +39,9 @@ Dağıtım iş akışı içinde ilgili kavramları hakkında daha fazla bilgi i�
 
 ## <a id="registermodel"></a> Modelinizi kaydetme
 
-Makine öğrenimi modellerini Azure Machine Learning çalışma alanınızdaki kaydedin. Azure Machine Learning hizmetinden gelebilir veya başka bir yere gelebilir. Aşağıdaki örnekler, bir model dosyasından kaydetme göstermektedir:
+Modelinizi bir veya daha fazla dosyaların için kayıtlı modeli mantıksal kapsayıcı. Örneğin, birden çok dosyasında depolanan bir model varsa, bunları çalışma alanında tek bir model olarak kaydedebilirsiniz. Kayıt sonrasında sonra indirin veya kayıtlı modeli dağıtabilir ve kaydedilmiş tüm dosyalar alırsınız.
+
+Makine öğrenimi modellerini Azure Machine Learning çalışma alanınızda kaydedilir. Azure Machine Learning hizmetinden gelebilir veya başka bir yere gelebilir. Aşağıdaki örnekler, bir model dosyasından kaydetme göstermektedir:
 
 ### <a name="register-a-model-from-an-experiment-run"></a>Denemeyi çalıştırma modelden kaydetme
 
@@ -48,11 +50,18 @@ Makine öğrenimi modellerini Azure Machine Learning çalışma alanınızdaki k
   model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
   print(model.name, model.id, model.version, sep='\t')
   ```
+
+  > [!TIP]
+  > Birden çok dosya model kaydı içerecek şekilde, `model_path` dosyaları içeren dizine.
+
 + **CLI kullanarak**
+
   ```azurecli-interactive
   az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
   ```
 
+  > [!TIP]
+  > Birden çok dosya model kaydı içerecek şekilde, `--asset-path` dosyaları içeren dizine.
 
 + **VS Code'u kullanarak**
 
@@ -77,10 +86,16 @@ Harici olarak oluşturulmuş bir model sunarak kaydedebileceğiniz bir **yerel y
                          description = "MNIST image classification CNN from ONNX Model Zoo",)
   ```
 
+  > [!TIP]
+  > Birden çok dosya model kaydı içerecek şekilde, `model_path` dosyaları içeren dizine.
+
 + **CLI kullanarak**
   ```azurecli-interactive
   az ml model register -n onnx_mnist -p mnist/model.onnx
   ```
+
+  > [!TIP]
+  > Birden çok dosya model kaydı içerecek şekilde, `-p` dosyaları içeren dizine.
 
 **Tahmini Süre**: Yaklaşık 10 saniye.
 
@@ -110,12 +125,14 @@ Betik, yükleme ve çalıştırmayı iki işlev içerir:
 * `run(input_data)`: Bu işlev, giriş verileri temel alan bir değer tahmin modelini kullanır. Genellikle girişler ve çıkışlar farklı çalıştır JSON seri hale getirme ve serinin için kullanın. Ayrıca, ham ikili verileri ile çalışabilirsiniz. Veri modeline göndermeden önce veya istemciye döndürmeden önce dönüştürebilirsiniz.
 
 #### <a name="what-is-getmodelpath"></a>Get_model_path nedir?
-Bir modeli kaydettiğinizde, kayıt defteri modelde yönetmek için kullanılan bir model adı sağlayın. Model dosyaları yerel dosya sistemindeki yolunu döndüren API get_model_path bu adı kullanın. Bu API, bir klasör veya dosyaları koleksiyonunu kaydederseniz, bu dosyaları içeren dizine yolunu döndürür.
 
-Bir modeli kaydettiğinizde, karşılık gelen modeli, yerel olarak veya hizmet dağıtımı sırasında yerleştirildiği için adlandırırsınız.
+Bir modeli kaydettiğinizde, kayıt defteri modelde yönetmek için kullanılan bir model adı sağlayın. Bu ada sahip kullandığınız [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) model dosyaları yerel dosya sistemindeki yolunu almak için. Bu API, bir klasör veya dosyaları koleksiyonunu kaydederseniz, bu dosyaları içeren dizine yolunu döndürür.
 
-Aşağıdaki örnekte, '(hangi 'sklearn_mnist' adıyla kayıtlı) bir tek dosya adlı sklearn_mnist_model.pkl' için bir yol döndürür
-```
+Bir modeli kaydettiğinizde, bu model, yerel olarak veya hizmet dağıtımı sırasında yerleştirildiği için karşılık gelen bir ad verin.
+
+Aşağıdaki örnekte bir yol tek dosya adlı döndüreceği `sklearn_mnist_model.pkl` (adıyla kaydedildi `sklearn_mnist`):
+
+```python
 model_path = Model.get_model_path('sklearn_mnist')
 ``` 
 
@@ -293,7 +310,8 @@ Aşağıdaki bölümlerde, dağıtım yapılandırması oluşturun ve web hizmet
 
 ### <a name="optional-profile-your-model"></a>İsteğe bağlı: Modelinizi profil
 Modelinizi bir hizmeti dağıtmadan önce en iyi CPU ve bellek gereksinimlerini belirlemek için profil isteyebilirsiniz.
-SDK veya CLI bunu yapabilirsiniz.
+
+CLI veya SDK'sını kullanarak modelinizi profili yapabilirsiniz.
 
 Daha fazla bilgi için SDK'sı belgelerimize burada kontrol edebilirsiniz: https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
 
@@ -386,7 +404,7 @@ Ekli bir AKS kümesi zaten varsa, kendisine dağıtabilirsiniz. Henüz oluşturd
 AKS dağıtımı ve otomatik olarak ölçeklendirme hakkında daha fazla bilgi edinin [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) başvuru.
 
 #### Yeni bir AKS kümesi oluşturma<a id="create-attach-aks"></a>
-**Tahmini süre:** Yaklaşık 5 dakika.
+**Tahmini Süre**: Yaklaşık 20 dakika.
 
 Oluşturma veya bir AKS kümesi tek bir süredir eklemek, çalışma alanınız için işler. Bu kümeye birden çok dağıtımlar için yeniden kullanabilirsiniz. Küme veya onu içeren kaynak grubunu silerseniz, yeni bir kümeye dağıtmak için gerektiğinde oluşturmanız gerekir. Çalışma alanınıza bağlı birden çok AKS kümesi olabilir.
 
@@ -425,10 +443,11 @@ Daha fazla bilgi için `cluster_purpose` parametresi bkz [AksCompute.ClusterPurp
 
 > [!IMPORTANT]
 > İçin [ `provisioning_configuration()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), büyüktür veya eşittir 12 sanal CPU'lara göre vm_size çarpılan agent_count emin olmanız gerekir daha sonra agent_count ve vm_size, özel değerleri seçin. Örneğin, bir vm_size 4 sanal CPU'lar varsa, "Standard_D3_v2" birini kullanırsanız, 3 veya daha büyük bir agent_count seçmeniz gerekir.
-
-**Tahmini Süre**: Yaklaşık 20 dakika.
+>
+> Azure Machine Learning SDK'sı, AKS kümesini ölçeklendirme destek sağlamaz. Kümedeki düğümler ölçeklendirmek için Azure portalında AKS kümenizin kullanıcı arabirimini kullanın. Yalnızca VM boyutu değil kümenin düğüm sayısını değiştirebilirsiniz.
 
 #### <a name="attach-an-existing-aks-cluster"></a>Mevcut bir AKS kümesi ekleme
+**Tahmini süre:** Yaklaşık 5 dakika.
 
 AKS kümesini Azure aboneliğinizde zaten ve sürüm 1.12. ##, görüntünüzü dağıtmak için kullanın.
 

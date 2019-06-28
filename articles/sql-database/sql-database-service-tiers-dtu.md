@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 5/10/2019
-ms.openlocfilehash: 5d769e2198b714d611b3004e11ccc624d4c6acdf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.openlocfilehash: 964a2931267ad2f1e2842693eadf43f8f629a084
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546464"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357234"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU tabanlı satın alma modeli olarak hizmet katmanları
 
-DTU tabanlı satın alma modeli hizmet katmanlarında işlem boyutları dahil edilen depolama alanı, yedekleme ve sabit fiyat için bekletme süresi sabit tutarda aralığına göre ayrılır. DTU tabanlı satın alma modeli tüm hizmet katmanlarında işlem boyutları kapalı kalma süresi olmadan değiştirme esnekliği sunar. Tek veritabanları ve elastik havuzlar, hizmet katmanı ve işlem boyutu saatlere göre faturalandırılır.
+DTU tabanlı satın alma modeli hizmet katmanlarında işlem boyutları dahil edilen depolama alanı, yedekleme ve sabit fiyat için bekletme süresi sabit tutarda aralığına göre ayrılır. DTU tabanlı satın alma modeli tüm hizmet katmanlarında işlem boyutları en düşük ile değiştirme esnekliği [kapalı kalma süresi](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/); ancak olduğundan geçiş dönemi boyunca bağlantı olduğu için veritabanı kayıp kısa bir zaman miktarı için hangi yeniden deneme mantığı kullanılarak azaltılabilir. Tek veritabanları ve elastik havuzlar, hizmet katmanı ve işlem boyutu saatlere göre faturalandırılır.
 
 > [!IMPORTANT]
 > SQL veritabanı yönetilen örneği, DTU tabanlı satın alma modeli desteklemez. Daha fazla bilgi için [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md).
@@ -165,7 +165,7 @@ Ana ölçümler Kıyaslama aktarım hızı ve yanıt süresi ' dir.
 
 | Hizmet sınıfı | Aktarım hızı ölçümü | Yanıt süresi gereksinimi |
 | --- | --- | --- |
-| Premium |Saniye başına işlem |95\. yüzdebirlik 0,5 saniye |
+| Premium |Saniye başına işlem |95. yüzdebirlik 0,5 saniye |
 | Standart |Dakika başına işlem |1\.0 saniye 90. yüzdebirlik |
 | Temel |Saat başına işlem |2\.0 saniye 80. yüzdebirlik |
 

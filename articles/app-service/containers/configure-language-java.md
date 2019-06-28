@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 9339d891e8fe895f598e1a2615fcfa66b053b3e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 91368ac3b1d7948257fa9e55debc862567593425
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063845"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341380"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Azure App Service için Linux Java uygulaması yapılandırma
 
@@ -60,6 +60,43 @@ Uygulamanız kullanıyorsa [Logback](https://logback.qos.ch/) veya [Log4j](https
 ### <a name="troubleshooting-tools"></a>Sorun giderme araçları
 
 Yerleşik Java görüntüleri temel alan [Alpine Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) işletim sistemi. Kullanım `apk` sorun giderme yüklemek için Paket Yöneticisi Araçları veya komutları.
+
+### <a name="flight-recorder"></a>Uçuş Kaydedicisi
+
+App Service üzerindeki tüm Linux Java görüntülerini kolayca JVM için bağlanın ve kaydı bir profil oluşturucuyu başlatın veya bir yığın dökümü oluşturmak için yüklü olan Zulu uçuş Kaydedicisi vardır.
+
+#### <a name="timed-recording"></a>Zamanlanmış kaydetme
+
+Alma başlatıldı, uygulamanızı App Service'e SSH ve çalıştırma için `jcmd` çalışan tüm Java işlemlerin listesini görmek için komutu. Jcmd yanı sıra kendisini, çalışan bir işlem kimlik numarası (PID) ile Java uygulamanızı görmeniz gerekir.
+
+```shell
+078990bbcd11:/home# jcmd
+Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
+147 sun.tools.jcmd.JCmd
+116 /home/site/wwwroot/app.jar
+```
+
+JVM 30 saniyelik kaydını başlatmak için aşağıdaki komutu yürütün. Bu JVM profil ve adlı JFR dosyası oluşturma `jfr_example.jfr` giriş dizininde. (116 Java uygulamanızın PID ile değiştirin.)
+
+```shell
+jcmd 116 JFR.start name=MyRecording settings=profile duration=30s filename="/home/jfr_example.jfr"
+```
+
+30 ikinci aralığında kaydı doğrulamak için bir yerde çalıştırarak sürüyor `jcmd 116 JFR.check`. Bu işlem, belirli bir Java işlemi için tüm kayıtları gösterir.
+
+#### <a name="continuous-recording"></a>Sürekli kaydetme
+
+Çalışma zamanı performansı üzerinde en az etki ile Java uygulamanızı sürekli olarak profilini Zulu uçuş Kaydedicisi kullanabilirsiniz ([kaynak](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf)). Bunu yapmak için gerekli yapılandırmayla JAVA_OPTS adlı bir uygulama ayarı oluşturmak için aşağıdaki Azure CLI komutunu çalıştırın. Uygulama ayarı JAVA_OPTS içeriğini geçirilen `java` , uygulamanız başlatıldığında komutu.
+
+```azurecli
+az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
+```
+
+Daha fazla bilgi için lütfen bkz [Jcmd komut başvurusu](https://docs.oracle.com/javacomponents/jmc-5-5/jfr-runtime-guide/comline.htm#JFRRT190).
+
+### <a name="analyzing-recordings"></a>Kayıtları analiz etme
+
+Kullanım [FTPS](../deploy-ftp.md) JFR dosyanızın yerel makinenize indirmek için. JFR dosyasını çözümlemek için indirme ve yükleme [Zulu görev kontrol merkezidir](https://www.azul.com/products/zulu-mission-control/). Zulu dili görev kontrol merkezidir hakkında yönergeler için bkz [Azul belgeleri](https://docs.azul.com/zmc/) ve [yükleme yönergeleri](https://docs.microsoft.com/en-us/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
 
 ## <a name="customization-and-tuning"></a>Özelleştirme ve ayarlama
 

@@ -11,17 +11,17 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6285348aa8067f356635dfff9ecd4eb34c431f0b
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.date: 06/25/2019
+ms.openlocfilehash: d8949f63dfa9b409cc14fe9c3bbed70f23a73c86
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147687"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357143"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dinamik olarak ölçek en düşük kapalı kalma süresi ile veritabanı kaynakları
 
-Azure SQL veritabanı, veritabanı en düşük kapalı kalma süresi ile dinamik olarak daha fazla kaynak eklemek sağlar.
+Azure SQL veritabanı sayesinde veritabanınızı en düşük ile dinamik olarak daha fazla kaynak eklemek [kapalı kalma süresi](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/); ancak olduğundan geçiş dönemi boyunca bağlantı olduğu için veritabanı kayıp bir kısa sürede olabilen, yeniden deneme mantığı kullanılarak azaltılabilir.
 
 ## <a name="overview"></a>Genel Bakış
 

@@ -3,19 +3,19 @@ title: Translator metin çevirisi API'si V2.0
 titleSuffix: Azure Cognitive Services
 description: V2.0 Translator metin çevirisi API'si için başvuru belgeleri.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
-ms.author: v-pawal
-ms.openlocfilehash: d2ff61908d7901fc464b58ee1ef9b5605b3026a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: 88503c73e2ca9cf04e64ca3a47793e9b10ca325a
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389841"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357831"
 ---
 # <a name="translator-text-api-v20"></a>Translator metin çevirisi API'si v2.0
 
@@ -83,7 +83,7 @@ Yanıt içerik türü: application/xml
 
 ### <a name="parameters"></a>Parametreler
 
-|Parametre|Değer|Açıklama    |Parametre türü|Veri Türü|
+|Parametre|Value|Açıklama    |Parametre türü|Veri Türü|
 |:--|:--|:--|:--|:--|
 |appid  |(boş)    |Gereklidir. Yetkilendirme veya Ocp-Apim-Subscription-Key üstbilgi kullandıysanız, AppID alanı boş bırakın başka dahil "Bearer" içeren bir dize + "" + "access_token".|sorgu|string|
 |metin|(boş)   |Gereklidir. Çevrilecek metin temsil eden bir dize. Metin boyutu 10000 karakterden uzun olmamalıdır.|sorgu|string|
@@ -188,7 +188,7 @@ Yanıt içerik türü: application/xml
 
 ### <a name="parameters"></a>Parametreler
 
-|Parametre|Değer|Açıklama|Parametre türü|Veri Türü|
+|Parametre|Value|Açıklama|Parametre türü|Veri Türü|
 |:--|:--|:--|:--|:--|
 |Yetkilendirme|(boş)) |AppID alanı veya Ocp-Apim-Subscription-Key üst bilgisi belirtilmemişse gereklidir. Yetkilendirme belirteci:  "Bearer" + "" + "access_token".|üst bilgi|string|
 |Ocp-Apim-Subscription-Key|(boş)|AppID alanı veya yetkilendirme üst bilgisi belirtilmemişse gereklidir.|üst bilgi|string|
@@ -229,7 +229,7 @@ Yanıt içerik türü: application/xml
  
 ### <a name="parameters"></a>Parametreler
 
-|Parametre|Değer|Açıklama|Parametre türü|Veri Türü|
+|Parametre|Value|Açıklama|Parametre türü|Veri Türü|
 |:--|:--|:--|:--|:--|
 |appid|(boş)|Gereklidir. Varsa `Authorization` veya `Ocp-Apim-Subscription-Key` üstbilgi kullanılır, AppID alanı boş bırakın, aksi takdirde dahil içeren bir dize `"Bearer" + " " + "access_token"`.|sorgu|string|
 |Yerel ayar|(boş) |Gereklidir. Bir dil ve dil adlarının yerelleştirmek için ISO 3166 iki harfli büyük alt kodu ile ilişkili bir ISO 639 iki harfli küçük kültür kodu veya bir ISO 639 küçük kültür kodu birleşimi kendisi tarafından temsil eden bir dize.|sorgu|string|
@@ -263,7 +263,7 @@ Yanıt içerik türü: application/xml
  
 ### <a name="parameters"></a>Parametreler
 
-|Parametre|Değer|Açıklama|Parametre türü|Veri Türü|
+|Parametre|Value|Açıklama|Parametre türü|Veri Türü|
 |:--|:--|:--|:--|:--|
 |appid|(boş)|Gereklidir. Varsa `Authorization` veya `Ocp-Apim-Subscription-Key` üstbilgi kullanılır, AppID alanı boş bırakın, aksi takdirde dahil içeren bir dize `"Bearer" + " " + "access_token"`.|sorgu|string|
 |Yetkilendirme|(boş)  |Gerekli if `appid` alan veya `Ocp-Apim-Subscription-Key` üstbilgisi belirtilmedi. Yetkilendirme belirteci: `"Bearer" + " " + "access_token"`.|üst bilgi|string|
@@ -296,7 +296,7 @@ Yanıt içerik türü: application/xml
 
 ### <a name="parameters"></a>Parametreler
 
-|Parametre|Değer|Açıklama|Parametre türü|Veri Türü|
+|Parametre|Value|Açıklama|Parametre türü|Veri Türü|
 |:--|:--|:--|:--|:--|
 |appid|(boş)|Gereklidir. Varsa `Authorization` veya `Ocp-Apim-Subscription-Key` üstbilgi kullanılır, AppID alanı boş bırakın, aksi takdirde dahil içeren bir dize `"Bearer" + " " + "access_token"`.|sorgu|string|
 |Yetkilendirme|(boş)|Gerekli if `appid` alan veya `Ocp-Apim-Subscription-Key` üstbilgisi belirtilmedi. Yetkilendirme belirteci: `"Bearer" + " " + "access_token"`.|üst bilgi|string|
@@ -328,7 +328,7 @@ Yanıt içerik türü: application/xml
 
 ### <a name="parameters"></a>Parametreler
 
-|Parametre|Değer|Açıklama|Parametre türü|Veri Türü|
+|Parametre|Value|Açıklama|Parametre türü|Veri Türü|
 |:--|:--|:--|:--|:--|
 |appid|(boş)|Gereklidir. Varsa `Authorization` veya `Ocp-Apim-Subscription-Key` üstbilgi kullanılır, AppID alanı boş bırakın, aksi takdirde dahil içeren bir dize `"Bearer" + " " + "access_token"`.|sorgu|string|
 |metin|(boş)   |Gereklidir. Bir cümle veya belirtilen dil için wave akış söylenir cümleler içeren bir dize. Metni konuşmaya boyutunu 2000 karakterden uzun olmamalıdır.|sorgu|string|
@@ -364,7 +364,7 @@ Yanıt içerik türü: application/xml
 
 ### <a name="parameters"></a>Parametreler
 
-|Parametre|Değer|Açıklama|Parametre türü|Veri Türü|
+|Parametre|Value|Açıklama|Parametre türü|Veri Türü|
 |:--|:--|:--|:--|:--|
 |appid|(boş)  |Gereklidir. Varsa `Authorization` veya `Ocp-Apim-Subscription-Key` üstbilgi kullanılır, AppID alanı boş bırakın, aksi takdirde dahil içeren bir dize `"Bearer" + " " + "access_token"`.|sorgu|string|
 |metin|(boş)|Gereklidir. Dilinden tanımlanması için olan metin içeren bir dize. Metin boyutu 10000 karakterden uzun olmamalıdır.|sorgu| string|
@@ -419,7 +419,7 @@ Yanıt içerik türü: application/xml
  
 ### <a name="parameters"></a>Parametreler
 
-|Parametre|Değer|Açıklama|Parametre türü|Veri Türü|
+|Parametre|Value|Açıklama|Parametre türü|Veri Türü|
 |:--|:--|:--|:--|:--|
 |appid|(boş)|Gereklidir. Varsa `Authorization` veya `Ocp-Apim-Subscription-Key` üstbilgi kullanılır, AppID alanı boş bırakın, aksi takdirde dahil içeren bir dize `"Bearer" + " " + "access_token"`.|sorgu|string|
 |Yetkilendirme|(boş)|Gerekli if `appid` alan veya `Ocp-Apim-Subscription-Key` üstbilgisi belirtilmedi. Yetkilendirme belirteci: `"Bearer" + " " + "access_token"`.|üst bilgi|string|
@@ -453,7 +453,7 @@ Yanıt içerik türü: uygulama: xml
  
 ### <a name="parameters"></a>Parametreler
 
-|Parametre|Değer|Açıklama|Parametre türü|Veri Türü   |
+|Parametre|Value|Açıklama|Parametre türü|Veri Türü   |
 |:--|:--|:--|:--|:--|
 |appid|(boş)|Gereklidir. Varsa `Authorization` veya `Ocp-Apim-Subscription-Key` üstbilgi kullanılır, AppID alanı boş bırakın, aksi takdirde dahil içeren bir dize `"Bearer" + " " + "access_token"`.|sorgu|string|
 |originalText|(boş)|Gereklidir. Gelen Çevrilecek metin içeren bir dize. Dize en fazla 1000 karakter oluşabilir.|sorgu|string|
@@ -530,7 +530,7 @@ Yanıt içerik türü: application/xml
  
 ### <a name="parameters"></a>Parametreler
 
-|Parametre|Değer|Açıklama|Parametre türü|Veri Türü|
+|Parametre|Value|Açıklama|Parametre türü|Veri Türü|
 |:--|:--|:--|:--|:--|
 |Yetkilendirme|(boş)|AppID alanı veya Ocp-Apim-Subscription-Key üst bilgisi belirtilmemişse gereklidir. Yetkilendirme belirteci:  "Bearer" + "" + "access_token".|üst bilgi|string|
 |Ocp-Apim-Subscription-Key|(boş)|AppID alanı veya yetkilendirme üst bilgisi belirtilmemişse gereklidir.|üst bilgi|string|
@@ -563,7 +563,7 @@ Yanıt içerik türü: application/xml
 
 ### <a name="parameters"></a>Parametreler
 
-|Parametre|Değer|Açıklama|Parametre türü|Veri Türü|
+|Parametre|Value|Açıklama|Parametre türü|Veri Türü|
 |:--|:--|:--|:--|:--|
 |appid|(boş)  |Gereklidir. Yetkilendirme veya Ocp-Apim-Subscription-Key üstbilgi kullandıysanız, AppID alanı boş bırakın başka dahil "Bearer" içeren bir dize + "" + "access_token".|sorgu| string|
 |metin|(boş)   |Gereklidir. Cümleleri bölmek için metin temsil eden bir dize. Metin boyutu 10000 karakterden uzun olmamalıdır.|sorgu|string|
@@ -657,7 +657,7 @@ Yanıt içerik türü: application/xml
  
 ### <a name="parameters"></a>Parametreler
 
-|Parametre|Değer|Açıklama|Parametre türü|Veri Türü|
+|Parametre|Value|Açıklama|Parametre türü|Veri Türü|
 |:--|:--|:--|:--|:--|
 |appid|(boş)|Gereklidir. Varsa `Authorization` veya `Ocp-Apim-Subscription-Key` üstbilgi kullanılır, AppID alanı boş bırakın, aksi takdirde dahil içeren bir dize `"Bearer" + " " + "access_token"`.|sorgu|string|
 |metin|(boş)|Gereklidir. Çevrilecek metin temsil eden bir dize. Metin boyutu 10000 karakterden uzun olmamalıdır.|sorgu|string|
@@ -777,7 +777,7 @@ Yanıt içerik türü: application/xml
  
 ### <a name="parameters"></a>Parametreler
 
-|Parametre|Değer|Açıklama|Parametre türü|Veri Türü|
+|Parametre|Value|Açıklama|Parametre türü|Veri Türü|
 |:--|:--|:--|:--|:--|
 |Yetkilendirme  |(boş)    |Gerekli if `appid` alan veya `Ocp-Apim-Subscription-Key` üstbilgisi belirtilmedi. Yetkilendirme belirteci: `"Bearer" + " " + "access_token"`.|üst bilgi|string|
 |Ocp-Apim-Subscription-Key|(boş)  |Gerekli if `appid` alan veya `Authorization` üstbilgisi belirtilmedi.|üst bilgi|string|

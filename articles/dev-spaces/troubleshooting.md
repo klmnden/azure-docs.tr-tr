@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s '
-ms.openlocfilehash: 53571fdd7c5a93fef4df0832253542a5a6dfbec5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0379bbc7f26ea30f65c5eac73633ca0371aa283
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058545"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331301"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
@@ -414,3 +414,12 @@ azds controller create --name my-controller --target-name MyAKS --resource-group
 
 ### <a name="try"></a>Deneme
 [Bir taint ekleme](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) Linux emin olmak için AKS kümenizi pod'ların Windows düğümde çalışmak üzere zamanlanır değil.
+
+## <a name="error-found-no-untainted-linux-nodes-in-ready-state-on-the-cluster-there-needs-to-be-at-least-one-untainted-linux-node-in-ready-state-to-deploy-pods-in-azds-namespace"></a>Hata "untainted Linux düğüm hazır durumda kümesinde bulunamadı. Var. en az bir untainted Linux düğümü 'azds' ad alanı'nda pod'ları dağıtmak için hazır durumda olması gerekir."
+
+### <a name="reason"></a>Reason
+
+Azure geliştirme alanları untainted bir düğümünde bulamadığından AKS kümenizde bir denetleyici oluşturamadı bir *hazır* üzerindeki pod'ları zamanlama durumu. Azure geliştirme alanları en az bir Linux düğümünde gerektiren bir *hazır* tolerations belirtmeden pod'ları zamanlama için sağlayan durumudur.
+
+### <a name="try"></a>Deneme
+[Taint yapılandırmanızı güncelleştirme](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) tolerations belirtmeden pod'ları zamanlama için en az bir Linux emin olmak için AKS kümenizde düğümü sağlar. Ayrıca, en az bir zamanlama sağlar Linux düğümü pod tolerations belirtmeden içinde olduğundan emin olun. *hazır* durumu. Düğümünüzü ulaşmak için bir uzun sürüyor durumunda *hazır* durum düğümünüzü yeniden başlatmayı deneyebilirsiniz.

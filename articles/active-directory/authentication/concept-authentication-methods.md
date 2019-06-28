@@ -1,22 +1,22 @@
 ---
 title: Kimlik doğrulama yöntemleri - Azure Active Directory
-description: Azure AD MFA ve SSPR için hangi kimlik doğrulama yöntemleri kullanılabilir
+description: MFA ve SSPR için Azure AD'de kullanılabilir kimlik doğrulama yöntemleri
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 06/17/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0bcaf356108984baf473cdef8c18c5561343cd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1322c919906dc2d0dd23de538fa2c1992fbe5da0
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66119359"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164838"
 ---
 # <a name="what-are-authentication-methods"></a>Kimlik doğrulama yöntemleri nelerdir?
 
@@ -180,7 +180,9 @@ Hataları giderdikten sonra yönetici ardından her anahtar tıklayarak etkinle�
 
 Kullanıcılar, en fazla beş OATH donanım belirteçleri veya kimlik doğrulayıcı uygulamalar herhangi bir zamanda kullanılmak üzere yapılandırılmış Microsoft Authenticator uygulaması gibi bir birleşimi olabilir.
 
-## <a name="mobile-phone"></a>Cep telefonu
+## <a name="phone-options"></a>Telefon Seçenekleri
+
+### <a name="mobile-phone"></a>Cep telefonu
 
 İki seçenek, kullanıcılar cep telefonları ile kullanılabilir.
 
@@ -193,18 +195,18 @@ Düzgün çalışması için telefon numaraları biçiminde olmalıdır *+ Count
 >
 > Parola sıfırlama telefon dahili numaralarına desteklemez. Kurulmadan önce bile X + 1 4255551234 12345 biçiminde uzantılar kaldırılır.
 
-### <a name="text-message"></a>Kısa mesaj
+#### <a name="text-message"></a>Kısa mesaj
 
 SMS doğrulama kodu içeren bir cep telefonu numarası için gönderilir. Devam etmek için oturum açma arabiriminde sağlanan doğrulama kodunu girin.
 
-### <a name="phone-call"></a>Telefon araması
+#### <a name="phone-call"></a>Telefon araması
 
 Otomatik bir sesli çağrıyla belirttiğiniz telefon numarasına yapılır. Aramayı yanıtlamalı ve telefon tuş kimliğini doğrulamak için # tuşuna basın
 
 > [!IMPORTANT]
 > Telefon araması seçenekleri 2019'ın Mart başlangıç MFA ve SSPR kullanıcıları Azure AD ücretsiz/deneme kiracıları için kullanılabilir olmayacak. SMS iletileri, bu değişiklikten etkilenmez. Telefon Araması'nda kullanıcılara kullanılabilir Ücretli Azure AD kiracılarıyla devam eder. Bu değişiklik, yalnızca Azure AD ücretsiz/deneme kiracıları etkiler.
 
-## <a name="office-phone"></a>Ofis telefonu
+### <a name="office-phone"></a>Ofis telefonu
 
 Otomatik bir sesli çağrıyla belirttiğiniz telefon numarasına yapılır. Aramayı yanıtlamalı ve telefon tuş kimliğini doğrulamak için # tuşuna basar.
 
@@ -219,6 +221,25 @@ Office telefon özniteliğinin yöneticiniz tarafından yönetilir.
 > Orada ülke kodunu ve telefon numarası arasına bir boşluk olması gerekir.
 >
 > Parola sıfırlama telefon dahili numaralarına desteklemez. Kurulmadan önce bile X + 1 4255551234 12345 biçiminde uzantılar kaldırılır.
+
+### <a name="troubleshooting-phone-options"></a>Sorun giderme telefon seçenekleri
+
+Telefon numarası kullanarak kimlik doğrulama yöntemleri için ilgili sık karşılaşılan sorunlar:
+
+* Tek bir cihazda engellenen arayan kimliği
+   * Cihaz sorunlarını giderme
+* Yanlış telefon numarası, yanlış ülke kodu, ev telefonu numarasını iş telefon numarası ile karşılaştırması
+   * Kullanıcı nesneyle ilgili sorunları giderme ve kimlik doğrulama yöntemleri yapılandırılır. Doğru telefon numaralarını kayıtlı emin olun.
+* Yanlış PIN girildi
+   * Kullanıcı Azure MFA Sunucusu'nda kayıtlı doğru PIN kullandı onaylayın.
+* Sesli mesaja iletilen çağrısı
+   * Kullanıcı telefon açık olduğundan ve kendi alanında hizmetin kullanılabilir olduğundan emin olun veya alternatif yöntemini kullanın.
+* Kullanıcı engellendi
+   * Azure portalında kullanıcının engelini kaldırmak için yönetici vardır.
+* Cihazda SMS abone değil
+   * Kullanıcı yöntemlerini değiştirmek veya cihazda SMS etkinleştirme sahip.
+* Hatalı telekomünikasyon sağlayıcıları (telefon girişi yok algılandı, DTMF tonlarını sorunları, birden fazla cihazda engellenen arayan kimliği eksik veya birden çok cihazda SMS engellendi)
+   * Microsoft, telefon görüşmeleri ve kimlik doğrulaması için SMS iletileri yönlendirmek için birden çok telekomünikasyon sağlayıcıları kullanır. Yukarıdaki sorunları görüyorsanız, bir kullanıcı 5 dakika içinde en az 5 kez yöntemini kullanın ve Microsoft Destek ile irtibat kurduğunuzda, kullanıcının bilgilere sahip girişimi sahip.
 
 ## <a name="app-passwords"></a>Uygulama parolaları
 

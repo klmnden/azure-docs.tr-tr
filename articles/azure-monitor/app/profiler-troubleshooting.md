@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 6ab13e1ecd5f4825270f4b3a28251b959ad98f02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6b57ffbd3cb2b31da3fc2882e941f9788d83fea8
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731059"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341666"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Etkinleştirme veya Application Insights Profiler ' ı görüntüleme sorunlarını giderme
 
@@ -69,7 +69,7 @@ Düzgün çalışması Profiler için:
 * Web uygulamanızı Application Insights'ın etkin olması gerekir.
 * Web uygulamanız aşağıdaki uygulama ayarlarını sahip olmanız gerekir:
 
-    |Uygulama Ayarı    | Değer    |
+    |Uygulama Ayarı    | Value    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights kaynağınızın iKey    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -88,7 +88,7 @@ Düzgün çalışması Profiler için:
 
       ![Profil Oluşturucu webjob günlüğü]
 
-Neden Profiler sizin için çalışmayan şekil olamaz, günlüğünü indir ve Yardım almak için ekibimize gönderin. 
+Neden Profiler sizin için çalışmayan şekil olamaz, günlüğünü indir ve Yardım almak için ekibimize göndermeden serviceprofilerhelp@microsoft.com. 
     
 ### <a name="manual-installation"></a>El ile yükleme
 
@@ -101,7 +101,7 @@ Profiler'ı yapılandırırken, güncelleştirmeler web uygulamasının Ayarlar 
 1. Ayarlama **her zaman açık** için **üzerinde**.
 1. Bu uygulama ayarları oluşturma:
 
-    |Uygulama Ayarı    | Değer    |
+    |Uygulama Ayarı    | Value    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights kaynağınızın iKey    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |

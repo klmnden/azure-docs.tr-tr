@@ -9,12 +9,12 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: f0dfed10190685c1d51822b8bec2b3c80cea7bb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fecced844b3580c83fd18d0c14c3a2083f7a4fc
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153933"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165730"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure Storage analytics ölçümleri (Klasik)
 
@@ -90,18 +90,27 @@ Depolama ölçümleri denetim cmdlet'ler, aşağıdaki parametreleri kullanın:
 * **Hizmet**: Giriş/Çıkış, kullanılabilirlik, gecikme süresi ve blob, kuyruk, tablo ve Dosya Hizmetleri için toplanır başarı yüzdeleri gibi ölçümleri toplar.
 * **ServiceAndApi**: Hizmet ölçümlerini ek olarak, aynı Azure depolama hizmeti API'sindeki her bir depolama işlemi için ölçüm kümesini toplar.
 
-Örneğin, aşağıdaki komutu için varsayılan depolama hesabınızdaki blob hizmetine dakika ölçümlerini üzerinde bekletme dönemi beş gün olarak ayarlanmış olan geçer:  
+Örneğin, aşağıdaki komutu, depolama hesabınızdaki blob hizmetine için dakika ölçümlerini üzerinde bekletme dönemi beş gün olarak ayarlanmış olan geçer: 
+
+> [!NOTE]
+> Bu komutu kullanarak Azure aboneliğinizde oturum açmış varsayılır `Connect-AzAccount` komutu.
 
 ```  
-Set-AzureStorageServiceMetricsProperty -MetricsType Minute   
--ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5  
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+
+Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5 -Context $storageAccount.Context
 ```  
+
+* Değiştirin `<resource-group-name>` yer tutucu değerini, kaynak grubunuzun adı.
+
+* Değiştirin `<storage-account-name>` yer tutucu değerini, depolama hesabınızın adı.
+
+
 
 Aşağıdaki komut geçerli saat ölçümleri düzeyi ve bekletme gün boyunca varsayılan depolama hesabınızdaki blob hizmetine alır:  
 
 ```  
-Get-AzureStorageServiceMetricsProperty -MetricsType Hour   
--ServiceType Blob  
+Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context $storagecontext.Context
 ```  
 
 Azure PowerShell cmdlet'lerini, Azure aboneliğiniz ile çalışmak için yapılandırma ve kullanılacak varsayılan depolama hesabı seçme hakkında daha fazla bilgi için bkz: [Azure PowerShell'i yükleme ve yapılandırma işlemini](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  

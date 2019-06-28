@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: ddd3b0889eedd55f809dbb57b2ef41a2ae3f9c94
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89c4723e83979f89721677146810abdf99fb5d11
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65521389"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310476"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Azure işlevleri için Host.JSON başvurusu 2.x  
 
@@ -147,7 +147,7 @@ Proje ana çalışan işlevlerin listesi. Boş bir dizi tüm işlevleri çalış
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Tüm İşlevler için zaman aşımı süresini gösterir. Sunucusuz bir tüketim planı geçerli aralık 1 saniye için 10 dakika olan ve varsayılan değer 5 dakikadır. App Service planı, genel bir sınır yoktur ve varsayılan çalışma zamanı sürümüne bağlıdır. Sürüm 2.x, bir App Service planı, 30 dakika için varsayılan değeri. Sürümünde olduğu 1.x, *null*, hiçbir zaman aşımını gösterir.
+Tüm İşlevler için zaman aşımı süresini gösterir. Sunucusuz bir tüketim planı geçerli aralık 1 saniye için 10 dakika olan ve varsayılan değer 5 dakikadır. Adanmış App Service planı, genel bir sınır yoktur ve varsayılan değer 30 dakikadır. Değerini `-1` sınırsız yürütme gösterir.
 
 ```json
 {

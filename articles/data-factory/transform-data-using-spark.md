@@ -11,12 +11,12 @@ ms.date: 05/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: cdf4dba3996668b3c9fe31df10050ff2cbff6cb3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c493dbc99edc794dd5a261dfc004c2c8c1cb6d52
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387834"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312084"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Azure Data Factory'de Spark etkinliğini kullanarak verileri dönüştürme
 > [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
@@ -25,8 +25,6 @@ ms.locfileid: "60387834"
 
 Data factory'de Spark etkinliğini [işlem hattı](concepts-pipelines-activities.md) üzerinde bir Spark programını çalıştırır [kendi](compute-linked-services.md#azure-hdinsight-linked-service) veya [üzerine](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight kümesi. Bu makalede yapılar [veri dönüştürme etkinlikleri](transform-data.md) makalesi, veri dönüştürme ve desteklenen dönüştürme etkinliklerinin genel bir bakış sunar. Bir isteğe bağlı Spark bağlı hizmeti kullandığınızda, Data Factory bir Spark kümesi, yalnızca verileri işlemek zamanında için otomatik olarak oluşturur ve işleme tamamlandıktan sonra kümeyi siler. 
 
-> [!IMPORTANT]
-> Spark etkinliği, HDInsight Spark kümeleri, bir Azure Data Lake Store, birincil depolama olarak kullanma desteklemez.
 
 ## <a name="spark-activity-properties"></a>Spark etkinliği özellikleri
 Bir Spark etkinliği örnek JSON tanımı aşağıda verilmiştir:    
@@ -45,7 +43,7 @@ Bir Spark etkinliği örnek JSON tanımı aşağıda verilmiştir:
             "referenceName": "MyAzureStorageLinkedService",
             "type": "LinkedServiceReference"
         },
-        "rootPath": "adfspark\\pyFiles",
+        "rootPath": "adfspark",
         "entryFilePath": "test.py",
         "sparkConfig": {
             "ConfigItem1": "Value"
@@ -80,7 +78,7 @@ Spark işlerinde Pig/Hive işlerini daha fazla genişletilebilir. Spark işleri 
 
 HDInsight bağlı hizmeti tarafından başvurulan Azure Blob Depolama alanında aşağıdaki klasör yapısını oluşturun. Ardından, uygun alt klasörleri tarafından temsil edilen kök klasöründe bağımlı dosya yükleme **entryFilePath**. Örneğin, python dosyaları pyFiles alt ve jar dosyaları kök klasörün jar dosyaları dışındaki alt klasörüne yükleyin. Çalışma zamanında Data Factory hizmetinin Azure Blob Depolama alanında aşağıdaki klasör yapısına bekliyor:     
 
-| `Path`                  | Açıklama                              | Gerekli | Tür   |
+| `Path`                  | Açıklama                              | Gerekli | Type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
 | `.` (kök)            | Spark işi depolama bağlı hizmeti kök yolu | Evet      | Klasör |
 | &lt;Kullanıcı tanımlı &gt; | Spark işi giriş dosyasına işaret eden yolu | Evet      | Dosya   |

@@ -2,29 +2,23 @@
 title: Azure portalını kullanarak cihazları yönetme | Microsoft Docs
 description: Cihazları yönetmek için Azure portalını kullanmayı öğrenin.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48f162e5e6eb29e4a658000826ccf25389086342
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4a0037d46db67460d507c6e92ab550f7d9c2fbe
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730446"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341424"
 ---
-# <a name="manage-device-identity-using-the-azure-portal"></a>Cihaz kimliği Azure portalını kullanarak yönetme
+# <a name="manage-device-identities-using-the-azure-portal"></a>Azure portalını kullanarak cihaz kimliklerini yönetme
 
 Azure Active Directory'de (Azure AD) cihaz Kimlik Yönetimi ile kullanıcılarınızın kaynaklarınıza güvenlik ve uyumluluğa yönelik standartlarınızı karşılayan cihazlardan eriştiğiniz emin olabilirsiniz.
 
@@ -65,19 +59,19 @@ Cihaz ayarları sayfasına yapılandırmanızı sağlar:
 
 - **Kullanıcılar cihazları Azure AD'ye Katıl** -bu ayarı olarak cihazlarını kaydedebilirsiniz kullanıcılar seçmenizi sağlar [Azure AD join cihazları](overview.md#azure-ad-joined-devices). Varsayılan değer **tüm**.
 
->[!NOTE]
+> [!NOTE]
 > **Kullanıcılar cihazları Azure AD'ye Katıl** ayardır yalnızca Windows 10 Azure AD join uygulanabilir.
 
 - **Ek yerel Yöneticiler Azure AD alanına katılmış cihazlar** -bir cihazda yerel yönetici hakları verilen kullanıcılar seçebilirsiniz. Buraya eklenen kullanıcılar için eklendiğinde *cihaz yöneticileri* Azure AD'de rol. Azure AD'de genel Yöneticiler ve varsayılan olarak cihaz sahiplerine yerel yönetici hakları verilir. Bu seçenek, bir premium edition Özelliği Azure AD Premium veya Enterprise Mobility Suite (EMS) gibi ürünler aracılığıyla kullanılabilir.
-- **Kullanıcıların cihazlarını Azure AD'ye kaydetme** -olması Windows 10 kişisel, iOS, Android ve macOs cihazlara izin vermek için bu ayarı yapılandırmanız gereken [kayıtlı](overview.md#azure-ad-registered-devices) Azure AD ile. Seçerseniz **hiçbiri**, cihazları Azure AD'ye kaydetme izin verilmez. Office 365 için Microsoft Intune veya mobil cihaz Yönetimi (MDM) ile kayıt kaydı gerektirir. Bu hizmetlerin herhangi birini yapılandırdıysanız **tüm** seçilir ve **NONE** kullanılabilir değil.
-- **Cihazları eklemek multi-Factor Auth gerektir** -kullanıcı için ikinci bir kimlik doğrulama faktörü sağlamalarının gerekip gerekmediğini seçin [birleştirme](overview.md#azure-ad-joined-devices) cihazlarını Azure AD'ye. Varsayılan değer **Hayır**. Bir cihaz kaydederken çok faktörlü kimlik doğrulaması gerektiren öneririz. Bu hizmet için multi-Factor authentication'ı etkinleştirmeden önce multi-Factor authentication, kullanıcıların aygıtlarını kaydetmesini kullanıcılar için yapılandırıldığından emin olmanız gerekir. Farklı Azure multi-Factor authentication hizmetlerinin hakkında daha fazla bilgi için bkz. [Azure multi-Factor authentication ile çalışmaya başlama](../authentication/concept-mfa-whichversion.md). 
+- **Kullanıcıların cihazlarını Azure AD'ye kaydetme** -olması Windows 10 kişisel, iOS, Android ve macOs cihazlara izin vermek için bu ayarı yapılandırmanız gereken [kayıtlı](overview.md#azure-ad-registered-devices) Azure AD ile. Seçerseniz **hiçbiri**, cihazları Azure AD'ye kaydetme izin verilmez. Office 365 için Microsoft Intune veya mobil cihaz Yönetimi (MDM) ile kayıt kaydı gerektirir. Bu hizmetlerin herhangi birini yapılandırdıysanız **tüm** seçilir ve **NONE** kullanılabilir değil. Intune Bu ayar etkinleştirilirse ardından Seçenekler burada gri görünür.
+- **Cihazları eklemek multi-Factor Auth gerektir** -kullanıcı için ikinci bir kimlik doğrulama faktörü sağlamalarının gerekip gerekmediğini seçin [birleştirme](overview.md#azure-ad-joined-devices) cihazlarını Azure AD'ye. Varsayılan değer **Hayır**. Bir cihaz kaydederken çok faktörlü kimlik doğrulaması gerektiren öneririz. Bu hizmet için multi-Factor authentication'ı etkinleştirmeden önce Azure multi-Factor Authentication, kullanıcıların aygıtlarını kaydetmesini kullanıcılar için yapılandırıldığından emin olmanız gerekir. Daha fazla bilgi için bkz [Azure multi-Factor Authentication dağıtım](../authentication/howto-mfa-getstarted.md). 
 
->[!NOTE]
+> [!NOTE]
 > **Cihazları eklemek multi-Factor Auth gerektir** ayarı hibrit Azure AD'ye katılmış cihazlar için geçerli değildir.
 
 - **En fazla cihaz sayısını** -Bu ayar, kullanıcının Azure AD'de sahip olabileceği cihaz sayısının seçmenize olanak sağlar. Bir kullanıcı bu kotaya ulaştığında, bunlar olan yapamaz kadar ek cihazları eklemek veya mevcut cihazların daha fazla kaldırılır. Azure AD'ye katılmış veya Azure AD şu anda kayıtlı olan tüm cihazlar için cihaz kotasına hesaba katılır. Varsayılan değer **20**.
 
->[!NOTE]
+> [!NOTE]
 > **En fazla cihaz sayısını** ayarı hibrit Azure AD'ye katılmış cihazlar için geçerli değildir.
 
 - **Kullanıcılar eşitleme ayarları ve uygulama verilerini cihazlarda** -varsayılan olarak, bu ayar **NONE**. Belirli kullanıcılar veya gruplar veya tüm seçilmesi, kullanıcının ayarları ve uygulama verilerini, Windows 10 cihazlarınız arasında eşitlemeye izin verir. Windows 10'da eşitleme birlikte nasıl çalıştığı hakkında daha fazla bilgi edinin.

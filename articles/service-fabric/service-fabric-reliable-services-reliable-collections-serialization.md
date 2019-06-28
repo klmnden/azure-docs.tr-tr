@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
 ms.author: aljo
-ms.openlocfilehash: ee19be45915b3ff1253ec721f4334fead19647b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2445b37e8152d8f55dad6eff057d273851dc2209
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723621"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340686"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Azure Service fabric'te güvenilir koleksiyon nesne serileştirme
 Güvenilir koleksiyonlar, çoğaltma ve makine hataları ve bölgesel elektrik kesintileriyle arasında dayanıklı olduklarından emin olmak için öğeleri kalıcı.
@@ -55,7 +55,7 @@ Güvenilir durum Yöneticisi aşağıdaki türleri için yerleşik seri hale get
 
 Özel seri hale getiricileri genişletme, performansı artırmak veya aktarımda ve diskteki verileri şifrelemek için yaygın olarak kullanılır. Türü hakkında bilgi seri hale gerekmez bu yana diğer nedenlerin yanı sıra özel seri hale getiricileri genişletme genel seri hale getirici yaygın olarak daha verimlidir. 
 
-[IReliableStateManager.TryAddStateSerializer<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) T. verilen tür için özel bir serileştirici kaydetmek için kullanılır Bu kayıt, oluşumunu StatefulServiceBase kurtarma başlamadan önce tüm güvenilir koleksiyonlar, kalıcı verileri okumak için ilgili seri hale getirici erişimi olmasını sağlamak için gerçekleşmelidir.
+[IReliableStateManager.TryAddStateSerializer\<T >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) T. verilen tür için özel bir serileştirici kaydetmek için kullanılır Bu kayıt, oluşumunu StatefulServiceBase kurtarma başlamadan önce tüm güvenilir koleksiyonlar, kalıcı verileri okumak için ilgili seri hale getirici erişimi olmasını sağlamak için gerçekleşmelidir.
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -73,10 +73,10 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### <a name="how-to-implement-a-custom-serializer"></a>Özel bir serileştirici gerçekleştirme
 
-Özel bir serileştirici uygulamak gereken [IStateSerializer<T> ](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) arabirimi.
+Özel bir serileştirici uygulamak gereken [IStateSerializer\<T >](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) arabirimi.
 
 > [!NOTE]
-> IStateSerializer<T> temel değer olarak adlandırılan bir T yazma ve okuma alan için bir aşırı yükleme içerir. Fark seri hale getirme için API'dir. Şu anda fark seri hale getirme özelliğini gösterilmez. Bu nedenle, fark serileştirme kullanıma sunulan ve etkin kadar bu iki aşırı yüklemeler çağrılır değil.
+> IStateSerializer\<T > temel değer olarak adlandırılan bir T yazma ve okuma alan için bir aşırı yükleme içerir. Fark seri hale getirme için API'dir. Şu anda fark seri hale getirme özelliğini gösterilmez. Bu nedenle, fark serileştirme kullanıma sunulan ve etkin kadar bu iki aşırı yüklemeler çağrılır değil.
 
 Aşağıdaki dört özellikleri içeren OrderKey adlı bir örnek özel türüdür
 

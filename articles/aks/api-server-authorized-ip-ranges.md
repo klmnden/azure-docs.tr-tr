@@ -1,18 +1,18 @@
 ---
 title: API sunucusu yetkili IP aralıkları Azure Kubernetes Service (AKS)
-description: Nasıl güvenli kümenize bir IP adresi aralıkları Azure Kubernetes Service (AKS) API sunucusuna erişim için bilgi edinin
+description: Azure Kubernetes Service (AKS) API sunucusuna erişim için bir IP adresi aralığı kullanarak kümenizin güvenliğini sağlama hakkında bilgi edinin
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 185c16e76094fe55a54fb17bef24fcd03d7b54f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ec48c8ed924293a5ffea903fe03a9830dcd1184
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475148"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329425"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Önizleme - IP adresi aralıklarını Azure Kubernetes Service (AKS) kullanarak API sunucusu için güvenli erişim yetkili
 
@@ -34,30 +34,34 @@ Azure CLI Sürüm 2.0.61 gerekir veya daha sonra yüklü ve yapılandırılmış
 
 ### <a name="install-aks-preview-cli-extension"></a>Aks önizlemesini CLI uzantısını yükleme
 
-API sunucusu yetkili IP aralıkları yapılandırmak için CLI komutları kullanılabilir *aks önizlemesini* CLI uzantısı. Yükleme *aks önizlemesini* uzantısını Azure CLI kullanarak [az uzantısı ekleme] [ az-extension-add] aşağıdaki örnekte gösterildiği gibi komut:
+API sunucusu yetkili IP aralıkları yapılandırmak için ihtiyacınız *aks önizlemesini* CLI 0.4.1 uzantı sürümü veya üzeri. Yükleme *aks önizlemesini* uzantısını Azure CLI kullanarak [az uzantısı ekleme][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] komutu:
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-> [!NOTE]
-> Daha önce yüklediyseniz *aks önizlemesini* uzantısını kullanarak güncelleştirmeleri yükle kullanılabilen `az extension update --name aks-preview` komutu.
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### <a name="register-feature-flag-for-your-subscription"></a>Aboneliğiniz için özellik bayrağı Kaydet
 
-Sunucu IP aralıklarını yetkili API'yi kullanmak için önce aboneliğinizde özellik bayrağı etkinleştirin. Kaydedilecek *APIServerSecurityPreview* özellik bayrağı, kullanın [az özelliği kayıt] [ az-feature-register] komutu aşağıdaki örnekte gösterildiği gibi:
+Sunucu IP aralıklarını yetkili API'yi kullanmak için önce aboneliğinizde özellik bayrağı etkinleştirin. Kaydedilecek *APIServerSecurityPreview* özellik bayrağı, kullanın [az özelliği kayıt][az-feature-register] komutu aşağıdaki örnekte gösterildiği gibi:
+
+> [!CAUTION]
+> Bir Abonelikteki bir özellik kaydettiğinizde, bu özellik şu anda kaydını yapamazsınız. Bazı Önizleme özellikleri etkinleştirdikten sonra varsayılan ardından aboneliği için oluşturulan tüm AKS kümeleri için kullanılabilir. Önizleme özellikleri üretim Aboneliklerde etkinleştirmeyin. Önizleme özellikleri test ve geri bildirim toplamak için ayrı bir abonelik kullanın.
 
 ```azurecli-interactive
 az feature register --name APIServerSecurityPreview --namespace Microsoft.ContainerService
 ```
 
-Gösterilecek durum için birkaç dakika sürer *kayıtlı*. Kayıt kullanarak durumu denetleyebilirsiniz [az özellik listesi] [ az-feature-list] komutu:
+Gösterilecek durum için birkaç dakika sürer *kayıtlı*. Kayıt kullanarak durumu denetleyebilirsiniz [az özellik listesi][az-feature-list] komutu:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/APIServerSecurityPreview')].{Name:name,State:properties.state}"
 ```
 
-Hazır olduğunuzda, kayıt yenileme *Microsoft.ContainerService* kullanarak kaynak sağlayıcısını [az provider register] [ az-provider-register] komutu:
+Hazır olduğunuzda, kayıt yenileme *Microsoft.ContainerService* kullanarak kaynak sağlayıcısını [az provider register][az-provider-register] komutu:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -81,7 +85,7 @@ API sunucusu ve diğer küme bileşenleri hakkında daha fazla bilgi için bkz. 
 
 Yeni AKS kümeleri için yalnızca iş API sunucusu yetkili IP aralıkları. Kümenin parçası işlemi oluştururken, yetkili IP aralıkları etkinleştiremezsiniz. Etkinleştirmeyi deneyin. işlem yetkili IP aralıkları kümesinin parçası olarak oluşturun, küme düğümleri çıkış IP adresi bu noktada tanımlanmamış gibi dağıtım sırasında API sunucusuna erişemiyor.
 
-İlk olarak kullanarak bir küme oluşturun [az aks oluşturma] [ az-aks-create] komutu. Aşağıdaki örnekte adlı tek düğümlü bir küme oluşturur *myAKSCluster* adlı kaynak grubunda *myResourceGroup*.
+İlk olarak kullanarak bir küme oluşturun [az aks oluşturma][az-aks-create] komutu. Aşağıdaki örnekte adlı tek düğümlü bir küme oluşturur *myAKSCluster* adlı kaynak grubunda *myResourceGroup*.
 
 ```azurecli-interactive
 # Create an Azure resource group
@@ -105,7 +109,7 @@ Sonraki bölümde yetkili IP aralıkları etkinleştirdiğinizde, kümedeki dü�
 > [!WARNING]
 > Azure Güvenlik Duvarı'nın kullanımı, bir aylık fatura döngüsü üzerinden önemli ücrete neden. Azure Güvenlik Duvarı'nı kullanma gereksinimi, yalnızca bu ilk önizleme döneminde gerekli olmamalıdır. Daha fazla bilgi ve maliyet planlaması için bkz. [Azure güvenlik duvarı fiyatlandırma][azure-firewall-costs].
 
-İlk olarak, alın *MC_* AKS kümesi ve sanal ağ için kaynak grubu adı. Ardından, kullanarak bir alt ağ oluşturmak [az ağ sanal ağ alt ağı oluşturma] [ az-network-vnet-subnet-create] komutu. Aşağıdaki örnekte adlı bir alt ağ oluşturulmaktadır *AzureFirewallSubnet* CIDR aralığı ile *10.200.0.0/16*:
+İlk olarak, alın *MC_* AKS kümesi ve sanal ağ için kaynak grubu adı. Ardından, kullanarak bir alt ağ oluşturmak [az ağ sanal ağ alt ağı oluşturma][az-network-vnet-subnet-create] komutu. Aşağıdaki örnekte adlı bir alt ağ oluşturulmaktadır *AzureFirewallSubnet* CIDR aralığı ile *10.200.0.0/16*:
 
 ```azurecli-interactive
 # Get the name of the MC_ cluster resource group
@@ -127,7 +131,7 @@ az network vnet subnet create \
     --address-prefixes 10.200.0.0/16
 ```
 
-Bir Azure güvenlik duvarı oluşturmak için yükleme *azure Güvenlik Duvarı* CLI uzantısını kullanarak [az uzantısı ekleme] [ az-extension-add] komutu. Ardından, kullanarak bir güvenlik duvarı oluşturma [az ağ güvenlik duvarı oluşturma] [ az-network-firewall-create] komutu. Aşağıdaki örnekte adlı bir Azure güvenlik duvarı oluşturur *myAzureFirewall*:
+Bir Azure güvenlik duvarı oluşturmak için yükleme *azure Güvenlik Duvarı* CLI uzantısını kullanarak [az uzantısı ekleme][az-extension-add] command. Then, create a firewall using the [az network firewall create][az-network-firewall-create] komutu. Aşağıdaki örnekte adlı bir Azure güvenlik duvarı oluşturur *myAzureFirewall*:
 
 ```azurecli-interactive
 # Install the CLI extension for Azure Firewall
@@ -139,7 +143,7 @@ az network firewall create \
     --name myAzureFirewall
 ```
 
-Bir Azure güvenlik duvarı aracılığıyla çıkış trafiği akan genel bir IP adresi atanır. Genel Adres kullanarak oluşturma [az network public-IP oluşturma] [ az-network-public-ip-create] komutunu ve ardından Güvenlik Duvarı'nı kullanarak bir IP yapılandırması oluştur [az ağ güvenlik duvarı IP-config oluşturma] [ az-network-firewall-ip-config-create] , genel IP için geçerlidir:
+Bir Azure güvenlik duvarı aracılığıyla çıkış trafiği akan genel bir IP adresi atanır. Genel Adres kullanarak oluşturma [az network public-IP oluşturma][az-network-public-ip-create] command, then create an IP configuration on the firewall using the [az network firewall ip-config create][az-network-firewall-ip-config-create] , genel IP için geçerlidir:
 
 ```azurecli-interactive
 # Create a public IP address for the firewall
@@ -158,7 +162,7 @@ az network firewall ip-config create \
     --public-ip-address myAzureFirewallPublicIP
 ```
 
-Artık Azure ağ güvenlik duvarı için oluşturma *izin* tüm *TCP* kullanarak trafiği [az ağ ağ-güvenlik duvarı oluşturma] [ az-network-firewall-network-rule-create] komutu. Aşağıdaki örnekte adlı bir ağ kuralı oluşturur *AllowTCPOutbound* trafiği ile herhangi bir kaynak veya hedef adresi için:
+Artık Azure ağ güvenlik duvarı için oluşturma *izin* tüm *TCP* kullanarak trafiği [az ağ ağ-güvenlik duvarı oluşturma][az-network-firewall-network-rule-create] komutu. Aşağıdaki örnekte adlı bir ağ kuralı oluşturur *AllowTCPOutbound* trafiği ile herhangi bir kaynak veya hedef adresi için:
 
 ```azurecli-interactive
 az network firewall network-rule create \
@@ -192,7 +196,7 @@ FIREWALL_INTERNAL_IP=$(az network firewall show \
 K8S_ENDPOINT_IP=$(kubectl get endpoints -o=jsonpath='{.items[?(@.metadata.name == "kubernetes")].subsets[].addresses[].ip}')
 ```
 
-Son olarak, var olan AKS ağ rota tablosunu kullanarak azure'da bir yol oluşturma [az ağ route-table route oluşturma] [ az-network-route-table-route-create] API sunucusu için Azure güvenlik duvarı gerecini kullanmanız trafiğe izin veren komutu iletişim.
+Son olarak, var olan AKS ağ rota tablosunu kullanarak azure'da bir yol oluşturma [az ağ route-table route oluşturma][az-network-route-table-route-create] API sunucu iletişimi için Azure güvenlik duvarı gerecini kullanmanız trafiğe izin veren komutu.
 
 ```azurecli-interactive
 az network route-table route create \
@@ -212,7 +216,7 @@ Azure güvenlik duvarı aletinizin genel IP adresini not edin. Bu adres, sonraki
 
 API sunucusu yetkili IP aralıkları etkinleştirmek için yetkili IP adresi aralıkları listesini sağlar. CIDR aralığı belirttiğiniz zaman aralığındaki ilk IP adresi ile başlatın. Örneğin, *137.117.106.90/29* geçerli bir aralık, ancak emin olun, belirttiğiniz aralığındaki ilk IP adresi gibi *137.117.106.88/29*.
 
-Kullanım [az aks güncelleştirme] [ az-aks-update] belirtin ve komutu *--API-server-yetkili-IP-aralıkları* izin vermek için. Bu IP adresi aralıkları, genellikle şirket içi ağlarınızı tarafından kullanılan adres aralıkları biçimindedir. Kendi Azure güvenlik duvarı gibi önceki adımda edinilen genel IP adresini ekleyin *20.42.25.196/32*.
+Kullanım [az aks güncelleştirme][az-aks-update] belirtin ve komutu *--API-server-yetkili-IP-aralıkları* izin vermek için. Bu IP adresi aralıkları, genellikle şirket içi ağlarınızı tarafından kullanılan adres aralıkları biçimindedir. Kendi Azure güvenlik duvarı gibi önceki adımda edinilen genel IP adresini ekleyin *20.42.25.196/32*.
 
 Aşağıdaki örnek API sunucusu yetkili IP aralıkları adlı kümede etkinleştirir *myAKSCluster* adlı kaynak grubunda *myResourceGroup*. Yetkilendirmek için IP adres aralıkları *20.42.25.196/32* (Azure güvenlik duvarı genel IP adresi), ardından *172.0.0.10/16* ve *168.10.0.10/18*:
 
@@ -225,7 +229,7 @@ az aks update \
 
 ## <a name="update-or-disable-authorized-ip-ranges"></a>Güncelleştirme veya yetkili IP aralıkları devre dışı bırakma
 
-Güncelleştirme veya yetkili IP aralıkları devre dışı bırakmak için tekrar kullanmanız [az aks güncelleştirme] [ az-aks-update] komutu. İzin vermek veya aşağıdaki örnekte gösterildiği gibi API sunucusu devre dışı bırakmak için boş bir aralığın IP aralıklarının yetkili belirtmek istiyorsanız güncelleştirilmiş CIDR aralığı belirtin:
+Güncelleştirme veya yetkili IP aralıkları devre dışı bırakmak için tekrar kullanmanız [az aks güncelleştirme][az-aks-update] komutu. İzin vermek veya aşağıdaki örnekte gösterildiği gibi API sunucusu devre dışı bırakmak için boş bir aralığın IP aralıklarının yetkili belirtmek istiyorsanız güncelleştirilmiş CIDR aralığı belirtin:
 
 ```azurecli-interactive
 az aks update \
@@ -238,7 +242,7 @@ az aks update \
 
 Bu makalede, API sunucu yetkili IP aralıkları etkin. Bu yaklaşım, güvenli bir AKS kümesi nasıl çalıştırabileceğiniz bir parçasıdır.
 
-Daha fazla bilgi için [uygulama ve kümelerin aks'deki için güvenlik kavramları] [ concepts-security] ve [küme güvenliği ve AKS yükseltmeler için en iyi yöntemler] [ operator-best-practices-cluster-security].
+Daha fazla bilgi için [uygulama ve kümelerin aks'deki için güvenlik kavramları][concepts-security] and [Best practices for cluster security and upgrades in AKS][operator-best-practices-cluster-security].
 
 <!-- LINKS - external -->
 [azure-firewall-costs]: https://azure.microsoft.com/pricing/details/azure-firewall/
@@ -265,3 +269,5 @@ Daha fazla bilgi için [uygulama ve kümelerin aks'deki için güvenlik kavramla
 [az-network-route-table-route-create]: /cli/azure/network/route-table/route#az-network-route-table-route-create
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[az-extension-list]: /cli/azure/extension#az-extension-list
+[az-extension-update]: /cli/azure/extension#az-extension-update

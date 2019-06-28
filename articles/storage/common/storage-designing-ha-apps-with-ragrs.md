@@ -10,12 +10,12 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 5f8d8d96e15fe3b59cb288a9a1cf6c547312fe67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16f38f6aae11f7bf806b7bad76db8f739fb2823d
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951302"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357073"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>RA-GRS'yi kullanarak yüksek kullanılabilirliğe sahip uygulamalar tasarlama
 
@@ -212,6 +212,33 @@ Aşağıdaki tablo bir örnek üyesi olacak şekilde bir çalışan ayrıntılar
 Bu örnekte, istemci T5 konumunda ikincil bölgeden okuma için anahtarları varsayılır. Başarılı bir şekilde okuyabilir **Yönetici rolü** varlık şu anda, ancak varlık sayısı ile tutarlı değil yönetici sayısı için bir değer içeren **çalışan** olan varlıklar Yöneticiler, ikincil bölgede şu anda işaretli. İstemci, yalnızca bu değerle tutarsız bilgiler olduğunu risk görüntüleyebilirsiniz. Alternatif olarak, istemci belirleyen yararlanmaya **Yönetici rolü** güncelleştirmeleri sıralama dışında gerçekleşen ve ardından bu olayının kullanıcıyı bilgilendirmeniz büyük olasılıkla tutarsız bir durumda olmasıdır.
 
 Büyük olasılıkla tutarsız veri, değerinin istemcinin kullanabileceği tanımak için *son eşitleme zamanı* herhangi bir zamanda depolama hizmeti sorgulayarak alabilirsiniz. Bu, verileri ikincil bölgedeki son zaman bildirir tutarlı ve ne zaman hizmeti uygulanan o noktadan önce tüm işlemlerin zaman. Hizmet ekledikten sonra yukarıda gösterilen örnekte **çalışan** ikincil bölgede, son eşitleme zamanı varlık kümesine *T1*. Kalır *T1* hizmet güncelleştirmeleri kadar **çalışan** varlık ayarlandığında ikincil bölgedeki *T6*. İstemcinin okuduğu karşı tarafındaki varlığın ne zaman son eşitleme zamanı alır, *T5*, bu varlık üzerinde zaman damgası ile karşılaştırabilirsiniz. Varlık üzerinde zaman damgası, son eşitleme zamanından daha sonra ise, varlık büyük olasılıkla tutarsız bir durumda ise ve uygulamanız için uygun eylemi ne olursa olsun alabilir. Bu alanı kullanarak birincil son güncelleştirmeye tamamlandığı bilmeniz gerekir.
+
+## <a name="getting-the-last-sync-time"></a>Son eşitleme zamanı alma
+
+Verileri yeniden yazılırken ikincil belirlemek için son eşitleme zamanı almak için PowerShell veya Azure CLI'yı kullanabilirsiniz.
+
+### <a name="powershell"></a>PowerShell
+
+PowerShell kullanarak depolama hesabı için son eşitleme zamanı almak için depolama hesabının denetleyin **GeoReplicationStats.LastSyncTime** özelliği. Yer tutucu değerlerini kendi değerlerinizle değiştirmeyi unutmayın:
+
+```powershell
+$lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
+    -Name <storage-account> `
+    -IncludeGeoReplicationStats).GeoReplicationStats.LastSyncTime
+```
+
+### <a name="azure-cli"></a>Azure CLI
+
+Azure CLI kullanarak depolama hesabı için son eşitleme zamanı almak için depolama hesabının denetleyin **geoReplicationStats.lastSyncTime** özelliği. Kullanım `--expand` özelliklerinin değerlerini döndürmek için parametre iç içe altında **geoReplicationStats**. Yer tutucu değerlerini kendi değerlerinizle değiştirmeyi unutmayın:
+
+```azurecli
+$lastSyncTime=$(az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --expand geoReplicationStats \
+    --query geoReplicationStats.lastSyncTime \
+    --output tsv)
+```
 
 ## <a name="testing"></a>Test Etme
 

@@ -8,16 +8,15 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: 447ffb8e-3e91-4403-872b-2f496495899d
-ms.date: 04/05/2019
-ms.openlocfilehash: 26d653b873e959f0804e0456ed87ee68c39413e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/22/2019
+ms.openlocfilehash: 4bfee4ec442c9e7b0351b0fd0c6a2b8e163a2541
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720679"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330315"
 ---
-# <a name="create-and-manage-trading-partner-agreements-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Oluşturma ve Azure Logic Apps ve Enterprise Integration Pack kullanarak ticari ortak sözleşmeleri yönetme
+# <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Oluşturma ve Azure Logic Apps, ticari ortak sözleşmeleri yönetme
 
 A [ticari ortak](../logic-apps/logic-apps-enterprise-integration-partners.md) 
 *sözleşmesi* organizasyonlar ve işletmeler sorunsuz bir şekilde alışverişleri sırasında kullanılacak belirli endüstri standardı protokol tanımlayarak birbirleriyle iletişim yardımcı olur. işletmeden işletmeye (B2B) iletileri. Sözleşmeleri, örneğin ortak avantajları sağlar:
@@ -27,6 +26,8 @@ A [ticari ortak](../logic-apps/logic-apps-enterprise-integration-partners.md)
 * Oluşturma, yönetme ve kurumsal tümleştirme çözümleri oluşturmak için kullanmak kolaydır.
 
 Bu makalede bir AS2, EDIFACT veya X12 oluşturulacağını gösterir kullanarak kurumsal tümleştirme çözümleri B2B senaryoları için oluşturma sırasında kullanabileceğiniz sözleşmesi [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md) ve [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Bir anlaşma oluşturduktan sonra ardından AS2, EDIFACT veya X12 kullanabilirsiniz B2B iletilerini değişimi için bağlayıcılar.
+
+RosettaNet ileti alışverişi sözleşmeleri oluşturmak için bkz: [Exchange RosettaNet iletileri](../logic-apps/logic-apps-enterprise-integration-rosettanet.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -65,8 +66,8 @@ Ana Azure menüsünde **tüm hizmetleri**. Arama kutusuna filtreniz olarak "tüm
    | **Konak kimliği** | Evet | <*konak iş ortağı tanımlayıcısı*> | Konak iş ortağının tanımlayıcısı |
    | **Konuk iş ortağı** | Evet | <*Konuk iş ortağı adı*> | Konuk iş ortağı yapan iş konak iş ortağı kuruluşu temsil eder. |
    | **Konuk kimliği** | Evet | <*Konuk iş ortağı tanımlayıcısı*> | Konuk iş ortağının tanımlayıcısı |
-   | **Ayarları Al** | Değişir | Değişir | Bu özellikler, sözleşmesi tarafından alınan tüm gelen iletilerin nasıl ele alınacağını belirtin. Daha fazla bilgi için ilgili anlaşma türünü bakın: <p>- [AS2 ileti ayarları](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT iletisi ayarları](logic-apps-enterprise-integration-edifact.md) <br>- [Ayarları X12 iletisi](logic-apps-enterprise-integration-x12.md) |
-   | **Gönderme ayarları** | Değişir | Değişir | Bu özellikler, sözleşmesi tarafından gönderilen tüm mesajları işlemek nasıl belirtin. Daha fazla bilgi için ilgili anlaşma türünü bakın: <p>- [AS2 ileti ayarları](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT iletisi ayarları](logic-apps-enterprise-integration-edifact.md) <br>- [Ayarları X12 iletisi](logic-apps-enterprise-integration-x12.md) |
+   | **Ayarları Al** | Varies | Varies | Bu özelliklerin nasıl konak iş ortağı gelen tüm iletileri Konuk iş ortağı Sözleşmesi'nin aldığında belirtin. Daha fazla bilgi için ilgili anlaşma türünü bakın: <p>- [AS2 ileti ayarları](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT iletisi ayarları](logic-apps-enterprise-integration-edifact.md) <br>- [Ayarları X12 iletisi](logic-apps-enterprise-integration-x12.md) |
+   | **Gönderme ayarları** | Varies | Varies | Bu özellikleri nasıl konak iş ortağı tüm giden iletiler Konuk iş ortağı Sözleşmesi'nin göndereceğini belirtin. Daha fazla bilgi için ilgili anlaşma türünü bakın: <p>- [AS2 ileti ayarları](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT iletisi ayarları](logic-apps-enterprise-integration-edifact.md) <br>- [Ayarları X12 iletisi](logic-apps-enterprise-integration-x12.md) |
    |||||
 
 1. Bitirdiğinizde, sözleşmeniz oluşturma konusunda **Ekle** sayfasında **Tamam**ve tümleştirme hesabınıza döndürür.

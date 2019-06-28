@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df4f06528d0dd261dd92ab84b07bb705e23f7fd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 523f1adc94870f79d198366059f33ad52f5dad68
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113064"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293067"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B işbirliği hakkında SSS
 
@@ -42,7 +42,7 @@ Evet. Konuk kullanıcıları çok faktörlü kimlik doğrulaması yöntemi, norm
 Davet eden kuruluştan multi-Factor authentication gerçekleştirir. Davet eden kuruluştan kuruluş çok faktörlü kimlik doğrulaması kullanan B2B kullanıcıları için yeterince lisansa sahip olduğundan emin olmanız gerekir.
 
 ### <a name="what-if-a-partner-organization-already-has-multi-factor-authentication-set-up-can-we-trust-their-multi-factor-authentication-and-not-use-our-own-multi-factor-authentication"></a>Ne zaten bir iş ortağı kuruluşta çok faktörlü kimlik doğrulaması ayarlama var? Biz kullanıcıdan çok faktörlü kimlik doğrulamasını güven ve kendi çok faktörlü kimlik doğrulaması kullanmayacak?
-Dışlanacak belirli iş ortakları, sonra da, seçebilmeniz için bu özelliği gelecekteki sürümlerde sunulması planlanmaktadır, (davet eden kuruluşun) çok faktörlü kimlik doğrulaması.
+Bu özellik şu anda desteklenmiyor. Kuruluşunuzun kaynaklarına erişimi çok faktörlü kimlik doğrulaması gerektiriyorsa, iş ortağı kuruluş için multi-Factor authentication işleminde kaydetmeniz gerekir, (davet) kuruluş.
 
 ### <a name="how-can-i-use-delayed-invitations"></a>Gecikmeli davetleri nasıl kullanabilirim?
 Bir kuruluş ardından Davetleri Gönder B2B işbirliği kullanıcıları ekleyin ve onları gerektiği gibi uygulamalara sağlamak isteyebilirsiniz. B2B işbirliği davet API ekleme iş akışı özelleştirmek için kullanabilirsiniz.

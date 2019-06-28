@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c0f19e3ea4f5952ac96b589fa267a2136c85e4f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abf48f3edc090550647b6865e96afeabe3727cf5
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64711659"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190526"
 ---
 # <a name="monitor-azure-file-sync"></a>Azure Dosya Eşitleme’yi izleme
 
@@ -69,11 +69,14 @@ Aşağıdaki ölçümler Azure dosya eşitleme için Azure İzleyici'de kullanı
 | Ölçüm adı | Açıklama |
 |-|-|
 | Eşitlenen bayt | (Karşıya yükleme ve indirme) aktarılan verilerin boyutu.<br><br>Birim: Bayt<br>Toplama türü: Toplam<br>Geçerli boyut: Sunucu uç noktası adı, eşitleme yönü, eşitleme grubu adı |
-| Bulut katmanlaması geri çağırma | Geri verilerin boyutu.<br><br>Birim: Bayt<br>Toplama türü: Toplam<br>Geçerli boyut: Sunucu adı |
-| Dosyalar eşitleniyor değil | Eşitleme başarısız olan dosya sayısı.<br><br>Birim: Count<br>Toplama türü: Toplam<br>Geçerli boyut: Sunucu uç noktası adı, eşitleme yönü, eşitleme grubu adı |
+| Bulut katmanlaması geri çağırma | Geri verilerin boyutu.<br><br>Not: Bu ölçüm gelecekte kaldırılacaktır. Bulut katmanlaması geri çağırma boyut ölçümü geri verilerin boyutunu izlemek için kullanın.<br><br>Birim: Bayt<br>Toplama türü: Toplam<br>Geçerli boyut: Sunucu adı |
+| Bulut katmanlaması geri çağırma boyutu | Geri verilerin boyutu.<br><br>Birim: Bayt<br>Toplama türü: Toplam<br>Geçerli boyut: Sunucu adı, eşitleme grubu adı |
+| Uygulama tarafından katmanlama geri çağırma boyutu bulut | Uygulama tarafından geri verilerin boyutu.<br><br>Birim: Bayt<br>Toplama türü: Toplam<br>Geçerli boyut: Uygulama adı, sunucu adı, eşitleme grubu adı |
+| Bulut katmanlaması geri çağırma aktarım hızı | Verileri geri çağırma Aktarım boyutu.<br><br>Birim: Bayt<br>Toplama türü: Toplam<br>Geçerli boyut: Sunucu adı, eşitleme grubu adı |
+| Dosyalar eşitleniyor değil | Eşitleme başarısız olan dosya sayısı.<br><br>Birim: Sayı<br>Toplama türü: Toplam<br>Geçerli boyut: Sunucu uç noktası adı, eşitleme yönü, eşitleme grubu adı |
 | Eşitlenmiş dosyaları | Dosya sayısı (karşıya yükleme ve indirme) aktardı.<br><br>Birim: Count<br>Toplama türü: Toplam<br>Geçerli boyut: Sunucu uç noktası adı, eşitleme yönü, eşitleme grubu adı |
 | Sunucu çevrimiçi durumu | Sunucudan alınan sinyal sayısı.<br><br>Birim: Count<br>Toplama türü: Maksimum<br>Geçerli boyut: Sunucu adı |
-| Eşitleme oturumu sonucu | Eşitleme oturumu sonucu (1 = başarılı eşitleme oturumu; 0 başarısız eşitleme oturumu =)<br><br>Birim: Sayı<br>Toplama türleri: Maksimum<br>Geçerli boyut: Sunucu uç noktası adı, eşitleme yönü, eşitleme grubu adı |
+| Eşitleme oturumu sonucu | Eşitleme oturumu sonucu (1 = başarılı eşitleme oturumu; 0 başarısız eşitleme oturumu =)<br><br>Birim: Count<br>Toplama türleri: Maksimum<br>Geçerli boyut: Sunucu uç noktası adı, eşitleme yönü, eşitleme grubu adı |
 
 ## <a name="windows-server"></a>Windows Server
 

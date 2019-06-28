@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: bf2262d8a222cec6c5d0d7e53ded7b2994481656
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 207fb003eb1fdaafe4f43f7cd41dd4b7662eddf9
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205682"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331969"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Azure NetApp Files ağ planlaması yönergeleri
 
@@ -81,7 +81,7 @@ Sanal ağ başka bir VNet ile eşlenirse VNet adres alanı genişletilemiyor. Bu
 
 ### <a name="udrs-and-nsgs"></a>Udr ve Nsg'ler
 
-Bir sonraki atlama ile ağ güvenlik grupları (Nsg'ler), Azure için NetApp dosyaları temsil edilen alt ağlar kullanılamaz. Benzer şekilde, kullanıcı tanımlı yollar (Udr) da desteklenmez. 
+Kullanıcı tanımlı yollar (Udr) ve ağ güvenlik grupları (Nsg'ler) temsilci alt ağlarda Azure NetApp dosyaları için desteklenmez.
 
 Geçici bir çözüm olarak, diğer alt ağlara izin vermek veya Azure NetApp temsilci dosyaları alt ağından gelen ve giden trafiği reddetmek için Nsg'leri uygulayabilirsiniz.  
 
