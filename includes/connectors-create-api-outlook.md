@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: estfan
 ms.openlocfilehash: 187906a912c999142d764de6ad5da3daccf63ba7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66146783"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188625"
 ---
 1. Arama kutusuna filtreniz olarak "outlook.com" girin. Bu örnek için şu tetikleyiciyi seçin: **Yeni bir e-posta geldiğinde**
 

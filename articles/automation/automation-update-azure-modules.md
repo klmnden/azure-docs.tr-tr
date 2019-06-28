@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/30/2019
+ms.date: 06/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c09c9df1b8af7adca5c0169cf31881121ba6cc99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: cd7c268008afbd87e855516d5834676423272646
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427492"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146726"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure automation'da Azure PowerShell modüllerini güncelleştirme
 
@@ -35,9 +35,7 @@ Betiklerinizi yerel olarak geliştirme yapıyorsanız, emin olmak için testi ay
 
 Bu işlem, Azure modüllerini güncelleştir kullanırken dikkate almanız gereken bazı noktalar şunlardır:
 
-* Bu runbook, yalnızca güncelleştirme destekler **Azure** ve **AzureRm** şu anda modüller. [Azure PowerShell Az modülleri](/powershell/azure/new-azureps-module-az) Automation hesaplarında desteklenir, ancak bu runbook'la güncelleştirilemiyor. Kullanırken dikkate almanız gereken önemli faktörler vardır `Az` modüller Otomasyon hesabınızdaki daha fazla bilgi edinmek için bkz: [kullanarak Az modüller Otomasyon hesabınızdaki](az-modules.md).
-
-* Bu runbook içeren Az modülleri Automation hesapları başlatma kaçının.
+* Bu runbook destekler güncelleştirme **Azure** ve **AzureRm** varsayılan modüller. Bu runbook destekler güncelleştirme **Az** modüller de. Gözden geçirme [güncelleştirme Azure modülleri runbook Benioku](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) güncelleştirme hakkında daha fazla bilgi için `Az` modülleri bu runbook ile. Kullanırken dikkate almanız gereken ek önemli faktör vardır `Az` modüller Otomasyon hesabınızdaki daha fazla bilgi edinmek için bkz: [kullanarak Az modüller Otomasyon hesabınızdaki](az-modules.md).
 
 * Bu runbook başlatmadan önce Otomasyon hesabınızın sahip olduğundan emin olun bir [Azure farklı çalıştır hesabı kimlik bilgisi](manage-runas-account.md) oluşturulur.
 

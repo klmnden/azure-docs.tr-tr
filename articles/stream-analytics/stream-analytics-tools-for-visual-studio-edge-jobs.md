@@ -1,6 +1,6 @@
 ---
-title: Stream Analytics Veri kutusu Edge işleri, Visual Studio için Azure Stream Analytics araçları
-description: Bu makalede, yazma, hata ayıklama ve Stream Analytics Veri kutusu Edge işlerinizi Visual Studio için Stream Analytics araçlarını kullanarak oluşturmak açıklar.
+title: Stream Analytics Edge işleri, Visual Studio için Azure Stream Analytics araçları
+description: Bu makalede nasıl yazacağınızı, hata ayıklama ve, Stream Analytics IOT Edge üzerinde Visual Studio için Stream Analytics araçları kullanarak işleri oluşturun.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 242fb2daebfe9eb6e5a0c73c2c4c0e91a3131032
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1601bf6c73d9f3450959773c85385bc8ef907a66
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304152"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329954"
 ---
-# <a name="develop-stream-analytics-data-box-edge-jobs-using-visual-studio-tools"></a>Visual Studio Araçları'nı kullanarak Stream Analytics Veri kutusu Edge işlerini geliştirme
+# <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Visual Studio Araçları'nı kullanarak Stream Analytics Edge işlerini geliştirme
 
-Bu öğreticide, Visual Studio için Stream Analytics araçları kullanmayı öğrenin. Yazma, hata ayıklama ve Stream Analytics Veri kutusu Edge işlerinizi oluşturma konusunda bilgi edinin. Oluşturup test işi sonra cihazlara dağıtmak için Azure portalına gidebilirsiniz. 
+Bu öğreticide, Visual Studio için Stream Analytics araçları kullanmayı öğrenin. Yazma, hata ayıklama ve Stream Analytics Edge işlerinizi oluşturma konusunda bilgi edinin. Oluşturup test işi sonra cihazlara dağıtmak için Azure portalına gidebilirsiniz. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -28,15 +28,15 @@ Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları ihtiyacınız vard�
 
 * İzleyin [yükleme yönergeleri](stream-analytics-tools-for-visual-studio-edge-jobs.md) Visual Studio için Stream Analytics araçları yüklemek için.
  
-## <a name="create-a-stream-analytics-data-box-edge-project"></a>Stream Analytics Veri kutusu Edge proje oluşturma 
+## <a name="create-a-stream-analytics-edge-project"></a>Stream Analytics Edge proje oluşturma 
 
 Visual Studio'dan seçin **dosya** > **yeni** > **proje**. Gidin **şablonları** soldaki listesi > genişletin **Azure Stream Analytics** > **Stream Analytics Edge**  >   **Azure Stream Analytics Edge uygulama**. Seçin ve proje için bir ad, konum ve çözüm adı sağlayın **Tamam**.
 
-![Yeni Stream Analytics Veri kutusu Edge proje Visual Studio'da](./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-stream-analytics-edge-project.png)
+![Yeni Stream Analytics Edge proje Visual Studio'da](./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-stream-analytics-edge-project.png)
 
 Proje oluşturulur, sonra gidin **Çözüm Gezgini** klasör hiyerarşisini görüntülemek için.
 
-![Çözüm Gezgini görünümü, Stream Analytics Veri kutusu Edge işi](./media/stream-analytics-tools-for-visual-studio-edge-jobs/edge-project-in-solution-explorer.png)
+![Çözüm Gezgini görünümü, Stream Analytics Edge işi](./media/stream-analytics-tools-for-visual-studio-edge-jobs/edge-project-in-solution-explorer.png)
 
  
 ## <a name="choose-the-correct-subscription"></a>Doğru aboneliği seçin
@@ -63,15 +63,14 @@ Proje oluşturulur, sonra gidin **Çözüm Gezgini** klasör hiyerarşisini gör
  
 ## <a name="define-the-transformation-query"></a>Dönüşüm sorgusunu tanımlama
 
-Stream Analytics Veri kutusu Edge ortamlara dağıtılan Stream Analytics işleri desteği çoğu [Stream Analytics sorgu dili başvurusu](https://msdn.microsoft.com/azure/stream-analytics/reference/stream-analytics-query-language-reference?f=255&MSPPError=-2147217396). Ancak, şu işlemler için Stream Analytics Veri kutusu Edge işleri henüz desteklenmez: 
+Stream Analytics IOT Edge ortamlara dağıtılan Stream Analytics işleri desteği çoğu [Stream Analytics sorgu dili başvurusu](https://msdn.microsoft.com/azure/stream-analytics/reference/stream-analytics-query-language-reference?f=255&MSPPError=-2147217396). Ancak, aşağıdaki işlemleri henüz Stream Analytics Edge işleri için desteklenmez: 
 
 
 |**Kategori**  | **Komutu**  |
 |---------|---------|
-|Jeo-uzamsal işleçler |<ul><li>CreatePoint</li><li>CreatePolygon</li><li>CreateLineString</li><li>ST_DISTANCE</li><li>ST_WITHIN</li><li>ST_OVERLAPS</li><li>ST_INTERSECTS</li></ul> |
-|Diğer işleçler | <ul><li>BÖLÜMÜ</li><li>ÜZERİNDEN ZAMAN DAMGASI</li><li>DISTINCT</li><li>Expression parametresinde COUNT işleci</li><li>Tarih ve saat işlevleri'nde mikrosaniye ölçeğinde</li><li>JavaScript UDA'ın (Bu özellik, işleri bulutta dağıtılan için Önizleme aşamasında.)</li></ul>   |
+|Diğer işleçler | <ul><li>BÖLÜMÜ</li><li>ÜZERİNDEN ZAMAN DAMGASI</li><li>JavaScript UDF</li><li>Kullanıcı tanımlı toplamlarda (UDA)</li><li>GetMetadataPropertyValue</li><li>Tek bir adımda 14'ten fazla toplamaları kullanma</li></ul>   |
 
-Portalda bir Stream Analytics Veri kutusu Edge işi oluşturduğunuzda, derleyici otomatik olarak desteklenen bir işleç kullanmıyorsanız, sizi uyarır.
+Portalda bir Stream Analytics Edge işi oluşturduğunuzda, derleyici otomatik olarak desteklenen bir işleç kullanmıyorsanız, sizi uyarır.
 
 Visual Studio'dan, sorgu Düzenleyicisi'nde aşağıdaki dönüşüm sorgusunu tanımlayın (**script.asaql dosya**)
 
@@ -105,15 +104,15 @@ Yerel olarak, sorguyu sınamak için örnek verileri yüklemeniz gerekir. Kayıt
 
 2. İşi azure'a göndermek için sorgu Düzenleyicisi gidin > seçin **azure'a Gönder**.  
 
-3. Bir pencere açılır. Var olan bir Stream Analytics Veri kutusu Edge işi güncelleştirme veya yeni bir tane oluşturmak bu seçeneği seçin. Var olan bir işi güncelleştirdiğinizde, bu senaryoda tüm iş yapılandırması, yerini alır, yeni bir iş yayınlayacaksınız. Seçin **yeni bir Azure Stream Analytics işi oluşturma** > şuna benzer işiniz için bir ad girin **MyASAEdgeJob** > gerekli seçin **abonelik**, **Kaynak grubu**, ve **konumu** > seçin **gönderme**.
+3. Bir pencere açılır. Var olan bir Stream Analytics Edge işi güncelleştirme veya yeni bir tane oluşturmak bu seçeneği seçin. Var olan bir işi güncelleştirdiğinizde, bu senaryoda tüm iş yapılandırması, yerini alır, yeni bir iş yayınlayacaksınız. Seçin **yeni bir Azure Stream Analytics işi oluşturma** > şuna benzer işiniz için bir ad girin **MyASAEdgeJob** > gerekli seçin **abonelik**, **Kaynak grubu**, ve **konumu** > seçin **gönderme**.
 
    ![Stream Analytics işi, Visual Studio'dan Azure'a gönderme](./media/stream-analytics-tools-for-visual-studio-edge-jobs/submit-stream-analytics-job-to-azure.png)
  
-   Şimdi, Stream Analytics Veri kutusu Edge işi oluşturuldu. Başvurabilirsiniz [IOT Edge öğretici işlerinizi](stream-analytics-edge.md) cihazlarınıza dağıtmayı öğrenin. 
+   Şimdi, Stream Analytics Edge işi oluşturuldu. Başvurabilirsiniz [IOT Edge öğretici işlerinizi](stream-analytics-edge.md) cihazlarınıza dağıtmayı öğrenin. 
 
 ## <a name="manage-the-job"></a>İşi Yönet 
 
-İş ve iş diyagramı Sunucu Gezgini'nden durumunu görüntüleyebilirsiniz. Gelen **Stream Analytics** içinde **Sunucu Gezgini**, abonelik ve Stream Analytics Veri kutusu Edge işi dağıttığınız kaynak grubunu genişletin. Durumundaki MyASAEdgejob görüntüleyebileceğiniz **oluşturulan**. Proje düğümünü genişletin ve iş görünümünü açmak için çift tıklayın.
+İş ve iş diyagramı Sunucu Gezgini'nden durumunu görüntüleyebilirsiniz. Gelen **Stream Analytics** içinde **Sunucu Gezgini**, abonelik ve Stream Analytics Edge işi dağıttığınız kaynak grubunu genişletin. Durumundaki MyASAEdgejob görüntüleyebileceğiniz **oluşturulan**. Proje düğümünü genişletin ve iş görünümünü açmak için çift tıklayın.
 
 ![Sunucu Gezgini proje yönetimi seçenekleri](./media/stream-analytics-tools-for-visual-studio-edge-jobs/server-explorer-options.png)
  

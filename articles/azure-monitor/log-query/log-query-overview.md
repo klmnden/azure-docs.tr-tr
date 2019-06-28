@@ -7,15 +7,15 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: bwren
-ms.openlocfilehash: b395b7bccbf93b56e84d5e7b5a4ed7355eaca335
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 7605bf36c41c5b1276d29076173efd52409afaa9
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296323"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310332"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Azure İzleyici'de günlük sorguları genel bakış
-Günlük sorguları değeri tam olarak yararlanmak için yardımcı olarak toplanan veriler [Azure İzleyici günlüklerine](../platform/data-platform-logs.md). Güçlü bir sorgu dili, birden çok tablodan veri katılın, büyük veri kümelerini bir araya ve karmaşık işlemleri olabildiğince az kodla olanak tanır. Herhangi bir sorunun yanıtlanması gereken ve destekleyici veri toplanan ve doğru bir sorgu oluşturmak öğrenme sürece çözümlemenin.
+Günlük sorguları tam olarak toplanan veri değerini kullanmasına yardımcı [Azure İzleyici günlüklerine](../platform/data-platform-logs.md). Güçlü bir sorgu dili, birden çok tablodan veri katılın, büyük veri kümelerini bir araya ve karmaşık işlemleri olabildiğince az kodla olanak tanır. Herhangi bir sorunun yanıtlanması gereken ve destekleyici veri toplanan ve doğru bir sorgu oluşturmak öğrenme sürece çözümlemenin.
 
 Azure İzleyici gibi bazı özellikler [ınsights](../insights/insights-overview.md) ve [çözümleri](../insights/solutions-inventory.md) temel sorgular sokmadan günlük verileri işleyin. Azure İzleyicisi'nin diğer özellikleri tam olarak yararlanmak için sorguların nasıl oluşturulur ve Azure İzleyici günlüklerine verileri etkileşimli olarak çözümlemek için bunları nasıl kullanabileceğiniz anlamanız gerekir.
 

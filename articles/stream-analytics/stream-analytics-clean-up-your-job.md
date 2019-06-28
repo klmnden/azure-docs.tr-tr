@@ -7,23 +7,25 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 6/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: e43e1034abe4bbe3d31a46ab3b98b0efe612b852
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cb81c73f7946a10bae0470a55dcf1c0d55c2b847
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66159440"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330043"
 ---
-# <a name="clean-up-your-azure-stream-analytics-job"></a>Azure Stream Analytics işinizi Temizle
+# <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Durdurma veya Azure Stream Analytics işinizi Sil
 
-Azure Stream Analytics işleri, Azure portalı, Azure PowerShell, .net veya REST API'si için Azure SDK üzerinden kolayca silinebilir. Bir Stream Analytics işi, silindikten sonra kurtarılamaz.
+Azure Stream Analytics işleri kolayca durduruldu veya Azure portalı, Azure PowerShell, .net veya REST API'si için Azure SDK'sı aracılığıyla silindi. Bir Stream Analytics işi, silindikten sonra kurtarılamaz.
 
 >[!NOTE] 
 >Stream Analytics işinizi durdurduğunuzda, verileri olay hub'ları veya Azure SQL veritabanı gibi giriş ve çıkış depolama alanında yalnızca devam ettirir. Azure'dan verilerini kaldırmak için gerekliyse, Stream Analytics işinizin giriş ve çıkış kaynakları temizleme işlemini izleyin emin olun.
 
 ## <a name="stop-a-job-in-azure-portal"></a>Azure portalında bir işini durdurma
+
+Bir işi durdurduğunuzda, deprovisionned kaynaklarıdır ve olayları işlemeyi durdurur. Bu projeyle ilgili ücretleri de durdurulur. Ancak, tüm yapılandırma tutulur ve daha sonra işi yeniden 
 
 1. [Azure Portal](https://portal.azure.com) oturum açın. 
 
@@ -35,6 +37,9 @@ Azure Stream Analytics işleri, Azure portalı, Azure PowerShell, .net veya REST
 
 
 ## <a name="delete-a-job-in-azure-portal"></a>Azure portalında iş Sil
+
+>[!WARNING] 
+>Bir Stream Analytics işi, silindikten sonra kurtarılamaz.
 
 1. Azure Portal’da oturum açın. 
 

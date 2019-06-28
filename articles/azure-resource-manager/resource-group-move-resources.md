@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1cc2f3b1ee657706dba237c86552b1780bc9dd34
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: eb99bec74ae5444320b7098616d4bf2d81b90697
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295438"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67332023"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -79,7 +79,6 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * DNS
 * Event Grid
 * Event Hubs
-* Ön kapısı
 * Bkz: HDInsight kümeleri - [HDInsight sınırlamaları](#hdinsight-limitations)
 * IoT Central
 * IoT Hub
@@ -138,6 +137,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınamaz Azure hizmet
 * Geliştirme alanları
 * Dynamics LCS
 * ExpressRoute
+* Ön kapısı
 * Lab Services'i - sınıf Laboratuvarlarını bir yeni kaynak grubuna veya aboneliğe taşınamaz. DevTest Labs, yeni bir kaynak grubu ile aynı abonelikte ancak değil, abonelikler arasında taşınabilir.
 * Yönetilen Uygulamalar
 * Yönetilen kimlik - kullanıcı tarafından atanan

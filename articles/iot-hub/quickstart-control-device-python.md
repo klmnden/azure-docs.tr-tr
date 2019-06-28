@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/26/2019
-ms.openlocfilehash: 74146242ef4084e5990027117689bb1371c3f272
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.date: 06/21/2019
+ms.openlocfilehash: 9c9b892f7d1f992210a18f2290bb199d12aeaf49
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65832180"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330502"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Hızlı Başlangıç: Bir IOT hub'ına (Python) bağlı cihazı denetleme
 
@@ -102,12 +102,13 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
     ```azurecli-interactive
     az iot hub show-connection-string \
       --name YourIoTHubName \
+      --policy-name service \
       --output table
     ```
 
     Şu ifadeye benzer şekilde görünen hizmet bağlantı dizesini not edin:
 
-   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
     Bu değeri hızlı başlangıcın ilerleyen bölümlerinde kullanacaksınız. Hizmet bağlantı dizesi, cihaz bağlantı dizesinden farklıdır.
 

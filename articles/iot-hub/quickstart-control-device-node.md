@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/27/2019
-ms.openlocfilehash: 15b96d44b1ff78a83a4364579b7984d20e3f4d85
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.date: 06/21/2019
+ms.openlocfilehash: 462b485b5dc5106ab18959ab2cdbfe1bfc0f94bf
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597717"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330571"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>Hızlı Başlangıç: Bir IOT hub'ına (Node.js) bağlı cihazı denetleme
 
@@ -99,12 +99,12 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
 
     ```azurecli-interactive
     az iot hub show-connection-string \
-      --name YourIoTHubName --output table
+      --name YourIoTHubName --policy-name service --output table
     ```
 
     Şu ifadeye benzer şekilde görünen hizmet bağlantı dizesini not edin:
 
-   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
     Bu değeri hızlı başlangıcın ilerleyen bölümlerinde kullanacaksınız. Hizmet bağlantı dizesi, cihaz bağlantı dizesinden farklıdır.
 

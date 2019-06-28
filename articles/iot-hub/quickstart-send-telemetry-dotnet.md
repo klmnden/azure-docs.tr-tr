@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/22/2019
-ms.openlocfilehash: f339d2e3e329ae40ca8bb8bf651d698c73482a7d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/21/2019
+ms.openlocfilehash: 1433e71a5e4f9d4effe82d489145c364355100d4
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049277"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330447"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Hızlı Başlangıç: Bir IOT hub'ına bir CİHAZDAN telemetri gönderme ve bir arka uç uygulaması ile okuma (C#)
 
@@ -81,7 +81,7 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
 
     Bu değeri hızlı başlangıcın ilerleyen bölümlerinde kullanacaksınız.
 
-3. Arka uç uygulamasının IoT hub’ınıza bağlanmasını ve iletileri almasını sağlamak için IoT hub’ınızdaki _Event Hubs uyumlu uç nokta_, _Event Hubs uyumlu yol_ ve _iothubowner birincil anahtarı_ da gerekir. Aşağıdaki komutlar, IoT hub’ınız için şu değerleri alır:
+3. Ayrıca gerekir _Event Hubs ile uyumlu uç nokta_, _Event Hubs ile uyumlu yolu_, ve _hizmet birincil anahtarı_ arka uç uygulaması için etkinleştirmek için IOT hub'ından IOT hub'ınıza bağlanmak ve iletileri alabilirsiniz. Aşağıdaki komutlar, IoT hub’ınız için şu değerleri alır:
 
    **YourIoTHubName**: Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adıyla değiştirin.
 
@@ -90,7 +90,7 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
 
     az iot hub show --query properties.eventHubEndpoints.events.path --name YourIoTHubName
 
-    az iot hub policy show --name iothubowner --query primaryKey --hub-name YourIoTHubName
+    az iot hub policy show --name service --query primaryKey --hub-name YourIoTHubName
     ```
 
     Bu üç değeri not edin. Hızlı başlangıcın ilerleyen kısmında bunları kullanacaksınız.
@@ -129,11 +129,11 @@ Arka uç uygulaması, IoT Hub’ınızdaki bir hizmet tarafı **Olaylar** uç no
 
 2. **ReadDeviceToCloudMessages.cs** dosyasını istediğiniz bir metin düzenleyicide açın. Aşağıdaki değişkenleri güncelleştirin ve yaptığınız değişiklikleri dosyaya kaydedin.
 
-    | Değişken | Değer |
+    | Değişken | Value |
     | -------- | ----------- |
     | `s_eventHubsCompatibleEndpoint` | Değişkenin değerini, önceden not ettiğiniz Event Hubs uyumlu uç noktayla değiştirin. |
     | `s_eventHubsCompatiblePath`     | Değişkenin değerini, önceden not ettiğiniz Event Hubs uyumlu yolla değiştirin. |
-    | `s_iotHubSasKey`                | Değişkenin değerini, önceden not ettiğiniz iothubowner birincil anahtarıyla değiştirin. |
+    | `s_iotHubSasKey`                | Değişkenin değerini, daha önce Not yaptığınız hizmet birincil anahtarı ile değiştirin. |
 
 3. Yerel terminal penceresinde, aşağıdaki komutları çalıştırarak arka uç uygulaması için gerekli kitaplıkları yükleyin:
 

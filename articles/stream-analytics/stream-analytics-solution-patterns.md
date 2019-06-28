@@ -6,27 +6,27 @@ ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: 80843abe130f1388a5d4081adab7b9128446763b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: 5929ff439bc31e16643e5c57868cd6b68f9cd99c
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65761986"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329565"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Azure Stream Analytics çözüm desenleri
 
 Çok sayıda diğer hizmetleri gibi Azure Stream Analytics en iyi diğer hizmetlerle daha büyük bir uçtan uca çözüm oluşturmak için kullanılır. Bu makalede, Azure Stream Analytics çözümleri basit ve çeşitli mimari desenleri açıklar. Daha karmaşık çözümleri geliştirmek üzere bu eğilimlere oluşturabilirsiniz. Bu makalede açıklanan desenleri, çok çeşitli senaryolarda kullanılabilir. Senaryoya özgü düzeni örnekleri vardır [Azure çözüm mimarileri](https://azure.microsoft.com/solutions/architecture/?product=stream-analytics).
 
-## <a name="create-a-stream-analytics-job-with-a-real-time-dashboard"></a>Gerçek zamanlı bir pano ile bir Stream Analytics işi oluşturma
+## <a name="create-a-stream-analytics-job-to-power-real-time-dashboarding-experience"></a>Güç gerçek zamanlı yönelik Kompozit deneyimi için bir Stream Analytics işi oluşturma
 
-Kullanım kolaylığı Azure Stream Analytics ile gerçek zamanlı panolar ve uyarılar hızlı bir şekilde bildirimde bulunabilir. Event Hubs'ı veya IOT Hub, olaylarından basit bir çözüm alır ve [akış veri kümesini içeren Power BI Panosu akışları](/power-bi/service-real-time-streaming). Daha fazla bilgi için ayrıntılı bkz [Stream Analytics ile telefon araması verileri analiz etmek ve Power BI panosunda sonuçlarını görselleştirme](stream-analytics-manage-job.md).
+Azure Stream Analytics ile gerçek zamanlı panolar ve uyarılar hızlı bir şekilde bildirimde bulunabilir. Event Hubs'ı veya IOT Hub, olaylarından basit bir çözüm alır ve [akış veri kümesini içeren Power BI Panosu akışları](/power-bi/service-real-time-streaming). Daha fazla bilgi için ayrıntılı bkz [Stream Analytics ile telefon araması verileri analiz etmek ve Power BI panosunda sonuçlarını görselleştirme](stream-analytics-manage-job.md).
 
 ![ASA Power BI Panosu](media/stream-analytics-solution-patterns/pbidashboard.png)
 
 Bu çözüm, Azure portalından yalnızca birkaç dakika içinde oluşturulabilir. Kapsamlı kodlama söz konusu yoktur ve SQL dili, iş mantığı ifade etmek için kullanılır.
 
-Bu gerçek zamanlı Pano çözüm deseni, bir tarayıcıda Power BI panosuna olay kaynağından en düşük gecikme sunar. Azure Stream Analytics, bu yerleşik özelliği ile yalnızca Azure hizmetidir.
+Bu çözüm düzeni Power BI panosuna bir tarayıcıda olay kaynağından en düşük gecikme sunar. Azure Stream Analytics, bu yerleşik özelliği ile yalnızca Azure hizmetidir.
 
 ## <a name="use-sql-for-dashboard"></a>SQL için panoyu kullanın.
 
@@ -34,19 +34,19 @@ Power BI panosunu, düşük gecikme süresi sunar, ancak tam kapsamlı Power BI 
 
 ![ASA SQL Panosu](media/stream-analytics-solution-patterns/sqldashboard.png)
 
-SQL kullanarak veritabanı çoğaltamaz daha yüksek gecikme süresiyle daha fazla esneklik sağlar. Bu çözüm, bir ikincisinden büyük gecikme süresi gereksinimlerine sahip işler için idealdir. Bu yöntem ile daha fazla dilim için Power BI'ın yardımcı programı en üst düzeye çıkarmak ve raporlar için verilerin ayrıntılarına inin. Ayrıca, Tableau gibi diğer Pano çözümlerini kullanma konusunda esneklik kazanabilir.
+SQL kullanarak veritabanı, daha fazla esneklik sağlar ancak biraz daha yüksek gecikme çoğaltamaz. Bu çözüm, bir ikincisinden büyük gecikme süresi gereksinimlerine sahip işler için idealdir. Bu yöntemle Power BI özelliklerini daha fazla dilim için en üst düzeye çıkarmak ve raporları ve çok daha fazla görselleştirme seçenekleri için verilerin ayrıntılarına inin. Ayrıca, Tableau gibi diğer Pano çözümlerini kullanma konusunda esneklik kazanabilir.
 
-SQL yüksek aktarım hızı veri deposu, ve SQL veritabanı için Azure Stream Analytics'ten gelen en yüksek aktarım 24 MB/sn. Verileri daha yüksek bir hızda çözümünüzdeki olay kaynakları oluşturmak, çıkış oranı SQL azaltmak için Stream Analytics'te işleme mantığı kullanmanız gerekir. Teknikleri, pencereli toplamlar, filtreleme gibi zamana bağlı birleştirmelerle eşleşen desen ve analitik işlevler kullanılabilir. SQL için çıkış oranı açıklanan teknikleri kullanarak daha fazla iyileştirilebilir [Azure SQL veritabanı için Azure Stream Analytics çıkış](stream-analytics-sql-output-perf.md).
+SQL yüksek aktarım hızı veri deposu değil. Azure Stream Analytics'ten gelen en yüksek aktarım bir SQL veritabanı, şu anda yaklaşık 24 MB/sn aşamasındadır. Verileri daha yüksek bir hızda çözümünüzdeki olay kaynakları oluşturmak, çıkış oranı SQL azaltmak için Stream Analytics'te işleme mantığı kullanmanız gerekir. Teknikleri, pencereli toplamlar, filtreleme gibi zamana bağlı birleştirmelerle eşleşen desen ve analitik işlevler kullanılabilir. SQL için çıkış oranı açıklanan teknikleri kullanarak daha fazla iyileştirilebilir [Azure SQL veritabanı için Azure Stream Analytics çıkış](stream-analytics-sql-output-perf.md).
 
 ## <a name="incorporate-real-time-insights-into-your-application-with-event-messaging"></a>Uygulamanızın olay Mesajlaşma ile gerçek zamanlı Öngörüler ekleyebilirsiniz.
 
 İkinci en popüler Stream Analytics gerçek zamanlı uyarılar oluşturmak için kullanılır. Bu çözüm modelinde iş mantığı Stream analytics'te algılamak için kullanılabilir [zamana bağlı ve uzamsal desenleri](stream-analytics-geospatial-functions.md) veya [anomalileri](stream-analytics-machine-learning-anomaly-detection.md), ardından uyarı sinyal üretebilir. Ancak, birkaç ara veri havuzları burada Stream Analytics tercih edilen bir uç noktası olarak Power BI kullanır. Pano çözüm, kullanılabilir. Bu havuzlar, Event Hubs, Service Bus ve Azure işlevleri içerir. Uygulama oluşturucusu, hangi veri havuzu senaryonuz için en iyi çalıştığı karar vermeniz gerekir.
 
-Aşağı Akış olayı tüketici mantıksal mevcut iş akışınızda uyarılar verecek şekilde uygulanmalıdır. Azure işlevleri'nde özel mantığı uygulayabilir, İşlevler çünkü en hızlı yolu Bu tümleştirme gerçekleştirebilirsiniz. Bir öğretici için Azure işlevini kullanarak bir Stream Analytics işi için çıkış dosyasında bulunan [çalıştırın, Azure işlevleri Azure Stream Analytics işlerine](stream-analytics-with-azure-functions.md). Azure işlevleri, çeşitli metin ve e-posta bildirimleri de destekler. Mantıksal uygulama, Stream Analytics ve mantıksal uygulama arasında Event Hubs ile böyle bir tümleştirme için de kullanılabilir.
+Aşağı Akış olayı tüketici mantıksal mevcut iş akışınızda uyarılar verecek şekilde uygulanmalıdır. Azure işlevleri'nde özel mantığı uygulayabilir olduğundan, Azure işlevleri, bu tümleştirme gerçekleştirebilirsiniz en hızlı yoludur. Bir öğretici için Azure işlevini kullanarak bir Stream Analytics işi için çıkış dosyasında bulunan [çalıştırın, Azure işlevleri Azure Stream Analytics işlerine](stream-analytics-with-azure-functions.md). Azure işlevleri, çeşitli metin ve e-posta bildirimleri de destekler. Mantıksal uygulama, Stream Analytics ve mantıksal uygulama arasında Event Hubs ile böyle bir tümleştirme için de kullanılabilir.
 
 ![ASA olay Mesajlaşma uygulaması](media/stream-analytics-solution-patterns/eventmessagingapp.png)
 
-Olay hub'ları, diğer taraftan, en esnek tümleştirme noktası sunar. Azure Veri Gezgini ve zaman serisi görüşleri gibi çok sayıda diğer hizmet, olayları Event hubs'dan kullanabilir. Hizmetleri çözümünü tamamlamak için Azure Stream Analytics'ten doğrudan Event Hubs havuzuna bağlanabilir. Event Hubs, aynı zamanda en yüksek aktarım hızı Mesajlaşma aracısı gibi tümleştirme senaryoları için Azure üzerinde kullanılabilir.
+Olay hub'ları, diğer taraftan, en esnek tümleştirme noktası sunar. Azure Veri Gezgini ve Time Series Insights gibi çok sayıda diğer hizmet, olayları Event hubs'dan kullanabilir. Hizmetleri çözümünü tamamlamak için Azure Stream Analytics'ten doğrudan Event Hubs havuzuna bağlanabilir. Event Hubs, aynı zamanda en yüksek aktarım hızı Mesajlaşma aracısı gibi tümleştirme senaryoları için Azure üzerinde kullanılabilir.
 
 ## <a name="dynamic-applications-and-websites"></a>Dinamik uygulama ve Web siteleri
 

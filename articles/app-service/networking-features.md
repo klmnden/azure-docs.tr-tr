@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 666430a11fb95871eb601b2a38eb7b97ad16119f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 362f0b32ea99d0b888ea9f1efa0cd4ea74eb2fa1
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66498957"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338490"
 ---
 # <a name="app-service-networking-features"></a>App Service ağ özellikleri
 
@@ -99,7 +99,7 @@ Filtre erişim kısıtlamalarını yeteneği sağlar **gelen** istekleri tabanl�
 Erişim kısıtlamaları özelliği uygulamanıza erişmek için kullanılan IP adreslerini kısıtlamak istediğiniz senaryolarda yardımcı olur. Kullanımı arasında bu özellik için durum vardır:
 
 * İyi tanımlanmış adresleri kümesinden uygulamanıza erişimi kısıtlama 
-* Azure ön kapı gibi bir Yük Dengeleme hizmeti aracılığıyla gelen erişimi kısıtlayın. 147\.243.0.0/16 ve 2a01:111:2050 gelen trafiğe izin vermek için kuralları, gelen trafik için ön kapı Azure kilitleme istediyseniz, oluşturma:: / 44. 
+* Azure ön kapı gibi bir Yük Dengeleme hizmeti aracılığıyla gelen erişimi kısıtlayın. 147.243.0.0/16 ve 2a01:111:2050 gelen trafiğe izin vermek için kuralları, gelen trafik için ön kapı Azure kilitleme istediyseniz, oluşturma:: / 44. 
 
 ![Erişim kısıtlamalarına sahip ön kapısı](media/networking-features/access-restrictions-afd.png)
 
@@ -112,7 +112,7 @@ Hizmet uç noktaları kilitlemenize olanak tanır **gelen** sağlayacak şekilde
 ![Hizmet uç noktaları](media/networking-features/service-endpoints.png)
 
 * Uygulamanıza gelen trafiği kilitlemek için uygulamanıza bir uygulama ağ geçidi ayarlama
-* Uygulamanızı sanal ağınızdaki kaynaklara erişimi Testricting. Bu VM'ler, ase veya VNet tümleştirmesi kullanan bile diğer uygulamalar içerebilir 
+* Uygulamanızı sanal ağınızdaki kaynaklara erişimi kısıtlama. Bu VM'ler, ase veya VNet tümleştirmesi kullanan bile diğer uygulamalar içerebilir 
 
 ![Hizmet uç noktaları ile uygulama ağ geçidi](media/networking-features/service-endpoints-appgw.png)
 
@@ -136,7 +136,7 @@ Bu özellik için yaygın olarak kullanılır:
 
 Özelliği bir gelen güvenlik duvarı delik olmadan şirket kaynaklarına erişim sağladığından, geliştiriciler tarafından yaygın olarak kullanılır. Diğer giden App Service ağ çok Azure sanal ilgili ağ özellikleridir. Karma bağlantılar, giden bir sanal ağ üzerinde bir bağımlılık yok ve çok çeşitli ağ gereksinimleri için kullanılabilir. App Service karma bağlantılar özelliği değil dikkat edin veya üzerinde yaptığınız bilmeniz önemlidir. Bu veritabanı, bir web hizmeti veya rastgele bir TCP yuva bir ana bilgisayar üzerinden erişmek için kullanabileceğiniz söylemek olmasıdır. Özelliği, temelde TCP paketleri tüneller. 
 
-Karma bağlantılar geliştirme için popüler olsa da, bu da çok sayıda üretim uygulamalarında kullanılır. Bir web hizmeti veya veritabanı erişmek için idealdir, ancak oluşturulan harika bir birçok bağlantılar içeren durum için uygun değil. 
+Karma bağlantılar geliştirme için popüler olsa da, bu da çok sayıda üretim uygulamalarında kullanılır. Bir web hizmeti veya veritabanı erişmek için idealdir, ancak birçok bağlantı oluşturma ile ilgili durumlar için uygun değil. 
 
 ### <a name="gateway-required-vnet-integration"></a>ağ geçidi gerekli VNet tümleştirmesi 
 

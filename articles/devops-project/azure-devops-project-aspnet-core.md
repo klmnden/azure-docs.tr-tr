@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 88fb243af7628b159a2255c2cdae2ab86f39ca1e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 387801f2ecb2f5fa1639005726218efb54d75dc8
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275494"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331431"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-projects"></a>Azure DevOps projeleri ile .NET için CI/CD işlem hattı oluşturma
 
@@ -46,7 +46,7 @@ DevOps projeleri, Azure DevOps bir CI/CD işlem hattı oluşturur. Yeni bir Azur
 
 1. **.NET** örnek uygulamasını seçin. .NET örnekleri açık kaynaklı ASP.NET çerçevesi ya da çoklu platform .NET Core çerçevesi seçeneklerinden birini içerir.
 
-    ![.NET Framework](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
+   ![.NET Framework](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
 
 2. Bu örnek bir ASP.NET Core MVC uygulamasıdır. Seçin **.NET Core** uygulama çerçevesi seçip **sonraki**.    
     
@@ -54,37 +54,35 @@ DevOps projeleri, Azure DevOps bir CI/CD işlem hattı oluşturur. Yeni bir Azur
 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Azure DevOps ve Azure aboneliğinin yapılandırın 
 
-1. Yeni bir ücretsiz Azure DevOps kuruluş oluşturun veya mevcut bir kuruluşa seçin.
+1. Girin bir **proje adı**.
 
-    a. Projeniz için bir ad seçin. 
+2. Yeni bir ücretsiz oluşturun **Azure DevOps kuruluş** veya mevcut bir kuruluşa, açılan listeden seçin.
 
-    b. Azure aboneliği ve konumu seçin, uygulamanız için bir ad seçin ve ardından **Bitti**.  
-    DevOps projeleri Pano, birkaç dakika sonra Azure portalında görüntülenir. Azure DevOps kuruluşunuzdaki bir depodaki örnek bir uygulama kümesi, bir derleme yürütülür ve uygulamanızı Azure'a dağıtılır. Bu pano, kod deposu, CI/CD işlem hattı ve uygulamanızı azure'da görünürlük sağlar.
-    
+3. Seçin, **Azure abonelik**, için bir ad girin, **Web uygulaması** veya varsayılan alın ve ardından **Bitti**. Birkaç dakika sonra DevOps projeleri dağıtımına genel bakış, Azure portalında görüntülenir. 
 
-2. Panonun sağ tarafta seçin **Gözat** çalışan uygulamanızı görüntülemek için.
+4. Seçin **kaynağa Git** DevOps projesi panoyu görüntülemek için. Sağ üst köşedeki Sabitleme **proje** panonuza hızlı erişim için. Örnek bir uygulama bir depoda ayarlanır, **Azure DevOps kuruluş**. Bir derleme yürütülür ve uygulamanız Azure'a dağıtılır.
 
-    ![Pano görünümü](_img/azure-devops-project-aspnet-core/dashboardnopreview.png) 
+5. Pano, kod deposu, CI/CD işlem hattınızı ve uygulamanızı Azure'a görünürlük sağlar. Azure kaynaklarını altında sağ taraftaki seçin **Gözat** çalışan uygulamanızı görüntülemek için.
+
+   ![Pano görünümü](_img/azure-devops-project-aspnet-core/dashboardnopreview.png) 
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Kod değişikliklerini işleme ve CI/CD’yi yürütme
 
- DevOps projeleri, Azure depoları veya GitHub Git deposu oluşturuldu. Depo görüntüleyin ve uygulamanıza kod değişikliği yapmanız için aşağıdakileri yapın:
+DevOps projeleri, Azure depoları veya GitHub Git deposu oluşturuldu. Depo görüntüleyin ve uygulamanıza kod değişikliği yapmanız için aşağıdakileri yapın:
 
-1. DevOps projeleri panosunun sol tarafta, bağlantısını seçin, **ana** dal.  
-Bu bağlantı yeni oluşturulan Git deposuna bir görünüm açar.
+1. DevOps projeleri panosunun sol tarafta, bağlantısını seçin, **ana** dal. Bu bağlantı yeni oluşturulan Git deposuna bir görünüm açar.
 
-1. Depo kopya URL'sini görüntülemek için tarayıcının sağ üst kısmından **Kopya**’yı seçin.  
-Git deponuzu en sevdiğiniz IDE’de kopyalayabilirsiniz.  Sonraki birkaç adımda, kod değişiklikleri yapıp doğrudan ana dala işlemek için web tarayıcısını kullanabilirsiniz.
+2. Sonraki birkaç adımda yapmak ve doğrudan olarak kod değişiklikleri için web tarayıcısını kullanabilirsiniz **ana** dal. Seçerek sık kullandığınız IDE'de Git deponuza kopyalayabilirsiniz **kopya** üst depo sayfanın sağ. 
 
-1. Tarayıcı sol tarafında, Git **Views/Home/index.cshtml** dosya.
+3. Sol tarafta, uygulama dosya yapısına gidin **Application/aspnet-core-dotnet-core/Pages/Index.cshtml**.
 
-1. Seçin **Düzenle**, ardından H2 bölüm başlığı bir değişiklik yapın. Örneğin **hemen Azure DevOps Projects ile çalışmaya başlama** veya başka bir değişiklik yapın.
+4. Seçin **Düzenle**, ardından H2 bölüm başlığı bir değişiklik yapın. Örneğin **hemen Azure DevOps Projects ile çalışmaya başlama** veya başka bir değişiklik yapın.
 
-    ![Kod düzenlemeleri](_img/azure-devops-project-aspnet-core/codechange.png)
+      ![Kod düzenlemeleri](_img/azure-devops-project-aspnet-core/codechange.png)
 
-1. Seçin **işleme**ve ardından değişikliklerinizi kaydedin.
+5. Seçin **işleme**seçin ve yorum **işleme** yeniden.
 
-1. Tarayıcınızda Azure DevOps projesi panoya gidin.  Bir derlemenin sürdüğünü görüyor olmanız gerekir. Yaptığınız değişiklikleri otomatik olarak oluşturulur ve bir CI/CD işlem hattı dağıtılır.
+6. Tarayıcınızda Azure DevOps projesi panoya gidin.  Bir derlemenin sürdüğünü görüyor olmanız gerekir. Yaptığınız değişiklikleri otomatik olarak oluşturulur ve bir CI/CD işlem hattı dağıtılır.
 
 ## <a name="examine-the-cicd-pipeline"></a>CI/CD işlem hattı inceleyin
 

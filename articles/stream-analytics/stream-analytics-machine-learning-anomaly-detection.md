@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: fdf98a0c0c40010bb55955b54dc7b04db8e199f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: 88c0aea851bcf70206b5f68d7865c487441905f6
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66493273"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329907"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure Stream analytics'te anomali algılama
 
@@ -21,7 +21,7 @@ Kullanılabilir hem bulut hem de Azure IOT Edge, Azure Stream Analytics yerleşi
 
 Makine öğrenimi modelleri birörnek örneklenen zaman serisi varsayılır. Zaman serisi Tekdüzen değilse, anomali algılama çağırmadan önce bir atlayan pencere ile bir toplama adım ekleyebilirsiniz.
 
-Makine öğrenimi işlemleri mevsimsellik eğilimleri veya çok değişkenli bağıntılar desteklemez.
+Makine öğrenimi işlemleri mevsimsellik eğilimleri veya çok değişkenli bağıntılar şu anda desteklemez.
 
 ## <a name="model-accuracy-and-performance"></a>Model doğruluk ve performans
 
@@ -29,9 +29,9 @@ Genellikle, daha fazla veri kayan pencere modelin doğruluğunu artırır. Belir
 
 İşlevler, ne oldukları kadar gördünüz üzerinde dayalı belirli bir normal oluşturarak çalışır. Aykırı değerleri güven düzeyi içinde kurulu normal karşı karşılaştırma tarafından tanımlanır. Pencere boyutu bir anomali ortaya çıktığında, bunu tanımasına olacaktır, böylece normal davranış modeli eğitmek için gereken en düşük olayları bağlı olmalıdır.
 
-Geçmiş olaylar daha yüksek bir sayı karşı Karşılaştırılacak gerektiğinden, modelin yanıt süresi geçmiş boyutla artar aklınızda bulundurun. Olayları daha iyi performans için gereken sayıda yalnızca dahil etmek için önerilir.
+Geçmiş olaylar daha yüksek bir sayı karşı Karşılaştırılacak gerektiğinden modelin yanıt süresi geçmiş boyutunu artırır. Olayları daha iyi performans için gereken sayıda yalnızca dahil etmek için önerilir.
 
-Zaman serisi boşlukları belirli noktalarda olaylar sürede almıyor modelinin bir sonucu olabilir. Bu durum imputation kullanarak Stream Analytics tarafından işlenir. Aynı kayan pencere için bir süre yanı sıra, geçmiş boyutu, olayları gelmesi beklenen ortalaması hesaplamak için kullanılır.
+Zaman serisi boşlukları belirli noktalarda olaylar sürede almıyor modelinin bir sonucu olabilir. Bu durum imputation mantığı kullanarak Stream Analytics tarafından işlenir. Aynı kayan pencere için bir süre yanı sıra, geçmiş boyutu, olayları gelmesi beklenen ortalaması hesaplamak için kullanılır.
 
 ## <a name="spike-and-dip"></a>Depo ve DIP
 
@@ -40,7 +40,7 @@ Zaman serisi olay akışı geçici anomalileri ani artışlar ve düşüşler ol
 
 ![Depo ve DIP anomali örneği](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
 
-İkinci bir depo ilki küçükse, aynı kayan pencere daha küçük depo için hesaplanan puanı yeterli güven düzeyi içinde ilk depo için puana göre belirlenen önemli değildir büyük olasılıkla. Modelin güvenilirlik düzeyi ayarı bu tür anormal durumları yakalamak için azaltmayı deneyebilirsiniz. Ancak, çok sayıda uyarı almak başlatırsanız, daha yüksek bir olasılık aralığı kullanabilirsiniz.
+İkinci bir depo ilki küçükse, aynı kayan pencere daha küçük depo için hesaplanan puanı yeterli güven düzeyi içinde ilk depo için puana göre belirlenen önemli değildir büyük olasılıkla. Modelin güvenilirlik düzeyi gibi anomalileri algılamak için azalan deneyebilirsiniz. Ancak, çok sayıda uyarı almak başlatırsanız, daha yüksek bir olasılık aralığı kullanabilirsiniz.
 
 Aşağıdaki örnek sorgu 2 dakikalık kayan pencere saniyede bir olayda Tekdüzen giriş fiyatı, 120 olayların geçmişini ile varsayar. Son SELECT deyimi ayıklar ve puan ve anomali çıkaran durumu % 95 güven düzeyine sahip.
 

@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d17823c4ef4917f9f312b8f2f327e2b0395cfa3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2916c9aba7d404ff4ad380d249bd507fadf71ea
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109425"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310069"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect önkoşulları
 Bu konu ön koşullar ve Azure AD Connect için donanım gereksinimlerini açıklar.
@@ -52,7 +52,7 @@ Azure AD Connect'i yüklemeden önce gereken birkaç şey vardır.
 >Azure AD Connect sunucusu kritik kimlik verilerini içeren ve açıklandığı gibi bir katman 0 bileşeni olarak değerlendirilip [Active Directory Yönetim katmanı modeli](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#ADATM_BM)
 
 * Azure AD Connect yüklenemez Small Business Server veya Windows Server Essentials 2019 önce (Windows Server Essentials 2019 desteklenir). Sunucu Windows Server standard veya daha iyi kullanıyor olmanız gerekir.
-* Güvenlik uygulamaları ve Azure AD Connect doğru bir şekilde yüklenmesini engelleyen daha kısıtlayıcı ayarlar nedeniyle Azure AD Connect, etki alanı denetleyicisine yüklenmesi önerilmez
+* Azure AD Connect bir etki alanı denetleyicisine yüklemek, güvenlik uygulamaları ve Azure AD Connect doğru bir şekilde yüklenmesini engelleyen daha kısıtlayıcı ayarlar nedeniyle önerilmez.
 * Azure AD Connect sunucusu tam GUI yüklü olması gerekir. Bu **desteklenmiyor** sunucu Çekirdeğinde yüklemek için.
 >[!IMPORTANT]
 >Small business server, server essentials veya sunucu çekirdeği üzerinde Azure AD Connect yüklenmesi desteklenmez.
@@ -213,7 +213,7 @@ Azure AD Connect eşitleme bilgisayarın en düşük gereksinimleri aşağıdaki
 
 | Active Directory içindeki nesneleri sayısı | CPU | Bellek | Sabit sürücü boyutu |
 | --- | --- | --- | --- |
-| 10\. 000'den az |1,6 GHz |4 GB |70 GB |
+| 10. 000'den az |1,6 GHz |4 GB |70 GB |
 | 10,000–50,000 |1,6 GHz |4 GB |70 GB |
 | 50,000–100,000 |1,6 GHz |16 GB |100 GB |
 | SQL Server'ın tam sürümünü 100.000 veya daha fazla nesne için gereklidir | | | |

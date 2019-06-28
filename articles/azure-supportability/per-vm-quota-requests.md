@@ -7,18 +7,27 @@ ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: f921b4a95c1b0cfb29d84c0bacc17d268af6e6c5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 79879cd7f5ea5af1b794735f32e6e1367458e124
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082826"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310719"
 ---
-# <a name="vm-series-vcpu-limit-increase"></a>VM serisi vCPU sınır artışı
+# <a name="vm-series-vcpu-limit-increase"></a>VM Serisi vCPU sınır artışı
+
+Sanal makineler ve sanal makine ölçek kümeleri için Kaynak Yöneticisi'ni vCPU kotaları, her bölgede her abonelik için iki katmanda uygulanır. 
+
+İlk katmandır **toplam bölgesel Vcpu sınırına** (genelinde tüm VM serisi), ve ikinci katman **Vcpu VM serisi sınırlamak** (örneğin, D serisi Vcpu). Dilediğiniz zaman dağıtılması için yeni bir sanal makine olduğu belirli sanal makine serisi için onaylanmış vCPU kotası VM serisi için yeni ve mevcut Vcpu kullanım toplamını aşmamalıdır. Ayrıca, tüm VM serisi dağıtılmış toplam yeni ve mevcut vCPU sayısı abonelik için onaylanmış toplam bölgesel Vcpu kotası aşmamalıdır. Kotalarda biri aşılırsa, VM dağıtımı izin verilmiyor.
+Azure Portalı'ndan VM serisi Vcpu kotası sınırının artışı isteyebilir. VM serisi kota artış, toplam bölgesel Vcpu sınırına tutarında otomatik olarak artırır. 
+
+Yeni bir abonelik oluşturulurken varsayılan toplam bölgesel vcpu sayısı tek tek tüm VM serisi için varsayılan vCPU kotaları toplamına eşit olmayabilir. Bu, bir abonelikte dağıtmak istediğiniz tek tek her VM serisi için yeterli miktarda kota, ancak tüm dağıtımlar için toplam bölgesel Vcpu için yeterli kotası ile sonuçlanabilir. Bu durumda, açıkça toplam bölgesel Vcpu sınırı artırmak için bir istek göndermeniz gerekir. Toplam bölgesel vcpu sayısı sınırı, bölge için tüm VM serisi arasında onaylı kota toplamını aşamaz.
+
+Kotaları hakkında daha fazla bilgi [sanal makine vCPU Kotası sayfası](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) ve [Azure aboneliği ve hizmet sınırlamaları](https://aka.ms/quotalimits) sayfası. 
 
 Şimdi aracılığıyla bir artış istemek **Yardım + Destek** dikey veya **kullanımları + kota** portaldaki dikey pencere. 
 
-## <a name="request-per-vm-vcpu-quota-increase-at-subscription-level-using-the-help--support-blade"></a>İstek başına VM vCPU kota artışı kullanarak abonelik düzeyinde **Yardım + Destek** dikey penceresi
+## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-the-help--support-blade"></a>İstek başına VM serisi vCPU kota artışı kullanarak abonelik düzeyinde **Yardım + Destek** dikey penceresi
 
 Azure'nın 'Yardım + Destek' dikey penceresinde Azure portalında kullanılabilir üzerinden destek isteği oluşturmak için aşağıdaki yönergeleri izleyin. 
 
@@ -59,7 +68,7 @@ Azure'nın 'Yardım + Destek' dikey penceresinde Azure portalında kullanılabil
 ![Yeni sınırlar](./media/resource-manager-core-quotas-request/new-limits.png)
 
 
-## <a name="request-per-vm-vcpu-quota-increase-at-subscription-level-using-usages--quota-blade"></a>Her VM vCPU kota artışı kullanarak abonelik düzeyinde istek **kullanımları + kota** dikey penceresi
+## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-usages--quota-blade"></a>İstek başına VM serisi vCPU kota artışı kullanarak abonelik düzeyinde **kullanımları + kota** dikey penceresi
 
 Azure'nın 'kullanımı + kota' aracılığıyla bir destek isteği oluşturmak için aşağıdaki yönergeleri izleyin dikey penceresinde Azure portalında kullanılabilir. 
 

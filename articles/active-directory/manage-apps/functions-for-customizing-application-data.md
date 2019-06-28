@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec1994169891d5256436ac4de741339c865bb268
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12b75c2df7d11b0e90c5dccc3bc2aae4e0fb0c1e
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824637"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204480"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory'de öznitelik eşlemeleri için ifadeler yazma
 Bir SaaS uygulaması için sağlama yapılandırdığınızda, belirtebilmeniz için öznitelik eşlemelerini türdeki bir ifade eşleme biridir. Bu, kullanıcılarınızın verileri fazla SaaS uygulaması için kabul edilebilir biçimlere dönüştürme olanak tanıyan bir betik gibi ifade yazmanız gerekir.
@@ -40,7 +40,7 @@ Bir SaaS uygulaması için sağlama yapılandırdığınızda, belirtebilmeniz i
 ## <a name="list-of-functions"></a>İşlevlerin listesi
 [Append](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [katılın](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [değil](#not) &nbsp; &nbsp; &nbsp; &nbsp; [değiştirin](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [Bölünmüş](#split) &nbsp; &nbsp; &nbsp; &nbsp; [ StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [anahtar](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper)
 
-- - -
+---
 ### <a name="append"></a>Ekle
 **İşlev:**<br> Append(Source, Suffix)
 
@@ -53,7 +53,7 @@ Bir SaaS uygulaması için sağlama yapılandırdığınızda, belirtebilmeniz i
 | **Kaynak** |Gerekli |Dize |Genellikle kaynak nesneden özniteliğin adı. |
 | **suffix** |Gerekli |Dize |Kaynak değerin sonuna istediğiniz dize. |
 
-- - -
+---
 ### <a name="formatdatetime"></a>formatDateTime
 **İşlev:**<br> FormatDateTime (kaynak, inputFormat, outputFormat)
 
@@ -67,7 +67,7 @@ Bir SaaS uygulaması için sağlama yapılandırdığınızda, belirtebilmeniz i
 | **inputFormat** |Gerekli |Dize |Kaynak değeri beklenen biçimi. Desteklenen biçimler için bkz: [ https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx ](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Gerekli |Dize |Çıkış tarih biçimi. |
 
-- - -
+---
 ### <a name="join"></a>Birleştir
 **İşlev:**<br> Birleştirme (ayırıcı, kaynak1, kaynak2,...)
 
@@ -82,7 +82,7 @@ Kaynak değerlerden biri çok değerli öznitelik ise, ardından bu öznitelik h
 | **Ayırıcı** |Gerekli |Dize |Kaynak değerler bir dizeye birleştirilmiş, ayırmak için kullanılan dize. Olabilir "" ayırıcı gerekiyorsa. |
 | **... kaynak1 kaynakN** |Değişken-sayısı gerekli |Dize |Değerleri birlikte birleştirilecek dize. |
 
-- - -
+---
 ### <a name="mid"></a>Orta
 **İşlev:**<br> Mid (kaynak, başlangıç, uzunluk)
 
@@ -96,7 +96,7 @@ Kaynak değerlerden biri çok değerli öznitelik ise, ardından bu öznitelik h
 | **start** |Gerekli |integer |İçinde dizin **kaynak** alt dizenin başladığı dize. Dizedeki ilk karakter dizini 1 gerekir, ikinci karakter 2 dizine sahip ve benzeri. |
 | **Uzunluğu** |Gerekli |integer |Alt dizenin uzunluğu. Uzunluğu dışında sona ererse **kaynak** dize işlevi alt dizeyi döndürecektir **Başlat** sonuna kadar dizin **kaynak** dize. |
 
-- - -
+---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
 **İşlev:**<br> NormalizeDiacritics(source)
 
@@ -108,7 +108,7 @@ Kaynak değerlerden biri çok değerli öznitelik ise, ardından bu öznitelik h
 | --- | --- | --- | --- |
 | **Kaynak** |Gerekli |String | Genellikle bir ad veya son name özniteliği. |
 
-- - -
+---
 ### <a name="not"></a>değil
 **İşlev:**<br> Not(Source)
 
@@ -120,7 +120,7 @@ Kaynak değerlerden biri çok değerli öznitelik ise, ardından bu öznitelik h
 | --- | --- | --- | --- |
 | **Kaynak** |Gerekli |Boole dizesi |Beklenen **kaynak** değerler "True" veya "False". |
 
-- - -
+---
 ### <a name="replace"></a>Değiştir
 **İşlev:**<br> Değiştir (kaynak, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, şablon)
 
@@ -153,7 +153,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametreler bağlı olara
 | **replacementAttributeName** |İsteğe bağlı |Dize |Kaynak yok değerine sahip olduğunda değiştirme değeri için kullanılacak özniteliğin adı. |
 | **Şablonu** |İsteğe bağlı |Dize |Zaman **şablon** değeri sağlanır, biz arar **oldValue** şablonu içinde ve kaynak değeriyle değiştirin. |
 
-- - -
+---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
 **İşlev:**<br> SelectUniqueValue (uniqueValueRule1, uniqueValueRule2, uniqueValueRule3,...)
 
@@ -171,7 +171,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametreler bağlı olara
 | **... uniqueValueRule1 uniqueValueRuleN** |En az 2 gerekli, en üst sınır. |String | Değerlendirmek için benzersiz bir değer oluşturma kuralları listesi. |
 
 
-- - -
+---
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **İşlev:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
@@ -183,7 +183,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametreler bağlı olara
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Gerekli |Dize |**[appRoleAssignments]**  nesne. |
 
-- - -
+---
 ### <a name="split"></a>Böl
 **İşlev:**<br> Böl (kaynağı, sınırlayıcı)
 
@@ -196,7 +196,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametreler bağlı olara
 | **Kaynak** |Gerekli |Dize |**Kaynak** güncelleştirmek için değer. |
 | **Sınırlayıcı** |Gerekli |String |Dizeyi bölmek için kullanılan karakteri belirtir (örnek: ",") |
 
-- - -
+---
 ### <a name="stripspaces"></a>StripSpaces
 **İşlev:**<br> StripSpaces(source)
 
@@ -208,7 +208,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametreler bağlı olara
 | --- | --- | --- | --- |
 | **Kaynak** |Gerekli |Dize |**Kaynak** güncelleştirmek için değer. |
 
-- - -
+---
 ### <a name="switch"></a>Anahtar
 **İşlev:**<br> Anahtar (kaynak, defaultValue, key1, value1, key2, value2,...)
 
@@ -223,7 +223,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametreler bağlı olara
 | **anahtar** |Gerekli |Dize |**Anahtar** Karşılaştırılacak **kaynak** ile değeri. |
 | **value** |Gerekli |Dize |İçin değiştirme değeri **kaynak** anahtarıyla eşleşen. |
 
-- - -
+---
 ### <a name="tolower"></a>toLower
 **İşlev:**<br> ToLower (kaynak, kültür)
 
@@ -236,7 +236,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametreler bağlı olara
 | **Kaynak** |Gerekli |Dize |Genellikle kaynak nesneden özniteliğin adı |
 | **Kültür** |İsteğe bağlı |String |RFC 4646 üzerinde temel kültür adı biçimi *languagecode2-ülke/regioncode2*burada *languagecode2* iki harfli dil kodu ve *ülke/regioncode2*iki harfli alt koddur. Ja-JP Japonca (Japonya) ve en-US için İngilizce (ABD) için verilebilir. Burada iki harfli dil kodunu kullanılabilir olmadığı durumlarda, ISO 639-2 ' türetilmiş bir üç harfli kod kullanılır.|
 
-- - -
+---
 ### <a name="toupper"></a>toUpper
 **İşlev:**<br> ToUpper (kaynak, kültür)
 

@@ -6,17 +6,17 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.openlocfilehash: b00eb12092838746f4bfe16f00eac55df9224b09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: ecc7077bf208adf1ac89adcce2f2e480ce34888e
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65607236"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329591"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Azure Stream Analytics veri hataları
 
-Bir Azure Stream Analytics işi tarafından işlenen verileri bir uyuşmazlık olduğunda Stream Analytics için tanılama günlüklerini veri hata olayı gönderir. Stream Analytics, ayrıntılı bilgi ve örnek olay verileri hatalar oluştuğunda, tanılama günlüklerini yazar. Bu bilgilerin özetini de bazı hatalar için portal bildirimlerini aracılığıyla sağlanır.
+Verileri, verilerin işlenmesi sırasında oluşan hataları hatalardır.  Bu hatalar çoğunlukla veri serinin sırasında seri hale getirme, oluşur ve yazma işlemleri.  Veri hatalar oluştuğunda, Stream Analytics için tanılama günlükleri ayrıntılı bilgi ve örnek olayları yazar.  Bazı durumlarda, bu bilgilerin özeti de portal bildirimleri sağlanır.
 
 Bu makalede, farklı hata türleri, nedenleri ve girdi ve çıktı verilerini hataları Tanılama Günlüğü ayrıntılarını özetlenmektedir.
 
@@ -45,6 +45,7 @@ Bkz: [tanılama günlükleri'ni kullanarak Azure Stream Analytics sorunlarını 
 * Neden: Seçili giriş sıkıştırma veri türüyle eşleşmiyor.
 * Sağlanan portal bildirimi: Evet
 * Tanılama günlüğü düzeyi: Uyarı
+* Etkisi: Geçersiz sıkıştırma türü de dahil olmak üzere herhangi bir seri durumundan çıkarma hata iletileriyle girdiden bırakılır.
 * Günlük Ayrıntıları
    * İleti tanımlayıcısı girin. Olay hub'ı PartitionID uzaklığı ve sıra numarası tanımlayıcısıdır.
 
@@ -59,6 +60,7 @@ Bkz: [tanılama günlükleri'ni kullanarak Azure Stream Analytics sorunlarını 
 * Neden: Giriş veri üst bilgisi geçersiz. Örneğin, bir CSV yinelenen adları olan sütun içeriyor.
 * Sağlanan portal bildirimi: Evet
 * Tanılama günlüğü düzeyi: Uyarı
+* Etkisi: Geçersiz üst bilgisi dahil olmak üzere herhangi bir seri durumundan çıkarma hata iletileriyle girdiden bırakılır.
 * Günlük Ayrıntıları
    * İleti tanımlayıcısı girin. 
    * Gerçek yükü kaç kilobayt kadar.
@@ -74,6 +76,7 @@ Bkz: [tanılama günlükleri'ni kullanarak Azure Stream Analytics sorunlarını 
 * Neden: CREATE TABLE veya TIMESTAMP BY ile tanımlanan giriş sütunları yok.
 * Sağlanan portal bildirimi: Evet
 * Tanılama günlüğü düzeyi: Uyarı
+* Etkisi: Eksik sütunlar ile olayları girdiden bırakılır.
 * Günlük Ayrıntıları
    * İleti tanımlayıcısı girin. 
    * Eksik olan sütunların adları. 
@@ -94,6 +97,7 @@ Bkz: [tanılama günlükleri'ni kullanarak Azure Stream Analytics sorunlarını 
 * Neden: Giriş CREATE TABLE deyiminde belirtilen türe dönüştürülemedi.
 * Sağlanan portal bildirimi: Evet
 * Tanılama günlüğü düzeyi: Uyarı
+* Etkisi: Tür dönüştürme hatası olaylarla girdiden bırakılır.
 * Günlük Ayrıntıları
    * İleti tanımlayıcısı girin. 
    * Sütun ve beklenen tür adı.
@@ -113,6 +117,7 @@ Bkz: [tanılama günlükleri'ni kullanarak Azure Stream Analytics sorunlarını 
 * Neden: Giriş verileri doğru biçimde değil. Örneğin, giriş geçerli bir JSON değil.
 * Sağlanan portal bildirimi: Evet
 * Tanılama günlüğü düzeyi: Uyarı
+* Etkisi: Geçersiz veri hatayla karşılaştı sonra iletinin tüm olayları girdiden bırakılır.
 * Günlük Ayrıntıları
    * İleti tanımlayıcısı girin. 
    * Gerçek yükü kaç kilobayt kadar.
@@ -132,6 +137,7 @@ Bkz: [tanılama günlükleri'ni kullanarak Azure Stream Analytics sorunlarını 
 * Neden: TIMESTAMP BY ifadesinin değerini datetime türüne dönüştürülemez.
 * Sağlanan portal bildirimi: Evet
 * Tanılama günlüğü düzeyi: Uyarı
+* Etkisi: Geçersiz giriş zaman damgasına sahip olayları girdiden bırakılır.
 * Günlük Ayrıntıları
    * İleti tanımlayıcısı girin. 
    * Hata iletisi. 
@@ -148,6 +154,7 @@ Bkz: [tanılama günlükleri'ni kullanarak Azure Stream Analytics sorunlarını 
 * Neden: TIMESTAMP BY OVER timestampColumn değeri null.
 * Sağlanan portal bildirimi: Evet
 * Tanılama günlüğü düzeyi: Uyarı
+* Etkisi: Giriş geçersiz zaman damgası anahtarı ile olayları girdiden bırakılır.
 * Günlük Ayrıntıları
    * Kaç kilobayt kadar gerçek yükü.
 
@@ -162,6 +169,7 @@ Bkz: [tanılama günlükleri'ni kullanarak Azure Stream Analytics sorunlarını 
 * Neden: Uygulama zamanı geliş saati arasındaki farkı geç varış toleransı penceresi büyüktür.
 * Sağlanan portal bildirimi: Hayır
 * Tanılama günlüğü düzeyi: Bilgi
+* Etkisi:  Geç giriş olayları, "göre diğer olayları işleme" işlenir olay iş Yapılandırması bölümünü sıralama ayarlama. Daha fazla bilgi için [zaman işleme ilkeleri](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Günlük Ayrıntıları
    * Uygulama süresi ve geliş saati. 
    * Gerçek yükü kaç kilobayt kadar.
@@ -177,6 +185,7 @@ Bkz: [tanılama günlükleri'ni kullanarak Azure Stream Analytics sorunlarını 
 * Neden: 5 dakikadan fazla uygulama süresi ve geliş saati arasındaki farktır.
 * Sağlanan portal bildirimi: Hayır
 * Tanılama günlüğü düzeyi: Bilgi
+* Etkisi:  Erken giriş olayları, "göre diğer olayları işleme" işlenir olay iş Yapılandırması bölümünü sıralama ayarlama. Daha fazla bilgi için [zaman işleme ilkeleri](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Günlük Ayrıntıları
    * Uygulama süresi ve geliş saati. 
    * Gerçek yükü kaç kilobayt kadar.
@@ -192,6 +201,7 @@ Bkz: [tanılama günlükleri'ni kullanarak Azure Stream Analytics sorunlarını 
 * Neden: Olay sıralama dışı tolerans penceresi göre tanımlanan sıralamaya kabul edilir.
 * Sağlanan portal bildirimi: Hayır
 * Tanılama günlüğü düzeyi: Bilgi
+* Etkisi:  Olay sıralama iş Yapılandırması bölümünü olayların işlenmesini "göre diğer olayları işleme" sıra dışında ayarlama. Daha fazla bilgi için [zaman işleme ilkeleri](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Günlük Ayrıntıları
    * Gerçek yükü kaç kilobayt kadar.
 
@@ -208,6 +218,7 @@ Bkz: [tanılama günlükleri'ni kullanarak Azure Stream Analytics sorunlarını 
 * Neden: Çıkış için gerekli sütun yok. Örneğin, Azure tablo PartitionKey olan tanımlanmış bir sütunu yok.
 * Sağlanan portal bildirimi: Evet
 * Tanılama günlüğü düzeyi: Uyarı
+* Etkisi:  Gerekli sütun eksik dahil olmak üzere tüm çıkış veri dönüştürme hataları şunlara göre işleneceğini [çıkış veri İlkesi](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) ayarı.
 * Günlük Ayrıntıları
    * Sütun ve kayıt tanımlayıcısı veya kaydının bir parçası adı.
 
@@ -222,6 +233,7 @@ Bkz: [tanılama günlükleri'ni kullanarak Azure Stream Analytics sorunlarını 
 * Neden: Sütun değeri ile çıktı uygun değil. Örneğin, sütun adı, geçerli Azure tablo sütunu değil.
 * Sağlanan portal bildirimi: Evet
 * Tanılama günlüğü düzeyi: Uyarı
+* Etkisi:  Geçersiz sütun adı dahil olmak üzere tüm çıkış veri dönüştürme hataları şunlara göre işleneceğini [çıkış veri İlkesi](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) ayarı.
 * Günlük Ayrıntıları
    * Sütun ve kayıt tanımlayıcısı veya kaydının bir parçası adı.
 
@@ -236,6 +248,7 @@ Bkz: [tanılama günlükleri'ni kullanarak Azure Stream Analytics sorunlarını 
 * Neden: Bir sütun, geçerli bir çıkış türüne dönüştürülemez. Örneğin, sütunun değeri kısıtlamaları veya SQL tablosunda tanımlı türü ile uyumlu değil.
 * Sağlanan portal bildirimi: Evet
 * Tanılama günlüğü düzeyi: Uyarı
+* Etkisi:  Tür dönüştürme hatası dahil olmak üzere tüm çıkış veri dönüştürme hataları şunlara göre işleneceğini [çıkış veri İlkesi](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) ayarı.
 * Günlük Ayrıntıları
    * Sütunun adı.
    * Kayıt tanımlayıcısı veya kaydının bir parçası.
@@ -251,6 +264,7 @@ Bkz: [tanılama günlükleri'ni kullanarak Azure Stream Analytics sorunlarını 
 * Neden: İletinin değeri desteklenen çıkış boyutundan büyük. Örneğin, bir kaydı bir olay hub'ı çıkışı için 1 MB'tan büyük.
 * Sağlanan portal bildirimi: Evet
 * Tanılama günlüğü düzeyi: Uyarı
+* Etkisi:  Kayıt aşıldı boyut sınırını da dahil olmak üzere tüm çıkış veri dönüştürme hataları şunlara göre işleneceğini [çıkış veri İlkesi](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) ayarı.
 * Günlük Ayrıntıları
    * Kayıt tanımlayıcısı veya kaydının bir parçası.
 
@@ -265,6 +279,7 @@ Bkz: [tanılama günlükleri'ni kullanarak Azure Stream Analytics sorunlarını 
 * Neden: Bir kayıt sistemi sütun aynı ada sahip bir sütun zaten var. Örneğin, farklı bir sütuna kimlik sütunu olduğunda CosmosDB çıkışı sütunu kimliği adı.
 * Sağlanan portal bildirimi: Evet
 * Tanılama günlüğü düzeyi: Uyarı
+* Etkisi:  Yinelenen anahtar dahil olmak üzere tüm çıkış veri dönüştürme hataları şunlara göre işleneceğini [çıkış veri İlkesi](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) ayarı.
 * Günlük Ayrıntıları
    * Sütunun adı.
    * Kayıt tanımlayıcısı veya kaydının bir parçası.

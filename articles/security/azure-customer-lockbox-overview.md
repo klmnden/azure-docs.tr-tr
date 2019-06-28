@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: article
 ms.author: cabailey
 manager: barbkess
-ms.date: 05/07/2019
-ms.openlocfilehash: 468e392cd2c45d79cbb24f8d737a6e83fbcd2725
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/20/2019
+ms.openlocfilehash: 0ee2dde5a941d069f5b745eafb35df780f657a47
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65079278"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312632"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Microsoft Azure müşteri kasa
 
@@ -97,7 +97,7 @@ Müşteri kasa günlükler, etkinlik günlüğünde depolanır. Azure portalınd
 ### <a name="remote-desktop-access-to-virtual-machines"></a>Sanal makine için Uzak Masaüstü erişimi
 
 Müşteri kasa sanal makinelere Uzak Masaüstü erişimi istekleri için şu anda etkin. Aşağıdaki iş yükleri desteklenir:
-- Platform (PaaS) - sürüm 1 hizmeti
+- (PaaS) - Azure Cloud Services (web rolü ve çalışan rolü) hizmet olarak Platform
 - (Iaas) - Windows ve Linux (yalnızca Azure Resource Manager) hizmet olarak altyapı
 - Sanal makine ölçek kümesi - Windows ve Linux
 

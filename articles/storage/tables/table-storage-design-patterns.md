@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63a81e390c113d10378973f928ffb58d71e8628e
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101446"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295126"
 ---
 # <a name="table-design-patterns"></a>Tablo tasarımı desenleri
 Bu makalede, tablo hizmeti çözümleri ile kullanım için uygun olan bazı desenleri açıklar. Ayrıca, nasıl, pratikte bazı sorunlar ve dezavantajlarına diğer tablo depolama tasarım makalelerinde açıklanan ele görürsünüz. Aşağıdaki diyagramda, farklı düzenlerinin arasındaki ilişkileri özetlenmektedir:  
@@ -574,7 +574,25 @@ if (retrieveResult.Result != null)
 Bu örnekte varlık nasıl bekliyor fark türünde olmasını alır **EmployeeEntity**.  
 
 ### <a name="retrieving-multiple-entities-using-linq"></a>LINQ kullanarak birden çok varlık alma
-Depolama istemci kitaplığı ile LINQ kullanarak ve bir sorgu belirten birden fazla varlık almak bir **burada** yan tümcesi. Bir tablo taraması önlemek için her zaman içermelidir **PartitionKey** değer WHERE yan tümcesi ve eğer mümkünse **RowKey** tablo ve bölüm taramalar önlemek için değer. Tablo hizmeti nerede kullanılacak Karşılaştırma işleçleri (büyüktür, büyük veya buna eşit, az daha az veya eşit, eşit ve eşit değil) sınırlı bir kümesini destekler yan tümcesi. Aşağıdaki C# kod parçacığı tüm çalışanlar, son adı şununla başlar "B" bulur (varsayarak **RowKey** Soyadı depolar) satış departmanında (varsayılarak **PartitionKey** depolar Bölüm adı):  
+LINQ, Microsoft Azure Cosmos tablosu standart kitaplığı ile çalışırken, birden çok varlık tablo hizmetinden almak için kullanabilirsiniz. 
+
+```cli
+dotnet add package Microsoft.Azure.Cosmos.Table
+```
+
+Yapmak için aşağıdaki örnek iş ad alanlarını içerecek şekilde gerekir:
+
+```csharp
+using System.Linq;
+using Microsoft.Azure.Cosmos.Table;
+using Microsoft.Azure.Cosmos.Table.Queryable;
+```
+
+EmployeeTable bir CreateQuery uygulayan bir CloudTable nesnedir<ITableEntity>bir TableQuery döndürür () yönteminin<ITableEntity>. Bu tür nesneler, Iqueryable uygulamak ve LINQ Sorgu ifadeleri hem nokta gösterimi söz dizimini kullanarak sağlar.
+
+Birden çok varlık alma ve sorgu ile belirterek elde edilebilir bir **burada** yan tümcesi. Bir tablo taraması önlemek için her zaman içermelidir **PartitionKey** değer WHERE yan tümcesi ve eğer mümkünse **RowKey** tablo ve bölüm taramalar önlemek için değer. Tablo hizmeti nerede kullanılacak Karşılaştırma işleçleri (büyüktür, büyük veya buna eşit, az daha az veya eşit, eşit ve eşit değil) sınırlı bir kümesini destekler yan tümcesi. 
+
+Aşağıdaki C# kod parçacığı tüm çalışanlar, son adı şununla başlar "B" bulur (varsayarak **RowKey** Soyadı depolar) satış departmanında (varsayılarak **PartitionKey** depolar Bölüm adı):  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = employeeTable.CreateQuery<EmployeeEntity>();

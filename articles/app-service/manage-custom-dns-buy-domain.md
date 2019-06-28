@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4b26446845d004b4dd92807c0b5ec0ada9ed181f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6bba176a27cc70321915654e3e2e62320f22c16c
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475229"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310135"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Azure App Service için bir özel etki alanı adı satın alma
 
@@ -147,7 +147,7 @@ Seçili konak adı aynı zamanda gördüğünüz **özel etki alanları** sayfas
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> A **Not güvenli** henüz bir SSL sertifikasına bağlıdır ve herhangi bir tarayıcıdan HTTPS isteğini özel etki alanınıza alacak özel etki alanı anlamına gelir ve hata veya uyarı, tarayıcıya bağlı olarak etiket. SSL bağlaması yapılandırmak için bkz [satın alma ve Azure App Service için SSL sertifikası yapılandırma](web-sites-purchase-ssl-web-site.md).
+> A **değil güvenli** özel etki alanınızı henüz bir SSL sertifikasına bağlıdır ve herhangi bir tarayıcıdan HTTPS isteğini özel etki alanınız için bir hata veya tarayıcıya bağlı olarak bir uyarı alırsınız anlamına gelir için etiket. SSL bağlaması yapılandırmak için bkz [satın alma ve Azure App Service için SSL sertifikası yapılandırma](web-sites-purchase-ssl-web-site.md).
 >
 
 Ana bilgisayar adları test etmek için tarayıcıda listelenen ana bilgisayar adları gidin. Önceki ekran görüntüsünde örnekte giderek deneyin _kontoso.net_ ve _www\.kontoso.net_.

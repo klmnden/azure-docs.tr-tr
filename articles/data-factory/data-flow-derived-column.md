@@ -1,38 +1,34 @@
 ---
-title: Azure veri fabrikası veri akışı eşleme türetilmiş sütun dönüştürme
-description: Azure veri fabrikası eşleme veri akışı türetilmiş sütun dönüştürme ile uygun ölçekte verileri dönüştürme hakkında
+title: Eşleme veri akışı - Azure Data Factory sütun dönüşümünde türetilmiş | Microsoft Docs
+description: Uygun ölçekte Azure Data factory'de veri akışını türetilmiş sütun eşleme dönüştürme ile verileri dönüştürme hakkında bilgi edinin.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: 6568e5ebf356bb0e6b4ac8ff6059cd093f8da821
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 941c629fd8359edc7fc1cf364a6735314044d95e
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64917574"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312177"
 ---
-# <a name="mapping-data-flow-derived-column-transformation"></a>Veri akışı eşleme türetilmiş sütun dönüştürme
+# <a name="derived-column-transformation-in-mapping-data-flow"></a>Türetilmiş sütun dönüşümünde eşleme veri akışı
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 Türetilmiş sütun dönüşümü, yeni sütunlar, veri akışı oluşturmak veya var olan alanları değiştirmek için kullanın.
 
-![Sütun türetmek](media/data-flow/dc1.png "türetilmiş sütun")
+## <a name="derived-column-settings"></a>Türetilmiş sütun ayarları
 
-Tek bir sütunu türetilmiş dönüşümünde birden çok türetilmiş sütun eylemler gerçekleştirebilirsiniz. Tek dönüşümünü adım 1'den fazla sütunda dönüştürmek için "Sütun Ekle"'a tıklayın.
+Varolan bir sütunla geçersiz kılmak için sütun açılan seçin. Aksi takdirde, bir metin kutusu ve yeni sütunun adı türü olarak sütun seçimi alanını kullanın. Türetilmiş sütun ifade oluşturmak için açık için 'ifadesi girin' kutuyu tıklatın [veri akışı ifade oluşturucu](concepts-data-flow-expression-builder.md).
 
-Sütun alanındaki türetilmiş yeni bir değer ile üzerine yazmak için mevcut bir sütun seçin veya "Oluşturma yeni yeni türetilmiş değerine sahip yeni bir sütun oluşturmak için sütun"'a tıklayın.
+![Sütun ayarlarını türetilmiş](media/data-flow/dc1.png "türetilmiş sütun ayarları")
 
-İfade işlevleri kullanarak türetilmiş sütunlar ifadesi burada oluşturabileceğinizi ifade oluşturucu ifade metin kutusu açılır.
+Mevcut bir üzerine gelindiğinde ek türetilmiş sütunlar eklemek için tıklayın ve sütunu türetilmiş '+'. Ardından 'Sütunu Ekle' veya 'Ekle Sütun Düzeni' seçin. Sütun desenleri, sütun adlarını kaynaklarınızı değişkeninden varsa yararlı olabilecek. Daha fazla bilgi için [sütun desenleri](concepts-data-flow-column-pattern.md).
 
-## <a name="column-patterns"></a>Sütun desenleri
-
-Kaynaklarınızı değişkeninden, sütun adları varsa, türetilmiş sütun içinde dönüşümler oluşturmak sütunları adlı kullanmak yerine sütun desenleri kullanarak isteyebilir. Bkz: [şema değişikliklerini](concepts-data-flow-schema-drift.md) makale daha fazla ayrıntı için.
-
-![sütun düzeni](media/data-flow/columnpattern.png "sütun desenleri")
+![Yeni türetilmiş sütun seçimi](media/data-flow/columnpattern.png "yeni türetilmiş sütun seçimi")
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla bilgi edinin [Data Factory ifade dili dönüşümlere](https://aka.ms/dataflowexpressions) ve [ifade oluşturucusu](concepts-data-flow-expression-builder.md)
+- Daha fazla bilgi edinin [eşleme veri akışı ifade dili](data-flow-expression-functions.md).

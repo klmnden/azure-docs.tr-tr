@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0eaf48f57c3011222b71a63d703e1ccec7aca001
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5cbb7f13214a86f528521fdeb1ffa1374ca813ef
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66692826"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331698"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps: Yönetin, dağıtın ve modeller Azure Machine Learning hizmeti ile izleme
 
@@ -54,11 +54,14 @@ Azure Machine Learning hizmeti ile ONNX hakkında daha fazla bilgi için bkz: [o
 Model kaydı, depolamanızı ve sürüm Modellerinizi çalışma alanınızda Azure bulutunda sağlar. Model kayıt defterini düzenlemek ve eğitilen Modellerinizi izlemek kolaylaştırır.
 
 > [!TIP]
-> Azure Machine Learning hizmetinin dışında eğitilen modelleri de kaydedebilirsiniz.
+> Kayıtlı bir model, modeli bir veya daha fazla dosyaların mantıksal bir kapsayıcıdır. Birden çok dosyasında depolanan bir model varsa, örneğin, bunları tek bir model Azure Machine Learning çalışma alanınızda kaydedebilirsiniz. Kayıt sonrasında sonra indirin veya kayıtlı modeli dağıtabilir ve kaydedilmiş tüm dosyalar alırsınız.
  
 Kayıtlı modelleri, ada ve sürüme göre tanımlanır. Mevcut bir aynı ada sahip bir model her kaydettirdiğinizde, kayıt defteri sürüm artırır. Ek meta veri etiketleri aramak modellerinde kullanılabilir kayıt sırasında de sağlayabilirsiniz. Azure Machine Learning hizmeti yüklenen Python 3.5.2 kullanarak ya da daha yüksek olabilir herhangi bir modelini destekler.
 
-Etkin bir dağıtımda kullanılmayan modelleri nelze odstranit.
+> [!TIP]
+> Azure Machine Learning hizmetinin dışında eğitilen modelleri de kaydedebilirsiniz.
+
+Etkin bir dağıtımında kullanılan kayıtlı bir modeli silinemiyor.
 
 Daha fazla bilgi için kayıt modeli bölümüne bakın. [modelleri dağıtma](how-to-deploy-and-where.md#registermodel).
 

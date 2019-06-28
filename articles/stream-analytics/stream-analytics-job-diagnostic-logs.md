@@ -7,17 +7,19 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/15/2019
-ms.openlocfilehash: ff2930fbe0e53c4b3c1223f87919c0913296d07c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: a41c3f60d4b949f78c0755f97c9ef7e6302d78d8
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515928"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329992"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Azure Stream Analytics, tanılama günlükleri kullanarak sorun giderme
 
 Bazen, bir Azure Stream Analytics işi beklenmedik bir şekilde işlemeyi durdurur. Bu tür bir olay sorun giderme önemlidir. Hatalara beklenmedik bir sorgu sonucu, cihazların bağlantısı veya beklemedik bir hizmet kesintisi neden olmuş olabilir. Stream analytics'te tanılama günlükleri yardımcı olabilecek oluşur ve kurtarma süresini kısaltmak, sorunların nedenini tanımlayın.
+
+Tüm üretim işleri için tanılama günlüklerini etkinleştirme önemle tavsiye edilir.
 
 ## <a name="log-types"></a>Günlük türü
 
@@ -62,7 +64,7 @@ Tanılama günlüklerini kapatılması ve Azure İzleyici günlüklerine gönder
 
     ![Tanılama günlükleri dikey penceresinde gezinme](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Oluşturma bir **adı** içinde **tanılama ayarları** ve yanındaki kutuyu işaretleyin **Log Analytics'e gönderme**. Daha sonra mevcut bir ekleyin veya yeni bir **Log analytics çalışma alanı**. İçin onay kutularını işaretleyin **yürütme** ve **yazma** altında **günlük**, ve **AllMetrics** altında **ÖLÇÜM** . **Kaydet**’e tıklayın.
+2.  Oluşturma bir **adı** içinde **tanılama ayarları** ve yanındaki kutuyu işaretleyin **Log Analytics'e gönderme**. Daha sonra mevcut bir ekleyin veya yeni bir **Log analytics çalışma alanı**. İçin onay kutularını işaretleyin **yürütme** ve **yazma** altında **günlük**, ve **AllMetrics** altında **ÖLÇÜM** . **Kaydet**’e tıklayın. Ek maliyetleri önlemek için aynı bölgede Azure Stream Analytics işinizin bir Log Analytics çalışma alanı kullanmanız önerilir.
 
     ![Tanılama günlükleri için ayarlar](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
@@ -113,7 +115,7 @@ Stream Analytics iş yürütme sırasında gerçekleşen olaylar hakkında bilgi
 
 ### <a name="data-errors"></a>Veri hataları
 
-İş verileri işlerken oluşan herhangi bir hata günlükleri Bu kategoride var. Bu günlükler genellikle okuma, oluşturma sırasında yerleşim verilerine seri hale getirme, oluşturulur ve yazma işlemleri. Bu günlükler, bağlantı hataları içermez. Bağlantı hataları genel olayları olarak kabul edilir.
+İş verileri işlerken oluşan herhangi bir hata günlükleri Bu kategoride var. Bu günlükler genellikle okuma, oluşturma sırasında yerleşim verilerine seri hale getirme, oluşturulur ve yazma işlemleri. Bu günlükler, bağlantı hataları içermez. Bağlantı hataları genel olayları olarak kabul edilir. Çeşitli farklı nedeni hakkında daha fazla bilgi [girdi ve çıktı verilerini hataları](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
 Ad | Açıklama
 ------- | -------
@@ -149,4 +151,4 @@ Bağıntı Kimliği | [GUID](https://en.wikipedia.org/wiki/Universally_unique_id
 * [Stream Analytics ile çalışmaya başlama](stream-analytics-real-time-fraud-detection.md)
 * [Stream Analytics işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
 * [Stream Analytics sorgu dili başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Stream Analytics Yönetimi REST API Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Stream Analytics veri hataları](https://docs.microsoft.com/azure/stream-analytics/data-errors)

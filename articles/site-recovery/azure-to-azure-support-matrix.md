@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 06/09/2019
 ms.author: raynew
-ms.openlocfilehash: 6a6db30bfe6e4dc1eed04d11b53113c90210a5cf
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 2cf9aee498c649cdbf973652a60fb2d1f3feb371
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275211"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312157"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Azure VM'lerini bir bölgeden diğerine çoğaltma için destek matrisi
 
@@ -168,7 +168,7 @@ Uzantılar | Desteklenmiyor | Hedef bölgede VM yük devretmesi için uzantılar
 **Eylem** | **Ayrıntılar**
 -- | ---
 Çoğaltılmış sanal diski yeniden boyutlandırma | Desteklenen
-Çoğaltılmış bir VM'ye disk ekleme | Desteklenmiyor.<br/><br/> Sanal makine için çoğaltmayı devre dışı bırakmak için disk ekleyin ve ardından çoğaltmayı yeniden etkinleştirin.
+Çoğaltılmış bir VM'ye disk ekleme | Desteklenen
 
 ## <a name="replicated-machines---storage"></a>Çoğaltılan makineler - depolama
 

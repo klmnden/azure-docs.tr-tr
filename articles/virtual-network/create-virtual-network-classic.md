@@ -17,11 +17,11 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
 ms.openlocfilehash: e40648ef47b108050486d43eefdb1564786c053e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62098125"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67202867"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Birden çok alt ağa sahip bir sanal ağ (Klasik) oluşturmak
 
@@ -58,7 +58,7 @@ Bir sanal ağ (Klasik) kullanarak oluşturabileceğiniz [Azure portalında](#por
 4. Portalda, sanal ağ oluştururken yalnızca bir alt ağ oluşturabilirsiniz. Bu öğreticide, sanal ağ oluşturduktan sonra ikinci bir alt ağ oluşturun. İnternet'ten erişilebilen kaynaklara daha sonra oluşturacağınız **genel** alt ağ. Internet'ten erişilemez kaynakları de oluşturabilir **özel** alt ağ. İkinci ağı oluşturmak için girin **myVnet** içinde **kaynak Ara** sayfanın üstündeki kutusu. Tıklayın **myVnet** arama sonuçlarında görüntülendiğinde.
 5. Tıklayın **alt ağlar** (içinde **ayarları** bölümü) üzerinde **sanal ağ oluştur (Klasik)** bölmesi görünür.
 6. Tıklayın **+ Ekle** üzerinde **myVnet - alt ağlar** bölmesi görünür.
-7. Girin **özel** için **adı** üzerinde **alt ağ Ekle** bölmesi. Girin **10.0.1.0/24** için **adres aralığı**.  **Tamam** düğmesine tıklayın.
+7. Girin **özel** için **adı** üzerinde **alt ağ Ekle** bölmesi. Girin **10.0.1.0/24** için **adres aralığı**.  **Tamam**'ı tıklatın.
 8. Üzerinde **myVnet - alt ağlar** bölmesinde görebilirsiniz **genel** ve **özel** oluşturduğunuz alt ağlar.
 9. **İsteğe bağlı**: Bu öğreticiyi tamamladığınızda, kullanım ücretleri oluşmaması, oluşturduğunuz kaynakları silmek isteyebilirsiniz:
     - Tıklayın **genel bakış** üzerinde **myVnet** bölmesi.

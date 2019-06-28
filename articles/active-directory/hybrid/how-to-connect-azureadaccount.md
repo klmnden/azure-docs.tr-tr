@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d68c190b51b9bbb5faf21e8ea75b07d1a82005e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ea151ee79fccd66f1d9422744d8f57829677ec0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571406"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204526"
 ---
 # <a name="change-the-azure-ad-connector-account-password"></a>Azure AD Bağlayıcısı hesap parolasını değiştirme
 Azure AD Bağlayıcısı hesabı, ücretsiz hizmet olduğu varsayılır. Kimlik bilgilerini sıfırlamanız gerekirse, bu konu, hakkındadır. Örneğin, bir genel yönetici tarafından hata varsa PowerShell kullanarak hesabın parolasını sıfırlayın.
@@ -39,12 +39,12 @@ Bu cmdlet, hizmet hesabı parolasını sıfırlar ve hem de Azure AD eşitleme a
 ## <a name="known-issues-these-steps-can-solve"></a>Bu adımları bilinen sorunları çözme
 Bu bölümde, bir kimlik bilgilerini sıfırlama Azure AD Bağlayıcısı hesabı düzeltilmiş olan müşteriler tarafından bildirilen hataları listesidir.
 
-- - -
+---
 Olay 6900  
 Sunucu, bir parola değiştirme bildirimi işlenirken beklenmeyen bir hatayla karşılaştı:  
 AADSTS70002: Kimlik bilgileri doğrulanırken hata. AADSTS50054: Kimlik doğrulaması için eski parola kullanıldı.
 
-- - -
+---
 Event 659  
 Parola İlkesi eşitleme yapılandırması alınırken hata oluştu. Microsoft.IdentityModel.Clients.activedirectory.adalserviceexception:  
 AADSTS70002: Kimlik bilgileri doğrulanırken hata. AADSTS50054: Kimlik doğrulaması için eski parola kullanıldı.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 4bf4c5c8339c8c56d91737fa1ff62f55b9c38696
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 797db8d0dd321676a3fa436a328a9981a3d3ca3b
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60786382"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312041"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Azure Data Factory kullanarak gelen DB2 veri kopyalama
 > [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
@@ -34,6 +34,7 @@ DB2 veritabanından veri tüm desteklenen havuz veri deposuna kopyalayabilirsini
 
 * IBM DB2 z/OS 11.1 için
 * IBM DB2 z/OS 10.1 için
+* IBM DB2 için i 7.3
 * IBM DB2 için i 7.2
 * IBM DB2 için i 7.1
 * IBM DB2 LUW 11

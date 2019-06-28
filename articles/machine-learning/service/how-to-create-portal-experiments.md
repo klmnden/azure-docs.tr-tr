@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 714283628e1b2ac445d36d0b07fe299b589a1cf0
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65990150"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312811"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Oluşturma ve otomatik makine öğrenimi denemelerini (Önizleme) Azure portalında keşfedin
 
@@ -96,16 +96,16 @@ Aşağıdaki formu doldurmak için deneme oluşturma düğmesini seçin.
 
 1. Tahmin için:
     1. Saat sütununu seçin: Bu sütun için kullanılacak saat verilerini içerir.
-    1. Tahmin horizon seçin: Ne kadar zaman birimlerini (dakika/saat/gün/hafta/ay/yıl) modeli için geleceği tahmin etmeyi mümkün olacaktır gösterir. Daha fazla model, daha az doğru olacak geleceğe tahmin etmek için gereklidir. [Daha fazla hakkında tahmini ve tahmin öğrenin horizon](https://docs.microsoft.com/azure/machine-learning/service/how-to-auto-train-forecast#configure-experiment).
+    1. Tahmin horizon seçin: Ne kadar zaman birimlerini (dakika/saat/gün/hafta/ay/yıl) modeli için geleceği tahmin etmeyi mümkün olacaktır gösterir. Daha fazla model, daha az doğru olacak geleceğe tahmin etmek için gereklidir. [Daha fazla hakkında tahmini ve tahmin öğrenin horizon](how-to-auto-train-forecast.md).
 
 1. (İsteğe bağlı) Gelişmiş ayarlar: eğitim işini daha iyi denetlemek için kullanabileceğiniz ek ayarlar.
 
     Gelişmiş ayarlar|Açıklama
     ------|------
-    Birincil Metrik| Model Puanlama için kullanılan ana ölçümünü. [Model ölçümleri hakkında daha fazla bilgi](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics).
+    Birincil Metrik| Model Puanlama için kullanılan ana ölçümünü. [Model ölçümleri hakkında daha fazla bilgi](how-to-configure-auto-train.md#explore-model-metrics).
     Sonlandırma kriteri| Aşağıdaki ölçütleri karşılandığında, eğitim işine tam tamamlanmadan önce sona erer. <br> *Eğitim işi süresi (dakika)* : Eğitim işini çalıştırmak izin vermek için ne kadar.  <br> *En yüksek yineleme sayısı*: Eğitim işi test etmek için işlem hatları (Yineleme) sayısı. İş belirtilen yineleme sayısını birden fazla çalışmaz. <br> *Ölçüm puanı eşiği*:  Tüm işlem hatları için en düşük ölçüm puanı. Bu, erişmek istediğiniz bir tanımlanmış hedef ölçüm varsa, daha fazla zaman eğitim işini daha harcadığınız değil, sağlar.
     Ön işleme| Etkinleştirme veya devre dışı otomatik makine öğrenimi tarafından yapılan ön işleme seçin. Ön işleme otomatik veri temizleme, hazırlama ve dönüştürme yapay özellikleri oluşturulacak içerir. [Ön işleme hakkında daha fazla bilgi](#preprocess).
-    Doğrulama| Eğitim işi kullanmak için çapraz doğrulama seçeneklerden birini seçin. [Daha fazla doğrulama bilgi](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#cross-validation-split-options).
+    Doğrulama| Eğitim işi kullanmak için çapraz doğrulama seçeneklerden birini seçin. [Daha fazla doğrulama bilgi](how-to-configure-auto-train.md).
     Eşzamanlılık| Çok çekirdekli işlem kullanırken istediğiniz çok çekirdekli sınırları seçin.
     Engellenen algoritması| Algoritmalar ve eğitim işinden çıkarmak istediğiniz seçin.
 
@@ -180,7 +180,7 @@ Eğitim işleri her işlem hattı çalıştırma tamamlanması biraz sürebilir.
 
 ### <a name="view-training-run-details"></a>Çalıştırma Ayrıntıları görünümünü eğitim
 
-Herhangi bir eğitim gibi performans ölçümlerini ve dağılım grafikleri çalıştırma ayrıntılarını görmek için çıkış modelleri detayına gidin. [Grafikler hakkında daha fazla bilgi](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments#understanding-automated-ml-charts).
+Herhangi bir eğitim gibi performans ölçümlerini ve dağılım grafikleri çalıştırma ayrıntılarını görmek için çıkış modelleri detayına gidin. [Grafikler hakkında daha fazla bilgi](how-to-track-experiments.md#understanding-automated-ml-charts).
 
 ![Yineleme ayrıntılarını](media/how-to-create-portal-experiments/iteration-details.png)
 
@@ -220,7 +220,7 @@ Otomatik ML model dağıtımı ile kod yazmadan yardımcı olur:
 
 1. Seçin **Gözat** daha önce indirdiğiniz ortam dosyası (condaEnv.yml) yüklemek için "Conda dosya" kutusunun yanındaki düğmeyi.
 
-    Kendi Puanlama betiği ve conda dosyası kullanmak, yapabilir ek dosyaları karşıya yükleme. [Puanlama betiği hakkında daha fazla bilgi](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#script).
+    Kendi Puanlama betiği ve conda dosyası kullanmak, yapabilir ek dosyaları karşıya yükleme. [Puanlama betiği hakkında daha fazla bilgi](how-to-deploy-and-where.md#script).
 
       >[!Important]
       > Dosya adları gerekir altında 32 karakter olmalı ve başlamalı ve alfasayısal karakterler ile bitmelidir. Tire, alt çizgi, nokta ve arasında alfasayısal karakterler içerebilir. Alanları izin verilmez.
@@ -228,7 +228,7 @@ Otomatik ML model dağıtımı ile kod yazmadan yardımcı olur:
     ![Görüntü oluşturma](media/how-to-create-portal-experiments/create-image.png)
 
 1. Görüntü oluşturma işlemini başlatmak için "Oluştur" düğmesini seçin. Bu kez tamamlanması birkaç dakika sürer, üst çubukta bir ileti görürsünüz.
-1. "Görüntüler" sekmesine gidin, dağıtmak istediğiniz görüntüyü yanındaki onay kutusunu işaretleyin ve "dağıtım oluştur" seçeneğini belirleyin. [Dağıtımları hakkında daha fazla bilgi](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+1. "Görüntüler" sekmesine gidin, dağıtmak istediğiniz görüntüyü yanındaki onay kutusunu işaretleyin ve "dağıtım oluştur" seçeneğini belirleyin. [Dağıtımları hakkında daha fazla bilgi](how-to-deploy-and-where.md).
 
     Dağıtım için 2 seçenek vardır.
      + Azure Container Instance (ACI) - bu amacı yerine uygun ölçekte operasyonel dağıtımı test etmek için daha kullanılır. En az bir çekirdek için değerleri girin emin _CPU rezervasyon kapasitesi_ve en az bir gigabayt (GB) için _bellek ayırma kapasitesi_

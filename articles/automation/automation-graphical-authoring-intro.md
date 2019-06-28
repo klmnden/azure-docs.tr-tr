@@ -44,7 +44,7 @@ Yakınlaştırma ve uzaklaştırma için tuvalin alt kısmında denetimleri kull
 
 Seçtiğiniz kitaplık denetimidir [etkinlikleri](#activities) runbook uygulamanıza eklenecek. Bunları diğer etkinlikler için bunları eriştiğiniz tuvaline ekleyin. Aşağıdaki tabloda açıklanan dört bölüm içerir:
 
-| `Section` | Açıklama |
+| `Section` | Description |
 |:--- |:--- |
 | Cmdlet'ler |Runbook'ta kullanılabilecek tüm cmdlet'leri içerir. Cmdlet modülü tarafından düzenlenir. Tüm otomasyon hesabınızda yüklü modülleri mevcuttur. |
 | Runbook'lar |Runbook'ları, Otomasyon hesabınızda içerir. Bu runbook'ları, tuvalin alt runbook'lar olarak kullanılacak eklenebilir. Yalnızca düzenlenmekte olan runbook olarak aynı temel türündeki runbook'lar gösterilir. Grafik PowerShell iş akışı runbook'ları için yalnızca PowerShell iş akışı tabanlı runbook'ları gösterilmekte iken için grafik runbook'ları yalnızca PowerShell tabanlı runbook'ları gösterilir. |
@@ -109,7 +109,7 @@ Aşağıdaki örnekte, Get-AzureRmVM cmdlet'i, üç parametre kümesine sahiptir
 
 Bir parametre için değer belirttiğinizde, değerin nasıl belirtildiğine belirlemek için bir veri kaynağı seçin. Bu parametre için geçerli değerleri belirli bir parametre bağımlı için kullanılabilen veri kaynakları. Örneğin, Null, null değerlere izin vermiyor bir parametre için kullanılabilir bir seçenek değil.
 
-| Veri Kaynağı | Açıklama |
+| Veri Kaynağı | Description |
 |:--- |:--- |
 | Sabit değer |Parametre için bir değer yazın. Bu yalnızca aşağıdaki veri türleri için kullanılabilir. Int32, Int64, String, Boolean, DateTime, geçiş yapın. |
 | Etkinlik çıkışı |İş akışında geçerli etkinliği önündeki bir etkinliğin çıkışı. Tüm geçerli etkinlikler listelenir. Çıktısını için parametre değeri kullanmak için yalnızca etkinliği seçin. Birden fazla özelliğe sahip bir nesne etkinlik çıkışı etkinlik seçtikten sonra özelliğin adını yazabilirsiniz. |
@@ -139,7 +139,7 @@ Yeniden deneme koşulu etkinliği her çalıştığında sonra yürütülecek bi
 
 Yeniden deneme koşulu, etkinlik yeniden deneme işlemleri ile ilgili bilgilere erişim sağlayan $RetryData adında bir değişkene kullanabilirsiniz. Bu değişken aşağıdaki tabloda özelliklere sahiptir:
 
-| Özellik | Açıklama |
+| Özellik | Description |
 |:--- |:--- |
 | NumberOfAttempts |Etkinliği çalıştırmak kez sayısı. |
 | Output |Son çalıştırma etkinliğin çıkışı. |
@@ -191,7 +191,7 @@ Kaynak etkinliği'ni seçip şeklin alt kısmındaki daire tıklayarak iki etkin
 
 Yapılandırma dikey penceresinde özelliklerini yapılandırmak için bağlantıyı seçin. Bu aşağıdaki tabloda açıklanan bağlantı türü içerir:
 
-| Bağlantı türü | Açıklama |
+| Bağlantı türü | Description |
 |:--- |:--- |
 | İşlem hattı |Hedef etkinlik, kaynak etkinliğinden her nesne çıkış için bir kez çalıştırılır. Kaynak etkinliği hiçbir çıkış sonuçlanırsa, hedef etkinlik çalıştırmaz. Kaynak etkinliği çıktısını bir nesne olarak kullanılabilir. |
 | Dizisi |Hedef etkinlik yalnızca bir kez çalışır. Bu kaynak etkinliğinden nesnelerinin bir dizisini alır. Kaynak etkinliği çıktısını bir nesne dizisi kullanılabilir. |
@@ -322,7 +322,7 @@ Bu açılır **giriş ve çıkış** nerede var olan bir giriş parametresi düz
 
 Her giriş parametresi, aşağıdaki tabloda özellikleri tarafından tanımlanır:
 
-| Özellik | Açıklama |
+| Özellik | Description |
 |:--- |:--- |
 | Name |Parametrenin benzersiz adı. Bu, yalnızca alfa sayısal karakterler içerebilir ve boşluk içeremez. |
 | Description |Giriş parametresi için isteğe bağlı bir açıklama. |

@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: f17c364d258ef356a98180c9903603d92a6a9245
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a018a383de855a05b14aa6e1f1c465f8868f672d
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078527"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312160"
 ---
 # <a name="troubleshooting-package-execution-in-ssis-integration-runtime"></a>SSIS tümleştirme çalışma zamanı paketi yürütmeye ilişkin sorun giderme
 
@@ -103,6 +103,18 @@ Bu makale, SSIS tümleştirme çalışma zamanı, olası nedenleri ve Eylemler h
 ### <a name="error-message-your-integration-runtime-cannot-be-upgraded-and-will-eventually-stop-working-since-we-cannot-access-the-azure-blob-container-you-provided-for-custom-setup"></a>Hata iletisi: "Integration runtime yükseltilemez ve sonunda biz için özel kurulum sağlanan Azure Blob kapsayıcısına erişilemiyor. bu yana, çalışmayı durdurur."
 
 * SSIS tümleştirme çalışma zamanı için özel kurulum yapılandırılmış depolama erişemediğinde, bu hata oluşur. Sağlanan SAS URI'sinin geçerli olduğundan ve süresinin dolmadığından denetleyin.
+
+### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>Hata iletisi: "Analysis Services için Microsoft OLE DB sağlayıcısı. ' Hresult: 0x80004005 açıklaması:' COM hatası: COM hatası: mscorlib; Bir çağırma hedefi tarafından özel durum oluşturuldu"
+
+* Olası neden & önerilen eylem:
+  * Bu kullanıcı adı/parola ile MFA etkin Olası nedenlerden biri, SSIS tümleştirme çalışma zamanı'nda henüz desteklenmeyen Azure Analysis Services kimlik doğrulaması için yapılandırılmış. Azure Analysis Service kimlik doğrulaması için hizmet sorumlusu kullanmayı deneyin:
+    1. Hizmet sorumlusu AAS için hazırlama [https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal](https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal)
+    2. Bağlantı Yöneticisi'nde "belirli bir kullanıcı adı ve parola kullan" yapılandırma: "AppID" kullanıcı adı ve parola olarak "clientSecret" olarak ayarlayın
+
+### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-managed-identity"></a>Hata iletisi: "{GUID} bağlantısı aşağıdaki hata iletisini almaya ADONET kaynağı başarısız oldu: Kullanıcısı 'NT Yetkili\Anonim Oturum açma' için oturum açılamadı "yönetilen kimlik kullanırken
+
+* Olası neden & önerilen eylem:
+  * "ConnectUsingManagedIdentity" parametresi True olduğunda Bağlantı Yöneticisi'nin kimlik doğrulama yöntemini "Active Directory parola kimlik doğrulaması" yapılandırmayın emin olun. "SQL kimlik doğrulaması" yerine "ConnectUsingManagedIdentity" ayarlarsanız, yok yapılandırabilirsiniz
 
 ### <a name="package-takes-unexpected-long-time-to-execute"></a>Paket beklenmeyen uzun zaman alabilir.
 

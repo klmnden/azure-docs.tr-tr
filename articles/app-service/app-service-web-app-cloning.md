@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 198fedbbd1e97dcda15c9124109e50664f58f8e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 907816d4f44a953ae338f6ca505b8fb3e048234e
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66139713"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329644"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Azure App Service uygulaması PowerShell kullanarak kopyalama
 
@@ -28,7 +28,7 @@ ms.locfileid: "66139713"
 
 Microsoft Azure PowerShell sürüm 1.1.0 sürümünde yeni bir seçenek eklendi `New-AzWebApp` olanak tanıyan yeni oluşturulmuş uygulamayı farklı bir bölgede ya da aynı bölgede var olan bir App Service uygulamasına kopyalayın. Bu seçenek, müşterilerin uygulama sayısı farklı bölgeler arasında hızlı ve kolay bir şekilde dağıtmasına olanak sağlar.
 
-Uygulama kopyalama şu anda yalnızca premium katmanı app service planları için desteklenir. Yeni bir özellik App Service yedekleme özelliğini onunla aynı sınırlamalara kullanır, bkz: [bir uygulamasını Azure App Service'te yedekleme](manage-backup.md).
+Uygulama kopyalama, standart, Premium, Premium V2 ve yalıtılmış app service planları için desteklenir. Yeni bir özellik App Service yedekleme özelliğini onunla aynı sınırlamalara kullanır, bkz: [bir uygulamasını Azure App Service'te yedekleme](manage-backup.md).
 
 ## <a name="cloning-an-existing-app"></a>Mevcut bir uygulamayı kopyalama
 Senaryo: Orta Güney ABD bölgesinde ve mevcut bir uygulamayı Kuzey Orta ABD bölgesinde yeni bir uygulama içeriği kopyalamak istersiniz. İle yeni bir uygulama oluşturmak için Azure Resource Manager sürümünü PowerShell cmdlet'ini kullanarak gerçekleştirilebilir `-SourceWebApp` seçeneği.

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 06/15/2019
+ms.date: 06/21/2019
 ms.author: victorh
-ms.openlocfilehash: a7dd35212a573fc3e94dadea4365f150122e1b5a
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 9ec37197376c815c4fb9072164520a707b02be2b
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276749"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312735"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>Azure PowerShell kullanarak birden çok genel IP adresi ile bir Azure Güvenlik Duvarı'nı dağıtma
 
@@ -31,7 +31,7 @@ Bu özellik aşağıdaki senaryolar sağlar:
 Aşağıdaki Azure PowerShell örnekleri nasıl ekleyin, kaldırın ve genel IP adresleri Azure için güvenlik duvarını gösterir.
 
 > [!NOTE]
-> Çalışan bir Güvenlik Duvarı'na bir genel IP adresi ekleyip, dnat'ı kurallarını kullanarak var olan bir gelen bağlantı 40-120 saniye çalışmayabilir. Bu özellik genel önizlemeye ilişkin bir sınırlama budur.
+> Genel Önizleme sırasında çalışan bir güvenlik duvarı için genel bir IP adresi ekleyip, dnat'ı kurallarını kullanarak var olan bir gelen bağlantı 40-120 saniye çalışmayabilir. İlk genel IP adresini güvenlik duvarı serbest veya kaldırılana kadar güvenlik duvarı atanan kaldırılamıyor.
 
 ## <a name="add-a-public-ip-address-to-an-existing-firewall"></a>Mevcut bir Güvenlik Duvarı'na bir genel IP adresi Ekle
 

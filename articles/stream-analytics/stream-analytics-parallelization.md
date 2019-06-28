@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 0b68819ba032d7655433aadd30fe2852941096ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55db909f240756200d758fe89aabb217fb380d16
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478887"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329809"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream analytics'te sorgu paralelleştirmesinden
 Bu makalede, Azure Stream Analytics'te paralelleştirme yararlanmak işlemini göstermektedir. Giriş bölümlerini yapılandırma ve analytics Sorgu tanımını ayarlayarak Stream Analytics işlerini ölçeklendirmeyi öğrenin.
@@ -60,7 +60,7 @@ Bir *utandırıcı derecede paralel* işi, Azure Stream Analytics'te sahip oldu�
 
 1. Sorgu mantığınızı aynı sorgu örneği tarafından işlenmekte olan aynı anahtara bağlı olduğu durumlarda olayları girişlerinizin aynı bölüme gideceği emin olmanız gerekir. Event Hubs veya IOT hub'ı için bu olay verileri olması gerektiğini anlamına gelir **PartitionKey** değer kümesi. Alternatif olarak, bölümlenmiş Gönderenler kullanabilirsiniz. BLOB Depolama için bu olaylar aynı bölüm klasörüne gönderilir anlamına gelir. Sorgu mantığınızı aynı sorgu örneği tarafından işlenmek üzere aynı anahtar gerektirmiyorsa, bu gereksinim yoksayabilirsiniz. Bu mantık örneği basit bir select proje filtresi sorgusu olacaktır.  
 
-2. Veri giriş tarafında düzenlendiğini sonra sorgunuzu bölümlenen emin olmanız gerekir. Bu kullanmanızı gerekli hale getirmiş **PARTITION BY** tüm adımlarda. Birden çok adım izin verilir, ancak bunların tümü aynı anahtarla bölümlenmesi gerekir. Bölümleme anahtarı şu anda ayarlanmalıdır **PartitionID** sırada işin tam olarak paralel olması.  
+2. Veri giriş tarafında düzenlendiğini sonra sorgunuzu bölümlenen emin olmanız gerekir. Bu kullanmanızı gerekli hale getirmiş **PARTITION BY** tüm adımlarda. Birden çok adım izin verilir, ancak bunların tümü aynı anahtarla bölümlenmesi gerekir. Uyumluluk düzeyi altında 1.0 ve 1.1, bölümleme anahtarı ayarlamak **PartitionID** sırada işin tam olarak paralel olması. İşleri compatility düzeyiyle 1.2 ve üzeri için özel bir sütun bölüm anahtarı olarak giriş ayarlarında belirtilebilir ve iş paralellized automoatically PARTITION BY yan tümcesi olmadan dahi olacaktır.
 
 3. Bizim çıkış çoğunu bölümleme avantajından yararlanmak, bir çıkış türü kullanıyorsanız, bölümleme desteklemez ancak işinizi tam olarak paralel olmayacaktır. Başvurmak [çıkış bölümü](#outputs) daha fazla ayrıntı için.
 
@@ -87,7 +87,7 @@ Sorgu:
     WHERE TollBoothId > 100
 ```
 
-Bu sorguyu basit bir filtredir. Bu nedenle, olay hub'ına gönderilen giriş bölümlendirme hakkında endişe etmeniz gerekmez. Sorgu içeren bildirim **PARTITION BY PartitionID**, gereksinim #2'öğesinden daha önce karşıladığı. Bölüm anahtarı olarak ayarlanmış olan işin olay hub'ı çıkışı yapılandırmak ihtiyacımız çıkış için **PartitionID**. Bir son onay giriş bölüm sayısı çıkış bölüm sayısına eşit olduğundan emin olmaktır.
+Bu sorguyu basit bir filtredir. Bu nedenle, olay hub'ına gönderilen giriş bölümlendirme hakkında endişe etmeniz gerekmez. 1\.2 içermelidir önce uyumluluk düzeyi ile işleri dikkat edin **PARTITION BY PartitionID** gereksinim #2'öğesinden daha önce karşıladığı şekilde yan tümcesi. Bölüm anahtarı olarak ayarlanmış olan işin olay hub'ı çıkışı yapılandırmak ihtiyacımız çıkış için **PartitionID**. Bir son onay giriş bölüm sayısı çıkış bölüm sayısına eşit olduğundan emin olmaktır.
 
 ### <a name="query-with-a-grouping-key"></a>Bir gruplandırma anahtar ile sorgulama
 
@@ -141,6 +141,26 @@ Sorgu:
 Gördüğünüz gibi ikinci adım kullanır **TollBoothId** bölümleme anahtarı olarak. Bu adım ilk adım ile aynı değildir ve bu nedenle bize bir karışık yapmanız gerekir. 
 
 Önceki örneklerde utandırıcı derecede paralel bir topoloji uygun (veya yok) bazı Stream Analytics işleri gösterir. Uygun, en yüksek ölçek olası sahiptirler. Bir kılavuz ölçeklendirme, bu profillerin uygun olmayan işler gelecekte kullanıma sunulacak yönelik güncelleştirmeler. Şu an için genel kılavuz aşağıdaki bölümlerde kullanın.
+
+### <a name="compatibility-level-12---multi-step-query-with-different-partition-by-values"></a>1\.2 - çok adımlı sorgunun PARTITION BY farklı değerlerle uyumluluk düzeyi 
+* Giriş: Olay hub'ı 8 bölüm ile
+* Çıktı: Olay hub'ı 8 bölüm ile
+
+Sorgu:
+
+```SQL
+    WITH Step1 AS (
+    SELECT COUNT(*) AS Count, TollBoothId
+    FROM Input1
+    GROUP BY TumblingWindow(minute, 3), TollBoothId
+    )
+
+    SELECT SUM(Count) AS Count, TollBoothId
+    FROM Step1
+    GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
+
+Uyumluluk düzeyi 1.2, paralel sorgu yürütme varsayılan olarak etkinleştirir. Örneğin, önceki bölümde sorgu "TollBoothId" sütunu giriş bölüm anahtarı olarak ayarlı sürece parttioned olacaktır. BÖLÜM tarafından ParttionId yan tümcesi gerekli değildir.
 
 ## <a name="calculate-the-maximum-streaming-units-of-a-job"></a>Akış birimleri, bir işin en büyük hesaplayın
 Stream Analytics işi tarafından kullanılan akış birimlerinin toplam sayısı, iş ve her adım için bölüm sayısı için tanımlanan sorgu, adım sayısı bağlıdır.

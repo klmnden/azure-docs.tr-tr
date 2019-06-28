@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rimman
 ms.custom: rimman
-ms.openlocfilehash: 956f63dd92c82df0998cfaca76c7ecf5b10f053e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3cf075c2909b35bb08ca4cb24aaa3b99597f34c6
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953863"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203521"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Azure Cosmos DB'de modelleme verileri
 
@@ -176,9 +176,9 @@ Hisse senedi *zaza* yüzlerce kez tek bir satılan gün ve binlerce kullanıcıy
 
 ## <a name="referencing-data"></a>Başvuru verileri
 
-Bu nedenle, veriler Katıştırılıyor güzelce için çoğu durumda çalışır ancak verilerinizi normal durumdan çıkarmayı değer olandan daha fazla sorunlara neden, senaryoları olduğunu işaretlenmemiştir. Bu nedenle biz şimdi ne yapacaksınız?
+Veriler Katıştırılıyor güzelce için çoğu durumda çalışır ancak bazı senaryolarda verilerinizi normal durumdan çıkarmayı değer olandan daha fazla sorunlara neden. Bu nedenle biz şimdi ne yapacaksınız?
 
-İlişkisel veritabanları, varlıklar arasındaki ilişkilerin oluşturabileceğiniz tek yer değildir. Bir belge veritabanında gerçekten başka belgelerde verilerle ilgili bir belgedeki bilgiler olabilir. Artık, ben bir dakika bile size Azure Cosmos DB ilişkisel bir veritabanında veya başka bir belge veritabanında daha uygun sistemler oluşturabilir, ancak basit ilişkiler bir sakınca yoktur ve yararlı olabilir sağduyulu değil.
+İlişkisel veritabanları, varlıklar arasındaki ilişkilerin oluşturabileceğiniz tek yer değildir. Bir belge veritabanında bir belgedeki başka belgelerde verilerle ilgili bilgi olabilir. Azure Cosmos DB ilişkisel bir veritabanında veya başka bir belge veritabanında daha uygun sistemler oluşturmaya önerilmez, ancak basit ilişkiler bir sakınca yoktur ve yararlı olabilir.
 
 Daha önce bir stok Portföyünden örneği kullanmak için seçtik aşağıdaki JSON ancak bu kez katıştırmak yerine Portföy stok öğede diyoruz. Stok öğesi gün içinde sık güncelleştirilmesi gereken yalnızca belge değiştiğinde bu şekilde, tek bir hisse senedi belge olur.
 

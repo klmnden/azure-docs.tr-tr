@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: bb99a3c063f69aa5aeb00efdb51319a53d05b2d1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aaab5ef4d8fc3d60a12f9e9f85f2846695fd1ab4
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067616"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329668"
 ---
 # <a name="request-real-time-data-using-the-azure-maps-mobility-service"></a>Azure haritalar Mobility hizmetini kullanarak gerçek zamanlı veri isteği
 
@@ -113,22 +113,23 @@ Gerçek zamanlı varış verilerini bir belirli genel geçişi durdurma isteğin
             }
         ]
     }
+    ```
 
 
-## Real-time data for bike docking station
+## <a name="real-time-data-for-bike-docking-station"></a>Gerçek zamanlı verileri bisiklet takma
 
-The [Get Transit Dock Info API](https://aka.ms/AzureMapsMobilityTransitDock) of the Azure Maps Mobility Service, allows to request static and real-time information such as availability and vacancy information for a given bike or scooter docking station. We will make a request to get real-time data for a docking station for bikes.
+[Alma geçiş Dock bilgisi API](https://aka.ms/AzureMapsMobilityTransitDock) kullanılabilirlik gibi statik ve gerçek zamanlı bilgiler ve belirli bir bisiklet veya scooter takma birimi boş konum bilgilerini istemek için Azure haritalar Mobility hizmeti, sağlar. Gerçek zamanlı veriler için takma bisiklet alma isteği yapacağız.
 
-In order to make a request to the Get Transit Dock Info API, you will need the **dockId** for that station. You can get the dock ID by making a search request to the [Get Nearby Transit API](https://aka.ms/AzureMapsMobilityNearbyTransit) and setting the **objectType** parameter to "bikeDock". Follow the steps below to get real-time data of a docking station for bikes.
+Alma geçiş Dock bilgisi API için bir istekte bulunmak için ihtiyacınız olacak **dockId** istasyona ait. Bir arama isteğine yaparak dock kimliği alabilirsiniz [alma yakında aktarım API](https://aka.ms/AzureMapsMobilityNearbyTransit) ve ayarı **objectType** "bikeDock" parametresi. Bisiklet için takma, gerçek zamanlı veri almak için aşağıdaki adımları izleyin.
 
 
-### Get dock ID
+### <a name="get-dock-id"></a>Dock Kimliğini alın
 
-To get **dockID**, follow the steps below to make a request to the Get Nearby Transit API:
+Alınacak **dockID**, yakında geçiş Al API'si için istekte bulunmak için aşağıdaki adımları izleyin:
 
-1. In Postman, click **New Request** | **GET request** and name it **Get dock ID**.
+1. Postman içinde tıklayın **yeni istek** | **GET isteği** ve adlandırın **Get dock kimliği**.
 
-2.  On the Builder tab, select the **GET** HTTP method, enter the following request URL, and click **Send**.
+2.  Oluşturucu sekmesinde **alma** HTTP yöntemi, aşağıdaki istek URL'sini girin ve tıklatın **Gönder**.
  
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/nearby/json?subscription-key={subscription-key}&api-version=1.0&metroId=121&query=40.7663753,-73.9627498&radius=100&objectType=bikeDock
