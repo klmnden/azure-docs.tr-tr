@@ -116,7 +116,7 @@ Günlük profilini zaten varsa önce mevcut günlük profilini kaldırın ve ard
     | serviceBusRuleId |Hayır |Service Bus kural kimliği oluşturulan olay hub'ları olmasını istediğiniz Service Bus ad alanı. Dize biçimiyle budur: `{service bus resource ID}/authorizationrules/{key name}`. |
     | Location |Evet |Etkinlik günlüğü olayları toplamak istiyorsanız bölgelerin virgülle ayrılmış listesi. |
     | Retentionındays |Evet |Olaylar için 1 ile 2147483647 arasında bir depolama hesabında tutulacağını gün sayısı. Sıfır değeri, günlükler süresiz olarak depolar. |
-    | Kategori |Hayır |Virgülle ayrılmış liste toplanması gereken olay kategorileri. Olası değerler _yazma_, _Sil_, ve _eylem_. |
+    | Category |Hayır |Virgülle ayrılmış liste toplanması gereken olay kategorileri. Olası değerler _Write_, _Delete_, and _Action_. |
 
 ### <a name="example-script"></a>Örnek betik
 Etkinlik günlüğü hem de bir depolama hesabı ve olay hub'ına yazan bir günlük profili oluşturmak için örnek PowerShell Betiği verilmiştir.
@@ -155,11 +155,11 @@ Günlük profilini zaten varsa önce mevcut günlük profilini kaldırın ve ard
     | Özellik | Gerekli | Açıklama |
     | --- | --- | --- |
     | name |Evet |Günlük profilinin adı. |
-    | Depolama hesabı kimliği |Evet |Etkinlik günlükleri kaydedileceği depolama hesabı kaynak kimliği. |
+    | storage-account-id |Evet |Etkinlik günlükleri kaydedileceği depolama hesabı kaynak kimliği. |
     | locations |Evet |Boşlukla ayrılmış etkinlik günlüğü olayları toplamak istiyorsanız bölgelerin listesi. Tüm bölgelerin listesi için aboneliği kullanarak görüntüleyebileceğiniz `az account list-locations --query [].name`. |
     | days |Evet |Hangi olayların tutulacağını, 1 ile 365 arasında bir gün sayısı. Sıfır değeri günlükler süresiz olarak depolar (sonsuz).  Sıfır ise, ardından etkin parametresi ayarlanmalıdır true. |
     |enabled | Evet |TRUE veya False.  Bekletme İlkesi devre dışı bırakmak veya etkinleştirmek için kullanılır.  TRUE ise gün parametresi 0'dan büyük bir değer olması gerekir.
-    | kategoriler |Evet |Boşlukla ayrılmış toplanması gereken olay kategorilerinin listesi. Olası değerler şunlardır: yazma, silme ve eylem. |
+    | categories |Evet |Boşlukla ayrılmış toplanması gereken olay kategorilerinin listesi. Olası değerler şunlardır: yazma, silme ve eylem. |
 
 
 
@@ -236,7 +236,7 @@ Bu JSON öğeleri aşağıdaki tabloda açıklanmıştır.
 | correlationId |Genellikle bir GUID dize biçiminde. Bir Correlationıd paylaşan olayları aynı uber eyleme ait. |
 | identity |Yetkilendirme ve talep açıklayan JSON blob. |
 | authorization |BLOB RBAC özelliklerinin olay. Genellikle, "action", "rolü" ve "scope" özelliklerini içerir. |
-| düzey |Olay düzeyi. Aşağıdaki değerlerden biri: _Kritik_, _hata_, _uyarı_, _bilgilendirici_, ve _ayrıntılı_ |
+| level |Olay düzeyi. Aşağıdaki değerlerden biri: _Kritik_, _hata_, _uyarı_, _bilgilendirici_, ve _ayrıntılı_ |
 | location |Bölge oluştuğu konumu (veya genel). |
 | properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (yani, sözlük). |
 

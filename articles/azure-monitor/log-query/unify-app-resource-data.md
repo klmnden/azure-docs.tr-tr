@@ -100,48 +100,48 @@ Aşağıdaki tabloda, Log Analytics ve Application Insights şema farklılıklar
 |------------|------------| 
 | AnonUserId | user_id|
 | ApplicationId | appId|
-| ApplicationName | AppName|
+| ApplicationName | appName|
 | ApplicationTypeVersion | application_Version |
-| AvailabilityCount | ItemCount |
-| AvailabilityDuration | Süresi |
+| AvailabilityCount | itemCount |
+| AvailabilityDuration | duration |
 | AvailabilityMessage | message |
 | AvailabilityRunLocation | location |
 | AvailabilityTestId | id |
 | AvailabilityTestName | name |
 | AvailabilityTimestamp | timestamp |
-| Tarayıcı | client_browser |
-| Şehir | client_city |
-| Clientıp | client_IP |
+| Browser | client_browser |
+| City | client_city |
+| ClientIP | client_IP |
 | Computer | cloud_RoleInstance | 
-| Ülke | client_CountryOrRegion | 
-| CustomEventCount | ItemCount | 
+| Country | client_CountryOrRegion | 
+| CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
 | CustomEventName | name | 
 | DeviceModel | client_Model | 
 | DeviceType | client_Type | 
-| ExceptionCount | ItemCount | 
+| ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
 | ExceptionMessage | message | 
-| ExceptionType | türü |
-| Operationıd | operation_ıd |
+| ExceptionType | type |
+| OperationID | operation_id |
 | OperationName | operation_Name | 
-| İşletim Sistemi | client_OS | 
-| PageViewCount | ItemCount |
-| PageViewDuration | Süresi | 
+| OS | client_OS | 
+| PageViewCount | itemCount |
+| PageViewDuration | duration | 
 | PageViewName | name | 
-| ParentOperationID | operation_ıd | 
-| RequestCount | ItemCount | 
-| RequestDuration | Süresi | 
-| RequestId | id | 
+| ParentOperationID | operation_Id | 
+| RequestCount | itemCount | 
+| RequestDuration | duration | 
+| RequestID | id | 
 | RequestName | name | 
-| RequestSuccess | başarılı | 
-| Yanıt kodu | ResultCode | 
-| Rol | cloud_RoleName |
-| Roleınstance | cloud_RoleInstance |
-| oturum kimliği | session_ıd | 
+| RequestSuccess | success | 
+| ResponseCode | resultCode | 
+| Role | cloud_RoleName |
+| RoleInstance | cloud_RoleInstance |
+| SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
-| TelemetryTYpe | türü |
-| URL'si | _url |
+| TelemetryTYpe | type |
+| URL | _url |
 | UserAccountId | user_AccountId |
 
 ## <a name="next-steps"></a>Sonraki adımlar

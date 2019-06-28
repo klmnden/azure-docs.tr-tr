@@ -72,24 +72,24 @@ GÖNDERME işlemi, tüm ölçüm tabanlı uyarılar için şema ve aşağıdaki 
 | Alan | Zorunlu | Sabit değer kümesi | Notlar |
 |:--- |:--- |:--- |:--- |
 | status |E |Etkin, çözülmüş |Belirlediğiniz koşullara göre uyarı durumu. |
-| Bağlam |E | |Uyarı bağlamı. |
+| context |E | |Uyarı bağlamı. |
 | timestamp |E | |Uyarının tetiklenme zamanı. |
 | id |E | |Her uyarı kuralı benzersiz bir kimliğe sahiptir. |
 | name |E | |Uyarı adı. |
 | description |E | |Uyarı açıklaması. |
-| Koşul türü |E |Ölçüm, olay |İki uyarı türleri desteklenir: ölçüm ve olay. Ölçüm uyarıları, bir ölçüm koşuluyla ilgili temel alır. Olay uyarıları bir etkinlik günlüğü olayında temel alır. Uyarı bir ölçüm veya olaya göre denetlemek için bu değeri kullanın. |
+| conditionType |E |Ölçüm, olay |İki uyarı türleri desteklenir: ölçüm ve olay. Ölçüm uyarıları, bir ölçüm koşuluyla ilgili temel alır. Olay uyarıları bir etkinlik günlüğü olayında temel alır. Uyarı bir ölçüm veya olaya göre denetlemek için bu değeri kullanın. |
 | condition |E | |Denetlenecek belirli alanları temel **koşul türü** değeri. |
-| MetricName |Ölçüm uyarıları | |Ne kuralı izler tanımlayan ölçüm adı. |
+| metricName |Ölçüm uyarıları | |Ne kuralı izler tanımlayan ölçüm adı. |
 | metricUnit |Ölçüm uyarıları |Bayt cinsinden BytesPerSecond, Count, CountPerSecond, yüzde, saniye |Ölçümde izin birimi. Bkz: [izin verilen değerler](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
 | metricValue |Ölçüm uyarıları | |Uyarıya neden ölçümü gerçek değeri. |
-| Eşik |Ölçüm uyarıları | |Eşik değeri, uyarı etkinleştirilir. |
-| pencereboyutu |Ölçüm uyarıları | |Süre, eşiğine dayalı uyarı etkinliğini izlemek için kullanılır. Değer 5 dakika ile 1 gün arasında olmalıdır. Değer ISO 8601 süre biçiminde olmalıdır. |
+| threshold |Ölçüm uyarıları | |Eşik değeri, uyarı etkinleştirilir. |
+| windowSize |Ölçüm uyarıları | |Süre, eşiğine dayalı uyarı etkinliğini izlemek için kullanılır. Değer 5 dakika ile 1 gün arasında olmalıdır. Değer ISO 8601 süre biçiminde olmalıdır. |
 | timeAggregation |Ölçüm uyarıları |Ortalama, en son, maksimum, Minimum, yok, toplam |Toplanan veriler, zaman içinde nasıl birleştirilmelidir. Ortalama varsayılan değerdir. Bkz: [izin verilen değerler](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
-| İşleci |Ölçüm uyarıları | |Geçerli ölçüm verileri için ayarlanan eşik ile karşılaştırmak için kullanılan işleç. |
+| operator |Ölçüm uyarıları | |Geçerli ölçüm verileri için ayarlanan eşik ile karşılaştırmak için kullanılan işleç. |
 | subscriptionId |E | |Azure abonelik kimliği |
 | resourceGroupName |E | |Etkilenen kaynak kaynak grubunun adı. |
 | resourceName |E | |Etkilenen kaynak kaynak adı. |
-| Kaynak türü |E | |Etkilenen kaynak kaynak türü. |
+| resourceType |E | |Etkilenen kaynak kaynak türü. |
 | resourceId |E | |Etkilenen kaynak kaynak kimliği. |
 | resourceRegion |E | |Bölgeyi veya etkilenen kaynak konumu. |
 | portalLink |E | |Portal kaynak özet sayfasına doğrudan bir bağlantı. |
