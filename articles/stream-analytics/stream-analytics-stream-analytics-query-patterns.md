@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.openlocfilehash: f6971038be7404850d958de67eb4755ae7d21a29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0f513462f1e09718dc18e9ce454b82e8978961f
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65761964"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329602"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Örnekler için sık kullanılan Stream Analytics kullanım desenlerini sorgulama
 
@@ -157,7 +157,7 @@ Azure Stream Analytics, olayları işlemeyi CSV, JSON ve Avro veri biçimlerini 
 
 **Output2**:
 
-| Yapın | Zaman | Count |
+| Yapın | Zaman | Sayı |
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -437,7 +437,12 @@ GROUP BY
 
 ```SQL
     SELECT
-        [user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
+        [user],
+    feature,
+    DATEDIFF(
+        second,
+        LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'),
+        Time) as duration
     FROM input TIMESTAMP BY Time
     WHERE
         Event = 'end'
@@ -627,7 +632,7 @@ WHERE
 
 **Çıkış**:
 
-| TollID | Sayı |
+| TollID | Count |
 | --- | --- |
 | 1 | 2 |
 | 2 | 2 |
@@ -655,7 +660,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **Giriş**:  
 
-| DeviceId | Zaman | Öznitelik | Değer |
+| DeviceId | Zaman | Öznitelik | Value |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |Sıcaklık |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |Sıcaklık |50 |
@@ -695,6 +700,15 @@ GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
 **Açıklama**: [COUNT (DISTINCT saati)](/stream-analytics-query/count-azure-stream-analytics) bir zaman penceresi içinde Time sütununda benzersiz değerlerin sayısını döndürür. Çıkış bu adımın ardından çoğaltmaları atarak cihaz başına ortalama işlem için de kullanabilirsiniz.
+
+## <a name="geofencing-and-geospatial-queries"></a>Bölge sınırlaması ve Jeo-uzamsal sorguları
+Azure Stream Analytics paylaşımı, bağlı arabalar ve varlık izleme bulutumuzda Filo yönetimi gibi senaryoları uygulamak için kullanılan yerleşik Jeo-uzamsal işlevler sağlar. Jeo-uzamsal veriler GeoJSON ya da WKT biçimlerde olay akışının bir parçası olarak aktarılabilir veya verilere başvurur. Daha fazla bilgi için [Azure Stream Analytics ile sona bölge sınırlaması ve Jeo-uzamsal toplama senaryoları](geospatial-scenarios.md) makalesi.
+
+## <a name="language-extensibility-through-javascript-and-c"></a>JavaScript dil genişletilebilirlik veC#
+Azure Stream Ananlytics sorgu langugae uzatabilirsiniz JavaScript'te yazılmış özel işlevler ile veya C# diller. Daha fazla bilgi için foolowing makalelere bakın:
+* [Azure Stream Analytics JavaScript kullanıcı tanımlı işlevleri](stream-analytics-javascript-user-defined-functions.md)
+* [Azure Stream Analytics JavaScript kullanıcı tanımlı toplamları](stream-analytics-javascript-user-defined-aggregates.md)
+* [Azure Stream Analytics Edge işleri için .NET Standard kullanıcı tanımlı işlevleri geliştirme](stream-analytics-edge-csharp-udf-methods.md)
 
 ## <a name="get-help"></a>Yardım alın
 

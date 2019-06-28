@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/02/2019
+ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 086161b73e2a3e07df835394dc26082e12fbd434
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a58d2b235757faf760539f514ea349e33e12b41
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963990"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310015"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Sağlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına kullanıcı otomatikleştirin
 
@@ -190,46 +190,7 @@ Sağlama işi karantinadan tüm soruna neden olan hataları sabittir ve sonraki 
 
 ## <a name="how-long-will-it-take-to-provision-users"></a>Ne kadar kullanıcıları sağlama sürer?
 
-Sağlama iş bir ilk eşitleme veya bir artımlı eşitleme çalıştıran performans bağlıdır.
-
-İçin **ilk eşitlemeler**, sağlama, kapsamında kullanıcıların ve grupların sayısı da dahil olmak üzere, birçok faktöre ve kullanıcı ve grup kaynak sistemindeki toplam sayısı işi zaman bağlıdır. İlk eşitleme performansı etkileyen faktörleri kapsamlı bir listesi bu bölümde daha sonra özetlenir.
-
-İçin **artımlı eşitlemeler**, işi zaman bu eşitleme döngüsü algılandı değişikliklerinin sayısına bağlı olarak değişir. 5\. 000'den daha az kullanıcı veya grup üyeliği değişiklikleri varsa, bir tek Artımlı eşitleme döngüsü içinde iş tamamlayabilir. 
-
-Eşitleme zamanlarını sağlama yaygın senaryolar için aşağıdaki tabloda özetlenmiştir. Bu senaryolarda, Azure AD kaynaklı sistemidir ve hedef sistemde bir SaaS uygulamasıdır. Eşitleme sürelerini ServiceNow, çalışma alanı, Salesforce ve G Suite SaaS uygulamaları için eşitleme işlerinin istatistiksel çözümleme türetilmiştir.
-
-
-| Kapsam yapılandırması | Kullanıcılara, gruplara veya kapsamda üyeleri | İlk eşitleme zamanı | Artımlı eşitleme zamanı |
-| -------- | -------- | -------- | -------- |
-| Atanan kullanıcı ve grupları yalnızca Eşitle |  < 1,000 |  < 30 dakika | < 30 dakika |
-| Atanan kullanıcı ve grupları yalnızca Eşitle |  1\.000 - 10.000 | 142 - 708 dakika | < 30 dakika |
-| Atanan kullanıcı ve grupları yalnızca Eşitle |   10,000 - 100,000 | 1,170 - 2,340 dakika | < 30 dakika |
-| Azure AD'de tüm kullanıcıları ve grupları Eşitle |  < 1,000 | < 30 dakika  | < 30 dakika |
-| Azure AD'de tüm kullanıcıları ve grupları Eşitle |  1\.000 - 10.000 | < 30-120 dakika | < 30 dakika |
-| Azure AD'de tüm kullanıcıları ve grupları Eşitle |  10,000 - 100,000  | 713 - 1,425 dakika | < 30 dakika |
-| Tüm kullanıcılar Azure AD'de eşitleme|  < 1,000  | < 30 dakika | < 30 dakika |
-| Tüm kullanıcılar Azure AD'de eşitleme | 1\.000 - 10.000  | 43 - 86 dakika | < 30 dakika |
-
-
-Yapılandırma için **eşitleme atanan kullanıcı ve grupları yalnızca**, şu formüllerden yaklaşık minimum ve maksimum beklenen belirlemek için kullanabileceğiniz **ilk eşitleme** saatler:
-
-    Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
-    Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
-    
-Tamamlamak süresini etkileyen faktörler özeti bir **ilk eşitleme**:
-
-- Kullanıcılar ve gruplar sağlama kapsamında toplam sayısı.
-
-- Kullanıcılar, gruplar ve Grup üyeleri kaynak sistemde bulunan (Azure AD) toplam sayısı.
-
-- Olup kullanıcıların sağlama kapsamında hedef uygulamada mevcut kullanıcılar eşleştirilir veya ilk kez oluşturulması gerekir. Eşitleme işleri, tüm kullanıcılar için ilk kez oluşturulur ele hakkında *iki kez sürece* olarak eşitleme işleri, tüm kullanıcılar için mevcut kullanıcıların eşleştirilir.
-
-- Hataların sayısı [denetim günlükleri](check-status-user-account-provisioning.md). Çok sayıda hata ve sağlama hizmeti bir karantina duruma geçti performans daha yavaş olur.    
-
-- İstek hız sınırları ve hedef sistem tarafından uygulanan kısıtlama. Bazı hedef sistemleri, istek hızı sınırlarını ve kısıtlama, büyük eşitleme işlemler sırasındaki performansınızı etkileyebilir uygular. Bu şartlar altında çok fazla istek çok hızlı aldığı uygulama yanıt hızını yavaş veya bağlantıyı kapatın. Performansı artırmak için bağlayıcı uygulama isteklerini uygulama bunları işleyebileceğinden daha hızlı göndererek değil ayarlamak gerekir. Microsoft tarafından oluşturulan sağlama bağlayıcılar bu ayarı yapın. 
-
-- Atanan gruplar boyutunu ve sayı. Atanan gruplar eşitleniyor kullanıcıları eşitleme daha uzun sürer. Sayı ve boyutları atanan gruplar performansı etkileyebilir. Bir uygulama varsa [eşlemeleri için nesne eşitleme grubu etkin](customize-application-attributes.md#editing-group-attribute-mappings)grubu adları gibi Grup Özellikleri ve üyeliklerinin yanı sıra kullanıcılar eşitlenmiş. Bu ek eşitlemeler yalnızca kullanıcı, nesneyi eşitleme daha uzun sürer.
-
+Sağlama iş bir ilk sağlama döngüsü veya artımlı bir döngüyle çalıştıran performans bağlıdır. Sağlama hizmeti durumunu izlemek nasıl ve ne kadar süreyle sağlama alır hakkında ayrıntı görmek [kullanıcı sağlama durumunu kontrol](application-provisioning-when-will-provisioning-finish-specific-user.md). 
 
 ## <a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>Kullanıcı düzgün hazırlanmadı olmadığını nasıl anlayabilirim?
 
@@ -255,7 +216,7 @@ Bir uygulamaya giden kullanıcı sağlama için bir örnek adım adım dağıtı
 
 Evet, SaaS uygulamaları için Azure AD'de hizmet sağlama B2B (veya konuk) kullanıcıları sağlama Azure AD Kullanıcınızı kullanmanız mümkündür.
 
-Ancak, B2B kullanıcıları Azure AD kullanarak SaaS uygulaması için oturum açmak SaaS uygulama belirli bir şekilde yapılandırılmış, SAML tabanlı çoklu oturum açma özelliği olması gerekir. B2B kullanıcıları oturum açmalar SaaS uygulamaları destekleyecek şekilde yapılandırma hakkında daha fazla bilgi için bkz: [yapılandırma SaaS uygulamaları için B2B işbirliği]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
+Ancak, B2B kullanıcıları Azure AD kullanarak SaaS uygulaması için oturum açmak SaaS uygulama belirli bir şekilde yapılandırılmış, SAML tabanlı çoklu oturum açma özelliği olması gerekir. SaaS uygulamalarını B2B kullanıcıları oturum açma işlemleri desteklemek için yapılandırma hakkında daha fazla bilgi için bkz. [yapılandırma SaaS uygulamaları için B2B işbirliği]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>Otomatik kullanıcı SaaS uygulamaları çalışmaya dinamik grupları ile Azure AD'de sağlamayı mu?
 

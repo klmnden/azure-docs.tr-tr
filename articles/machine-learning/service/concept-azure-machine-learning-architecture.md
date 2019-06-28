@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 294b376665ba6b62f79f826520bc933543b38bda
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0181eea2895dbc2b3db3367c850140e3fad21d4
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059276"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331717"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning hizmetinin nasıl çalıştığı: Mimari ve kavramları
 
@@ -97,7 +97,10 @@ Modelleri, ada ve sürüme göre tanımlanır. Mevcut bir aynı ada sahip bir mo
 
 Modeli kaydettiğinizde, ek meta veri etiketleri sağlar ve modelleri için arama yaptığınızda etiketleri kullanın.
 
-Etkin bir dağıtım tarafından kullanılan modelleri nelze odstranit.
+> [!TIP]
+> Kayıtlı bir model, modeli bir veya daha fazla dosyaların mantıksal bir kapsayıcıdır. Birden çok dosyasında depolanan bir model varsa, örneğin, bunları tek bir model Azure Machine Learning çalışma alanınızda kaydedebilirsiniz. Kayıt sonrasında sonra indirin veya kayıtlı modeli dağıtabilir ve kaydedilmiş tüm dosyalar alırsınız.
+
+Etkin bir dağıtım tarafından kullanılan bir kayıtlı modeli silinemiyor.
 
 Model kaydediliyor ilişkin bir örnek için bkz [bir Azure Machine Learning ile görüntü sınıflandırma modeli eğitme](tutorial-train-models-with-aml.md).
 

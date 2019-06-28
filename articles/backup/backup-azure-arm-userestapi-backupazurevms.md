@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 8a47d3cf346d7961e9f8b1c4fa615a2faa6b1da0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 295c4fed9ab674f0c9e812c02f6b82ee53ef1b91
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60646784"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274860"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>REST API aracılığıyla Azure Backup'ı kullanarak Azure VM yedekleme
 
@@ -108,13 +108,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 *Alma* URI'ya sahip tüm gerekli parametreleri. Hiçbir ek istek gövdesi gerekli değildir.
 
-#### <a name="responses"></a>Responses
+##### <a name="responses-1"></a>Yanıtları
 
 |Ad  |Tür  |Açıklama  |
 |---------|---------|---------|
 |200 TAMAM     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       Tamam |
 
-##### <a name="example-responses"></a>Örnek yanıt
+##### <a name="example-responses-1"></a>Örnek yanıt
 
 Bir kez *alma* istek gönderildi, bir 200 (Tamam) yanıt döndürülür.
 
@@ -329,7 +329,7 @@ Aşağıdaki istek gövdesi, korumalı bir öğe için bir yedek tetiklemek içi
 |---------|---------|---------|
 |202 kabul edildi     |         |     Kabul edildi    |
 
-#### <a name="example-responses"></a>Örnek yanıt
+##### <a name="example-responses-3"></a>Örnek yanıt
 
 Gönderdiğiniz sonra *POST* isteği için bir isteğe bağlı yedekleme, ilk yanıt, 202 (kabul edildi). bir konum üst bilgisi ya da Azure async başlığı.
 
@@ -439,7 +439,7 @@ DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroup
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
 ```
 
-### <a name="responses"></a>Responses
+### <a name="responses-2"></a>Yanıtları
 
 *SİLME* koruma bir [zaman uyumsuz işlem](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Bu işlem, ayrı ayrı izlenmesi gereken başka bir işlem oluşturur anlamına gelir.
 

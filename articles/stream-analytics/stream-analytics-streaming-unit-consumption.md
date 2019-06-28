@@ -8,17 +8,17 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/17/2019
-ms.openlocfilehash: acafd6d8f37edd3e16561a4e588556bb771619f8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.date: 06/21/2019
+ms.openlocfilehash: 54296f0b4aed22457a5218154111a42ad01ec262
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206702"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329334"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Anlayabilmemiz ve akış birimleri
 
-Akış birimleri (su), bir işin yürütülmesi için ayrılan işlem kaynakları temsil eder. SU sayısı ne kadar büyük olursa işe ayrılan CPU ve bellek kaynakları o kadar fazla olur. Bu sorgu mantığına odaklanabilir kapasite sağlar ve, Stream Analytics'i çalıştırmak için donanım yönetmenize gerek zamanında iş özetleri.
+Akış birimleri (su), bir Stream Analytics işi çalıştırmak için ayrılan işlem kaynakları temsil eder. SU sayısı ne kadar büyük olursa işe ayrılan CPU ve bellek kaynakları o kadar fazla olur. Bu sorgu mantığına odaklanabilir kapasite sağlar ve, Stream Analytics'i çalıştırmak için donanım yönetmenize gerek zamanında iş özetleri.
 
 Düşük gecikme süreli akış işlemeyi başarabilmek için, Azure Stream Analytics işleri tüm işlemi bellekte gerçekleştirir. Bellek yetersiz çalıştırırken, iş akışında başarısız olur. Sonuç olarak, bir üretim iş için bir akış işin kaynak kullanımını izlemek ve 7/24 çalışan işleri tutmak için ayrılmış yeterli kaynak bulunduğundan emin olun önemlidir.
 
@@ -85,7 +85,7 @@ Kullanılan bellek (durum boyutu) bir pencereli toplama için her zaman penceres
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-Önceki sorguda yüksek kardinalite kaynaklanan sorunları düzeltmek için olayları olay hub'ına tarafından bölümlenmiş gönderebilirsiniz `clusterid`ve her giriş bölümünü üzerinden ayrı olarak işlemek sistem sağlayarak sorgu genişletme **bölüm TARAFINDAN** aşağıdaki örnekte gösterildiği gibi:
+Önceki sorguda yüksek kardinalite kaynaklanan sorunları azaltmak için olayları olay hub'ına tarafından bölümlenmiş gönderebilirsiniz `clusterid`ve her giriş bölümünü üzerinden ayrı olarak işlemek sistem sağlayarak sorgu genişletme **bölüm TARAFINDAN** aşağıdaki örnekte gösterildiği gibi:
 
    ```sql
    SELECT count(*) 

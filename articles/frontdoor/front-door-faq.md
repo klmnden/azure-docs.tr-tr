@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 256435dfd016ebbd86dbbe49f4abbb346fb1cd19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b033f463722ddb3a0b7beabdf659900e7d7188df
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736675"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330875"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Azure ön kapısı hizmeti için sık sorulan sorular
 
@@ -75,11 +75,11 @@ Microsoft Azure CDN POP (varlık noktası) konumları listesiyle aynı Azure ön
 
 ### <a name="is-azure-front-door-service-a-dedicated-deployment-for-my-application-or-is-it-shared-across-customers"></a>Azure ön kapısı Service Uygulamam için adanmış dağıtımıdır veya müşteriler arasında paylaşılır?
 
-Azure ön kapısı Global olarak dağıtılmış çok kiracılı bir hizmet hizmetidir. Bu nedenle, altyapı için ön kapı, müşterilerinin arasında paylaşılır. Ancak, ön kapısı oluşturarak, uygulamanız için gereken belirli yapılandırmasını tanımlamak ve 
+Azure ön kapısı Global olarak dağıtılmış çok kiracılı bir hizmet hizmetidir. Bu nedenle, altyapı için ön kapı, müşterilerinin arasında paylaşılır. Ancak, ön kapısı profil oluşturarak, uygulamanız için gereken belirli yapılandırma tanımlama ve diğer ön kapısı yapılandırmaları, ön kapısı yapılan hiçbir değişiklik etkileyebilir.
 
 ### <a name="is-http-https-redirection-supported"></a>İş HTTP -> HTTPS yeniden yönlendirmesi desteklenir?
 
-Ön kapısı, URL yeniden yönlendirmesi şu anda desteklemiyor.
+Evet. Aslında, Azure ön kapısı hizmet konağı destekler, URL yeniden yönlendirmesi parçası yanı sıra, yeniden yönlendirme yolunu ve sorgu dize. Daha fazla bilgi edinin [URL yeniden yönlendirmesi](front-door-url-redirect.md). 
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>Yönlendirme kuralları hangi sırayla işlendiklerinden?
 
@@ -141,6 +141,11 @@ Azure ön kapı hizmeti muazzam miktarlarda uygulamanızın ölçeklenebilirlik 
 
 Güvenli bir şekilde ön kapısı ile özel bir etki alanında bulunan içerik teslim etmek üzere HTTPS protokolü etkinleştirmek için Azure ön kapısı hizmet tarafından yönetilen bir sertifika kullanın veya kendi sertifikanızı kullanmayı seçebilirsiniz.
 Ön kapısı, Digicert aracılığıyla standart bir SSL sertifikası seçeneğini hükümlerine yönetilen ve önde kapı'nın Key Vault depolanır. Kendi sertifikanızı kullanmayı seçerseniz ardından desteklenen bir CA'dan bir sertifika ekleyebilir ve standart SSL, Genişletilmiş Doğrulama sertifikası veya hatta bir joker karakter sertifika olabilir. Otomatik olarak imzalanan sertifikalar desteklenmez. Bilgi [için özel bir etki alanı HTTPS etkinleştirme](https://aka.ms/FrontDoorCustomDomainHTTPS).
+
+### <a name="does-front-door-support-auto-rotation-of-certificates"></a>Ön kapısı, sertifikaların otomatik döndürme destekliyor mu?
+
+Kendi özel SSL sertifikası için otomatik döndürme özellikleri desteklenmez. Benzer şekilde, belirli bir özel etki alanı için ilk kez kurulum nasıl olduğundan, noktası ön kapısı, anahtar Kasası'nda doğru sertifika sürümüne gerekir ve hizmet sorumlusu için ön kapı hala Key vault'a erişimi olduğundan emin olun. Bu güncelleştirilmiş sertifika dağıtım işlemi tarafından ön kapısı tamamen atomik ve konu adı sağlanan herhangi bir üretim etkisi neden olmaz ya da SAN sertifika için bir değişiklik yapmaz.
+</br>Ön kapısı yönetilen sertifikası seçeneğini, sertifikaları ön kapısı tarafından otomatik olarak döndürülebilir.
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door-service"></a>Azure ön kapısı hizmeti tarafından desteklenen geçerli şifre paketleri nelerdir?
 

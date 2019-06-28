@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 6e97826499842a257f6402bd5268edc4cd6a486e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 212e6b042caec5f24a620dc491dc674417816df7
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734906"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310374"
 ---
 # <a name="action-rules-preview"></a>Eylem kuralları (Önizleme)
 
@@ -30,6 +30,8 @@ Genellikle burada bu planlı bakım penceresi sırasında gizleme gizleme iş sa
 
 Uyarı kuralları bir uyarı oluşturulduğunda tetikleyen bir eylem grubu tanımlamanıza izin verse de, müşteriler genellikle operations kapsamlarına arasında ortak bir eylem grubu için eğilimindedir. Örneğin, kaynak grubu için 'ContosoRG' sorumlu bir ekip büyük olasılıkla 'ContosoRG' içinde tanımlanan tüm uyarı kuralları için aynı eylem grubunu tanımlarsınız. İşlem kuralları, böylece bir eylem grubu için yapılandırılmış kapsamda oluşturulan herhangi bir uyarı tetiklenebilir, uygun ölçekte, eylemleri tanımlamak olanak tanıyarak bu işlemi basitleştireceksiniz olanak tanır. Takım, önceki örneğe geri dönerseniz, artık 'içinde oluşturulan tüm uyarılar için aynı eylem grubu tetikleyecek ContosoRG' bir eylem kuralı tanımlayabilirsiniz.
 
+> [!NOTE]
+> Eylem kuralları şu anda hizmet durumu uyarıları için geçerli değildir.
 
 ## <a name="configuring-an-action-rule"></a>Bir eylem kuralı yapılandırma
 

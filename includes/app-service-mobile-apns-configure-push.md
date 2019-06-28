@@ -5,11 +5,11 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 852a3b00e8513f9ce68c5aae54c974505d0c9af6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66140133"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67188869"
 ---
 1. Mac'inizde başlatma **Anahtarlık erişimi**. Sol gezinti çubuğunda, altında **kategori**açın **My sertifikaları**. Önceki bölümde indirdiğiniz SSL sertifikasını bulmak ve ardından içeriği ifşa. Yalnızca sertifikası seçin (özel anahtarı seçmek için değil). Ardından [dışarı](https://support.apple.com/kb/PH20122?locale=en_US).
 2. İçinde [Azure portalında](https://portal.azure.com/)seçin **tümüne Gözat** > **uygulama hizmetleri**. Ardından select, Mobile Apps arka ucu. 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b00a5262b1e144aa47cd7fd640906225ff4fecd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 58c5c8321e505fe2c1c7d19c58fe0d031b75b3e4
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068800"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67294857"
 ---
 # <a name="azure-disk-encryption-overview"></a>Azure Disk Şifrelemesi'ne genel bakış
 
@@ -45,7 +45,7 @@ Azure Disk şifrelemesi aşağıdaki müşteri senaryoları destekler:
 Microsoft Azure'da etkin olduğunda da VM'ler için aşağıdaki senaryoları destekler:
 
 * Azure anahtar kasası ile tümleştirme.
-* [Standart katmanı Vm'lerini](https://azure.microsoft.com/pricing/details/virtual-machines/). [Linux Vm'leri](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) içinde bu katman 7 GB en düşük bellek gereksinimleri karşılaması gerekir. 
+* [Standart katmanı Vm'lerini](https://azure.microsoft.com/pricing/details/virtual-machines/) karşılayan [en düşük bellek gereksinimi](azure-security-disk-encryption-prerequisites.md#supported-vm-sizes). 
 * Windows ve Linux Vm'leri, yönetilen disk ve ölçek üzerinde şifrelemeyi etkinleştirme Vm'leri desteklenen Azure galeri görüntüleri kullanılarak ayarlayın.
 * İşletim sistemi ve veri şifrelemeyi devre dışı sürücüler için Windows Vm'leri, Ölçek, vm'leri ve yönetilen disk sanal makinelerini.
 * Veri sürücülerinde devre dışı bırakma şifreleme için Linux Vm'leri, Ölçek, vm'leri ve yönetilen disk sanal makinelerini.
@@ -56,7 +56,7 @@ Microsoft Azure'da etkin olduğunda da VM'ler için aşağıdaki senaryoları de
 * Linux VM işletim sistemi ve veri diskleri üzerinde şifrelemeyi etkinleştirme.
 
    > [!NOTE]
-   > Bazı Linux dağıtımlarında için işletim sistemi Sürücü Şifrelemesi desteklenmez. Daha fazla bilgi için [Azure Disk şifrelemesi hakkında SSS](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) makalesi.
+   > Bazı Linux dağıtımlarında için işletim sistemi Sürücü Şifrelemesi desteklenmez. Daha fazla bilgi için [Azure Disk şifrelemesi desteklenen işletim sistemleri: Linux](azure-security-disk-encryption-prerequisites.md#linux).
    
 * Windows Server 2016'dan itibaren Windows depolama alanları ile yapılandırılmış VM üzerinde şifrelemeyi etkinleştirme.
 * Yedekleme ve anahtar şifreleme anahtarı (KEK) ve KEK olmayan senaryolar için şifrelenmiş Vm'leri geri yükleme.
@@ -93,8 +93,6 @@ VM'ler için Windows ve Linux için Azure Disk şifrelemesi içerir:
 * [Disk şifreleme PowerShell cmdlet'lerini](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-2.2.0).
 * [Azure CLI disk şifreleme cmdlet'leri](/cli/azure/vm/encryption?view=azure-cli-latest).
 * [Azure Resource Manager disk şifreleme şablonları](azure-security-disk-encryption-appendix.md#resource-manager-templates).
-
-Azure Disk şifrelemesi, Windows veya Linux işletim sistemi çalıştıran sanal makineler üzerinde desteklenir. Desteklenen işletim sistemleri hakkında daha fazla bilgi için bkz. [sık sorulan sorular](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
 
 > [!NOTE]
 > Azure Disk şifrelemesi ile VM disklerini şifrelemek için ek ücret yoktur. Standart [anahtar kasası fiyatlandırma](https://azure.microsoft.com/pricing/details/key-vault/) şifreleme anahtarları depolamak için kullanılan anahtar kasası için geçerlidir. 

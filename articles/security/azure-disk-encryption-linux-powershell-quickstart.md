@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 05/17/2019
-ms.openlocfilehash: 7c44ffefccd4d78713d29aa2f9ab6006b8ba819e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 123d3e6ad0312a76540b68a28abf13008d419ca7
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67081486"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331410"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-virtual-machine-in-azure-with-powershell"></a>Hızlı Başlangıç: Oluşturma ve Azure PowerShell ile bir Linux sanal makinesi şifreleme
 
@@ -35,7 +35,7 @@ Bir Azure sanal makinesi oluşturma [New-AzVM](/powershell/module/az.compute/new
 $securePassword = ConvertTo-SecureString 'AZUREuserPA$$W0RD' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
 
-New-AzVM -Name MyVm -Credential $cred -ResourceGroupName MyResourceGroup -Image Canonical:UbuntuServer:16.04-LTS:latest  -Size Standard_D2S_V3
+New-AzVM -Name MyVm -Credential $cred -ResourceGroupName MyResourceGroup -Image Canonical:UbuntuServer:16.04-LTS:latest -Size Standard_D2S_V3
 ```
 
 VM'nizin dağıtılması birkaç dakika sürer. 

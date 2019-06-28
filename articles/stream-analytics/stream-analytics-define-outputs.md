@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: ba803c493fd85a7be7bc6c5922171678cc6e0df0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4e62ae47de95f95600faa3dc27f6867b065e117b
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164460"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329974"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics çıkışları anlama
 
@@ -30,7 +30,7 @@ Bazı çıkış türleri desteği [bölümleme](#partitioning). [Çıktı toplu 
 
 Stream Analytics destekler [Azure Data Lake depolama Gen 1](../data-lake-store/data-lake-store-overview.md). Azure Data Lake Storage bir büyük veri analizi iş yükleri için kuruluş çapında hiper ölçekli depodur. Data Lake Storage herhangi bir boyut, türü ve işletimsel ve keşfe dönük çözümleme için alma hızı verileri depolamak için kullanabilirsiniz. Stream Analytics, Data Lake Storage erişim iznine sahip olması gerekir.
 
-Stream analytics'ten Azure Data Lake depolama çıkışı şu anda Azure Çin (21Vianet) ve Azure Almanya'yı (T-Systems International) bölgelerinde kullanılabilir değil.
+Stream analytics'ten Azure Data Lake depolama çıkışı şu anda Azure Çin 21Vianet ve Azure Almanya'yı (T-Systems International) bölgelerinde kullanılabilir değil.
 
 Özellik adları ve açıklamaları, Data Lake depolama Gen 1 çıkışınızı yapılandırmak için aşağıdaki tabloda listelenmektedir.   
 
@@ -50,7 +50,7 @@ Stream analytics'ten Azure Data Lake depolama çıkışı şu anda Azure Çin (2
 
 ## <a name="sql-database"></a>SQL Veritabanı
 
-Kullanabileceğiniz [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/) kendiliğinden ilişkisel veriler veya ilişkisel bir veritabanında barındırılan içeriğe bağlı uygulamalar çıktı olarak. SQL veritabanı'nda var olan bir tablo için Stream Analytics işlerini yazma. Tablo şemasını, alanları ve bunların türlerini işinizin çıktısında tam olarak eşleşmelidir. Ayrıca belirtebileceğiniz [Azure SQL veri ambarı](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) aracılığıyla SQL veritabanı çıktı olarak çıkış seçeneği. Yazma aktarım hızını iyileştirmek için yollar hakkında bilgi edinmek için [çıktı olarak Azure SQL veritabanı ile Stream Analytics](stream-analytics-sql-output-perf.md) makalesi. 
+Kullanabileceğiniz [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/) kendiliğinden ilişkisel veriler veya ilişkisel bir veritabanında barındırılan içeriğe bağlı uygulamalar çıktı olarak. SQL veritabanı'nda var olan bir tablo için Stream Analytics işlerini yazma. Tablo şemasını, alanları ve bunların türlerini işinizin çıktısında tam olarak eşleşmelidir. Ayrıca belirtebileceğiniz [Azure SQL veri ambarı](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) aracılığıyla SQL veritabanı çıktı olarak çıkış seçeneği. Yazma aktarım hızını iyileştirmek için yollar hakkında bilgi edinmek için [çıktı olarak Azure SQL veritabanı ile Stream Analytics](stream-analytics-sql-output-perf.md) makalesi.
 
 Aşağıdaki tabloda özellik adları ve SQL veritabanı çıktı oluşturmak için bunların açıklaması listelenmektedir.
 
@@ -63,10 +63,10 @@ Aşağıdaki tabloda özellik adları ve SQL veritabanı çıktı oluşturmak i�
 | Parola | Veritabanına bağlanmak için parola. |
 | Tablo | Çıkış yazıldığı tablo adı. Tablo adı büyük/küçük harfe duyarlıdır. Bu tablonun şeması, alanları ve bunların türlerini, iş çıktısı üreten sayısı tam olarak eşleşmelidir. |
 |Bölüm düzeni devral| Tablo için birden çok yazarları içeren tam olarak paralel topolojisi etkinleştirmek için önceki bir sorgu adımına bölümleme düzeni devralma seçeneği. Daha fazla bilgi için [Azure SQL veritabanı için Azure Stream Analytics çıkış](stream-analytics-sql-output-perf.md).|
-|Eşleşme toplu iş sayısı| Önerilen sınır gönderilen her toplu ile kayıtlarının sayısı üzerinde işlem ekleyin.|
+|En yüksek toplu iş sayısı| Önerilen üst sınırı gönderilen her toplu ile kayıtlarının sayısı üzerinde işlem ekleyin.|
 
 > [!NOTE]
-> Stream Analytics, ancak bir Azure sanal makinesinde çalışan SQL Server veritabanını bağlı ile desteklenmeyen çıktısını bir iş için desteklenen sunan Azure SQL veritabanı.
+> Stream Analytics, ancak bir Azure sanal makinesinde SQL Server ile bağlı bir veritabanı veya yönetilen bir SQL Azure örneğinde henüz desteklenmeyen bir proje çıkışı için desteklenen sunan Azure SQL veritabanı. Gelecekteki sürümlerde değişebilir budur.
 
 ## <a name="blob-storage"></a>Blob depolama
 
@@ -108,7 +108,7 @@ Azure Blob Depolama, bulutta büyük miktarda yapılandırılmamış veriyi depo
 | Özellik adı | Açıklama |
 | --- | --- |
 | Çıktı diğer adı | Sorgu çıkışının bu olay hub'ına doğrudan sorgularında kullanılan bir kolay ad. |
-| Olay hub’ı ad alanı |Mesajlaşma varlıkları kümesine ilişkin bir kapsayıcı. Yeni bir olay hub'ı oluşturduğunuzda, bir olay hub'ı ad alanı da oluşturmuş. |
+| Olay hub’ı ad alanı | Mesajlaşma varlıkları kümesine ilişkin bir kapsayıcı. Yeni bir olay hub'ı oluşturduğunuzda, bir olay hub'ı ad alanı da oluşturmuş. |
 | Olay hub'ı adı | Olay hub'ı çıkış adı. |
 | Olay hub'ı ilke adı | Olay hub'ın oluşturabilirsiniz. paylaşılan erişim ilkesi **yapılandırma** sekmesi. Her paylaşılan erişim ilkesinin bir adı ayarlayın ve erişim anahtarları izinleri vardır. |
 | Olay hub'ı ilke anahtarı | Olay hub'ı ad kimlik doğrulaması yapmak için kullanılan paylaşılan erişim anahtarı. |
@@ -123,7 +123,7 @@ Azure Blob Depolama, bulutta büyük miktarda yapılandırılmamış veriyi depo
 
 Kullanabileceğiniz [Power BI](https://powerbi.microsoft.com/) için analiz sonuçları için bir zengin görselleştirme deneyiminin sunulabilmesi için bir Stream Analytics işi çıktı olarak. İşletimsel panolar, rapor oluşturma ve ölçüm temelli raporlama için bu özelliği kullanabilirsiniz.
 
-Stream Analytics'ten alınan Power BI çıkışı şu anda Azure Çin (21Vianet) ve Azure Almanya'yı (T-Systems International) bölgelerinde kullanılabilir değil.
+Stream Analytics'ten alınan Power BI çıkışı şu anda Azure Çin 21Vianet ve Azure Almanya'yı (T-Systems International) bölgelerinde kullanılabilir değil.
 
 Özellik adları ve açıklamaları, Power BI çıkışına yapılandırmak için aşağıdaki tabloda listelenmektedir.
 
@@ -209,17 +209,17 @@ Tarih saat | Dize | Dize |  Tarih saat | String
 
 Bölüm sayısı [Service Bus SKU ve boyutuna bağlı olarak](../service-bus-messaging/service-bus-partitioning.md). Bölüm anahtarı, her bölüm için benzersiz bir tamsayı değerdir.
 
-## <a name="service-bus-topics"></a>Hizmet Veri Yolu konuları
+## <a name="service-bus-topics"></a>Service Bus Konuları
 Service Bus kuyrukları, gönderenden alıcıya bire bir iletişim yöntemi sunar. [Service Bus konu başlıklarını](https://msdn.microsoft.com/library/azure/hh367516.aspx) bir-çok form iletişim sağlar.
 
-Özellik adları ve açıklamalarının bir konu çıktı oluşturmak için aşağıdaki tabloda listelenmektedir.
+Özellik adları ve açıklamalarının bir Service Bus konu çıktı oluşturmak için aşağıdaki tabloda listelenmektedir.
 
 | Özellik adı | Açıklama |
 | --- | --- |
 | Çıktı diğer adı |Sorgular, bu Service Bus konusu sorgu çıkışı yönlendirmek için kullanılan kolay bir ad. |
 | Service Bus ad alanı |Mesajlaşma varlıkları kümesine ilişkin bir kapsayıcı. Yeni bir olay hub'ı oluşturduğunuzda, bir Service Bus ad alanı da oluşturmuş olursunuz. |
 | Konu adı |Konular, olay hub'ları ile kuyruklarda benzer Mesajlaşma varlıklarıdır. Cihazlar ve hizmetler, olay akışları toplayacak şekilde tasarlanmışlardır. Bir konu oluşturduğunuzda, belirli bir ada da sağlamıştır. Bir konu başlığına gönderilen iletilerin bir abonelik oluşturulur sürece kullanılamaz, bu nedenle sağlamak konusunda altında bir veya daha fazla abonelik yok. |
-| Konu ilkesi adı |Bir konu oluşturduğunuzda konu üzerinde paylaşılan erişim ilkeleri de oluşturabilirsiniz **yapılandırma** sekmesi. Her paylaşılan erişim ilkesinin bir adı ayarlayın ve erişim anahtarları izinleri vardır. |
+| Konu ilkesi adı |Service Bus konu oluşturduğunuzda konu üzerinde paylaşılan erişim ilkeleri de oluşturabilirsiniz **yapılandırma** sekmesi. Her paylaşılan erişim ilkesinin bir adı ayarlayın ve erişim anahtarları izinleri vardır. |
 | Konu ilkesi anahtarı |Service Bus ad alanı kimlik doğrulaması yapmak için kullanılan paylaşılan erişim anahtarı. |
 | Olay serileştirme biçimi |Çıktı verilerini seri hale getirme biçimi. JSON, CSV ve Avro desteklenir. |
 | Encoding |CSV veya JSON biçimi kullanıyorsanız, bir kodlama belirtilmelidir. Şu anda desteklenen tek kodlama biçimi UTF-8'dir. |
@@ -231,7 +231,7 @@ Bölüm sayısı [Service Bus SKU ve boyutuna bağlı olarak](../service-bus-mes
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) dünyanın dört bir yanındaki, zengin sorgu ve şemadan veri modelleri üzerinde otomatik dizin oluşturma sınırsız elastik ölçeğin sunan Global olarak dağıtılmış veritabanı hizmetidir. Stream Analytics için Azure Cosmos DB koleksiyonu seçenekleri hakkında bilgi edinmek için bkz. [çıktı olarak Azure Cosmos DB ile bir Stream Analytics](stream-analytics-documentdb-output.md) makalesi.
 
-Stream analytics'ten Azure Cosmos DB çıkışı şu anda Azure Çin (21Vianet) ve Azure Almanya'yı (T-Systems International) bölgelerinde kullanılabilir değil.
+Stream analytics'ten Azure Cosmos DB çıkışı şu anda Azure Çin 21Vianet ve Azure Almanya'yı (T-Systems International) bölgelerinde kullanılabilir değil.
 
 > [!Note]
 > Şu anda Azure Stream Analytics tek bağlantısını için Azure Cosmos DB SQL API'sini kullanarak destekler.
@@ -253,7 +253,7 @@ Aşağıdaki tabloda, bir Azure Cosmos DB çıktı oluşturmak için özellikler
 ## <a name="azure-functions"></a>Azure İşlevleri
 Azure işlevleri, açıkça sağlamak veya altyapıyı yönetmek zorunda kalmadan kodu isteğe bağlı çalıştırmak için kullanabileceğiniz bir sunucusuz işlem hizmetidir. Azure veya iş ortağı Hizmetleri gerçekleşen olaylar tarafından tetiklenen kodu uygulama olanak tanır. Tetikleyicilere yanıt vermeye yönelik bu özelliği, Azure işlevleri, Azure Stream Analytics için doğal bir çıktı sağlar. Bu çıkış bağdaştırıcısı, kullanıcıların Stream Analytics, Azure işlevleri'ne bağlanın ve çok çeşitli olaylara yanıt olarak bir betik veya kod parçası çalıştırmak olanak tanır.
 
-Stream analytics'ten Azure işlevleri çıkışı şu anda Azure Çin (21Vianet) ve Azure Almanya'yı (T-Systems International) bölgelerinde kullanılabilir değil.
+Stream analytics'ten Azure işlevleri çıkışı şu anda Azure Çin 21Vianet ve Azure Almanya'yı (T-Systems International) bölgelerinde kullanılabilir değil.
 
 Azure Stream Analytics, Azure işlevleri HTTP Tetikleyicileri çağırır. Azure işlevler çıkış bağdaştırıcısı aşağıdaki yapılandırılabilir özelliklerle kullanılabilir:
 
@@ -295,7 +295,7 @@ Bölüm destek ve çıkış yazarların her çıkış türü sayısı aşağıda
 | Çıkış türü | Bölümleme desteği | Bölüm anahtarı  | Çıkış yazıcılar sayısı |
 | --- | --- | --- | --- |
 | Azure Data Lake Store | Evet | Kullanım: {date} ve {time} belirteçleri yol ön eki deseni. YYYY/MM/DD, GG/AA/YYYY veya AA-GG-YYYY gibi tarih biçimi seçin. SS saat biçimi için kullanılır. | Giriş bölümleme için aşağıdaki [tamamen paralelleştirilebilir sorguları](stream-analytics-scale-jobs.md). |
-| Azure SQL Database | Evet | Sorgusunda PARTITION BY yan tümcesi temel. | Giriş bölümleme için aşağıdaki [tamamen paralelleştirilebilir sorguları](stream-analytics-scale-jobs.md). Elde hakkında daha fazla daha iyi yazma verimliliği performansından Azure SQL veritabanı'na veri yükleme zaman bilgi edinmek için [Azure SQL veritabanı için Azure Stream Analytics çıkış](stream-analytics-sql-output-perf.md). |
+| Azure SQL Veritabanı | Evet, etkin gerekir. | Sorgusunda PARTITION BY yan tümcesi temel. | Giriş bölümleme için bölümleme devralma seçeneği etkin olduğunda, aşağıdaki [tamamen paralelleştirilebilir sorguları](stream-analytics-scale-jobs.md). Elde hakkında daha fazla daha iyi yazma verimliliği performansından Azure SQL veritabanı'na veri yükleme zaman bilgi edinmek için [Azure SQL veritabanı için Azure Stream Analytics çıkış](stream-analytics-sql-output-perf.md). |
 | Azure Blob depolama | Evet | Kullanım {date} ve {time} belirteçleri, olay alanlarından yol deseni. YYYY/MM/DD, GG/AA/YYYY veya AA-GG-YYYY gibi tarih biçimi seçin. SS saat biçimi için kullanılır. BLOB çıkış bölümlenebilir tek bir özel olay özniteliğiyle {fieldname} veya {datetime:\<belirticisi >}. | Giriş bölümleme için aşağıdaki [tamamen paralelleştirilebilir sorguları](stream-analytics-scale-jobs.md). |
 | Azure Event Hubs | Evet | Evet | Bölüm hizalama bağlı olarak değişir.<br /> Olay hub'ı çıkışı için bölüm anahtarı eşit Yukarı Akış (önceki) sorgu adımı hizalandığında yazıcılar sayısı olay hub'ı çıkışında bölüm sayısı ile aynıdır. Her yazıcı kullanan [EventHubSender sınıfı](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) bölüme olayları göndermek için. <br /> Olay hub'ı çıkışı için bölüm anahtarı Yukarı Akış (önceki) sorgu adımı hizalanmadığında yazıcılar sayısı, önceki adımda bölüm sayısı ile aynıdır. Her yazıcı kullanan [SendBatchAsync sınıfı](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) içinde **EventHubClient** çıkış bölümlere tüm olayları göndermek için. |
 | Power BI | Hayır | None | Geçerli değildir. |
@@ -315,14 +315,14 @@ Aşağıdaki tabloda bazı toplu işleme çıktısı için dikkat edilecek nokta
 | Çıkış türü | En büyük mesaj boyutu | Toplu iş boyutu en iyi duruma getirme |
 | :--- | :--- | :--- |
 | Azure Data Lake Store | Bkz: [Data Lake Storage sınırlar](../azure-subscription-service-limits.md#data-lake-store-limits). | Yazma işlemi başına en fazla 4 MB'ı kullanın. |
-| Azure SQL Veritabanı | tekil toplu başına en fazla 10.000 satır ekleyin.<br />tekil toplu başına en az 100 satır ekleyin. <br />Bkz: [Azure SQL sınırlar](../sql-database/sql-database-resource-limits.md). |  Her batch başlangıçta eklenmiş en yüksek toplu iş boyutu toplu olur. SQL yeniden denenebilir hatayla göre toplu yarıya (en düşük toplu iş boyutu ulaşana kadar) bölebilirsiniz. |
+| Azure SQL Veritabanı | En büyük toplu iş sayısı kullanılarak yapılandırılabilir. 10.000 en fazla ve 100 en az satır başına tek bir toplu varsayılan olarak ekleyin.<br />Bkz: [Azure SQL sınırlar](../sql-database/sql-database-resource-limits.md). |  Her batch başlangıçta toplu en yüksek toplu iş sayısı ile eklenmiş olur. Toplu işlem yeniden denenebilir hatayla SQL göre ikiye (kadar en düşük toplu iş sayısı) ayrılır. |
 | Azure Blob depolama | Bkz: [Azure depolama sınırlarını](../azure-subscription-service-limits.md#storage-limits). | En yüksek blob blok boyutu 4 MB'dir.<br />En yüksek blob bock sayısı 50. 000 ' dir. |
-| Azure Event Hubs  | İleti başına 256 KB. <br />Bkz: [Event Hubs sınırlar](../event-hubs/event-hubs-quotas.md). |  Giriş/Çıkış bölümleme hizalı değil, her olay, tek tek paketlenmiş **EventData** ve en büyük ileti boyutu (Premium SKU için 1 MB) kadar bir dizi içinde gönderilir. <br /><br />  Birden çok olay tek bir giriş/çıkış bölümleme hizalandığında paketlenir **EventData** , en büyük ileti boyutu en fazla örnek ve gönderilir.  |
+| Azure Event Hubs  | 256 KB veya ileti başına 1 MB. <br />Bkz: [Event Hubs sınırlar](../event-hubs/event-hubs-quotas.md). |  Giriş/Çıkış bölümleme hizalı değil, her olay, tek tek paketlenmiş `EventData` ve en büyük ileti boyutu en fazla toplu olarak gönderilir. Ayrıca, böyle [özel meta veri özelliklerini](#custom-metadata-properties-for-output) kullanılır. <br /><br />  Birden çok olay tek bir giriş/çıkış bölümleme hizalandığında paketlenir `EventData` , en büyük ileti boyutu en fazla örnek ve gönderilir. |
 | Power BI | Bkz: [Power BI Rest API'si sınırlar](https://msdn.microsoft.com/library/dn950053.aspx). |
 | Azure Tablo depolama | Bkz: [Azure depolama sınırlarını](../azure-subscription-service-limits.md#storage-limits). | Tek bir işlem başına 100 varlık varsayılandır. Gerektiği gibi küçük bir değer olarak yapılandırabilirsiniz. |
-| Azure Service Bus kuyruğu   | İleti başına 256 KB.<br /> Bkz: [Service Bus sınırlar](../service-bus-messaging/service-bus-quotas.md). | İleti başına tek bir olay kullanın. |
-| Azure Service Bus konusu | İleti başına 256 KB.<br /> Bkz: [Service Bus sınırlar](../service-bus-messaging/service-bus-quotas.md). | İleti başına tek bir olay kullanın. |
-| Azure Cosmos DB   | Bkz: [Azure Cosmos DB sınırlar](../azure-subscription-service-limits.md#azure-cosmos-db-limits). | Yığın boyutu ve sıklığı ayarlanmış dinamik olarak yazma alarak Azure Cosmos DB yanıtlarını. <br /> Stream Analytics'ten alınan önceden belirlenmiş bir sınırlama yoktur. |
+| Azure Service Bus kuyruğu   | Standart katman, Premium katman için 1MB ileti başına 256 KB.<br /> Bkz: [Service Bus sınırlar](../service-bus-messaging/service-bus-quotas.md). | İleti başına tek bir olay kullanın. |
+| Azure Service Bus konusu | Standart katman, Premium katman için 1MB ileti başına 256 KB.<br /> Bkz: [Service Bus sınırlar](../service-bus-messaging/service-bus-quotas.md). | İleti başına tek bir olay kullanın. |
+| Azure Cosmos DB   | Bkz: [Azure Cosmos DB sınırlar](../azure-subscription-service-limits.md#azure-cosmos-db-limits). | Toplu iş boyutu ve sıklığı ayarlanmış Azure Cosmos DB yanıtları göre dinamik olarak yazın. <br /> Stream Analytics'ten alınan önceden belirlenmiş bir sınırlama yoktur. |
 | Azure İşlevleri   | | Varsayılan batch 262.144 bayt (256 KB) boyutudur. <br /> Toplu iş başına varsayılan olay sayısı 100'dür. <br /> Toplu iş boyutu yapılandırılabilir ve artırabilir veya azaltılabilir Stream Analytics'te [çıktı seçenekleri](#azure-functions).
 
 ## <a name="next-steps"></a>Sonraki adımlar
