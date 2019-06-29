@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 38276757d0472582c3cf5035e1f52d34158a7e38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1692032b093cd6189cac3ea3f63c563d9accd8ed
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61433720"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477824"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Proje akustik Unreal/Wwise tasarım Öğreticisi
 Bu öğreticide, Unreal ve Wwise proje akustik için tasarım Kurulum ve iş akışı açıklanır.
@@ -122,6 +122,11 @@ Otomatik olarak player konumuna bağlı Akış yerine kendiniz akış akustik ve
 Döşeme boyutu zaten zorla yük kutucuk çağrılmadan önce ayarlanmalıdır. Örneğin, şunun gibi bir ACE dosya yüklemek, döşeme boyutunu ayarlama ve bir bölgede akışını yapabilirsiniz:
 
 ![Unreal seçeneklerinde akış Kurulum ekran görüntüsü](media/streaming-setup.png)
+
+Bu örnekte kullanılan yükleme akustik verilerini blueprint işlevi aşağıdaki parametrelere sahiptir:
+
+* **Hedef:** AcousticsSpace aktör.
+* **Yeni hazırlama:** Yüklenecek akustik veri varlığı. Bu boş /, null ayarı bırakarak geçerli hazırlama, yeni bir yüklemeden boşaltacak.
 
 ### <a name="optionally-query-for-surface-proximity"></a>İsteğe bağlı olarak sorgu yüzeyi yakınlık için
 Ne kadar yakın görmek istiyorsanız yüzeyleri dinleyici etrafında belirli bir yönde, sorgu Distance işlevi kullanabilirsiniz. Bu işlev, tek yönlü Gecikmeli yansımalar kullanımını veya oyun yüzeyi yakınlık tarafından yönetilen başka bir mantık için yararlı olabilir. Akustik arama tablodan sonuçlar alınır için sorgu ray atama daha ucuzdur.

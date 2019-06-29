@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/09/2019
+ms.date: 06/28/2019
 ms.author: aahi
-ms.openlocfilehash: 9ae894bee803c60b56a1bfacd5667f355aa44d2b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 835dc8d25ad1d6a30020408636b556c3f247200d
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799992"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478368"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Hızlı Başlangıç: Metin analizi Bilişsel hizmetini çağırmak için Python REST API'si kullanma 
 <a name="HOLTop"></a>
@@ -49,7 +49,6 @@ Tercih ettiğiniz düzenleyiciyi veya IDE içinde yeni bir Python uygulaması ol
 import requests
 # pprint is used to format the JSON response
 from pprint import pprint
-from IPython.display import HTML
 ```
 
 Değişkenler için abonelik anahtarınızı ve metin analizi REST API uç noktası oluşturun. Uç nokta bölgede, kaydolurken kullandığınız bir uyumlu olduğundan emin olun (örneğin `westcentralus`). Ücretsiz bir deneme sürümü anahtarı kullanıyorsanız, herhangi bir ayarı değiştirmek gerekmez.
@@ -90,7 +89,7 @@ languages = response.json()
 pprint(languages)
 ```
 
-### <a name="output"></a>Çıktı
+### <a name="output"></a>Output
 
 ```json
 {
@@ -160,7 +159,7 @@ sentiments = response.json()
 pprint(sentiments)
 ```
 
-### <a name="output"></a>Çıktı
+### <a name="output"></a>Output
 
 Bir belge için yaklaşım puanını 0.0 ile 1.0, daha pozitif yaklaşımı belirten için daha yüksek bir puan arasındadır.
 
@@ -192,7 +191,7 @@ Bir belge için yaklaşım puanını 0.0 ile 1.0, daha pozitif yaklaşımı beli
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases"></a>Başlıca sözcük gruplarını ayıkla
+## <a name="extract-key-phrases"></a>Anahtar ifadeleri ayıklama
  
 Bir dizi belgeler anahtar ifadeleri ayıklamak için URL'ye `keyPhrases` dil algılama URL'yi oluşturmak için metin analizi temel uç. Örneğin, `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
     
@@ -220,7 +219,7 @@ key_phrases = response.json()
 pprint(key_phrases)
 ```
 
-### <a name="output"></a>Çıktı
+### <a name="output"></a>Output
 
 ```json
 {
@@ -290,7 +289,7 @@ response  = requests.post(entities_url, headers=headers, json=documents)
 entities = response.json()
 ```
 
-### <a name="output"></a>Çıktı
+### <a name="output"></a>Output
 
 ```json
 {'documents': [{'id': '1',

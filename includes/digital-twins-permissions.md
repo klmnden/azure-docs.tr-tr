@@ -2,50 +2,50 @@
 title: include dosyası
 description: include dosyası
 services: digital-twins
-author: alinamstanciu
+author: dsk-2015
 ms.service: digital-twins
 ms.topic: include
-ms.date: 06/26/2019
-ms.author: alinast
+ms.date: 06/28/2019
+ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: f03ee57867185eac946be5b596477bf942643587
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 324f41055cf333081f308a3ff533ff7df6b33038
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67459103"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67479260"
 ---
 >[!NOTE]
->Burada kullanılan eski AAD uygulama kaydı yakında kullanımdan kaldırılacak dikkat edin. Bu bölümde Azure dijital çiftleri ile tamamen tümleşik bir kez güncelleştirilir [yeni AAD uygulama kaydı](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Bu arada, yeni bir AAD uygulama kaydı ile denemeler. Kullanmanız gerekecektir Not [genel istemci (Mobil ve yayımlaması)](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types#mobile-and-native-apps) için *yeniden yönlendirme URI'si*. 
+>Yönergeler için bu bölümde [yeni Azure AD uygulama kaydı](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Hala eski yerel uygulama kayıt varsa, bu desteklenir mi sürece kullanabilir. Ayrıca, herhangi bir nedenden dolayı uygulama işlese yeni yolu kurulumunuzda çalışmıyorsa yerel eski bir AAD uygulaması oluşturmak deneyebilirsiniz. Okuma [ile Azure Active Directory eski Azure dijital İkizlerini uygulamanızı kaydetmeniz](../articles/digital-twins/how-to-use-legacy-aad.md) daha fazla yönerge için. 
 
-1. İçinde [Azure portalında](https://portal.azure.com)açın **Azure Active Directory** sol bölmeden ve ardından açık **özellikleri** bölmesi. **Dizin Kimliğini** geçici bir dosyaya kopyalayın. Sonraki bölümde örnek bir uygulama yapılandırmak için bu değeri kullanacaksınız.
+1. İçinde [Azure portalında](https://portal.azure.com)açın **Azure Active Directory** sol bölmeden ve ardından açık **uygulama kayıtları** bölmesi. Seçin **yeni kayıt** düğmesi.
 
-    ![Azure Active Directory dizin kimliği](./media/digital-twins-permissions/aad-app-reg-tenant.png)
+    ![Kayıtlı uygulama](./media/digital-twins-permissions/aad-app-register.png)
 
-1. İçinde [Azure portalında](https://portal.azure.com)açın **Azure Active Directory** sol bölmeden ve ardından açık **uygulama kayıtları (eski)** bölmesi. Seçin **yeni uygulama kaydı** düğmesi.
-
-1. Bu uygulama kaydında için kolay bir ad verin **adı** kutusu. Seçin **uygulama türü** olarak **yerel**, ve **yeniden yönlendirme URI'si** olarak `https://microsoft.com`. **Oluştur**’u seçin.
+1. Bu uygulama kaydında için kolay bir ad verin **adı** kutusu. Altında **yeniden yönlendirme URI'si (isteğe bağlı)** bölümünde, seçin **genel istemci (Mobil ve Masaüstü)** sol taraftaki açılan girin `https://microsoft.com` metin kutusuna sağ. **Kaydol**’u seçin.
 
     ![Bölmesinde oluşturma](./media/digital-twins-permissions/aad-app-reg-create.png)
 
-1.  Kayıtlı uygulama açın ve değerini kopyalayın **uygulama kimliği** geçici bir dosya alanı. Bu değer, Azure Active Directory uygulamanızı tanımlar. Uygulama kimliği, örnek uygulamanızı aşağıdaki bölümlerde yapılandırmak için kullanırsınız.
+1. Emin olmak için [uygulama olarak kaydedilmiş bir *yerel uygulama*](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration)açın **kimlik doğrulaması** bölmesi için uygulama kaydı ve bu bölmedeki aşağı kaydırın. İçinde **varsayılan istemci türü** bölümünde, seçin **Evet** için **uygulama genel bir istemci kabul**. 
+
+    ![Varsayılan yerel](./media/digital-twins-permissions/aad-app-default-native.png)
+
+1.  Açık **genel bakış** kayıtlı uygulamanızın bölmesi ve aşağıdaki varlık değerleri geçici bir dosyaya kopyalayın. Aşağıdaki bölümlerde örnek Uygulamanızı yapılandırmak için bu değerleri kullanacaksınız.
+
+    - **Uygulama (istemci) kimliği**
+    - **(Kiracı) dizin kimliği**
 
     ![Azure Active Directory Uygulama Kimliği](./media/digital-twins-permissions/aad-app-reg-app-id.png)
 
-1. Uygulamanızı uygulama kayıt bölmesini açın. Seçin **ayarları** > **gerekli izinler**ve ardından:
+1. Açık **API izinleri** uygulama kaydınızı bölmesi. Seçin **bir izin eklemek** düğmesi. İçinde **istek API izinleri** bölmesinde **Kuruluşum kullandığı API'leri** sekmesine ve ardından arama **Azure akıllı alanları**. Seçin **Azure akıllı hizmet alanları** API.
 
-   a. Seçin **Ekle** açmak için üst sol taraftaki **API erişimi Ekle** bölmesi.
+    ![Arama API’si](./media/digital-twins-permissions/aad-app-search-api.png)
 
-   b. Seçin **bir API seçin** araması **Azure dijital İkizlerini**. Arama sonucunda API görüntülenmezse **Azure Smart Spaces** araması yapın.
+1. Seçili API olarak gösterilir **Azure dijital İkizlerini** aynı **istek API izinleri** bölmesi. Seçin **okuma (1)** açılan menü ve ardından **Read.Write** onay kutusu. Seçin **izinleri eklemek** düğmesi.
 
-   c. Seçin **Azure dijital İkizlerini (Azure akıllı alanları Service)** seçenek ve **seçin**.
+    ![API izinleri ekleme](./media/digital-twins-permissions/aad-app-req-permissions.png)
 
-   d. Seçin **izinleri seçin**. Seçin **okuma/yazma erişimi** temsilci izinleri kutusunu işaretleyin ve **seçin**.
+1. Kuruluşunuzun ayarlara bağlı olarak, yönetici bu API'ye erişim için ek adımlar gerekebilir. Daha fazla bilgi için yöneticinize başvurun. Yönetici erişimi onaylandıktan sonra **yönetici onayı gerekli** sütununda **API izinleri** bölmesinde Apı'leriniz için aşağıdakine benzer gösterir:
 
-   e. Seçin **Bitti** içinde **API erişimi Ekle** bölmesi.
+    ![API izinleri ekleme](./media/digital-twins-permissions/aad-app-admin-consent.png)
 
-   f. İçinde **gerekli izinler** bölmesinde **izinleri verin** düğmesine ve görüntülenen bildirim kabul edin. Bu API için izin verilmezse, yöneticinize başvurun.
-
-      ![Gerekli izinler bölmesinde](./media/digital-twins-permissions/aad-app-req-permissions.png)
-
- 

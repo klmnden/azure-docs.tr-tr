@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 766d009be3cd664d928a3c12f5fea38c26bbbdde
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ad4a67d7737733e4c910d3495be29860769f27e
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64692207"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477803"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Anomali algılayıcısı API kullanımı için en iyi uygulamalar
 
@@ -51,7 +51,7 @@ Batch anomali algılama özelliğiyle aynı veri kümesi aşağıdadır. İşlem
 
 ## <a name="data-preparation"></a>Veri hazırlama
 
-Zaman serisi Anomali algılayıcısı API kabul biçimlendirilmiş JSON istek nesnesine verileri. Zaman serisi sırayla zaman içinde kayıtlı olan herhangi bir sayısal veri olabilir. Zaman serisi verilerinin windows API'SİNİN performansını artırmak için Anomali algılayıcısı API uç noktası için gönderebilirsiniz. En az sayıda veri noktası gönderebilirsiniz 12, ve en fazla 8640 noktaları. 
+Zaman serisi Anomali algılayıcısı API kabul biçimlendirilmiş JSON istek nesnesine verileri. Zaman serisi sırayla zaman içinde kayıtlı olan herhangi bir sayısal veri olabilir. Zaman serisi verilerinin windows API'SİNİN performansını artırmak için Anomali algılayıcısı API uç noktası için gönderebilirsiniz. En az sayıda veri noktası gönderebilirsiniz 12, ve en fazla 8640 noktaları. [Ayrıntı düzeyi](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) verilerinizi, örnek oranı olarak tanımlanır. 
 
 Veri noktaları Anomali algılayıcısı API'ye gönderilen geçerli Eşgüdümlü Evrensel Saat (UTC) zaman damgası ve sayısal değer olmalıdır. 
 
@@ -68,6 +68,15 @@ Veri noktaları Anomali algılayıcısı API'ye gönderilen geçerli Eşgüdüml
         "value": 29615278
       },
     ]
+}
+```
+
+Verilerinizi bir standart olmayan bir zaman aralığında örneklenir, onu ekleyerek belirtebilirsiniz `customInterval` isteğinizdeki özniteliği. Örneğin, her 5 dakikada bir örneklenir seri, aşağıdaki JSON isteğiniz ekleyebilirsiniz:
+
+```json
+{
+    "granularity" : "minutely", 
+    "customInterval" : 5
 }
 ```
 

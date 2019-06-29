@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 04/04/2019
 ms.author: aahi
-ms.openlocfilehash: d8f8d110a13e768d93f0be3c4baaf5715436f2ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8d2aed16b5af60c44501e6d72332783a164ff91
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60828062"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478383"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Metin analizi API'si için örnek kullanıcı senaryoları
 
@@ -29,7 +29,7 @@ Insights, müşterilerin ve çalışanların anketlerin sonuçlarını yaklaşı
 
 ## <a name="analyze-recorded-inbound-customer-calls"></a>Kaydedilen gelen müşteri çağrılarını çözümleyin
 
-Metin okuma, yaklaşım analizi ve anahtar ifade ayıklama kullanarak müşteri hizmetleri çağrılarından içgörüleri ayıklayın. Sonuçlar, Power BI panosunu veya daha iyi müşteriler anlamak, müşteri hizmeti eğilimleri ve müşteri katılım vurgulamak için bir portal görüntüler. API istekleri için raporlama veya toplu olarak müdahale için gerçek zamanlı gönderin. 
+Metin okuma, yaklaşım analizi ve anahtar ifade ayıklama kullanarak müşteri hizmetleri çağrılarından içgörüleri ayıklayın. Sonuçlar, Power BI panosunu veya daha iyi müşteriler anlamak, müşteri hizmeti eğilimleri ve müşteri katılım vurgulamak için bir portal görüntüler. API istekleri için raporlama veya toplu olarak müdahale için gerçek zamanlı gönderin. Bkz: [örnek kod](https://github.com/rlagh2/callcenteranalytics).
 
 ![Yaklaşım analizi kullanarak nasıl otomatik hale getirme ınsights müşteri hizmetinden açıklayan bir görüntü çağırır.](media/use-cases/azure-inbound.svg)
 

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: abd50f4e2ca08bea2af491f4b3991278a6dc3b5e
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 0abeb3235f296e2dc873bcfe88910cdd12555d71
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399879"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476208"
 ---
-# <a name="manage-an-azure-cosmos-account"></a>Bir Azure Cosmos hesabı yönetme
+# <a name="manage-an-azure-cosmos-account"></a>Azure Cosmos hesabını yönetme
 
 Bu makalede, Azure portalı, Azure PowerShell, Azure CLI ve Azure Resource Manager şablonlarını kullanarak bir Azure Cosmos hesapta çeşitli görevleri yönetmek açıklar.
 
@@ -35,7 +35,8 @@ az cosmosdb create \
    --resource-group $resourceGroupName \
    --kind GlobalDocumentDB \
    --default-consistency-level Session \
-   --locations WestUS=0 EastUS=1 \
+   --locations regionName=WestUS failoverPriority=0 isZoneRedundant=False \
+   --locations regionName=EastUS failoverPriority=1 isZoneRedundant=False \
    --enable-multiple-write-locations true
 ```
 
@@ -100,13 +101,13 @@ $resourceGroupName = 'myResourceGroup'
 $accountName = 'myaccountname'
 
 # Create an account with 1 region
-az cosmosdb create --name $accountName --resource-group $resourceGroupName --locations westus=0
+az cosmosdb create --name $accountName --resource-group $resourceGroupName --locations regionName=westus failoverPriority=0 isZoneRedundant=False
 
 # Add a region
-az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations westus=0 eastus=1
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations regionName=westus failoverPriority=0 isZoneRedundant=False --locations regionName=EastUS failoverPriority=1 isZoneRedundant=False
 
 # Remove a region
-az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations westus=0
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations regionName=westus failoverPriority=0 isZoneRedundant=False
 ```
 
 ### <a id="add-remove-regions-via-ps"></a>Azure PowerShell
@@ -368,7 +369,7 @@ Elle yük devretme gerçekleştirmek için işlem hesabın yazma bölgesini değ
 $resourceGroupName = 'myResourceGroup'
 $accountName = 'myaccountname'
 
-az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations westus=0 eastus=1
+az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations regionName=westus failoverPriority=0 isZoneRedundant=False --locations regionName=eastus failoverPriority=1 isZoneRedundant=False
 ```
 
 ### <a id="enable-manual-failover-via-ps"></a>Azure PowerShell
