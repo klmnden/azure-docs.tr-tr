@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 0fe30bc6bdd1bba03df349305d8846e78063bd26
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6df40909e2072ac2126344ba5b696c9e520e9955
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342204"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434128"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Yükleme ve konuşma hizmeti kapsayıcıları çalıştırma
 
@@ -25,7 +25,7 @@ Konuşma kapsayıcıları hem güçlü bulut özellikleri hem de edge yerleşim 
 
 |İşlev|Özellikler|en son|
 |-|-|--|
-|Konuşmayı Metne Dönüştürme| <li>Sürekli gerçek zamanlı konuşma veya toplu ses kayıtları Ara sonuçlarla metne dönüştürür.|1.1.1|
+|Konuşmayı Metne Dönüştürme| <li>Sürekli gerçek zamanlı konuşma veya toplu ses kayıtları Ara sonuçlarla metne dönüştürür.|1.1.2|
 |Metin Okuma| <li>Metni, doğal sesli konuşmaya dönüştürür. düz metin girişi veya konuşma sentezi işaretleme dili (SSML'yi). |1.1.0|
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
@@ -101,10 +101,10 @@ Tüm etiketleri dışında `latest` aşağıdaki biçimdedir burada `<culture>` 
 Aşağıdaki etiketi biçimi örneğidir:
 
 ```
-1.0.0-amd64-en-us-preview
+1.1.2-amd64-en-us-preview
 ```
 
-Aşağıdaki tabloda desteklenen yerel ayarlar için **konuşma metin** 1.1.1, kapsayıcı sürümü:
+Aşağıdaki tabloda desteklenen yerel ayarlar için **konuşma metin** 1.1.2 içinde kapsayıcı sürümü:
 
 |Dil yerel ayar|Tags|
 |--|--|
@@ -129,7 +129,7 @@ Tüm etiketleri dışında `latest` aşağıdaki biçimdedir burada `<culture>` 
 Aşağıdaki etiketi biçimi örneğidir:
 
 ```
-1.0.0-amd64-en-us-jessarus-preview
+1.1.0-amd64-en-us-jessarus-preview
 ```
 
 Aşağıdaki tabloda desteklenen yerel ayarlar için **metin okuma** 1.1.0 içinde kapsayıcı sürümü:

@@ -2,19 +2,19 @@
 title: Eşleştirme ve hizalama - özel Translator cümle
 titleSuffix: Azure Cognitive Services
 description: Eğitim yürütme sırasında paralel belgelerinde mevcut cümlelerin eşleştirilmiş veya hizalanır. Özel Translator çevirileri bir cümle, bir kerede bir cümle, bu cümleyi çevirisi okuyarak öğrenir. Ardından sözcük ve tümcecikleri birbirine bu iki cümle içinde hizalar.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 99538fd18067377efcc9e744e9ec611e0f685273
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f73c40704e10a8e2368ee1eb369ee3dccdf269ee
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389609"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448308"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Tümce eşleştirme ve paralel belgelerde hizalama
 

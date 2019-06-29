@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: d8330ff663a7adc2f1cae3ed6bdf1cec2fa972c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae075dbc922932a4eaffd9126560c159d33459d0
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808444"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466975"
 ---
 # <a name="ship-an-application"></a>Bir uygulama teslim edin
 
@@ -46,6 +46,9 @@ Gerekli dosyaları Speech SDK'sı, uygulamanızın aynı dizinde dağıtılabili
 
 >[!NOTE]
 > Dosya sürümünden 1.3.0 başlayarak `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (önceki sürümlerde sevk) artık gerekli değildir. İşlevselliği artık çekirdek SDK'sı tümleşiktir.
+
+>[!NOTE]
+> Windows Forms uygulaması (.NET Framework) için C# proje, kitaplıkları, projenizin dağıtım ayarlarında dahil olduğundan emin olun. İşbu sözleşmenin denetleyebilirsiniz `Properties -> Publish Section`. Tıklayın `Application Files` düğmesi ve karşılık gelen kitaplıklarından listesini aşağı kaydırın bulun. Emin değeri ayarı `Included`. Visual Studio Proje yayımlanan ve dağıtılmış olduğunda dosya içerir.
 
 ## <a name="linux"></a>Linux
 

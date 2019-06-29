@@ -3,20 +3,20 @@ title: Bilgi bankaları - soru-cevap Oluşturucu geçirme
 titleSuffix: Azure Cognitive Services
 description: Bilgi Bankası geçiş, bir Bilgi Bankası dışarı aktarma ve ardından başka bir içeri aktarma gerektirir.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 8ff3c497372a761bd8a02ae81bc897c8ee297bd0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 04ee592122d7c76396f091f8d249518976682004
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65794878"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446603"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>İçeri dışarı aktarma kullanarak Bilgi Bankası geçirme
 

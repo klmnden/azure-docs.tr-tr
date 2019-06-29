@@ -3,19 +3,19 @@ title: Meta veri API'si - soru-cevap Oluşturucu GenerateAnswer ile
 titleSuffix: Azure Cognitive Services
 description: Soru-cevap Oluşturucu meta verileri anahtar/değer çiftleri biçiminde soru/yanıt kümelerinizi eklemenizi sağlar. Kullanıcı sorgularının sonuçlarını filtrelemek ve izleme konuşmalardaki kullanılabilecek ek bilgileri depolar.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 06/17/2019
-ms.author: tulasim
-ms.openlocfilehash: d1e7a29e4ca94405e2d6b2000309ef6e2c3a777c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 06/27/2019
+ms.author: diberry
+ms.openlocfilehash: 99c076d7f26638833b568935e766cf319d21945e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164603"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443466"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Meta veri ve GenerateAnswer API ile bir yanıt alın
 
@@ -37,13 +37,13 @@ Her bir soru-cevap varlık benzersiz ve kalıcı bir kimliğe sahip Belirli bir 
 
 ## <a name="get-answer-predictions-with-the-generateanswer-api"></a>GenerateAnswer API'si ile yanıt Öngörüler alın
 
-En iyi eşleşmeyi soru ve yanıt almak için ayarlar, kullanıcı soru ile bilgi bankanızı sorgulamak için robot veya uygulamada GenerateAnswer API'ı kullanın.
+Kullandığınız [GenerateAnswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) en iyi eşleşmeyi soru ve yanıt almak için robot veya uygulama ile kullanıcı soru bilgi bankanızı sorgulamak için ayarlar.
 
 <a name="generateanswer-endpoint"></a>
 
 ## <a name="publish-to-get-generateanswer-endpoint"></a>GenerateAnswer uç noktası almak için yayımlama 
 
-Bilgi Bankası ' nden ya da yayımladıktan sonra [soru-cevap Oluşturucu portalı](https://www.qnamaker.ai), kullanarak veya [API](https://go.microsoft.com/fwlink/?linkid=2092179), GenerateAnswer uç noktanızı ayrıntılarını alabilirsiniz.
+Bilgi Bankası ' nden ya da yayımladıktan sonra [soru-cevap Oluşturucu portalı](https://www.qnamaker.ai), kullanarak veya [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), GenerateAnswer uç noktanızı ayrıntılarını alabilirsiniz.
 
 Uç nokta ayrıntılarını almak için:
 1. [https://www.qnamaker.ai](https://www.qnamaker.ai) adresinde oturum açın.
@@ -59,34 +59,21 @@ Ayrıca, uç nokta ayrıntılarını alabilirsiniz **ayarları** bilgi bankanız
 
 ## <a name="generateanswer-request-configuration"></a>GenerateAnswer isteği yapılandırması
 
-Bir HTTP POST isteği ile GenerateAnswer çağırırsınız. Nasıl GenerateAnswer çağrılacağını gösteren örnek kod için bkz: [hızlı başlangıçlar](../quickstarts/csharp.md).
+Bir HTTP POST isteği ile GenerateAnswer çağırırsınız. Nasıl GenerateAnswer çağrılacağını gösteren örnek kod için bkz: [hızlı başlangıçlar](../quickstarts/csharp.md). 
 
-**İstek URL'si** aşağıdaki biçime sahiptir: 
+POST isteğini kullanır:
+
+* Gerekli [URI parametreleri](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
+* Gerekli [üst bilgi özelliği](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer), `Authorization`, güvenlik
+* Gerekli [gövde özellikleri](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto). 
+
+GenerateAnswer URL'si aşağıdaki biçime sahiptir: 
 
 ```
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-|HTTP isteği özelliği|Ad|Tür|Amaç|
-|--|--|--|--|
-|URL rota parametresi|Bilgi Bankası kimliği|string|Bilgi bankanızı GUİD'i.|
-|URL rota parametresi|QnAMaker uç nokta ana bilgisayarı|string|Azure aboneliğinizde dağıtılmış uç nokta konak adı. Bu üzerinde kullanılabilir **ayarları** Bilgi Bankası yayımladıktan sonra sayfa. |
-|Üstbilgi|İçerik türü|string|API'ye gönderilen gövdenin medya türü. Varsayılan değer: ''|
-|Üstbilgi|Yetkilendirme|string|Uç nokta anahtarınızı (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
-|POST gövdesini|JSON nesnesi|JSON|Ayarları sorusu.|
-
-
-JSON gövdesi birkaç ayar vardır:
-
-|JSON gövdesi özelliği|Gerekli|Tür|Amaç|
-|--|--|--|--|
-|`question`|Gerekli|string|Bilgi Bankası'na gönderilmesini kullanıcı soru.|
-|`top`|İsteğe bağlı|integer|Çıktıda dereceli sonuç sayısı. Varsayılan değer 1’dir.|
-|`userId`|İsteğe bağlı|string|Kullanıcıyı tanımlamak için benzersiz bir kimliği. Bu kimliği, sohbet günlüklerine kaydedilir.|
-|`scoreThreshold`|İsteğe bağlı|integer|Yalnızca bu eşiğin üzerinde güven puanıyla birlikte yanıt döndürülür. Varsayılan değer 0’dır.|
-|`isTest`|İsteğe bağlı|Boolean|Varsa true olarak döndürür sonuçlardan kümesi `testkb` yayımlanan dizin yerine arama dizini.|
-|`strictFilters`|İsteğe bağlı|string|Bu seçenek belirtilmişse, yalnızca belirtilen meta verilerine de sahip yanıtlarını döndürmek için soru-cevap Oluşturucu bildirir. Kullanım `none` yanıtı hiçbir meta veri filtresini olması belirtmek için. |
-|`RankerType`|İsteğe bağlı|string|Olarak belirtilirse `QuestionOnly`, yalnızca Sorular aramak için soru-cevap Oluşturucu bildirir. Belirtilmezse, soru-cevap Oluşturucu sorularını ve yanıtlarını arar.
+HTTP üst bilgisi özelliğini ayarlamayı unutmayın `Authorization` bir dize değeri ile `EndpointKey ` ile sondaki bulunan uç noktası anahtarı ardından boşluk **ayarları** sayfası.
 
 Örnek JSON gövdesi aşağıdaki gibi görünür:
 
@@ -109,19 +96,7 @@ JSON gövdesi birkaç ayar vardır:
 
 ## <a name="generateanswer-response-properties"></a>GenerateAnswer yanıt özellikleri
 
-Başarılı bir yanıt durumu 200 ve bir JSON yanıtı döndürür. 
-
-|Yanıtlar özelliği (puana göre sıralanmış olarak)|Amaç|
-|--|--|
-|puan|0 ile 100 arasında bir derecelendirme puanı.|
-|Kimlik|Yanıt atanmış bir benzersiz kimliği.|
-|Sorular|Kullanıcı tarafından sağlanan soru.|
-|Yanıt|Sorusuna verilen yanıt.|
-|source|İçinden yanıt ayıklanır veya Bilgi Bankası'ndaki kaydedilen kaynağının adı.|
-|meta veriler|Yanıtla ilişkili meta veriler.|
-|Metadata.Name|Meta veri adı. (string, maksimum uzunluk: gerekli 100)|
-|Metadata.Value|Meta veri değeri. (string, maksimum uzunluk: gerekli 100)|
-
+[Yanıt](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful_query) tüm yanıt ve sonraki görüntülemek ihtiyacınız olan bilgileri kapatma konuşmada varsa dahil olmak üzere bir JSON nesnesi.
 
 ```json
 {

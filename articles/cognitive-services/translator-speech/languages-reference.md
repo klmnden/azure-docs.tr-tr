@@ -3,20 +3,20 @@ title: Translator konuşma tanıma API'si dilleri yöntemi
 titleSuffix: Azure Cognitive Services
 description: Translator konuşma tanıma API'si dilleri yöntemi kullanın.
 services: cognitive-services
-author: Jann-Skotdal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: v-jansko
+ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7498ba08b9ce7b6aae10f38a393eb8cba37f3f4e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4abe6330d0359f7d7c922facecaaf1a8b1fc7174
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60827910"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446949"
 ---
 # <a name="translator-speech-api-languages"></a>Translator konuşma tanıma API'si: Languages
 
@@ -140,8 +140,8 @@ X-RequestId|Değer, istek tanımlamak için sunucu tarafından oluşturulan ve s
 
 |Parametre|Açıklama|Parametre türü|Veri Türü|
 |:--|:--|:--|:--|
-|API sürümü    |İstemci tarafından istenen API sürümü. İzin verilen değerler: `1.0`.|sorgu|string|
-|scope  |Desteklenen diller ya da ses istemciye döndürmek için ayarlar. Bu parametre, anahtar sözcükleri virgülle ayrılmış listesi olarak belirtilir. Aşağıdaki anahtar sözcükler vardır:<ul><li>`speech`: Konuşma tanıma özelliği için desteklenen dil kümesini sağlar.</li><li>`tts`: Metni konuşmaya dönüştürme için desteklenen kişilerden daha fazlasını sunmaktadır.</li><li>`text`: Metin çevirme için desteklenen dil kümesini sağlar.</li></ul>Bir değer belirtilmezse, değerini `scope` varsayılan olarak `text`.|sorgu|string|
+|API sürümü    |İstemci tarafından istenen API sürümü. İzin verilen değerler: `1.0`.|query|string|
+|scope  |Desteklenen diller ya da ses istemciye döndürmek için ayarlar. Bu parametre, anahtar sözcükleri virgülle ayrılmış listesi olarak belirtilir. Aşağıdaki anahtar sözcükler vardır:<ul><li>`speech`: Konuşma tanıma özelliği için desteklenen dil kümesini sağlar.</li><li>`tts`: Metni konuşmaya dönüştürme için desteklenen kişilerden daha fazlasını sunmaktadır.</li><li>`text`: Metin çevirme için desteklenen dil kümesini sağlar.</li></ul>Bir değer belirtilmezse, değerini `scope` varsayılan olarak `text`.|query|string|
 |X-ClientTraceId    |Bir istek izleme için kullanılan istemci tarafından oluşturulan GUID. İlgili sorunları gidermeyi kolaylaştırmak için istemciler her istek ile yeni bir değer sağlayın ve oturumu.|üst bilgi|string|
 |Kabul dil    |Bazı alanlar yanıt diller ya da bölgelerdeki adlarıdır. Adları döndürülen dil tanımlamak için bu parametreyi kullanın. Dil, doğru biçimlendirilmiş BCP 47 dil etiketi sağlayarak belirtilir. Etiket ile döndürülen Dil tanımlayıcıları listesinden seçin `text` kapsam. Desteklenmeyen diller için adlarını İngilizce dilinde sağlanır.<br/>Örneğin, değerini kullanın `fr` Fransızca adlarında istek veya değeri kullanmak için `zh-Hant` isteği adlarına Geleneksel Çince.|üst bilgi|string|
 

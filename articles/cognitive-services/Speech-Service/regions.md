@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 518f1048224a97943756c5b51b83cd509f82e11e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1ad618e9eb70fd75f433030584c0f6538532928f
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072508"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466984"
 ---
 # <a name="speech-service-supported-regions"></a>Konuşma hizmeti desteklenen bölgeler
 
@@ -73,6 +73,20 @@ Kullanılabilir bölgeler için **niyeti tanıma** Speech SDK'sı aşağıda ver
  Güney Amerika | Güney Brezilya | `brazilsouth`
 
 Bu, bir alt kümesi tarafından desteklenen yayımlama bölgeler [Language Understanding hizmeti (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
+
+### <a name="voice-first-virtual-assistants"></a>Ses öncelikli sanal Yardımcıları
+
+[Speech SDK'sı](speech-sdk.md) destekler **ses öncelikli sanal asistan** bu bölgelerde özellikleri:
+
+Bölge | Konuşma SDK parametresi
+-------|---------------------
+Batı ABD | `westus`
+Batı ABD 2 | `westus2`
+Doğu ABD | `eastus`
+Doğu ABD 2 | `eastus2`
+Batı Avrupa | `westeurope`
+Kuzey Avrupa | `northeurope`
+Güneydoğu Asya | `southeastasia`
 
 ## <a name="rest-apis"></a>REST API'leri
 

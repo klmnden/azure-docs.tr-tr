@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: erhopf
-ms.openlocfilehash: c5f7b0b739e9311e2527e63db7279d2075f0f1ff
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: da7259585ad66ac9b58131ce834d82e7b3d4bcf2
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341275"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466957"
 ---
 # <a name="what-is-text-to-speech"></a>Metin okuma nedir?
 
@@ -24,7 +24,7 @@ Azure konuşma Services'dan metin okuma, uygulamalar, Araçlar veya cihazları d
 Metin okuma teknolojisi, içerik oluşturucuların kullanıcılarının ile farklı yöntemle etkileşim kurmasına imkan tanır. Metin okuma, kullanımı içeriklerle etkileşim için bir seçenek ile kullanıcılara sağlayarak erişilebilirlik artırabilir. Metin okuma, kullanıcı bir görsel engelliler, bir öğrenme engelli veya sürüş Gezinti bilgilerini gerektiriyor olsun, var olan bir deneyim artırabilir. Metin okuma da bir değerli ses robotlar ve sanal Yardımcıları eklentisidir.
 
 
-Konuşma sentezi işaretleme dili (SSML'yi), bir XML-tabanlı işaretleme dili yararlanarak metin okuma hizmeti kullanan geliştiriciler nasıl giriş metni belirtebilirsiniz Sentezlenen konuşmaya dönüştürülür. SSML'yi ile aralık, Söyleniş, oranı, birim ve daha fazlası gibi ayarlayabilirsiniz. Daha fazla bilgiler için bkz. [SSML'yi](#speech-synthesis-markup-language-ssml).
+Konuşma sentezi işaretleme dili (SSML'yi), bir XML-tabanlı işaretleme dili yararlanarak metin okuma hizmeti kullanan geliştiriciler nasıl giriş metni belirtebilirsiniz Sentezlenen konuşmaya dönüştürülür. SSML'yi ile aralık, Söyleniş, oranı, birim ve daha fazlası gibi ayarlayabilirsiniz. Daha fazla bilgi için [SSML'yi](#speech-synthesis-markup-language-ssml).
 
 ### <a name="standard-voices"></a>Standart sesler
 
@@ -87,7 +87,10 @@ Hızlı başlangıçlar, kodu 10 dakikadan kısa bir süre içinde çalıştırm
 
 | Hızlı Başlangıç (SDK) | Platform | API başvurusu |
 |------------|----------|---------------|
+| [C#, .NET Core](quickstart-text-to-speech-dotnetcore.md) | Windows | [Göz atma](https://aka.ms/csspeech/csharpref) |
 | [C#, .NET Framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [Göz atma](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](quickstart-text-to-speech-csharp-uwp.md) | Windows | [Göz atma](https://aka.ms/csspeech/csharpref) |
+| [C#, Unity](quickstart-text-to-speech-csharp-unity.md) | Windows, Android | [Göz atma](https://aka.ms/csspeech/csharpref) |
 | [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Göz atma](https://aka.ms/csspeech/cppref) |
 | [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Göz atma](https://aka.ms/csspeech/cppref) |
 

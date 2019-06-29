@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 8c7476a82df75d8ba653a2a8e6c0f9f557b53c42
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: dd8ed146c507d8d39ba99c6573321ee80bc891c9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341867"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442570"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Bir varlık için örnek Konuşma ekleme 
 
 Örnek konuşma metin kullanıcı sorularınız ya da komutları örnekleridir. Language Understanding (LUIS) öğretmeyi eklemeniz gerekir [örnek konuşma](luis-concept-utterance.md) için bir [hedefi](luis-concept-intent.md).
 
-Genellikle, bir örnek utterance bir amaç için öncelikle eklemeniz ve ardından varlıkları oluşturun ve konuşma niyetini sayfasında etiket. Varlıkları ilk yerine oluşturacak olup [varlık Ekle](luis-how-to-add-entities.md).
+Genellikle, hedefi bir ilk örnek utterance ekleyin ve ardından varlıkları oluşturun ve konuşma etiket **hedefleri** sayfası. Varlıkları ilk yerine oluşturacak olup [varlık Ekle](luis-how-to-add-entities.md).
 
 ## <a name="marking-entities-in-example-utterances"></a>Örnek konuşma varlıklarda işaretleme
 
@@ -32,7 +32,7 @@ Otomatik olarak etiketlendiğinden, önceden oluşturulmuş varlıklarla ve norm
 
 ## <a name="add-a-simple-entity"></a>Basit bir varlık ekleme
 
-Aşağıdaki yordamda, oluşturun ve hedefi sayfasında aşağıdaki utterance içinde özel bir varlık etiketi:
+Aşağıdaki yordamda, oluşturmak ve özel varlık içinde aşağıdaki utterance etiketiyle **hedefleri** sayfası:
 
 ```text
 Are there any SQL server jobs?
@@ -65,9 +65,9 @@ Bir şirketin bölüm listesi için değerleri normalleştirilmiş: `Accounting`
 
     Diğer konuşma etiketleme veya varlıktan düzenleyerek daha fazla liste öğelerini veya daha fazla öğe eş anlamlılar ekleyebilirsiniz **varlıkları** sol gezinti bölmesinde. [Düzenleme](luis-how-to-add-entities.md#add-list-entities) varlıkları girme ek öğeleri karşılık gelen, eş anlamlılar veya listesini alma seçeneği sunar. 
 
-## <a name="add-composite-entity"></a>Bileşik varlık ekleme
+## <a name="add-a-composite-entity"></a>Bileşik bir varlık ekleme
 
-Bileşik varlıklar, varolan oluşturulur **varlıkları** üst varlık içinde. 
+Bileşik varlıklar, varolan oluşturulur **varlıkları** üst varlık oluşturmak için. 
 
 Utterance varsayılarak `Does John Smith work in Seattle?`, bileşik bir utterance çalışan adını varlık bilgileri döndürebilir `John Smith`ve konumunu `Seattle` bileşik bir varlık içinde. Alt varlıklar uygulamada zaten bulunmalı ve Bileşik varlık oluşturmadan önce örnek utterance işaretlenmelidir.
 
@@ -131,15 +131,15 @@ Seçilen grubu veya ayrı bir öğe olarak örnek konuşma eylemleri gerçekleş
 
 ### <a name="remove-entity-labels-from-utterances"></a>Varlık etiketleri konuşma kaldırın
 
-Hedefi sayfasında bir utterance makine öğrenilen varlık etiketleri kaldırabilirsiniz. Varlık makine öğrenilen değilse, bir utterance kaldırılamaz. Utterance bir makine öğrenilen varlık kaldırmanız gerekirse, tüm uygulamadan varlığı silmek gerekir. 
+Intents sayfasında bir utterance makine öğrenilen varlık etiketleri kaldırabilirsiniz. Varlık makine öğrenilen değilse, bir utterance kaldırılamaz. Utterance bir makine öğrenilen varlık kaldırmanız gerekirse, tüm uygulamadan varlığı silmek gerekir. 
 
 Bir utterance makine öğrenilen varlık etiketi kaldırmak için utterance varlığı seçin. Ardından **Etiketi Kaldır** varlık açılan kutusunda görünür.
 
-### <a name="add-prebuilt-entity-label"></a>Önceden oluşturulmuş varlık etiketi Ekle
+### <a name="add-a-prebuilt-entity-label"></a>Önceden oluşturulmuş varlık etiketi Ekle
 
 Önceden oluşturulmuş varlıklarla LUIS uygulamanıza eklediğinizde, bu varlıklarla etiketi konuşma gerek yoktur. Önceden oluşturulmuş varlıklar ve bunları nasıl ekleyeceğinizi hakkında daha fazla bilgi için bkz: [varlık Ekle](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
-### <a name="add-regular-expression-entity-label"></a>Normal ifade varlık etiketi Ekle
+### <a name="add-a-regular-expression-entity-label"></a>Bir normal ifade varlık etiketi Ekle
 
 LUIS uygulamanızı normal ifade varlıkları eklerseniz, bu varlıklarla etiketi konuşma gerekmez. Normal ifade varlıkları ve bunları nasıl ekleyeceğinizi hakkında daha fazla bilgi için bkz: [varlık Ekle](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts).
 
@@ -149,7 +149,7 @@ LUIS uygulamanızı normal ifade varlıkları eklerseniz, bu varlıklarla etiket
 Bkz: [hedefi veya varlık sayfasında mevcut utterance Ekle deseni](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 
 
-### <a name="add-patternany-entity"></a>Pattern.Any varlık ekleme
+### <a name="add-a-patternany-entity"></a>Pattern.any varlık ekleme
 
 LUIS uygulamanızı pattern.any varlıkları eklerseniz, bu varlıklarla konuşma etiketi olamaz. Bunlar yalnızca desenleri geçerli olur. Pattern.any varlıkları ve bunları nasıl ekleyeceğinizi hakkında daha fazla bilgi için bkz: [varlık Ekle](luis-how-to-add-entities.md#add-patternany-entities-to-capture-free-form-entities).
 
@@ -159,4 +159,4 @@ Eklemek, düzenlemek ve kaldırmak, konuşma sonra [eğitme](luis-how-to-train.m
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Konuşma, hedefleri olarak etiketleme sonra artık oluşturabileceğiniz bir [Bileşik varlık](luis-how-to-add-entities.md).
+Sonra konuşma etiketleme, **hedefleri**, artık oluşturabilirsiniz bir [Bileşik varlık](luis-how-to-add-entities.md).

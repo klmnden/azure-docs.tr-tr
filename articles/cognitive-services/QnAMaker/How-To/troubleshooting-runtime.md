@@ -3,26 +3,27 @@ title: Sorun giderme - QnAMaker
 titlesuffix: Azure Cognitive Services
 description: Kullanıcının Azure hesabında barındırılan bileşenlerinin QnAMaker oluşur. Hata ayıklama QnAMaker Azure kaynaklarını yönetmek veya QnAMaker destek ekibi kendi kurulumu hakkında ek bilgi sağlamak kullanıcıların gerektirebilir.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/14/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6a84ecff04381b6dcc9706105df92ecc96dc8b1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b65a121e895b4855c7c69d2b67e7055c88ddd08
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61389523"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466052"
 ---
 # <a name="troubleshooting-tips-to-support-the-qna-maker-service-and-runtime"></a>Çalışma zamanı ve soru-cevap Oluşturucu hizmetini desteklemek için sorun giderme ipuçları
 Kullanıcının Azure hesabında barındırılan bileşenlerinin QnAMaker oluşur. Hata ayıklama QnAMaker Azure kaynaklarını yönetmek veya QnAMaker destek ekibi kendi kurulumu hakkında ek bilgi sağlamak kullanıcıların gerektirebilir.
 
 ## <a name="how-to-get-latest-qnamaker-runtime-updates"></a>QnAMaker çalışma zamanı güncelleştirmeleri alma
-QnAMaker çalışma zamanı parçası olan Azure App Service'in ne zaman dağıtılacağını, [QnAMaker hizmeti oluşturma](./set-up-qnamaker-service-azure.md) Azure portalında. Güncelleştirmeler çalışma zamanı için düzenli aralıklarla hale getirilir. QnAMaker kurulumunuzu uygulamak için en son güncelleştirmeleri uygulamak için uygulama hizmetini yeniden başlatmanız gerekir.
+QnAMaker çalışma zamanı parçası olan Azure App Service'in ne zaman dağıtılacağını, [QnAMaker hizmeti oluşturma](./set-up-qnamaker-service-azure.md) Azure portalında. Güncelleştirmeler çalışma zamanı için düzenli aralıklarla hale getirilir. Soru-cevap Oluşturucu App Service olduğundan üzerinde otomatik güncelleştirme modu post bizim Apr 2019 site uzantısı sürümü (sürüm 5 +). Bu, zaten sıfır kapalı kalma süresini yükseltmeler sırasında halletmeniz için tasarlanmıştır. En geçerli sürümünüzü kontrol edebilirsiniz https://www.qnamaker.ai/UserSettings. Sürümünüzü sürümden daha eski ise 5.x, App Service QnAMaker kurulumunuzu uygulamak için en son güncelleştirmeleri uygulamak için yeniden başlatmanız gerekir.
+
 1. QnAMaker hizmetinize (kaynak grubu) Git [Azure portalı](https://portal.azure.com)
 
     ![QnAMaker Azure kaynak grubu](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)

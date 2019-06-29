@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
-ms.openlocfilehash: 88b0ac853c64e1e32a2d1c429bdf8655158f030d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8d5c416183a7d475a46c5e538577069612baf8e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65411459"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449018"
 ---
 # <a name="specify-a-face-recognition-model"></a>Yüz tanıma modeli belirtme
 
@@ -53,7 +53,7 @@ Bunu atanmamış, varsayılan model sürüm bırakırsanız (_recognition_01_) k
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
 ```
 
 ## <a name="identify-faces-with-specified-model"></a>Belirtilen model ile yüzleri belirleyin
@@ -67,7 +67,7 @@ Aşağıdaki kod örneği için .NET istemci kitaplığı bakın.
 ```csharp
 // Create an empty PersonGroup with "recognition_02" model
 string personGroupId = "mypersongroupid";
-await faceServiceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
 ```
 
 Bu kodda, bir **PersonGroup** kimlikli `mypersongroupid` oluşturulur, ve bunu kullanmak için ayarlanan _recognition_02_ yüz özelliklerini ayıklamak için model.
@@ -83,7 +83,7 @@ Benzerlik arama tanıma modeli de belirtebilirsiniz. Model sürümüyle atayabil
 Aşağıdaki kod örneği için .NET istemci kitaplığı bakın.
 
 ```csharp
-await faceServiceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
 ```
 
 Bu kod olarak adlandırılan bir yüz listesi oluşturur ve `My face collection`kullanarak _recognition_02_ özelliği ayıklama için model. Bu yüz listesi için yeni bir algılanan yüz benzer yüzleri için arama yaparken, yüz algılandı gerekir ([Yüz tanıma - algılayın]) kullanarak _recognition_02_ modeli. Önceki bölümde gösterildiği gibi modelin tutarlı olması gerekir.

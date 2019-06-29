@@ -2,19 +2,19 @@
 title: Verileri filtreleme - özel Translator
 titleSuffix: Azure Cognitive Services
 description: Özel bir sistem eğitim için kullanılacak belgeleri gönderdiğinizde, belgeleri işlemek ve filtreleme adımları eğitim için hazırlamak için bir dizi geçeriz.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: ba6d1ed5bc26f121f32fad548e7a17c1f4998851
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a224a30114d03468c5764528e6c7472572a93f1c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389347"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443445"
 ---
 # <a name="data-filtering"></a>Veri filtreleme
 

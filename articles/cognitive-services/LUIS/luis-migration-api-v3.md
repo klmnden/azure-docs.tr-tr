@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: fb4cf119195b3be23dc8f2cb98bd019769583473
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4c08c95a05d4f22e2338a7264409aec0f64a4755
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341847"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442514"
 ---
-# <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>Önizleme: API sürümüne geçirme 3.x LUIS uygulamalar için
+# <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>Önizleme: API sürümüne geçirme 3.x LUIS uygulamalar için
 
 Sorgu tahmin uç nokta API'leri değişti. Sürüm 3 uç nokta API'leri geçirme anlamak için bu kılavuzu kullanın. 
 
@@ -43,6 +43,27 @@ Aşağıdaki LUIS özellikleri **desteklenmiyor** V3 API:
 * Bing yazım denetimi V7
 
 [Başvuru belgeleri](https://aka.ms/luis-api-v3) V3 için kullanılabilir.
+
+## <a name="endpoint-url-changes-by-slot-name"></a>Uç nokta URL'si değişiklikleri yuvası ada göre
+
+V3 uç noktası HTTP çağrısı değişti.
+
+|YÖNTEMİ|URL'si|
+|--|--|
+|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0 Önizleme</b>/apps/<b>{uygulama-kimliği}</b>/slots/<b>{YUVASI-adı}</b>/ tahmin edin|
+|||
+
+## <a name="endpoint-url-changes-by-version-id"></a>Uç nokta URL'si değişikliklerden sürüm kimliği
+
+Sürüm tarafından sorgulamak istiyorsanız, önce yapmanız [API aracılığıyla yayımlama](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) ile `"directVersionPublish":true`. Yuva adı yerine sürüm kimliği başvuran uç noktasını sorgulayın.
+
+
+|YÖNTEMİ|URL'si|
+|--|--|
+|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0 Önizleme</b>/apps/<b>{uygulama-kimliği}</b>/versions/<b>{sürüm-kimliği}</b>/ Tahmin mi? sorgu =<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0 Önizleme</b>/apps/<b>{uygulama-kimliği}</b>/versions/<b>{sürüm-kimliği}</b>/ tahmin etme|
+|||
 
 ## <a name="prebuilt-entities-with-new-json"></a>Önceden oluşturulmuş varlıklarla yeni JSON
 

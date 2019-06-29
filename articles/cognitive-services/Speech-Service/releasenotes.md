@@ -8,17 +8,42 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 06/26/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: f22b0fcac6099482addfcf56a20e0e828866326e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 09296585ab0ab61f39c18cae6c533c0bbd91926a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606360"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449256"
 ---
 # <a name="release-notes"></a>Sürüm notları
+
+## <a name="speech-sdk-160-2019-june-release"></a>SDK'sı 1.6.0 konuşma: 2019 Haziran yayını
+**Örnekler**
+*   Metin okuma UWP ve Unity için hızlı başlangıç örnekleri
+*   İOS Swift için hızlı başlangıç örnek
+*   Konuşma & amacı tanımayı ve çeviri için Unity örnekleri
+*   DialogServiceConnector için güncelleştirilmiş hızlı başlangıç örnekleri
+
+**Geliştirmeleri / değiştirir**
+* İletişim kutusu ad alanı:
+    * SpeechBotConnector DialogServiceConnector için yeniden adlandırıldı
+    * BotConfig DialogServiceConfig için yeniden adlandırıldı
+    * BotConfig::FromChannelSecret() DialogServiceConfig::FromBotSecret() için eşleştirilmiş
+    * Tüm mevcut doğrudan satır konuşma istemcileri yeniden adlandırma sonrasında desteklenmeye devam edilir.
+* Proxy, kalıcı bağlantı desteklemek için TTS REST bağdaştırıcısı güncelleştirme
+* Hata iletisi geçersiz olan bir bölge geçirildiğinde geliştirin
+
+**Hata düzeltmeleri**
+*   TTS için düzeltme: Burada SpeakTextAsync gelecekteki döndürülen ses işleme tamamlanmasını beklemenize gerek kalmadan
+*   Dizeleri taşıma için düzeltme C# tam dil desteğini etkinleştirmek için
+*   Çekirdek kitaplığı örneklerindeki net461 hedef çerçeve ile yüklemek .NET core uygulama sorunu için düzeltme
+*   Örnek çıktı klasöründe yerel kitaplıkları dağıtmak zaman zaman sorunlar için düzeltme
+*   Web yuvası güvenilir bir şekilde kapatma için düzeltme
+*   Linux üzerinde çok ağır yük altında bir bağlantı açılırken olası kilitlenme yönelik düzeltme
+
 
 ## <a name="speech-sdk-151"></a>SDK'sı 1.5.1 konuşma
 

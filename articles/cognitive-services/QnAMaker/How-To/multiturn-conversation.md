@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 06/12/2019
+ms.date: 06/26/2019
 ms.author: diberry
-ms.openlocfilehash: 1e46c935d298f2fe7ebfa4bce471288c9ab8a606
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: a126456159776254408df8325f97fcee967835e2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271956"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442729"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Birden çok kapatır konuşmanın oluşturmak için istemleri takip kullanın
 
@@ -229,33 +229,14 @@ Boş kullanmak `context` kullanıcının sorusuna verilen yanıt istemek ve iste
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [
+                "prompts": [
                     {
                         "displayOrder": 0,
                         "qnaId": 16,
                         "qna": null,
                         "displayText": "Use the sign-in screen"
-                    },
-                    {
-                        "displayOrder": 1,
-                        "qnaId": 17,
-                        "qna": null,
-                        "displayText": "Use Windows Hello to sign in"
-                    },
-                    {
-                        "displayOrder": 2,
-                        "qnaId": 18,
-                        "qna": null,
-                        "displayText": "Sign out"
-                    },
-                    {
-                        "displayOrder": 0,
-                        "qnaId": 79,
-                        "qna": null,
-                        "displayText": "Create a Windows Account"
                     }
-                ],
-                "promptsToDelete":[]
+                ]
             }
         },
         {
@@ -269,15 +250,14 @@ Boş kullanmak `context` kullanıcının sorusuna verilen yanıt istemek ve iste
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [
+                "prompts": [
                     {
                         "displayOrder": 0,
                         "qnaId": 16,
                         "qna": null,
                         "displayText": "Turn off the device"
                     }
-                ],
-                "promptsToDelete":[]
+                ]
             }
         },
         {
@@ -291,15 +271,14 @@ Boş kullanmak `context` kullanıcının sorusuna verilen yanıt istemek ve iste
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [],
-                "promptsToDelete":[]
+                "prompts": []
             }
         }
     ]
 }
 ```
 
-`promptsToAdd` Dizisi sağlar metinde `displayText` özelliği ve `qnaId` konuşma sonraki görüntülenen seçenek olarak bu yanıtlar göstermek için değer akış, seçili değerine soru-cevap Oluşturucu aşağıdaki istek gönderebilirsiniz. 
+`prompts` Dizisi sağlar metinde `displayText` özelliği ve `qnaId` konuşma sonraki görüntülenen seçenek olarak bu yanıtlar göstermek için değer akış, seçili gönderebilirsiniz `qnaId` soru-cevap Oluşturucu aşağıdaki istek geri dön . 
 
 <!--
 
@@ -345,8 +324,7 @@ Soru-cevap Oluşturucu _GenerateAnswer_ JSON yanıtı içeren izleme istemleri `
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [],
-                "promptsToDelete":[]
+                "prompts": []
             }
         },
         {
@@ -360,15 +338,14 @@ Soru-cevap Oluşturucu _GenerateAnswer_ JSON yanıtı içeren izleme istemleri `
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [
+                "prompts": [
                     {
                         "displayOrder": 0,
                         "qnaId": 4,
                         "qna": null,
                         "displayText": "Ports and connectors"
                     }
-                ],
-                "promptsToDelete":[]
+                ]
             }
         },
         {
@@ -382,8 +359,7 @@ Soru-cevap Oluşturucu _GenerateAnswer_ JSON yanıtı içeren izleme istemleri `
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [],
-                "promptsToDelete":[]
+                "prompts": []
             }
         }
     ]
@@ -407,6 +383,16 @@ Bilgi Bankası'ndaki yönergeleri eklediniz ve akış test Bölmesi'nde test. Ar
 FIX - Need to go to parent, then answer column, then edit answer. 
 
 -->
+
+## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Bilgi Bankası çok bırakma yönergeleri ile oluşturmak API ile oluşturun.
+
+İle çok bırakma yönergeleri kullanarak bir Bilgi Bankası çalışması oluşturabilirsiniz [soru-cevap Oluşturucu API'si oluşturma](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Komut istemlerini eklemekte olduğunuz `context` özelliğin `prompts` dizisi. 
+
+
+## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Ekleme veya güncelleştirme API'si ile çok Aç istemleri silme
+
+Ekleme veya silme çok bırakma yönergeleri kullanarak [soru-cevap Oluşturucu güncelleştirme API'si](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Komut istemlerini eklemekte olduğunuz `context` özelliğin `promptsToAdd` dizi ve `promptsToDelete` dizisi. 
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

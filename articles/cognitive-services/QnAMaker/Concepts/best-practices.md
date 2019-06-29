@@ -3,28 +3,36 @@ title: En iyi uygulamalar - soru-cevap Oluşturucu
 titlesuffix: Azure Cognitive Services
 description: Bilgi bankanızı artırmak ve uygulama/sohbet Robotu ait son kullanıcılara daha iyi sonuçlar sağlamak için bu en iyi uygulamaları kullanın.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/10/2019
-ms.author: tulasim
+ms.date: 06/25/2019
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b8507bdbf66dc003b6f54317eb526c0e468b9f2b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c796114d124c64ac1c373baacabe00c7dcd70aa7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064383"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447639"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Soru-cevap Oluşturucu Bilgi Bankası en iyi yöntemleri
-[Bilgi Bankası geliştirme yaşam döngüsü](../Concepts/development-lifecycle-knowledge-base.md) başlangıçtan bitişe kadar KB yönetme konusunda size yol gösterir. Bilgi bankanızı artırmak ve uygulama/sohbet Robotu ait son kullanıcılara daha iyi sonuçlar sağlamak için bu en iyi uygulamaları kullanın.
+
+[Bilgi Bankası geliştirme yaşam döngüsü](../Concepts/development-lifecycle-knowledge-base.md) başlangıçtan bitişe kadar KB yönetme konusunda size yol gösterir. Bilgi bankanızı artırmak ve istemci uygulamanız için daha iyi sonuçlar sağlamak veya işlemleri sohbet Robotu'nın son kullanıcılar için bu en iyi uygulamaları kullanın.
 
 ## <a name="extraction"></a>Ayıklama
+
 Soru-cevap Oluşturucu hizmetini sürekli olarak içerik ve desteklenen dosya ve HTML biçimleri listesini genişleterek Bankalarıyla ayıklamak algoritmaları gelişiyor. İzleyin [yönergeleri](../Concepts/data-sources-supported.md) için belge türüne göre veri ayıklama. 
 
 Genel olarak, SSS sayfaları, tek başına ve diğer bilgilerle birleşik olması gerekir. Ürün kılavuzlarını, NET başlıklar ve tercihen dizin sayfası olması gerekir. 
+
+### <a name="configuring-multi-turn"></a>Yapılandırma çok Aç
+
+Etkin çok Aç ayıklama bilgi bankanızı oluşturun. Bilgi bankanızı vermez veya soru hiyerarşisi desteklemelidir, bu hiyerarşi belgeden ayıklanan veya belge ayıklandıktan sonra oluşturulan. 
+
+<!--is this a global setting that can only be configured at kb creation time? -->
 
 ## <a name="creating-good-questions-and-answers"></a>İyi sorularını ve yanıtlarını oluşturma
 
@@ -34,9 +42,14 @@ En iyi soruları basittir. Daha sonra bu anahtar sözcük veya tümceciği için
 
 Gerekiyor ancak değişiklikleri basit tutmak çok diğer sorular ekleyin. Daha fazla sözcük veya asıl amacı, sorunun bir parçası olmayan sahibiyseniz ekleyerek soru-cevap Oluşturucu bir eşleştirme bulmak yardımcı olmaz. 
 
+
+### <a name="add-relevant-alternative-questions"></a>İlgili diğer sorular ekleyin
+
+Kullanıcı, metnin bir konuşma stiliyle sorular girebilirsiniz `How do I add a toner cartridge to my printer?` veya gibi arama anahtar sözcüğü `toner cartridge`. Bilgi Bankası doğru şekilde en iyi cevabı döndürmek için her iki stil soruları olması gerekir. Bir müşteri giriyor hangi anahtar sözcükleri emin değilseniz, sorguları analiz etmek için Application Insights verilerini kullanın.
+
 ### <a name="good-answers"></a>İyi yanıtları
 
-En iyi cevapları basit yanıtlar olan ancak Evet ve hiçbir yanıtları gibi çok basit. Yanıtınız bağlamak için diğer kaynakları veya bağlantıları ve ortam ile zengin bir deneyim sağlamak, kullanın [etiketleme](../how-to/metadata-generateanswer-usage.md) beklediğiniz yanıt türü ayırt etmek için sonra bu etiketle doğru yanıtı sürümü almak için sorgu gönderin.
+En iyi cevapları basit yanıtlar olan ancak çok basit. Yanıtları gibi kullanmayın `yes` ve `no`. Yanıtınız bağlamak için diğer kaynakları veya bağlantıları ve ortam ile zengin bir deneyim sağlamak, kullanın [meta verileri etiketleme](./knowledge-base.md#key-knowledge-base-concepts) yanıtları arasında ardından ayırt etmek için [sorgula](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) metaetiketlerle`strictFilters` doğru yanıtı sürümü almak için özellik.
 
 ## <a name="chit-chat"></a>Chit sohbet
 Botunuzun daha damıtarak konuşma bağlamında kullanılabilen ve ilgi çekici, botunuzun yapmak için chit sohbet ekleme az çaba. Kolayca, KB oluştururken önceden tanımlanmış inancı chit sohbet veri kümeleri ekleme ve bunları dilediğiniz zaman değiştirin. Bilgi edinmek için nasıl [chit sohbet eklemek için KB](../How-To/chit-chat-knowledge-base.md). 
@@ -65,12 +78,26 @@ Aşağıdaki sohbet chit Bankalarıyla daha belirgin hale öneririz:
 * Kim, oluşturduğunuz?
 * Merhaba
    
+### <a name="adding-custom-chit-chat-with-a-metadata-tag"></a>Özel chit sohbet bir meta veri etiketine sahip ekleme
+
+Kendi chit sohbet soru-cevap çiftlerini eklerseniz, bu nedenle bu yanıtlar döndürülür meta verileri eklemek emin olun. Meta veri adı/değer çiftidir `editorial:chitchat`.
+
+## <a name="searching-for-answers"></a>Yanıtlar aranıyor
+
+Bir kullanıcının sorgu için en iyi cevapları aramak için hem soru ve yanıt GenerateAnswer API kullanır.
+
+### <a name="searching-questions-only-when-answer-is-not-relevant"></a>Yalnızca yanıt ilgili olmadığında arama sorular
+
+Kullanım [ `RankerType=QuestionOnly` ](#choosing-ranker-type) yanıtlar aramak istemiyorsanız. 
+
+Bilgi Bankası tam formlarına yanıt olarak sorular olarak kısaltmalardan kataloğunu olduğunda bu örneğidir. Yanıt değeri için uygun yanıt aramak için yardımcı olmaz.
 
 ## <a name="rankingscoring"></a>Derecelendirme ve puanlı
 Soru-cevap Oluşturucu desteklediği derecelendirme özellikleri en iyi kullanımı kuran emin olun. Bunun yapılması olasılığına artıracak belirli kullanıcı sorgusu ile uygun bir yanıt yanıtlandığı.
 
 ### <a name="choosing-a-threshold"></a>Bir eşiği seçme
-İçin KB gereksinimlerinize göre değiştirebilirsiniz ancak eşik olarak kullanılan varsayılan güvenilirlik puanı 50 ' dir. Her KB farklı olduğundan, test edin ve en iyi eşiği için KB uygun seçin gerekir. Daha fazla bilgi edinin [güvenilirlik puanı](../Concepts/confidence-score.md). 
+
+Varsayılan [güvenilirlik puanı](confidence-score.md#) kullanılan bir eşik değeri 50 olarak ancak [eşiğini değiştirmek](confidence-score.md#set-threshold) gereksinimlerinize göre KB için. Her KB farklı olduğundan, test edin ve en iyi eşiği için KB uygun seçin gerekir. 
 
 ### <a name="choosing-ranker-type"></a>Derecelendiricisini uygulama türünü seçme
 Varsayılan olarak, soru-cevap Oluşturucu, sorular ve yanıtlar arar. Yalnızca ilgili sorularınızı arama yapmak istiyorsanız, bir yanıt oluşturmak için kullanmak `RankerType=QuestionOnly` GenerateAnswer istek POST gövdesinde.
@@ -87,14 +114,14 @@ Varsayılan olarak, soru-cevap Oluşturucu, sorular ve yanıtlar arar. Yalnızca
 
 ### <a name="use-metadata-tags-to-filter-questions-and-answers"></a>Filtre sorular ve yanıtlar için meta veri etiketleri kullanma
 
-[Meta veri](../How-To/edit-knowledge-base.md) tabanlı meta veri etiketleri kullanıcı sorgunun sonuçlarını daraltmak için özelliği ekler. Sorgu aynı olsa bile, Bilgi Bankası yanıt meta veri etiketine göre değişebilir. Örneğin, *"bulunan park olduğu"* Restoran dalın konumu farklıdır - diğer bir deyişle, meta veriler, farklı bir yanıt olabilir *konumu: Seattle* karşı *konumu: Redmond*.
+[Meta veri](../How-To/edit-knowledge-base.md) özelliği bunu bilmek bir istemci uygulaması için görüntüsünü tüm yanıtları ancak bunun yerine tabanlı meta veri etiketleri kullanıcı sorgunun sonuçlarını daraltmak için ekler. Sorgu aynı olsa bile, Bilgi Bankası yanıt meta veri etiketine göre değişebilir. Örneğin, *"bulunan park olduğu"* Restoran dalın konumu farklıdır - diğer bir deyişle, meta veriler, farklı bir yanıt olabilir *konumu: Seattle* karşı *konumu: Redmond*.
 
 ### <a name="use-synonyms"></a>Eş anlamlıları kullanma
-Eş Anlamlılar İngilizce dilinde bazı desteği olsa da, büyük küçük harf duyarsız kullanın [word değişiklikleri](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) farklı biçiminde anahtar sözcükleri eş anlamlılar eklemek için. Eş Anlamlılar soru-cevap Oluşturucu hizmet düzeyinde eklendi ve hizmette tüm bilgi bankalarından tarafından paylaşılan.
+Eş Anlamlılar İngilizce dilinde bazı desteği olsa da, büyük küçük harf duyarsız word değişiklikleri aracılığıyla kullanmak [değişiklikleri API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) farklı biçiminde anahtar sözcükleri eş anlamlılar eklemek için. Eş Anlamlılar soru-cevap Oluşturucu hizmet düzeyinde eklenir ve tüm bilgi bankalarından tarafından paylaşılan hizmeti.
 
 |Özgün word|Eş anlamlılar|
 |--|--|
-|Satın alma|satın al<br>netbanking<br>NET bankacılık|
+|Satın alma|satın al<br>NET bankacılık<br>NET bankacılık|
 
 ### <a name="use-distinct-words-to-differentiate-questions"></a>Sorular ayırt etmek için farklı sözcükler kullanın
 Farklı bir gereksinim her soruyu ele Bilgi Bankası'nda soru kullanıcı sorguyla eşleşen, soru-cevap Oluşturucu'nın Sıralama algoritması en iyi şekilde çalışır. Yineleme sorular arasında ayarlanmış aynı kelimenin doğru yanıt sözcükleri ile verilen kullanıcı sorgusu için seçilen olasılığını azaltır. 
@@ -110,6 +137,8 @@ Bu iki Bankalarıyla çok benzer kelimelerinizle tümcecik oluşturulmuş olduğ
 
 ## <a name="collaborate"></a>İşbirliği yapın
 Soru-cevap Oluşturucu, kullanıcılara sağlayan [işbirliği](../How-to/collaborate-knowledge-base.md) Bilgi Bankası üzerinde. Kullanıcıların bilgi bankalarından erişmek için soru-cevap Oluşturucu Azure kaynak grubuna erişim gerekir. Bazı kuruluşlar Bilgi Bankası düzenleme ve Bakım dış ve Azure kaynaklarına erişim hala koruyabilmesini isteyebilirsiniz. Bu düzenleyici onaylayan modeli iki özdeş ayarlayarak yapılır [soru-cevap Oluşturucu Hizmetleri](../How-to/set-up-qnamaker-service-azure.md) farklı Aboneliklerde ve bir düzenleme test döngüsü için seçme. Test tamamlandıktan sonra Bilgi Bankası içerikleri ile aktarılır bir [içeri / dışarı aktarma](../Tutorials/migrate-knowledge-base.md) son Bilgi Bankası yayımlama ve uç noktayı güncelleştirmek onaylayanın soru-cevap Oluşturucu hizmeti için işlem.
+
+
 
 ## <a name="active-learning"></a>Etkin öğrenme
 

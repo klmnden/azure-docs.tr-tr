@@ -9,17 +9,17 @@ ms.subservice: form-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 45303f1f75e80a66c3cb85154d458a970c214370
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: f38752928832b7dee6a7e55f1d25374a64391bbe
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295501"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441891"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Yüklemek ve forma tanıyıcı kapsayıcılarını çalıştırın
 Azure Form tanıyıcı tanımlamak ve anahtar-değer çiftleri ve tabloları formlardan ayıklamak için makine öğrenimi teknolojisi geçerlidir. Bu değerler ve tablo girişleri anahtar-değer çiftleri ile ilişkilendirir ve ardından özgün dosyayı ilişkileri içeren yapılandırılmış verileri çıkarır. 
 
-Karmaşıklığı azaltın ve iş akışı Otomasyonu işleminizi veya başka bir uygulama özel bir formu tanıyıcı model kolayca tümleştirmenize için basit bir REST API kullanarak model çağırabilirsiniz. Yalnızca beş belge (veya boş bir form) belirli içeriğinizi uyarlanmış ve sonuçları alabilmeniz için hızlı bir şekilde, doğru bir şekilde, gerekli. Hiçbir ağır el ile müdahale veya kapsamlı veri bilimi uzmanlığına gereklidir. Ve veri etiketleme veya veri ek açıklama gerektirmez.
+Karmaşıklığı azaltın ve iş akışı Otomasyonu işleminizi veya başka bir uygulama özel bir formu tanıyıcı model kolayca tümleştirmenize için basit bir REST API kullanarak model çağırabilirsiniz. Yalnızca beş form belge (veya boş bir form ve doldurulmuş iki biçimi) sonuçları alabilmeniz için hızlı bir şekilde, doğru bir şekilde, gerekli ve belirli içeriğinizi uyarlanmış. Hiçbir ağır el ile müdahale veya kapsamlı veri bilimi uzmanlığına gereklidir. Ve veri etiketleme veya veri ek açıklama gerektirmez.
 
 |İşlev|Özellikler|
 |-|-|

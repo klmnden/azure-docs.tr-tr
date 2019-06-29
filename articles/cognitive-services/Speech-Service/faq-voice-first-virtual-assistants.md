@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
-ms.openlocfilehash: 8427417c9b579c7dfa21f834ce1ca77099159eb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c669f00ae65667f85976aca218ce51d630159ee
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072613"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465494"
 ---
 # <a name="voice-first-virtual-assistants-preview-frequently-asked-questions"></a>Ses öncelikli sanal Yardımcıları önizleme: Sık sorulan sorular
 
@@ -25,7 +25,7 @@ Bu belgede sorularınızın yanıtlarını bulamazsanız, kullanıma [diğer des
 
 **S: Doğrudan satır konuşma nedir?**
 
-**C:** `SpeechBotConnector` Çift yönlü, zaman uyumsuz iletişim için Bot Framework doğrudan satır konuşma kanalı bağlı botlar Speech SDK'sı sağlar. Bu kanal konuşma metin ve metin okuma ses içinde tam olarak olur, damıtarak konuşma bağlamında kullanılabilen deneyimleri sesli botlar sağlayan Azure konuşma Hizmetleri Eşgüdümlü erişimini sağlar. Uyandırma sözcükler ve sözcük doğrulama uyandırmak için destekle, bu çözüm, marka ya da ürün için özelleştirilebilir ses öncelikli sanal Yardımcıları oluşturmak mümkün kılar.
+**C:** `DialogServiceConnector` Çift yönlü, zaman uyumsuz iletişim için Bot Framework doğrudan satır konuşma kanalı bağlı botlar Speech SDK'sı sağlar. Bu kanal konuşma metin ve metin okuma ses içinde tam olarak olur, damıtarak konuşma bağlamında kullanılabilen deneyimleri sesli botlar sağlayan Azure konuşma Hizmetleri Eşgüdümlü erişimini sağlar. Uyandırma sözcükler ve sözcük doğrulama uyandırmak için destekle, bu çözüm, marka ya da ürün için özelleştirilebilir ses öncelikli sanal Yardımcıları oluşturmak mümkün kılar.
 
 **S: Nasıl kullanmaya başlarım?**
 
@@ -35,7 +35,7 @@ Bu belgede sorularınızın yanıtlarını bulamazsanız, kullanıma [diğer des
 
 **S: 401 hatası bağlanırken almak ve hiçbir şey çalışır. Konuşma abonelik anahtarımı geçerli biliyorum. Ne var ne yok?**
 
-**C:** Önizleme'de, doğrudan satır konuşma kullanılan abonelikte çok belirli sınırlamaları vardır. Lütfen kullandığınızdan emin olun **konuşma** kaynak (Microsoft.CognitiveServicesSpeechServices, "Okuma") ve *değil* **Bilişsel Hizmetler** kaynak () Microsoft.CognitiveServicesAllInOne, "Tüm Bilişsel Hizmetler"). Ayrıca, lütfen yalnızca unutmayın **westus2** bölge şu anda desteklenmiyor.
+**C:** Önizleme'de, doğrudan satır konuşma hangi Aboneliklerde kullanabileceğiniz belirli sınırlamaları vardır. Kullandığınızdan emin olun **konuşma** kaynak (Microsoft.CognitiveServicesSpeechServices, "Okuma") ve *değil* **Bilişsel Hizmetler** kaynak () Microsoft.CognitiveServicesAllInOne, "Tüm Bilişsel Hizmetler"). Yalnızca [konuşma Hizmetleri bölgelerin bir alt](regions.md#voice-first-virtual-assistants) doğrudan satır konuşma şu anda desteklenmiyor.
 
 ![doğrudan hat konuşma için aboneliği düzeltmek](media/voice-first-virtual-assistants/faq-supported-subscription.png "uyumlu bir konuşma tanıma aboneliğinin örneği")
 
@@ -43,9 +43,9 @@ Bu belgede sorularınızın yanıtlarını bulamazsanız, kullanıma [diğer des
 
 **C:** Bu hata, doğrudan satır konuşma tanıma ve bot arasında bir iletişim sorununu gösterir. Açtığınızdan emin olun [doğrudan satır konuşma kanal bağlı](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), [akış protokolü desteği eklendi](https://aka.ms/botframework/addstreamingprotocolsupport) (desteğiyle ilgili Web yuvası) bot ve botunuzun gelen yanıt sonra onay Kanal gelen istekleri.
 
-**S: Bu adımlar da işe yaramazsa, ve/veya bir SpeechBotConnector kullanırken farklı bir hata alıyorum ve ne yapmalıyım açık değildir. Hangi *gereken* yapabilirim?**
+**S: Bu kod adımlar da işe yaramazsa ve/veya bir DialogServiceConnector kullanırken farklı bir hata alıyorum. Ne yapmalıyım?**
 
-**C:** Dosya tabanlı günlüğe kaydetme, önemli ölçüde daha fazla ayrıntı sağlar ve destek istekleri artırmanıza yardımcı olabilir. Bunu etkinleştirmek için bkz: [dosya günlüğünü kullanma](how-to-use-logging.md).
+**C:** Dosya tabanlı günlüğe kaydetme, önemli ölçüde daha fazla ayrıntı sağlar ve destek istekleri artırmanıza yardımcı olabilir. Bu işlevselliği etkinleştirmek için bkz: [dosya günlüğünü kullanma](how-to-use-logging.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

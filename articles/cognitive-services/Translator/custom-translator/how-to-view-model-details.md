@@ -2,19 +2,19 @@
 title: Model - özel Translator ayrıntılarına bakın
 titleSuffix: Azure Cognitive Services
 description: Modelleri sekmesinde herhangi bir projeyi altında model adı, model durumu, eğitim, ayarlama, test cümle sayısı BLEU puanı, her model ayrıntılarını gösterir.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 33b1d7e0e44ecae4bc8a7a6bf9c7e6dfd6b0eb66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 92f5275b85b4a257e8841f43424d356db702cacd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66386880"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442463"
 ---
 # <a name="view-model-details"></a>Model ayrıntılarını görüntüleme
 

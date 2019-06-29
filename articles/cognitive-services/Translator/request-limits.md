@@ -3,19 +3,19 @@ title: İstek sınırları - Translator metin çevirisi API'si
 titleSuffix: Azure Cognitive Services
 description: Bu makalede için Translator Text API isteği sınırları listelenmektedir. Karakter sayısı, istek başına 5000 karakter sınırı değil isteği sıklığı temel ücretleri uygulanır. Karakter tabanlı, 2 milyon karakter saat başına sınırlı F0 ile abonelik limitlerdir.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: d04677362e0ba3ace59d55ede9bd6241f17130e9
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.author: swmachan
+ms.openlocfilehash: a7621cc80a38d9a07872a94d8e5221dc04023b86
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67269233"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435025"
 ---
 # <a name="request-limits-for-translator-text"></a>Translator metin çevirisi için istek sınırları
 
@@ -38,7 +38,11 @@ Aşağıdaki tablo listeleri dizi öğesi ve karakter sınırları Translator me
 
 ## <a name="character-limits-per-hour"></a>Saat başına karakter sınırları
 
-Saatlik, karakter sınırı, Translator metin çevirisi abonelik katmanına göre belirlenir. Saatlik kota saat eşit olarak kullanılması. Ulaşın veya bu sınırları aşan ya da kısa bir süre içinde kotasının bir bölümü çok büyük göndermek, büyük olasılıkla yetersiz kota yanıt alırsınız. Üzerinde eşzamanlı istek sınırı yoktur.
+Saatlik, karakter sınırı, Translator metin çevirisi abonelik katmanına göre belirlenir. 
+
+Saatlik kota saat eşit olarak kullanılması. Örneğin, saatte 2 milyon karakter F0 katmanı sınırında karakter dakikalık kayan pencere (60 dakika 2 milyon karakter) başına kabaca 33,300 karakterden daha hızlı kullanılması.
+
+Ulaşın veya bu sınırları aşan ya da kısa bir süre içinde kotasının bir bölümü çok büyük göndermek, büyük olasılıkla yetersiz kota yanıt alırsınız. Üzerinde eşzamanlı istek sınırı yoktur.
 
 | Katman | Karakter sınırı |
 |------|-----------------|

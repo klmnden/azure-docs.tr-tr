@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: bf87db232484a8ba4fa1e3b8e4de921f152e2345
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42b30b14e561fd3851a41701d2ecb8d98d5a02ed
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110127"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445561"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Metni vurgulayacak şekilde decoration işaretçiler kullanma
 
@@ -56,7 +56,7 @@ Varsa `textDecorations` olduğu **true**, Bing, yanıtların görünen dizeleri 
 |U+E018|\<sup >|Simge içerik başlangıcını işaretleyen
 |U+E019|\</ sup >|Simge içerik sonunu işaretleyen
 
-Aşağıdaki örnekte gösterildiği bir `Computation` log(2) sorgu terimi için alt simge işaretçileri içeren bir yanıt. `expression` Alanında işaretçileri yalnızca şu durumlarda ' textDecoration olduğu **true**.
+Aşağıdaki örnekte gösterildiği bir `Computation` log(2) sorgu terimi için alt simge işaretçileri içeren bir yanıt. `expression` Alanında işaretçileri yalnızca şu durumlarda `textDecoration` olduğu **true**.
 
 ![Hesaplama işaretçileri](./media/bing-markers-computation.PNG) 
 

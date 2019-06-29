@@ -3,19 +3,19 @@ title: Soru-cevap Oluşturucu, soru-cevap Oluşturucu hizmeti - yükseltme
 titleSuffix: Azure Cognitive Services
 description: Daha iyi kaynakları yönetmek için soru-cevap Oluşturucu hizmetlerinizi yükseltme veya paylaşın.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/25/2019
-ms.author: tulasim
-ms.openlocfilehash: cb38fdcfa8cbbfa0b90141c2de2280ff1ef08c3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: diberry
+ms.openlocfilehash: 2fdbb245f838d92e84d1247faa610a2f1a66c532
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61372365"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439759"
 ---
 # <a name="share-or-upgrade-your-qna-maker-service"></a>Soru-cevap Oluşturucu hizmetini veya paylaşın
 Daha iyi kaynakları yönetmek için soru-cevap Oluşturucu hizmetlerinizi yükseltme veya paylaşın. 

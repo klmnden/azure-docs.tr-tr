@@ -97,21 +97,21 @@ Otomatik ölçeklendirme ayarı şema göstermek için aşağıdaki otomatik öl
 | properties | targetResourceUri | Ölçeği genişletilmiş kaynak kaynak kimliği. Yalnızca bir otomatik ölçeklendirme ayarı, her bir kaynak olabilir. |
 | properties | profiles | Bir otomatik ölçeklendirme ayarı, bir veya daha fazla profillerini oluşur. Otomatik ölçeklendirme altyapısı, her çalıştığında bir profil yürütür. |
 | profile | name | Profil adı. Bu profili tanımlamanıza yardımcı olan herhangi bir ad seçebilirsiniz. |
-| profile | capacity.Maximum | İzin verilen kapasite üst sınırı. Bu profili yürütülürken otomatik ölçeklendirme, kaynağınızı bu sayı yukarıda ölçeklenmez sağlar. |
-| profile | capacity.minimum | İzin verilen kapasite alt sınırı. Bu profili yürütülürken otomatik ölçeklendirme, kaynağınızı bu sayının altına ölçeklenmez sağlar. |
-| profile | capacity.default | Kaynak ölçüm (Bu durumda, "vmss1" CPU) okunurken bir sorun yoktur ve geçerli kapasite varsayılandır, otomatik ölçeklendirme kullanıma varsayılan değere ölçeklendirir. Bu kaynak kullanılabilirliğini sağlamaktır. Geçerli kapasite, varsayılan kapasiteden zaten yüksektir, otomatik ölçeklendirme, ölçeklenmez. |
+| profile | Capacity.Maximum | İzin verilen kapasite üst sınırı. Bu profili yürütülürken otomatik ölçeklendirme, kaynağınızı bu sayı yukarıda ölçeklenmez sağlar. |
+| profile | Capacity.minimum | İzin verilen kapasite alt sınırı. Bu profili yürütülürken otomatik ölçeklendirme, kaynağınızı bu sayının altına ölçeklenmez sağlar. |
+| profile | Capacity.default | Kaynak ölçüm (Bu durumda, "vmss1" CPU) okunurken bir sorun yoktur ve geçerli kapasite varsayılandır, otomatik ölçeklendirme kullanıma varsayılan değere ölçeklendirir. Bu kaynak kullanılabilirliğini sağlamaktır. Geçerli kapasite, varsayılan kapasiteden zaten yüksektir, otomatik ölçeklendirme, ölçeklenmez. |
 | profile | rules | Otomatik ölçeklendirme kuralları profilinde kullanarak maksimum ve minimum kapasiteler arasında otomatik olarak ölçeklendirir. Bir profili birden çok kural bulunabilir. Genellikle iki kural vardır: ne zaman ölçeğini belirlemek için diğeri ne zaman ölçeklendirme belirlemek için. |
 | rule | metricTrigger | Ölçüm koşuluyla bir kural tanımlar. |
 | metricTrigger | metricName | Ölçüm adı. |
-| metricTrigger | metricResourceUri | Ölçüm yayan kaynağının kaynak kimliği. Çoğu durumda, ölçeği genişletilmiş kaynak ile aynı olur. Bazı durumlarda, farklı olabilir. Örneğin, bir depolama kuyruğuna ileti sayısına dayalı olarak bir sanal makine ölçek kümesi ölçeklendirebilirsiniz. |
+| metricTrigger |  metricResourceUri | Ölçüm yayan kaynağının kaynak kimliği. Çoğu durumda, ölçeği genişletilmiş kaynak ile aynı olur. Bazı durumlarda, farklı olabilir. Örneğin, bir depolama kuyruğuna ileti sayısına dayalı olarak bir sanal makine ölçek kümesi ölçeklendirebilirsiniz. |
 | metricTrigger | timeGrain | Ölçüm örnekleme süresi. Örneğin, **TimeGrain = "PT1M"** istatistiği öğesinde belirtilen toplama yöntemi kullanarak ölçümleri her 1 dakikada toplanması anlamına gelir. |
-| metricTrigger | statistic | TimeGrain dönemi içindeki toplama yöntemidir. Örneğin, **istatistik = "Ortalama"** ve **timeGrain = "PT1M"** ortalamasını alarak ölçümleri her 1 dakikada toplanması anlamına gelir. Bu özellik, ölçüm nasıl örneklenir belirler. |
+| metricTrigger | İstatistik | TimeGrain dönemi içindeki toplama yöntemidir. Örneğin, **istatistik = "Ortalama"** ve **timeGrain = "PT1M"** ortalamasını alarak ölçümleri her 1 dakikada toplanması anlamına gelir. Bu özellik, ölçüm nasıl örneklenir belirler. |
 | metricTrigger | timeWindow | Geri ölçümlerini aramak için süre miktarı. Örneğin, **timeWindow "PT10M" =** otomatik ölçeklendirme her çalıştırıldığında, son 10 dakika ölçümlerini sorgular anlamına gelir. Ölçümlerinizin normalleştirilmiş, zaman penceresi sağlar ve geçici artışlara tepki verilmesini önler. |
 | metricTrigger | timeAggregation | Örneklenen ölçümleri toplamak için kullanılan toplama yöntemidir. Örneğin, **TimeAggregation = "Ortalama"** örneklenen ölçümlerin ortalamasını alarak toplamak. Önceki örnekte, on 1 dakikalık örnekleri almak ve bunları ortalama. |
 | rule | scaleAction | Kuralın metricTrigger tetiklendiğinde gerçekleştirilecek eylem. |
 | scaleAction | direction | "Ölçeği ya da"Azaltmak"için ölçek artırma".|
 | scaleAction | value | Artırmak veya kaynak kapasitesinin azaltmak için ne kadar. |
-| scaleAction | cooldown | Sonra bir ölçeklendirme işlemi yeniden ölçeklendirmeden önce beklenecek süre miktarı. Örneğin, varsa **dakikaysa "PT10M" =** , başka bir 10 dakika için yeniden ölçeklendirmek otomatik ölçeklendirme denemez. Dakikaysa eklenmesi veya kaldırılmasını örnekleri sonra ölçümlerin sağlamaktır. |
+| scaleAction | dakikaysa | Sonra bir ölçeklendirme işlemi yeniden ölçeklendirmeden önce beklenecek süre miktarı. Örneğin, varsa **dakikaysa "PT10M" =** , başka bir 10 dakika için yeniden ölçeklendirmek otomatik ölçeklendirme denemez. Dakikaysa eklenmesi veya kaldırılmasını örnekleri sonra ölçümlerin sağlamaktır. |
 
 ## <a name="autoscale-profiles"></a>Otomatik ölçeklendirme profilleri
 

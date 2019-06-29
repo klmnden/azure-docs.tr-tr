@@ -2,19 +2,19 @@
 title: Paralel belgeleri nelerdir? -Özel Translator
 titleSuffix: Azure Cognitive Services
 description: Paralel belgeleri belgelerin bir diğer çeviri olduğu çiftleridir. Çifti tek bir belgede kaynak dili cümlelerde ve diğer belge Bu cümle hedef dile çevrilen içerir.
-author: rajdeep-in
+author: swmachan
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: e644a4df99669e7ad69e08090418c2a3cffc7e9d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b7997adfa38fa24bdf41f22c99f06e9a0ba1bf0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389830"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447404"
 ---
 # <a name="what-are-parallel-documents"></a>Paralel belgeleri nelerdir?
 

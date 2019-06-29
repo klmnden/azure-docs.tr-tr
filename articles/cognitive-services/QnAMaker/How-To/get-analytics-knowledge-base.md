@@ -3,20 +3,20 @@ title: Bilgi Bankası Analizine
 titleSuffix: Azure Cognitive Services
 description: Soru-cevap Oluşturucu, soru-cevap Oluşturucu hizmetinizi oluşturma sırasında App Insights etkinleştirdiyseniz, tüm sohbet günlükleri ve diğer telemetriyi depolar. Uygulama anlayışları'ndan, sohbet günlüklerini almak için örnek sorgular çalıştırın.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/04/2019
-ms.author: tulasim
-ms.openlocfilehash: 09369e760c654e7e56067e6da02bb772bffa7400
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: diberry
+ms.openlocfilehash: 07ee6c27006d8444881d9d3b94cb623f0b0d0b1f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61372635"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447456"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Bilgi bankanız hakkında analizler alma
 
