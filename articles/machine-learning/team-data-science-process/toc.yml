@@ -94,7 +94,7 @@
             - name: HDInsight’ta R Server
               href: /azure/hdinsight/r-server/r-server-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
             - name: HDInsight üzerinde R Server kullanmaya başlayın
-              href: /azure/hdinsight/r-server/r-server-get-started?context=azure/machine-learning/team-data-science-process/context/ml-context
+              href: /azure/hdinsight/r-server/r-server-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
         - name: Azure Machine Learning çalışma alanı
           href: /azure/machine-learning/studio/create-workspace?context=azure/machine-learning/team-data-science-process/context/ml-context
     - name: İşletme ihtiyaçlarını çözümleme

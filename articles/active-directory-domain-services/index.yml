@@ -5,8 +5,8 @@ metadata:
   title: Azure AD Etki Alanı Hizmetleri belgeleri
   description: 'Azure sanal makinelerini etki alanı denetleyicileri kullanmak zorunda kalmadan bir etki alanına eklemek için Active Directory Domain Services’ı kullanmayı öğrenin. Öğreticiler ve diğer belgeler, grup ilkelerini kullanarak sanal makineleri nasıl yönetebileceğinizle ilgili bilgiler içerir.'
   keywords: 'Azure AD, Azure, etki alanına katılma, grup ilkesi, LDAP, Kerberos, etki alanı denetleyicisi, DC, lift-and-shift'
-  author: MikeStephens-MS
-  ms.author: mstephen
+  author: iainfoulds
+  ms.author: iainfou
   manager: daveba
   ms.date: 05/22/2019
   ms.topic: landing-page
@@ -32,7 +32,7 @@ sections:
             html: <p>Bu basit yönergelerle kendi yönetilen etki alanınızı oluşturun.</p>
             image:
               src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
-            title: başlarken
+            title: Başlarken
           - href: contact-us.md
             html: <p>İhtiyacınız olduğunda yardım alın.</p>
             image:

@@ -5,15 +5,15 @@ metadata:
   title: Soru-Cevap Oluşturma Belgeleri - Microsoft Bilişsel Hizmetler | Microsoft Docs
   description: Soru-Cevap Oluşturma hizmeti hakkında bilgi edinin ve bu hizmetin bilgi tabanlarının soru ve yanıtlarınızla nasıl çalıştığını öğrenin.
   services: cognitive-services
-  author: tulasim88
-  manager: cgronlun
+  author: diberry
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: qna-maker
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 12/18/2018
-  ms.author: tulasim
+  ms.author: diberry
 abstract:
   description: 'Soru-Cevap Oluşturma, verilerinizi temel alan bir sohbet ve soru-cevap katmanı oluşturan bulut tabanlı bir API hizmetidir. Soru-Cevap Oluşturma, SSS belgeleri, URL''ler ve ürün kılavuzları gibi yarı yapılandırılmış içeriklerinizden bir soru cevap hizmeti oluşturmanızı sağlar. Soru-Cevap Oluşturma hizmeti, kullanıcılarınızın doğal dil sorularını bilgi bankanızda bulunan en iyi cevapla eşleştirerek cevap verir.'
   aside:

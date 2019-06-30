@@ -8,11 +8,13 @@
       href: iot-services-and-technologies.md
 - name: Güvenlik
   items:
-    - name: Güvenlik mimarisi
-      href: iot-security-architecture.md
-    - name: En iyi güvenlik uygulamaları
-      href: iot-security-best-practices.md
-    - name: Güvenli dağıtım
-      href: iot-security-deployment.md
+    - name: Öneriler
+      href: security-recommendations.md
     - name: Baştan sona güvenlik
       href: iot-security-ground-up.md
+    - name: En iyi güvenlik uygulamaları
+      href: iot-security-best-practices.md
+    - name: Güvenlik mimarisi
+      href: iot-security-architecture.md
+    - name: Güvenli dağıtım
+      href: iot-security-deployment.md

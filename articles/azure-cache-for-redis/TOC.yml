@@ -36,7 +36,7 @@
     - name: En İyi Uygulamalar
       items:
         - name: Redis için Azure Önbelleği'ne ilişkin En İyi Yöntemler
-          href: 'https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f'
+          href: cache-best-practices.md
         - name: Önbelleğe Alma İçin Azure Mimarisi Açısından En İyi Uygulamalar
           href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
 - name: Nasıl yapılır kılavuzları

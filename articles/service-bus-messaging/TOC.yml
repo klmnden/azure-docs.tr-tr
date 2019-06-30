@@ -19,6 +19,8 @@
               href: service-bus-quickstart-powershell.md
             - name: Azure CLI
               href: service-bus-quickstart-cli.md
+            - name: Azure Resource Manager şablonu
+              href: service-bus-resource-manager-namespace-queue.md
         - name: İleti alma ve gönderme
           items:
             - name: .NET
@@ -40,7 +42,11 @@
     - name: Services Bus konu başlıkları ve abonelikler
       items:
         - name: Konu başlıklarını ve abonelikleri oluşturma
-          href: service-bus-quickstart-topics-subscriptions-portal.md
+          items:
+            - name: Azure portal
+              href: service-bus-quickstart-topics-subscriptions-portal.md
+            - name: Azure Resource Manager şablonu
+              href: service-bus-resource-manager-namespace-topic.md
         - name: İleti yayımlama ve iletilere abone olma
           items:
             - name: .NET
@@ -187,10 +193,6 @@
           items:
             - name: Ad alanı oluşturma
               href: service-bus-resource-manager-namespace.md
-            - name: Ad alanı ve kuyruk oluşturma
-              href: service-bus-resource-manager-namespace-queue.md
-            - name: Konusu ve aboneliği olan bir ad alanı oluşturma
-              href: service-bus-resource-manager-namespace-topic.md
             - name: Ad alanı ve kuyruğa yönelik bir yetkilendirme kuralı oluşturma
               href: service-bus-resource-manager-namespace-auth-rule.md
             - name: 'Konusu, aboneliği ve kuralı olan bir ad alanı oluşturma'

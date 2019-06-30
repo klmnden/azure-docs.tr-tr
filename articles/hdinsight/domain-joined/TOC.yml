@@ -14,8 +14,6 @@
   items:
     - name: ESP kümeleri için planlama
       href: apache-domain-joined-architecture.md
-    - name: ESP kümeleri oluşturma ve şirket içi ile eşitleme
-      href: apache-domain-joined-create-configure-enterprise-security-cluster.md
     - name: Azure AD DS kullanarak ESP kümelerini yapılandırma
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Azure AD kullanıcılarını HDInsight kümesine eşitleme
@@ -30,26 +28,30 @@
       href: ../spark/apache-spark-eclipse-tool-plugin.md
     - name: ESP kümelerinde Apache Oozie kullanma
       href: hdinsight-use-oozie-domain-joined-clusters.md
-- name: Verilerin güvenliğini sağlama
-  href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-- name: Ağ erişimi
+    - name: Verilerin güvenliğini sağlama
+      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+    - name: Ağ erişimi
+      items:
+        - name: Azure VNet’te HDInsight
+          href: ../hdinsight-extend-hadoop-virtual-network.md
+        - name: HDInsight’a şirket içi ağınızla bağlanma
+          href: ../connect-on-premises-network.md
+        - name: Azure VNet’te Apache HBase kümesi oluşturma
+          href: ../hbase/apache-hbase-provision-vnet.md
+        - name: Azure VNet’te Apache HBase kümesi çoğaltma
+          href: ../hbase/apache-hbase-replication.md
+    - name: Azure İzleyici günlüklerini kullanarak izleme
+      items:
+        - name: Azure İzleyici günlüklerini kullanma
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+        - name: Azure İzleyici günlükleriyle sorguları kullanma
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+        - name: Küme performansını izleme
+          href: ../hdinsight-key-scenarios-to-monitor.md
+- name: Nasıl yapılır
   items:
-    - name: Azure VNet’te HDInsight
-      href: ../hdinsight-extend-hadoop-virtual-network.md
-    - name: HDInsight’a şirket içi ağınızla bağlanma
-      href: ../connect-on-premises-network.md
-    - name: Azure VNet’te Apache HBase kümesi oluşturma
-      href: ../hbase/apache-hbase-provision-vnet.md
-    - name: Azure VNet’te Apache HBase kümesi çoğaltma
-      href: ../hbase/apache-hbase-replication.md
-- name: Azure İzleyici günlüklerini kullanarak izleme
-  items:
-    - name: Azure İzleyici günlüklerini kullanma
-      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-    - name: Azure İzleyici günlükleriyle sorguları kullanma
-      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-    - name: Küme performansını izleme
-      href: ../hdinsight-key-scenarios-to-monitor.md
+    - name: ESP kümeleri oluşturma ve şirket içi ile eşitleme
+      href: apache-domain-joined-create-configure-enterprise-security-cluster.md
 - name: Başvuru
   items:
     - name: Kod örnekleri

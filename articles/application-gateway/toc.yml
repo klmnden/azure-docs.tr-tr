@@ -96,6 +96,7 @@
         - name: Azure CLI
           href: tutorial-manage-web-traffic-cli.md
         - name: Şablon
+          displayName: 'ARM, Resource Manager, template'
           href: create-vmss-template.md
     - name: İç yük dengeleyicisi yapılandırma
       items:
@@ -241,6 +242,8 @@
       href: /rest/api/applicationgateway
     - name: Azure Resource Manager
       href: ../azure-resource-manager/resource-group-overview.md
+    - name: Resource Manager şablonu
+      href: 'https://docs.microsoft.com/azure/templates/microsoft.network/allversions'
 - name: Kaynaklar
   items:
     - name: Yazar şablonları
