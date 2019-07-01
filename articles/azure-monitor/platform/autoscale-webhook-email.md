@@ -62,11 +62,11 @@ REST API veya Resource Manager şablonu kullanarak, aşağıdaki seçeneklerle b
 
 | Alan | Zorunlu? | Açıklama |
 | --- | --- | --- |
-| İşlemi |evet |"Ölçek" değeri olmalıdır |
+| operation |evet |"Ölçek" değeri olmalıdır |
 | sendToSubscriptionAdministrator |evet |değer "true" veya "false" olmalıdır. |
 | sendToSubscriptionCoAdministrators |evet |değer "true" veya "false" olmalıdır. |
 | customEmails |evet |değer null [] veya e-postaları dize dizisi olabilir |
-| Web kancaları |evet |değer null veya geçerli bir URI olabilir |
+| webhooks |evet |değer null veya geçerli bir URI olabilir |
 | serviceUri |evet |Geçerli bir https URI |
 | properties |evet |Değer boş olmalıdır {} veya anahtar-değer çiftleri içerebilir |
 
@@ -106,19 +106,19 @@ Otomatik ölçeklendirme bildirim oluşturulduğunda, aşağıdaki meta verileri
 | Alan | Zorunlu? | Açıklama |
 | --- | --- | --- |
 | status |evet |Otomatik ölçeklendirme eylemi oluşturulduğunu gösteren durum |
-| İşlemi |evet |Bir artış örnekleri için "Ölçeği genişletme" olacaktır ve durumlarda bir azaltmak için "ölçek" olacaktır |
-| Bağlam |evet |Otomatik ölçeklendirme eylem bağlamı |
+| operation |evet |Bir artış örnekleri için "Ölçeği genişletme" olacaktır ve durumlarda bir azaltmak için "ölçek" olacaktır |
+| context |evet |Otomatik ölçeklendirme eylem bağlamı |
 | timestamp |evet |Otomatik ölçeklendirme eylemi tetiklendiğinde zaman damgası |
 | id |Evet |Resource Manager Kimliğini otomatik ölçeklendirme ayarı |
 | name |Evet |Otomatik ölçeklendirme ayarının adı |
-| Ayrıntıları |Evet |Otomatik ölçeklendirme hizmeti sürdü eylem ve örnek sayısını değişiklik açıklaması |
+| details |Evet |Otomatik ölçeklendirme hizmeti sürdü eylem ve örnek sayısını değişiklik açıklaması |
 | subscriptionId |Evet |Abonelik kimliği ölçeklendirilir hedef kaynak |
 | resourceGroupName |Evet |Ölçeklendirilen hedef kaynağın kaynak grubu adı |
 | resourceName |Evet |Ölçeklendirilen hedef kaynağın adı |
-| Kaynak türü |Evet |Üç desteklenen değerler: "microsoft.classiccompute/domainnames/slots/roles" - bulut hizmeti rolleri, "microsoft.compute/virtualmachinescalesets" - sanal makine ölçek kümeleri ve "Microsoft.Web/serverfarms" - Web uygulaması |
+| resourceType |Evet |Üç desteklenen değerler: "microsoft.classiccompute/domainnames/slots/roles" - bulut hizmeti rolleri, "microsoft.compute/virtualmachinescalesets" - sanal makine ölçek kümeleri ve "Microsoft.Web/serverfarms" - Web uygulaması |
 | resourceId |Evet |Resource Manager Kimliğini ölçeklendirilir hedef kaynak |
 | portalLink |Evet |Özet sayfasında, hedef kaynağı için Azure portal bağlantısı |
 | oldCapacity |Evet |Bir ölçek eylemi otomatik ölçeklendirme geçen zaman geçerli (eski) örnek sayısı |
 | newCapacity |Evet |Otomatik ölçeklendirme kaynağa ölçeği yeni bir örnek sayısı |
-| Özellikler |Hayır |İsteğe bağlı. < Anahtar değer > dizi çiftlerini (örneğin, sözlük < String, String >). Özellikler alanı isteğe bağlıdır. Özel kullanıcı arabirimi veya mantıksal uygulama temel iş akışı, anahtarları ve yükü kullanılarak geçirilebilir değerleri girebilirsiniz. Özel özellikler giden Web kancası çağrısı geçirmek için alternatif bir yolu Web kancası kendisi (olarak URI sorgu parametreleri) kullanmaktır. |
+| properties |Hayır |İsteğe bağlı. < Anahtar değer > dizi çiftlerini (örneğin, sözlük < String, String >). Özellikler alanı isteğe bağlıdır. Özel kullanıcı arabirimi veya mantıksal uygulama temel iş akışı, anahtarları ve yükü kullanılarak geçirilebilir değerleri girebilirsiniz. Özel özellikler giden Web kancası çağrısı geçirmek için alternatif bir yolu Web kancası kendisi (olarak URI sorgu parametreleri) kullanmaktır. |
 
