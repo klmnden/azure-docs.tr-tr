@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 77dda5f113a10f0bfb59457b1059563c58db0dde
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 92f25d956bc8f1f930ae6ebbf7ee48c144bf8a30
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62116643"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476851"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Ortamınızdaki değişikliklerle ilgili sorunları giderme
 
@@ -44,7 +44,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-https://portal.azure.com adresinden Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com ) adresinden Azure portalında oturum açın.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Değişiklik İzleme ve Stok özelliklerini etkinleştirme
 
@@ -197,7 +197,7 @@ Bu sorgu, belirtilen zaman çerçevesinde W3SVC hizmeti durdurulan bilgisayarlar
 
 Altında **Eylem grupları**seçin **Yeni Oluştur**. Eylem grubu, birden çok uyarıda kullanabileceğiniz eylemlerden oluşan bir gruptur. Eylemlere e-posta bildirimleri, runbook'lar, web kancaları ve diğer birçok şey dahildir. Eylem grupları hakkında daha fazla bilgi edinmek için bkz. [Eylem grupları oluşturma ve yönetme](../azure-monitor/platform/action-groups.md).
 
-Altında **uyarı ayrıntıları**, bir ad ve uyarı için bir açıklama girin. **Önem derecesi** değerini **Bilgilendirici (önem derecesi 2)**, **Uyarı (önem derecesi 1)**, veya **Kritik (önem derecesi 0)** olarak ayarlayın.
+Altında **uyarı ayrıntıları**, bir ad ve uyarı için bir açıklama girin. **Önem derecesi** değerini **Bilgilendirici (önem derecesi 2)** , **Uyarı (önem derecesi 1)** , veya **Kritik (önem derecesi 0)** olarak ayarlayın.
 
 **Eylem grubu adı** kutusuna uyarı için ad ve kısa ad. Bu eylem grubu kullanılarak bildirim gönderildiğinde tam grup adı yerine kısa ad kullanılır.
 
@@ -211,7 +211,7 @@ Uyarı e-postasının konusunu özelleştirmek için **Eylemleri Özelleştirin*
 
 Aşağıdaki görüntüde W3SVC hizmeti durduğunda alınan örnek bir e-posta vardır.
 
-![e-posta](./media/automation-tutorial-troubleshoot-changes/email.png)
+![email](./media/automation-tutorial-troubleshoot-changes/email.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
