@@ -11,16 +11,17 @@ ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 09296585ab0ab61f39c18cae6c533c0bbd91926a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 609443a4926fabd991846faee4a0a7dffe3a696b
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449256"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490188"
 ---
 # <a name="release-notes"></a>Sürüm notları
 
 ## <a name="speech-sdk-160-2019-june-release"></a>SDK'sı 1.6.0 konuşma: 2019 Haziran yayını
+
 **Örnekler**
 *   Metin okuma UWP ve Unity için hızlı başlangıç örnekleri
 *   İOS Swift için hızlı başlangıç örnek
@@ -35,6 +36,9 @@ ms.locfileid: "67449256"
     * Tüm mevcut doğrudan satır konuşma istemcileri yeniden adlandırma sonrasında desteklenmeye devam edilir.
 * Proxy, kalıcı bağlantı desteklemek için TTS REST bağdaştırıcısı güncelleştirme
 * Hata iletisi geçersiz olan bir bölge geçirildiğinde geliştirin
+* Swift/Objective-C:
+    * Gelişmiş hata raporlama: Bir hatayla sonuçlanabileceği yöntemleri artık iki sürümlerinde mevcuttur: Kullanıma sunan bir bir `NSError` hata işleme ve özel durum harekete bir nesne. Eski Swift için sunulur. Bu değişiklik, mevcut SWIFT kodu uyarlamaları gerektirir.
+    * Gelişmiş olay işleme
 
 **Hata düzeltmeleri**
 *   TTS için düzeltme: Burada SpeakTextAsync gelecekteki döndürülen ses işleme tamamlanmasını beklemenize gerek kalmadan
@@ -43,6 +47,8 @@ ms.locfileid: "67449256"
 *   Örnek çıktı klasöründe yerel kitaplıkları dağıtmak zaman zaman sorunlar için düzeltme
 *   Web yuvası güvenilir bir şekilde kapatma için düzeltme
 *   Linux üzerinde çok ağır yük altında bir bağlantı açılırken olası kilitlenme yönelik düzeltme
+*   MacOS için framework paketteki meta veriler eksik düzeltme
+*   İle ilgili sorunlar için düzeltme `pip install --user` Windows üzerinde
 
 
 ## <a name="speech-sdk-151"></a>SDK'sı 1.5.1 konuşma

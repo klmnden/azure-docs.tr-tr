@@ -40,8 +40,6 @@
       href: ../hdinsight-sdk-python-samples.md
 - name: Kavramlar
   items:
-    - name: Apache Spark sorgularını çalıştırmak için IntelliJ kullanma
-      href: apache-spark-intellij-tool-plugin.md
     - name: Apache Spark sorgularını çalıştırmak için VSCode kullanma
       href: ../hdinsight-for-vscode.md
     - name: HDInsight üzerindeki Apache Hadoop bileşenleri

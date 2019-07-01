@@ -144,7 +144,7 @@ Kullanarak `AADClientCertificate`:
 | publisher | Microsoft.Azure.Security | string |
 | türü | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 0.1, 1.1 | int |
-| (0,1 Şeması) Aadclientıd | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
+| (0,1 Şeması) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
 | (0,1 Şeması) AADClientSecret | password | string |
 | (0,1 Şeması) AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path": "", "name": "","file_system": ""} | JSON sözlüğü |
@@ -152,7 +152,7 @@ Kullanarak `AADClientCertificate`:
 | KeyEncryptionAlgorithm | 'OAEP RSA', 'RSA-OAEP-256', 'RSA1_5' | string |
 | KeyEncryptionKeyURL | url | string |
 | (optional) KeyVaultURL | url | string |
-| Parola | password | string | 
+| Passphrase | password | string | 
 | SequenceVersion | uniqueidentifier | string |
 | VolumeType | İşletim sistemi, veri, tüm | string |
 
