@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2019
+ms.date: 06/28/2019
 ms.custom: mvc
-ms.openlocfilehash: 772f815a3db0490cb461d07c56a37956ce15b383
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: c576020118778e34b80187ec056fca22a4d9c5b1
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330385"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485824"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Öğretici: Cihaz üretici yazılımı güncelleştirme işlemini uygulayın
 
@@ -186,7 +186,7 @@ Aşağıdaki ekran görüntüsünde arka uç uygulamasından alınan çıkış g
 
 ![Arka uç uygulaması](./media/tutorial-firmware-update/BackEnd2.png)
 
-IoT Hub cihaz kimlik kayıt defterindeki gecikme süresi nedeniyle arka uç uygulamasına gönderilen tüm durum güncelleştirmelerini göremeyebilirsiniz. Ölçümleri portalda görüntülemek için IoT Hub'ınızın **Automatic device management -> IoT device configuration** (Otomatik cihaz yönetimi -> IoT cihazı yapılandırması) bölümüne gidin:
+Oluşturma sırasında otomatik cihaz yapılandırmaları çalıştırır ve ardından her beş dakikada güncelleştirme her durumu görebilirsiniz değil çünkü arka uç uygulaması için gönderilir. Ölçümleri portalda görüntülemek için IoT Hub'ınızın **Automatic device management -> IoT device configuration** (Otomatik cihaz yönetimi -> IoT cihazı yapılandırması) bölümüne gidin:
 
 ![Yapılandırmayı portalda görüntüleme](./media/tutorial-firmware-update/portalview.png)
 

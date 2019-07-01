@@ -447,6 +447,18 @@
                   href: app/proactive-arm-config.md
                 - name: E-posta bildirimi
                   href: app/proactive-email-notification.md
+            - name: Kullanılabilirlik
+              items:
+                - name: URL testleri
+                  href: app/monitor-web-app-availability.md
+                - name: Çok adımlı testler
+                  href: app/availability-multistep.md
+                - name: Kullanılabilirlik uyarıları
+                  href: app/availability-alerts.md
+                - name: Sorun giderme
+                  href: app/troubleshoot-availability.md
+            - name: Performansı test etme
+              href: app/performance-testing.md
             - name: Kaynak oluşturma
               href: app/create-new-resource.md
             - name: Uygulama verilerini Log Analytics'e gönderme
@@ -554,6 +566,8 @@
                       href: insights/container-insights-enable-existing-clusters.md
                 - name: Çözümleme
                   href: insights/container-insights-analyze.md
+                - name: Aracı koleksiyonu ayarlarını yapılandırma
+                  href: insights/container-insights-agent-config.md
                 - name: İzlemeyi devre dışı bırakma
                   href: insights/container-insights-optout.md
                 - name: Canlı günlükleri görüntüleme
@@ -795,8 +809,6 @@
           items:
             - name: Uygulama uyarı kuralları
               items:
-                - name: Kullanılabilirlik
-                  href: app/monitor-web-app-availability.md
                 - name: Ölçüm uyarıları
                   href: app/alerts.md
             - name: Platform ölçüm uyarısı kuralları

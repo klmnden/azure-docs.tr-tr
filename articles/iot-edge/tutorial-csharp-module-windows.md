@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 122028217a78463fa2ceaed63248a74257206345
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: d7ccce1f21b1caa2268317b7239617a80ddce10b
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808780"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485924"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Öğretici: Geliştirme bir C# Windows cihazları için IOT Edge Modülü
 
@@ -54,7 +54,7 @@ Bu öğreticiye başlamadan önce geliştirme ortamınızı ayarlama için önce
 * [Docker CE](https://docs.docker.com/install/) Windows kapsayıcılarını çalıştırmaya yönelik yapılandırılmış.
 
 > [!TIP]
-> Visual Studio 2017 (sürüm 15.7 veya üzeri) kullanıyorsanız, plrease yükleyip [Azure IOT Edge Araçları (Önizleme)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) VS 2017 Visual Studio Market
+> Visual Studio 2017 (sürüm 15.7 veya üzeri) kullanıyorsanız, plrease yükleyip [Azure IOT Edge araçlarını](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) VS 2017 Visual Studio Market
 
 ## <a name="create-a-module-project"></a>Bir modülü projesi oluşturma
 

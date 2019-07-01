@@ -46,6 +46,8 @@
       href: front-door-routing-methods.md
     - name: URL yeniden yazma
       href: front-door-url-rewrite.md
+    - name: URL yeniden yönlendirme
+      href: front-door-url-redirect.md
     - name: WAF
       items:
         - name: Genel Bakış
@@ -58,6 +60,14 @@
           href: waf-front-door-monitor.md
 - name: Nasıl yapılır kılavuzları
   items:
+    - name: Trafiği yeniden yönlendirme
+      items:
+        - name: HTTP’den HTTPS’ye yönlendiren bir Front Door yapılandırın
+          href: front-door-how-to-redirect-https.md
+    - name: Özel etki alanları ekleme
+      items:
+        - name: Kök veya apex etki alanı ekleme
+          href: front-door-how-to-onboard-apex-domain.md
     - name: Sorun giderme
       items:
         - name: Yönlendirme sorunlarını giderme

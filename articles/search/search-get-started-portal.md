@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 90857ec2fabb1b807d3e3001f99ea3897d7d628a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4a1944c5c5f169274cf45bd3ebfb6df47942dd5a
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443859"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485642"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak bir Azure Search dizini oluşturma
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
-> * [Postman](search-fiddler.md)
+> * [Postman](search-get-started-postman.md)
 > * [C#](search-create-index-dotnet.md)
 >*
 
@@ -34,7 +34,7 @@ Bir hızlı mvc'deki için Azure Search kavramları, Azure portalında yerleşik
 > * Varolan bir dizini ve onu değiştirmek için seçenekleri görüntüleme
 > * Tam metin arama, filtreler, modeller, belirsiz arama ve ile coğrafi aramayı keşfedin **arama Gezgini**
 
-Araçları çok sınırlama, önünde bir [. NET'te Azure Search programlamaya kod tabanlı giriş](search-howto-dotnet-sdk.md) veya [Postman veya fiddler'ı REST API çağrıları yapmak için](search-fiddler.md).
+Araçları çok sınırlama, önünde bir [. NET'te Azure Search programlamaya kod tabanlı giriş](search-howto-dotnet-sdk.md) veya [Postman veya fiddler'ı REST API çağrıları yapmak için](search-get-started-postman.md).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. Bu [Azure Search’e Genel Bakış videosunun](https://channel9.msdn.com/Events/Connect/2016/138) üçüncü dakikasından izlemeye başlayarak bu öğreticideki adımların 6 dakikalık bir gösterimini izleyebilirsiniz.
 
@@ -274,4 +274,4 @@ Programlama araçlarını kullanarak Azure Search hakkında daha fazla şey keş
 
 * [.NET SDK'sını kullanarak bir dizin oluşturun](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
 * [REST API'lerini kullanarak dizin oluşturma](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Postman veya fiddler'ı ve Azure Search REST API'lerini kullanarak dizini oluşturma](search-fiddler.md)
+* [Postman veya fiddler'ı ve Azure Search REST API'lerini kullanarak dizini oluşturma](search-get-started-postman.md)

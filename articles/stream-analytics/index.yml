@@ -9,17 +9,17 @@ metadata:
   ms.author: mamccrea
   ms.service: stream-analytics
   ms.topic: landing-page
-  ms.date: 05/08/2019
+  ms.date: 06/21/2019
 abstract:
-  description: 'Stream Analytics, uygulamalardan ve IoT cihazlarından gelen veri akışlarını gerçek zamanlı olarak analiz etmenize olanak tanıyan tam olarak yönetilen, sunucusuz bir olay işleme altyapısıdır. Hızlı başlangıçlarımız, öğreticilerimiz ve örneklerimizle Azure Stream Analytics''i kullanmayı öğrenin.'
+  description: 'Stream Analytics, IoT cihazları, uygulamalar, tıklama akışları gibi yerlerden gelen ve hızla akan verileri gerçek zamanlı olarak analiz edip işlemenize ve gerekli durumlarda uyarı tetikleyip eyleme geçmenize yardımcı olan, tam olarak yönetilen bir PaaS hizmetidir. Hızlı başlangıçlarımız, öğreticilerimiz ve örneklerimizle Azure Stream Analytics''i kullanmayı öğrenin.'
   aside:
     image:
       alt: null
       height: 110
       src: ./media/index/streaming-analytics-thumbnail.png
       width: 250
-    title: 'Azure Stream Analytics ile gerçek zamanlı analiz ve makine öğrenmesi. (1:15:05)'
-    href: 'https://myignite.techcommunity.microsoft.com/sessions/65358?source=sessions#ignite-html-anchor'
+    title: 'Buluttan akıllı uca: Azure Stream Analytics ile gerçek zamanlı kararlar alın. (1:02:11)'
+    href: 'https://azure.microsoft.com/resources/videos/build-2019-from-cloud-to-the-intelligent-edge-drive-real-time-decisions-with-azure-stream-analytics/'
     width: 250
 sections:
   - title: 5 Dakikalık Hızlı Başlangıçlar

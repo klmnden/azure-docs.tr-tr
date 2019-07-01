@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: chlandsi
-ms.openlocfilehash: 3eb65b5d41317a4cfc31917a4b08d931ba9c7aa6
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 49e39a40093f2efdf0fabbbf9f383576b2cebe22
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466620"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485002"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Hızlı Başlangıç: Objective C'de konuşma Speech SDK'sı kullanarak Macos'ta tanıması
 
@@ -34,7 +34,7 @@ Başlamadan önce önkoşullarının listesi aşağıda verilmiştir:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.5.1`.
+Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.6.0`.
 
 Bilişsel hizmetler konuşma SDK'sı Mac için bir çerçeve paket dağıtılır.
 Xcode projelerinde kullanılabilir bir [CocoaPod](https://cocoapods.org/), veya'ndan indirilmiş https://aka.ms/csspeech/macosbinary ve el ile bağlanır. Bu kılavuzda bir CocoaPod kullanır.

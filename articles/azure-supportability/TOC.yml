@@ -5,14 +5,17 @@
 - name: Destek isteği oluşturmak ve yönetmek için gereken erişim hakları
   href: create-manage-support-requests-using-access-control.md
 - name: Kota artışı istekleri
-  href: resource-manager-core-quotas-request.md
   items:
-    - name: VM Serisi vCPU sınır artışı
-      href: per-vm-quota-requests.md
-    - name: Toplam bölgesel vCPU sınır artışı
-      href: regional-quota-requests.md
-    - name: Ağ sınırını artırma
-      href: networking-quota-requests.md
+    - name: Resource Manager Dağıtım Model Kotası artış istekleri
+      items:
+        - name: VM Serisi vCPU sınır artışı
+          href: per-vm-quota-requests.md
+        - name: Toplam bölgesel vCPU sınır artışı
+          href: regional-quota-requests.md
+        - name: Ağ sınırını artırma
+          href: networking-quota-requests.md
+    - name: Klasik Dağıtım Model Kotası artış istekleri
+      href: classic-deployment-model-quota-increase-requests.md
 - name: Bölge veya SKU abonelik sorunlarını giderme
   href: sku-series-unavailable.md
 - name: Başvuru

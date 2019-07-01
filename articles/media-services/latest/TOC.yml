@@ -158,7 +158,7 @@
       href: migrate-from-v2-to-v3.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: başlarken
+    - name: Başlarken
       items:
         - name: Hesap oluşturma - CLI
           href: create-account-cli-how-to.md
@@ -223,6 +223,14 @@
             - name: REST ile
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-rest-howto.md
+        - name: Videoya alt klip ekleme
+          items:
+            - name: .NET ile
+              href: subclip-video-dotnet-howto.md
+              displayName: 'subclipping, clip, edit, trim, clipping'
+            - name: REST ile
+              href: subclip-video-rest-howto.md
+              displayName: 'subclipping, clip, edit, trim, clipping'
     - name: Event Grid kullanma
       items:
         - name: Olayları izleme - Portal

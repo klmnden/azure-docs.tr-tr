@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/21/2019
 ms.author: v-rodixo
 ms.custom: seodec2018
-ms.openlocfilehash: 4186c422836771de4f8a283616d77214b91bfc02
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 8ce3c66432f3d2d0cb973886498aa46e7820698c
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462705"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485257"
 ---
 # <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-search-index"></a>C#Öğretici: Bir Azure Search dizini içinde birden çok veri kaynaklarından alınan verileri birleştirin
 
@@ -28,7 +28,7 @@ Bu öğreticide C#, .NET SDK'sı Azure Search ve Azure portalı aşağıdaki gö
 > * Örnek verileri karşıya yükleme ve veri kaynakları oluşturma
 > * Belge anahtarını tanımlama
 > * Tanımlama ve dizin oluşturma
-> * CosmosDb otel verileri dizini
+> * Azure Cosmos DB otel verileri dizini
 > * Blob depolamadan otelinden oda verilerini birleştirme
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -61,7 +61,7 @@ Azure Search hizmetiniz ile etkileşim için hizmet URL'si ve erişim anahtarı 
 
 1. İçinde **ayarları** > **anahtarları**, hizmette tam haklarına yönelik bir yönetici anahtarını alın. Bir gece yarısında gerektiği durumlarda iş sürekliliği için sağlanan iki birbirinin yerine yönetici anahtarı mevcuttur. Ekleme, değiştirme ve silme nesneler için istekleri birincil veya ikincil anahtar kullanabilirsiniz.
 
-![Bir HTTP uç noktası ve erişim anahtarını alma](media/search-fiddler/get-url-key.png "bir HTTP uç noktası ve erişim anahtarını alma")
+![Bir HTTP uç noktası ve erişim anahtarını alma](media/search-get-started-postman/get-url-key.png "bir HTTP uç noktası ve erişim anahtarını alma")
 
 Tüm istekleri hizmete gönderilen her istekte bir API anahtarı gerektirir. Geçerli bir anahtar, istek başına temelinde, uygulama gönderme isteği ve bunu işleyen hizmet arasında güven oluşturur.
 
@@ -134,7 +134,7 @@ Birden çok veri kaynaklarından alınan verileri için dizin oluşturulurken, h
 
 Kaynak verileri için doğru dizin alanı yönlendirilebilir böylece azure Search dizin oluşturucularında alan eşlemeleri yeniden adlandırmak ve veri alanlarını dizin oluşturma işlemi sırasında bile yeniden biçimlendirmek için kullanabilirsiniz.
 
-Örneğin, bizim örnek CosmosDB verilerde otel tanımlayıcısı çağrılır **HotelId**. Ancak otelinden oda için JSON blob dosyalarını otel tanımlayıcı adlı **kimliği**. Program bu eşleyerek işler **kimliği** blob'lara alanını **HotelId** anahtar alan olarak.
+Örneğin, bizim örnek Azure Cosmos DB veri otel tanımlayıcı adlı **HotelId**. Ancak otelinden oda için JSON blob dosyalarını otel tanımlayıcı adlı **kimliği**. Program bu eşleyerek işler **kimliği** blob'lara alanını **HotelId** anahtar alan olarak.
 
 > [!NOTE]
 > Çoğu durumda, iyi belge anahtarları birleşik dizinler için varsayılan olarak bazı Dizin Oluşturucu tarafından oluşturulanlar gibi otomatik olarak oluşturulan belge anahtarları yapmayın. Genel olarak zaten var. bir anlamlı ve benzersiz anahtar değer kullanmak istemeniz veya veri kaynaklarınız için kolayca eklenebilir.
@@ -146,8 +146,8 @@ Verileri ve yapılandırma ayarları yerinde olduğunda, örnek program **AzureS
 Bu basit C#/.NET konsol uygulaması, aşağıdaki görevleri gerçekleştirir:
 * Veri yapısına dayalı yeni bir Azure Search dizini oluşturur C# (aynı zamanda adres ve alan sınıfları başvuran) otel sınıfı.
 * Bir Azure Cosmos DB veri kaynağı ve dizin alanları için Azure Cosmos DB veri eşleyen bir dizin oluşturur.
-* CosmosDB dizin oluşturucu, otel verileri yüklemek için çalışır.
-* Bir Azure Blob Depolama veri kaynağı ve dizin alanları için JSOn Blob verilerini eşleyen bir dizin oluşturur.
+* Otel verileri yüklemek için Azure Cosmos DB dizinleyici çalıştırır.
+* Bir Azure Blob Depolama veri kaynağı ve dizin alanları için JSON blob verilerini eşleyen bir dizin oluşturur.
 * Azure blob depolama dizin oluşturucu odaları verileri yüklemek için çalışır.
 
  Programı çalıştırmadan önce kod ve bu örnek için dizin ve dizin oluşturucu tanımlarını incelemek için bir dakikanızı ayırın. İlgili kod iki dosyada yer alır:

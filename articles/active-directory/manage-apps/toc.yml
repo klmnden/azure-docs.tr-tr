@@ -45,24 +45,22 @@
           href: application-proxy-network-topology.md
         - name: Uzaktan erişim çözümlerini karşılaştırma
           href: application-proxy-migration.md
+    - name: Çoklu oturum açma
+      items:
+        - name: Çoklu oturum açma nedir?
+          href: what-is-single-sign-on.md
+        - name: Çoklu oturum açma dağıtımını planlama
+          href: plan-sso-deployment.md
+    - name: Tek Tıklamayla SSO
+      items:
+        - name: Tek Tıklamayla SSO nedir
+          href: one-click-sso-tutorial.md
     - name: Kullanıcıları ve grupları sağlama
       items:
         - name: Otomatik kullanıcı sağlama
-          href: configure-automatic-user-provisioning-portal.md
-        - name: SaaS uygulamaları
           href: user-provisioning.md
-        - name: SCIM etkin uygulamalar
+        - name: SCIM etkin uygulamalar için otomatik sağlama
           href: use-scim-to-provision-users-and-groups.md
-        - name: Uygulama özniteliklerini özelleştirme
-          href: Customize-application-attributes.md
-        - name: Öznitelik eşlemeleri için ifadeler yazma
-          href: functions-for-customizing-application-data.md
-        - name: Kapsam belirleme filtreleri
-          href: define-conditional-rules-for-provisioning-user-accounts.md
-        - name: Otomatik kullanıcı hazırlama raporu
-          href: check-status-user-account-provisioning.md
-        - name: Kullanıcı hazırlama sorunlarını giderme
-          href: application-provisioning-config-problem.md
     - name: Uygulama güvenliği
       items:
         - name: Uygulama erişim seçenekleri
@@ -75,18 +73,8 @@
           href: tenant-restrictions.md
         - name: SAML belirteci şifrelemesini yapılandırma (Önizleme)
           href: howto-saml-token-encryption.md
-    - name: Çoklu oturum açma
-      items:
-        - name: Çoklu oturum açma nedir?
-          href: what-is-single-sign-on.md
-        - name: Çoklu oturum açma dağıtımını planlama
-          href: plan-sso-deployment.md
     - name: Son kullanıcı portalları
       href: end-user-experiences.md
-    - name: Tek Tıklamayla SSO
-      items:
-        - name: Tek Tıklamayla SSO nedir
-          href: one-click-sso-tutorial.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Bulut uygulaması ekleme
@@ -157,12 +145,20 @@
               href: application-proxy-configure-single-sign-on-on-premises-apps.md
     - name: Kullanıcı sağlamayı yapılandırma
       items:
-        - name: Sağlamanın tamamlanma süresi
-          href: application-provisioning-when-will-provisioning-finish-specific-user.md
-        - name: Kullanıcı sağlamayı yapılandırma - galeri uygulaması
+        - name: Galeri uygulamaları için kullanıcı sağlama
           href: application-provisioning-config-how-to.md
-        - name: Eşleme için özniteliği eşitleme - galeri uygulaması
-          href: user-provisioning-sync-attributes-for-mapping.md
+        - name: Otomatik kullanıcı sağlamayı yapılandırma
+          href: configure-automatic-user-provisioning-portal.md
+        - name: Uygulama özniteliklerini özelleştirme
+          href: Customize-application-attributes.md
+        - name: Öznitelik eşlemeleri için ifadeler yazma
+          href: functions-for-customizing-application-data.md
+        - name: Kapsam belirleme filtreleri
+          href: define-conditional-rules-for-provisioning-user-accounts.md
+        - name: Sağlama durumunu denetleme
+          href: application-provisioning-when-will-provisioning-finish-specific-user.md
+        - name: Otomatik kullanıcı hazırlama raporu
+          href: check-status-user-account-provisioning.md
     - name: Kullanıcı atama ve uygulamalara erişimi yönetme
       items:
         - name: Kullanıcı onayını yapılandırma
@@ -235,10 +231,12 @@
               href: configure-password-single-sign-on-non-gallery-applications-problems.md
         - name: Kullanıcı hazırlama sorunlarını giderme
           items:
+            - name: Kullanıcı hazırlama sorunlarını giderme
+              href: application-provisioning-config-problem.md
+            - name: Eşleme için özniteliği eşitleme - galeri uygulaması
+              href: user-provisioning-sync-attributes-for-mapping.md
             - name: Saatler sürüyor - galeri uygulaması
               href: application-provisioning-when-will-provisioning-finish.md
-            - name: Kullanıcı sağlamayı yapılandırma sorunu - galeri uygulaması
-              href: application-provisioning-config-problem.md
             - name: Kullanıcı sağlama galeri uygulamasını yapılandırırken yönetici kimlik bilgilerini kaydetme sorunu
               href: application-provisioning-config-problem-storage-limit.md
             - name: Kullanıcılar sağlanmıyor - galeri uygulaması

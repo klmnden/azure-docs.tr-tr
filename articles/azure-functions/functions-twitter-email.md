@@ -4,19 +4,19 @@ description: Tweet duyarlılığını kategorilere ayırmak ve duyarlılık dü�
 services: functions, logic-apps, cognitive-services
 keywords: iş akışı, bulut uygulamaları, bulut hizmetleri, iş süreçleri, sistem tümleştirme, kuruluş uygulaması tümleştirme, EAI
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 5e0ef8287b7ce257cd551a1ace043ccbed72b50b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 11e0170464d8ed901253925eb62cce12d42c0008
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61037140"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480024"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Azure Logic Apps ile tümleşen bir işlev oluşturma
 
@@ -58,7 +58,7 @@ Bilişsel Hizmetler API'leri Azure’da tek kaynaklar halinde kullanılabilir. �
     | Ayar      |  Önerilen değer   | Açıklama                                        |
     | --- | --- | --- |
     | **Ad** | MyCognitiveServicesAccnt | Benzersiz bir hesap adı seçin. |
-    | **Konum** | Batı ABD | Size en yakın konumu kullanın. |
+    | **Location** | Batı ABD | Size en yakın konumu kullanın. |
     | **Fiyatlandırma katmanı** | F0 | En düşük katman ile başlayın. Çağrılarınız biterse daha yüksek bir katmana ölçeklendirin.|
     | **Kaynak grubu** | myResourceGroup | Bu öğreticideki tüm hizmetler için aynı kaynak grubunu kullanın.|
 
@@ -145,7 +145,7 @@ Artık duyarlılık puanlarını kategorilere ayıran bir işleviniz vardır. bu
     | ----------------- | ------------ | ------------- |
     | **Ad** | TweetSentiment | Uygulamanız için uygun bir ad seçin. |
     | **Kaynak grubu** | myResourceGroup | Daha önceki ile aynı mevcut kaynak grubunu seçin. |
-    | **Konum** | Doğu ABD | Size yakın bir konum seçin. |    
+    | **Location** | Doğu ABD | Size yakın bir konum seçin. |    
 
 4. Uygun ayar değerlerini girdikten sonra mantıksal uygulamanızı oluşturmak için **Oluştur**’a tıklayın. 
 

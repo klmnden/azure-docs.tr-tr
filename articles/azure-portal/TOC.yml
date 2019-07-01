@@ -30,6 +30,8 @@
   items:
     - name: Klavye kısayolları
       href: azure-portal-keyboard-shortcuts.md
+    - name: Azure portalı URL’lerini güvenli listeye alma
+      href: azure-portal-safelist-urls.md
     - name: Azure panolarının yapısı
       href: azure-portal-dashboards-structure.md
 - name: Kaynaklar

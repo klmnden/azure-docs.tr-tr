@@ -25,6 +25,8 @@
           href: howto-create-tenant.md
         - name: Azure AD uygulama nesnesi veya kullanıcısı oluşturma
           href: howto-aad-app-configuration.md
+    - name: Azure Red Hat OpenShift kümesinde tek başına bir Prometheus dağıtma
+      href: howto-deploy-prometheus.md
 - name: Başvuru
   items:
     - name: Azure Red Hat OpenShift CLI

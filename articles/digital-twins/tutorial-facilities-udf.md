@@ -2,18 +2,18 @@
 title: 'Öğretici: Azure Digital Twins ile alan izleme | Microsoft Docs'
 description: Uzamsal kaynaklarınızı sağlamak ve Bu öğreticide adımları kullanarak Azure dijital çiftleri ile çalışma koşullarına izleme hakkında bilgi edinin.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.author: dkshir
-ms.openlocfilehash: 738e78ce06d98960c87414948e045cc4abe37d6b
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.author: alinast
+ms.openlocfilehash: 3ebfa9b54007d0b409780e6a549bdd2411b94810
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462198"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484666"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Öğretici: Yapı ve izleyici ile Azure dijital İkizlerini Önizleme koşulları çalışma sağlayın
 

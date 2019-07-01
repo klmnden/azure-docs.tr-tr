@@ -2,18 +2,18 @@
 title: 'Öğretici: Azure Digital Twins kurulumundan olay analizi yapma | Microsoft Docs'
 description: Görselleştirme ve Bu öğreticide adımları kullanarak, Azure dijital İkizlerini boşluklarla Azure Time Series Insights, olaylarından analiz etme hakkında bilgi edinin.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
-ms.author: dkshir
-ms.openlocfilehash: 897050513449c099ce75c248eef00a38aac98ad9
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.author: alinast
+ms.openlocfilehash: 3f6111457d3438b80ace8cd557747ab8c799efd3
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462271"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484748"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Öğretici: Time Series Insights'ı kullanarak Azure dijital İkizlerini alanlarınıza olayları çözümleyin
 

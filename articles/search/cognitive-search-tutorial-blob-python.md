@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-lilei
-ms.openlocfilehash: 50a252ff93f7e2cc6e5c6100c6bce850e9e96baf
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 7f8ac2b7973ddd21f16f2914b01618b2b005cd13
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295631"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485802"
 ---
 # <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Python eğitmen: Bir Azure Search dizini oluşturma ardışık düzen Bilişsel hizmetler API'lerini çağırma
 
@@ -60,7 +60,7 @@ Azure Search hizmet ile etkileşimde bulunmak üzere hizmet URL'si ve erişim an
 
 1. İçinde **ayarları** > **anahtarları**, hizmette tam haklarına yönelik bir yönetici anahtarını alın. Bir gece yarısında gerektiği durumlarda iş sürekliliği için sağlanan iki birbirinin yerine yönetici anahtarı mevcuttur. Ekleme, değiştirme ve silme nesneler için istekleri birincil veya ikincil anahtar kullanabilirsiniz.
 
-![Bir HTTP uç noktası ve erişim anahtarını alma](media/search-fiddler/get-url-key.png "bir HTTP uç noktası ve erişim anahtarını alma")
+![Bir HTTP uç noktası ve erişim anahtarını alma](media/search-get-started-postman/get-url-key.png "bir HTTP uç noktası ve erişim anahtarını alma")
 
 Tüm istekleri hizmete gönderilen her istekte bir API anahtarı gerektirir. Geçerli bir anahtar, istek başına temelinde, uygulama gönderme isteği ve bunu işleyen hizmet arasında güven oluşturur.
 
