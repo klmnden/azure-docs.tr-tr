@@ -10,12 +10,12 @@ ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s
 manager: mmontwil
-ms.openlocfilehash: 0677eb4c65da242f8cfcb20754ec88ffb02c5929
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 517951be2bc99f7607facaed3c9b04260fc6d3d8
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393152"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503194"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Java ile Azure geliştirme alanlarında çalışmaya başlama
 
@@ -137,18 +137,27 @@ Komutun çıkışını gözden geçirin; ilerledikçe bazı şeyler göreceksini
 
 ```
 (pending registration) Service 'webfrontend' port 'http' will be available at <url>
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
-Tarayıcı penceresinde bu URL'yi açın; web uygulaması yükünü görmelisiniz. Kapsayıcı yürütülürken, terminal penceresine `stdout` ve `stderr` çıkışının akışı yapılır.
+Çıktıda hizmeti için genel URL tanımlamak `up` komutu. İle biter `.azds.io`. Yukarıdaki örnekte, genel URL'dir `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
+
+Web uygulamanızı görmek için genel URL, bir tarayıcıda açın. Ayrıca, fark `stdout` ve `stderr` çıkış akışı yapılan *azds izleme* terminal penceresinde aynı web uygulamanızla etkileşim. Ayrıca, sistemden ilerledikçe bilgi HTTP isteklerini izleme görürsünüz. Bu, karmaşık çoklu hizmet çağrıları geliştirme sırasında izlemek kolaylaştırır. Bu istek izleme geliştirme alanları tarafından eklenen izleme sağlar.
 
 > [!Note]
-> İlk çalıştırmada genel DNS hizmetinin hazır duruma gelmesi birkaç dakika sürebilir. Genel URL çözmezse alternatif kullanabileceğiniz `http://localhost:<portnumber>` konsol çıkışında görüntülenen URL. Localhost URL'sini kullanırsanız kapsayıcı yerel olarak çalışıyor gibi görünebilir, ancak gerçekte AKS'de çalışıyordur. Size rahatlık sağlamak ve yerel makinenizden hizmetle etkileşimi kolaylaştırmak için, Azure Dev Spaces Azure'da çalıştırılan kapsayıcıya geçici bir SSH tüneli oluşturur. DNS kaydı hazır olduğunda geri gelip genel URL'yi deneyebilirsiniz.
-> ### <a name="update-a-content-file"></a>İçerik dosyası güncelleştirme
-> Azure Dev Spaces yalnızca kodu Kubernetes’te çalıştırmaya yönelik değildir; aynı zamanda kod değişikliklerinizin buluttaki bir Kubernetes ortamında uygulandığını hızlıca ve yinelenerek görmenizi sağlar.
+> Genel URL yanı sıra diğer kullanabilirsiniz `http://localhost:<portnumber>` konsol çıkışında görüntülenen URL. Localhost URL'sini kullanırsanız kapsayıcı yerel olarak çalışıyor gibi görünebilir, ancak gerçekte AKS'de çalışıyordur. Azure geliştirme alanları Kubernetes kullanan *bağlantı noktası iletme* AKS'de çalışan kapsayıcıya localhost bağlantı noktasına eşlemek üzere işlevsellik. Bu, yerel makinenizde hizmetiyle etkileşim kolaylaştırır.
+
+### <a name="update-a-content-file"></a>İçerik dosyası güncelleştirme
+Azure Dev Spaces yalnızca kodu Kubernetes’te çalıştırmaya yönelik değildir; aynı zamanda kod değişikliklerinizin buluttaki bir Kubernetes ortamında uygulandığını hızlıca ve yinelenerek görmenizi sağlar.
 
 1. Terminal penceresinde `Ctrl+C` düğmesine basın (`azds up` hizmetini durdurmak için).
-1. `src/main/java/com/ms/sample/webfrontend/Application.java` adlı kod dosyasını açın ve karşılama iletisini düzenleyin: `return "Hello from webfrontend in Azure!";`
+1. Açık `src/main/java/com/ms/sample/webfrontend/Application.java`ve selamlama iletisi düzenlenme [satır 19](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19):
+
+    ```java
+    return "Hello from webfrontend in Azure!";
+    ```
+
 1. Dosyayı kaydedin.
 1. Terminal penceresinde `azds up` komutunu çalıştırın.
 
@@ -181,7 +190,7 @@ Bu, `.vscode` klasörünün altında Azure Dev Spaces için hata ayıklama yapı
 ![](media/get-started-java/debug-configuration.png)
 
 > [!Note]
-> Komut Paletinde herhangi bir Azure Dev Spaces komutu görmüyorsanız, Azure Dev Spaces için VS Code uzantısını yüklediğinizden emin olun. VS Code içinde açtığınız çalışma alanının azds.yaml dosyasını içeren klasör olduğundan emin olun.
+> Komut Paletinde herhangi bir Azure Dev Spaces komutu görmüyorsanız, Azure Dev Spaces için VS Code uzantısını yüklediğinizden emin olun. VS Code'da açtığınız çalışma alanını içeren klasörü olduğundan emin olun `azds.yaml`.
 
 ### <a name="debug-the-container-in-kubernetes"></a>Kubernetes’te kapsayıcının hatalarını ayıklama
 Kubernetes’te kodunuzun hatalarını ayıklamak için **F5**’e basın.
@@ -189,7 +198,7 @@ Kubernetes’te kodunuzun hatalarını ayıklamak için **F5**’e basın.
 `up` komutunda olduğu gibi kod, geliştirme ortamıyla eşitlenir ve bir kapsayıcı derlenip Kubernetes’e dağıtılır. Elbette bu kez, hata ayıklayıcı uzak kapsayıcıya eklenir.
 
 > [!Tip]
-> VS Code durum çubuğunda tıklanabilir bir URL görüntülenir.
+> VS Code durum çubuğunda turuncu kapatır belirten hata ayıklayıcı eklenir. Ayrıca, uygulamanızı açmak için kullanabileceğiniz bir tıklanabilir URL de görüntülenir.
 
 ![](media/common/vscode-status-bar-url.png)
 
@@ -207,9 +216,9 @@ public String greeting()
 }
 ```
 
-Dosyayı kaydedin ve **Hata ayıklama eylemleri** bölmesinde **Yenile** düğmesine tıklayın.
+Dosyayı kaydedin ve buna **hata ayıklama Eylemler bölmesinde**, tıklayın **yeniden** düğmesi.
 
-![](media/get-started-java/debug-action-refresh.png)
+![](media/common/debug-action-refresh.png)
 
 Azure Dev Spaces, her kod düzenlemesi yapıldığında yeni bir kapsayıcı görüntüsünü yeniden derleme ve yeniden dağıtmayı içeren uzun süreli işlem yerine, mevcut kapsayıcı içindeki kodu artımlı bir şekilde yeniden derleyerek daha hızlı bir düzenleme/hata ayıklama döngüsü sağlar.
 

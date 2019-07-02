@@ -8,7 +8,7 @@
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
-    - name: Verilerinizdeki anomalileri algılama
+    - name: REST API
       items:
         - name: 'C# kullanma'
           href: quickstarts/detect-data-anomalies-csharp.md
@@ -16,6 +16,12 @@
           href: quickstarts/detect-data-anomalies-java.md
         - name: Python’u kullanma
           href: quickstarts/detect-data-anomalies-python.md
+    - name: SDK
+      items:
+        - name: 'C# kullanma'
+          href: quickstarts/detect-data-anomalies-csharp-sdk.md
+        - name: Python’u kullanma
+          href: quickstarts/detect-data-anomalies-python-sdk.md
 - name: Öğreticiler
   items:
     - name: Power BI kullanarak anomalileri toplu olarak görselleştirme

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 6b9c9500423392ec07482f049697d9b49dc060bf
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: dcd1ef5c54885b758ac9a301616d79a163999bc9
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603192"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509625"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Öğretici: Azure'da bir Java EE ve Postgres web uygulaması oluşturma
 
@@ -38,7 +38,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="clone-and-edit-the-sample-app"></a>Kopyalamak ve örnek uygulamayı Düzenle
 
-Bu adımda, örnek uygulamayı kopyalayın ve Maven proje nesne modeli (POM veya pom.xml) dağıtımı için yapılandırın.
+Bu adımda, örnek uygulamayı kopyalayın ve yapılandırma Maven proje nesne modeli (POM veya *pom.xml*) dağıtımı için.
 
 ### <a name="clone-the-sample"></a>Örneği kopyalama
 
@@ -50,9 +50,9 @@ git clone https://github.com/Azure-Samples/wildfly-petstore-quickstart.git
 
 ### <a name="update-the-maven-pom"></a>Maven POM güncelleştir
 
-Maven Azure eklentisi, istenen adı ve kaynak grubu, App Service ile güncelleştirin. App Service planı veya örnek önceden oluşturmanız gerekmez. Maven plugin, zaten yoksa, App Service ve kaynak grubu oluşturur. 
+Maven Azure eklentisi, istenen adı ve kaynak grubu, App Service ile güncelleştirin. App Service planı veya örnek önceden oluşturmanız gerekmez. Maven plugin, zaten yoksa, App Service ve kaynak grubu oluşturur.
 
-Aşağı kaydırarak `<plugins>` bölümünü _pom.xml_, değişiklik yapmak için 200 satır. 
+Aşağı kaydırarak `<plugins>` bölümünü *pom.xml*, değişiklik yapmak için 200 satır.
 
 ```xml
 <!-- Azure App Service Maven plugin for deployment -->
@@ -67,6 +67,7 @@ Aşağı kaydırarak `<plugins>` bölümünü _pom.xml_, değişiklik yapmak iç
   ...
 </plugin>  
 ```
+
 Değiştirin `YOUR_APP_NAME` ve `YOUR_RESOURCE_GROUP` App Service ve kaynak grubunuzun adlarına sahip.
 
 ## <a name="build-and-deploy-the-application"></a>Uygulama derleme ve dağıtma
@@ -103,13 +104,19 @@ Bu noktada, uygulamayı bir bellek içi H2 veritabanını kullanıyor. Gezinti �
 
 ## <a name="provision-a-postgres-database"></a>Postgres veritabanı sağlama
 
-Postgres veritabanı sunucusu sağlamak için bir terminal açın ve sunucu adı, kullanıcı adı, parola ve konum için istenen değerleri ile aşağıdaki komutu çalıştırın. App Service'inizin bulunduğu aynı kaynak grubunu kullanın. Daha sonra kullanmak üzere parolanızı not bırakın!
+Postgres veritabanı sunucusu sağlamak için bir terminal açın ve [az postgres server oluşturma](https://docs.microsoft.com/cli/azure/postgres/server) , aşağıdaki örnekte gösterildiği gibi komutu. Seçtiğiniz değerleriyle (köşeli dahil olmak üzere) yer tutucularını değiştirin, aynı kaynak kullanarak, Grup, App Service örneğinizin daha önce sağlanan. Sağladığınız yönetici kimlik bilgileri gelecek erişimi etkinleştirmek için bu nedenle, bunları daha sonra kullanmak için Not tuttuğunuzdan emin olun.
 
 ```bash
-az postgres server create -n <desired-name> -g <same-resource-group> --sku-name GP_Gen4_2 -u <desired-username> -p <desired-password> -l <location>
+az postgres server create \
+    --name <server name> \
+    --resource-group <resource group> \
+    --location <location>
+    --sku-name GP_Gen5_2 \
+    --admin-user <administrator username> \
+    --admin-password <administrator password> \
 ```
 
-Portal ve arama Postgres veritabanı göz atın. Yedekleme dikey penceresinde olduğunda, "Sunucu adı" ve "Sunucu Yöneticisi oturum açma adı" değerlerini kopyalayın, daha sonra gerekecektir.
+Bu komutu çalıştırdıktan sonra Azure portalına gidin ve Postgres veritabanına gidin. Yedekleme dikey penceresinde olduğunda, "Sunucu adı" ve "Sunucu Yöneticisi oturum açma adı" değerlerini kopyalayın, daha sonra gerekecektir.
 
 ### <a name="allow-access-to-azure-services"></a>Azure hizmetlerine erişime izin ver
 
@@ -123,7 +130,7 @@ Portal ve arama Postgres veritabanı göz atın. Yedekleme dikey penceresinde ol
 
 ### <a name="add-postgres-credentials-to-the-pom"></a>İçin POM Postgres kimlik bilgilerini ekleyin
 
-İçinde _pom.xml_, büyük harflerle yazılan ifadeler yer tutucu değerlerini Postgres sunucu adı, yönetici oturum açma adı ve parola ile değiştirin. Bu alanlar Azure Maven Plugin içinde olur. (Değiştirdiğinizden emin olun `YOUR_SERVER_NAME`, `YOUR_PG_USERNAME`, ve `YOUR_PG_PASSWORD` içinde `<value>` ... etiketleri içinde değil `<name>` etiketleri!)
+İçinde *pom.xml*, büyük harflerle yazılan ifadeler yer tutucu değerlerini Postgres sunucu adı, yönetici oturum açma adı ve parola ile değiştirin. Bu alanlar Azure Maven Plugin içinde olur. (Değiştirdiğinizden emin olun `YOUR_SERVER_NAME`, `YOUR_PG_USERNAME`, ve `YOUR_PG_PASSWORD` içinde `<value>` ... etiketleri içinde değil `<name>` etiketleri!)
 
 ```xml
 <plugin>
@@ -148,36 +155,34 @@ Portal ve arama Postgres veritabanı göz atın. Yedekleme dikey penceresinde ol
 
 ### <a name="update-the-java-transaction-api"></a>Java API işlem güncelleştir
 
-Ardından, böylece daha önce kullandığımız bellek içi H2 veritabanı yerine Java uygulamamız Postgres ile iletişim kurar, bizim Java işlem API (JPA) yapılandırmasını düzenlemek ihtiyacımız var. Bir düzenleyici açık _src/main/resources/META-INF/persistence.xml_. `<jta-data-source>` değerini `java:jboss/datasources/postgresDS` ile değiştirin. JTA XML dosyanızı, şimdi bu ayarı sahip olmalıdır:
+Ardından, böylece daha önce kullandığımız bellek içi H2 veritabanı yerine Java uygulamamız Postgres ile iletişim kurar, bizim Java işlem API (JPA) yapılandırmasını düzenlemek ihtiyacımız var. Bir düzenleyici açık *src/main/resources/META-INF/persistence.xml*. `<jta-data-source>` değerini `java:jboss/datasources/postgresDS` ile değiştirin. JTA XML dosyanızı, şimdi bu ayarı sahip olmalıdır:
 
 ```xml
-...
 <jta-data-source>java:jboss/datasources/postgresDS</jta-data-source>
-...
 ```
 
 ## <a name="configure-the-wildfly-application-server"></a>WildFly uygulama sunucusunu yapılandırma
 
 Yeniden yapılandırılan uygulamamız dağıtmadan önce biz WildFly uygulama sunucusu Postgres modülü ve bağımlılıkları ile güncelleştirmeniz gerekir. Daha fazla yapılandırma bilgileri şu adreste bulunabilir: [WildFly yapılandırma sunucusu](configure-language-java.md#configure-java-ee-wildfly).
 
-Sunucuyu yapılandırmak için şu dört dosyalarında gerekir `wildfly_config/` dizini:
+Sunucuyu yapılandırmak için şu dört dosyalarında gerekir *wildfly_config /* dizini:
 
 - **postgresql-42.2.5.jar**: Bu JAR Dosyası Postgres için JDBC sürücüsü içindir. Daha fazla bilgi için [resmi Web sitesi](https://jdbc.postgresql.org/index.html).
 - **postgres module.xml**: Bu XML dosyası (org.postgres) Postgres modül için bir ad bildirir. Ayrıca, kullanılacak modülü için gerekli olan bağımlılıklar ve kaynakları belirtir.
 - **jboss_cli_commands.cl**: Bu dosya, JBoss CLI tarafından yürütülecek yapılandırma komutları içerir. Komutlar Postgres modülü WildFly uygulama sunucusuna ekleyin, kimlik bilgilerini sağlayın, JNDI adı bildirmek, vb. zaman aşımı eşiği. JBoss CLI ile alışkın değilseniz bkz [resmi belgelerine](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
-- **startup_script.sh**: Son olarak, App Service örneği başlatıldığında bu kabuk betiği yürütülür. Komut dosyası, yalnızca tek bir işlevi gerçekleştirir: komutlar akışkan `jboss_cli_commands.cli` JBoss CLI için.
+- **startup_script.sh**: Son olarak, App Service örneği başlatıldığında bu kabuk betiği yürütülür. Komut dosyası, yalnızca tek bir işlevi gerçekleştirir: komutlar akışkan *jboss_cli_commands.cli* JBoss CLI için.
 
-Bu dosyaların içeriğini özellikle okuma önerisi _jboss_cli_commands.cli_.
+Bu dosyaların içeriğini özellikle okuma önerisi *jboss_cli_commands.cli*.
 
 ### <a name="ftp-the-configuration-files"></a>FTP yapılandırma dosyaları
 
-FTP içeriği ihtiyacımız `wildfly_config/` bizim App Service örneğine. FTP kimlik bilgilerinizi almak için tıklayın **yayımlama profili Al** düğme Azure portalında App Service dikey penceresinde. FTP kullanıcı adı ve parola indirilen XML belgesinde olacaktır. Yayımlama profili hakkında daha fazla bilgi için bkz. [bu belgeyi](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
+FTP içeriği ihtiyacımız *wildfly_config /* bizim App Service örneğine. FTP kimlik bilgilerinizi almak için tıklayın **yayımlama profili Al** düğme Azure portalında App Service dikey penceresinde. FTP kullanıcı adı ve parola indirilen XML belgesinde olacaktır. Yayımlama profili hakkında daha fazla bilgi için bkz. [bu belgeyi](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
-Tercih ettiğiniz bir FTP aracını kullanarak, dört dosyaları aktarma `wildfly_config/` için `/home/site/deployments/tools/`. (, Dizin dosyaları kendilerinin yalnızca Aktarım değil unutmayın.)
+Tercih ettiğiniz bir FTP aracını kullanarak, dört dosyaları aktarma *wildfly_config /* için */home/site/dağıtım/tools/* . (, Dizin dosyaları kendilerinin yalnızca Aktarım değil unutmayın.)
 
 ### <a name="finalize-app-service"></a>App Service Sonlandır
 
-App Service "Uygulama ayarları" panele dikey penceresine gidin. "Çalışma zamanı altında", "Başlangıç dosyası" alanın ayarlanacağı `/home/site/deployments/tools/startup_script.sh`. Bu, sonra App Service örneği oluşturulur, ancak önce WildFly sunucuyu başlatır Kabuk betiği çalıştırılır garanti eder.
+App Service "Uygulama ayarları" panele dikey penceresine gidin. "Çalışma zamanı altında", "Başlangıç dosyası" alanın ayarlanacağı */home/site/deployments/tools/startup_script.sh*. Bu, sonra App Service örneği oluşturulur, ancak önce WildFly sunucuyu başlatır Kabuk betiği çalıştırılır garanti eder.
 
 Son olarak, App service'inizi yeniden başlatın. "Genel bakış" panelinde düğmesidir.
 

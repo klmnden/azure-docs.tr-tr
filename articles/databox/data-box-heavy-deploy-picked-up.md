@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/28/2019
+ms.date: 07/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 31185900ede0fae74a04f98eaecee7379fb1c4fe
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 3903e14e8923f6d29f2a88c61aead0cfc605b5b5
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427816"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508664"
 ---
 # <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure-preview"></a>Öğretici: Azure veri kutusu ağır dönün ve verileri karşıya yükleme (Önizleme) azure'a doğrulayın
 
@@ -43,11 +43,11 @@ Başlamadan önce emin olun:
 ## <a name="ship-data-box-heavy-back"></a>Sevk veri kutusu ağır geri
 
 1. Cihaz kapalı ve kabloların kaldırılır emin olun. Biriktirme ve güvenli bir şekilde erişebileceğiniz cihazın yeniden tepsisinde 4 güç kablosu yerleştirin.
-2. ABD veya Avrupa içinde cihaz sevkiyat, Sevkiyat taşıyıcısı FedEx olur.
+2. Cihaz aracılığıyla ABD'deki FedEx ve AB'deki DHL LTL freight ile birlikte gelir.
 
-    1. Sevkiyat operatörünüz toplamayı zamanla için yerel numarayı arayın.
-    2. Ulaşın [veri kutusu işlemleri](mailto:DataBoxOps@microsoft.com) alma ile ilgili bilgilendirmek için ve iade Sevkiyat Etiketi alın.
-    3. Sevkiyat Etiketi Temizle ekranında cihazın ön görüntülendiğinden emin olun.
+    1. Ulaşın [veri kutusu işlemleri](mailto:DataBoxOps@microsoft.com) alma ile ilgili bilgilendirmek için ve iade Sevkiyat Etiketi alın.
+    2. Sevkiyat operatörünüz toplamayı zamanla için yerel numarayı arayın.
+    3. Sevkiyat Etiketi sevkiyat dış üzerinde göze çarpacak şekilde görüntülendiğinden emin olun.
     4. Önceki sevkiyat eski sevkiyat etiketlerinden CİHAZDAN kaldırıldığından emin emin olun.
 3. Veri kutusu ağır toplanma ve, operatörünüz tarafından taranan sonra portalda siparişinizin durumu güncelleştirmeleri için **toplanmış**. Ayrıca bir takip numarası da görüntülenir.
 

@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: b01b42af99575f512ccc76b0a56e4d18106c319f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6119bacee7be65588f2d9cb5becb86296fcf1559
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441793"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502840"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Hızlı Başlangıç: Bir Form tanıyıcı modeli eğitmek ve Python ile REST API kullanarak form verileri ayıklayın
 
@@ -30,20 +30,7 @@ Bu hızlı başlangıcı tamamlamak için şunlara sahip olmalısınız:
 
 ## <a name="create-a-form-recognizer-resource"></a>Form tanıyıcı kaynak oluştur
 
-Form tanıyıcı kullanmak için erişim verildiğinde, bir karşılama iletisi alırsınız birkaç bağlantı ve kaynakları içeren e-posta. "Azure portalında" bağlantıyı Azure portalını açın ve bir Form tanıyıcı kaynak oluşturmak için bu iletiyi kullanın. İçinde **Oluştur** bölmesinde aşağıdaki bilgileri sağlayın:
-
-|    |    |
-|--|--|
-| **Ad** | Kaynağınız için açıklayıcı bir ad. Örneğin, açıklayıcı bir ad kullanmanızı öneririz *MyNameFormRecognizer*. |
-| **Abonelik** | Erişim izni verilen Azure aboneliği seçin. |
-| **Location** | Bilişsel hizmet örneğinizin konumu. Farklı konumlara gecikmelere neden ancak kaynağınızı çalışma zamanı kullanılabilirliğini etkilemez sahip. |
-| **Fiyatlandırma katmanı** | Kaynak maliyeti, seçtiğiniz fiyatlandırma katmanı ve kullanım bağlıdır. Daha fazla bilgi için bkz. API [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/cognitive-services/).
-| **Kaynak grubu** | [Azure kaynak grubu](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) kaynağınızı içerecek. Yeni bir grup oluşturmak veya önceden mevcut olan bir gruba ekleyin. |
-
-> [!IMPORTANT]
-> Normalde Azure portalında bir Bilişsel Hizmet kaynağı oluşturduğunuzda, (bilişsel çok hizmette kullanılan) bir hizmet birden çok abonelik anahtarı veya bir tek hizmet abonelik anahtarı (yalnızca belirli bir bilişsel hizmet ile kullanılır) oluşturma seçeneğine sahip olursunuz. Ancak, Form tanıyıcı Önizleme sürümü olduğundan, çoklu hizmet abonelikte dahil değildir ve Hoş Geldiniz e-postasındaki bağlantıya kullanılmadıkça tek hizmet aboneliği oluşturulamıyor.
-
-Form tanıyıcı kaynağınızı dağıtımı tamamlandığında bulun ve seçim **tüm kaynakları** portalında listesi. Ardından **anahtarları** abonelik anahtarlarınızı görüntülemek için sekmesinde. İki anahtarı kaynağa erişim sunar. Değerini kopyalayın **anahtar 1**. Sonraki bölümde kullanır.
+[!INCLUDE [create resource](../includes/create-resource.md)]
 
 ## <a name="train-a-form-recognizer-model"></a>Bir Form tanıyıcı modeli eğitme
 

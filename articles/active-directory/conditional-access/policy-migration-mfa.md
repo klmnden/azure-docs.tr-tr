@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2804a50cc1ef7bb257e1549afabdef466ce3c2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4819c283a136057ad7c3ffd755fd9e157d99a1bf
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112188"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509460"
 ---
 # <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Azure portalında çok faktörlü kimlik doğrulaması gerektiren bir Klasik ilke geçişi
 
@@ -76,42 +76,32 @@ Geçiş işlemi aşağıdaki adımlardan oluşur:
 
    1. Tüm kullanıcıları seçtiyseniz Klasik ilkeniz varsa tıklayın **tüm kullanıcılar**. 
 
-   ![Koşullu Erişim](./media/policy-migration/35.png)
+      ![Koşullu Erişim](./media/policy-migration/35.png)
 
    1. Klasik ilkeniz seçili grupları varsa, tıklayın **kullanıcıları ve grupları seçin**ve ardından gerekli kullanıcılar ve Gruplar'ı seçin.
 
-   ![Koşullu Erişim](./media/policy-migration/36.png)
+      ![Koşullu Erişim](./media/policy-migration/36.png)
 
    1. Dışlanan grupları varsa, tıklayın **hariç** sekmesini ve sonra gerekli kullanıcıları ve grupları seçin. 
 
-   ![Koşullu Erişim](./media/policy-migration/37.png)
+      ![Koşullu Erişim](./media/policy-migration/37.png)
 
 1. Üzerinde **yeni** sayfasında açmak için **bulut uygulamaları** sayfasında **atama** bölümünde **bulut uygulamaları**.
-
 1. Üzerinde **bulut uygulamaları** sayfasında, aşağıdaki adımları gerçekleştirin:
-
-   ![Koşullu Erişim](./media/policy-migration/08.png)
-
    1. Tıklayın **uygulamaları Seç**.
-
    1. **Seç**'e tıklayın.
-
    1. Üzerinde **seçin** sayfasında bulut uygulamanızı seçin ve ardından **seçin**.
-
    1. Üzerinde **bulut uygulamaları** sayfasında **Bitti**.
-
 1. Varsa **çok faktörlü kimlik doğrulaması gerektiren** seçili:
 
    ![Koşullu Erişim](./media/policy-migration/26.png)
 
    1. İçinde **erişim denetimleri** bölümünde **Grant**.
 
-   ![Koşullu Erişim](./media/policy-migration/27.png)
+      ![Koşullu Erişim](./media/policy-migration/27.png)
 
    1. Üzerinde **Grant** sayfasında **erişim ver**ve ardından **çok faktörlü kimlik doğrulaması gerektiren**.
-
    1. **Seç**'e tıklayın.
-
 1. Tıklayın **üzerinde** ilkenizi etkinleştirmek için.
 
    ![Koşullu Erişim](./media/policy-migration/30.png)

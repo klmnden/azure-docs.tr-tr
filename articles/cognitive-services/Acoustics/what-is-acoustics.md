@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1fc125322b83a0eb51095fac21dee05c7ffb39c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 73b8980b0ea2d1adbd814026f026358e25dcbb55
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61432458"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502946"
 ---
 # <a name="what-is-project-acoustics"></a>Project Acoustics nedir?
 Proje akustik bir 3B etkileşimli deneyimleri için wave akustik altyapısıdır. Karmaşık sahneler diffraction portaling ve yankı efektleri gibi wave etkileri, el ile bölgeye biçimlendirme gerek kalmadan modelleri. Ayrıca, oyun altyapısı ve ses ara yazılım tümleştirme de içerir. Proje akustik felsefesi statik Aydınlatmanın benzerdir: fiziksel temel sağlamak için çevrimdışı ayrıntılı fizik hazırlama ve basit bir çalışma zamanı ifadesel tasarım denetimlerle Artistik hedeflerinize ulaşmak için kullanabilirsiniz.
@@ -51,7 +51,7 @@ Proje akustik çalışma zamanı eklentileri, şu anda aşağıdaki platformlara
   * Kaydolma formu aşağıdaki Xbox ikili dosyalar ve destek için bize ulaşın
 
 ## <a name="contact-us"></a>Bizimle iletişim kurun
-* [Proje akustik forumları](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics)
+* [Akustik tartışma proje ve sorun raporlama](https://github.com/microsoft/ProjectAcoustics/issues)
 * [Proje akustik güncelleştirmeleri almak için kaydolun](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
 ## <a name="next-steps"></a>Sonraki adımlar

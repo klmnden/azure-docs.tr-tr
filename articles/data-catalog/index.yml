@@ -9,7 +9,7 @@ metadata:
   ms.author: jasonh
   ms.service: data-catalog
   ms.topic: landing-page
-  ms.date: 04/05/2019
+  ms.date: 07/01/2019
 abstract:
   description: 'Veri Kataloğu’nu kullanarak kurumunuzun ve takımınızın veri kaynaklarınızı bulmasına, anlamasına ve tüketmesine nasıl yardımcı olabileceğinizi öğrenin. Öğreticiler, REST API başvurusu ve diğer belgeler, veri tüketicilerinin kullanılabilir veri kaynaklarını bulabileceği ve konunun uzmanları tarafından sağlanan bilgileri edinebileceği veri deponuzu nasıl planlayıp ayarlayabileceğinize ilişkin bilgiler içerir.'
 sections:
@@ -40,5 +40,3 @@ sections:
         items:
           - title: REST
             html: <p><a href="/rest/api/datacatalog/">REST API başvurusu</a></p><p><a href="/rest/api/datacatalog/data-catalog-search-syntax-reference">Arama söz dizimi başvurusu</a></p>
-          - title: Resource Manager
-            html: <p><a href="/azure/templates/microsoft.datacatalog/catalogs">Resource Manager şablonları</a></p>

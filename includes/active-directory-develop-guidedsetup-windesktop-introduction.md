@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: ae17ef749a353cd60227e31ba4dadf328b1dc935
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 301abe95b245603e5414eef84ce74cdc8de01d19
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66482290"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509936"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Bir Windows Masaüstü uygulamasından Microsoft Graph API çağırma
 
@@ -28,7 +28,7 @@ Bu kılavuz, bir erişim belirteci yerel bir Windows Masaüstü .NET (XAML) uygu
 Kılavuzu tamamladıktan sonra uygulamanızın kişisel hesaplar (outlook.com, live.com ve diğerleri dahil) kullanan korumalı bir API'yi çağırmak mümkün olacaktır. Uygulama ayrıca iş ve Okul hesapları herhangi bir şirket veya Azure Active Directory kullanan kuruluş.  
 
 > [!NOTE]
-> Visual Studio 2015 güncelleştirme 3 veya Visual Studio 2019 Kılavuzu gerektirir. Bu sürümlerden birini yok mu? [Visual Studio 2019 ücretsiz olarak indirin](https://www.visualstudio.com/downloads/).
+> Visual Studio 2015 güncelleştirme 3, Visual Studio 2017 veya Visual Studio 2019 Kılavuzu gerektirir. Bu sürümden herhangi birinde yok mu? [Visual Studio 2019 ücretsiz olarak indirin](https://www.visualstudio.com/downloads/).
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Bu kılavuzda oluşturulan örnek uygulamasını nasıl çalışır?
 
