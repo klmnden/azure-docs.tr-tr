@@ -153,14 +153,14 @@ Aşağıdaki tabloda, bir ölçüm kullanarak bir uyarı oluşturmak için kulla
 | Parametre | value |
 | --- | --- |
 | Ad |simpletestdiskwrite |
-| Bu uyarı kuralının konumu |Doğu ABD |
+| Bu uyarı kuralının konumu |East US |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| Oluşturulan uyarının MetricName |\PhysicalDisk (_Total) \Disk Yazma/sn. Bkz: `Get-MetricDefinitions` cmdlet'i tam ölçüm adları almak nasıl hakkında |
+| Oluşturulan uyarının MetricName |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
 | İşleci |GreaterThan |
 | Eşik değerini (sayısı/sn, bu ölçümün) |1 |
 | Pencereboyutu (ss: dd: biçimi) |00:05:00 |
-| Toplayıcı (istatistiği ölçümün ortalama sayısı, bu durumda kullanır) |Ortalama |
+| Toplayıcı (istatistiği ölçümün ortalama sayısı, bu durumda kullanır) |Average |
 | özel e-postaları (dize dizisi) |'foo@example.com','bar@example.com' |
 | sahipleri, Katkıda Bulunanlar ve okuyucular için e-posta Gönder |-SendToServiceOwners |
 
