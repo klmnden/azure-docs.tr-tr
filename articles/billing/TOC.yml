@@ -25,6 +25,8 @@
       href: billing-understand-your-invoice.md
     - name: Fatura koşulları açıklandı - yalnızca Microsoft Müşteri Sözleşmesi
       href: billing-mca-understand-your-invoice.md
+    - name: Faturanızı ödeme - yalnızca Microsoft Müşteri Sözleşmesi
+      href: billing-how-to-pay-bill.md
     - name: Microsoft Müşteri Sözleşmesi için ödeme hesapları
       href: billing-mca-overview.md
 - name: Maliyetleri yönetme
@@ -79,7 +81,7 @@
               href: billing-understand-suse-reservation-charges.md
         - name: Yazılım maliyetleri dahil değil
           href: billing-reserved-instance-windows-software-costs.md
-        - name: Kullandıkça Öde için kullanım
+        - name: Bireysel abonelikler için kullanım
           href: billing-understand-reserved-instance-usage.md
         - name: Kurumsal için kullanım
           href: billing-understand-reserved-instance-usage-ea.md

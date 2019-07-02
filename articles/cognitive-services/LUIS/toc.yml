@@ -302,6 +302,8 @@
           href: luis-reference-prebuilt-number.md
         - name: Sıralı varlık
           href: luis-reference-prebuilt-ordinal.md
+        - name: Sıralı V2 varlığı
+          href: luis-reference-prebuilt-ordinal-v2.md
         - name: Yüzde varlığı
           href: luis-reference-prebuilt-percentage.md
         - name: PersonName varlığı

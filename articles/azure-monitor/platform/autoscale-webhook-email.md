@@ -10,7 +10,7 @@ ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "60787310"
@@ -62,7 +62,7 @@ REST API veya Resource Manager şablonu kullanarak, aşağıdaki seçeneklerle b
 
 | Alan | Zorunlu? | Açıklama |
 | --- | --- | --- |
-| operation |evet |"Ölçek" değeri olmalıdır |
+| İşlemi |evet |"Ölçek" değeri olmalıdır |
 | sendToSubscriptionAdministrator |evet |değer "true" veya "false" olmalıdır. |
 | sendToSubscriptionCoAdministrators |evet |değer "true" veya "false" olmalıdır. |
 | customEmails |evet |değer null [] veya e-postaları dize dizisi olabilir |
@@ -106,7 +106,7 @@ Otomatik ölçeklendirme bildirim oluşturulduğunda, aşağıdaki meta verileri
 | Alan | Zorunlu? | Açıklama |
 | --- | --- | --- |
 | status |evet |Otomatik ölçeklendirme eylemi oluşturulduğunu gösteren durum |
-| operation |evet |Bir artış örnekleri için "Ölçeği genişletme" olacaktır ve durumlarda bir azaltmak için "ölçek" olacaktır |
+| İşlemi |evet |Bir artış örnekleri için "Ölçeği genişletme" olacaktır ve durumlarda bir azaltmak için "ölçek" olacaktır |
 | context |evet |Otomatik ölçeklendirme eylem bağlamı |
 | timestamp |evet |Otomatik ölçeklendirme eylemi tetiklendiğinde zaman damgası |
 | id |Evet |Resource Manager Kimliğini otomatik ölçeklendirme ayarı |
@@ -115,7 +115,7 @@ Otomatik ölçeklendirme bildirim oluşturulduğunda, aşağıdaki meta verileri
 | subscriptionId |Evet |Abonelik kimliği ölçeklendirilir hedef kaynak |
 | resourceGroupName |Evet |Ölçeklendirilen hedef kaynağın kaynak grubu adı |
 | resourceName |Evet |Ölçeklendirilen hedef kaynağın adı |
-| resourceType |Evet |Üç desteklenen değerler: "microsoft.classiccompute/domainnames/slots/roles" - bulut hizmeti rolleri, "microsoft.compute/virtualmachinescalesets" - sanal makine ölçek kümeleri ve "Microsoft.Web/serverfarms" - Web uygulaması |
+| Kaynak türü |Evet |Üç desteklenen değerler: "microsoft.classiccompute/domainnames/slots/roles" - bulut hizmeti rolleri, "microsoft.compute/virtualmachinescalesets" - sanal makine ölçek kümeleri ve "Microsoft.Web/serverfarms" - Web uygulaması |
 | resourceId |Evet |Resource Manager Kimliğini ölçeklendirilir hedef kaynak |
 | portalLink |Evet |Özet sayfasında, hedef kaynağı için Azure portal bağlantısı |
 | oldCapacity |Evet |Bir ölçek eylemi otomatik ölçeklendirme geçen zaman geçerli (eski) örnek sayısı |

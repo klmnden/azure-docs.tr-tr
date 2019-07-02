@@ -252,6 +252,8 @@
           href: troubleshoot-azure-files.md
         - name: SQL Server
           href: backup-sql-server-azure-troubleshoot.md
+        - name: Azure VM’lerde SAP HANA yedeklemesi
+          href: backup-azure-sap-hana-database-troubleshoot.md
         - name: Sistem Durumu
           href: backup-azure-system-state-troubleshoot.md
     - name: Azure Backup iş yüklerini izleme
