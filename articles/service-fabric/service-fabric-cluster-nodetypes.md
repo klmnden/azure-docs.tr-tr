@@ -74,11 +74,11 @@ Service Fabric sanal makine uzantısı bir parçacığı aşağıda verilmiştir
 
 Özellik açıklamaları aşağıda verilmiştir:
 
-| **Ad** | **İzin verilen değerler** | ** --- ** | **Kılavuz veya kısa açıklama** |
+| **Name** | **İzin verilen değerler** | ** --- ** | **Kılavuz veya kısa açıklama** |
 | --- | --- | --- | --- |
 | name | string | --- | uzantı için benzersiz ad |
 | türü | "ServiceFabricLinuxNode" or "ServiceFabricWindowsNode | --- | Tanımlayan işletim sistemi Service Fabric olduğu için önyükleniyor |
-| aynı autoUpgradeMinorVersion | TRUE veya false | --- | SF çalışma zamanı ikincil sürümlerinin otomatik yükseltmeyi etkinleştir |
+| autoUpgradeMinorVersion | TRUE veya false | --- | SF çalışma zamanı ikincil sürümlerinin otomatik yükseltmeyi etkinleştir |
 | publisher | Microsoft.Azure.ServiceFabric | --- | Service Fabric uzantısı Yayımcı adı |
 | clusterEndpont | string | --- | Yönetim uç noktasına URI:Port |
 | nodeTypeRef | string | --- | nodeType adı |

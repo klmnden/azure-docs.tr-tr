@@ -26,6 +26,10 @@
       href: oracle-backup-recovery.md
     - name: Oracle olağanüstü durum kurtarma seçenekleri
       href: oracle-disaster-recovery.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Azure ve OCI bağlantısı - Önizleme
+      href: configure-azure-oci-networking.md
 - name: Kaynaklar
   items:
     - name: Azure Yol Haritası

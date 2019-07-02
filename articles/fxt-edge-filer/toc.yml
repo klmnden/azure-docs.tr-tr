@@ -1,0 +1,36 @@
+- name: Azure FXT Edge Filer belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Azure FXT Edge Filer nedir?
+      href: fxt-overview.md
+- name: Öğreticiler
+  items:
+    - name: 1 - Donanımı yükleme
+      href: fxt-install.md
+    - name: 2 - Ağ bağlantı noktalarını kablolama ve güç sağlama
+      href: fxt-network-power.md
+    - name: 3 - Donanım parolalarını ayarlama
+      href: fxt-node-password.md
+    - name: 4 - Küme oluşturma
+      href: fxt-cluster-create.md
+    - name: 5 - Küme düğümleri ekleme
+      href: fxt-add-nodes.md
+    - name: 6 - Arka uç deposu ekleme ve sanal ad alanı yapılandırma
+      href: fxt-add-storage.md
+    - name: 7 - Kümenin ağ ayarlarını yapılandırma
+      href: fxt-configure-network.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: İstemcileri bağlama
+      href: fxt-mount-clients.md
+    - name: Azure FXT Edge Filer donanımını izleme
+      href: fxt-monitor.md
+    - name: Bir donanım düğümünü güvenli bir şekilde kapatma
+      href: fxt-power-off.md
+- name: Kaynaklar
+  items:
+    - name: Donanım belirtimleri
+      href: fxt-specs.md
+    - name: Diğer belgeler
+      href: fxt-additional-doc.md

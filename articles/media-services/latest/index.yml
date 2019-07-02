@@ -55,34 +55,22 @@ sections:
         className: cardsM
         columns: 1
         items:
-          - image:
-              src: media/index/dotnet.svg
-            html: '<p>Öğretici yerel bir video dosyasını karşıya yükler, dosyayı kodlar ve kodlanmış içeriğin akışını yapar.<p/>'
+          - html: '<p>Öğretici yerel bir video dosyasını karşıya yükler, dosyayı kodlar ve kodlanmış içeriğin akışını yapar.<p/>'
             href: /azure/media-services/latest/stream-files-tutorial-with-api
             title: Karşıya yüklenen dosyayı kodlama ve video akışı yapma
-          - image:
-              src: media/index/dotnet.svg
-            html: <p>Öğreticide canlı olayın nasıl ayarlanacağı açıklanır. Ardından geçiş türünde bir canlı olay oluşturmak için .NET'in nasıl kullanıldığı gösterilir.</p>
+          - html: <p>Öğreticide canlı olayın nasıl ayarlanacağı açıklanır. Ardından bir canlı etkinliğin geçiş türünün nasıl oluşturulduğu gösterilir.</p>
             href: /azure/media-services/latest/stream-live-tutorial-with-api
             title: Canlı yayın yapma
-          - image:
-              src: media/index/dotnet.svg
-            html: <p>Bu öğreticide Azure Media Services API'siyle videoları analiz etme işlemi gösterilir.</p>
+          - html: <p>Bu öğreticide Azure Media Services API'siyle videoları analiz etme işlemi gösterilir.</p>
             href: /azure/media-services/latest/analyze-videos-tutorial-with-api
             title: Videonuzu analiz etme
-          - image:
-              src: media/index/dotnet.svg
-            html: <p>İçeriğinizi AES-128 ile dinamik olarak şifrelemek için Media Services API'lerini yapılandırmayı ve kullanmayı öğrenin.</p>
+          - html: <p>İçeriğinizi AES-128 ile dinamik olarak şifrelemek için Media Services API'lerini yapılandırmayı ve kullanmayı öğrenin.</p>
             href: /azure/media-services/latest/protect-with-aes128
             title: AES-128 ile dinamik olarak şifreleme
-          - image:
-              src: media/index/dotnet.svg
-            html: '<p>İçeriğinizi birden çok DRM (PlayReady, Widevine ve FairPlay) ile dinamik olarak şifrelemek için Media Services API''lerini yapılandırmayı ve kullanmayı öğrenin.</p>'
+          - html: '<p>İçeriğinizi birden çok DRM (PlayReady, Widevine ve FairPlay) ile dinamik olarak şifrelemek için Media Services API''lerini yapılandırmayı ve kullanmayı öğrenin.</p>'
             href: /azure/media-services/latest/protect-with-drm
             title: Birden çok DRM ile dinamik olarak şifreleme
-          - image:
-              src: media/index/rest.svg
-            html: <p>Öğreticide URL temelinde uzak dosyayı kodlama ve video akışı yapma işlemleri gösterilir.</p>
+          - html: <p>Öğreticide URL temelinde uzak dosyayı kodlama ve video akışı yapma işlemleri gösterilir.</p>
             href: /azure/media-services/latest/stream-files-tutorial-with-rest
             title: Uzak dosyayı kodlama ve video akışı yapma
   - title: Örnekler

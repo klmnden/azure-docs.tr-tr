@@ -54,8 +54,10 @@
       href: pre-reqs.md
     - name: Azure SQL DB Yönetilen Örneği geçişlerinin ağ topolojileri
       href: resource-network-topologies.md
-    - name: Bilinen sorunlar
+    - name: Sorun çözümü ve bilinen sorunlar
       items:
+        - name: Kaynak veritabanı bağlantı sorunlarını giderme
+          href: known-issues-troubleshooting-dms-source-connectivity.md
         - name: Genel sorunların ve hataların çözümü
           href: known-issues-troubleshooting-dms.md
         - name: Bilinen Sorunlar - Azure SQL DB’ye çevrimiçi geçiş

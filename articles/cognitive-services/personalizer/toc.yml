@@ -62,12 +62,20 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2092082'
     - name: SDK’lar
       items:
-        - name: .Net SDK başvurusu
-          href: 'https://go.microsoft.com/fwlink/?linkid=2092353'
-        - name: NuGet paketi
-          href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
+        - name: .NET
+          items:
+            - name: .NET SDK Başvurusu
+              href: 'https://go.microsoft.com/fwlink/?linkid=2092353'
+            - name: NuGet paketi
+              href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
+        - name: Python
+          items:
+            - name: Pypi paketi
+              href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
 - name: Kaynaklar
   items:
+    - name: Sorun giderme
+      href: troubleshooting.md
     - name: Bölgesel kullanılabilirlik
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Uyumluluk

@@ -260,6 +260,9 @@
     - name: İlke etkilerini anlama
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
+    - name: Kubernetes için Azure İlkesi
+      displayName: 'aks, rego, k8s, opa, open policy agent, gatekeeper'
+      href: ./concepts/rego-for-aks.md
     - name: Konuk Yapılandırması ile VM’leri denetleme
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md

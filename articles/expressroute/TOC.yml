@@ -58,6 +58,12 @@
       href: cross-network-connectivity.md
     - name: Azure ortak güvenlik öznitelikleri
       href: expressroute-security-attributes.md
+    - name: Yüksek Kullanılabilirlik Tasarımı
+      href: designing-for-high-availability-with-expressroute.md
+    - name: Olağanüstü Durum Kurtarma Tasarımı
+      items:
+        - name: Özel Eşleme
+          href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Bağlantı hattı oluşturma ve değiştirme

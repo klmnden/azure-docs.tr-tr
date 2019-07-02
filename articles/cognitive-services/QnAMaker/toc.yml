@@ -144,6 +144,13 @@
 - name: Başvuru
   items:
     - name: REST API Başvurusu
+      items:
+        - name: Yazma API’leri
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase'
+        - name: GenerateAnswer API’si
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer'
+        - name: API eğitme
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train'
       href: 'https://go.microsoft.com/fwlink/?linkid=2092179'
     - name: SSS
       href: faqs.md

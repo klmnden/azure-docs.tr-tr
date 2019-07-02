@@ -121,6 +121,69 @@
         - name: Kapsayıcı ve veritabanlarına aktarım hızı sağlama
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
+    - name: SQL sorgusu başvurusu
+      items:
+        - name: Başlarken
+          displayName: 'sql query, query basics'
+          href: sql-query-getting-started.md
+        - name: Yan tümceler
+          items:
+            - name: SELECT
+              displayName: 'select, select clause'
+              href: sql-query-select.md
+            - name: FROM
+              displayName: 'from, from clause'
+              href: sql-query-from.md
+            - name: WHERE
+              displayName: 'where, where clause'
+              href: sql-query-where.md
+            - name: SİPARİŞ VEREN
+              displayName: 'order by, order by clause'
+              href: sql-query-order-by.md
+            - name: KAYDIRMA SINIRI
+              displayName: offset limit
+              href: sql-query-offset-limit.md
+        - name: Alt sorgu
+          displayName: 'subquery, exists'
+          href: sql-query-subquery.md
+        - name: Birleştirme
+          displayName: join
+          href: sql-query-join.md
+        - name: Diğer ad kullanımı
+          displayName: 'alias, aliasing'
+          href: sql-query-aliasing.md
+        - name: Diziler ve nesneler
+          displayName: 'object and array creation, object and array'
+          href: sql-query-object-array.md
+        - name: Anahtar sözcükler
+          displayName: 'keywords, distinct, between, in, top'
+          href: sql-query-keywords.md
+        - name: İşleçler
+          displayName: 'operators, operator, logical operators, equality, comparison'
+          href: sql-query-operators.md
+        - name: Skaler ifadeler
+          displayName: 'scalar expressions, scalar'
+          href: sql-query-scalar-expressions.md
+        - name: İşlevler
+          items:
+            - name: Kullanıcı tanımlı işlevler
+              displayName: 'functions, udf'
+              href: sql-query-udfs.md
+            - name: Toplamalar
+              displayName: 'functions, aggregate'
+              href: sql-query-aggregates.md
+            - name: Sistem işlevleri
+              displayName: 'functions, system functions, built-in functions'
+              href: sql-query-system-functions.md
+        - name: Parametre tabanlı sorgu
+          displayName: 'parameterized query, parameterized, parameter, parameters'
+          href: sql-query-parameterized-queries.md
+        - name: LINQ to SQL
+          displayName: 'linq, .NET'
+          href: sql-query-linq-to-sql.md
+        - name: Sql sorgusu yürütme
+          displayName: 'query performance, query execution'
+          href: sql-query-execution.md
     - name: Azure Cosmos hesabıyla çalışma
       href: account-overview.md
     - name: Kapsayıcılar ve öğeler
@@ -128,12 +191,6 @@
         - name: 'Veritabanları, kapsayıcılar ve öğelerle çalışma'
           displayName: 'collection, document'
           href: databases-containers-items.md
-        - name: SQL dil başvurusu
-          displayName: 'collection, document'
-          href: sql-api-query-reference.md
-        - name: SQL sorgu örnekleri
-          displayName: 'collection, document, order by, where, top, value, aggregate, between, scalar, join, count, contains'
-          href: how-to-sql-query.md
         - name: Belge verilerini modelleme
           displayName: document
           href: modeling-data.md
@@ -351,6 +408,8 @@
               href: connect-mongodb-account.md
             - name: Studio 3T kullanarak bağlanma
               href: mongodb-mongochef.md
+            - name: Compass kullanarak bağlanma
+              href: mongodb-compass.md
             - name: Robomongo kullanarak bağlanma
               href: mongodb-robomongo.md
             - name: Mongoose kullanarak bağlanma
@@ -548,9 +607,6 @@
           href: how-to-manage-indexing-policy.md
         - name: Benzersiz anahtarlar tanımlama
           href: how-to-define-unique-keys.md
-        - name: SQL alt sorgu örnekleri
-          displayName: 'subquery, exists'
-          href: how-to-sql-subquery.md
     - name: En iyi uygulamalar
       items:
         - name: Performans ipuçları
@@ -712,7 +768,9 @@
     - name: REST Kaynak Sağlayıcısı
       href: /rest/api/cosmos-db-resource-provider/
     - name: Resource Manager şablonu
-      href: /templates/microsoft.documentdb/allversions
+      href: /azure/templates/microsoft.documentdb/allversions
+    - name: Öykünücü sürüm notları
+      href: local-emulator-release-notes.md
 - name: Kaynaklar
   items:
     - name: Microsoft Learn ile becerilerinizi geliştirin

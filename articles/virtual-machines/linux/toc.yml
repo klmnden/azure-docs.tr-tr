@@ -274,13 +274,13 @@
           items:
             - name: Genel Bakış
               href: image-builder-overview.md
-            - name: CLI’yi kullanma
+            - name: Azure CLI kullanma
               href: image-builder.md
             - name: Şablon başvurusu
               href: image-builder-json.md
-            - name: Galerilerle kullanma
+            - name: Görüntü galerileri için derleme
               href: image-builder-gallery.md
-            - name: Görüntü sürümünü güncelleştirme
+            - name: Mevcut görüntüyü güncelleştirme
               href: image-builder-gallery-update-image-version.md
             - name: Sorun giderme
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'

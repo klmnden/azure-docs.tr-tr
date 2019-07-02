@@ -19,6 +19,8 @@
     - name: Uygulama geliştirme
       expanded: true
       items:
+        - name: Draft kullanma
+          href: kubernetes-draft.md
         - name: Java kullanma (VS Code ve CLI)
           href: ../dev-spaces/quickstart-java.md
           maintainContext: true
@@ -153,6 +155,8 @@
               href: configure-azure-cni.md
         - name: İç yük dengeleyici oluşturma
           href: internal-lb.md
+        - name: Standart Load Balancer kullanma (önizleme)
+          href: load-balancer-standard.md
         - name: Statik IP adresi kullanma
           href: static-ip.md
         - name: Giriş
@@ -187,6 +191,8 @@
           href: use-pod-security-policies.md
         - name: API sunucusu tarafından yetkilendirilen IP aralıklarını tanımlama (önizleme)
           href: api-server-authorized-ip-ranges.md
+        - name: Azure İlkesi ile dağıtımları denetleme (önizleme)
+          href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
         - name: Küme hizmet sorumlusu kimlik bilgilerini güncelleştirme
           href: update-credentials.md
         - name: Küme çıkış trafiğini kısıtlama ve denetleme (önizleme)
@@ -280,8 +286,6 @@
                   maintainContext: true
         - name: Helm ile uygulamaları çalıştırma
           href: kubernetes-helm.md
-        - name: Draft ile uygulama geliştirme
-          href: kubernetes-draft.md
         - name: Azure için Açık Hizmet Aracısı’nı kullanma
           href: integrate-azure.md
         - name: OSBA ile MongoDB için Cosmos DB API'sini kullanma

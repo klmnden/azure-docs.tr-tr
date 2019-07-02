@@ -11,16 +11,16 @@
       href: apache-hbase-phoenix-squirrel-linux.md
     - name: Apache HBase’i Sorgulama - HBase Kabuğu
       href: ./query-hbase-with-hbase-shell.md
-- name: başlarken
+- name: Öğreticiler
   items:
-    - name: Apache HBase ve NoSQL’i kullanmaya başlama
+    - name: HDInsight’ta Apache HBase kullanma
       href: apache-hbase-tutorial-get-started-linux.md
+- name: Kavramlar
+  items:
     - name: HDInsight uygulamaları yükleme
       href: ../hdinsight-apps-install-applications.md
     - name: Küme kapasitesi planlama
       href: ../hdinsight-capacity-planning.md
-- name: Kavramlar
-  items:
     - name: HDInsight üzerindeki Apache Hadoop bileşenleri
       href: ../hdinsight-component-versioning.md
     - name: HDInsight 4.0

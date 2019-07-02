@@ -106,6 +106,8 @@
       href: concept-accelerate-with-fpgas.md
     - name: ONNX ve ONNX Çalışma Zamanı
       href: concept-onnx.md
+    - name: Veri değişikliklerini izleme
+      href: concept-data-drift.md
     - name: Güvenlik
       items:
         - name: Kurumsal güvenliğe genel bakış
@@ -151,12 +153,6 @@
         - name: Verileri inceleme
           displayName: 'data, eda, exploratory, analysis, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
           href: how-to-explore-prepare-data.md
-        - name: Sürüm ve veri tanımlarını yönetme
-          displayName: 'data, etl, dataset, data preparation, dataprep, version'
-          href: how-to-manage-dataset-definitions.md
-        - name: Verilerinizin anlık görüntüsünü alın
-          displayName: 'snapshots, profile, summary statistics, data copy'
-          href: how-to-create-dataset-snapshots.md
         - name: Bir veri deposundan veri alma
           displayName: blob get fileshare access storage
           href: how-to-access-data.md
@@ -178,12 +174,16 @@
           href: how-to-set-up-training-targets.md
         - name: Eğitimde tahmin araçları oluşturma
           href: how-to-train-ml-models.md
+        - name: Scikit-learn kullanma
+          href: how-to-train-scikit-learn.md
         - name: TensorFlow'u kullanma
           href: how-to-train-tensorflow.md
         - name: Keras kullanma
           href: how-to-train-keras.md
         - name: PyTorch'u kullanma
           href: how-to-train-pytorch.md
+        - name: Chainer kullanma
+          href: how-to-train-chainer.md
         - name: Hiperparametreleri ayarlama
           displayName: parameter
           href: how-to-tune-hyperparameters.md
@@ -211,6 +211,8 @@
         - name: Tahmin modellerini otomatik olarak eğitme
           displayName: time series
           href: how-to-auto-train-forecast.md
+        - name: Doğruluk ölçümlerini görüntüleme
+          href: how-to-understand-accuracy-metrics.md
     - name: Modelleri dağıtma ve sunma
       items:
         - name: Dağıtım nereye ve nasıl yapılır?
@@ -224,6 +226,9 @@
           href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
         - name: Özel Docker görüntüsü
           href: how-to-deploy-custom-docker-image.md
+        - name: Mevcut modelleri dağıtma
+          displayName: publish existing model
+          href: how-to-deploy-existing-model.md
         - name: Sorun giderme
           href: how-to-troubleshoot-deployment.md
     - name: Web hizmetlerini kullanma
@@ -239,6 +244,8 @@
         - name: Model verilerini toplama ve değerlendirme
           displayName: track production
           href: how-to-enable-data-collection.md
+        - name: Veri değişikliklerini algılama
+          href: how-to-monitor-data-drift.md
         - name: Application Insights ile izleme
           href: how-to-enable-app-insights.md
     - name: Yeniden kullanılabilir iş akışları oluşturma

@@ -58,6 +58,8 @@
       href: 'https://aka.ms/adpricing'
     - name: Bölgesel kullanılabilirlik
       href: 'https://aka.ms/adregion'
+    - name: Kullanıcı tarafından oluşturulan içerikler
+      href: user-generated-content.md
     - name: Microsoft Teams üzerinde Anomali Algılayıcısı Danışmanları grubuna katılın
       href: 'https://aka.ms/adadvisorsjoin'
     - name: Çözüm mimarisi başvurusu

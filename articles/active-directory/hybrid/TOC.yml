@@ -22,6 +22,8 @@
       items:
         - name: Şirket İçi İş Yükleri için Bulutta İdare Edilen Yönetim
           href: cloud-governed-management-for-on-premises.md
+        - name: Güçlü bir kimlik temeli için dört adım
+          href: four-steps.md
     - name: Azure AD Connect ve Connect Health
       items:
         - name: Azure AD Connect ve Connect Health nedir?
@@ -68,6 +70,8 @@
       items:
         - name: Azure AD Connect Sync nedir?
           href: how-to-connect-sync-whatis.md
+        - name: Azure AD Eşitleme hizmeti hesabı
+          href: concept-adsync-service-account.md
         - name: Azure AD Connect Eşitleme özellikleri
           href: how-to-connect-syncservice-features.md
         - name: Azure AD Connect Eşitleme hizmeti yöneticisi nedir?

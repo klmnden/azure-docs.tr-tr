@@ -1,0 +1,41 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure FXT Edge Filer Belgeleri
+metadata:
+  title: Azure FXT Edge Filer Belgeleri
+  description: Azure FXT Edge Filer’ı yoğun okuma işlemleri içeren yüksek performanslı bilgi işlem (HPC) görevlerinde önbellek katmanı olarak kullanma
+  author: ekpgh
+  ms.service: fxt-edge-filer
+  ms.topic: landing-page
+  ms.date: 06/20/2019
+  ms.author: v-erkell
+abstract:
+  description: 'Azure FXT Edge Filer hibrit depolama önbelleği dosya tabanı, yoğun okuma işlemleri içeren yüksek performanslı (HPC) iş akışları için veri erişimini hızlandıran bir donanım/yazılım hibrit sistemdir. Üç veya daha fazla Azure FXT Edge Filer cihazından oluşan bir küme şirket için NAS sistemleri (NetApp veya Dell EMC Isilon), bulut depolama veya çözümlerin bir birleşimi için depolama performansını hızlandırabilir.'
+sections:
+  - title: Adım adım öğreticiler
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="fxt-install">Azure FXT Edge Filer donanımını yükleme</a>
+          - html: <a href="fxt-network-power">Azure FXT Edge Filer için ağ bağlantıları kurma</a>
+          - html: <a href="fxt-node-password">Donanım düğümleri üzerinde kök parola ayarlama</a>
+          - html: <a href="fxt-cluster-create">Hibrit depolama önbellek kümesi oluşturma</a>
+          - html: <a href="fxt-add-nodes">Küme düğümleri ekleme</a>
+          - html: <a href="fxt-add-storage">Arka uç deposu ekleme ve sanal ad alanı yapılandırma</a>
+          - html: <a href="fxt-configure-network">Kümenin ağ ayarlarını yapılandırma</a>
+  - title: Nasıl yapılır kılavuzları
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="fxt-mount-clients">İstemcileri Azure FXT Edge Filer kümesine bağlama</a>
+          - html: <a href="fxt-monitor">Azure FXT Edge Filer donanımını izleme</a>
+          - html: <a href="fxt-power-off">Bir donanım düğümünü güvenli bir şekilde kapatma</a>
+  - title: Kaynaklar
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="fxt-specs">Donanım belirtimleri</a>
+          - html: <a href="fxt-additional-doc">Diğer belgeler</a>

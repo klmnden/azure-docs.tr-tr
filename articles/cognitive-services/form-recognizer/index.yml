@@ -43,6 +43,11 @@ sections:
             image:
               src: ../media/index/i_get-started.svg
             title: Kapsayıcıları yükleme ve çalıştırma
+          - href: /azure/cognitive-services/form-recognizer/build-training-data-set
+            html: <p>Özel bir modeli eğitmek için iyileştirilmiş bir veri kümesi oluşturun.</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Eğitim verileri kümesi oluşturma
   - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
       - type: paragraph

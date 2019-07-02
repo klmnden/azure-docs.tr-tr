@@ -45,6 +45,8 @@
           href: functions-add-output-binding-storage-queue-python.md
         - name: Depolama - portal
           href: functions-integrate-storage-queue-output-binding.md
+        - name: Depolama - Visual Studio Code
+          href: functions-add-output-binding-storage-queue-vs-code.md
 - name: Öğreticiler
   items:
     - name: Logic Apps ile İşlevler
@@ -136,6 +138,8 @@
           href: functions-test-a-function.md
         - name: Yerel olarak geliştirme ve hata ayıklama
           href: functions-develop-local.md
+        - name: Visual Studio Code geliştirme
+          href: functions-develop-vs-code.md
         - name: Visual Studio geliştirme
           href: functions-develop-vs.md
         - name: Çekirdek Araçlar geliştirme
@@ -282,13 +286,10 @@
           href: functions-bindings-timer.md
         - name: Twilio
           href: functions-bindings-twilio.md
-    - name: host.json başvurusu
+    - name: host.json 2.x başvurusu
       href: functions-host-json.md
-      items:
-        - name: İşlevler 2.x
-          href: functions-host-json.md
-        - name: İşlevler 1.x
-          href: functions-host-json-v1.md
+    - name: host.json 1.x başvurusu
+      href: functions-host-json-v1.md
     - name: Ağ iletişimi hakkında SSS
       href: functions-networking-faq.md
     - name: OpenAPI başvurusu

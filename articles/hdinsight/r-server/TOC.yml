@@ -4,16 +4,23 @@
   items:
     - name: HDInsight'ta ML Services nedir?
       href: r-server-overview.md
-- name: başlarken
+- name: Hızlı Başlangıçlar
+  expanded: true
   items:
-    - name: ML Services'ı kullanmaya başlama
-      href: r-server-get-started.md
+    - name: Örnek iş - RStudio Server
+      href: ./machine-learning-services-quickstart-job-rstudio.md
+    - name: Örnek iş - R konsolu
+      href: ./machine-learning-services-quickstart-job-rconsole.md
+- name: Öğreticiler
+  items:
+    - name: HDInsight’ta Spark içinde R işlem bağlamı
+      href: ml-services-tutorial-spark-compute.md
+- name: Kavramlar
+  items:
     - name: HDInsight uygulamaları yükleme
       href: ../hdinsight-apps-install-applications.md
     - name: Küme kapasitesi planlama
       href: ../hdinsight-capacity-planning.md
-- name: Kavramlar
-  items:
     - name: HDInsight üzerindeki Apache Hadoop bileşenleri
       href: ../hdinsight-component-versioning.md
     - name: HDInsight 4.0
@@ -56,8 +63,6 @@
           href: ../hdinsight-hadoop-customize-cluster-linux.md
         - name: Betik eylemleri geliştirme
           href: ../hdinsight-hadoop-script-actions-linux.md
-        - name: Presto’yu yükleme ve kullanma
-          href: ../hdinsight-hadoop-install-presto.md
         - name: Apache Hive kitaplıkları ekleme
           href: ../hdinsight-hadoop-add-hive-libraries.md
         - name: Apache Giraph kullanma

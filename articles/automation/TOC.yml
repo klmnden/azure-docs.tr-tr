@@ -4,36 +4,37 @@
   items:
     - name: Otomasyon nedir?
       href: automation-intro.md
-- name: Hızlı Başlangıçlar
-  expanded: true
+- name: Otomasyon Hesabı
   items:
     - name: Otomasyon hesabı oluşturma
       href: automation-quickstart-create-account.md
-    - name: Runbook oluşturma
-      href: automation-quickstart-create-runbook.md
-    - name: DSC yapılandırması oluşturma
-      href: automation-quickstart-dsc-configuration.md
-      displayName: 'DSC, state configuration, config, node configuration, node'
-- name: Öğreticiler
+    - name: Tek başına Otomasyon hesabı oluşturma
+      href: automation-create-standalone-account.md
+    - name: Otomasyon Farklı Çalıştır hesabı yönetme
+      href: manage-runas-account.md
+      displayName: certificate renewal
+    - name: AWS ile kimlik doğrulamasını yapılandırma
+      href: automation-config-aws-account.md
+    - name: Rol tabanlı erişim denetimini yönetme
+      href: automation-role-based-access-control.md
+      displayName: RBAC
+    - name: Otomasyon Hesabınızı başka bir Aboneliğe taşıma
+      href: how-to/move-account.md
+- name: Süreç Otomasyonu
   items:
-    - name: İzleyici görevleriyle güncelleştirilen dosyaları izleme
-      href: automation-watchers-tutorial.md
-      displayName: 'hybrid runbook worker, hybrid worker, trigger'
-    - name: MV’lerinize yönelik güncelleştirmeleri yönetme
-      href: automation-tutorial-update-management.md
-      displayName: 'alert, patch'
-    - name: Runbook ile güncelleştirme ekleme ve değişiklik izleme
-      href: automation-onboard-solutions.md
-    - name: Ortamınızdaki yazılımları belirleme
-      href: automation-tutorial-installed-software.md
-      displayName: inventory
-    - name: VM üzerindeki değişikliklerle ilgili sorunları giderme
-      href: automation-tutorial-troubleshoot-changes.md
-      displayName: inventory
-- name: Nasıl yapılır kılavuzları
-  items:
-    - name: Hizmetin kapalı olduğu saatlerde VM’leri başlatma/durdurma
-      href: automation-solution-vm-management.md
+    - name: Karma Runbook Çalışanına Genel Bakış
+      href: automation-hybrid-runbook-worker.md
+    - name: Kavramlar
+      items:
+        - name: Runbook türleri
+          href: automation-runbook-types.md
+          displayName: 'graphical, python, powershell, powershell workflow'
+        - name: PowerShell İş Akışını Öğrenme
+          href: automation-powershell-workflow.md
+    - name: Hızlı Başlangıçlar
+      items:
+        - name: Runbook oluşturma
+          href: automation-quickstart-create-runbook.md
     - name: Ekleme
       items:
         - name: Portaldan birden çok VM ekleme
@@ -42,55 +43,14 @@
           href: automation-onboard-solutions-from-vm.md
         - name: Otomasyon hesabından ekleme
           href: automation-onboard-solutions-from-automation-account.md
-        - name: Bölge eşlemeleri
-          href: how-to/region-mappings.md
-    - name: Güncelleştirme Yönetimi
-      items:
-        - name: Güncelleştirme Yönetimine genel bakış
-          href: automation-update-management.md
-          displayName: 'dynamic groups, pre scripts, post scripts, reboot control, first party, pre download, inclusion'
-        - name: Birden çok VM için güncelleştirmesini yönetme
-          href: manage-update-multi.md
-        - name: Ön ve son betikler
-          href: pre-post-scripts.md
-        - name: OMS güncelleştirme dağıtımlarını Azure’a geçirme
-          href: migrate-oms-update-deployments.md
-        - name: SCCM’yi Güncelleştirme Yönetimi ile Tümleştirme
-          href: oms-solution-updatemgmt-sccmintegration.md
-          displayName: Configuration Manager
-    - name: Değişiklik İzleme
-      items:
-        - name: Değişiklik İzlemeye genel bakış
-          href: change-tracking.md
-          displayName: 'wildcard, recursion, environment variables, registry'
-        - name: İzlenen dosyaların içeriklerini görüntüleme
-          href: change-tracking-file-contents.md
-          displayName: 'change tracking, hash'
-    - name: Envanter
-      items:
-        - name: Stok koleksiyonuyla VM yönetme
-          href: automation-vm-inventory.md
-    - name: Kimlik doğrulama ve güvenlik
-      items:
-        - name: Tek başına Otomasyon hesabı oluşturma
-          href: automation-create-standalone-account.md
-        - name: Otomasyon Farklı Çalıştır hesabı yönetme
-          href: manage-runas-account.md
-          displayName: certificate renewal
-        - name: AWS ile kimlik doğrulamasını yapılandırma
-          href: automation-config-aws-account.md
-        - name: Rol tabanlı erişim denetimini yönetme
-          href: automation-role-based-access-control.md
-          displayName: RBAC
-    - name: Runbook'lar
+    - name: Nasıl Yapılır Kılavuzları
       items:
         - name: Runbook'ları yönetme
           href: manage-runbooks.md
-        - name: Runbook türleri
-          href: automation-runbook-types.md
-          displayName: 'graphical, python, powershell, powershell workflow'
         - name: Runbook oluşturma
           items:
+            - name: Runbook oluşturma ve çalıştırma
+              href: automation-creating-importing-runbook.md
             - name: Grafik runbook
               href: automation-first-runbook-graphical.md
             - name: PowerShell runbook’u
@@ -108,55 +68,180 @@
               displayName: powershell
             - name: Grafik temelli runbook’ları düzenleme
               href: automation-graphical-authoring-intro.md
-        - name: Runbook başlatma
-          href: start-runbooks.md
-        - name: Web kancasından runbook başlatma
-          href: automation-webhooks.md
-        - name: Runbook giriş parametreleri
-          href: runbook-input-parameters.md
-          displayName: 'input,json'
-        - name: Grafik runbook'larında hata işleme
-          href: automation-runbook-graphical-error-handling.md
-        - name: Runbook yürütme
-          href: automation-runbook-execution.md
-          displayName: 'fair share, activity log, job'
-        - name: Azure Otomasyonu verilerini yönetme
-          href: automation-managing-data.md
-          displayName: backup
-        - name: PowerShell İş Akışını Öğrenme
-          href: automation-powershell-workflow.md
-        - name: Alt runbook’lar
-          href: automation-child-runbooks.md
-        - name: Runbook çıkışı
-          href: automation-runbook-output-and-messages.md
-          displayName: 'message streams, progress records, preference'
-        - name: Kaynak denetimi tümleştirmesi
-          href: source-control-integration.md
-          displayName: 'github, vsts, azure devops, personal access token'
-        - name: Kaynak denetimi tümleştirmesi - eski
-          href: source-control-integration-legacy.md
-          displayname: github
-    - name: Karma Runbook Çalışanı
+        - name: Runbook'ları başlatma
+          items:
+            - name: Bir runbook'u test etme
+              href: automation-testing-runbook.md
+            - name: Runbook başlatma
+              href: automation-starting-a-runbook.md
+            - name: Web kancasından runbook başlatma
+              href: automation-webhooks.md
+            - name: Runbook girdi parametrelerini yapılandırma
+              href: automation-runbook-input-parameters.md
+            - name: Alt runbook’lar
+              href: automation-child-runbooks.md
+            - name: Azure Otomasyonu runbook’una bir JSON nesnesi geçirme
+              href: automation-pass-json-string.md
+            - name: Hizmetin kapalı olduğu saatlerde VM’leri başlatma/durdurma
+              href: automation-solution-vm-management.md
+        - name: Runbook’ları izleme
+          items:
+            - name: Runbook çıkışı
+              href: automation-runbook-output-and-messages.md
+              displayName: 'message streams, progress records, preference'
+            - name: Runbook işini izleme
+              href: automation-runbook-execution.md
+              displayName: 'fair share, activity log'
+            - name: Grafik runbook'larında hata işleme
+              href: automation-runbook-graphical-error-handling.md
+            - name: Kaynak denetimi tümleştirmesi
+              href: source-control-integration.md
+              displayName: 'github, vsts, azure devops, personal access token'
+            - name: Kaynak denetimi tümleştirmesi - eski
+              href: automation-source-control-integration-legacy.md
+              displayname: github
+            - name: Azure Otomasyonu verilerini yönetme
+              href: automation-managing-data.md
+              displayName: backup
+        - name: Karma Runbook Çalışanı
+          items:
+            - name: Windows Karma Runbook Çalışanı dağıtma
+              href: automation-windows-hrw-install.md
+            - name: Linux Karma Runbook Çalışanı dağıtma
+              href: automation-linux-hrw-install.md
+              displayName: signature validation
+            - name: Karma Runbook Çalışanı üzerinde runbook çalıştırma
+              href: automation-hrw-run-runbooks.md
+              displayName: signed runbooks
+            - name: İzleyici görevleriyle güncelleştirilen dosyaları izleme
+              href: automation-watchers-tutorial.md
+              displayName: 'hybrid runbook worker, hybrid worker, trigger'
+    - name: Sorun giderme
       items:
-        - name: Karma Runbook Çalışanına genel bakış
-          href: automation-hybrid-runbook-worker.md
-        - name: Windows Karma Runbook Çalışanı dağıtma
-          href: automation-windows-hrw-install.md
-        - name: Linux Karma Runbook Çalışanı dağıtma
-          href: automation-linux-hrw-install.md
-          displayName: signature validation
-        - name: Karma Runbook Çalışanı üzerinde runbook çalıştırma
-          href: automation-hrw-run-runbooks.md
-          displayName: signed runbooks
-    - name: Durum Yapılandırması
+        - name: Karma Runbook Çalışanı ile ilgili sorunları giderme
+          href: troubleshoot/hybrid-runbook-worker.md
+          displayName: 'troubleshoot, HRW, hybrid worker'
+        - name: Runbook sorunlarını giderme
+          href: troubleshoot/runbooks.md
+          displayName: troubleshoot
+- name: Güncelleştirme Yönetimi
+  items:
+    - name: Güncelleştirme Yönetimine genel bakış
+      href: automation-update-management.md
+      displayName: 'dynamic groups, pre scripts, post scripts, reboot control, first party, pre download, inclusion'
+    - name: Ekleme
+      items:
+        - name: Portaldan birden çok VM ekleme
+          href: automation-onboard-solutions-from-browse.md
+        - name: Azure VM’den ekleme
+          href: automation-onboard-solutions-from-vm.md
+        - name: Otomasyon hesabından ekleme
+          href: automation-onboard-solutions-from-automation-account.md
+    - name: Nasıl Yapılır Kılavuzları
+      items:
+        - name: Birden çok VM için güncelleştirmesini yönetme
+          href: manage-update-multi.md
+        - name: Ön ve son betikler
+          href: pre-post-scripts.md
+        - name: OMS güncelleştirme dağıtımlarını Azure’a geçirme
+          href: migrate-oms-update-deployments.md
+        - name: SCCM’yi Güncelleştirme Yönetimi ile Tümleştirme
+          href: oms-solution-updatemgmt-sccmintegration.md
+          displayName: Configuration Manager
+    - name: Sorun giderme
+      items:
+        - name: Ekleme
+          href: troubleshoot/onboarding.md
+          displayName: troubleshoot
+        - name: Güncelleştirme Yönetimi sorunlarını giderme
+          href: troubleshoot/update-management.md
+          displayName: troubleshoot
+        - name: Güncelleştirme Aracısı sorunlarını giderme
+          items:
+            - name: Windows
+              href: troubleshoot/update-agent-issues.md
+              displayName: 'update agent, issue, hybrid runbook worker, hybrid worker, troubleshoot, windows'
+            - name: Linux
+              href: troubleshoot/update-agent-issues-linux.md
+              displayName: 'update agent, issue, hybrid runbook worker, hybrid worker, troubleshoot, linux'
+- name: Değişiklik İzleme
+  items:
+    - name: Değişiklik İzleme’ye Genel Bakış
+      href: change-tracking.md
+      displayName: 'wildcard, recursion, environment variables, registry'
+    - name: Ekleme
+      items:
+        - name: Portaldan birden çok VM ekleme
+          href: automation-onboard-solutions-from-browse.md
+        - name: Azure VM’den ekleme
+          href: automation-onboard-solutions-from-vm.md
+        - name: Otomasyon hesabından ekleme
+          href: automation-onboard-solutions-from-automation-account.md
+    - name: Nasıl Yapılır Kılavuzları
+      items:
+        - name: Runbook ile güncelleştirme ekleme ve değişiklik izleme
+          href: automation-onboard-solutions.md
+        - name: İzlenen dosyaların içeriklerini görüntüleme
+          href: change-tracking-file-contents.md
+          displayName: 'change tracking, hash'
+    - name: Sorun giderme
+      items:
+        - name: Ekleme
+          href: troubleshoot/onboarding.md
+          displayName: troubleshoot
+        - name: Değişiklik İzleme ve Envanter sorunlarını giderme
+          href: troubleshoot/change-tracking.md
+          displayName: troubleshoot
+- name: Envanter
+  items:
+    - name: Ekleme
+      items:
+        - name: Portaldan birden çok VM ekleme
+          href: automation-onboard-solutions-from-browse.md
+        - name: Azure VM’den ekleme
+          href: automation-onboard-solutions-from-vm.md
+        - name: Otomasyon hesabından ekleme
+          href: automation-onboard-solutions-from-automation-account.md
+    - name: Nasıl Yapılır Kılavuzları
+      items:
+        - name: Stok koleksiyonuyla VM yönetme
+          href: automation-vm-inventory.md
+          displayName: inventory
+        - name: VM üzerindeki değişikliklerle ilgili sorunları giderme
+          href: automation-tutorial-troubleshoot-changes.md
+          displayName: inventory
+        - name: Stok koleksiyonuyla VM yönetme
+          href: automation-vm-inventory.md
+          displayName: inventory
+    - name: Sorun giderme
+      items:
+        - name: Ekleme
+          href: troubleshoot/onboarding.md
+          displayName: troubleshoot
+- name: Durum Yapılandırması (DSC)
+  items:
+    - name: Durum Yapılandırmasına genel bakış
+      href: automation-dsc-overview.md
       displayName: DSC
+    - name: Kavramlar
       items:
-        - name: Durum Yapılandırmasına genel bakış
-          href: automation-dsc-overview.md
-          displayName: DSC
+        - name: PowerShell DSC
+          href: /powershell/dsc/overview/overview
+    - name: Hızlı Başlangıçlar
+      items:
         - name: Başlarken
           href: automation-dsc-getting-started.md
           displayName: DSC
+        - name: DSC yapılandırması oluşturma
+          href: automation-quickstart-dsc-configuration.md
+          displayName: 'DSC, state configuration, config, node configuration, node'
+    - name: Ekleme
+      items:
+        - name: Makineleri yönetim için hazırlama
+          href: automation-dsc-onboarding.md
+          displayName: 'DSC, state configuration'
+    - name: Nasıl Yapılır Kılavuzları
+      items:
         - name: Durum Yapılandırması ile sunucuları istenen duruma göre yapılandırma ve kaymaları yönetme
           href: tutorial-configure-servers-desired-state.md
           displayName: 'DSC, compliance'
@@ -174,86 +259,65 @@
         - name: Durum Yapılandırması raporlama verilerini Azure İzleyici günlüklerine iletme
           href: automation-dsc-diagnostics.md
           displayName: DSC
-    - name: Paylaşılan kaynakları yönetme
+    - name: Sorun giderme
       items:
-        - name: Zamanlamalar
-          href: shared-resources/schedules.md
-        - name: Modüller
-          href: shared-resources/modules.md
-        - name: Python 2 paketlerini yönetme
-          href: python-packages.md
-        - name: Kimlik Bilgileri
-          href: shared-resources/credentials.md
-        - name: Bağlantılar
-          href: automation-connections.md
-        - name: Sertifikalar
-          href: shared-resources/certificates.md
-        - name: Değişkenler
-          href: shared-resources/variables.md
-        - name: Azure PowerShell modüllerini güncelleştirme
-          href: automation-update-azure-modules.md
-        - name: Runbook’larda Az modülleri
-          href: az-modules.md
-    - name: Senaryolar
-      items:
-        - name: Runbook galerisi
-          href: automation-runbook-gallery.md
-        - name: Ölçüm uyarıları ile runbook’ları izleme
-          href: automation-alert-metric.md
-        - name: Azure uyarılarından runbook başlatma
-          href: automation-create-alert-triggered-runbook.md
-          displayName: 'Monitor, Azure Monitor'
-        - name: Amazon Web Hizmetleri Sanal Makinesi oluşturma
-          href: automation-scenario-aws-deployment.md
-        - name: Azure Otomasyonu PowerShell runbook’unda Azure Resource Manager şablonu dağıtma
-          href: automation-deploy-template-runbook.md
-        - name: Azure Otomasyonu’nu Event Grid ve Microsoft Teams ile tümleştirme
-          href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md?toc=%2fazure%2fautomation%2ftoc.json
-        - name: Otomasyon Hesabınızı başka bir Aboneliğe taşıma
-          href: how-to/move-account.md
-    - name: İzleme
-      items:
-        - name: Azure Otomasyonu iş verilerini Azure İzleyici günlüklerine iletme
-          href: automation-manage-send-joblogs-log-analytics.md
-    - name: Geçiş
-      items:
-        - name: Orchestrator'dan geçiş
-          href: automation-orchestrator-migration.md
-          displayName: 'SCORCH, runbooks'
-- name: Sorun giderme
+        - name: Ekleme
+          href: troubleshoot/onboarding.md
+          displayName: troubleshoot
+        - name: State Configuration (DSC) sorunlarını giderme
+          href: troubleshoot/desired-state-configuration.md
+          displayName: 'Desired State Configuration, troubleshoot'
+- name: Paylaşılan Kaynakları Yönetme
   items:
-    - name: Ekleme
-      href: troubleshoot/onboarding.md
-      displayName: troubleshoot
-    - name: Runbook'lar
-      href: troubleshoot/runbooks.md
-      displayName: troubleshoot
-    - name: Durum Yapılandırması (DSC)
-      href: troubleshoot/desired-state-configuration.md
-      displayName: 'Desired State Configuration, troubleshoot'
-    - name: Karma Runbook Çalışanı
-      href: troubleshoot/hybrid-runbook-worker.md
-      displayName: 'troubleshoot, HRW, hybrid worker'
-    - name: Değişiklik İzleme ve Stok
-      href: troubleshoot/change-tracking.md
-      displayName: troubleshoot
-    - name: Güncelleştirme Yönetimi
-      href: troubleshoot/update-management.md
-      displayName: troubleshoot
-    - name: VM’leri başlatma/durdurma
-      href: troubleshoot/start-stop-vm.md
-      displayName: 'start,stop'
-    - name: Paylaşılan kaynaklar
+    - name: Sertifikalar
+      href: automation-certificates.md
+    - name: Bağlantılar
+      href: automation-connections.md
+    - name: Kimlik Bilgileri
+      href: automation-credentials.md
+    - name: Tümleştirme modülleri
+      href: automation-integration-modules.md
+    - name: Zamanlamalar
+      href: automation-schedules.md
+    - name: Değişkenler
+      href: automation-variables.md
+    - name: Azure PowerShell modüllerini güncelleştirme
+      href: automation-update-azure-modules.md
+    - name: Python 2 paketlerini yönetme
+      href: python-packages.md
+    - name: Paylaşılan Kaynak sorunlarını giderme
       href: troubleshoot/shared-resources.md
       displayName: 'module, import'
-    - name: Güncelleştirme Aracısı sorunlarını giderme
-      items:
-        - name: Windows
-          href: troubleshoot/update-agent-issues.md
-          displayName: 'update agent, issue, hybrid runbook worker, hybrid worker, troubleshoot, windows'
-        - name: Linux
-          href: troubleshoot/update-agent-issues-linux.md
-          displayName: 'update agent, issue, hybrid runbook worker, hybrid worker, troubleshoot, linux'
+- name: Bileşenler Arası Senaryolar
+  items:
+    - name: Runbook galerisi
+      href: automation-runbook-gallery.md
+    - name: Ölçüm uyarıları ile runbook’ları izleme
+      href: automation-alert-metric.md
+    - name: Azure uyarılarından runbook başlatma
+      href: automation-create-alert-triggered-runbook.md
+      displayName: 'Monitor, Azure Monitor'
+    - name: Amazon Web Hizmetleri Sanal Makinesi oluşturma
+      href: automation-scenario-aws-deployment.md
+    - name: GitHub Enterprise ile kaynak denetimi tümleştirmesi
+      href: automation-scenario-source-control-integration-with-github-ent.md
+      displayName: 'CI, runbooks'
+    - name: Azure DevOps ile kaynak denetimi tümleştirmesi
+      href: automation-scenario-source-control-integration-with-VSTS.md
+      displayName: 'VSTS, CI, runbooks'
+    - name: Azure Otomasyonu PowerShell runbook’unda Azure Resource Manager şablonu dağıtma
+      href: automation-deploy-template-runbook.md
+    - name: Azure Otomasyonu’nu Event Grid ve Microsoft Teams ile tümleştirme
+      href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md?toc=%2fazure%2fautomation%2ftoc.json
+- name: İzleme
+  items:
+    - name: Azure Otomasyonu iş verilerini Log Analytics’e iletme
+      href: automation-manage-send-joblogs-log-analytics.md
+- name: Geçiş
+  items:
+    - name: Orchestrator'dan geçiş
+      href: automation-orchestrator-migration.md
+      displayName: 'SCORCH, runbooks'
 - name: Başvuru
   items:
     - name: Azure PowerShell
@@ -266,8 +330,6 @@
       href: /rest/api/automation
     - name: REST (Klasik)
       href: 'https://msdn.microsoft.com/library/azure/mt163781'
-    - name: Resource Manager şablonu
-      href: /azure/templates/microsoft.automation/allversions
 - name: Kaynaklar
   items:
     - name: Otomasyon tanıtım videosu
@@ -285,6 +347,6 @@
     - name: Hizmet güncelleştirmeleri
       href: 'https://azure.microsoft.com/updates/?product=automation'
     - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-automation'
+      href: 'http://stackoverflow.com/questions/tagged/azure-automation'
     - name: Videolar
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=automation'

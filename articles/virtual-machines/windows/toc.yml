@@ -267,13 +267,13 @@
           items:
             - name: Genel Bakış
               href: ../linux/image-builder-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-            - name: CLI’yi kullanma
+            - name: Azure CLI kullanma
               href: image-builder.md
-            - name: Galerilerle kullanma
+            - name: Görüntü galerileri için derleme
               href: image-builder-gallery.md
-            - name: Görüntü sürümünü güncelleştirme
+            - name: Mevcut görüntüyü güncelleştirme
               href: image-builder-gallery-update-image-version.md
-            - name: Azure Depolama'da betikleri kullanma
+            - name: Betikleri depolama
               href: ../linux/image-builder-user-assigned-identity.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Şablon başvurusu
               href: ../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json

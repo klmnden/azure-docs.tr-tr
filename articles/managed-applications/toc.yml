@@ -29,10 +29,18 @@
       href: sample-projects.md
 - name: Kavramlar
   items:
-    - name: Özel Sağlayıcılar
+    - name: Azure özel kaynak sağlayıcıları
       href: custom-providers-overview.md
+    - name: Tanım yapıtını görüntüleme
+      href: concepts-view-definition.md
 - name: Nasıl yapılır kılavuzları
   items:
+    - name: Özel kaynak sağlayıcıları
+      items:
+        - name: Azure'a özel eylemler ekleme
+          href: custom-providers-action-endpoint-how-to.md
+        - name: Azure'a özel kaynaklar ekleme
+          href: custom-providers-resources-endpoint-how-to.md
     - name: Yayımcılar
       items:
         - name: Portal arabirimi oluşturma
@@ -57,6 +65,12 @@
           href: approve-just-in-time-access.md
 - name: Başvuru
   items:
+    - name: Özel kaynak sağlayıcıları
+      items:
+        - name: Özel kaynak ara sunucu başvurusu
+          href: custom-providers-proxy-resource-endpoint-reference.md
+        - name: Özel kaynak önbellek başvurusu
+          href: custom-providers-proxy-cache-resource-endpoint-reference.md
     - name: Azure CLI
       href: /cli/azure/managedapp
     - name: PowerShell

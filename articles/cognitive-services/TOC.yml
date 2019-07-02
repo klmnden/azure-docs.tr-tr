@@ -31,8 +31,10 @@
           href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: Hızlı Başlangıçlar
   items:
-    - name: Hesap oluşturma
+    - name: Azure portalı kullanarak bir hesap oluşturma
       href: cognitive-services-apis-create-account.md
+    - name: Azure CLI kullanarak bir hesap oluşturma
+      href: cognitive-services-apis-create-account-cli.md
     - name: Kimlik Doğrulaması
       href: authentication.md
     - name: Tanılama günlüğüne kaydetme

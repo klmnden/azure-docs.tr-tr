@@ -19,12 +19,20 @@
       href: azure-netapp-files-resource-limits.md
     - name: Azure NetApp Files için ölçümler
       href: azure-netapp-files-metrics.md
-    - name: Azure NetApp Files için performans kıyaslamaları
-      href: azure-netapp-files-performance-benchmarks.md
+    - name: Performans
+      items:
+        - name: Azure NetApp Files için performans kıyaslamaları
+          href: azure-netapp-files-performance-benchmarks.md
+        - name: Azure NetApp Files için performansla ilgili önemli noktalar
+          href: azure-netapp-files-performance-considerations.md
+        - name: Azure NetApp Files kullanarak birim performansı ve ölçümler için karşılaştırma testi
+          href: azure-netapp-files-performance-metrics-volumes.md
     - name: Azure NetApp Files için maliyet modeli
       href: azure-netapp-files-cost-model.md
     - name: Azure NetApp Files ağ planlaması yönergeleri
       href: azure-netapp-files-network-topologies.md
+    - name: Azure NetApp Files kullanan çözüm mimarileri
+      href: azure-netapp-files-solution-architectures.md
     - name: Azure NetApp Files hakkında SSS
       href: azure-netapp-files-faqs.md
 - name: Nasıl yapılır kılavuzları

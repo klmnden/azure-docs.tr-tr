@@ -66,6 +66,8 @@
           href: how-to-navigate-apis.md
         - name: Sık sorulan soru yapıları
           href: how-to-query-common-apis.md
+    - name: Uygulamanızı eski AAD'ye kaydetme
+      href: how-to-use-legacy-aad.md
 - name: Başvuru
   items:
     - name: Kullanıcı tanımlı işlevler istemci kitaplığı

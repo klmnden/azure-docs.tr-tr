@@ -6,10 +6,15 @@
       href: ./apache-interactive-query-get-started.md
       maintainContext: true
 - name: Hızlı Başlangıçlar
+  expanded: true
   items:
     - name: Apache Hive sorguları yürütme - Apache Zeppelin
       href: ./hdinsight-connect-hive-zeppelin.md
-- name: başlarken
+- name: Öğreticiler
+  items:
+    - name: Interactive Query ile verileri çözümleme
+      href: ./interactive-query-tutorial-analyze-flight-data.md
+- name: Kavramlar
   items:
     - name: HDInsight uygulamaları yükleme
       href: ../hdinsight-apps-install-applications.md
@@ -104,9 +109,6 @@
           maintainContext: true
         - name: Depolanan tweetleri çözümleme
           href: ../hdinsight-analyze-twitter-data-linux.md
-          maintainContext: true
-        - name: Uçuş gecikme verilerini çözümleme
-          href: ../hdinsight-analyze-flight-delay-data-linux.md
           maintainContext: true
     - name: Kümeleri genişletme
       items:
@@ -246,9 +248,6 @@
         - name: HDInsight kümesi için işletim sistemi düzeltme eki uygulama
           href: ../hdinsight-os-patching.md
           maintainContext: true
-        - name: Hive iş yüklerini HDInsight 4.0 sürümüne geçirme
-          href: apache-hive-migrate-workloads.md
-          maintainContext: true
     - name: Sorun giderme
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
@@ -334,6 +333,11 @@
         - name: Küme performansını izleme
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
+- name: Nasıl yapılır
+  items:
+    - name: Hive iş yüklerini HDInsight 4.0 sürümüne geçirme
+      href: apache-hive-migrate-workloads.md
+      maintainContext: true
 - name: Başvuru
   items:
     - name: Kod örnekleri

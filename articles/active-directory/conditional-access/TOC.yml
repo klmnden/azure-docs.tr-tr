@@ -19,6 +19,8 @@
 - name: Kavramlar
   expanded: false
   items:
+    - name: Koşullu Erişimi Benimseme
+      href: howto-conditional-access-adoption-kit.md
     - name: Ana hat koruma ilkeleri
       href: concept-baseline-protection.md
     - name: Koşullar

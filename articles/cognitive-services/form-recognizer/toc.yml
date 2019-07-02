@@ -17,6 +17,8 @@
               href: quickstarts/python-train-extract.md
 - name: Nasıl yapılır kılavuzları
   items:
+    - name: Eğitim verileri kümesi oluşturma
+      href: build-training-data-set.md
     - name: Kapsayıcıları kullanma
       items:
         - name: Kapsayıcıları yükleme ve çalıştırma

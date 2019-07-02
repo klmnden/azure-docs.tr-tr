@@ -2,7 +2,7 @@
   href: index.yml
 - name: Genel Bakış
   items:
-    - name: Veri Gezgini nedir?
+    - name: Azure Veri Gezgini nedir?
       href: data-explorer-overview.md
 - name: Hızlı Başlangıçlar
   expanded: true
@@ -15,8 +15,6 @@
       items:
         - name: Web kullanıcı arabirimi
           href: web-query-data.md
-        - name: Python
-          href: python-query-data.md
 - name: Öğreticiler
   items:
     - name: Kod kullanmadan verileri alma
@@ -68,12 +66,18 @@
       items:
         - name: Sorgu yazma
           href: write-queries.md
-        - name: Zaman serisi analizi
-          href: time-series-analysis.md
-        - name: Anomali algılama ve tahmin etme
-          href: anomaly-detection.md
-        - name: Makine öğrenimi
-          href: machine-learning-clustering.md
+        - name: Azure Data Lake’te verileri sorgulama
+          href: data-lake-query-data.md
+        - name: Python
+          href: python-query-data.md
+        - name: Zaman Serisi Analizi ve Makine Öğrenmesi
+          items:
+            - name: Zaman serisi analizi
+              href: time-series-analysis.md
+            - name: Anomali algılama ve tahmin etme
+              href: anomaly-detection.md
+            - name: Makine öğrenimi
+              href: machine-learning-clustering.md
     - name: Verileri görselleştirme
       items:
         - name: Power BI

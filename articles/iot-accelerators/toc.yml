@@ -137,6 +137,8 @@
           href: overview-opc-twin.md
         - name: OPC Vault nedir?
           href: overview-opc-vault.md
+        - name: OPC Yayımcısı nedir?
+          href: overview-opc-publisher.md
         - name: Bağlı Fabrika nedir?
           href: iot-accelerators-connected-factory-features.md
     - name: Hızlı Başlangıçlar
@@ -153,8 +155,6 @@
           items:
             - name: Panoyu kullanma
               href: iot-accelerators-connected-factory-dashboard.md
-            - name: OPC yayımcısını kullanma
-              href: 'https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md'
             - name: Çözüm hızlandırıcısını yapılandırma
               href: iot-accelerators-connected-factory-configure.md
             - name: Çözüm hızlandırıcısını özelleştirme
@@ -177,6 +177,12 @@
                   href: howto-opc-vault-deploy-existing-client-server-communication.md
             - name: OPC Vault'u sıfırdan dağıtma
               href: howto-opc-vault-deploy-scratch.md
+        - name: OPC Yayımcısı
+          items:
+            - name: OPC Yayımcısını Yapılandırma
+              href: howto-opc-publisher-configure.md
+            - name: OPC Yayımcısını Çalıştırma
+              href: howto-opc-publisher-run.md
     - name: Kaynaklar
       items:
         - name: GitHub deposu
