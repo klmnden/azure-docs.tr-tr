@@ -93,6 +93,8 @@
       items:
         - name: ACR Görevlerine genel bakış
           href: container-registry-tasks-overview.md
+        - name: Zamanlanmış görevler
+          href: container-registry-tasks-scheduled.md
         - name: Çok adımlı görevler
           href: container-registry-tasks-multi-step.md
         - name: Yönetilen kimlik ile kullanma

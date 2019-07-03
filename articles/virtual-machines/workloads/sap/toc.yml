@@ -1,6 +1,6 @@
 - name: Genel Bakış
   items:
-    - name: başlarken
+    - name: Başlarken
       href: get-started.md
     - name: Sertifikalar
       href: sap-certifications.md
@@ -168,6 +168,8 @@
               href: high-availability-guide-suse-netapp-files.md
             - name: (A)SCS Örneği için Red Hat Enterprise Linux üzerinde HA
               href: high-availability-guide-rhel.md
+            - name: Azure NetApp Files ile (A)SCS Örneği için Red Hat Enterprise Linux üzerinde HA
+              href: high-availability-guide-rhel-netapp-files.md
         - name: Azure Altyapı Hazırlığı
           items:
             - name: (A)SCS Örneği için Paylaşılan Diskle Windows
@@ -194,6 +196,8 @@
               href: high-availability-guide-suse-netapp-files.md
             - name: Red Hat Enterprise Linux üzerinde SAP NetWeaver için yüksek kullanılabilirlik
               href: high-availability-guide-rhel.md
+            - name: Azure NetApp Files ile (A)SCS Örneği için NFS ile Red Hat Enterprise Linux
+              href: high-availability-guide-rhel-netapp-files.md
         - name: SAP Çoklu SID
           items:
             - name: (A)SCS Örneği için Paylaşılan Diskle Windows

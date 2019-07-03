@@ -62,7 +62,7 @@
         - name: Cihaz kümelerini kullanma
           href: howto-use-device-sets.md
         - name: Cihaz şablonu için sürüm oluşturma
-          href: howto-version-devicetemplate.md
+          href: howto-version-device-template.md
     - name: İzleme ve analiz
       items:
         - name: Telemetri kuralı oluşturma
@@ -105,6 +105,8 @@
           href: howto-prepare-images.md
         - name: Uygulama panosunu yapılandırma
           href: howto-configure-homepage.md
+        - name: Pano kutucukları kullanma
+          href: howto-use-tiles.md
         - name: Uygulama kullanıcı arabirimini özelleştirme
           href: howto-customize-ui.md
         - name: Uygulama şablonlarını kullanma

@@ -460,10 +460,12 @@
               href: tutorial-query-graph.md
         - name: Nasıl yapılır kılavuzları
           items:
-            - name: Graf verilerini içeri aktarma
-              href: bulk-executor-graph-dotnet.md
+            - name: Graf verileri modellemesi
+              href: graph-modeling.md
             - name: Graf verilerini bölümleme
               href: graph-partitioning.md
+            - name: Graf verilerini içeri aktarma
+              href: bulk-executor-graph-dotnet.md
             - name: Gremlin sorgularını iyileştirme
               href: graph-execution-profile.md
             - name: Mağaza ve Spring Verilerini yönetme

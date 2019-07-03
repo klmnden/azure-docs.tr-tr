@@ -42,6 +42,8 @@
   items:
     - name: SSS
       href: resources-faq.md
+    - name: Bulut Benimseme Çerçevesi kapsamında geçiş
+      href: 'https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/index'
     - name: REST API
       href: 'https://docs.microsoft.com/rest/api/migrate/'
     - name: Resource Manager şablonu

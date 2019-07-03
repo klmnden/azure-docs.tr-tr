@@ -197,6 +197,9 @@
         - name: MLflow ile denemeleri izleme
           displayName: 'log, monitor, metrics'
           href: how-to-use-mlflow.md
+        - name: Denemeleri TensorBoard ile görselleştirme
+          displayName: 'log, monitor, metrics'
+          href: how-to-monitor-tensorboard.md
     - name: Makine öğrenimini otomatikleştirme
       displayName: 'automl, auto ml'
       items:
@@ -304,6 +307,8 @@
               href: ../algorithm-module-reference/add-rows.md
             - name: Yinelenen Satırları Kaldırma
               href: ../algorithm-module-reference/remove-duplicate-rows.md
+            - name: Verileri birleştirme
+              href: ../algorithm-module-reference/join-data.md
             - name: Verileri Bölme
               href: ../algorithm-module-reference/split-data.md
             - name: Verileri Normalleştirme
@@ -352,12 +357,14 @@
               href: ../algorithm-module-reference/two-class-support-vector-machine.md
             - name: K Ortalamaları Kümeleme
               href: ../algorithm-module-reference/k-means-clustering.md
-        - name: Python dil modülleri
+        - name: Python ve R dil modülleri
           items:
             - name: Python Betiği Yürütme
               href: ../algorithm-module-reference/execute-python-script.md
             - name: Python Modeli Oluşturma
               href: ../algorithm-module-reference/create-python-model.md
+            - name: R Betiği yürütme
+              href: ../algorithm-module-reference/execute-r-script.md
         - name: Hata iletileri ve kodları
           href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Kaynaklar

@@ -7,7 +7,7 @@
 - name: Hızlı Başlangıçlar
   expaned: true
   items:
-    - name: Modeli eğitme ve verileri ayıklama
+    - name: Özel model eğitme ve verileri ayıklama
       items:
         - name: REST API’sini kullanma
           items:
@@ -15,6 +15,14 @@
               href: quickstarts/curl-train-extract.md
             - name: Python
               href: quickstarts/python-train-extract.md
+    - name: Önceden oluşturulmuş girişler modelini kullanma
+      items:
+        - name: REST API’sini kullanma
+          items:
+            - name: cURL
+              href: quickstarts/curl-receipts.md
+            - name: Python
+              href: quickstarts/python-receipts.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Eğitim verileri kümesi oluşturma

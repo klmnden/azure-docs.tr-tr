@@ -36,6 +36,8 @@
   items:
     - name: Akış analiz teknolojisi seçme
       href: streaming-technologies.md
+    - name: İş geliştirme aracı seçme
+      href: feature-comparison.md
     - name: İş için giriş türleri
       items:
         - name: Girişlere genel bakış

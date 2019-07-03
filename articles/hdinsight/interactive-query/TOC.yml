@@ -24,6 +24,9 @@
       maintainContext: true
 - name: Nasıl yapılır
   items:
+    - name: Hive iş yüklerini HDInsight 4.0 sürümüne geçirme
+      href: apache-hive-migrate-workloads.md
+      maintainContext: true
     - name: Küme depolama alanını kullanma
       items:
         - name: Azure Depolama’yı kullanma
@@ -100,6 +103,9 @@
           href: ./apache-hadoop-connect-hive-power-bi-directquery.md
         - name: Power BI’ı Apache Hadoop’a Bağlama
           href: ../hadoop/apache-hadoop-connect-hive-power-bi.md
+          maintainContext: true
+        - name: PowerShell ve ODBC ile Hive’ı sorgulama
+          href: apache-hive-query-odbc-driver-powershell.md
           maintainContext: true
         - name: Excel'i Apache Hadoop’a Bağlama
           href: ../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
@@ -333,11 +339,6 @@
         - name: Küme performansını izleme
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Nasıl yapılır
-  items:
-    - name: Hive iş yüklerini HDInsight 4.0 sürümüne geçirme
-      href: apache-hive-migrate-workloads.md
-      maintainContext: true
 - name: Başvuru
   items:
     - name: Kod örnekleri
