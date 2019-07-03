@@ -4,20 +4,20 @@ description: Sorgular ve bir Azure zaman serisi görüşleri ortamından veri i�
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 04/25/2019
+ms.date: 06/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 2f25267b95e9ed5f7d5f6e6373fb9e3807927a7f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: e415c681ae5a35de6e8ff76e09cfef8cc8cc98f8
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735344"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544074"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Öğretici: Azure Time Series Insights tek sayfalı web uygulaması oluşturma
 
-Bu öğreticide, Azure Time Series Insights verilerine erişmek için kendi web tek sayfalı uygulama (SPA) oluşturma işlemi boyunca size yol gösterir. 
+Bu öğreticide, Azure Time Series Insights verilerine erişmek için kendi web tek sayfalı uygulama (SPA) oluşturma işlemi boyunca size yol gösterir.
 
 Bu öğreticide şu konular hakkında bilgi edineceksiniz:
 
@@ -50,54 +50,13 @@ Bu öğreticide, örnek uygulamanın zaman serisi görüşleri ortamından veri 
 
 ## <a name="register-the-application-with-azure-ad"></a>Uygulamayı Azure AD’ye kaydetme
 
-Uygulamayı oluşturmadan önce Azure AD'ye kaydetmeniz gerekir. Kayıt kimlik yapılandırması sağlar. böylece, uygulama için çoklu oturum açmayı OAuth desteğini kullanabilirsiniz. OAuth örtük yetki verme türünü kullanmayı Spa'lar gerektirir. Uygulama bildiriminde yetkilendirme güncelle Uygulama bildirimi, uygulama kimliği yapılandırmasının JSON gösterimidir.
-
-1. Oturum [Azure portalında](https://portal.azure.com) Azure abonelik hesabınızı kullanarak.  
-1. **Azure Active Directory** > **Uygulama kayıtları** > **Yeni uygulama kaydı**’nı seçin.
-
-   [![Azure portalı - başlangıç Azure AD uygulama kaydı](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png#lightbox)
-
-1. İçinde **Oluştur** bölmesinde, gerekli parametreleri doldurun.
-
-   Parametre|Açıklama
-   ---|---
-   **Ad** | Anlamlı kayıt adı girin.  
-   **Uygulama türü** | Olarak bırakın **Web uygulaması/API'si**.
-   **Oturum Açma URL'si** | Oturum açma (ana) sayfası uygulama için URL'yi girin. Uygulama daha sonra Azure App Service'te barındırılan olduğundan, bir URL https kullanmalıdır:\//azurewebsites.net etki alanı. Bu örnekte ad, kayıt adına dayalıdır.
-
-   Seçin **Oluştur** yeni uygulama kaydı oluşturmak için.
-
-   [![Azure portal - Azure AD uygulama kayıt bölmesinde oluşturma seçeneği](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png#lightbox)
-
-1. Kaynak uygulamaları, diğer uygulamaları kullanabilir ve REST API'ler sağlar. API'ler ayrıca Azure AD'ye kaydedilir. API'leri göstererek istemci uygulamaları için ayrıntılı ve güvenli erişim sağlamak *kapsamları*. Uygulamanızı Azure zaman serisi öngörüleri API çağırdığı API ve kapsam belirtmeniz gerekir. Çalışma zamanı kapsamda ve API için izin verilir. Seçin **ayarları** > **gerekli izinler** > **Ekle**.
-
-   [![Azure portal - Azure AD izinleri ekleme seçeneği Ekle](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png#lightbox)
-
-1. İçinde **API erişimi Ekle** bölmesinde **1 bir API seçin** Azure zaman serisi öngörüleri API belirtmek için. İçinde **bir API seçin** bölmesinde, arama kutusuna girin **azure zaman**. Ardından, **Azure Time Series Insights** sonuç listesinde. **Seç**’i seçin.
-
-   [![Azure portal - Azure AD izinleri eklemek için arama seçeneği](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png#lightbox)
-
-1. API için bir kapsam seçin **API erişimi Ekle** bölmesinde **2 Select izinleri**. İçinde **erişimini etkinleştir** bölmesinde **erişim Azure Time Series Insights hizmeti** kapsam. **Seç**’i seçin. Döndürülen **API erişimi Ekle** bölmesi. **Done** (Bitti) öğesini seçin.
-
-   [![Azure portal - Azure AD izinleri eklemek için bir kapsamını ayarlama](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png#lightbox)
-
-1. İçinde **gerekli izinler** Azure zaman serisi öngörüleri API bölmesinde artık gösterilmektedir. Ayrıca tüm kullanıcılar için kapsam ve API'ye erişmek uygulamanın ön onay izin vermeniz gerekir. Seçin **izinleri verin**ve ardından **Evet**.
-
-   [![Azure portal - Azure AD'ye ekleme izni izinler seçeneğini gerekli izinler](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png#lightbox)
-
-1. Daha önce açıklandığı gibi uygulama bildirimini de güncelleştirmeniz gerekir. ("İçerik haritası") Bölmenin üst kısmındaki menüde yatay, geri dönmek için uygulama adı seçin **kayıtlı uygulama** bölmesi. Seçin **bildirim**, değiştirme `oauth2AllowImplicitFlow` özelliğini `true`ve ardından **Kaydet**.
-
-   [![Azure portal - Azure AD güncelleştirme bildirimi](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png#lightbox)
-
-1. Alan içerik haritasındaki dönmek için uygulama adı seçin **kayıtlı uygulama** bölmesi. Değerlerini kopyalayın **giriş sayfası** ve **uygulama kimliği** uygulamanız için. Öğreticinin ilerleyen bölümlerinde bu özellikleri kullanın.
-
-   [![Azure portalı - giriş sayfası URL'si ve uygulama kimliği, uygulamanız için değerleri kopyalama](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png#lightbox)
+[!INCLUDE [Azure Active Directory app registration](../../includes/time-series-insights-aad-registration.md)]
 
 ## <a name="build-and-publish-the-web-application"></a>Web uygulamasını derleme ve yayımlama
 
 1. Uygulamanızın proje dosyalarını depolamak için bir dizin oluşturun. Ardından, aşağıdaki URL'lerden her birine gidin. Sağ **ham** sayfanın sağ üst köşesinde bulunan bağlantı ve ardından **Kaydet** proje dizininizde dosyaları kaydetmek için.
 
-   - [*index.HTML*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html): HTML ve JavaScript için sayfa
+   - [*index.HTML*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html): sayfası için JavaScript ve HTML
    - [*sampleStyles.css*]( https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css): CSS stil sayfası
 
    > [!NOTE]
@@ -142,7 +101,7 @@ Uygulamayı oluşturmadan önce Azure AD'ye kaydetmeniz gerekir. Kayıt kimlik y
       <link rel="stylesheet" type="text/css" href="../../dist/tsiclient.css"> -->
       ```
 
-   1. Azure AD uygulama kayıt Kimliğinizi kullanmak için uygulamayı yapılandırmak için değiştirme `clientID` ve `postLogoutRedirectUri` değerler için kullanılacak değerler **uygulama kimliği** ve **giriş sayfası** içinde9.adımdakopyaladığınız[ Uygulamayı Azure AD'ye kaydetme](#register-the-application-with-azure-ad).
+   1. Uygulamayı Azure AD uygulama kayıt Kimliğinizi kullanacak şekilde yapılandırmak için değiştirme `clientID` kullanılacak değeri **uygulama kimliği** , içinde kopyalanan **3. adım** olduğunda, [uygulamaya kayıtlı Azure AD'yi kullanın](#register-the-application-with-azure-ad). Oluşturulduktan sonra bir **oturum kapatma URL'si** olarak bu değeri Azure AD'de ayarlamak `postLogoutRedirectUri` değeri.
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 
@@ -182,9 +141,9 @@ Uygulamayı oluşturmadan önce Azure AD'ye kaydetmeniz gerekir. Kayıt kimlik y
 
 Hata kodu/durumu | Açıklama
 ---------------------| -----------
-*AADSTS50011: Uygulama için kayıtlı yanıt adresi yok.* | Azure AD kaydı eksik **yanıt URL'si** özelliği. Git **ayarları** > **yanıt URL'leri** , Azure AD uygulama kaydı için. Doğrulayın **oturum açma** adım 3'de belirtilen URL [uygulamayı Azure AD'ye kaydetme](#register-the-application-with-azure-ad) mevcuttur.
-*AADSTS50011: Yanıt URL'si istekte belirtilen uygulama için yapılandırılan yanıt URL'lerinden eşleşmiyor: '\<Uygulama kimliği GUID >'.* | `postLogoutRedirectUri` Adım 6'de belirtilen [oluşturun ve web uygulaması yayımlamaya](#build-and-publish-the-web-application) altında belirtilen değer eşleşmelidir **ayarları** > **yanıt URL'leri** içinde Azure AD uygulama kaydı. Ayrıca değerini değiştirdiğinizden emin olun **hedef URL** kullanılacak *https* başına 5 adımda [oluşturun ve web uygulaması yayımlamaya](#build-and-publish-the-web-application).
-Web uygulaması yükler, ancak bir unstyled, salt metin oturum açma sayfası, beyaz arka plan bulunur. | Ele yolları 4 adımı olduğunu doğrulayın [oluşturun ve web uygulaması yayımlamaya](#build-and-publish-the-web-application) doğrudur. Web uygulaması .css dosyalarını bulamadığında sayfa stili doğru şekilde uygulanmaz.
+*AADSTS50011: Uygulama için kayıtlı yanıt adresi yok.* | Azure AD kaydı eksik **yanıt URL'si** özelliği. Git **ayarları** > **yanıt URL'leri** , Azure AD uygulama kaydı için. Doğrulayın **yeniden yönlendirme URI'si** belirtin seçeneğine sahip **2. adım** olduğunda, [kayıtlı Azure AD kullanmak için uygulamayı](#register-the-application-with-azure-ad) mevcuttur.
+*AADSTS50011: Yanıt URL'si istekte belirtilen uygulama için yapılandırılan yanıt URL'lerinden eşleşmiyor: '\<Uygulama kimliği GUID >'.* | `postLogoutRedirectUri` Belirtilen **6. adım** içinde [oluşturun ve web uygulaması yayımlamaya](#build-and-publish-the-web-application) altında belirtilen değer eşleşmelidir **ayarları**  >  **Yanıt URL'leri** , Azure AD uygulama kaydı içinde. Ayrıca değerini değiştirdiğinizden emin olun **hedef URL** kullanılacak *https* başına **5. adım** içinde [oluşturun ve web uygulaması yayımlamaya](#build-and-publish-the-web-application).
+Web uygulaması yükler, ancak bir unstyled, salt metin oturum açma sayfası, beyaz arka plan bulunur. | Yolları konusunda değinildiği doğrulayın **4. adım** içinde [oluşturun ve web uygulaması yayımlamaya](#build-and-publish-the-web-application) doğrudur. Web uygulaması .css dosyalarını bulamadığında sayfa stili doğru şekilde uygulanmaz.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

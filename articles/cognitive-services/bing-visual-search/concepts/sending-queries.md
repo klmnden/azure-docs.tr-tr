@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 4/03/2019
+ms.date: 7/01/2019
 ms.author: aahi
-ms.openlocfilehash: 62d34b859a0cf71320c478b7cab4a2914e5ee308
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bd5118b42f32a521df8e3acfffb68391d4021791
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60579873"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541547"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Bing görsel arama API'sine arama sorguları gönderme
 
-Bu makalede, parametreler ve Bing görsel arama API'si, hem de yanıt nesnesini gönderilen istekleri özniteliklerini açıklar.
+Bu makalede, parametreler ve Bing görsel arama API'si, hem de yanıt nesnesini gönderilen istekleri özniteliklerini açıklar. 
 
 Üç yolla bir görüntü ile ilgili Öngörüler elde edebilirsiniz:
 
@@ -192,6 +192,9 @@ Content-Disposition: form-data; name="knowledgeRequest"
 ```
 
 ## <a name="bing-visual-search-responses"></a>Bing görsel arama yanıtları
+
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 Resim için içgörüler varsa, yanıtta içgörüleri içeren bir veya birden çok `tags` bulunur. `image` Girdi görüntüsünün için ınsights belirteci alan içerir:
 

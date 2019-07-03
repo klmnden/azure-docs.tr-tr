@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 642fa87f8c838e10c4f18d8f4bdbab58d9501477
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 1990077e6466e08c1b6c463dafe9809b52df6d14
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502889"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537600"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Hızlı Başlangıç: Bir Form tanıyıcı modeli eğitmek ve REST API ile cURL kullanarak form verileri ayıklayın
 
@@ -34,13 +34,13 @@ Bu hızlı başlangıcı tamamlamak için şunlara sahip olmalısınız:
 
 ## <a name="train-a-form-recognizer-model"></a>Bir Form tanıyıcı modeli eğitme
 
-İlk olarak, bir Azure depolama blobu eğitim veri kümesi gerekir. En az beş örnek form (PDF belgeleri ve/veya görüntüleri), ana girdi verisi olarak aynı türü/yapısı olmalıdır. Ya da tek bir boş formda doldurulmuş iki formlarla kullanabilirsiniz. "Boş" sözcüğünü içerecek şekilde formun boş dosya adı gerekiyor
+İlk olarak, bir Azure depolama blobu eğitim veri kümesi gerekir. En az beş doldurulmuş forms (PDF belgeleri ve/veya görüntüleri), ana girdi verisi olarak aynı türü/yapısı olması gerekir. Ya da tek bir boş formda doldurulmuş iki formlarla kullanabilirsiniz. "Boş" sözcüğünü içerecek şekilde formun boş dosya adı gerekiyor Bkz: [bir eğitim veri kümesi için özel bir model derleme](../build-training-data-set.md) ipuçları ve eğitim verilerinizi bir araya getirilmesi için Seçenekler.
 
-Azure blob kapsayıcınızdaki belgeleri kullanarak bir Form tanıyıcı modeli eğitmek için çağrı **eğitme** aşağıdaki cURL komutu çalıştırarak API. Komutu çalıştırmadan önce şu değişiklikleri yapın:
+Azure blob kapsayıcınızdaki belgelerle bir Form tanıyıcı modeli eğitmek için çağrı **eğitme** aşağıdaki cURL komutunu çalıştırarak API. Komutu çalıştırmadan önce şu değişiklikleri yapın:
 
 1. Değiştirin `<Endpoint>` Form tanıyıcı abonelik anahtarınızı aldığınız uç noktası ile. Form tanıyıcı kaynağınızda bulabilirsiniz **genel bakış** sekmesi.
-1. Değiştirin `<SAS URL>` Azure Blob Depolama kapsayıcısı paylaşılan erişim imzası (SAS) URL'si. Bu almak için Microsoft Azure Depolama Gezgini'ni açın, kapsayıcınızın sağ tıklatın ve seçin **Get paylaşılan erişim imzası**. Sonraki iletişim kutusunda'a tıklayın ve değeri kopyalayın **URL** bölümü. Form olması gereken: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. Değiştirin `<subscription key>` önceki adımda kopyaladığınız abonelik anahtarı.
+1. Değiştirin `<SAS URL>` Azure Blob Depolama kapsayıcısı paylaşılan erişim imzası (SAS) URL'si. Bu almak için Microsoft Azure Depolama Gezgini'ni açın, kapsayıcınızın sağ tıklatın ve seçin **Get paylaşılan erişim imzası**. Emin **okuma** ve **listesi** izinleri denetlenir ve tıklayın **Oluştur**. Sonra da değeri kopyalayın **URL** bölümü. Form olması gereken: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 ```bash
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"

@@ -39,7 +39,7 @@ Tanımlanan her iş akışı aşağıdaki belirtir:
 
 Bir blok zinciri uygulaması kimin işlem veya uygulama içinde katılmak yapılandırma meta verileri, iş akışları ve kullanıcı rolleri içerir.
 
-| Alan | Açıklama | Gerekli |
+| Alan | Description | Gerekli |
 |-------|-------------|:--------:|
 | ApplicationName | Benzersiz uygulama adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **ApplicationName** uygulanabilir bir sözleşme sınıfı.  | Evet |
 | DisplayName | Uygulama kolay görünen adı. | Evet |
@@ -49,15 +49,15 @@ Bir blok zinciri uygulaması kimin işlem veya uygulama içinde katılmak yapıl
 
 Bir örnek için bkz. [yapılandırma dosyası örneği](#configuration-file-example).
 
-## <a name="workflows"></a>İş Akışları
+## <a name="workflows"></a>Workflows
 
 Bir uygulamanın iş mantığı, burada bir durumdan diğerine taşımak için iş mantığı akışını bir eylemde neden olan bir Durum makinesi olarak modellenebilir. Bir iş akışı, bu tür durumları ve Eylemler oluşan bir koleksiyondur. Her bir iş akışı kodu dosyalarında iş mantığı temsil eden bir veya daha fazla akıllı sözleşmelerinizin oluşur. Bir iş akışı örneği bir yürütülebilir sözleşmedir.
 
-| Alan | Açıklama | Gerekli | En büyük uzunluk |
+| Alan | Description | Gerekli | En büyük uzunluk |
 |-------|-------------|:--------:|-----------:|
 | Ad | Benzersiz iş akışının adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **adı** uygulanabilir bir sözleşme sınıfı. | Evet | 50 |
-| displayName | İş akışı kolay görünen adı. | Evet | 255 |
-| Açıklama | İş akışı tanımı. | Hayır | 255 |
+| DisplayName | İş akışı kolay görünen adı. | Evet | 255 |
+| Description | İş akışı tanımı. | Hayır | 255 |
 | Başlatıcılar | Koleksiyonu [ApplicationRoles](#application-roles). İş akışında sözleşmeleri oluşturmak için yetkili kullanıcılara atanan roller. | Evet | |
 | StartState | İş akışı yapının başlangıç durumunun adı. | Evet | |
 | Özellikler | Koleksiyonu [tanımlayıcıları](#identifiers). Araç zinciri kapalı veya bir kullanıcı görselleştirilen okunabilir temsil veri karşılaşırsınız. | Evet | |
@@ -71,7 +71,7 @@ Bir örnek için bkz. [yapılandırma dosyası örneği](#configuration-file-exa
 
 Desteklenen veri türleri.
 
-| Tür | Açıklama |
+| Tür | Description |
 |-------|-------------|
 | Adresi  | Blok zinciri adres türü gibi *sözleşmeleri* veya *kullanıcılar*. |
 | array    | Tek düzey dizi türü tamsayı, bool, para ve zaman. Diziler, statik veya dinamik olabilir. Kullanım **ElementType** dizinin içindeki öğelerin veri türü belirtmek için. Bkz: [örnek yapılandırma](#example-configuration-of-type-array). |
@@ -174,7 +174,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 Bir iş akışı örneği için giriş parametrelerini tanımlar.
 
-| Alan | Açıklama | Gerekli |
+| Alan | Description | Gerekli |
 |-------|-------------|:--------:|
 | Parametreler | Koleksiyonu [tanımlayıcıları](#identifiers) akıllı bir sözleşme başlatması gerekli. | Evet |
 
@@ -207,11 +207,11 @@ Bir iş akışı örneği için giriş parametrelerini tanımlar.
 
 İş akışını yürütülebilecek işlevleri tanımlar.
 
-| Alan | Açıklama | Gerekli | En büyük uzunluk |
+| Alan | Description | Gerekli | En büyük uzunluk |
 |-------|-------------|:--------:|-----------:|
 | Ad | İşlev benzersiz adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **adı** geçerli işlev. | Evet | 50 |
-| displayName | İşlev kolay görünen adı. | Evet | 255 |
-| Açıklama | İşlev açıklaması | Hayır | 255 |
+| DisplayName | İşlev kolay görünen adı. | Evet | 255 |
+| Description | İşlev açıklaması | Hayır | 255 |
 | Parametreler | Koleksiyonu [tanımlayıcıları](#identifiers) karşılık gelen işlevin parametreleri. | Evet | |
 
 ### <a name="functions-example"></a>Örnek işlevleri
@@ -255,11 +255,11 @@ Bir iş akışı örneği için giriş parametrelerini tanımlar.
 
 Bir iş akışındaki benzersiz durumlar koleksiyonudur. Her durum, iş mantığı'nın denetim akışı bir adımda yakalar. 
 
-| Alan | Açıklama | Gerekli | En büyük uzunluk |
+| Alan | Description | Gerekli | En büyük uzunluk |
 |-------|-------------|:--------:|-----------:|
 | Ad | Durumun benzersiz adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **adı** geçerli durumu için. | Evet | 50 |
-| displayName | Durumun kolay görünen adı. | Evet | 255 |
-| Açıklama | Durum açıklaması. | Hayır | 255 |
+| DisplayName | Durumun kolay görünen adı. | Evet | 255 |
+| Description | Durum açıklaması. | Hayır | 255 |
 | PercentComplete | İş mantığı denetim akışı içinde ilerleme durumunu göstermek için Blockchain Workbench'i kullanıcı arabiriminde görüntülenen bir tamsayı değeri. | Evet | |
 | Stil | Durumu'başarı veya başarısızlık durumu temsil edip etmediğini gösteren görsel ipucu. Geçerli iki değer vardır: `Success` veya `Failure`. | Evet | |
 | Geçişleri | Kullanılabilir koleksiyonunu [geçişleri](#transitions) durumları sonraki kümesine geçerli durumu. | Hayır | |
@@ -324,12 +324,12 @@ Bir iş akışındaki benzersiz durumlar koleksiyonudur. Her durum, iş mantığ
 
 Kullanılabilir eylemler için sonraki durum. Bir veya daha fazla kullanıcı rolleri, bir eylem burada başka bir durumda iş akışı durumuna geçiş her durumda, bir eylem gerçekleştirebilir. 
 
-| Alan | Açıklama | Gerekli |
+| Alan | Description | Gerekli |
 |-------|-------------|:--------:|
 | AllowedRoles | Geçişi başlatmak için izin verilen uygulamalar rollerinin listesi. Belirtilen rolün tüm kullanıcılar eylemi gerçekleştirmek mümkün olabilir. | Hayır |
 | AllowedInstanceRoles | Katılma veya geçiş başlatmasına izin verilmiş akıllı sözleşmede belirtilen kullanıcı rolleri listesi. Örnek rollerinizin tanımlanmış **özellikleri** içinde iş akışları. AllowedInstanceRoles akıllı sözleşmenin bir örneğine katılan bir kullanıcıyı temsil eder. AllowedInstanceRoles bir eylemde bir sözleşme örneğinde bir kullanıcı rolüne sınırlandırılmasına olanak sağlar.  Örneğin, yalnızca Rol türü (sahibi) içindeki tüm kullanıcılar yerine AllowedRoles içinde rol belirtilmişse sonlandıramaz sözleşmenin (InstanceOwner) oluşturan kullanıcıya izin vermek isteyebilirsiniz. | Hayır |
-| displayName | Geçiş kolay görünen adı. | Evet |
-| Açıklama | Geçişin açıklaması. | Hayır |
+| DisplayName | Geçiş kolay görünen adı. | Evet |
+| Description | Geçişin açıklaması. | Hayır |
 | İşlev | Geçişi başlatmak için işlevin adı. | Evet |
 | NextStates | Başarılı bir geçiş sonrasında olası sonraki durumları koleksiyonu. | Evet |
 
@@ -369,10 +369,10 @@ Kullanılabilir eylemler için sonraki durum. Bir veya daha fazla kullanıcı ro
 
 Uygulama rolleri hareket ya da uygulama içinde katılmak istiyorsanız kullanıcılara atanan roller kümesini tanımlar. Uygulama rolleri, Eylemler ve blok zinciri içinde katılım kısıtlamak için kullanılabilir uygulama ve karşılık gelen iş akışları. 
 
-| Alan | Açıklama | Gerekli | En büyük uzunluk |
+| Alan | Description | Gerekli | En büyük uzunluk |
 |-------|-------------|:--------:|-----------:|
 | Ad | Uygulama rolünün benzersiz adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **adı** uygun rolü için. Temel tür adları ayrılmıştır. Aynı ada sahip bir uygulama rolü adlandırılamıyor [türü](#type)| Evet | 50 |
-| Açıklama | Uygulama rolü açıklaması. | Hayır | 255 |
+| Description | Uygulama rolü açıklaması. | Hayır | 255 |
 
 ### <a name="application-roles-example"></a>Uygulama rolleri örneği
 
@@ -392,11 +392,11 @@ Uygulama rolleri hareket ya da uygulama içinde katılmak istiyorsanız kullanı
 
 Tanımlayıcılar, iş akışı özellikleri, kurucu ve işlev parametrelerini tanımlamak için kullanılan bilgileri koleksiyonunu temsil eder. 
 
-| Alan | Açıklama | Gerekli | En büyük uzunluk |
+| Alan | Description | Gerekli | En büyük uzunluk |
 |-------|-------------|:--------:|-----------:|
 | Ad | Özellik veya parametre benzersiz adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **adı** için geçerli bir özellik veya parametre. | Evet | 50 |
-| displayName | Özellik veya parametre kolay görünen adı. | Evet | 255 |
-| Açıklama | Özellik veya parametre açıklaması. | Hayır | 255 |
+| DisplayName | Özellik veya parametre kolay görünen adı. | Evet | 255 |
+| Description | Özellik veya parametre açıklaması. | Hayır | 255 |
 
 ### <a name="identifiers-example"></a>Tanımlayıcıları örneği
 

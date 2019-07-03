@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: f169f969a1acf4cefc8cee27f74a99730491176a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 309bbca762149f8804742d9ef02d4c3e8dfcdc6b
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389424"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542759"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Bing resim arama API'si ile web görüntülerini alın
 
@@ -31,10 +31,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
+Kullanım [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) sorgu parametresi için url olarak kodlanmış bir arama terimi. Örneğin, girerseniz *Yelkenli dinghies*ayarlayın `q` için `sailing+dinghies` veya `sailing%20dinghies`.
+
 > [!IMPORTANT]
 > * Tüm istekleri bir sunucudan ve bir istemciden yapılması gerekir.
 > * Tüm Bing arama API'leri çağırma ilk kez ise, istemci kimliği üst bilgisi dahil değildir. Yalnızca kullanıcı ve cihaz bileşimi için bir istemci kimliği döndürülen bir Bing API'si daha önce çağrılırsa istemci Kimliğini içerir.
-> * Görüntüleri yanıtta verildikleri sırada görüntülenmesi gerekir.
 
 ## <a name="get-images-from-a-specific-web-domain"></a>Belirli web etki alanından görüntü alma
 
@@ -46,17 +47,6 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghi
 
 > [!NOTE]
 > Sorguları kullanarak yanıtlarını `site:` işleci bağımsız olarak, yetişkinlere yönelik içerik içerebilir [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) ayarı. Yalnızca `site:` etki alanındaki içeriği farkında değilseniz.
-
-Aşağıdaki örnekte Bing'in geçen hafta keşfettiği ContosoSailing.com sitesindeki küçük görüntülerin nasıl alınacağı gösterilmektedir.  
-
-```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies+site:contososailing.com&size=small&freshness=week&mkt=en-us HTTP/1.1  
-Ocp-Apim-Subscription-Key: 123456789ABCDE  
-X-MSEdge-ClientIP: 999.999.999.999  
-X-Search-Location: lat:47.60357;long:-122.3295;re:100  
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
-Host: api.cognitive.microsoft.com  
-```
 
 ## <a name="filter-images"></a>Görüntüleri Filtrele
 
@@ -73,9 +63,6 @@ Host: api.cognitive.microsoft.com
 
 Belirli bir etki alanındaki görüntüleri almak için [site:](https://msdn.microsoft.com/library/ff795613.aspx) dize işlecini kullanın.
 
- > [!NOTE]
- > Sorguları kullanarak yanıtlarını `site:` işleci bağımsız olarak, yetişkinlere yönelik içerik içerebilir [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) ayarı. Yalnızca `site:` etki alanındaki içeriği farkında değilseniz.
-
 Aşağıdaki örnek, Bing geçen hafta içinde bulunan ContosoSailing.com küçük resimler elde gösterilmektedir.  
 
 ```http
@@ -90,6 +77,10 @@ Host: api.cognitive.microsoft.com
 ## <a name="bing-image-search-response-format"></a>Bing resim arama yanıt biçimi
 
 Bing yanıt iletisini içeren bir [görüntüleri](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) Bilişsel hizmetler sorgu ile ilgili belirlenen görüntülerin bir listesini içeren bir yanıt. Her [görüntü](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) Nesne listesinde görüntü ile ilgili aşağıdaki bilgileri içerir: URL, boyutunu, Boyutlar, kodlama biçimi, görüntü ve küçük 's boyutları bir küçük resim URL'si.
+
+> [!NOTE]
+> * Görüntüleri yanıtta verildikleri sırada görüntülenmesi gerekir.
+> * Çünkü URL biçimleri ve parametreleri bulunulmaksızın değiştirilebilir, tüm URL olarak kullanın-olduğu. Bağımlılıkları URL biçimi veya belirtilenler dışında parametre almamalıdır.
 
 ```json
 {

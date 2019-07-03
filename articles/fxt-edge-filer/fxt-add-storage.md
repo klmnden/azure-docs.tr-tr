@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0a16e654ff92c450438ac91c590b42d22201d015
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4a69aa7838e08c83b47c5f0248e821edf86b3990
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450460"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543283"
 ---
 # <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Öğretici: Arka uç depolama alanı ekleme ve sanal ad alanı yapılandırma 
 
@@ -77,7 +77,7 @@ Alt görevler aşağıdakileri içerir:
 
 * Bulut depolama, bulut hizmeti ve erişim kimlik bilgileri, diğer parametreler arasında belirtmeniz gerekir. Ayrıntılı bilgi edinmek için [bulut hizmeti ve Protokolü](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#cloud-service-and-protocol) küme yapılandırma kılavuzu.
 
-  ![Bulut Temel dosyalayıcı bilgi yeni çekirdek dosyalayıcı Sihirbazı](media/fxt-cluster-config/new-core-filer-cloud3.png) <!-- xxx get an Azure version of this screenshot xxx -->
+  ![Bulut Temel dosyalayıcı bilgi yeni çekirdek dosyalayıcı Sihirbazı](media/fxt-cluster-config/new-core-filer-cloud3.png) 
   
   Bulut erişim kimlik bilgileri bu küme için eklediyseniz, bunlar listede görünür. Güncelleştirme ve kimlik bilgilerini eklemek **küme** > **bulut kimlik bilgileri** Ayarları sayfası. 
 
@@ -161,4 +161,4 @@ Küme yapılandırma kılavuzu makaleyi okuyun [çekirdek dosyalayıcı dışar�
 Depolama alanı eklemeye ve istemciye yönelik ad alanı yapılandırdıktan sonra kümenin ilk Kurulumu tamamlayın: 
 
 > [!div class="nextstepaction"]
-> [Küme ağ ayarlarını yapılandırma](fxt-configure-network.md)
+> [Kümenin ağ ayarlarını yapılandırma](fxt-configure-network.md)

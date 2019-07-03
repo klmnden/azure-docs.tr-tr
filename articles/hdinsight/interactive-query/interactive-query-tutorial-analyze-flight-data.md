@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
-ms.openlocfilehash: 41284712942b2d01510f91d5cc50d92ae3241127
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 403e165d7ebe8365ffa0fd2f5f3779d3b4fab68f
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462719"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543639"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Öğretici: Ayıklama, dönüştürme ve kullanarak Azure HDInsight etkileşimli sorgu verileri yükleme
 
@@ -32,7 +32,7 @@ Bu öğretici aşağıdaki görevleri kapsar:
 
 * HDInsight üzerinde etkileşimli sorgu kümesi. Bkz: [Apache Hadoop kümeleri oluşturma Azure portalını kullanarak](../hdinsight-hadoop-create-linux-clusters-portal.md) seçip **etkileşimli sorgu** için **küme türü**.
 
-* Bir Azure SQL veritabanı. Azure SQL veritabanını bir hedef veri deposu olarak kullanacaksınız. SQL veritabanınız yoksa bkz. [Azure portalında Azure SQL veritabanı oluşturma](/../sql-database/sql-database-single-database-get-started.md).
+* Bir Azure SQL veritabanı. Azure SQL veritabanını bir hedef veri deposu olarak kullanacaksınız. SQL veritabanınız yoksa bkz. [Azure portalında Azure SQL veritabanı oluşturma](/azure/sql-database/sql-database-single-database-get-started).
 
 * Bir SSH istemcisi. Daha fazla bilgi için [SSH kullanarak HDInsight (Apache Hadoop) bağlanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

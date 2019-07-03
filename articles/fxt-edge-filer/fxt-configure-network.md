@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 6b7c3099415aed9529727a1de30cd832189db58d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 36ed354304cb1c88e48088f4b36c1ad0350af0dc
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450383"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543014"
 ---
 # <a name="tutorial-configure-the-clusters-network-settings"></a>Öğretici: Küme ağ ayarlarını yapılandırma 
 
@@ -23,7 +23,7 @@ Bu öğreticide, yeni bir küme için ayarlanacak ihtiyacınız olabilecek ağ a
 
 > [!div class="checklist"]
 > * Hangi ağ ayarlarını bir küme oluşturulduktan sonra güncelleştirilmesi gerekebilir
-> * Hangi FXT Edge dosyalayıcı kullanım örnekleri bir AD sunucusu ya da bir DNS sunucusu gerektirir. 
+> * Hangi Azure FXT Edge dosyalayıcı kullanım örnekleri bir AD sunucusu ya da bir DNS sunucusu gerektirir. 
 > * Hepsini otomatik olarak Yük Dengeleme istemci isteklerini FXT küme için DNS (RRDNS) yapılandırma
 
 Sisteminizde kaç yapılandırma değişiklikleri gerekir, bu adımları tamamlamak için gereken süreyi bağlıdır:
@@ -105,7 +105,7 @@ En iyi performans için aşağıdaki diyagramda gösterildiği gibi istemci kull
 
 Bir küme vserver sol tarafta gösterilir ve IP adresleri Merkezi'nde ve sağdaki görünür. Her istemci erişim noktası ile bir yapılandırma kayıtları ve gösterildiği gibi işaretçiler.
 
-![Küme hepsini bir kez deneme DNS diyagramı - ayrıntılı alternatif metin bağlantı aşağıdaki görüntü](media/fxt-rrdns-diagram.png) 
+![Küme hepsini bir kez deneme DNS diyagramı - ayrıntılı alternatif metin bağlantı aşağıdaki görüntü](media/fxt-cluster-config/fxt-rrdns-diagram.png) 
 [ayrıntılı açıklama metni](https://azure.github.io/Avere/legacy/Azure-FXT-EdgeFilerDNSconfiguration-alt-text.html)
 
 Her istemci kullanıma yönelik IP adresi, küme tarafından iç kullanım için benzersiz bir ad olmalıdır. (Bu diyagramda, istemci IP'leri vs1 adlandırıldığı-istemci - IP-* anlaşılması için ancak üretimde büyük olasılıkla istemci * gibi daha kısa, bir şey kullanmanız gerekir.)

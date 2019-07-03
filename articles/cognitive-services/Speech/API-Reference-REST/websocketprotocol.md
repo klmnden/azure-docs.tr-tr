@@ -309,8 +309,8 @@ Kullanıcının bir şekilde konuşma sonu sinyal olanak tanıyan istemci uygula
 | ------------- | ---------------- |
 | WebSocket ileti kodlama | Text |
 | `Path` | `telemetry` |
-| X-zaman damgası | İstemci UTC saati ISO 8601 biçimli zaman damgası |
-| İçerik türü | `application/json` |
+| X-Timestamp | İstemci UTC saati ISO 8601 biçimli zaman damgası |
+| Content-Type | `application/json` |
 | Gövde | Aç istemci bilgilerini içeren bir JSON yapısı |
 
 Gövdesi için şema `telemetry` ileti tanımlanmış [Telemetri şema](#telemetry-schema) bölümü.
@@ -331,7 +331,7 @@ Bu bölümde, konuşma hizmeti kaynaklanan ve istemciye gönderilen iletileri a�
 | ------------- | ---------------- |
 | WebSocket ileti kodlama | Text |
 | `Path` | `speech.startDetected` |
-| İçerik türü | Uygulama/json; Charset = utf-8 |
+| Content-Type | Uygulama/json; Charset = utf-8 |
 | Gövde | Konuşma başlangıcını algılandığında koşullarla ilgili bilgiler içeren JSON yapısı. *Uzaklığı* bu yapı alanında belirtir (100 nanosaniyelik birimler) cinsinden uzaklık zaman konuşma algılandı akışın başlangıç göre bir ses akışı olarak. |
 
 #### <a name="sample-message"></a>Örnek ileti
@@ -357,7 +357,7 @@ Sırasında Konuşma tanıma, konuşma tanıma hizmeti sözcükler hakkında var
 | WebSocket ileti kodlama | Text |
 | `Path` | `speech.hypothesis` |
 | X-RequestId | "No-dash" biçiminde UUID |
-| İçerik türü | uygulama/json |
+| Content-Type | uygulama/json |
 | Gövde | Konuşma varsayım JSON yapısı |
 
 #### <a name="sample-message"></a>Örnek ileti
@@ -388,7 +388,7 @@ Konuşma hizmeti ne zaman belirler hizmeti oluşturan değişmez bir tanıma son
 | ------------- | ---------------- |
 | WebSocket ileti kodlama | Text |
 | `Path` | `speech.phrase` |
-| İçerik türü | uygulama/json |
+| Content-Type | uygulama/json |
 | Gövde | Konuşma tümcecik JSON yapısı |
 
 Konuşma tümcecik JSON Şeması aşağıdaki alanları içerir: `RecognitionStatus`, `DisplayText`, `Offset`, ve `Duration`. Bu alanlar hakkında daha fazla bilgi için bkz. [Transkripsiyonu yanıtları](../concepts.md#transcription-responses).
@@ -417,7 +417,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | WebSocket ileti kodlama | Text |
 | `Path` | `speech.endDetected` |
 | Gövde | Konuşma sonu algılandığında uzaklık içeren JSON yapısı. Uzaklık birimleri 100 nanosaniyelik uzaklığı başından itibaren ses tanıma için kullanılan temsil edilir. |
-| İçerik türü | Uygulama/json; Charset = utf-8 |
+| Content-Type | Uygulama/json; Charset = utf-8 |
 
 #### <a name="sample-message"></a>Örnek ileti
 
@@ -441,7 +441,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 | ------------- | ---------------- |
 | WebSocket ileti kodlama | Text |
 | `Path` | `turn.start` |
-| İçerik türü | Uygulama/json; Charset = utf-8 |
+| Content-Type | Uygulama/json; Charset = utf-8 |
 | Gövde | JSON yapısı |
 
 #### <a name="sample-message"></a>Örnek ileti

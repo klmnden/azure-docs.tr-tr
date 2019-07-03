@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 2/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 8def6336dd35b8eac1ae357cb32df35d1b7baa2c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: e8257f04df038d3706fe2a5e66fc6cd96ec8cd7d
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383751"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550899"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Hızlı Başlangıç: PHP ve Bing resim arama REST API'si kullanarak resimler için arama yapın
 
@@ -25,7 +25,7 @@ ms.locfileid: "66383751"
 
 Bu uygulama PHP ile yazılmış olmakla birlikte API HTTP istekleri gönderebilen ve JSON ayrıştırabilen her programlama diliyle uyumlu bir RESTful Web hizmetidir.
 
-Bu örnek için kaynak kodunu [GitHub] kullanılabilir https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/php/Search/BingWebSearchv7.php).
+Bu örneğin kaynak kodu [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/php/Search/BingWebSearchv7.php)’da mevcuttur.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

@@ -4,14 +4,14 @@ description: Ağ bağlantı noktalarının kablo ve Azure FXT Edge dosyalayıcı
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 07/01/2019
 ms.author: v-erkell
-ms.openlocfilehash: 444835a94559a352bfd749cfa1cb2cd8c3a39373
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ae179e8ce2a2ba772a7fb14825660e0fff9e7410
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450313"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542923"
 ---
 # <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>Öğretici: Ağ bağlantıları oluşturma ve Azure FXT Edge dosyalayıcı düğümüne güç kaynağı
 
@@ -43,7 +43,7 @@ Bu öğreticiye başlamadan önce Azure FXT Edge dosyalayıcı standart donanım
 
 Bu makalede ayrıca nasıl [AC gücü bağlanma](#connect-power-cables) düğüm. 
 
-Bu makalede ayrıca düğümün nasıl bağlanılacağı [seri bağlantı noktası](#serial-port-only-when-necessary), ancak seri bağlantı noktası, yalnızca Gelişmiş sorun giderme için kullanılır. 
+Bu makalede ayrıca düğümün nasıl bağlanılacağı [seri bağlantı noktası](#serial-port-only-when-necessary), özel sorun giderme için gerekiyorsa. 
 
 ### <a name="network-ports"></a>Ağ bağlantı noktaları 
 
@@ -75,7 +75,7 @@ Sisteminiz için kullanılacak bağlantı türü, veri merkezi ortamınıza bağ
   * SFP28 türü 25GbE özellikli doğrudan twinaxial kablo ekleme
   * SFP28 türü adet 10 Gbe özellikli doğrudan twinaxial kablo ekleme
 
-* 1GbE ağ bağlantı noktalarının küme yönetim trafiği için kullanılır. Denetleme **1 Gb mgmt ağ** seçenek kümesi oluştururken (açıklanan [yönetim ağı yapılandırma](fxt-cluster-create.md#configure-the-management-network)). Standart Cat5 veya desteklenen kabloların listede açıklananlar gibi daha iyi kablosu ile bağlantı noktalarına kablo.
+* 1GbE ağ bağlantı noktalarının küme yönetim trafiği için kullanılır. Denetleme **1 Gb mgmt ağ** seçenek kümesi yapılandırması için fiziksel olarak ayrı bir ağ oluşturmak istiyorsanız, kümeyi oluştururken (açıklanan [yönetim ağı yapılandırma](fxt-cluster-create.md#configure-the-management-network)). Standart Cat5 veya desteklenen kabloların listede açıklananlar gibi daha iyi kablosu ile bağlantı noktalarına kablo.
 
   Tüm trafik için yüksek hızlı bağlantı noktalarını kullanmayı planlıyorsanız uncabled 1GbE bağlantı noktalarını bırakabilirsiniz. Daha yüksek hızlı veri bağlantı noktası varsa, varsayılan olarak, 1GbE ağ bağlantı noktaları kullanılmaz.  
 
@@ -115,12 +115,12 @@ Kabloları CMA üzerinden yönlendirmek için aşağıdaki yönergeleri izleyin:
 1. Hizmet konumda CMA ile iç ve dış sepetleri (2) kablo paket yol.
 1. Önceden yüklenmiş kanca ve döngü straps sepetleri ya da sonunda (3) kabloları güvenliğini sağlamak için kullanın.
 1. (4) Tepsisi konumunda uygulamasına geri CMA swing.
-1. Sistem arkasına önceden yüklenmiş bir durum göstergesi kablosu kullanın ve kablo CMA yönlendirerek koruyun. Diğer ucundaki kablo köşeye dış CMA sepet (5) ekleyin. 
+1. Arkasına sistem durumu göstergesi kablo yükleyin ve kablo CMA yönlendirerek güvenli. Diğer ucundaki kablo köşeye dış CMA sepet (5) ekleyin. 
 
    > [!CAUTION]
    > Kabloları döşer gelen durumdaki potansiyel hasarı önlemek için bu kablo üzerinden CMA yönlendirme sonra herhangi bir durum göstergesi kablo slack'te güvenli hale getirin. 
 
-![Yüklü kablolarla CMA çizimi](media/cma-cabling-scan-400.png)
+![Yüklü kablolarla CMA çizimi](media/fxt-install/cma-cabling-400.png)
 
 > [!NOTE]
 >  CMA yüklemediyseniz iki kanca kullanın ve sisteminizin arkasına kabloları yönlendirmek için parmaklık Seti sağlanan straps döngü.
@@ -129,7 +129,7 @@ Kabloları CMA üzerinden yönlendirmek için aşağıdaki yönergeleri izleyin:
 >  2. Kabloları yavaşça, bunları, alınan paket sistem bağlayıcıları için sağ ve sol temizleyin.
 >  3. İş parçacığı üzerinde dış CMA köşeli ayraçlar sistem kablo paketleri güvenliğini sağlamak için her iki tarafında tooled yuvaları üzerinden kanca ve döngü straps.
 > 
->     ![Yönlendirilmiş bir CMA kabloları](media/fxt-route-cables-no-cma-400.png)
+>     ![Yönlendirilmiş bir CMA kabloları](media/fxt-install/fxt-route-cables-no-cma-400.png)
 
 ## <a name="about-ip-address-requirements"></a>IP adresi gereksinimleri hakkında
 

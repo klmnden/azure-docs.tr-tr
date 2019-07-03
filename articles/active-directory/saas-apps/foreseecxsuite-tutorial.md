@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 86d6653aceeb7a44e3758b629d74db516235fcf8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c78fa8ec470f04bcd88ab403249f77a65120c707
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102328"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550401"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Öğretici: Öngörüyor CX Suite ile Azure Active Directory Tümleştirmesi
 
@@ -119,7 +119,7 @@ Azure AD çoklu oturum açma Öngörüyor CX Suite ile yapılandırmak için aş
 
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL yazın: `https://cxsuite.foresee.com/`
 
-    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: https:\//www.okta.com/saml2/service-provider/<UniqueID>
+    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: https:\//www.okta.com/saml2/service-provider/\<uniqueId >
 
     > [!Note]
     > Varsa **tanımlayıcı** değer otomatik polulated elde değil, Lütfen değeri elle ayarına göre'desenini yukarıda doldurun. Tanımlayıcı değerini gerçek değil. Bu değer, gerçek tanımlayıcısıyla güncelleştirin. İlgili kişi [Öngörüyor CX Suite istemci Destek ekibine](mailto:support@foresee.com) bu değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.

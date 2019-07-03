@@ -1,5 +1,5 @@
 ---
-title: Bing resim arama API'si - görüntü sorguları gönderme
+title: Özelleştirebilir ve görüntü arama sorguları - Bing resim arama API'si önerin
 titleSuffix: Azure Cognitive Services
 description: Bing resim arama API'si için gönderdiğiniz arama sorguları özelleştirme hakkında bilgi edinin.
 services: cognitive-services
@@ -9,22 +9,20 @@ ms.assetid: C2862E98-8BCC-423B-9C4A-AC79A287BE38
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 32ced1d06a10f33e9d71ef09ba51d22e9e406f73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d833b017004365e9dad7241e360f42ff41a55883
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384393"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542750"
 ---
-# <a name="send-queries-to-the-bing-image-search-api"></a>Bing resim arama API'si için sorguları gönderme
+# <a name="customize-and-suggest-image-search-queries"></a>Özelleştirebilir ve görüntü arama sorguları önerin
 
-Bing resim arama API'si için Bing.com/Images benzer bir deneyim sağlar. Bing arama sorgusu gönderin ve geri ilgili görüntülerin listesini almak için kullanabilirsiniz.
+Sorguları özelleştirmek ve Bing resim arama API'si için göndermek için arama terimleri önerilen hakkında bilgi edinmek için bu makaleyi kullanın.
 
-## <a name="use-and-suggest-search-terms"></a>Kullanın ve arama terimlerini önerin
-
-URL kodlaması terim, önce bir arama terimi girildikten sonra kümesi [ **q** ](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) sorgu parametresi. Örneğin, girerseniz *Yelkenli dinghies*ayarlayın `q` için `sailing+dinghies` veya `sailing%20dinghies`.
+## <a name="suggest-search-terms"></a>Arama terimleri önerin
 
 Uygulamanızın arama kutusuna arama terimlerini girmiş varsa kullanabileceğiniz [Bing otomatik öneri API'si](../../bing-autosuggest/get-suggested-search-terms.md) deneyimini iyileştirmek üzere. API önerilen arama terimlerini gerçek zamanlı olarak görüntüleyebilirsiniz. API, kısmi arama terimlerini ve Bilişsel hizmetler göre önerilen sorgu dizelerini döndürür.
 

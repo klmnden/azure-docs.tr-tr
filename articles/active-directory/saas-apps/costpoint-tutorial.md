@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/11/2019
+ms.date: 06/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ebc5d1d7cac78066fa4e6028b1921211cb05bf5
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: f21c7896f0ed2afba3a302b4686289cf331ba510
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144644"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536846"
 ---
 # <a name="tutorial-integrate-costpoint-with-azure-active-directory"></a>Öğretici: Costpoint Azure Active Directory ile tümleştirme
 
@@ -78,14 +78,18 @@ Azure portalında Azure AD SSO'yu etkinleştirmek üzere aşağıdaki adımları
 
    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-4. Üzerinde **temel SAML yapılandırma** bölümünde, uygulamanın önceden yapılandırılmış olduğu ve gerekli URL'ler zaten Azure ile önceden doldurulur. Tıklayarak yapılandırmayı kaydetmek kullanıcının erişmesi **Kaydet** düğmesine tıklayın ve aşağıdaki adımı uygulayın:
+4. Üzerinde **temel SAML yapılandırma** uygulamada yapılandırmak isterseniz, bölümü **IDP** başlatılan modu, aşağıdaki adımları gerçekleştirin:
 
-    a. Tıklayın **ek URL'lerini ayarlayın**.
+    a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<CostpointURI>`
 
-    b. İçinde **geçiş durumu** metin kutusuna bir değer şu desene kullanarak yazın:`<SYSTEM VALUE>`
+    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<CostpointURI>/LoginServlet.cps`
+
+    c. Tıklayın **ek URL'lerini ayarlayın**.
+
+    d. İçinde **geçiş durumu** metin kutusuna bir değer şu desene kullanarak yazın:`<SYSTEM VALUE>`
 
     > [!NOTE]
-    > Geçiş durumu değeri gerçek değil. Bu değer ile gerçek geçiş durumunu güncelleştirin. İlgili kişi [Costpoint istemci Destek ekibine](https://www.deltek.com/about/contact-us) bu değeri alınamıyor.
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve geçiş durumunu güncelleştirin. İlgili kişi [Costpoint istemci Destek ekibine](https://www.deltek.com/about/contact-us) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
 5. Uygulamada yapılandırmak istiyorsanız **SP** başlatılan modu aşağıdaki adımı uygulayın:
 

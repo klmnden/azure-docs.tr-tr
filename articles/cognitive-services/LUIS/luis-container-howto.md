@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 07/02/2019
 ms.author: dapine
-ms.openlocfilehash: fff876de41e0069573b73779a16ebf06a3dd58c8
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 86b23c5f69fd96fe5c5614d99483e1936895ad9e
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295263"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537097"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Yükleme ve LUIS docker kapsayıcılarını çalıştırın
  
@@ -175,16 +175,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{AUTHORING_KEY} | LUIS hesabı yayımlanan LUIS uygulaması için geliştirme anahtarı.<br/>Yazma anahtarınızdan alabilirsiniz **kullanıcı ayarları** LUIS portalı sayfasında. |
 |{AZURE_REGION} | Uygun Azure bölgesi:<br/><br/>```westus``` -Batı ABD<br/>```westeurope``` -Batı Avrupa<br/>```australiaeast``` -Avustralya Doğu |
 
-Yerine kendi değerlerinizi koyarak yayımlanan paketi indirmek için aşağıdaki CURL komutunu kullanın:
-
-```bash
-curl -X GET \
-https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/api/v2.0/package/{APPLICATION_ID}/slot/{APPLICATION_ENVIRONMENT}/gzip  \
- -H "Ocp-Apim-Subscription-Key: {AUTHORING_KEY}" \
- -o {APPLICATION_ID}_{APPLICATION_ENVIRONMENT}.gz
-```
-
-Başarılı olursa, yanıt bir LUIS paket dosyasıdır. Kapsayıcının giriş bağlaması için belirtilen depolama konumunda dosyayı kaydedin. 
+Yayımlanan paket indirmek için lütfen başvurmak [API belgelerine][download-published-package]. Başarıyla indirildi, yanıt bir LUIS paket dosyası olur. Kapsayıcının giriş bağlaması için belirtilen depolama konumunda dosyayı kaydedin. 
 
 ### <a name="export-trained-apps-package-from-api"></a>API'SİNDEN eğitilen uygulamanın paketini Dışarı Aktar
 
@@ -203,16 +194,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{AUTHORING_KEY} | LUIS hesabı yayımlanan LUIS uygulaması için geliştirme anahtarı.<br/>Yazma anahtarınızdan alabilirsiniz **kullanıcı ayarları** LUIS portalı sayfasında.  |
 |{AZURE_REGION} | Uygun Azure bölgesi:<br/><br/>```westus``` -Batı ABD<br/>```westeurope``` -Batı Avrupa<br/>```australiaeast``` -Avustralya Doğu |
 
-Eğitilen paketi indirmek için aşağıdaki CURL komutunu kullanın:
-
-```bash
-curl -X GET \
-https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/api/v2.0/package/{APPLICATION_ID}/versions/{APPLICATION_VERSION}/gzip  \
- -H "Ocp-Apim-Subscription-Key: {AUTHORING_KEY}" \
- -o {APPLICATION_ID}_v{APPLICATION_VERSION}.gz
-```
-
-Başarılı olursa, yanıt bir LUIS paket dosyasıdır. Kapsayıcının giriş bağlaması için belirtilen depolama konumunda dosyayı kaydedin. 
+Eğitilen paketini indirmek için lütfen başvurmak [API belgelerine][download-trained-package]. Başarıyla indirildi, yanıt bir LUIS paket dosyası olur. Kapsayıcının giriş bağlaması için belirtilen depolama konumunda dosyayı kaydedin. 
 
 ## <a name="run-the-container-with-docker-run"></a>Kapsayıcı ile çalıştırma `docker run`
 
@@ -237,11 +219,9 @@ Billing={BILLING_ENDPOINT} ^
 ApiKey={ENDPOINT_KEY}
 ```
 
-* Bu örnek dizin aracınızdan `c:` sürücü Windows üzerinde hiçbir izni çakışmalarını önlemek için. Giriş dizini belirli bir dizini kullanmak istiyorsanız, docker vermeniz gerekebilir hizmet izni. 
+* Bu örnek dizin aracınızdan `C:` sürücü Windows üzerinde hiçbir izni çakışmalarını önlemek için. Giriş dizini belirli bir dizini kullanmak istiyorsanız, docker vermeniz gerekebilir hizmet izni. 
 * Docker kapsayıcıları ile çok iyi bilmiyorsanız, bağımsız değişkenlerin sırası değiştirmeyin.
 * Farklı bir işletim sistemi kullanıyorsanız, başlatmalar ve satır devamı karakteri sisteminiz için doğru konsol/terminal, klasörü söz dizimi kullanın. Bu örnekler bir satır devamı karakteri ile bir Windows konsol varsayar `^`. Kapsayıcı bir Linux işletim sistemi olduğundan, hedef bağlama bir Linux stili klasör sözdizimini kullanır.
-
-
 
 Bu komut:
 
@@ -324,7 +304,6 @@ LUIS Portalı'ndan uygulamanızı seçip **içe uç nokta günlükleri** Bu gün
 
 Günlük karşıya yüklendikten sonra [uç nokta gözden](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) LUIS portalında konuşma.
 
-
 <!--  ## Validate container is running -->
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
@@ -362,14 +341,13 @@ Bir LUIS uygulaması, kullanabilir, **içermez** herhangi birini aşağıdaki ba
 
 Desteklenmeyen uygulama yapılandırmaları|Ayrıntılar|
 |--|--|
-|Desteklenmeyen kapsayıcı kültürler| Felemenkçe (nl-NL)<br>Japonca (ja-JP)<br>Almanca ile desteklenen yalnızca [1.0.1 simgeleştirici veya üzeri](luis-language-support.md#custom-tokenizer-versions).|
+|Desteklenmeyen kapsayıcı kültürler| Felemenkçe (nl-NL)<br>Japonca (ja-JP)<br>Almanca ile desteklenen yalnızca [1.0.2 simgeleştirici](luis-language-support.md#custom-tokenizer-versions).|
 |Tüm kültürler için desteklenmeyen varlıklar|[Anahtar cümlesi](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) tüm kültürler için önceden oluşturulmuş varlık|
 |İngilizce (en-US) kültürü için desteklenmeyen varlıklar|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) önceden oluşturulmuş varlıklar|
 |Konuşma Hazırlama işlemi|Dış bağımlılıklar kapsayıcıda desteklenmez.|
 |Yaklaşım analizi|Dış bağımlılıklar kapsayıcıda desteklenmez.|
 
-<!--blogs/samples/video coures -->
-
+<!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Özet
@@ -390,3 +368,7 @@ Bu makalede, kavramlar ve indirme, yükleme ve Language Understanding (LUIS) kap
 * Gözden geçirme [kapsayıcıları yapılandırma](luis-container-configuration.md) yapılandırma ayarları
 * Başvurmak [sorun giderme](troubleshooting.md) LUIS işlevselliği ile ilgili sorunları gidermek için.
 * Daha fazla kullanmanız [Bilişsel Hizmetleri kapsayıcıları](../cognitive-services-container-support.md)
+
+<!-- Links - external -->
+[download-published-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagepublishedapplicationasgzip
+[download-trained-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagetrainedapplicationasgzip

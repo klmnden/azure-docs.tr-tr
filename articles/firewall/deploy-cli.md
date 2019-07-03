@@ -39,7 +39,7 @@ Bu makalede şunları öğreneceksiniz:
 > * Test amaçlı ağ ortamı oluşturma
 > * Güvenlik duvarı dağıtma
 > * Varsayılan rota oluşturma
-> * Www.google.com erişmesine izin vermek için bir uygulama kuralı yapılandırma
+> * [www.google.com]\(www.google.com) erişmesine izin vermek için bir uygulama kuralı yapılandırma
 > * Dış DNS sunucularına erişime izin vermek için ağ kuralı yapılandırma
 > * Güvenlik duvarını test etme
 
@@ -277,7 +277,7 @@ az network firewall network-rule create \
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   Www.google.com isteklerinin başarılı olması gerekir ve www.microsoft.com istekleri başarısız olması. Bu, güvenlik duvarı kurallarınız beklendiği gibi çalışıp çalışmadığını gösterir.
+   [www.google.com]\(www.google.com) isteklerinin başarılı olması gerekir ve www.microsoft.com istekleri başarısız olması. Bu, güvenlik duvarı kurallarınız beklendiği gibi çalışıp çalışmadığını gösterir.
 
 Şimdi güvenlik duvarı kuralları çalıştığını doğruladığınıza göre:
 

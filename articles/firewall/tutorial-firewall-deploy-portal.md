@@ -40,7 +40,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Test amaçlı ağ ortamı oluşturma
 > * Güvenlik duvarı dağıtma
 > * Varsayılan rota oluşturma
-> * Www.google.com erişmesine izin vermek için bir uygulama kuralı yapılandırma
+> * [www.google.com]\(www.google.com) erişmesine izin vermek için bir uygulama kuralı yapılandırma
 > * Dış DNS sunucularına erişime izin vermek için ağ kuralı yapılandırma
 > * Güvenlik duvarını test etme
 
@@ -87,7 +87,7 @@ Bir sonraki adımda atlama sunucusu için alt ağlar ve iş yükü sunucuları i
 
 1. Azure portal giriş sayfasında, seçin **kaynak grupları** > **Test FW RG**.
 2. Seçin **Test FW VN** sanal ağ.
-3. Seçin **alt ağlar** > **+ alt ağ**.
+3. Seçin **alt ağlar** >  **+ alt ağ**.
 4. **Ad** alanına **Workload-SN** yazın.
 5. **Adres aralığı** için **10.0.2.0/24** yazın.
 6. **Tamam**’ı seçin.
@@ -111,7 +111,7 @@ Bir sonraki adımda atlama sunucusu için alt ağlar ve iş yükü sunucuları i
    |Parola     |**Azure123456!**|
 
 4. Altında **gelen bağlantı noktası kuralları**, için **ortak gelen bağlantı noktası**seçin **Seçili bağlantı noktalarına izin**.
-5. İçin **seçin gelen bağlantı noktalarının**seçin **RDP (3389)**.
+5. İçin **seçin gelen bağlantı noktalarının**seçin **RDP (3389)** .
 
 6. Diğer Varsayılanları ve select kabul **sonraki: Diskleri**.
 7. Seçin ve disk Varsayılanları kabul **sonraki: Ağ**.

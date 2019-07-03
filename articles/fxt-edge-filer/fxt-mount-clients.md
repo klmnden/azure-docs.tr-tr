@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: dd74b82d4edad2b0176a3724176d924c2387f6fe
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b48d8d74843947c3e40dc80234560b0147be6eea
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450327"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542989"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Öğretici: Küme bağlama
 
@@ -61,11 +61,9 @@ Bağlama komut üç öğe vardır:
 
 Küme yolu vserver birleşimidir *IP adresi* yolu artı bir *ad alanı birleşim*. Ad alanı birleşim ne zaman tanımlanan sanal bir yol olduğunu, [depolama sistemi eklenen](fxt-add-storage.md#create-a-junction).
 
-Örneğin, kullandıysanız ``/avere/files`` , ad alanı yolu, istemcilerinizin bağlaması *IP*: / avere/dosyalarını kendi yerel bağlama noktasına. 
+Örneğin, kullandıysanız ``/fxt/files`` , ad alanı yolu, istemcilerinizin bağlaması *IP*: / fxt/dosyalarını kendi yerel bağlama noktasına. 
 
-<!-- to do: update screenshot to use fxt/files instead of avere/files -->
-
-!["Yeni birleşim Ekle" iletişim/avere/dosyalarıyla ad alanı yolu alanı](media/fxt-mount/fxt-create-junction-example.png)
+!["Yeni birleşim Ekle" iletişim/avere/dosyalarıyla ad alanı yolu alanı](media/fxt-mount/fxt-junction-example.png)
 
 IP adresini istemciye yönelik IP adresleri için vserver tanımlı biridir. Denetim Masası kümesindeki iki yerde IP'ler istemciye yönelik çeşitli bulabilirsiniz:
 

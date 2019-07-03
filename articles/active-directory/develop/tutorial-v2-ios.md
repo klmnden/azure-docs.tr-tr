@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 780da9359aaf645abc9b685fa9d90bbea9199759
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: b7d68f6f7079872b81b750ba71997117aaa27d33
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962168"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550569"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-app"></a>Kullanıcılar oturum ve bir iOS uygulamasından Microsoft Graph'i çağırmaya
 
@@ -54,18 +54,18 @@ Bu örnek, kimlik doğrulaması uygulamak için Microsoft Authentication library
 
 Bu öğreticide, yeni bir proje oluşturur. Tamamlanan öğretici bunun yerine, karşıdan yüklemek isterseniz [kodu indirmek](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip).
 
-### <a name="create-a-new-project"></a>Yeni bir proje oluşturun
+### <a name="create-a-new-project"></a>Yeni bir proje oluşturma
 
 1. Xcode açıp seçin **yeni bir Xcode projesi oluştur**.
 2. Seçin **iOS > tek görünüm uygulaması** seçip **sonraki**.
 3. Bir ürün adı verin ve seçin **sonraki**.
 4. Uygulamanızı oluşturun ve'ı tıklatın, bir klasör seçin *Oluştur*.
 
-## <a name="register-your-application"></a>Uygulamanızı kaydedin 
+## <a name="register-your-application"></a>Uygulamanızı kaydetme 
 
 Uygulamanızı iki yoldan biriyle sonraki iki bölümde açıklandığı gibi kaydedebilirsiniz.
 
-### <a name="register-your-app"></a>Uygulamanızı kaydedin
+### <a name="register-your-app"></a>Uygulamanızı kaydetme
 
 1. Git [Azure portalında](https://aka.ms/MobileAppReg) > seçin `New registration`. 
 2. Girin bir **adı** uygulamanızın > `Register`. **Bu aşamada bir yeniden yönlendirme URI'si ayarlamayın**. 
@@ -97,7 +97,7 @@ Kullanabileceğiniz [Carthage](https://github.com/Carthage/Carthage) yüklemek i
 github "AzureAD/microsoft-authentication-library-for-objc" "master"
 ```
 
-#### <a name="manually"></a>El İle
+#### <a name="manually"></a>El ile
 
 Ayrıca Git alt modülüdür kullanın ya da en son sürüm denetleyin ve framework kullanmak.
 
@@ -382,7 +382,7 @@ Aracılığıyla bir belirteç sonra `self.accessToken`, uygulamanıza, Microsof
 
 | Üstbilgi anahtarı    | value                 |
 | ------------- | --------------------- |
-| Yetkilendirme | Taşıyıcı < erişim belirteci > |
+| Authorization | Taşıyıcı \<erişim belirteci > |
 
 Ekleyin `ViewController.swift`:
 
