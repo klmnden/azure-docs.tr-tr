@@ -145,8 +145,8 @@ Consortium üye yönetim cmdlet'leri consortium içinde üyelerini yönetmek iç
 
 | Parametre | Açıklama | Gerekli |
 |-----------|-------------|:--------:|
-| Ad | Hakkında ayrıntıları almak istediğiniz Blockchain hizmet üyesinin adı. Bir adı girildiğinde, üyenin ayrıntılarını döndürür. Bir ad atlandığında, tüm consortium üyelerin listesi döndürür. | Hayır |
-| Üyeleri | İçeri aktarma-ConsortiumManagementContracts alınan üye nesnesi | Evet |
+| Name | Hakkında ayrıntıları almak istediğiniz Blockchain hizmet üyesinin adı. Bir adı girildiğinde, üyenin ayrıntılarını döndürür. Bir ad atlandığında, tüm consortium üyelerin listesi döndürür. | Hayır |
+| Members | İçeri aktarma-ConsortiumManagementContracts alınan üye nesnesi | Evet |
 | Web3Client | New-Web3Connection alınan Web3Client nesnesi | Evet |
 
 #### <a name="example"></a>Örnek
@@ -174,8 +174,8 @@ Blok zinciri üye kaldırmak için bu cmdlet'i kullanın.
 
 | Parametre | Açıklama | Gerekli |
 |-----------|-------------|:--------:|
-| Ad | Üye adı kaldırmak için | Evet |
-| Üyeleri | İçeri aktarma-ConsortiumManagementContracts alınan üye nesnesi | Evet |
+| Name | Üye adı kaldırmak için | Evet |
+| Members | İçeri aktarma-ConsortiumManagementContracts alınan üye nesnesi | Evet |
 | Web3Account | İçeri aktarma-Web3Account alınan Web3Account nesnesi | Evet |
 | Web3Client | New-Web3Connection alınan Web3Client nesnesi | Evet |
 
@@ -196,10 +196,10 @@ Consortium Yöneticiler ayarlayabilir **DisplayName** ve **rol** tüm üyeleri i
 
 | Parametre | Açıklama | Gerekli |
 |-----------|-------------|:--------:|
-| Ad | Blok zinciri üyenin adı | Evet |
-| displayName | Yeni görünen adı | Hayır |
+| Name | Blok zinciri üyenin adı | Evet |
+| DisplayName | Yeni görünen adı | Hayır |
 | AccountAddress | Hesap adresi | Hayır |
-| Üyeleri | İçeri aktarma-ConsortiumManagementContracts alınan üye nesnesi | Evet |
+| Members | İçeri aktarma-ConsortiumManagementContracts alınan üye nesnesi | Evet |
 | Web3Account | İçeri aktarma-Web3Account alınan Web3Account nesnesi | Evet |
 | Web3Client |  New-Web3Connection alınan Web3Client nesnesi| Evet |
 
@@ -223,8 +223,8 @@ Consortium üyeler davet etmek için bu cmdlet'i kullanın.
 | Parametre | Açıklama | Gerekli |
 |-----------|-------------|:--------:|
 | SubscriptionId | Üye davet etmek için Azure abonelik kimliği | Evet |
-| Rol | Consortium rol. Değerler, yönetici veya kullanıcı olabilir. Yönetici consortium Yöneticisi rolüdür. Kullanıcı consortium üye rolüdür. | Evet |
-| Üyeleri | İçeri aktarma-ConsortiumManagementContracts alınan üye nesnesi | Evet |
+| Role | Consortium rol. Değerler, yönetici veya kullanıcı olabilir. Yönetici consortium Yöneticisi rolüdür. Kullanıcı consortium üye rolüdür. | Evet |
+| Members | İçeri aktarma-ConsortiumManagementContracts alınan üye nesnesi | Evet |
 | Web3Account | İçeri aktarma-Web3Account alınan Web3Account nesnesi | Evet |
 | Web3Client | New-Web3Connection alınan Web3Client nesnesi | Evet |
 
@@ -243,7 +243,7 @@ Consortium üye davet durumu listelemek veya almak için bu cmdlet'i kullanın.
 | Parametre | Açıklama | Gerekli |
 |-----------|-------------|:--------:|
 | SubscriptionId | Üye davet etmek için Azure abonelik kimliği. Abonelik kimliği: Abonelik döndürür sağlanan davet ayrıntıları kimliğin durumunda. Abonelik kimliği atlanırsa, tüm üye davet listesini döndürür. | Hayır |
-| Üyeleri | İçeri aktarma-ConsortiumManagementContracts alınan üye nesnesi | Evet |
+| Members | İçeri aktarma-ConsortiumManagementContracts alınan üye nesnesi | Evet |
 | Web3Client | New-Web3Connection alınan Web3Client nesnesi | Evet |
 
 #### <a name="example"></a>Örnek
@@ -270,7 +270,7 @@ Consortium üye davet iptal etmek için bu cmdlet'i kullanın.
 | Parametre | Açıklama | Gerekli |
 |-----------|-------------|:--------:|
 | SubscriptionId | Üyenin iptal etmek için Azure abonelik kimliği | Evet |
-| Üyeleri | İçeri aktarma-ConsortiumManagementContracts alınan üye nesnesi | Evet |
+| Members | İçeri aktarma-ConsortiumManagementContracts alınan üye nesnesi | Evet |
 | Web3Account | İçeri aktarma-Web3Account alınan Web3Account nesnesi | Evet |
 | Web3Client | New-Web3Connection alınan Web3Client nesnesi | Evet |
 
@@ -290,8 +290,8 @@ Ayarlamak için bu cmdlet'i kullanmak **rol** var olan bir davet için. Yalnızc
 | Parametre | Açıklama | Gerekli |
 |-----------|-------------|:--------:|
 | SubscriptionId | Üye davet etmek için Azure abonelik kimliği | Evet |
-| Rol | Davet için yeni consortium rolü. Değerleri **kullanıcı** veya **yönetici**. | Evet |
-| Üyeleri |  İçeri aktarma-ConsortiumManagementContracts alınan üye nesnesi | Evet |
+| Role | Davet için yeni consortium rolü. Değerleri **kullanıcı** veya **yönetici**. | Evet |
+| Members |  İçeri aktarma-ConsortiumManagementContracts alınan üye nesnesi | Evet |
 | Web3Account | İçeri aktarma-Web3Account alınan Web3Account nesnesi | Evet |
 | Web3Client | New-Web3Connection alınan Web3Client nesnesi | Evet |
 
