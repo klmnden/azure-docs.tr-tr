@@ -154,7 +154,7 @@ Aşağıdaki üst bilgiler, tüm istemci kaynaklı iletiler için gereklidir.
 |----|----|
 | `Path` | Bu belgede belirtilen ileti yolu |
 | X-RequestId | "No-dash" biçiminde UUID |
-| X-zaman damgası | İstemci UTC saati ISO 8601 biçimli zaman damgası |
+| X-Timestamp | İstemci UTC saati ISO 8601 biçimli zaman damgası |
 
 #### <a name="x-requestid-header"></a>X-RequestId üstbilgisi
 
@@ -182,8 +182,8 @@ Konuşma hizmeti, en iyi olası konuşma tanıma sağlamak için uygulamanızın
 | Üst bilgi adı | Değer |
 |----|----|
 | `Path` | `speech.config` |
-| X-zaman damgası | İstemci UTC saati ISO 8601 biçimli zaman damgası |
-| İçerik türü | Uygulama/json; Charset = utf-8 |
+| X-Timestamp | İstemci UTC saati ISO 8601 biçimli zaman damgası |
+| Content-Type | Uygulama/json; Charset = utf-8 |
 
 Tüm istemci kaynaklı iletiler gibi konuşma tanıma hizmeti protokolü ile `speech.config` ileti *gerekir* dahil bir *X zaman damgası* kaydeder olduğunda iletinin gönderildiği istemci UTC saati zamanı üst bilgisi hizmet için. `speech.config` İleti *yok* gerektiren bir *X-RequestId* üst bilgisi bu ileti konuşma belirli bir istekle ilişkili olmadığından.
 
@@ -219,17 +219,17 @@ System.version öğesinin `speech.config` ileti, konuşma istemci uygulama veya 
 
 | Alan | Açıklama | Kullanım |
 |-|-|-|
-| OS.Platform | İşletim sistemi örnek uygulamasını barındıran platformu, Windows, Android, iOS veya Linux |Gerekli |
+| os.platform | İşletim sistemi örnek uygulamasını barındıran platformu, Windows, Android, iOS veya Linux |Gerekli |
 | os.name | Örneğin, Debian veya Windows 10 işletim sistemi ürün adı | Gerekli |
-| OS.Version | Biçimindeki işletim sistemi sürümünü *major.minor.build.branch* | Gerekli |
+| os.version | Biçimindeki işletim sistemi sürümünü *major.minor.build.branch* | Gerekli |
 
 ##### <a name="device-element"></a>Cihaz öğesi
 
 | Alan | Açıklama | Kullanım |
 |-|-|-|
-| Device.Manufacturer | Cihaz donanım üreticisi | Gerekli |
-| Device.model | Cihaz modeli | Gerekli |
-| Device.Version | Cihaz üreticisi tarafından sağlanan cihaz yazılımı sürümü. Bu değer, cihaz üreticisi tarafından izlenen bir sürümünü belirtir. | Gerekli |
+| device.manufacturer | Cihaz donanım üreticisi | Gerekli |
+| device.model | Cihaz modeli | Gerekli |
+| device.version | Cihaz üreticisi tarafından sağlanan cihaz yazılımı sürümü. Bu değer, cihaz üreticisi tarafından izlenen bir sürümünü belirtir. | Gerekli |
 
 ### <a name="message-audio"></a>İleti `audio`
 
@@ -254,8 +254,8 @@ Aşağıdaki üst bilgiler tüm gerekli `audio` iletileri.
 | ------------- | ---------------- |
 | `Path` | `audio` |
 | X-RequestId | "No-dash" biçiminde UUID |
-| X-zaman damgası | İstemci UTC saati ISO 8601 biçimli zaman damgası |
-| İçerik türü | Ses içerik türü. Türü olmalıdır *ses/x-wav* (PCM) veya *ses/silk* (SILK). |
+| X-Timestamp | İstemci UTC saati ISO 8601 biçimli zaman damgası |
+| Content-Type | Ses içerik türü. Türü olmalıdır *ses/x-wav* (PCM) veya *ses/silk* (SILK). |
 
 #### <a name="supported-audio-encodings"></a>Ses kodlamaları
 
