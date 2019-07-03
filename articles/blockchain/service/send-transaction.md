@@ -221,8 +221,8 @@ Her işlem düğümü, bir ortak anahtar vardır. Ortak anahtarı bir özel işl
 
     | Değer | Açıklama
     |-------|-------------
-    | \<alfa düğüm ortak anahtarı\> | Alfa düğümünün ortak anahtarı
-    | \<Ethereum hesap adresi\> | Varsayılan işlem düğümünde oluşturulan Ethereum hesap adresi
+    | \<alpha node public key\> | Alfa düğümünün ortak anahtarı
+    | \<Ethereum account address\> | Varsayılan işlem düğümünde oluşturulan Ethereum hesap adresi
 
     Bu örnekte, ilk değerini **storeData** değeri, 42'ye ayarlanır.
 
@@ -392,8 +392,8 @@ Biz değil bildirmek beri **beta** düğümün Ortak anahtar **privateFor**, biz
 
     | Değer | Açıklama
     |-------|-------------
-    | \<alfa düğüm ortak anahtarı\> | Alfa düğümünün ortak anahtarı
-    | \<Ethereum hesap adresi\> | Varsayılan işlem düğümünde oluşturduğunuz Ethereum hesap adresi.
+    | \<alpha node public key\> | Alfa düğümünün ortak anahtarı
+    | \<Ethereum account address\> | Varsayılan işlem düğümünde oluşturduğunuz Ethereum hesap adresi.
 
     **privateFor** işlem olduğu kullanılabilir düğüm tanımlar. Bu örnekte, özel işlemler için varsayılan işlem düğümün hesabına çevirebilirsiniz **alfa** düğümü. Tüm özel işlem katılımcıları için ortak anahtarları eklemeniz gerekir.
 
