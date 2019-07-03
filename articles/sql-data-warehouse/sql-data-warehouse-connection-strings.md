@@ -18,7 +18,7 @@ ms.lasthandoff: 06/13/2019
 ms.locfileid: "65873624"
 ---
 # <a name="connection-strings-for-azure-sql-data-warehouse"></a>Azure SQL veri ambarı için bağlantı dizeleri
-Gibi birçok farklı uygulama protokolü ile SQL Data Warehouse'a bağlanma [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP] [ PHP] ve [JDBC][JDBC]. Bağlantı dizeleri her protokol için bazı örnekler aşağıda verilmiştir.  Azure portalı, bağlantı dizenizi oluşturmak için de kullanabilirsiniz.  Azure portalını kullanarak bağlantı dizenizi oluşturmak için veritabanı dikey penceresine, altında gidin *Essentials* tıklayarak *veritabanı bağlantı dizelerini Göster*.
+Gibi birçok farklı uygulama protokolü ile SQL Data Warehouse'a bağlanma [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] ve [JDBC][JDBC]. Bağlantı dizeleri her protokol için bazı örnekler aşağıda verilmiştir.  Azure portalı, bağlantı dizenizi oluşturmak için de kullanabilirsiniz.  Azure portalını kullanarak bağlantı dizenizi oluşturmak için veritabanı dikey penceresine, altında gidin *Essentials* tıklayarak *veritabanı bağlantı dizelerini Göster*.
 
 ## <a name="sample-adonet-connection-string"></a>Örnek ADO.NET bağlantı dizesi
 ```csharp
