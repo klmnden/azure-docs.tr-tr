@@ -11,12 +11,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s
-ms.openlocfilehash: 9b529780387e1129dd7827e4d9c805d185a459d0
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 4b37da8d31fc5ac605e59d9aceb456e996df438b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399250"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503062"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Azure geliştirme alanları .NET Core ve Visual Studio ile çalışmaya başlama
 
@@ -33,7 +33,7 @@ Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Azure Dev Spaces için bir Kubernetes kümesi oluşturma
 
-1.  [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
+1. [https://portal.azure.com](https://portal.azure.com ) adresinden Azure portalında oturum açın.
 1. **Kaynak oluştur**’u seçin > **Kubernetes** ifadesini arayın > **Kubernetes Hizmeti** > **Oluştur** seçeneğini belirleyin.
 
    Her başlığı altında aşağıdaki adımları tamamlayın *oluşturma Kubernetes kümesi* , seçtiğiniz doğrulayın ve form [bölge destekleyen Azure geliştirme alanları][supported-regions].
@@ -125,9 +125,16 @@ Kesme noktasını tetiklemek için sayfanın üst kısmındaki **Hakkında** ba�
 Azure Dev Spaces yalnızca kodu Kubernetes’te çalıştırmaya yönelik değildir; aynı zamanda kod değişikliklerinizin buluttaki bir Kubernetes ortamında uygulandığını hızlıca ve yinelenerek görmenizi sağlar.
 
 ### <a name="update-a-content-file"></a>İçerik dosyası güncelleştirme
-1. `./Views/Home/Index.cshtml` dosyasını bulun ve HTML dosyasında bir düzenleme yapın. Örneğin, `<h2>Application uses</h2>` olan 70. satırı `<h2>Hello k8s in Azure!</h2>` benzeri bir değerle değiştirin.
-1. Dosyayı kaydedin.
-1. Tarayıcınıza gidip sayfayı yenileyin. Web sayfasında güncelleştirilmiş HTML’in gösterildiğini görürsünüz.
+
+
+1. `./Views/Home/Index.cshtml` dosyasını bulun ve HTML dosyasında bir düzenleme yapın. Örneğin, değiştirme [okuyan 73 satır `<h2>Application uses</h2>` ](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73) gibi bir şey: 
+  
+    ```html
+    <h2>Hello k8s in Azure!</h2>`
+    ```
+
+2. Dosyayı kaydedin.
+3. Tarayıcınıza gidip sayfayı yenileyin. Web sayfasında güncelleştirilmiş HTML’in gösterildiğini görürsünüz.
 
 Ne oldu? HTML ve CSS gibi içerik dosyalarında düzenleme yapılması için bir .NET Core web uygulamasında yeniden derleme yapılması gerekmez; bu nedenle, etkin bir F5 oturumu değiştirilmiş içerik dosyalarını AKS’deki çalışan kapsayıcı ile otomatik olarak eşitler ve böylece içerik düzenlemelerinizi hemen görebilirsiniz.
 
