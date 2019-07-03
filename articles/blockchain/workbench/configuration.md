@@ -42,10 +42,10 @@ Bir blok zinciri uygulaması kimin işlem veya uygulama içinde katılmak yapıl
 | Alan | Açıklama | Gerekli |
 |-------|-------------|:--------:|
 | ApplicationName | Benzersiz uygulama adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **ApplicationName** uygulanabilir bir sözleşme sınıfı.  | Evet |
-| displayName | Uygulama kolay görünen adı. | Evet |
-| Açıklama | Uygulama açıklaması. | Hayır |
+| DisplayName | Uygulama kolay görünen adı. | Evet |
+| Description | Uygulama açıklaması. | Hayır |
 | ApplicationRoles | Koleksiyonu [ApplicationRoles](#application-roles). İşlem veya uygulama içinde katılmak kullanıcı rolleri.  | Evet |
-| İş Akışları | Koleksiyonu [iş akışları](#workflows). Her bir iş akışı, iş mantığı akışını denetlemek için bir Durum Makinesi görev yapar. | Evet |
+| Workflows | Koleksiyonu [iş akışları](#workflows). Her bir iş akışı, iş mantığı akışını denetlemek için bir Durum Makinesi görev yapar. | Evet |
 
 Bir örnek için bkz. [yapılandırma dosyası örneği](#configuration-file-example).
 
