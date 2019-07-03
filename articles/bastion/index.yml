@@ -8,7 +8,7 @@ metadata:
   author: cherylmc
   ms.service: Bastion
   ms.topic: landing-page
-  ms.date: 06/13/2019
+  ms.date: 07/02/2019
   ms.author: cherylmc
 abstract:
   description: 'Bir sanal makineye bağlanmak için Azure Bastion kullanmayı öğrenin. Doğrudan Azure portalda SSL üzerinden sanal makinelere güvenli ve sorunsuz bir şekilde RDP/SSH bağlantısı yapılandırın. Azure Bastion aracılığıyla bağlandığınızda, sanal makinelerinizin bir genel IP adresi olması gerekmez.'
@@ -33,11 +33,3 @@ sections:
           - html: <a href="/azure/bastion/bastion-connect-vm-ssh">Bir Windows sanal makinesine bağlanma</a>
           - html: <a href="/azure/bastion/bastion-connect-vm-rdp">Bir Linux sanal makinesine bağlanma</a>
           - html: <a href="/azure/bastion/bastion-faq">Azure Bastion hakkında SSS’yi okuyun</a>
-  - title: Başvuru
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST
-            html: '<p><a href="https://msdn.microsoft.com/library/azure/mt586720">REST API başvurusu</a></p>'

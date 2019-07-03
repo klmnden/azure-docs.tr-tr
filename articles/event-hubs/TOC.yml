@@ -63,14 +63,16 @@
       href: event-hubs-availability-and-consistency.md
     - name: Ölçeklenebilirlik
       href: event-hubs-scalability.md
+    - name: Coğrafi olağanüstü durum kurtarma
+      items:
+        - name: Coğrafi olağanüstü durum kurtarma ve Coğrafi çoğaltma
+          href: event-hubs-geo-dr.md
     - name: Güvenlik
       items:
         - name: Azure kaynakları için yönetilen kimlik
           href: event-hubs-managed-service-identity.md
         - name: Rol Tabanlı Erişim Denetimi (önizleme)
           href: event-hubs-role-based-access-control.md
-        - name: Coğrafi olağanüstü durum kurtarma ve Coğrafi çoğaltma
-          href: event-hubs-geo-dr.md
         - name: Kimlik doğrulama ve güvenlik modeline genel bakış
           href: event-hubs-authentication-and-security-model-overview.md
         - name: Güvenlik Öznitelikleri

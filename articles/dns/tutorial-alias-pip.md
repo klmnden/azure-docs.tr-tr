@@ -36,7 +36,7 @@ Bu öğreticide örnek olarak contoso.com etki alanı kullanılmaktadır ancak s
 
 ## <a name="create-the-network-infrastructure"></a>Ağ altyapısını oluşturma
 İlk olarak, web sunucularınızı içine yerleştirmek için bir sanal ağ ve alt ağ oluşturun.
-1. https://portal.azure.com adresinden Azure portalında oturum açın.
+1. [https://portal.azure.com](https://portal.azure.com ) adresinden Azure portalında oturum açın.
 2. Portalda sol üst köşeden **Kaynak oluştur**'u seçin. Arama kutusuna *kaynak grubu* yazın ve **RG-DNS-Alias-pip** adlı bir kaynak grubu oluşturun.
 3. **Kaynak oluştur** > **Ağ** > **Sanal Ağ**'ı seçin.
 4. **VNet-Server** adlı bir sanal ağ oluşturun. Bunu **RG-DNS-Alias-pip** kaynak grubunun içine yerleştirin ve alt ağı **SN-Web** olarak adlandırın.

@@ -4,14 +4,14 @@ description: Azure FXT Edge dosyalayıcı ile karma depolama önbellek kümesi o
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 07/01/2019
 ms.author: v-erkell
-ms.openlocfilehash: 1bfe8f0efce0a844263fc65df0ad927114886769
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 94ec2b088940f4f1f683a4f88ae312879d909bc1
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450544"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543602"
 ---
 # <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>Öğretici: Azure FXT Edge dosyalayıcı kümesi oluşturma
 
@@ -34,7 +34,10 @@ Bu yordamı arasında 15 alır ve 45 dakika IP tanımlamak için gerçekleştirm
 
 Bu öğreticiye başlamadan önce aşağıdaki önkoşulları tamamlayın:
 
-* Veri merkezinizde en az üç Azure FXT Edge dosyalayıcı donanım sistemi yükle 
+* Veri merkezinizde Azure FXT Edge dosyalayıcı donanım sistemlerinizi yükleyin 
+
+  Yalnızca bir düğüm kümesi oluşturmak için gerekir, ancak yapmanız [en az iki düğüm ekleme](fxt-add-nodes.md) önce kümeyi yapılandırmak ve kullanmak hazırlanın. 
+
 * Sisteme uygun gücü ve ağ kablolarını bağlama  
 * En az bir Azure FXT Edge dosyalayıcı düğüm gücüyle ve [kök parolasını ayarlayın](fxt-node-password.md)
 
@@ -114,7 +117,7 @@ Komutunu `ifconfig` bu sisteme atanan adresi görmek için.
 
 Örneğin, komut `ifconfig | grep -B5 inet` Internet adreslerine sahip bağlantı noktalarını arar ve beş satırlık bir bağlantı noktası tanımlayıcısına göstermek için bağlam sağlar.
 
-İfconfig raporda herhangi bir IP adresi yazın. Bağlantı noktası adları ile listelenen adresler e0a ister ya da e0b iyi seçenekleri. IPMI bağlantı noktaları için bu adları yalnızca kullanılmadığından e7 * adları ile listelenen herhangi bir IP adresi kullanmayın normal olmayan bir ağ bağlantı noktaları.  
+İfconfig raporda herhangi bir IP adresi yazın. Bağlantı noktası adları ile listelenen adresler e0a ister ya da e0b iyi seçenekleri. Bu adları yalnızca iDRAC/IPMI hizmet bağlantı noktaları için kullanıldığından e7 * adları ile listelenen herhangi bir IP adresi kullanmayın.  
 
 ## <a name="load-the-cluster-configuration-wizard"></a>Küme Yapılandırma Sihirbazı'nı yükleme
 
@@ -213,7 +216,7 @@ Ayarlarında **Yönetim** bölümü, küme için yönetici erişim sağlayan ağ
 
 * **MTU** - gerekirse, kümenizin yönetim ağı için en fazla iletim birimi (MTU) ayarlayın.
 
-* **Kullanım 1Gb mgmt ağ** -yalnızca yönetim ağına bağlantı noktalarında FXT düğümlerinizi iki 1GbE ağ atamak istiyorsanız bu kutuyu işaretleyin. Bu kutuyu işaretlerseniz yoksa, en yüksek hız ve bağlantı noktası kullanılabilir yönetim ağını kullanır. 
+* **Kullanım 1Gb mgmt ağ** -yalnızca yönetim ağına bağlantı noktalarında FXT düğümlerinizi iki 1GbE ağ atamak istiyorsanız bu kutuyu işaretleyin. (Diğer tüm trafik için kullanılabilir 25GbE/10GbE bağlantı noktası olması gerekir.) Bu kutuyu işaretlerseniz yoksa, en yüksek hız ve bağlantı noktası kullanılabilir yönetim ağını kullanır. 
 
 ### <a name="configure-the-cluster-network"></a>Küme ağı yapılandırma 
 
@@ -281,7 +284,7 @@ Yeni küme oluşturma için Denetim Masası web arabirimini kullanın. Küme olu
 
 Web arabirimi kullanıcı adıyla oturum `admin` ve ne zaman ayarladığınız parolayı kümesi oluşturma.
 
-![Denetim Masası oturum açma alanlarını gösteren bir web tarayıcısı](media/fxt-cluster-config/admin-login.png)
+![Denetim Masası oturum açma alanlarını gösteren bir web tarayıcısı](media/fxt-cluster-create/admin-login.png)
 
 Denetim Masası açılır ve gösterir **Pano** sayfası. Küme oluşturma bittikçe herhangi bir uyarı iletisi ekrandan temizlemelidir.
 
@@ -289,7 +292,7 @@ Tıklayın **ayarları** kümesini yapılandırmak için sekmesinde.
 
 Üzerinde **ayarları** sekmesinde, sol kenar menüsü yapılandırma sayfalarını gösterir. Sayfalar, kategoriye göre düzenlenir. Tıklayın + veya - üst kategori adının genişletin veya her bir sayfayı gizleyin.
 
-![Ayarlar sekmesinde kümeyle (tarayıcıdaki) Denetim Masası > Genel Kurulum sayfasına yüklendi](media/fxt-cluster-config/settings-tab-populated.png)
+![Ayarlar sekmesinde kümeyle (tarayıcıdaki) Denetim Masası > Genel Kurulum sayfasına yüklendi](media/fxt-cluster-create/settings-tab-populated.png)
 
 ## <a name="cluster-setup-steps"></a>Küme kurulum adımları
 
@@ -315,7 +318,7 @@ Bu adımlar, çoğu veya tamamı kümeler için gereklidir.
 
   Okuma [ad alanı yapılandırma](fxt-add-storage.md#configure-the-namespace) Ayrıntılar için. Bu adım içerir:
   * Vservers oluşturma
-  * İstemci ağ depolama görünümü ve arka uç arasındaki merkezleriyle ayarlama 
+  * İstemci ağ görünümü ile arka uç depolama merkezleriyle ayarlama 
   * Tanımlama istemci IP adresleri her vserver tarafından sunulur
 
   > [!Note] 
@@ -370,7 +373,7 @@ Destek karşıya ayarlamak için aşağıdaki adımları izleyin.
 
 1. Gidin **küme** > **Destek** Ayarları sayfası. Gizlilik ilkesini kabul edin. 
 
-   ![Gizlilik ilkesini kabul etmek için Denetim Masası ve Onayla düğmesi açılır pencereyi gösteren ekran görüntüsü](media/fxt-cluster-config/fxt-privacy-policy.png)
+   ![Gizlilik ilkesini kabul etmek için Denetim Masası ve Onayla düğmesi açılır pencereyi gösteren ekran görüntüsü](media/fxt-cluster-create/fxt-privacy-policy.png)
 
 1. Sol tarafındaki üçgeni **müşteri bilgileri** bölümü genişletin.
 1. Tıklayın **Revalidate karşıya yükleme bilgileri** düğmesi.
@@ -378,17 +381,17 @@ Destek karşıya ayarlamak için aşağıdaki adımları izleyin.
 1. İçin onay kutularını işaretleyin **istatistikleri izleme**, **genel bilgilerini karşıya**, ve **kilitlenme bilgi karşıya**.
 1. **Gönder**'e tıklayın.  
 
-   ![Müşteri bilgileri bölümü destek ayarları sayfasının ekran görüntüsü içeren tamamlandı](media/fxt-cluster-config/fxt-support-info.png)
+   ![Müşteri bilgileri bölümü destek ayarları sayfasının ekran görüntüsü içeren tamamlandı](media/fxt-cluster-create/fxt-support-info.png)
 
 1. Sol tarafındaki üçgeni **güvenli proaktif destek (SPS)** bölümü genişletin.
 1. İçin kutuyu **etkinleştir SPS bağlantısını**.
 1. **Gönder**'e tıklayın.
 
-   ![Destek Ayarları sayfasında tamamlanmış güvenli proaktif destek bölüm içeren ekran görüntüsü](media/fxt-cluster-config/fxt-support-sps.png)
+   ![Destek Ayarları sayfasında tamamlanmış güvenli proaktif destek bölüm içeren ekran görüntüsü](media/fxt-cluster-create/fxt-support-sps.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Temel küme oluşturup gizlilik ilkesini kabul sonra kalan küme düğümlerine ekleyin. 
 
 > [!div class="nextstepaction"]
-> [Küme Düğümleri Ekle](fxt-add-nodes.md)
+> [Küme düğümleri ekleme](fxt-add-nodes.md)

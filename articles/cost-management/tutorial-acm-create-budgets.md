@@ -52,7 +52,7 @@ Maliyet Yönetimi verilerine izin atama hakkında daha fazla bilgi için bkz. [m
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-- https://portal.azure.com adresinden Azure portalında oturum açın.
+- [https://portal.azure.com](https://portal.azure.com ) adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Azure portalında bir bütçe oluşturun
 

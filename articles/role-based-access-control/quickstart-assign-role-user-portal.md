@@ -34,7 +34,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-https://portal.azure.com adresinden Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com ) adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -62,7 +62,7 @@ RBAC'de erişim vermek için bir rol ataması oluşturmanız gerekir.
 
 1. Listesinde **kaynak grupları**, yeni **rbac-resource-group** kaynak grubu.
 
-1. Tıklayın **erişim denetimi (IAM)**.
+1. Tıklayın **erişim denetimi (IAM)** .
 
 1. Tıklayın **rol atamaları** rol atamaları geçerli listesini görmek için sekmesinde.
 

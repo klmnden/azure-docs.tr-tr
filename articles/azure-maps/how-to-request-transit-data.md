@@ -25,7 +25,7 @@ Bu makalede, öğreneceksiniz, nasıl yapılır:
 * Metro alan Kimliğini kullanarak alma [Metro alan API Al](https://aka.ms/AzureMapsMobilityMetro)
 * Yakındaki geçiş durdurur kullanarak istek [alma yakında geçiş](https://aka.ms/AzureMapsMobilityNearbyTransit) hizmeti.
 * Sorgu [alma geçiş rotalar API'si](https://aka.ms/AzureMapsMobilityTransitRoute) genel geçişi kullanarak bir rota planlamak için.
-* Transit yönlendirme geometri ve rota kullanarak ayrıntılı zamanlama isteği [alma aktarım programı API](https://aka.ms/ https://azure.microsoft.com/services/azure-maps/).
+* Transit yönlendirme geometri ve rota kullanarak ayrıntılı zamanlama isteği [alma aktarım programı API](https://aka.ms/https://azure.microsoft.com/services/azure-maps/).
 
 
 ## <a name="prerequisites"></a>Önkoşullar

@@ -8,8 +8,6 @@
       href: azure-portal-supported-browsers-devices.md
 - name: Kavramlar
   items:
-    - name: Azure panoları oluşturma ve paylaşma
-      href: azure-portal-dashboards.md
     - name: Rol tabanlı erişim denetimi ile panoları paylaşma
       href: azure-portal-dashboard-share-access.md
     - name: Program aracılığıyla Azure panoları oluşturma
@@ -20,6 +18,8 @@
       href: azure-portal-change-theme-high-contrast.md
     - name: 'Ekleme, kaldırma ve sık kullanılanları sıralama'
       href: azure-portal-add-remove-sort-favorites.md
+    - name: Azure panoları oluşturma ve paylaşma
+      href: azure-portal-dashboards.md
     - name: Özel Markdown kutucuğunu kullanma
       href: azure-portal-markdown-tile.md
     - name: Kullanıcı ayarlarını dışarı aktarma veya silme

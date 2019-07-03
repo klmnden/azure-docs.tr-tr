@@ -72,6 +72,8 @@
               href: manage-private-cloud.md
             - name: Özel bulutu genişletme
               href: expand-private-cloud.md
+            - name: Özel bulutu küçültme
+              href: shrink-private-cloud.md
             - name: Azure aboneliğinizi eşleme
               href: azure-subscription-mapping.md
             - name: Ayrıcalıkları yükseltme

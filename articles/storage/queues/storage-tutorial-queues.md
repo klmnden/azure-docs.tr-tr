@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 8d108e1683be03a79e87990b983f2eda3eadba90
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 08ef140eb860637cc0c09619abe7051cc007e99f
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797530"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540290"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Öğretici: Azure depolama kuyrukları ile çalışma
 
@@ -27,7 +27,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > - Azure Storage hesabı oluşturma
 > - Uygulama oluşturma
 > - Zaman uyumsuz kod için destek eklendi
-> - Kuyruk oluştur
+> - Bir kuyruk oluşturma
 > - Bir kuyruğa ileti Ekle
 > - İletileri sıradan çıkarma
 > - Boş bir kuyruk silme
@@ -127,7 +127,7 @@ Kod, uygulamanın bulut kaynaklarını kullandığından, zaman uyumsuz olarak �
 
 6. Kaydet **Program.cs** dosya.
 
-## <a name="create-a-queue"></a>Kuyruk oluştur
+## <a name="create-a-queue"></a>Bir kuyruk oluşturma
 
 1. Yükleme **Microsoft.Azure.Storage.Common** ve **Microsoft.Azure.Storage.Queue** projeye sahip paketler `dotnet add package` komutu. Konsol penceresinde proje klasöründen aşağıdaki dotnet komutları yürütün.
 
@@ -227,6 +227,14 @@ Kuyruğa ileti göndermek için yeni bir yöntem oluşturun. Aşağıdaki yönte
    ```
 
 2. Dosyayı kaydedin.
+
+Bir ileti, UTF-8 kodlamalı bir XML isteği eklenebilir ve boyutu 64 KB'ye kadar olabilir bir biçimde olmalıdır. Bir ileti ikili veri içeriyorsa, öneririz, Base64 kodlama ileti.
+
+Varsayılan olarak, en fazla süre için bir ileti yaşam 7 gün olarak ayarlanır. İletinin yaşam süresi pozitif bir sayı olarak belirtebilirsiniz. Dolmayan iletiye eklemek için `Timespan.FromSeconds(-1)` , çağrıda **AddMessageAsync**.
+
+```csharp
+await theQueue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
+```
 
 ## <a name="dequeue-messages"></a>İletileri sıradan çıkarma
 
@@ -500,7 +508,7 @@ Bu bir çıktı görmeniz gerekir:
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
-1. Kuyruk oluştur
+1. Bir kuyruk oluşturma
 2. Eklemek ve iletileri kuyruktan kaldırın
 3. Azure depolama kuyruğu silin
 

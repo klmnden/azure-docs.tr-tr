@@ -67,7 +67,7 @@ Biz bağlanabilmesine birçok bireysel kullanıcılar yerine tek bir grup için 
 ### <a name="get-the-current-list-of-selected-users"></a>Seçili kullanıcıları geçerli listesini alın
 
 1. Microsoft 365'te Yönetici hesabınızla oturum açın.
-1. https://linkedinselectedusermigration.azurewebsites.net/ kısmına gidin. LinkedIn hesabı bağlantıları için seçili kullanıcıların listesini görürsünüz.
+1. [https://linkedinselectedusermigration.azurewebsites.net/](https://linkedinselectedusermigration.azurewebsites.net/ ) kısmına gidin. LinkedIn hesabı bağlantıları için seçili kullanıcıların listesini görürsünüz.
 1. Listeyi bir CSV dosyasına dışarı aktarın.
 
 ### <a name="move-the-currently-selected-individual-users-to-a-group"></a>Şu anda seçili bireysel kullanıcılar grubuna Taşı

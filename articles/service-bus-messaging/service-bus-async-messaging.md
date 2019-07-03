@@ -52,7 +52,7 @@ Bu başarısızlıkların her biri için farklı hata modları bir uygulamanın 
 Service Bus bu sorunlara yönelik risk azaltma işlemleri içerir. Aşağıdaki bölümlerde, her sorun ve bunların ilgili risk azaltma işlemleri açıklanmaktadır.
 
 ### <a name="throttling"></a>Azaltma
-Service Bus ile azaltma, ortak ileti oranı yönetimi sağlar. Her bir Service Bus düğümün birçok varlıklar barındırır. Bu varlıkların her biri sistemdeki CPU, bellek, depolama ve diğer özellikleri açısından taleplerini yapar. Bu modellerin hiçbirini algıladığında kullanım, tanımlanmış eşikleri aştığında, Service Bus, belirtilen bir isteğin reddedebilirsiniz. Çağıranın alır bir [ServerBusyException] [ ServerBusyException] ve 10 saniye sonra yeniden deneme sayısı.
+Service Bus ile azaltma, ortak ileti oranı yönetimi sağlar. Her bir Service Bus düğümün birçok varlıklar barındırır. Bu varlıkların her biri sistemdeki CPU, bellek, depolama ve diğer özellikleri açısından taleplerini yapar. Bu modellerin hiçbirini algıladığında kullanım, tanımlanmış eşikleri aştığında, Service Bus, belirtilen bir isteğin reddedebilirsiniz. Çağıranın alır bir [ServerBusyException][ServerBusyException] ve 10 saniye sonra yeniden deneme sayısı.
 
 Bir risk azaltma, kod okuma hatası ve en az 10 saniye boyunca iletinin herhangi bir yeniden deneme durdurmak gerekir. Müşteri uygulamasının parçaları arasında hata oluşabilir olduğundan, her parça bağımsız olarak yeniden deneme mantığı yürütür bekleniyor. Kod, bir kuyruk veya konuda bölümleme etkinleştirerek aşarak olasılığını azaltabilirsiniz.
 
@@ -62,7 +62,7 @@ Azure'daki diğer bileşenleri, zaman zaman hizmet sorun yaşayabilir. Örneğin
 ### <a name="service-bus-failure-on-a-single-subsystem"></a>Service Bus hata tek bir alt sistem durumunda
 Herhangi bir uygulama ile koşullarda bir iç bileşen Service Bus'ın tutarsız hale gelmesine neden olabilir. Service Bus bu algıladığında, uygulamadaki ne tanılamaya yardımcı olmak için verileri toplar. Veriler toplandıktan sonra uygulama girişimi, tutarlı bir duruma döndürmek için yeniden başlatılır. Bu işlem oldukça hızlı bir şekilde gerçekleşir ve kapalı kaldıkları süreleri tipik ancak birkaç dakika kadar için kullanılamaz olarak görünen bir varlıkta sonuçları çok daha kısa.
 
-Bu durumda, istemci uygulamanın oluşturduğu bir [System.TimeoutException] [ System.TimeoutException] veya [Istransient] [ MessagingException] özel durum. Service Bus, bu sorunun otomatik istemci yeniden deneme mantığı biçiminde bir risk azaltma içerir. Yeniden deneme süresi dolana ve iletiyi teslim sonra diğer makalesinde belirtilen kullanarak keşfedebilirsiniz [kesintileri ve olağanüstü durumları yönetme][handling outages and disasters].
+Bu durumda, istemci uygulamanın oluşturduğu bir [System.TimeoutException][System.TimeoutException] veya [Istransient][MessagingException] özel durum. Service Bus, bu sorunun otomatik istemci yeniden deneme mantığı biçiminde bir risk azaltma içerir. Yeniden deneme süresi dolana ve iletiyi teslim sonra diğer makalesinde belirtilen kullanarak keşfedebilirsiniz [kesintileri ve olağanüstü durumları yönetme][handling outages and disasters].
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Service Bus içinde zaman uyumsuz Mesajlaşma temel bilgileri öğrendiniz, daha fazla bilgi okuyun [kesintileri ve olağanüstü durumları yönetme][handling outages and disasters].

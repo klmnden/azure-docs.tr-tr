@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 10/26/2018
+ms.date: 7/2/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 8aae88b24cee64136fb247744325424a446a7bbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a256a0ff5164ec9b25aea3849f20643ee3719fac
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446746"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541418"
 ---
 # <a name="create-an-azure-cosmos-db-account-with-azure-cosmos-dbs-api-for-mongodb-using-azure-cli"></a>Azure Cosmos DB hesabı, Azure CLI kullanarak MongoDB için Azure Cosmos DB API'si ile oluşturma
 
@@ -22,6 +22,8 @@ Bu örnek CLI betiği, MongoDB için Azure Cosmos DB API'si ile Cosmos hesabı o
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu, Azure CLI 2.0 veya sonraki bir sürümünü kullanmanızı gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
+
+[!NOTE] Veritabanı ve kapsayıcı adlandırma kuralları hakkında daha fazla bilgi edinmek için bkz, [veritabanları, kapsayıcıları ve Azure Cosmos DB'de öğeleri ile çalışma](../databases-containers-items.md).
 
 ## <a name="sample-script"></a>Örnek betik
 

@@ -5,14 +5,14 @@ services: ''
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 07/01/2019
 ms.author: v-erkell
-ms.openlocfilehash: 45f4e12a06e012a06e0b2659d729fce3a191cd32
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ed9eca88e5ccc386b25acb95fa729a3cfb95cbd0
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450425"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543401"
 ---
 # <a name="tutorial-install-azure-fxt-edge-filer"></a>Öğretici: Azure FXT Edge dosyalayıcı yükleyin 
 
@@ -34,9 +34,7 @@ Bu öğretici, bu kurulum adımları içerir:
 Başlamadan önce veri merkezi ve kullanacağınız raf bu özelliklere sahip olduğundan emin olun:
 
 * Burada cihaz bağlamak istediğiniz bir kullanılabilir 1U yuvada rafa.
-* AC güç ve soğutma Azure FXT Edge dosyalayıcı ihtiyaçlarını karşılayan sistemler. 
-
-  Planlama ve yükleme boyutlandırma hakkında Yardım için okuma [gücü ve sıcaklık belirtimleri](fxt-specs.md#power-and-thermal-specifications) ad plakası derecelendirmelerini ve genel koşullar altında sıcaklık çıktı hakkında bilgi edinmek için.  
+* AC güç ve soğutma Azure FXT Edge dosyalayıcı ihtiyaçlarını karşılayan sistemler. (Okuma [gücü ve sıcaklık belirtimleri](fxt-specs.md#power-and-thermal-specifications) için planlama ve yükleme boyutlandırma yardımcı olur.)  
 
   > [!NOTE] 
   > Güç Dağıtım birimleri iki yedek güç kaynağı (PSUs) birim tam olarak yararlanmak için iki farklı dal devreler üzerinde AC gücü eklerken kullanın. Okuma [power kabloları bağlayın](fxt-network-power.md#connect-power-cables) Ayrıntılar için.  
@@ -156,8 +154,6 @@ Sistem kaldırırken Mandal serbest bırakmak için (2) çekin.
 
 İsteğe bağlı kablo yönetim arm (CMA) ile FXT Edge dosyalayıcı sağlanır. Paketi yüklemek belgelerdeki yönergeleri sağlanır. 
 
-<!-- need current images in electronic form from Dell - these are scans -->
-
 1. Paketten ve kablo yönetim arm Seti bileşenlerinin tanımlayın:
    * CMA Tepsisi (1)
    * CMA (2)
@@ -168,7 +164,7 @@ Sistem kaldırırken Mandal serbest bırakmak için (2) çekin.
    > [!TIP] 
    > Sevkiyat raftaki CMA güvenliğini sağlamak için sepetleri hem Tepsisi etrafında KRAVAT sarmalayan döngü ve sıkıca cinch. Bu şekilde CMA güvenli hale getirme sisteminiz kararsız ortamlarda güvenli.
 
-   ![CMA bölümleri gösterimi](media/fxt-install/cma-parts-scan-400.png)
+   ![CMA bölümleri gösterimi](media/fxt-install/cma-kit-400.png)
 
 2. CMA Tepsisi yükleyin.
 
@@ -178,7 +174,7 @@ Sistem kaldırırken Mandal serbest bırakmak için (2) çekin.
    1. Tepsisi ileriye doğru yere tıklayana kadar gönderin. (1)
    1. Tepsisi kaldırmak için mandalı düğmeleri merkezine sığdırması ve alıcı köşeli ayraçlar (2) dışında Tepsisi çekme.
 
-   ![CMA Tepsisi yükleme resmi](media/fxt-install/cma-tray-scan-400.png)
+   ![CMA Tepsisi yükleme resmi](media/fxt-install/cma-tray-install-400.png)
 
 3. CMA eki köşeli ayraçlar yükleyin. 
 
@@ -188,7 +184,7 @@ Sistem kaldırırken Mandal serbest bırakmak için (2) çekin.
    > * Kolaylık olması için güç kaynağı (yan A) ters tarafında CMA bağlayın. B tarafında takılmışsa, dış güç kaynağı kaldırmak için CMA kesilmelidir. 
    > * Her zaman güç kaynakları önce Tepsisi kaldırın. 
 
-   ![CMA köşeli ayraç yükleme resmi](media/fxt-install/cma-brackets-scan-400.png)
+   ![CMA köşeli ayraç yükleme resmi](media/fxt-install/cma-bracket-l-r-install-400.png)
 
    1. Uygun CMA ek köşeli ayraç (yan B veya yan A) CMA bağlamak istediğiniz tarafı için seçin.
    1. Karşılık gelen yan A veya B yan işaretleme slayt parmaklık arkasına CMA ek köşeli ayraç yükleyin.
@@ -200,11 +196,11 @@ Sistem kaldırırken Mandal serbest bırakmak için (2) çekin.
    1. Bir Mandal en dıştaki ayraç ucundaki Mandal (2) devreye girene kadar sığdırır. 
    1. CMA kaldırmak için her iki tutma (3) iç ve dış Mandal housings üst kısmındaki CMA yayın düğmeleri tuşlarına basarak disengage.
 
-   ![Ana CMA yükleme resmi](media/fxt-install/cma-install-scan-400.png)
+   ![Ana CMA yükleme resmi](media/fxt-install/cma-install-400.png)
 
    CMA uzağa erişimi ve hizmet Sistem döndürülebilir. Hinged sonunda, (1) unseat için CMA Tepsisi uzağa taşıyın. Tepsisinden unseated olduktan sonra (2) sistem uzağa CMA swing.
 
-   ![Hizmet için açık CMA gösterimi Döndürülmüş](media/fxt-install/cma-open-scan-400.png)
+   ![Hizmet için açık CMA gösterimi Döndürülmüş](media/fxt-install/cma-swing-over-tray-400.png)
 
 ## <a name="install-the-front-bezel-optional"></a>(İsteğe bağlı) ön Pano yükleme
 
@@ -222,7 +218,7 @@ Bu bölümde, yükleme ve kaldırma (ekran) Azure FXT Edge dosyalayıcı donanı
 1. Sol tarafta yayın düğmesine basın ve kasa uzağa çerçeve sol ucundaki çekme.
 1. Sağ ucuna tutulabilir ve çerçeve kaldırın.
    
-   ![Çerçeve ve sol tarafındaki dışa doğru çekerek kaldırma solundaki yayın düğmesini gösteren resim](media/fxt-install/remove-bezel-updated-600.png)
+   ![Çerçeve ve sol tarafındaki dışa doğru çekerek kaldırma solundaki yayın düğmesini gösteren resim](media/fxt-install/remove-bezel-edited-600.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

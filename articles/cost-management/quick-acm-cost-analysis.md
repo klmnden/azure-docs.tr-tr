@@ -47,7 +47,7 @@ Maliyet Yönetimi verilerine erişim atama hakkında daha fazla bilgi için bkz.
 
 ## <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
-- https://portal.azure.com adresinden Azure portalında oturum açın.
+- [https://portal.azure.com](https://portal.azure.com ) adresinden Azure portalında oturum açın.
 
 ## <a name="review-costs-in-cost-analysis"></a>Maliyet analizinde maliyetleri gözden geçirme
 

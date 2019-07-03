@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a93b1128fe1ea0e03efc9060f2c3c4a93145f838
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 666172e3685b923ca0d0e5fa02878341fcd0a216
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67432848"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543866"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Öğretici: Simülasyon cihazı verileri üretme
 
@@ -121,9 +121,9 @@ Derleme projesi sahibiz, bağlantı dizesini erişmek ve veri oluşturma ilerlem
 
 1. Cihazlar IOT Hub'ına eklenir ve cihazları yeşil renkte verileri göstermek için gösterilmediğini o cihaza gönderilen unutmayın.
 
-1. Herhangi bir cihazda sağ tıklatıp seçerek hub'a gönderilen iletileri görüntüleyebileceğiniz **D2C iletisini İzlemeyi Başlat**. Visual Studio code'da çıkış bölmesinde iletileri gösterir.
+1. Herhangi bir cihazda sağ tıklatıp seçerek hub'a gönderilen iletileri görüntüleyebileceğiniz **Başlat yerleşik olay uç nokta izleme**. Visual Studio code'da çıkış bölmesinde iletileri gösterir.
 
-1. Tıklayarak izlemeyi durdurmak **Azure IOT hub'ı Araç Seti** seçin ve çıkış bölmesinde **D2C iletisini İzlemeyi Durdur**.
+1. Tıklayarak izlemeyi durdurmak **Azure IOT hub'ı Araç Seti** seçin ve çıkış bölmesinde **Durdur yerleşik olay uç nokta izleme**.
 
 1. Birkaç dakika sürer tamamlanmaya kadar çalışmasına izin vermek.
 

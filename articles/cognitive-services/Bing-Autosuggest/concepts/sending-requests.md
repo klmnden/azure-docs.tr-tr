@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 06/25/2019
+ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: be3262daf7ea2a637133ad658efe07ba9426415b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fe35901f7d084fd96cb4c164e957391bfe2346a9
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449081"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542637"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Bing otomatik öneri API'si isteği gönderme.
 
-Uygulamanızın tüm Bing arama API'leri sorguları gönderirse, Bing otomatik öneri API'si kullanıcılarınızın arama deneyimini geliştirmek için kullanabilirsiniz. Bing otomatik öneri API'si, bir arama kutusu kısmi sorgu dizesine göre önerilen sorgular listesi döndürür. Uygulamanızın arama kutusuna karakter girdiniz gibi aşağı açılan listede önerileri görüntüleyebilirsiniz. Bu API'ye istek göndererek hakkında daha fazla bilgi için bu makaleyi kullanın.
+Uygulamanızın tüm Bing arama API'leri sorguları gönderirse, Bing otomatik öneri API'si kullanıcılarınızın arama deneyimini geliştirmek için kullanabilirsiniz. Bing otomatik öneri API'si, bir arama kutusu kısmi sorgu dizesine göre önerilen sorgular listesi döndürür. Uygulamanızın arama kutusuna karakter girdiniz gibi aşağı açılan listede önerileri görüntüleyebilirsiniz. Bu API'ye istek göndererek hakkında daha fazla bilgi için bu makaleyi kullanın. 
 
 ## <a name="bing-autosuggest-api-endpoint"></a>Bing otomatik öneri API'si uç noktası
 
@@ -44,7 +44,7 @@ Otomatik öneri API'si kullanarak temel istekleri örnekleri için bkz: [otomati
 ## <a name="bing-autosuggest-api-requests"></a>Bing otomatik öneri API'si istekleri
 
 > [!NOTE]
-> Bing otomatik öneri API'si için istekler HTTPS protokolünü kullanmalıdır.
+> * Bing otomatik öneri API'si için istekler HTTPS protokolünü kullanmalıdır.
 
 Tüm isteklerin bir sunucudan gönderilmesini öneririz. Anahtarı bir istemci uygulamanın bir parçası dağıtma, daha fazla fırsat kötü amaçlı üçüncü taraf erişim sağlar. Ayrıca, çağrı yapmaya bir sunucudan tek bir yükseltme noktası gelecekteki güncelleştirmeleri sağlar.
 
@@ -100,6 +100,8 @@ Aşağıdaki web öneri yukarıdaki isteğe yanıt grubudur. Grubu arama Sorgu �
 `displayText` alanı, arama kutunuzun açılır listesini doldurmak için kullandığınız önerilen sorguyu içerir. Yanıtın içerdiği tüm önerileri, verilen sırada görüntülemeniz gerekir.  
 
 Kullanıcının açılan listeden bir sorgu seçerse, biri olan arama için kullanabileceğiniz [Bing arama API'leri](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) ve sonuçları kendiniz görüntülemek veya kullanıcı döndürülen kullanarak Bing sonuçları sayfasına gönderin `url` alan.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC

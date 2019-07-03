@@ -117,7 +117,7 @@ Aşağıdaki bölümlerde, sanal ağ Azure CLI ile kapsayıcı grupları dağıt
 
 İlk olarak, bir kapsayıcı grubuna dağıtın ve yeni sanal ağ ve alt ağ için parametreleri belirtin. Bu parametreleri belirttiğinizde, Azure sanal ağı ve alt ağ oluşturur, alt ağ ile Azure Container Instances temsilcilerini ve ayrıca bir ağ profili oluşturur. Bu kaynaklar oluşturulduktan sonra kapsayıcı grubunuzun alt ağa dağıtılır.
 
-Aşağıdaki komutu çalıştırın [az kapsayıcı oluşturma] [ az-container-create] yeni sanal ağ ve alt ağ ayarlarını belirten komutu. Bir bölgede oluşturulan bir kaynak grubu adı sağlamanız gereken, [destekler](#preview-limitations) kapsayıcı grupları bir sanal ağ içinde. Bu komutu, genel Microsoft dağıtır [aci-helloworld] [ aci-helloworld] statik bir web sayfasına hizmet veren küçük bir Node.js Web sunucusu çalıştıran bir kapsayıcı. Sonraki bölümde, aynı alt ağa ikinci bir kapsayıcı grubu dağıtın ve iki kapsayıcı örnekleri arasında iletişimi test etme.
+Aşağıdaki komutu çalıştırın [az kapsayıcı oluşturma] [ az-container-create] yeni sanal ağ ve alt ağ ayarlarını belirten komutu. Bir bölgede oluşturulan bir kaynak grubu adı sağlamanız gereken, [destekler](#preview-limitations) kapsayıcı grupları bir sanal ağ içinde. Bu komutu, genel Microsoft dağıtır [aci-helloworld][aci-helloworld] statik bir web sayfasına hizmet veren küçük bir Node.js Web sunucusu çalıştıran bir kapsayıcı. Sonraki bölümde, aynı alt ağa ikinci bir kapsayıcı grubu dağıtın ve iki kapsayıcı örnekleri arasında iletişimi test etme.
 
 ```azurecli
 az container create \

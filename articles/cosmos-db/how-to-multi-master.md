@@ -4,18 +4,21 @@ description: Azure Cosmos DB'de uygulamalarınızdaki çok yöneticili yapıland
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 07/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: e33aa10673f4c4b061f8961959f20b7b3416ec84
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 73b4ada713e264aaa2504fe4d4f504e07ae45181
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204780"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538091"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Uygulamalarınızda Azure Cosmos DB kullanmayı çok ana yapılandırma
 
-Çok yöneticili özelliğini kullanmak için çok bölgeli yazma etkinleştirmek ve Azure Cosmos DB içinde birden çok girişli özelliği yapılandırmanız gerekir. Çoklu yönlendirmeyi yapılandırmak için uygulamanın SetCurrentLocation özelliğin dağıtılacağı bölge adı geçirin. Otomatik olarak bunu geçirilen konumdan coğrafi yakınlığına göre PreferredLocations özelliği doldurur. Yeni bir bölgeye hesabınıza daha sonra eklenirse, uygulamasının imzalanmasını veya güncelleştirilecek yok, daha yakın bir bölgeye otomatik olarak algılar ve otomatik-açın, bölgesel bir olayı gerçekleşmesi gerektiğini giriş.
+Birden çok yazma bölgeleri etkinleştirilmiş bir hesap oluşturulduktan sonra Azure Cosmos DB'de çok yöneticili ve çok girişli özellikleri etkinleştirmek DocumentClient için ConnectionPolicy uygulamanıza iki değişiklik yapmanız gerekir. ConnectionPolicy içinde UseMultipleWriteLocations true ve SetCurrentLocation için uygulamanın dağıtıldığı bölge adını ayarlayın. Bu konumdan geçirilen coğrafi yakınlık göre PreferredLocations özelliği doldurur. Yeni bir bölgeye hesabınıza daha sonra eklenirse, uygulamasının imzalanmasını veya güncelleştirilecek yok, daha yakın bir bölgeye otomatik olarak algılar ve otomatik-açın, bölgesel bir olayı gerçekleşmesi gerektiğini giriş.
+
+> [!TIP]
+> Sıfır kesinti, cosmos hesaplar için çok yöneticili başlangıçta yapılandırılmış oluşturulmamış geçirilebilir. Bkz: daha fazla bilgi edinmek için [birden çok yazma bölgeleri yapılandırın](how-to-manage-database-account.md#configure-multiple-write-regions)
 
 ## <a id="netv2"></a>.NET SDK'sı v2
 

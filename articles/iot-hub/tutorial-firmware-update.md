@@ -51,7 +51,7 @@ Aşağıdaki komutu kullanarak geliştirme makinenizde geçerli Node.js sürüm�
 node --version
 ```
 
-https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip adresinden örnek Node.js projesini indirin ve ZIP arşivini ayıklayın.
+[https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip ) adresinden örnek Node.js projesini indirin ve ZIP arşivini ayıklayın.
 
 ## <a name="set-up-azure-resources"></a>Azure kaynakları ayarlama
 

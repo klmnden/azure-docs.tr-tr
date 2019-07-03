@@ -62,7 +62,7 @@ Aşağıdaki tablo, sesli sentezi istekleri için kullanılan HTTP üst bilgiler
 
 Üstbilgi |Değer |Açıklamalar
 ----|----|----
-Content-Type | Uygulama/ssml'yi + xml şeklindedir | Giriş içerik türü.
+İçerik türü | Uygulama/ssml'yi + xml şeklindedir | Giriş içerik türü.
 X-Microsoft-OutputFormat | **1.** ssml'yi-16 khz-16 bit-mono-tts <br> **2.** ham-16 khz-16 bit-mono-pcm <br>**3.** ses-16 khz-16 KB/sn-mono-siren <br> **4.** RIFF-16 khz-16 KB/sn-mono-siren <br> **5.** RIFF-16 khz-16 bit-mono-pcm <br> **6.** ses-16 khz-128kbitrate-mono-mp3 <br> **7.** ses-16 khz-64kbitrate-mono-mp3 <br> **8.** ses-16 khz-32kbitrate-mono-mp3 | Çıkış ses biçimi.
 X-Search-AppId | Bir GUID (onaltılık yalnızca, çizgi içermeyen) | İstemci uygulaması benzersiz olarak tanımlayan bir kimliği. Bu uygulamalar için depolama kimliği olabilir. Bir kullanılabilir durumda değilse, bir uygulama için oluşturulan kullanıcı kimliği olabilir.
 X-Search-ClientID | Bir GUID (onaltılık yalnızca, çizgi içermeyen) | Her yükleme için uygulama örneğini benzersiz şekilde tanımlayan bir kimliği.

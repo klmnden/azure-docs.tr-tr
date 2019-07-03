@@ -29,7 +29,7 @@ Bu hızlı başlangıçta anlatılan senaryo, bir web uygulamasının farklı Az
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma 
-https://portal.azure.com adresinden Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com ) adresinden Azure portalında oturum açın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu hızlı başlangıç için bir web uygulamasının farklı Azure bölgelerinde (*Doğu ABD* ve *Batı Avrupa*) çalışan iki örneğini dağıtmış olmanız gerekir. İki web uygulaması örneği de Etkin/Etkin modunda çalışıyor olmalıdır. Başka bir deyişle birinin yük devretme durumunda devreye girdiği Etkin/Beklemede yapılandırmasından farklı olarak ikisinin de her an trafik kabul eder durumda olması gerekir.

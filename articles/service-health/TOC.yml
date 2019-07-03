@@ -7,7 +7,7 @@
 - name: Hızlı Başlangıçlar
   items:
     - name: Hizmet durumu olayları için uyarıları yapılandırma
-      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md
 - name: Kavramlar
   items:
     - name: Azure durum sayfası
@@ -19,9 +19,9 @@
 - name: Nasıl yapılır
   items:
     - name: Hizmet durumu olayları için uyarıları yapılandırma
-      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+      href: alerts-activity-log-service-notifications.md
     - name: Azure portalını kullanarak hizmet durumu bildirimlerini görüntüleme
-      href: ../azure-monitor/platform/service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+      href: service-notifications.md
     - name: Web kancası aracılığıyla dış sistemlere uyarı gönderme
       href: service-health-alert-webhook-guide.md
     - name: ServiceNow’a uyarılar gönderme

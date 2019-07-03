@@ -16,7 +16,7 @@ ms.date: 04/15/2019
 ms.author: aschhab
 ms.openlocfilehash: 3b805a80330dd44ac4a65db88950393d3d4d60b7
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65992106"
@@ -48,7 +48,7 @@ Konuları ve abonelikleri hakkında daha fazla bilgi için bkz: [sonraki adımla
     > Oluşturacağınız bir **konu** ve **abonelik** kullanarak konuya **Node.js** Bu hızlı başlangıçta. 
 
 ## <a name="create-a-nodejs-application"></a>Node.js uygulaması oluşturma
-Boş bir Node.js uygulaması oluşturun. Bir Node.js uygulaması oluşturma ile ilgili yönergeler için bkz. [Azure Web sitesine bir Node.js uygulaması oluşturma ve dağıtma], [Node.js bulut hizmeti] [ Node.js Cloud Service] Windows kullanma PowerShell veya WebMatrix ile Web sitesi.
+Boş bir Node.js uygulaması oluşturun. Bir Node.js uygulaması oluşturma ile ilgili yönergeler için bkz. [Azure Web sitesine bir Node.js uygulaması oluşturma ve dağıtma], [Node.js bulut hizmeti][Node.js Cloud Service] Windows kullanma PowerShell veya WebMatrix ile Web sitesi.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Service Bus hizmetini kullanmak için uygulamanızı yapılandırma
 Service Bus hizmetini kullanmak için Node.js Azure paketini indirin. Bu paket, hizmet veri yolu REST Hizmetleri ile iletişim kuran bir dizi içerir.

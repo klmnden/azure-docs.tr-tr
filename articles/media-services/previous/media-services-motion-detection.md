@@ -99,13 +99,13 @@ Aşağıdaki tabloda, çıkış JSON dosyasının öğeleri açıklar.
 | Offset |Tarih damgası "saat döngüsü." içindeki saati uzaklığı Video API'leri 1.0 sürümünde, bu her zaman 0 olacaktır. Gelecekte senaryoları destekliyoruz, bu değeri değiştirebilirsiniz. |
 | Framerate |Videodaki saniye başına kare hızı. |
 | Width, Height |Piksellerde görüntü yüksekliğini ve genişliğini belirtir. |
-| Başlatma |"Tick" cinsinden başlangıç zaman damgası. |
-| Süre |"Ticks" cinsinden uzunluğu. |
+| Start |"Tick" cinsinden başlangıç zaman damgası. |
+| Duration |"Ticks" cinsinden uzunluğu. |
 | Interval |Her giriş olayı, "ticks" aralığı. |
 | Events |Her olay parça bu süre içinde algılanan hareket içerir. |
 | Type |Geçerli sürümde, bu her zaman genel hareket ' 2' dir. Bu etiket verir kategorilere ayırmak için Video API'lerini esnekliği gelecek sürümleri Ara. |
 | RegionID |Yukarıda açıklandığı gibi bu her zaman bu sürümde 0 olur. Bu etiket, Video API'si gelecekteki sürümlerde çeşitli bölgelerdeki hareket bulmak için esnekliği sunar. |
-| Bölgeler |Videonuzu hareket hakkında burada ilgilendiğiniz alanı ifade eder. <br/><br/>-"id" temsil Bölge alanı – bu sürümde yalnızca bir tane olduğunu, 0 kimliği. <br/>-"tür", önem verdiğiniz hareket bölge şeklini temsil eder. Şu anda "rectangle" ve "Çokgen" desteklenir.<br/> "Rectangle" belirttiyseniz, bölge, X boyuta sahiptir. Y, genişlik ve yükseklik. X ve Y koordinatları 0,0-1,0 normalleştirilmiş ölçeğini bölgede üst sol XY koordinatları temsil eder. Genişlik ve yükseklik 0.0 ile 1.0 normalleştirilmiş ölçeğini bölgede boyutunu temsil eder. Geçerli sürümde X, Y, genişlik ve yükseklik her zaman sabittir 0, 0 ve 1, 1. <br/>"Çokgen" belirttiyseniz, bölge boyutları noktaları vardır. <br/> |
+| Regions |Videonuzu hareket hakkında burada ilgilendiğiniz alanı ifade eder. <br/><br/>-"id" temsil Bölge alanı – bu sürümde yalnızca bir tane olduğunu, 0 kimliği. <br/>-"tür", önem verdiğiniz hareket bölge şeklini temsil eder. Şu anda "rectangle" ve "Çokgen" desteklenir.<br/> "Rectangle" belirttiyseniz, bölge, X boyuta sahiptir. Y, genişlik ve yükseklik. X ve Y koordinatları 0,0-1,0 normalleştirilmiş ölçeğini bölgede üst sol XY koordinatları temsil eder. Genişlik ve yükseklik 0.0 ile 1.0 normalleştirilmiş ölçeğini bölgede boyutunu temsil eder. Geçerli sürümde X, Y, genişlik ve yükseklik her zaman sabittir 0, 0 ve 1, 1. <br/>"Çokgen" belirttiyseniz, bölge boyutları noktaları vardır. <br/> |
 | Fragments |Meta verileri ayarlama parçaları olarak adlandırılan farklı parçalara öbekli. Her parçada başlangıç, süre, aralık sayısı ve olaylar vardır. Olay içermeyen bir parça, başlangıç zamanını ve süresini sırasında hiçbir hareket algılandı anlamına gelir. |
 | Köşeli ayraçlar] |Her köşeli ayraç olayda bir aralığı temsil eder. Boş köşeli ayraçlar için hiçbir hareket anlamına bu aralığın algılandı. |
 | locations |Bu yeni giriş olayları altında hareketin gerçekleştiği konum listeler. Bu algılama bölgeleri daha fazla özgüdür. |
