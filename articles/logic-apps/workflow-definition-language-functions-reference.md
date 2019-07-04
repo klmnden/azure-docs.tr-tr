@@ -28,7 +28,7 @@ ms.locfileid: "67203072"
 | Görev | İşlev sözdizimi | Sonuç |
 | ---- | --------------- | ------ |
 | Küçük harf biçiminde bir dize döndürür. | toLower ('<*metin*>') <p>Örneğin: toLower('Hello') | "hello" |
-| Bir genel benzersiz tanıtıcısı (GUID) döndürür. | Guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" |
+| Bir genel benzersiz tanıtıcısı (GUID) döndürür. | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" |
 ||||
 
 İşlevlerin bulunacağı [kendi genel amacına bağlı](#ordered-by-purpose), aşağıdaki tablolarda gözden geçirin. Veya her işlevi hakkında ayrıntılı bilgi için bkz. [alfabetik liste](#alphabetical-list).
@@ -84,7 +84,7 @@ Dize işlevleri yalnızca dizeler üzerinde çalışır.
 | --------------- | ---- |
 | [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | İki veya daha fazla dizeleri birleştirmek ve birleştirilmiş dizeyi döndürür. |
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Bir dizeyi, belirtilen alt dizeyle bitip bitmediğini kontrol edin. |
-| [GUID](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Bir dize olarak bir genel benzersiz tanıtıcısı (GUID) oluşturur. |
+| [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Bir dize olarak bir genel benzersiz tanıtıcısı (GUID) oluşturur. |
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Bir alt dizenin başlangıç konumunu döndürür. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Bir dizenin son a geçişi için başlangıç konumunu döndürür. |
 | [Değiştir](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Belirtilen dizenin bir alt dizenin yerini ve güncelleştirilmiş dizeyi döndür. |
@@ -2100,7 +2100,7 @@ Ve bu sonuçlar döndürebilir:
 
 <a name="guid"></a>
 
-### <a name="guid"></a>GUID
+### <a name="guid"></a>guid
 
 Örneğin, "c2ecc88d-88c8-4096-912c-d6f2e2b138ce" bir dize olarak bir genel benzersiz tanıtıcısı (GUID) oluşturur:
 
