@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlr
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 739afe52403633b1a37f57f0005a85972cc78a39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec0007e2d53a3fd3cae158375b696379d923b4b3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61314747"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447762"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Yönetilen örnek Azure SQL veritabanı ile çalışmaya başlama
 
@@ -79,3 +79,4 @@ Bu hızlı başlangıç makalelerinde hızlı bir şekilde bir yönetilen örne�
 - Bulma bir [üst düzey burada yönetilen örneğinde desteklenen özellikler listesini](sql-database-features.md) ve [ayrıntıları ve bilinen sorunlar](sql-database-managed-instance-transact-sql-information.md).
 - Hakkında bilgi edinin [yönetilen örnek Teknik Özellikleri](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
 - Nasıl daha gelişmiş bulma-için kullanıcının [Azure SQL veritabanı'nda bir yönetilen örnek kullanmayı](sql-database-howto-managed-instance.md).
+- [Doğru Azure SQL veritabanı/yönetilen örnek SKU'SUNDA şirket içi veritabanınızın tanımlamak](/sql/dma/dma-sku-recommend-sql-db/).

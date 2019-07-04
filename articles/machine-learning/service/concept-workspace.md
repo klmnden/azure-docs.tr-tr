@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 2f3d9eeca1404fcae121ae5fead222cbde4037b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 912c064fb5ca4e7ca311f60ed04a0122809cb0ff
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059252"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442364"
 ---
 # <a name="what-is-an-azure-machine-learning-service-workspace"></a>Bir Azure Machine Learning hizmeti çalışma alanı nedir?
 
@@ -83,7 +83,7 @@ Hizmet tarafından başlama [çalışma alanı oluşturma](setup-create-workspac
 Yeni bir çalışma alanı oluşturduğunuzda, çalışma alanı tarafından kullanılan bazı Azure kaynakları otomatik olarak oluşturur:
 
 + [Azure kapsayıcı kayıt defteri](https://azure.microsoft.com/services/container-registry/): Eğitim sırasında ve bir modeli dağıtırken kullandığınız docker kapsayıcıları kaydeder. ACR maliyetleri en aza indirmektir **yavaş yüklenen** dağıtım yansımaları oluşturulana kadar.
-+ [Azure depolama hesabı](https://azure.microsoft.com/services/storage/): Çalışma alanı için varsayılan veri deposu olarak kullanılır.
++ [Azure depolama hesabı](https://azure.microsoft.com/services/storage/): Çalışma alanı için varsayılan veri deposu olarak kullanılır.  Not Defteri Vm'lerinizi kullanılan Jupyter not defterleri de burada depolanır.
 + [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): İzleme, modelleri hakkında bilgi depolar.
 + [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/): Hedefleri ve gerekli olan diğer hassas bilgiler depolar gizli dizileri tarafından kullanılan işlem tarafından çalışma alanı.
 

@@ -17,12 +17,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3851e53bb648811b46ec69d9c4fc91b920ce80fb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d64c13a43d1e74e4372e57cf6d5c3054f5effea4
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784950"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540702"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Hızlı Başlangıç: Bir belirteç almak ve Microsoft Graph API'sini çağırmak uygulamanın kimliğini kullanarak bir konsol uygulaması
 
@@ -43,16 +43,16 @@ Bu Hızlı Başlangıç [.NET Core 2.2](https://www.microsoft.com/net/download/d
 > * [Express] [Seçenek 1: Kaydet ve otomatik Uygulamanızı yapılandırmak ve ardından, kod örneğini indirin](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
 > * [El ile] [Seçeneği 2: Kaydetme ve uygulama ve kod örneğinizi el ile yapılandırma](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>1. seçenek: Kaydet ve otomatik Uygulamanızı yapılandırmak ve ardından, kod örneğini indirin
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>1\. seçenek: Kaydet ve otomatik Uygulamanızı yapılandırmak ve ardından, kod örneğini indirin
 >
 > 1. Yeni Git [Azure Portalı - Uygulama kayıtları](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs) bölmesi.
 > 1. Uygulamanız için bir ad girin ve **Kaydet**'i seçin.
 > 1. Yönergeleri izleyerek yeni uygulamanızı yalnızca tek tıklamayla indirin ve otomatik olarak yapılandırın.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>2. seçenek: Kaydetme ve uygulama ve kod örneğinizi el ile yapılandırma
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>2\. seçenek: Kaydetme ve uygulama ve kod örneğinizi el ile yapılandırma
 
 > [!div renderon="docs"]
-> #### <a name="step-1-register-your-application"></a>1. Adım: Uygulamanızı kaydedin
+> #### <a name="step-1-register-your-application"></a>1\. adım: Uygulamanızı kaydetme
 > Uygulamanızı kaydetmek ve uygulama kayıt bilgilerinizi çözümünüze el ile eklemek için şu adımları izleyin:
 >
 > 1. Bir iş veya okul hesabını ya da kişisel bir Microsoft hesabını kullanarak [Azure portalda](https://portal.azure.com) oturum açın.
@@ -70,7 +70,7 @@ Bu Hızlı Başlangıç [.NET Core 2.2](https://www.microsoft.com/net/download/d
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="download-and-configure-your-quickstart-app"></a>İndirme ve hızlı başlangıç uygulamanızı yapılandırma
 > 
-> #### <a name="step-1-configure-your-application-in-azure-portal"></a>1. Adım: Uygulamanızı Azure portalında yapılandırma
+> #### <a name="step-1-configure-your-application-in-azure-portal"></a>1\. adım: Uygulamanızı Azure portalında yapılandırma
 > İstemci gizli anahtarı oluşturma ve Graph API'nin eklemek için ihtiyacınız çalışmak bu hızlı başlangıç için kod örneği için **User.Read.All** uygulama izni.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Benim için şu değişiklikleri yapın]()
@@ -78,11 +78,11 @@ Bu Hızlı Başlangıç [.NET Core 2.2](https://www.microsoft.com/net/download/d
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Zaten yapılandırılmış](media/quickstart-v2-windows-desktop/green-check.png) Uygulamanız bu özniteliklerle yapılandırılmış.
 
-#### <a name="step-2-download-your-visual-studio-project"></a>2. Adım: Visual Studio projenizi indirin
+#### <a name="step-2-download-your-visual-studio-project"></a>2\. adım: Visual Studio projenizi indirin
 
 [Visual Studio projesini indirin](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/msal3x.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>3. adım: Visual Studio projenizi yapılandırın
+#### <a name="step-3-configure-your-visual-studio-project"></a>3\. adım: Visual Studio projenizi yapılandırın
 
 1. Zip dosyasını diskin köküne yakın bir yerel klasöre (örneğin **C:\Azure-Samples**) ayıklayın.
 1. Visual Studio'da - çözümü açın **arka plan programı console.sln** (isteğe bağlı).
@@ -96,6 +96,10 @@ Bu Hızlı Başlangıç [.NET Core 2.2](https://www.microsoft.com/net/download/d
     > > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
     > > [Yeni bir istemci gizli anahtarı oluştur]()
     
+    > [!div renderon="portal"]
+    > > [!NOTE]
+    > > Bu hızlı başlangıçta Enter_the_Supported_Account_Info_Here destekler.
+    
     > [!div renderon="docs"]
     >> Konumlar:
     >> * `Enter_the_Application_Id_Here` - kaydettiğiniz uygulamanın **Uygulama (istemci) Kimliği** değeridir.
@@ -106,7 +110,7 @@ Bu Hızlı Başlangıç [.NET Core 2.2](https://www.microsoft.com/net/download/d
     > > [!TIP]
     > > Değerlerini bulmak için **uygulama (istemci) kimliği**, **dizin (Kiracı) kimliği**uygulamanın Git **genel bakış** Azure portalında sayfası. Yeni bir anahtar oluşturmak için şu adrese gidin **sertifikaları ve parolaları** sayfası.
     
-#### <a name="step-4-admin-consent"></a>4. Adım: Yönetici onayı
+#### <a name="step-4-admin-consent"></a>4\. Adım: Yönetici onayı
 
 Bu noktada uygulamayı çalıştırmayı denerseniz alacağınız *HTTP 403 - Yasak* hata: `Insufficient privileges to complete the operation`. Çünkü böyle herhangi *yalnızca uygulama izni* dizininizin genel Yöneticisi, uygulamaya izin vermeniz gerekir yani yönetici onayı gerektirir. Rolünüze bağlı olarak aşağıdaki seçeneklerden birini seçin:
 
@@ -136,7 +140,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 > [!NOTE]
 > Hatasıyla karşılaşabilirsiniz *' AADSTS50011: Uygulama için hiç yanıt adresi kayıtlı '* sonra önceki URL'yi kullanarak bir uygulamaya izin veriliyor. Bu sorun bu uygulama ve URL yeniden yönlendirme URI'si - olmadığı için lütfen yoksayın hata.
 
-#### <a name="step-5-run-the-application"></a>5. Adım: Uygulamayı çalıştırma
+#### <a name="step-5-run-the-application"></a>5\. Adım: Uygulamayı çalıştırma
 
 Visual Studio kullanıyorsanız, basın **F5** uygulamayı çalıştırmak için Aksi takdirde, uygulamayı komut istemi veya konsol çalıştırın:
 
@@ -157,7 +161,7 @@ Sonuç olarak, Azure AD dizininde kullanıcıların listesini görmeniz gerekir.
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) kullanıcılarının oturumunu ve Microsoft kimlik platformu tarafından korunan bir API'ye erişmek için kullanılan belirteci istemek için kullanılan bir kitaplık sunulmaktadır. Bu hızlı başlangıçta açıklandığı gibi temsilci izinleri yerine uygulama kendi kimliğini kullanarak belirteçleri ister. Bu örnekte kullanılan kimlik doğrulama akışı olarak bilinir  *[istemci kimlik bilgileri, oauth akışını](v2-oauth2-client-creds-grant-flow.md)*. İstemci kimlik bilgileri akışı ile MSAL.NET kullanma hakkında daha fazla bilgi için bkz. [bu makalede](https://aka.ms/msal-net-client-credentials).
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) kullanıcılarının oturumunu ve Microsoft kimlik platformu tarafından korunan bir API'ye erişmek için kullanılan belirteci istemek için kullanılan bir kitaplık sunulmaktadır. Bu hızlı başlangıçta açıklandığı gibi temsilci izinleri yerine uygulama kendi kimliğini kullanarak belirteçleri ister. Bu örnekte kullanılan kimlik doğrulama akışı olarak bilinir  *[istemci kimlik bilgileri, oauth akışını](v2-oauth2-client-creds-grant-flow.md)* . İstemci kimlik bilgileri akışı ile MSAL.NET kullanma hakkında daha fazla bilgi için bkz. [bu makalede](https://aka.ms/msal-net-client-credentials).
 
  Visual Studio'nun aşağıdaki komutu çalıştırarak, MSAL.NET yükleyebilirsiniz **Paket Yöneticisi Konsolu**:
 

@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/01/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 08745c3ef3d4996340ec40af496f8f0a5e0201c3
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 6d26cedb0dd836846d7e9f00539fe101c944f478
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595740"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442220"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>ASP.NET Web Uygulamanızı izlemeye başlama
 
@@ -33,7 +33,7 @@ Bu hızlı başlangıcı tamamlamak için:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
-## <a name="enable-application-insights"></a>Application Insights'ı Etkinleştir
+## <a name="enable-application-insights"></a>Application Insights'ı etkinleştirme
 
 1. Projenizi Visual Studio 2019 ' açın.
 2. Proje menüsünden **Application Insights’ı Yapılandır**’ı seçin. Visual Studio, uygulamanıza Application Insights SDK'sını ekler.
@@ -63,13 +63,13 @@ Artık Application Insights’ı Azure portalında açarak çalışan uygulaman�
 
 1. Genişletin **bağlı hizmetler** Çözüm Gezgini'nde klasörü (Bulut ve Tak simgesi) sonra sağ **Application Insights** klasörü ve tıklatın **Application Insights portalını Aç** .  Uygulamanıza ilişkin bazı bilgiler ve çeşitli seçenekler görürsünüz.
 
-    ![Uygulama Haritası](media/quick-monitor-portal/4overview.png)
+    ![Uygulama Eşlemesi](media/quick-monitor-portal/04-overview.png)
 
 2. Uygulama bileşenleriniz arasındaki bağımlılık ilişkilerinin görsel düzenini almak için **Uygulama haritası**’na tıklayın.  Her bileşen yük, performans, hatalar ve uyarılar gibi KPI'leri gösterir.
 
-    ![Uygulama Haritası](media/quick-monitor-portal/5appmap.png)
+    ![Uygulama Eşlemesi](media/quick-monitor-portal/05-appmap.png)
 
-3. Tıklayarak **uygulama analizi** simgesi ![Uygulama Haritası](media/quick-monitor-portal/app-analytics-icon.png) **analytics'te görüntüle** Uygulama bileşenlerinden birinde. Bu işlem, Application Insights tarafından toplanan tüm verileri analiz etmeye yönelik zengin bir sorgu dili sağlayan **Application Insights Analizi**’ni açar.  Bu örnekte, istek sayısını grafik olarak işleyen bir sorgu oluşturulur. Diğer verileri çözümlemek için kendi sorgularınızı yazabilirsiniz.
+3. Tıklayarak **uygulama analizi** simgesi ![Uygulama Haritası](media/quick-monitor-portal/app-viewinlogs-icon.png) **günlükleri (analiz) görünümünde** Uygulama bileşenlerinden birinde. Bu açılır **günlükleri (analiz)** , Application Insights tarafından toplanan tüm verileri çözümleme için zengin bir sorgu dili sağlar. Bu örnekte, istek sayısını grafik olarak işleyen bir sorgu oluşturulur. Diğer verileri çözümlemek için kendi sorgularınızı yazabilirsiniz.
 
     ![Analiz](media/quick-monitor-portal/6viewanalytics.png)
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 03fcbb0216d85e337b4161aa24ceeb7d3a2bdebe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41a57d1ad5d216797fc60ea13acff346734fdef8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479467"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433639"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Betik eylemlerini kullanarak Azure HDInsight kümelerinizi özelleştirebilirsiniz.
 
@@ -51,6 +51,9 @@ Betik eylemi çalıştıran bir HDInsight kümesindeki düğümler üzerinde Bas
       * ADLS Gen1: HDInsight, Data Lake depolamaya erişmek için kullandığı hizmet sorumlusu, betik okuma erişiminiz olması gerekir. Data Lake depolama Gen1 içinde depolanan bir komut dosyası için URI biçimi `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
       
       * Ya da bir Azure depolama hesabındaki bir blob HDInsight küme için birincil ya da ek depolama hesabı. HDInsight, küme oluşturma sırasında hem de bu türlerde depolama hesapları için erişim izni verilir.
+
+        > [!IMPORTANT]  
+        > Sonraki betik eylemleri başarısız olmasına depolanan betiklerle neden olacak şekilde, bu Azure depolama hesabında depolama anahtarı döndürmeyin.
 
       * Genel Dosya Paylaşımı hizmet http:// yolları erişilebilir. Azure Blob, GitHub'ı OneDrive verilebilir.
 
@@ -147,7 +150,6 @@ HDInsight, HDInsight kümelerinde aşağıdaki bileşenleri yüklemek için komu
 | --- | --- |
 | Bir Azure depolama hesabı ekleme |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Bkz: [HDInsight için ek depolama hesapları ekleme](hdinsight-hadoop-add-storage.md). |
 | Hue yükleme |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Bkz: [yükleme ve kullanma, HDInsight, Hadoop üzerinde Hue kümeleri](hdinsight-hadoop-hue-linux.md). |
-| Presto yükleme |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. Bkz: [yüklemeden ve kullanmadan Presto üzerinde Hadoop tabanlı HDInsight kümeleri](hdinsight-hadoop-install-presto.md). |
 | Giraph yükleme |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Bkz: [HDInsight Hadoop üzerinde Apache Giraph'ı yükleme kümeleri](hdinsight-hadoop-giraph-install-linux.md). |
 | Hive kitaplıklarını önceden yükleme |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Bkz: [HDInsight kümenizi oluştururken özel Apache Hive kitaplıkları ekleme](hdinsight-hadoop-add-hive-libraries.md). |
 

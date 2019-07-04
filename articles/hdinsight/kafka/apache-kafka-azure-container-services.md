@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 35ef708cdcedc2d7bafedb8bf3686e4b468177df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc2c3e557f295bd3125c09d9b839716159dcf50b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64723676"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446468"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Azure Kubernetes hizmeti, HDInsight üzerinde Apache Kafka ile kullanma
 
@@ -35,7 +35,7 @@ Bu belge, oluşturma ve aşağıdaki Azure hizmetlerini kullanma ile ilgili bilg
 * Azure Kubernetes Service
 * Azure Sanal Ağları
 
-Bu belge, ayrıca, konusunun üzerinden geçtik olduğunu varsayar [Azure Kubernetes Service Öğreticisi](../../aks/tutorial-kubernetes-prepare-app.md). Bu öğreticide, bir kapsayıcı hizmeti oluşturur, bir Kubernetes kümesi, bir kapsayıcı kayıt defteri oluşturur ve yapılandırır `kubectl` yardımcı programı.
+Bu belge, ayrıca, konusunun üzerinden geçtik olduğunu varsayar [Azure Kubernetes Service Öğreticisi](../../aks/tutorial-kubernetes-prepare-app.md). Bu makalede kapsayıcı hizmeti oluşturur, bir Kubernetes kümesi, bir kapsayıcı kayıt defteri oluşturur ve yapılandırır `kubectl` yardımcı programı.
 
 ## <a name="architecture"></a>Mimari
 

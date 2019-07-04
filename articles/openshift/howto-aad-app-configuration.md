@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/13/2019
-ms.openlocfilehash: adc5a601a04936a376d7c69b26c2429940ebdf6e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b79efa6ee1f4c052a0037a971fc36d8a9ae0ce58
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306468"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67458711"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift için Azure Active Directory Tümleştirmesi
 
@@ -26,7 +26,7 @@ Microsoft Azure Red Hat OpenShift kümenizi adına görevleri gerçekleştirmek 
 
 İçinde [Azure portalında](https://portal.azure.com), kiracınıza kullanıcı adınızı üst altında göründüğünden emin olun portal'ın sağ:
 
-![Kiracı portalı ekran görüntüsü, sağ üst bölümde listelenen](./media/howto-create-tenant/tenant-callout.png) yanlış kiracıya gösterilirse, sağ üst köşesindeki kullanıcı adına tıklayın ve ardından tıklayın **dizini Değiştir**, doğru kiracıdan seçip **tüm Dizinleri** listesi.
+![Kiracı portalı ekran görüntüsü, sağ üst bölümde listelenen](./media/howto-create-tenant/tenant-callout.png) yanlış kiracıya gösterilirse, sağ üst kullanıcı adınıza tıklayın ve ardından tıklayın **dizini Değiştir**, doğru kiracıdan seçip **tüm Dizinleri** listesi.
 
 Azure Red Hat OpenShift kümenize oturum açmak için yeni bir Azure Active Directory genel yönetici kullanıcı oluşturun.
 
@@ -43,7 +43,7 @@ Azure Red Hat OpenShift kümenize oturum açmak için yeni bir Azure Active Dire
 Küme Yönetici erişimi vermek için bir Azure AD güvenlik grubu üyelik OpenShift grubu "osa müşteri-Yönetici" eşitlenir. Belirtilmezse, küme yönetici erişimi yok verilir.
 
 1. Açık [Azure Active Directory grupları](https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups) dikey penceresi.
-2. Tıklayın **+ yeni Grup**
+2. Tıklayın **+ yeni grup**.
 3. Grup adı ve açıklama girin.
 4. Ayarlama **grup türü** için **güvenlik**.
 5. Ayarlama **üyelik türü** için **atanan**.
@@ -54,7 +54,7 @@ Küme Yönetici erişimi vermek için bir Azure AD güvenlik grubu üyelik OpenS
 7. Üye listesinde, yukarıda oluşturduğunuz Azure AD kullanıcısını seçin.
 8. Portalın en altında tıklayın **seçin** ardından **Oluştur** güvenlik grubu oluşturun.
 
-    Grup Kimliği değerini Yaz
+    Grup Kimliği değeri yazın.
 
 9. Grup oluşturulduğunda, tüm grupları listesinde görürsünüz. Yeni gruba tıklayın.
 10. Aşağı açılan sayfada kopyalama **nesne kimliği**. Bu değer anılacaktır `GROUPID` içinde [Azure Red Hat OpenShift küme oluşturma](tutorial-create-cluster.md) öğretici.
@@ -83,17 +83,34 @@ Uygulamanızı Azure Active Directory kimlik doğrulaması için bir istemci giz
 4. Ayarlama **Expires** , tercih süresi **2 yıl içinde**.
 5. Tıklayın **Ekle** ve anahtar değeri görünür **istemci gizli dizileri** sayfasının bölümünde.
 6. Anahtar değerini kopyalayın. Bu değer anılacaktır `SECRET` içinde [Azure Red Hat OpenShift küme oluşturma](tutorial-create-cluster.md) öğretici.
- 
+
 ![Sertifikaları ve parolaları bölmesinin ekran görüntüsü](./media/howto-create-tenant/create-key.png)
- 
+
 Azure uygulama nesneleri hakkında daha fazla bilgi için bkz. [uygulaması ve Azure Active Directory'de Hizmet sorumlusu nesneleri](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
 
 Yeni bir oluşturma hakkında bilgi edinmek için Azure AD uygulaması, bakın [bir uygulamayı Azure Active Directory v1.0 uç noktası ile kaydetme](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
 
+## <a name="add-api-permissions"></a>API izinleri ekleme
+
+1. İçinde **Yönet** bölümünde **API izinleri**.
+2. Tıklayın **iznini ekleyin** seçip **Azure Active Directory Graph'i** ardından **temsilci izinleri**
+3. Genişletin **kullanıcı** emin olun ve aşağıdaki listede **User.Read** etkinleştirilir.
+4. Yukarı kaydırın ve **uygulama izinleri**.
+5. Genişletin **dizin** etkinleştir ve listenin altındaki **Directory.ReadAll**
+6. Tıklayın **izinleri eklemek** değişiklikleri kabul etmek için.
+7. API izinleri paneli artık hem göstermelidir *User.Read* ve *Directory.ReadAll*. Lütfen uyarı unutmayın **yönetici onayı gerekli** yanındaki sütuna *Directory.ReadAll*.
+8. Eğer *Azure aboneliğinin Yöneticisi*, tıklayın **vermek için yönetici onayı *abonelik adı***  aşağıda. Kök kullanıcı değilseniz *Azure aboneliğinin Yöneticisi*, yöneticinizden izin isteyin.
+![API izinleri bölmesinin ekran görüntüsü. Eklenen User.Read ve Directory.ReadAll izinleri Directory.ReadAll için yönetici onayı gerekli](./media/howto-aad-app-configuration/permissions-required.png)
+
+> [!IMPORTANT]
+> Eşitleme küme yöneticileri grubunun, sadece onay verildikten sonra çalışır. Bir onay işareti ve bir ileti yeşil bir daire görürsünüz "için verilen *abonelik adı*" içinde *yönetici onayı gerekli* sütun.
+
+Yöneticileri ve diğer rolleri yönetme hakkında daha fazla bilgi için bkz [ekleme veya değiştirme Azure aboneliği yöneticileri](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator).
+
 ## <a name="resources"></a>Kaynaklar
 
-* [Uygulamalar ve Azure Active Directory'de Hizmet sorumlusu nesneleri](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)  
-* [Hızlı Başlangıç: Azure Active Directory v1.0 uç noktası ile bir uygulamayı kaydetme](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)  
+* [Uygulamalar ve Azure Active Directory'de Hizmet sorumlusu nesneleri](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+* [Hızlı Başlangıç: Azure Active Directory v1.0 uç noktası ile bir uygulamayı kaydetme](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 11f3dcefd283ada00e915c2d6cb8abf654590ec1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b8d5d1b3c3f505b66e07f7aa226cfa001af94af8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60588160"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449334"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS koruması: En iyi yöntemler ve başvuru mimarileri
 
@@ -224,6 +224,8 @@ Azure DDoS koruması standart tanımlar ve DDoS saldırıları kullanıcı müda
 - Ağ trafiğinizi önemli ölçüde artıracak bir viral olay planlamanız durumunda.
 
 - Bir aktör, kaynaklarınızın bir DDoS saldırısı başlatmak tehdit.
+
+- Bir IP beyaz liste veya IP aralığı Azure DDoS koruması Standart'tan ihtiyaç duyuyorsanız. Sık karşılaşılan bir senaryodur beyaz liste IP için ise trafik, Azure için bir dış buluttan WAF yönlendirilir. 
 
 Bir iş açısından kritik etkisi saldırıları oluşturmak için bir önem derecesi A [destek bileti](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

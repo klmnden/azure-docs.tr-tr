@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 1ef8c8eec3865f2a6e363e7da1dbda9504b81c05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f981452b06ec06f2be1b8fe0319cd49a678ccfe0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546426"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441576"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Tümleştirme service ortamları (ISEs) kullanarak Azure sanal ağ kaynakları için Azure Logic Apps gelen erişimi
 
@@ -35,7 +35,7 @@ Mantıksal uygulamanız artık doğrudan içinde olduğunda veya bu öğelerden 
 Bir işe mantıksal uygulamalarınızı nasıl verir hakkında daha fazla ayrıntı bu genel bakış açıklar ve tümleştirme, Azure sanal ağa doğrudan erişim hesapları ve genel Logic Apps hizmeti ile bir işe arasındaki farklar karşılaştırır.
 
 > [!NOTE]
-> Logic apps, yerleşik tetikleyicileri, yerleşik Eylemler ve bağlayıcılar ISE kullanımınız fiyatlandırma planı tüketim tabanlı fiyatlandırma planından farklı çalıştır. Daha fazla bilgi için [Logic Apps fiyatlandırma](../logic-apps/logic-apps-pricing.md).
+> Logic apps, yerleşik tetikleyicileri, yerleşik Eylemler ve bağlayıcılar ISE kullanımınız fiyatlandırma planı tüketim tabanlı fiyatlandırma planından farklı çalıştır. Daha fazla bilgi için [Logic Apps fiyatlandırma](../logic-apps/logic-apps-pricing.md). Çalıştırma süresi, depolama bekletme, aktarım hızı, HTTP istek ve yanıt zaman aşımları, ileti boyutları ve özel bağlayıcı istekleri, işe sınırları da arttı. Daha fazla bilgi için [limitler ve yapılandırma için Azure Logic Apps](logic-apps-limits-and-config.md).
 
 <a name="difference"></a>
 
@@ -61,14 +61,14 @@ ISE ve ISE olmayan bağlayıcıları arasındaki fark tetikleyiciler ve Eylemler
 
   ![ISE bağlayıcıları seçme](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
 
+Bir işe artırılmış sınırlar çalıştırma süresi, depolama bekletme, aktarım hızı, HTTP istek ve yanıt zaman aşımları, ileti boyutları ve özel bağlayıcı istekleri için de sağlar. Daha fazla bilgi için [limitler ve yapılandırma için Azure Logic Apps](logic-apps-limits-and-config.md).
+
 ### <a name="access-to-on-premises-data-sources"></a>Şirket içi veri kaynaklarına erişim
 
 Logic apps bu öğelerden herhangi birini kullanarak bu sistemlerin doğrudan erişerek Azure sanal ağına bağlı şirket içi sistemler için bu ağa bir işe ekleme:
 
 * Örneğin, SQL Server sistem için işe sürüm Bağlayıcısı
-  
 * HTTP eylemi
-  
 * Özel bağlayıcı
 
   * Şirket içi veri ağ geçidi gerektiren özel bağlayıcılara sahiptir ve söz konusu bağlayıcıların bir işe dışında oluşturduğunuz, bir işe logic apps'te de bu bağlayıcıları kullanabilirsiniz.

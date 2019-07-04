@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 8cd89b21e80662ec50746e0c7721a5544cfbce30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6af95b7f8bde6e77ba356fec9dde123e26a9a4a8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64717490"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448641"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Windows PowerShell aracılığıyla bir Azure veri kutusu Edge cihazı yönetme
 
@@ -52,8 +52,9 @@ IOT Edge Cihazınızı ve buna bağlanmak aşağı akış cihazları arasında g
 Aşağıdaki örnek, IOT Edge sertifikaları yüklemek için bu cmdlet'in kullanımı gösterilmektedir:
 
 ```
-Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username/password"
+Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username"
 ```
+Bu cmdlet'i çalıştırdığınızda, ağ paylaşımı için parolayı girmeniz istenir.
 
 Sertifikalar hakkında daha fazla bilgi için Git [Azure IOT Edge sertifikaları](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) veya [sertifikaları üzerinde bir ağ geçidi yükleme](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway).
 
@@ -75,13 +76,12 @@ Bilgi işlem rolü Cihazınızda yapılandırılmışsa, ayrıca PowerShell arab
     Aşağıdaki örnek, bu cmdlet kullanımını gösterir:
 
     ```powershell
-    Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username/password" -RoleInstanceName "IotRole" -FullLogCollection
+    Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username" -FullLogCollection
     ```
 
     Cmdlet'i için kullanılan parametreler açıklaması aşağıda verilmiştir:
     - `Path`: Bir işlem günlüğü paketi oluşturmak için istediğiniz paylaşımı ağ yolunu belirtin.
-    - `Credential`: Ağ paylaşımı için kullanıcı adı ve parola sağlayın.
-    - `RoleInstanceName`: Bu dize `IotRole` Bu parametre için.
+    - `Credential`: Ağ paylaşımı için kullanıcı adını belirtin. Bu cmdlet'i çalıştırdığınızda, paylaşımı parolayı girmeniz gerekir.
     - `FullLogCollection`: Bu parametre, günlük paketi tüm işlem günlüklerini içerecek sağlar. Varsayılan olarak, yalnızca bir alt günlüklerin günlük paketi içerir.
 
 ## <a name="monitor-and-troubleshoot-compute-modules"></a>İzleme ve sorun giderme işlem modülleri

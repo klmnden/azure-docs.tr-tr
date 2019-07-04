@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: ef32fb9615d36d68da613c4cb1b443dfd928e807
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 266d6160562d5a97bde75597216338214f3d988d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137388"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441418"
 ---
 # <a name="what-is-enterprise-security-package-in-azure-hdinsight"></a>Azure HDInsight, Kurumsal güvenlik paketi nedir
 
@@ -49,7 +49,7 @@ Tüm küme kaynaklarını ve veri erişim denetiminin, kaynaklara yetkisiz veya 
 
 Yönetici görüntüleyebilir ve tüm erişim veri ve HDInsight kümesi kaynakları için rapor. Yönetici de görüntüleyebilir ve tüm değişiklikleri Apache Ranger destekli uç noktalarda oluşturulan erişim denetimi ilkeleri rapor. 
 
-Bir HDInsight kümesi ile ESP denetim günlüklerini aramak için bilindik Apache Ranger arabirimini kullanır. Ranger arka uçta kullanan [Apache Solr](http://lucene.apache.org/solr/) depolamak ve günlükleri aranıyor.
+Bir HDInsight kümesi ile ESP denetim günlüklerini aramak için bilindik Apache Ranger arabirimini kullanır. Ranger arka uçta kullanan [Apache Solr](https://lucene.apache.org/solr/) depolamak ve günlükleri aranıyor.
 
 ## <a name="encryption"></a>Şifreleme
 Veri koruma, toplantı Kurumsal güvenlik ve uyumluluk gereksinimlerini için önemlidir. Erişim için verilerin yetkisiz çalışanların erişiminden korunmasının yanı sıra, bu şifreleme. 

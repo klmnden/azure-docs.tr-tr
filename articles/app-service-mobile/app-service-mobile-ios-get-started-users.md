@@ -3,7 +3,7 @@ title: Azure Mobile Apps ile iOS kimlik doğrulaması ekleme
 description: Kimlik sağlayıcıları, AAD, Google, Facebook, Twitter ve Microsoft gibi çeşitli iOS uygulamanızdaki kullanıcıların kimliğini doğrulamak için Azure Mobile Apps'ı kullanmayı öğrenin.
 services: app-service\mobile
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
@@ -12,17 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: crdun
-ms.openlocfilehash: 8c1c52790065015977add7e32a06063057b24dad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 88e278ced5cbddb132cdc2f760864df119762088
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128158"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449128"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>İOS uygulamanıza kimlik doğrulaması ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+
+> [!NOTE]
+> Visual Studio App Center, mobil uygulama geliştirme merkezi hizmetlerinde yeni ve tümleşik yatırım yapıyor. Geliştiriciler **derleme**, **Test** ve **Dağıt** hizmetlerinin sürekli tümleştirme ve teslim işlem hattı ayarlayın. Uygulama dağıtıldığında, geliştiriciler kendi uygulamasını kullanarak kullanımı ve durumu izleyebilirsiniz **Analytics** ve **tanılama** kullanarak kullanıcılarla etkileşim kurun ve hizmetlerini **anında iletme** hizmeti. Geliştiriciler de yararlanabilir **Auth** , kullanıcıların kimliğini doğrulamak ve **veri** kalıcı hale getirmek ve uygulama verilerini bulutta eşitleme hizmeti. Kullanıma [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-users) bugün.
+>
 
 Bu öğreticide, kimlik doğrulaması ekleme [iOS Hızlı Başlangıç] desteklenen kimlik sağlayıcısı kullanarak proje. Bu öğreticide dayanır [iOS Hızlı Başlangıç] Öğreticisi, öncelikle tamamlamanız gerekir.
 
@@ -43,7 +47,7 @@ Uygulamanız için yeni bir URL şemasını tanımlamak güvenli kimlik doğrula
 
 5. İçinde **izin verilen dış yönlendirme URL'leri**, girin `appname://easyauth.callback`.  _Appname_ bu dizesinde mobil uygulamanız için URL şeması aşağıdaki gibidir.  Bu, bir protokol (kullanım harf ve yalnızca sayı ve bir harfle) için normal URL belirtimi izlemeniz gerekir.  Çeşitli yerlerde URL şeması ile mobil uygulama kodunuzu ayarlamak kullanmanız gerektiğinden, seçtiğiniz dizenin Not.
 
-6. **Tamam**'ı tıklatın.
+6. **Tamam** düğmesine tıklayın.
 
 7. **Kaydet**’e tıklayın.
 
@@ -77,7 +81,7 @@ Xcode içindeki basın **çalıştırma** uygulamasını başlatmak için. Uygul
     }
     ```
 
-    Değişiklik *google* için *microsoftaccount*, *twitter*, *facebook*, veya *windowsazureactivedirectory* kimlik sağlayıcınız olarak Google kullanmıyorsanız. Facebook kullanıyorsanız yapmanız gerekenler [beyaz liste Facebook etki alanları] [ 1] uygulamanızda.
+    Değişiklik *google* için *microsoftaccount*, *twitter*, *facebook*, veya *windowsazureactivedirectory* kimlik sağlayıcınız olarak Google kullanmıyorsanız. Facebook kullanıyorsanız yapmanız gerekenler [beyaz liste Facebook etki alanları][1] uygulamanızda.
 
     Değiştirin **urlScheme** uygulamanız için benzersiz bir ada sahip.  UrlScheme belirtilen URL şeması protokolü ile aynı olmalıdır **izin verilen dış yönlendirme URL'leri** Azure portalında alan. UrlScheme doğrulama geri çağırmasının tarafından kimlik doğrulama isteği tamamlandıktan sonra uygulamanıza geri geçiş yapmak için kullanılır.
 
@@ -163,7 +167,7 @@ Xcode içindeki basın **çalıştırma** uygulamasını başlatmak için. Uygul
     }
     ```
 
-    Değişiklik *google* için *microsoftaccount*, *twitter*, *facebook*, veya *windowsazureactivedirectory* kimlik sağlayıcınız olarak Google kullanmıyorsanız. Facebook kullanıyorsanız yapmanız gerekenler [beyaz liste Facebook etki alanları] [ 1] uygulamanızda.
+    Değişiklik *google* için *microsoftaccount*, *twitter*, *facebook*, veya *windowsazureactivedirectory* kimlik sağlayıcınız olarak Google kullanmıyorsanız. Facebook kullanıyorsanız yapmanız gerekenler [beyaz liste Facebook etki alanları][1] uygulamanızda.
 
     Değiştirin **urlScheme** uygulamanız için benzersiz bir ada sahip.  UrlScheme belirtilen URL şeması protokolü ile aynı olmalıdır **izin verilen dış yönlendirme URL'leri** Azure portalında alan. UrlScheme doğrulama geri çağırmasının tarafından kimlik doğrulama isteği tamamlandıktan sonra uygulamanıza geri geçiş yapmak için kullanılır.
 

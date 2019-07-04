@@ -1,19 +1,18 @@
 ---
 title: Azure IOT Hub cihaz akışları (Önizleme) | Microsoft Docs
-description: IOT Hub cihaz akışları genel bakış.
-author: rezasherafat
-manager: briz
+description: IOT Hub cihaz akışları genel bakış
+author: robinsh
 services: iot-hub
 ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.author: rezas
-ms.openlocfilehash: eba08521cb28a29a08c8e4e48f0ec321cb0397c7
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.author: robinsh
+ms.openlocfilehash: 6c0fa0a3166dce5aa6adc71a46555a24d899c96b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137315"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441354"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IOT Hub cihaz akışları (Önizleme)
 

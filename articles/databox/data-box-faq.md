@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/23/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 18c6175ede1e8459d3a9ca60f7890cc43d75e5ba
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8f090a3f07eba529fd39976545eb654083e637eb
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236294"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561407"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box'de: Sıkça Sorulan Sorular
 
@@ -53,7 +53,7 @@ A. Data Box toplamda 100 TB, kullanılabilir alan olarak ise 80 TB kapasiteye sa
 A.  Hangi ülkeler/bölgeler üzerinde Data Box kullanılabilir daha fazla bilgi için Git [bölge kullanılabilirliği](data-box-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>S. Data Box ile hangi bölgelerde veri depolayabilirim?
-A. Data Box ABD, Batı Avrupa, Kuzey Avrupa, Fransa ve Birleşik Krallık'taki tüm bölgelerde kullanılabilir. Yalnızca Azure genel bulut bölgeleri desteklenir. Azure Kamu veya diğer bağımsız bulutlar desteklenmez. Daha fazla bilgi için bkz. [Bölge kullanılabilirliği](data-box-overview.md#region-availability).
+A. Veri kutusu ABD, Batı Avrupa, Kuzey Avrupa, Fransa, Birleşik Krallık, Japonya, Avustralya ve Kanada dahilindeki tüm bölgelerde desteklenir. Daha fazla bilgi için bkz. [Bölge kullanılabilirliği](data-box-overview.md#region-availability).
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>S. Data Box ile ilgili sorun yaşamam halinde kiminle iletişim kurmam gerekir?
 A. Data Box ile ilgili sorun yaşamanız halinde lütfen [Microsoft Desteği ile iletişime geçin](data-box-disk-contact-microsoft-support.md).
@@ -170,7 +170,7 @@ A.  To speed up the copy process:
 
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box"></a>S. Data Box ile birden fazla depolama hesabı kullanabilir miyim?
-A.  Evet. Data Box ile genel amaçlı, klasik veya blob depolama olmak üzere en fazla 10 depolama hesabı kullanılabilir. Hem sık hem de seyrek erişimli bloblar desteklenir. Genel kullanıma sunulma sırasında Azure genel bulutundaki ABD, Batı Avrupa, Kuzey Avrupa, Fransa ve Birleşik Krallık bölgelerindeki depolama hesapları desteklenir.
+A.  Evet. Data Box ile genel amaçlı, klasik veya blob depolama olmak üzere en fazla 10 depolama hesabı kullanılabilir. Hem sık hem de seyrek erişimli bloblar desteklenir. 
 
 
 ## <a name="ship-device"></a>Cihaz gönderme

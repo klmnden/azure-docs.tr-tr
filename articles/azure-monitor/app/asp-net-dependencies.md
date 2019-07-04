@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: 479b810c5a66917bde5754d32991fb489ea26c9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8ba5b19ad5d8f03203e9a028fbc5aec84e5ec06
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299286"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565379"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Azure Application Insights izleme bağımlılığı 
 
@@ -104,7 +104,7 @@ ASP.NET uygulamaları için tam SQL sorgusunu izleme altyapısı gerektirir bayt
 | --- | --- |
 | Azure Web Uygulaması |Web uygulaması Denetim Masası'ndaki [Application Insights dikey penceresini açın](../../azure-monitor/app/azure-web-apps.md) ve .NET altındaki SQL komutları etkinleştirin |
 | IIS sunucusu (Azure VM, şirket içi ve benzeri.) | [Uygulamanın çalıştığı sunucunuza Durum İzleyicisi yükleme](../../azure-monitor/app/monitor-performance-live-website-now.md) ve IIS'yi yeniden başlatın.
-| Azure bulut hizmeti |[Kullanım başlangıç görevi](../../azure-monitor/app/cloudservices.md) için [Durum İzleyicisi yükleme](monitor-performance-live-website-now.md#download) |
+| Azure bulut hizmeti | Ekleme [StatusMonitor yüklemek için başlangıç görevi](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> Uygulamanızı eklenen Applicationınsights SDK derleme zamanında için NuGet paketlerini yükleyerek olmalıdır [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) veya [ASP.NET Core uygulamaları](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
 | IIS Express | Desteklenmiyor
 
 Yukarıdaki durumlarda, bu araçları motor doğrulama doğru şekilde yüklendiğinden SDK'sı sürümü toplanan olduğunu doğrulayarak ise `DependencyTelemetry` 'rddp' olduğu. 'rdddsd' veya 'rddf' bağımlılıkları DiagnosticSource veya EventSource geri çağırmalar toplanır ve bu nedenle tam SQL sorgusunu yakalanan olmaz gösterir.
@@ -113,47 +113,25 @@ Yukarıdaki durumlarda, bu araçları motor doğrulama doğru şekilde yüklendi
 
 * [Uygulama Haritası](app-map.md) komşu bileşenlerini ve uygulama arasındaki bağımlılıkları görselleştirir.
 * [İşlem tanılamaları](transaction-diagnostics.md) gösterir birleşik, sunucu verileri bağıntılı.
-* [Tarayıcılar dikey](javascript.md#ajax-performance) kullanıcılarınızın tarayıcılarından AJAX çağrılarını gösterir.
+* [Tarayıcı sekmesini](javascript.md#ajax-performance) kullanıcılarınızın tarayıcılarından AJAX çağrılarını gösterir.
 * Bağımlılık çağrılarını denetlemek için yavaş veya başarısız istekleri tıklayın.
-* [Analytics](#analytics) sorgu bağımlılık verileri için kullanılabilir.
+* [Analytics](#logs-analytics) sorgu bağımlılık verileri için kullanılabilir.
 
 ## <a name="diagnosis"></a> Yavaş istekleri tanılayın
 
 Her istek olayı, bağımlılık çağrıları, özel durumlar ve uygulamanızı isteği işlerken izlenen gelen diğer olayları ile ilişkilidir. Bu nedenle bazı istekler hatalı yapıyorsanız, yavaş bağımlılık yanıtlarının nedeniyle olup olmadığını bulabilirsiniz.
 
-Bu bir örnek atalım.
-
 ### <a name="tracing-from-requests-to-dependencies"></a>Bağımlılıklar için gelen istekleri izleme
 
-Performans dikey penceresini açın ve istekleri kılavuzunun bakın:
+Açık **performans** gidin ve sekme **bağımlılıkları** üst yanındaki işlemleri sekmesini.
 
-![Ortalamalar ve sayıları istekleri listesi](./media/asp-net-dependencies/02-reqs.png)
+Tıklayarak bir **bağımlılık adı** genel altında. Bu bağımlılık'ın dağıtım süreleri, bir grafik bir bağımlılık seçtikten sonra sağ tarafta görünür.
 
-Üst bir uzun sürüyor. Biz süre nerede harcandığını bulup bulamayacağınızı görelim.
+![Performans sekmesine tıklayın bağımlılık sekmesinde üst sonra grafikteki bir bağımlılık adı](./media/asp-net-dependencies/2-perf-dependencies.png)
 
-Bu satır tek tek istekler olayları görmek için tıklayın:
+Mavi tıklayın **örnekleri** düğmesine sağ alt kısmındaki ve uçtan uca işlem ayrıntıları görmek için bir örnek.
 
-![İstek örnekleri listesi](./media/asp-net-dependencies/03-instances.png)
-
-Daha fazla inceleyin ve bu isteği ile ilgili uzak bağımlılık çağrıları aşağı kaydırma yapmak için herhangi bir uzun süre çalışan örneğine tıklayın:
-
-![Uzak bağımlılıklara yapılan çağrıları bulmak, olağan dışı süresini tanımlayın](./media/asp-net-dependencies/04-dependencies.png)
-
-Çoğu zaman bu isteği bir yerel hizmete çağrıda harcandığını hizmet verme gibi görünüyor.
-
-Daha fazla bilgi için bu satırı seçin:
-
-![Sabah tanımlamak için Uzak bağımlılık tıklayın](./media/asp-net-dependencies/05-detail.png)
-
-Bu bağımlılık sorun olduğu gibi görünüyor. Biz sorun hedeflenmiş, biz yalnızca artık bu nedenle neden bu çağrı bu kadar uzun sürüyor bulmanız gerekir.
-
-### <a name="request-timeline"></a>İstek zaman çizelgesi
-
-Farklı bir durumda, özellikle uzun çağrı yok bağımlılık yoktur. Ancak Zaman Çizelgesi görünümüne geçerek, gecikme iç işlememize oluştuğu görebiliriz:
-
-![Uzak bağımlılıklara yapılan çağrıları bulmak, olağan dışı süresini tanımlayın](./media/asp-net-dependencies/04-1.png)
-
-İlk bağımlılık öğesini çağırdıktan sonra biz neden olan görmek için koda göz atmak böylece büyük bir boşluk olacak şekilde yok görünüyor.
+![Bir örneğe uçtan uca işlem ayrıntıları görmek için tıklayın](./media/asp-net-dependencies/3-end-to-end.png)
 
 ### <a name="profile-your-live-site"></a>Sitenizin Canlı profil
 
@@ -161,35 +139,35 @@ Hiçbir fikriniz olduğu zaman gider? [Application Insights Profiler'ı](../../a
 
 ## <a name="failed-requests"></a>Başarısız istekler
 
-Başarısız istekler başarısız bağımlılık çağrıları ile ilişkili olabilir. Yine, biz aracılığıyla sorunu izlemek için tıklayabilirsiniz.
+Başarısız istekler başarısız bağımlılık çağrıları ile ilişkili olabilir.
 
-![Başarısız istekler grafiğe tıklayın](./media/asp-net-dependencies/06-fail.png)
+Biz gidebilirsiniz **hataları** sekmesinde solda ve ardından **bağımlılıkları** en üstteki sekmedeki.
 
-Üzerinden bir örneğini başarısız bir istek için tıklayın ve onun ilişkili olaylarına bakabilirsiniz.
+![Başarısız istekler grafiğe tıklayın](./media/asp-net-dependencies/4-fail.png)
 
-![Bir istek türünü tıklatın, örneği aynı örnek farklı bir görünüm almak için özel durum ayrıntıları almak için tıklayın.](./media/asp-net-dependencies/07-faildetail.png)
+Burada başarısız bağımlılık sayısı görmeniz mümkün olacaktır. Bir bağımlılık adı altındaki tabloda tıklayarak çalışırken başarısız bir olay hakkında daha fazla bilgi almak için. Mavi tıklayabilirsiniz **bağımlılıkları** uçtan uca işlem ayrıntıları almak için sağ alt köşede düğmesi.
 
-## <a name="analytics"></a>Analiz
+## <a name="logs-analytics"></a>Günlükleri (analiz)
 
 Bağımlılıkları izleyebilirsiniz [Kusto sorgu dili](/azure/kusto/query/). Bazı örnekler aşağıda verilmiştir.
 
 * Tüm başarısız bağımlılık çağrılarını bulun:
 
-```
+``` Kusto
 
     dependencies | where success != "True" | take 10
 ```
 
 * AJAX çağrılarını bulun:
 
-```
+``` Kusto
 
     dependencies | where client_Type == "Browser" | take 10
 ```
 
 * İsteklerle ilişkili bağımlılık çağrıları bulun:
 
-```
+``` Kusto
 
     dependencies
     | where timestamp > ago(1d) and  client_Type != "Browser"
@@ -200,17 +178,13 @@ Bağımlılıkları izleyebilirsiniz [Kusto sorgu dili](/azure/kusto/query/). Ba
 
 * Sayfa görünümleri ile ilişkilendirilmiş bulma AJAX çağrıları:
 
-```
+``` Kusto 
 
     dependencies
     | where timestamp > ago(1d) and  client_Type == "Browser"
     | join (browserTimings | where timestamp > ago(1d))
       on operation_Id
 ```
-
-## <a name="video"></a>Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
@@ -220,7 +194,6 @@ Bağımlılıkları izleyebilirsiniz [Kusto sorgu dili](/azure/kusto/query/). Ba
 
 ## <a name="open-source-sdk"></a>Açık kaynak SDK'sı
 Her Application Insights SDK gibi bağımlılık toplama modülü de açık kaynaklıdır. Okuma ve koda katkıda bulunan veya rapor sorunu [resmi GitHub deposunu](https://github.com/Microsoft/ApplicationInsights-dotnet-server).
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

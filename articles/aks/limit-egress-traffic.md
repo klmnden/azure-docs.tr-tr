@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 43ba7593336372bbbd7a3a4bb9821665a42bbf29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52a9ba20b60e8ef6cdb743546cd842e4ee24b3fd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752187"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441928"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Önizleme - sınırı çıkış trafiği için küme düğümlerini ve erişimi denetlemek için gerekli bağlantı noktaları ve hizmetler Azure Kubernetes Service (AKS)
 
@@ -28,21 +28,24 @@ Bu makalede, hangi ağ bağlantı noktaları ve tam etki alanı adlarını (FQDN
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Azure CLI Sürüm 2.0.66 gerekir veya daha sonra yüklü ve yapılandırılmış. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][install-azure-cli].
+Azure CLI Sürüm 2.0.66 gerekir veya daha sonra yüklü ve yapılandırılmış. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme][install-azure-cli].
 
-Çıkış trafiği sınırlayabilirsiniz bir AKS kümesi oluşturmak için önce aboneliğinizde özellik bayrağı etkinleştirin. Bu özellik kaydı MCR veya ACR temel sistem kapsayıcı görüntülerini kullanmak için oluşturduğunuz herhangi bir AKS kümeleri yapılandırır. Kaydedilecek *AKSLockingDownEgressPreview* özellik bayrağı, kullanın [az özelliği kayıt] [ az-feature-register] komutu aşağıdaki örnekte gösterildiği gibi:
+Çıkış trafiği sınırlayabilirsiniz bir AKS kümesi oluşturmak için önce aboneliğinizde özellik bayrağı etkinleştirin. Bu özellik kaydı MCR veya ACR temel sistem kapsayıcı görüntülerini kullanmak için oluşturduğunuz herhangi bir AKS kümeleri yapılandırır. Kaydedilecek *AKSLockingDownEgressPreview* özellik bayrağı, kullanın [az özelliği kayıt][az-feature-register] komutu aşağıdaki örnekte gösterildiği gibi:
+
+> [!CAUTION]
+> Bir Abonelikteki bir özellik kaydettiğinizde, bu özellik şu anda kaydını yapamazsınız. Bazı Önizleme özellikleri etkinleştirdikten sonra varsayılan ardından aboneliği için oluşturulan tüm AKS kümeleri için kullanılabilir. Önizleme özellikleri üretim Aboneliklerde etkinleştirmeyin. Önizleme özellikleri test ve geri bildirim toplamak için ayrı bir abonelik kullanın.
 
 ```azurecli-interactive
 az feature register --name AKSLockingDownEgressPreview --namespace Microsoft.ContainerService
 ```
 
-Gösterilecek durum için birkaç dakika sürer *kayıtlı*. Kullanarak kayıt durumu denetleyebilirsiniz [az özellik listesi] [ az-feature-list] komutu:
+Gösterilecek durum için birkaç dakika sürer *kayıtlı*. Kullanarak kayıt durumu denetleyebilirsiniz [az özellik listesi][az-feature-list] komutu:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSLockingDownEgressPreview')].{Name:name,State:properties.state}"
 ```
 
-Hazır olduğunuzda, kayıt yenileme *Microsoft.ContainerService* kullanarak kaynak sağlayıcısı [az provider register] [ az-provider-register] komutu:
+Hazır olduğunuzda, kayıt yenileme *Microsoft.ContainerService* kullanarak kaynak sağlayıcısı [az provider register][az-provider-register] komutu:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -54,7 +57,7 @@ Yönetim ve işletimsel amaçları için bir AKS kümesindeki düğümlere belir
 
 AKS kümenizin güvenliğini artırmak için çıkış trafiği kısıtlamak isteyebilirsiniz. Küme temel sistemi MCR veya ACR için kapsayıcı görüntüleri çekmek için yapılandırılır. Çıkış trafiği bu şekilde kilitlemek, belirli bağlantı noktaları ve doğru şekilde gerekli dış hizmetlerle iletişim AKS düğümleri izin vermek için FQDN'leri tanımlamanız gerekir. Bu yetkili bağlantı noktaları ve FQDN'ler, AKS düğümlerinizi API sunucusu ile iletişim kurmak veya çekirdek bileşenlerini yükleyin.
 
-Kullanabileceğiniz [Azure Güvenlik Duvarı] [ azure-firewall] veya 3. taraf güvenlik duvarı Gereci, çıkış trafiği güvenli hale getirme ve bunlar gerekli tanımlamak için bağlantı noktaları ve yöneliktir. AKS otomatik olarak bu kurallar, oluşturmaz. Ağ güvenlik duvarınızdan olarak uygun kuralları oluştururken aşağıdaki bağlantı noktaları ve adres için başvuru kaynaklarıdır.
+Kullanabileceğiniz [Azure Güvenlik Duvarı][azure-firewall] veya 3. taraf güvenlik duvarı Gereci, çıkış trafiği güvenli hale getirme ve bunlar gerekli tanımlamak için bağlantı noktaları ve yöneliktir. AKS otomatik olarak bu kurallar, oluşturmaz. Ağ güvenlik duvarınızdan olarak uygun kuralları oluştururken aşağıdaki bağlantı noktaları ve adres için başvuru kaynaklarıdır.
 
 AKS, iki bağlantı noktaları ve adresleri kümesi vardır:
 
@@ -62,7 +65,7 @@ AKS, iki bağlantı noktaları ve adresleri kümesi vardır:
 * [İsteğe bağlı önerilen adresler ve bağlantı noktaları AKS kümeleri için](#optional-recommended-addresses-and-ports-for-aks-clusters) gibi Azure İzleyici düzgün çalışmaz senaryoları dışında tüm diğer hizmetler ile tümleştirme için gerekli değildir. Bu isteğe bağlı bağlantı noktaları ve FQDN'ler listesini gözden geçirin ve herhangi bir AKS kümenizde kullanılan bileşenleri ve Hizmetleri yetkilendirmek.
 
 > [!NOTE]
-> Çıkış trafiği sınırlama, yalnızca özellik bayrağı kaydı etkinleştirme işleminden sonra oluşturulan yeni AKS kümelerinde çalışır. Var olan kümeleri için [Küme yükseltme işlemi] [ aks-upgrade] kullanarak `az aks upgrade` çıkış trafiği sınırlamak önce komutu.
+> Çıkış trafiği sınırlama, yalnızca özellik bayrağı kaydı etkinleştirme işleminden sonra oluşturulan yeni AKS kümelerinde çalışır. Var olan kümeleri için [Küme yükseltme işlemi][aks-upgrade] kullanarak `az aks upgrade` çıkış trafiği sınırlamak önce komutu.
 
 ## <a name="required-ports-and-addresses-for-aks-clusters"></a>Gerekli bağlantı noktaları ve AKS küme için adresleri
 

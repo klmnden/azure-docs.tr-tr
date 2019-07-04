@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
 ms.author: monhaber
-ms.openlocfilehash: d42b929807bf67b73d0587232608efc0cea6d717
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1737856067b2490db4a993b4383b320cb13a7774
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752581"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551752"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Gelişmiş tehdit koruması ile Azure Güvenlik Merkezi
 
@@ -71,7 +71,7 @@ Güvenlik Merkezi'ne ekleme sunucularına tıklayın **Azure Güvenlik Merkezi'n
 
 ## <a name="enable-windows-defender-atp-integration"></a>Windows Defender ATP tümleştirmesini etkinleştirme
 
-Windows Defender ATP tümleştirmesi etkin olup olmadığını görmek için seçin **Güvenlik Merkezi** > **Güvenlik İlkesi** > **abonelik**  >  **Ayarlarını Düzenle**.
+Windows Defender ATP tümleştirmesi etkin olup olmadığını görmek için seçin **Güvenlik Merkezi** > **fiyatlandırma & ayarları** >, aboneliğe tıklayın.
 
   ![Azure Güvenlik Merkezi ilke yönetimi](media/security-center-wdatp/policy-management.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Azure dosyaları performans sorunlarını giderme kılavuzu
-description: Azure premium dosya paylaşımları (Önizleme) ve ilişkili geçici çözümler ile performans sorunlarını bilinir.
+description: Azure dosya paylaşımları ve ilişkili geçici çözümler ile performans sorunlarını bilinir.
 services: storage
 author: gunjanj
 ms.service: storage
@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c35501f3afbeed519fb5304229f25be1cbd5f9b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190045"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445663"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Azure dosyaları performans sorunlarını giderme
 
-Premium Azure dosya paylaşımları (Önizleme) ilgili bazı yaygın sorunlar bu makalede listelenmektedir. Bu sorunları karşılaştığında olası nedenler ve geçici çözümler sağlar.
+Bu makalede Azure dosya paylaşımları için ilgili bazı yaygın sorunlar listelenir. Bu sorunları karşılaştığında olası nedenler ve geçici çözümler sağlar.
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Yüksek gecikme süresi, aktarım hızının düşük olmasını ve genel performans sorunları
 
 ### <a name="cause-1-share-experiencing-throttling"></a>1\. neden: Yaşayan azaltma paylaşın
 
-Bir paylaşımı varsayılan kota (en fazla 300 veri bloğu için bir saat için olası) ile 100 temel IOPS sağlar 100 GiB ' dir. Sağlama ve IOPS ilişkisini hakkında daha fazla bilgi için bkz. [sağlanan paylaşımlar](storage-files-planning.md#provisioned-shares) Planlama Kılavuzu'nun bölümü.
+Bir premium paylaşımında varsayılan kota (en fazla 300 veri bloğu için bir saat için olası) ile 100 temel IOPS sağlar 100 GiB ' dir. Sağlama ve IOPS ilişkisini hakkında daha fazla bilgi için bkz. [sağlanan paylaşımlar](storage-files-planning.md#provisioned-shares) Planlama Kılavuzu'nun bölümü.
 
 Paylaşımınızın kısıtlanan, onaylamak için portalda Azure ölçümleri yararlanabilirsiniz.
 
@@ -39,7 +39,7 @@ Paylaşımınızın kısıtlanan, onaylamak için portalda Azure ölçümleri ya
 
 1. Seçin **işlemleri** ölçüm olarak.
 
-1. İçin bir filtre ekleyin **ResponseType** ve tüm isteklere yanıt kodunu olup olmadığını görmek için onay **SuccessWithThrottling**.
+1. İçin bir filtre ekleyin **ResponseType** ve tüm isteklere yanıt kodunu olup olmadığını görmek için onay **SuccessWithThrottling** (SMB için) veya **ClientThrottlingError** (REST için).
 
 ![Premium fileshares ölçümleri seçenekleri](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -72,11 +72,11 @@ Müşteri tarafından kullanılmakta olan uygulamasının tek iş parçacıklı 
 
 ### <a name="cause"></a>Nedeni
 
-İstemci VM, premium dosya paylaşımı farklı bir bölgede bulunamıyor.
+Dosya Paylaşımı farklı bir bölgede istemci VM'nin bulunamıyor.
 
 ### <a name="solution"></a>Çözüm
 
-- Premium dosya paylaşımı ile aynı bölgede bulunan bir VM'den uygulamayı çalıştırın.
+- Dosya Paylaşımı ile aynı bölgede bulunan bir VM'den uygulamayı çalıştırın.
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>İstemci ağ tarafından desteklenen en yüksek aktarım hızı elde etmek oluşturulamıyor
 
@@ -121,6 +121,10 @@ Birden fazla g/ç derinliği CentOS/RHEL üzerinde desteklenmiyor.
 
 - CentOS 8 yükseltme / RHEL 8.
 - Ubuntu için değiştirin.
+
+## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Dosya ve Linux'ta Azure dosyalarından kopyalamak yavaş
+
+Azure dosyaları gelen ve giden yavaş dosya kopyalama yaşıyorsanız göz atın [dosya ve Linux'ta Azure dosyalarından kopyalamak yavaş](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) Linux ilgili sorunu giderme bölümüne Kılavuzu.
 
 ## <a name="jitterysaw-tooth-pattern-for-iops"></a>IOPS için dalgalanmalara/saw-tooth deseni
 

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1987bd348bf37c147eeb0697c88653c48f8c9136
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 66a7caddc499d32a4d836dcb60bc940c1ebc8a9e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144206"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444566"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Java ve Maven ile ilk işlevinizi oluşturma
 
@@ -108,7 +108,7 @@ public class Function {
 
 ```
 
-## <a name="reference-bindings"></a>Başvuru bağlamaları
+## <a name="enable-extension-bundles"></a>Uzantı paketleri etkinleştir
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 

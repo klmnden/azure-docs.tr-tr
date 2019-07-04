@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: 26dd7554cc713d85a9e03649bcb6d41139cbdf27
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: a5e4c7acd407cef1bb5fc43d7e40014a6b088a0a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137176"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448899"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Azure HDInsight, ML Hizmetleri nedir
 
@@ -27,7 +27,7 @@ Analiz sonucu Öngörüler ve modeller, şirket içi kullanım için indirilebil
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>HDInsight üzerinde ML hizmetleri kullanmaya başlayın
 
-Azure HDInsight ML Hizmetleri kümesi oluşturmak için seçin **ML Hizmetleri** Azure portalını kullanarak bir HDInsight kümesi oluştururken küme türü. ML Hizmetleri küme türü, ML Server kümesinin veri düğümlerini ve ML Hizmetleri tabanlı analiz için bir giriş bölge olarak hizmet veren bir kenar düğümü içerir. Bkz: [ML hizmetlerinde, HDInsight ile çalışmaya başlama](r-server-get-started.md) kümesinin nasıl oluşturulacağı hakkında kılavuz.
+Azure HDInsight ML Hizmetleri kümesi oluşturmak için seçin **ML Hizmetleri** Azure portalını kullanarak bir HDInsight kümesi oluştururken küme türü. ML Hizmetleri küme türü, ML Server kümesinin veri düğümlerini ve ML Hizmetleri tabanlı analiz için bir giriş bölge olarak hizmet veren bir kenar düğümü içerir. Bkz: [Apache Hadoop kümeleri oluşturma Azure portalını kullanarak](../hdinsight-hadoop-create-linux-clusters-portal.md) kümesinin nasıl oluşturulacağı hakkında kılavuz.
 
 ## <a name="why-choose-ml-services-in-hdinsight"></a>Neden ML Hizmetleri HDInsight seçmeliyim?
 
@@ -68,13 +68,13 @@ Aşağıdaki özellikler HDInsight ML Hizmetleri dahil edilmiştir.
 
 HDInsight kümelerinin HDFS dosya sistemi için varsayılan depolama alanı, bir Azure depolama hesabı veya bir Azure Data Lake Storage ile ilişkilendirilebilir. Bu ilişki verileri karşıya yüklendiğini sağlar kümeye depolama analizi sırasında kalıcı hale ve hatta kümesi silindikten sonra veriler sunulur. Veri aktarımı, depolama hesabının portal tabanlı karşıya yükleme olanağı dahil olmak üzere seçtiğiniz depolama seçeneğine işlemeye yönelik çeşitli araçlar vardır ve [AzCopy](../../storage/common/storage-use-azcopy.md) yardımcı programı.
 
-Ek Blob erişimini etkinleştirme seçeneğiniz vardır ve küme kullanımı için birincil depolama seçeneğinde bağımsız olarak işlem sağlama sırasında veri gölü depolar. Bkz: [ML Hizmetleri HDInsight kullanmaya başlama](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-get-started) ek hesap için erişim ekleme hakkında bilgi için. Bkz: [ML Hizmetleri için Azure depolama seçeneğinin HDInsight üzerinde](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) makalenin birden fazla depolama hesabı kullanma hakkında daha fazla bilgi edinin.
+Ek Blob erişimini etkinleştirme seçeneğiniz vardır ve küme kullanımı için birincil depolama seçeneğinde bağımsız olarak işlem sağlama sırasında veri gölü depolar.  Bkz: [ML Hizmetleri için Azure depolama seçeneğinin HDInsight üzerinde](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) makalenin birden fazla depolama hesabı kullanma hakkında daha fazla bilgi edinin.
 
 Ayrıca [Azure dosyaları](../../storage/files/storage-how-to-use-files-linux.md) uç düğümde kullanmak için bir depolama seçeneği olarak. Azure dosyaları, Azure Depolama'da Linux dosya sistemine oluşturulmuş bir dosya paylaşımını bağlama olanak sağlar. HDInsight kümesi üzerinde ML Hizmetleri için bu veri depolama seçenekleri hakkında daha fazla bilgi için bkz. [ML Hizmetleri için Azure depolama seçeneğinin HDInsight üzerinde](r-server-storage.md).
 
 ## <a name="access-ml-services-edge-node"></a>ML Hizmetleri kenar düğümüne erişim
 
-Microsoft ML Server için bir tarayıcı kullanarak kenar düğümüne bağlanabilirsiniz. Küme oluşturma sırasında varsayılan olarak yüklenir. Daha fazla bilgi için [HDInsight üzerinde ML Hizmetleri ile stared](r-server-get-started.md). R konsolunu erişmek için SSH/PuTTY kullanarak komut satırından küme kenar düğümüne da bağlanabilirsiniz.
+Microsoft ML Server için bir tarayıcı kullanarak kenar düğümüne bağlanabilirsiniz. Küme oluşturma sırasında varsayılan olarak yüklenir.  R konsolunu erişmek için SSH/PuTTY kullanarak komut satırından küme kenar düğümüne da bağlanabilirsiniz.
 
 ## <a name="develop-and-run-r-scripts"></a>Geliştirme ve R betikleri çalıştırma
 
@@ -142,6 +142,6 @@ Bir ML Hizmetleri HDInsight kümesi ile ilişkili fiyatları, diğer HDInsight k
 
 HDInsight kümelerinde ML Hizmetleri kullanma hakkında daha fazla bilgi için aşağıdaki konulara bakın:
 
-* [HDInsight kümesinde ML hizmetleri kullanmaya başlayın](r-server-get-started.md)
+* [Bir Azure HDInsight kullanarak RStudio Server ML Hizmetleri kümesinde bir R betiği yürütün.](machine-learning-services-quickstart-job-rstudio.md)
 * [HDInsight üzerinde ML Services kümesi için işlem bağlamı seçenekleri](r-server-compute-contexts.md)
 * [HDInsight kümesinde ML Hizmetleri için Depolama Seçenekleri](r-server-storage.md)

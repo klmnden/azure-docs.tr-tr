@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 12e86e2a47698d7f736b5f66a92819a4621d5e96
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 47e14ff87a6197ccc97231835da545207545a328
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165679"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460772"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Zaman serisi görüşleri ortamınıza bir IOT hub olay kaynağı ekleme
 
@@ -42,7 +42,7 @@ IOT hub'ınıza yeni bir tüketici grubu eklemek için:
 
 1. Altında **ayarları**seçin **yerleşik uç noktaları**ve ardından **olayları** uç noktası.
 
-   [![Yerleşik uç noktalar sayfasında, olayları düğmeyi seçin](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png#lightbox)
+   [![Yerleşik uç noktalar sayfasında, olayları düğmeyi seçin](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-one.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-one.png#lightbox)
 
 1. Altında **tüketici grupları**, tüketici grubu için benzersiz bir ad girin. Yeni bir olay kaynağı oluşturduğunuzda, zaman serisi görüşleri ortamınıza bu aynı adı kullanın.
 
@@ -56,7 +56,7 @@ IOT hub'ınıza yeni bir tüketici grubu eklemek için:
 
 1. Altında **ortam topolojisinin**seçin **olay kaynakları**ve ardından **Ekle**.
 
-   [![Olay kaynakları seçin ve ardından Ekle düğmesini seçin.](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_two.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_two.png#lightbox)
+   [![Olay kaynakları seçin ve ardından Ekle düğmesini seçin.](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-two.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-two.png#lightbox)
 
 1. İçinde **yeni olay kaynağı** bölmesinde için **olay kaynağı adını**, bu zaman serisi görüşleri ortamı için benzersiz bir ad girin. Örneğin, **olay akışı**.
 
@@ -66,11 +66,11 @@ IOT hub'ınıza yeni bir tüketici grubu eklemek için:
 
    * Aboneliklerinizden biri zaten bir IOT hub'ı varsa, seçin **kullanım IOT Hub'ından kullanılabilir abonelikleri**. Bu seçenek için kolay bir yaklaşımdır.
    
-     [![Yeni olay kaynağı bölmesindeki seçenekleri belirleyin](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png#lightbox)
+     [![Yeni olay kaynağı bölmesindeki seçenekleri belirleyin](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-three.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-three.png#lightbox)
 
     * Aşağıdaki tablo için gerekli olan özellikleri açıklar **kullanım IOT Hub'ından kullanılabilir abonelikleri** seçeneği:
 
-       [![Yeni olay kaynağı bölmesinde - kullanım IOT Hub'ında kullanılabilir abonelikleri seçeneği ayarlamak için Özellikler](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png#lightbox)
+       [![Yeni olay kaynağı bölmesinde - kullanım IOT Hub'ında kullanılabilir abonelikleri seçeneği ayarlamak için Özellikler](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-four.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-four.png#lightbox)
 
        | Özellik | Açıklama |
        | --- | --- |
@@ -101,7 +101,7 @@ IOT hub'ınıza yeni bir tüketici grubu eklemek için:
 
 1. **Oluştur**’u seçin.
 
-   [![Oluştur düğmesi](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_five.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_five.png#lightbox)
+   [![Oluştur düğmesi](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-five.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-five.png#lightbox)
 
 1. Olay kaynağı oluşturduktan sonra zaman serisi görüşleri ortamınıza veri akışını otomatik olarak başlar.
 

@@ -1,21 +1,20 @@
 ---
 title: Azure IOT Hub cihaz akışları C# SSH ve RDP (Önizleme) için hızlı başlangıç | Microsoft Docs
 description: Bu hızlı başlangıçta, iki örnek çalıştırma C# SSH ve RDP senaryolarından, bir IOT Hub cihaz akış üzerinden uygulamaları.
-author: rezasherafat
-manager: briz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
-ms.author: rezas
-ms.openlocfilehash: 1d5fbb410a61419f6f6d2e80cdb1a16c07672fe9
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.author: robinsh
+ms.openlocfilehash: 914568ee4b669605807c8a0e386cd540145c9522
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733334"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446094"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Hızlı Başlangıç: SSH ve RDP kullanarak bir IOT Hub cihaz akış üzerinden etkinleştirme bir C# Ara sunucu uygulamasını (Önizleme)
 

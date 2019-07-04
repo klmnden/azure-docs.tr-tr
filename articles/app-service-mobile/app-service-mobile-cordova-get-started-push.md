@@ -5,29 +5,33 @@ services: app-service\mobile
 documentationcenter: javascript
 manager: crdun
 editor: ''
-author: conceptdev
+author: elamalani
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: crdun
-ms.openlocfilehash: 40a7552ffd0bfcab173d2e35c52313a94ec3d0bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: e6755c3fb1fca342d94fdaa96c0dce614d762172
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62114356"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443564"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Apache Cordova uygulamanıza anında iletme bildirimleri ekleme
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
+> [!NOTE]
+> Visual Studio App Center, mobil uygulama geliştirme merkezi hizmetlerinde yeni ve tümleşik yatırım yapıyor. Geliştiriciler **derleme**, **Test** ve **Dağıt** hizmetlerinin sürekli tümleştirme ve teslim işlem hattı ayarlayın. Uygulama dağıtıldığında, geliştiriciler kendi uygulamasını kullanarak kullanımı ve durumu izleyebilirsiniz **Analytics** ve **tanılama** kullanarak kullanıcılarla etkileşim kurun ve hizmetlerini **anında iletme** hizmeti. Geliştiriciler de yararlanabilir **Auth** , kullanıcıların kimliğini doğrulamak ve **veri** kalıcı hale getirmek ve uygulama verilerini bulutta eşitleme hizmeti. Kullanıma [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-get-started-push) bugün.
+>
+
 ## <a name="overview"></a>Genel Bakış
 
-Bu öğreticide, anında iletme bildirimleri ekleme [Apache Cordova hızlı] [ 5] anında iletme bildirimi kayıt eklenen her zaman cihaza gönderilir, böylece proje.
+Bu öğreticide, anında iletme bildirimleri ekleme [Apache Cordova hızlı][5] anında iletme bildirimi kayıt eklenen her zaman cihaza gönderilir, böylece proje.
 
 İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, anında iletme bildirimi uzantı paketi gerekir. Daha fazla bilgi için [Mobile Apps için .NET arka uç sunucu SDK'sı ile çalışma][1].
 
@@ -37,13 +41,13 @@ Bu öğreticide, Visual Studio 2015 ile geliştirilmiş bir Apache Cordova uygul
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-* Bir bilgisayarla [Visual Studio Community 2015] [ 2] veya üzeri
+* Bir bilgisayarla [Visual Studio Community 2015][2] veya üzeri
 * [Apache Cordova için Visual Studio Araçları][4]
-* Bir [etkin bir Azure hesabı][3]
-* Tamamlanmış bir [Apache Cordova hızlı] [ 5] proje
-* (Android) A [Google hesabı] [ 6] doğrulanmış e-posta adresi
-* (iOS) Bir [Apple Developer Program üyeliği] [ 7] ve bir iOS cihazı (iOS Simulator desteklemiyor anında iletme bildirimleri)
-* (Windows) A [Microsoft Store Geliştirici hesabı] [ 8] ve Windows 10 cihaz
+* [Etkin bir Azure hesabı][3]
+* Tamamlanmış bir [Apache Cordova hızlı][5] proje
+* (Android) A [Google hesabı][6] ile doğrulanmış bir e-posta adresi
+* (iOS) Bir [Apple Developer Program üyeliği][7] ve bir iOS cihazı (iOS Simulator desteklemiyor anında iletme bildirimleri)
+* (Windows) A [Microsoft Store Geliştirici hesabı][8] ve Windows 10 cihaz
 
 ## <a name="configure-hub"></a>Bildirim hub'ı yapılandırma
 
@@ -70,7 +74,7 @@ Projeniz Apache Cordova 6.1.1 sürümünden önceki bir sürümünü kullanıyor
 
 #### <a name="install-the-push-plugin"></a>Anında iletme eklentisini yükleme
 
-Apache Cordova uygulamalarını yerel olarak cihazı veya ağ özellikleri işleyemez.  Bu özellikler tarafından sağlanan olan eklentiler üzerinde ya da yayımlanan [npm] [ 10] veya GitHub üzerinde. `phonegap-plugin-push` Eklentisi ağ anında iletme bildirimleri işler.
+Apache Cordova uygulamalarını yerel olarak cihazı veya ağ özellikleri işleyemez.  Bu özellikler tarafından sağlanan olan eklentiler üzerinde ya da yayımlanan [npm][10] veya GitHub üzerinde. `phonegap-plugin-push` Eklentisi ağ anında iletme bildirimleri işler.
 
 Anında iletme eklentisi aşağıdaki yöntemlerle yükleyebilirsiniz:
 
@@ -242,7 +246,7 @@ Geçerli gerekli kitaplıkları listelenen [modul phonegap plugin push yükleme 
 
 * *Fiziksel bir cihaz üzerinde:* Android Cihazınızı geliştirme bilgisayarınıza bir USB kablosuyla iliştirin.  Yerine **Google Android öykünücüsü**seçin **cihaz**. Visual Studio, cihaza uygulama dağıtır ve uygulamayı çalıştırır. Cihazdaki uygulama ile etkileşim kurabilir.
 
-  Ekran paylaşımı gibi uygulamalar [Mobizen] [ 20] Android uygulamaları geliştirmenize yardımcı olabilir. Mobizen Bilgisayarınızda bir web tarayıcısı Android ekrana yansıtıyor.
+  Ekran paylaşımı gibi uygulamalar [Mobizen][20] Android uygulamaları geliştirmenize yardımcı olabilir. Mobizen Bilgisayarınızda bir web tarayıcısı Android ekrana yansıtıyor.
 
 * *Bir Android emulator'da:* Bir öykünücü kullanılırken gerekli olan ek yapılandırma adımları vardır.
 
@@ -266,7 +270,7 @@ Bu bölümde, iOS cihazlarında Cordova projesi çalıştırmaya yöneliktir. İ
 
 #### <a name="install-and-run-the-ios-remote-build-agent-on-a-mac-or-cloud-service"></a>Yükleme ve bir Mac veya Bulut hizmeti iOS uzak derleme Aracısı'nı çalıştırın
 
-Visual Studio kullanarak iOS üzerinde bir Cordova uygulaması çalıştırmadan önce adımları inceleyin [iOS Kurulum Kılavuzu] [ 12] yükleme ve uzak derleme Aracısı'nı çalıştırın.
+Visual Studio kullanarak iOS üzerinde bir Cordova uygulaması çalıştırmadan önce adımları inceleyin [iOS Kurulum Kılavuzu][12] yükleme ve uzak derleme Aracısı'nı çalıştırın.
 
 İOS için uygulama oluşturabileceğinizi emin olun. Kurulum Kılavuzu'ndaki adımları Visual Studio'dan iOS için uygulama oluşturmak için gereklidir. Bir Mac yoksa, iOS için Macıncloud gibi bir hizmet üzerindeki uzak derleme aracısını kullanarak oluşturabilirsiniz. Daha fazla bilgi için [iOS uygulamanızı bulutta çalıştırma][21].
 
@@ -379,14 +383,14 @@ Bir öğe eklendiğinde bir bildiriminin alındığını doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Hakkında bilgi edinin [Notification hubs'ı] [ 17] anında iletme bildirimleri hakkında bilgi edinmek için.
-* Zaten yapmadıysanız, öğreticiyle devam [kimlik doğrulaması ekleme] [ 14] Apache Cordova uygulamanıza.
+* Hakkında bilgi edinin [Notification hubs'ı][17] anında iletme bildirimleri hakkında bilgi edinmek için.
+* Zaten yapmadıysanız, öğreticiyle devam [kimlik doğrulaması ekleme][14] Apache Cordova uygulamanıza.
 
 Aşağıdaki Sdk'lardan kullanmayı öğrenin:
 
 * [Apache Cordova SDK][15]
-* [ASP.NET sunucusu SDK][1]
-* [Node.js sunucu SDK'sı][16]
+* [ASP.NET Sunucusu SDK][1]
+* [Node.js Sunucusu SDK][16]
 
 <!-- Images -->
 [img1]: ./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png

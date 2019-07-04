@@ -5,118 +5,62 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 06/25/2019
 ms.author: lbosq
-ms.openlocfilehash: 6f5d90f8b825b7076a1a5122dbef3c8b2990e216
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 126c825106b7844a5fc8a5a3cdbcc7aa6c273b5b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954268"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502798"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB’ye giriş: Gremlin API
 
-[Azure Cosmos DB](introduction.md) görev açısından kritik uygulamalar için Microsoft'un Global olarak dağıtılmış çok modelli veritabanı hizmeti. Bu, çok modelli bir veritabanıdır ve belge, anahtar-değer, grafik ve sütunlu veri modellerini destekler. Grafik verilerini depolamak ve üzerinde çalışmak için Azure Cosmos DB Gremlin API’si kullanılır. Gremlin API, Grafik verilerini modellemeyi destekler ve grafik verilerinde dolaşmak için API’ler sağlar.
-
-Bu makale, Azure Cosmos DB Gremlin API'ye genel bir bakış sağlar ve milyarlarca köşesi ve kenarı olan yoğun grafikleri depolamak için bunu nasıl kullanabileceğinizi açıklar. Grafikleri milisaniyelik gecikme süresi ile sorgulayabilir, grafik yapısını ve şemasını kolayca geliştirebilirsiniz. Azure Cosmos DB'yi sorgulamak için [Apache TinkerPop](https://tinkerpop.apache.org) grafik içinde dolaşma dilini veya [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)'i kullanabilirsiniz.
-
-## <a name="what-is-a-graph-database"></a>Grafik veritabanı nedir
-Gerçek dünyada görünen veriler doğal olarak bağlıdır. Geleneksel veri modelleme, varlıklara odaklanır. Birçok uygulamada aynı zamanda modelleme veya hem varlıkları hem de ilişkileri doğal olarak modelleme gereksinimi söz konusudur.
-
-[Grafikler](http://mathworld.wolfram.com/Graph.html), [köşelerden](http://mathworld.wolfram.com/GraphVertex.html) ve [kenarlardan](http://mathworld.wolfram.com/GraphEdge.html) oluşan yapılardır. Köşelerin ve kenarların rastgele bir sayıda özellikleri olabilir. 
-
-* **Köşeler** - Köşeler bir kişi, yer veya etkinlik gibi kesin nesneleri gösterir. 
-
-* **Kenarlar** - Kenarlar, köşeler arasındaki ilişkileri gösterir. Bir kişinin başka bir kişiyi tanıması, bir etkinliğe katılması veya kısa süre önce bir konumda bulunması bağlantılar buna örnek gösterilebilir. 
-
-* **Özellikler** - Özellikler, köşeler ve kenarlar hakkında bilgi ifade eder. Örnek özellikler, adı ve geçerlilik süresi olan bir köşe içerir. Zaman damgası ve/veya ağırlığı olan bir kenar. Bu modele [özellik grafiği](https://tinkerpop.apache.org/docs/current/reference/#intro) de denir. Azure Cosmos DB, özellik grafiği modelini destekler.
-
-Aşağıdaki örnek grafik kişiler, mobil cihazlar, ilgi alanları ve işletim sistemleri arasındaki ilişkileri gösterir:
-
-![Kişileri, cihazları ve ilgi alanlarını gösteren örnek grafik](./media/graph-introduction/sample-graph.png)
-
-Grafikleri doğal ve verimli bir şekilde modellemenizi ve depolamanızı sağlayan grafik veritabanları, birçok senaryoda işe yarar. Bu kullanım örnekleri için çoğu zaman şema esnekliği ve hızlı yineleme gerektiğinden, grafik veritabanları genelde NoSQL veritabanlarıdır.
-
-Sosyal ağ, içerik yönetimi, jeo-uzamsal ve öneriler gibi çeşitli etki alanlarındaki sorunları çözmek için grafik veritabanlarının sağladığı hızlı dolaşımları derinlik öncelikli arama, genişlik öncelikli arama ve Dijkstra’nın algoritması gibi grafik algoritmalarıyla birleştirebilirsiniz.
-
-## <a name="features-of-azure-cosmos-db-graph-database"></a>Azure Cosmos DB grafik veritabanının özellikleri
- 
-Azure Cosmos DB; genel dağıtım, depolama ve aktarım hızında esnek ölçeklendirme, otomatik dizinleme ve sorgu, ayarlanabilir tutarlılık düzeyleri ve TinkerPop standardı desteği sunan, tam olarak yönetilen bir grafik veritabanıdır.
+[Azure Cosmos DB](introduction.md) görev açısından kritik uygulamalar için Microsoft'un Global olarak dağıtılmış çok modelli veritabanı hizmeti. Bu, çok modelli bir veritabanıdır ve belge, anahtar-değer, grafik ve sütunlu veri modellerini destekler. Azure Cosmos DB Gremlin API depolamak ve graf verileri dilediğiniz ölçekte bir tam olarak yönetilen veritabanı ortamı ile çalıştırmak için kullanılır.  
 
 ![Azure Cosmos DB grafik mimarisi](./media/graph-introduction/cosmosdb-graph-architecture.png)
 
-Azure Cosmos DB pazardaki diğer grafik veritabanlarıyla karşılaştırıldığında aşağıdaki farklı özellikleri sunar:
+Bu makale, Azure Cosmos DB Gremlin API'ye genel bir bakış sağlar ve milyarlarca köşesi ve kenarı olan yoğun grafikleri depolamak için bunu nasıl kullanabileceğinizi açıklar. Milisaniyelik gecikme garantisiyle grafik sorgu ve grafik yapısı bir kolayca geliştirmek. Azure Cosmos DB Gremlin API'si temel [Apache TinkerPop](https://tinkerpop.apache.org) standart grafik veritabanı ve kullanımları Gremlin sorgu dili. 
 
-* Aktarım hızı ve depolamayı esnek bir şekilde ölçeklendirme
+Azure Cosmos DB Gremlin API'si, esneklik ve ilişkisel yaklaşımları eksikliği ile ilişkili en yaygın veri sorunlar için benzersiz, esnek bir çözüm sağlamak için yüksek düzeyde ölçeklenebilir ve yönetilebilir bir altyapı graf veritabanı algoritmalarının gücünü birleştirir. 
 
-  Gerçek dünyadaki grafiklerin, tek bir sunucunun kapasitesinin yetmeyeceği biçimde ölçeklendirilmesi gerekir. Azure Cosmos DB ile grafikleri sorunsuz bir şekilde birden çok sunucu arasında ölçeklendirebilirsiniz. Erişim düzenlerinize dayalı olarak grafiğinizin aktarım hızını da bağımsız biçimde ölçeklendirebilirsiniz. Azure Cosmos DB, neredeyse sınırsız depolama boyutlarına ve sağlanmış aktarım hızına ölçeklenebilen grafik veritabanlarını destekler.
+## <a name="features-of-azure-cosmos-db-graph-database"></a>Azure Cosmos DB grafik veritabanının özellikleri
+ 
+Azure Cosmos DB; genel dağıtım, depolama ve aktarım hızında esnek ölçeklendirme, otomatik dizinleme ve sorgu, ayarlanabilir tutarlılık düzeyleri ve TinkerPop standardı desteği sunan, tam olarak yönetilen bir grafik veritabanıdır. 
 
-* Çok bölgeli çoğaltma
+Azure Cosmos DB Gremlin API sunan fark yaratan özellikleri şunlardır:
 
-  Azure Cosmos DB, grafik verilerinizi hesabınızla ilişkilendirdiğiniz tüm bölgelere saydam olarak çoğaltır. Çoğaltma, verilere genel erişim gerektiren uygulamalar geliştirmenize olanak sağlar. Tutarlılık, kullanılabilirlik, performans ve karşılık gelen garanti alanlarında bazı kayıplar olabilir. Azure Cosmos DB, birden çok girişli API’ler için saydam bölgesel yük devretme teklifleri sağlar. Aktarım hızı ve depolamayı esnek bir şekilde ölçeklendirebilirsiniz.
+* **Esnek bir şekilde ölçeklenebilir aktarım hızı ve depolama**
 
-* Bildiğiniz Gremlin sözdizimi ile hızlı sorguları ve çapraz geçişlerine
+  Gerçek dünyadaki grafiklerin, tek bir sunucunun kapasitesinin yetmeyeceği biçimde ölçeklendirilmesi gerekir. Azure Cosmos DB açısından neredeyse sınırsız boyutu ve sağlanan aktarım hızı yatay olarak ölçeklenebilen graf veritabanları destekler. Graf veritabanı ölçeği büyüdükçe, veriyi otomatik olarak kullanarak dağıtılacak [grafik bölümleme](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning).
 
-  Heterojen köşeleri ve kenarları depolayın ve bildiğiniz bir Gremlin söz dizimiyle bu belgeleri sorgulayın. Azure Cosmos DB, tüm içeriğin otomatik olarak dizinini oluşturmak için yüksek derecede eşzamanlı, kilitsiz, günlük yapılı bir dizin oluşturma teknolojisi kullanır. Bu özellik şema ipuçları, ikincil dizinler veya görünümler belirtmek gerekmeden gerçek zamanlı zengin sorgulara ve geçişlere olanak sağlar. Daha fazla bilgi için bkz. [Gremlin kullanarak sorgu grafikleri](gremlin-support.md).
+* **Çok bölgeli çoğaltma**
 
-* Tam olarak yönetilir
+  Azure Cosmos DB graph verilerinizi herhangi bir Azure bölgesine otomatik olarak çoğaltma yapabilirsiniz. Çoğaltma verilere genel erişim gerektiren uygulamaların geliştirilmesini kolaylaştırır. Azure Cosmos DB, okuma gecikme süresi en aza ek olarak, nadir bir bölgede bir hizmet kesintisi durumunda uygulamanızın sürekliliğini sağlamak bir bölgesel yük devretme mekanizması sağlar. 
 
-  Azure Cosmos DB, veritabanı ve makine kaynaklarını yönetme ihtiyacını ortadan kaldırır. Bu tam olarak yönetilen bir Microsoft Azure hizmeti olduğundan sanal makineleri yönetmeniz, yazılımları dağıtıp yapılandırmanız, ölçeklendirmeyi yönetmeniz veya karmaşık veri katmanı yükseltmeleriyle uğraşmanız gerekmez. Tüm grafikler otomatik olarak yedeklenir ve bölgesel arızalara karşı korunur. İhtiyacınız oldukça kolaylıkla bir Azure Cosmos DB hesabı ve sağlama kapasitesi ekleyebilirsiniz, böylece veritabanınızı çalıştırmak ve yönetmek yerine uygulamanıza odaklanmanız sağlanır.
+* **Hızlı sorgular ve çapraz geçişleri en yaygın olarak benimsenen grafik sorgu standart**
 
-* Otomatik dizin oluşturma
+  Heterojen köşeleri ve kenarları depolayın ve bildiğiniz bir Gremlin söz dizimiyle bu belgeleri sorgulayın. Gremlin graf algoritmaları ortak uygulamak için zengin bir arabirim sunan bir kesinlik temelli, işlevsel bir sorgu dilidir. 
+  
+  Azure Cosmos DB, gerçek zamanlı zengin sorgulara ve çapraz geçişleri şema ipuçları, ikincil dizinler veya görünümler belirtmek zorunda kalmadan sağlar. Daha fazla bilgi için bkz. [Gremlin kullanarak sorgu grafikleri](gremlin-support.md).
 
-  Azure Cosmos DB, varsayılan olarak grafiğin düğümlerindeki ve kenarlarındaki tüm özelliklerin otomatik olarak dizinini oluşturur ve herhangi bir şemayı ya da ikincil dizinlerin oluşturulmasını beklemez veya gerektirmez.
+* **Tam olarak yönetilen bir grafik veritabanı**
 
-* Apache TinkerPop ile uyumluluk
+  Azure Cosmos DB, veritabanı ve makine kaynaklarını yönetme ihtiyacını ortadan kaldırır. Çoğu varolan grafik veritabanı platformlarına, yaptıkları altyapı sınırlarına bağlı ve genellikle yüksek derecede Bunun çalışmasını sağlamak için bakım gerektirir. 
+  
+  Tam olarak yönetilen bir Microsoft Azure hizmeti olduğundan sanal makineleri yönetme, çalışma zamanı yazılım güncelleştirmesi, parçalama ya da çoğaltma yönetmek veya karmaşık veri katmanı yükseltmeleriyle uğraşmanız gerek yoktur. Tüm grafikler otomatik olarak yedeklenir ve bölgesel arızalara karşı korunur. Bu garanti eder, geliştiricilerin ve veritabanlarını yönetmek yerine uygulama değer sunmaya odaklanma sağlar. 
 
-  Azure Cosmos DB, yerel olarak Apache TinkerPop standart desteği sunar ve TinkerPop’un etkinleştirildiği diğer grafik sistemleriyle tümleştirilebilir. Bu sayede kolayca Titan veya Neo4j gibi başka bir grafik veritabanından geçiş yapabilir veya Azure Cosmos DB’yi Apache Spark GraphX gibi grafik analizi çerçeveleriyle kullanabilirsiniz.
+* **Otomatik dizin oluşturma**
 
-* Ayarlanabilir tutarlılık düzeyleri
+  Azure Cosmos DB, varsayılan olarak grafiğin düğümlerindeki ve kenarlarındaki tüm özelliklerin otomatik olarak dizinini oluşturur ve herhangi bir şemayı ya da ikincil dizinlerin oluşturulmasını beklemez veya gerektirmez. Daha fazla bilgi edinin [Azure Cosmos DB'de dizinleme](https://docs.microsoft.com/azure/cosmos-db/index-overview). 
+
+* **Apache TinkerPop ile uyumluluk**
+
+  Azure Cosmos DB destekler [açık kaynaklı Apache TinkerPop standart](http://tinkerpop.apache.org/). Tinkerpop standart uygulamaları ve Azure Cosmos DB Gremlin API'si ile kolayca tümleştirilebilir kitaplıkları geniş bir ekosistemi vardır. 
+
+* **İnce ayarlanabilir tutarlılık düzeyleri**
 
   Tutarlılık ve performans arasında en iyi dengeyi elde etmek için iyi tanımlanmış beş tutarlılık düzeyi arasından seçim yapın. Azure Cosmos DB sorgular ve okuma işlemleri için beş farklı tutarlılık düzeyi sunar: güçlü, sınırlanmış eskime durumu, oturum, tutarlı ön ek ve son. Bu ayrıntılı ve iyi tanımlanmış tutarlılık düzeyleri tutarlılık, kullanılabilirlik ve gecikme süresi arasında sağlam bir denge kurmanıza olanak sağlar. [Azure Cosmos DB'deki ayarlanabilir tutarlılık düzeyleri](consistency-levels.md) sayfasına giderek daha fazla bilgi edinin.
-
-Azure Cosmos DB, aynı kapsayıcıların/veritabanlarının içinde belge ve grafik gibi birden çok modeli de kullanabilir. Grafik verilerini belgelerle yan yana depolamak için bir belge kapsayıcısı kullanabilirsiniz. Aynı verileri grafik olarak sorgulamak için JSON üzerinden SQL sorgularını ve Gremlin sorgularını kullanabilirsiniz.
-
-## <a name="get-started"></a>başlarken
-
-Azure Cosmos DB Gremlin API hesapları oluşturmak ve bunlara erişim sağlamak için Azure komut satırı arabirimini (CLI), Azure PowerShell’i veya Azure portalı kullanabilirsiniz. Hesap oluşturduktan sonra Gremlin için bir WebSocket ön ucu sunan Gremlin API hizmet uç noktası `https://<youraccount>.gremlin.cosmosdb.azure.com` kullanarak hesapta bulunan grafik veritabanlarına erişebilirsiniz. Uç noktasına bağlanmak ve Java, Node.js veya herhangi bir Gremlin istemci sürücüsünde uygulama oluşturmak için [Gremlin Konsolu](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) gibi TinkerPop ile uyumlu araçlarınızı yapılandırabilirsiniz.
-
-Aşağıdaki tabloda Azure Cosmos DB’ye karşı kullanabileceğiniz popüler Gremlin sürücüleri gösterilir:
-
-| İndirme | Belgeler | Başlarken | Desteklenen bağlayıcı sürümü |
-| --- | --- | --- | --- |
-| [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [GitHub’da Gremlin.NET](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [.NET kullanarak Grafik oluşturma](create-graph-dotnet.md) | 3.4.0-RC2 |
-| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Java kullanarak Grafik oluşturma](create-graph-java.md) | 3.2.0+ |
-| [Node.js](https://www.npmjs.com/package/gremlin) | [GitHub’da Gremlin-JavaScript](https://github.com/jbmusso/gremlin-javascript) | [Node.js kullanarak Grafik oluşturma](create-graph-nodejs.md) | 2.6.0|
-| [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Python kullanarak Grafik oluşturma](create-graph-python.md) | 3.2.7 |
-| [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Github'da Gremlin-PHP](https://github.com/PommeVerte/gremlin-php) | [PHP kullanarak Grafik oluşturma](create-graph-php.md) | 3.1.0 |
-| [Gremlin konsolu](https://tinkerpop.apache.org/downloads.html) | [TinkerPop belgeleri](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Gremlin konsolunu kullanarak Grafik oluşturma](create-graph-gremlin-console.md) | 3.2.0 + |
-
-## <a name="graph-database-design-considerations"></a>Grafik veritabanı tasarımında dikkat edilmesi gerekenler
-
-Grafik tasarımı sırasında bir varlık olarak kendi, başlangıcı yerine sonundan özelliği diğer köşe varlıklar olarak bir köşe modelleme kararı, performans ve maliyet etkilere sahiptir. Bu konuda verilecek kararın temel dayanağı, verilerin sorgulanma şekli ile modelin kendisinin ölçeklenebilirlik özelliğidir.
-
-Varlığın nasıl modelleneceğini planlamadan önce aşağıdaki soruları göz önünde bulundurun:
-
-* Sorgularımın çoğu için köşeler olarak alınması gereken varlıklar nelerdir?
-
-* Veri filtreleme amacıyla eklenen grafiğe dahil ettiğim bilgiler nedir?
-
-* Hangi varlıklar yalnızca, daha sonra değerleri için alınan başka varlıklara bağlantıdan ibarettir?
-
-* Sorgumun hangi bilgileri alması gerek ve bunların oluşturacağı RU ücreti nedir?
-
-Örneğin, aşağıdaki grafik tasarımını varsayın:
-
-![Grafik tasarımında dikkat edilmesi gerekenlere örnek](./media/graph-introduction/graph-design-considerations-example.png)
-
-* Sorgulara bağlı olarak, Depolama köşelerinin filtrelenmesi için, Bölge->Depolama ilişkisinin benzersiz şekilde kullanılması mümkündür. Örneğin, sorgular “belirli bir bölgeye ait tüm depoları al” biçimindeyse. Bu durumda Bölge varlığını kendi köşesinden, Depo köşesinin bir özelliğine daraltmayı dikkate almaya değer. 
-
-* Bu yaklaşım, bir seferde (Bölge, Bölge->Depo, Depo) üç grafik nesnesi edinmekten gelen her Depo köşesini tek bir Depo köşesine alma maliyetini azaltma avantajına sahiptir. Bu, sorgu başına azaltılmış maliyetin yanı sıra performans geliştirmesi de sağlayabilir.
-
-* Çünkü Depo köşesi iki farklı varlığa bağlıdır; Çalışan ve Ürün. Dolaşma için ek olasılıklar sağlayabildiğinden Depoyu gerekli bir köşe yapar.  
-
-
 
 ## <a name="scenarios-that-can-use-gremlin-api"></a>Gremlin API kullanabilen senaryolar
 Azure Cosmos DB’nin grafik desteğinin kullanılabileceği bazı senaryolar aşağıda verilmiştir:
@@ -136,6 +80,68 @@ Azure Cosmos DB’nin grafik desteğinin kullanılabileceği bazı senaryolar a�
 * Nesnelerin İnterneti
 
   IOT cihazları arasındaki ağ ve bağlantılar bir grafik olarak modellendiğinde, cihazlarınızın ve varlıklarınızın durumunu daha iyi kavrayabilirsiniz. Ayrıca ağın bir bölümündeki değişikliklerin başka bir bölümü nasıl etkileyebileceğini de öğrenebilirsiniz.
+
+## <a name="introduction-to-graph-databases"></a>Graf veritabanları giriş
+Gerçek dünyada görünen veriler doğal olarak bağlıdır. Geleneksel veri modelleme ayrı ayrı varlıklar tanımlayan ve aralarındaki ilişkiler zamanında bilgi işlem odaklanır. Bu model, kendine göre avantajları olduğundan, altında kendi kısıtlamaları yönetmek için sahip üst düzeyde bağlantılı veri zor olabilir.  
+
+Bir grafik veritabanı yaklaşımı kalıcı depolama katmanı ilişkilerde bunun yerine, üst düzeyde verimli graf alma işlemleri için müşteri adayları kullanır. Azure Cosmos DB Gremlin API'si destekler [özelliği grafik modeli](https://tinkerpop.apache.org/docs/current/reference/#intro).
+
+### <a name="property-graph-objects"></a>Özellik grafik nesneleri
+
+Bir özellik [grafik](http://mathworld.wolfram.com/Graph.html) oluşur yapısıdır [köşeler](http://mathworld.wolfram.com/GraphVertex.html) ve [kenarlar](http://mathworld.wolfram.com/GraphEdge.html). Her iki nesnenin özellikleri olarak anahtar-değer çiftleri tercihe bağlı sayıda olabilir. 
+
+* **Köşe** -köşeler bir kişi, yer veya olay gibi farklı varlıkları gösterir.
+
+* **Kenarlar** - Kenarlar, köşeler arasındaki ilişkileri gösterir. Bir kişinin başka bir kişiyi tanıması, bir etkinliğe katılması veya kısa süre önce bir konumda bulunması bağlantılar buna örnek gösterilebilir. 
+
+* **Özellikler** - Özellikler, köşeler ve kenarlar hakkında bilgi ifade eder. Köşe veya kenarları özelliklerinde herhangi bir sayıda olabilir ve açıklamak ve sorgu nesneleri filtrelemek için kullanılabilir. Örnek özellikleri ada ve yaş sahip bir köşe veya zaman damgası ve/veya ağırlık olabilir bir kenar içerir. 
+
+Graf veritabanları genellikle NoSQL dahilinde yer alan ve ilişkisel olmayan, bir şema veya kısıtlanmış veri modeli üzerinde hiçbir bağımlılık olduğundan veritabanı kategorisi. Bu şema eksikliği modelleme ve doğal olarak ve verimli bir şekilde bağlı yapıları Depolama olanağı sağlar. 
+
+### <a name="gremlin-by-example"></a>Örneğe göre Gremlin
+Sorguların Gremlin’de nasıl ifade edildiğini anlamak için örnek bir grafik kullanalım. Aşağıdaki şekilde kullanıcılar, ilgi alanları ve cihazlar hakkındaki verileri yöneten bir iş uygulaması grafik biçiminde gösterilir.  
+
+![Kişileri, cihazları ve ilgi alanlarını gösteren örnek grafik](./media/gremlin-support/sample-graph.png) 
+
+Bu grafikte aşağıdaki köşe türleri (Gremlin’de “etiket” olarak adlandırılır) vardır:
+
+- Kişiler: Grafiği bir kez deneme Thomas ve Ben üç kişi vardır
+- İlgi alanları: Bu örnekte, oyunu futbol kendi ilgi alanlarına
+- Cihazlar: Kullanımı cihazlar
+- İşletim sistemleri: Cihaz üzerinde çalışan işletim sistemleri
+
+Aşağıdaki kenar türleri/etiketleri üzerinden bu varlıklar arasındaki ilişkiyi temsil ediyoruz:
+
+- Bilir: Örneğin, "Thomas Robin bilir"
+- İster misiniz: Bizim Graph'te kişiler, örneğin, "Ben futbol ilgilenmektedir" ilgi alanları göstermek için
+- RunsOS: Dizüstü bilgisayar Windows işletim sistemi çalıştırır.
+- Kullanır: Bir kişi hangi cihaz göstermek için kullanır. Örneğin Robin, seri numarası 77 olan bir Motorola telefon kullanır
+
+Şimdi [Gremlin Console](https://tinkerpop.apache.org/docs/3.3.2/reference/#gremlin-console)’u kullanarak bu grafiğe yönelik birkaç işlem yapalım. Dilerseniz bu işlemleri, tercih ettiğiniz platformdaki (Java, Node.js, Python veya .NET) Gremlin sürücülerini kullanarak da gerçekleştirebilirsiniz.  Azure Cosmos DB’de nelerin desteklendiğine bakmadan önce söz dizimine hakkında bilgi edinmek için birkaç örneğe bakalım.
+
+İlk olarak CRUD’a bakalım. Aşağıdaki Gremlin deyimi “Thomas” köşesini grafiğe ekler:
+
+```java
+:> g.addV('person').property('id', 'thomas.1').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44)
+```
+
+Daha sonra aşağıdaki Gremlin deyimi, Thomas ve Robin arasına bir “Tanıma” kenarı ekler.
+
+```java
+:> g.V('thomas.1').addE('knows').to(g.V('robin.1'))
+```
+
+Aşağıdaki sorgu, “kişiler” köşesini ilk adlarına göre azalan sırada döndürür:
+```java
+:> g.V().hasLabel('person').order().by('firstName', decr)
+```
+
+Grafiklerin asıl iyi olduğu kısımlar, “Thomas’ın arkadaşları hangi işletim sistemini kullanıyor?” gibi sorular sorduğunuzda ortaya çıkıyor. Grafikten ilgili bilgi almak için bu Gremlin geçişi çalıştırabilirsiniz:
+
+```java
+:> g.V('thomas.1').out('knows').out('uses').out('runsos').group().by('name').by(count())
+```
+Şimdi de Azure Cosmos DB’nin Gremlin geliştiricilerine neler sunduğuna bakalım.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Cosmos DB’de grafik desteği hakkında daha fazla bilgi için bkz.

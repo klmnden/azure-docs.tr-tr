@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3820a5d7becef275ed3408f01cc53ad8590ba60e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 2966f90dcb381e439c00a6540ef9a01bd24f8743
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272408"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561182"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Veri bulunmama sorunlarını giderme - .NET için Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>Telemetrimi bazıları eksik
@@ -28,13 +28,13 @@ ms.locfileid: "67272408"
 
 *Veri kaybı rastgele yaşıyor.*
 
-* Veri kaybıyla yaşıyorsanız denetleyin [Telemetri kanal](telemetry-channels.md#does-applicationinsights-channel-offer-guaranteed-telemetry-delivery-or-what-are-the-scenarios-where-telemetry-can-be-lost)
+* Veri kaybıyla yaşıyorsanız denetleyin [Telemetri kanal](telemetry-channels.md#does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost)
 
 * Telemetri kanaldaki tüm bilinen sorunlar denetle [Github deposu](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
 
 *Veri kaybı konsol uygulaması veya Web uygulaması, uygulama durmak için olduğunda yaşıyor.*
 
-* SDK'sı kanal telemetri arabellekte tutar ve bunları toplu olarak gönderir. Uygulama kapatılıyor, açıkça çağırmak gerekebilir [Flush()](api-custom-events-metrics.md#flushing-data). Davranışını `Flush()` gerçek üzerinde bağlıdır [kanal](telemetry-channels.md#built-in-telemetrychannels) kullanılır.
+* SDK'sı kanal telemetri arabellekte tutar ve bunları toplu olarak gönderir. Uygulama kapatılıyor, açıkça çağırmak gerekebilir [Flush()](api-custom-events-metrics.md#flushing-data). Davranışını `Flush()` gerçek üzerinde bağlıdır [kanal](telemetry-channels.md#built-in-telemetry-channels) kullanılır.
 
 ## <a name="no-data-from-my-server"></a>My sunucusundan veri yok
 *Uygulamamı my web sunucusunda yüklü ve artık tüm telemetrisini göremiyorum. Geliştirme makineme Tamam çalıştınız.*
@@ -215,7 +215,9 @@ Altyapınız için sorun giderme günlükleri tutmak için bu yönergeleri izley
 
 ### <a name="net-core"></a>.NET Core
 
-1. Yükleme [Microsoft.AspNetCore.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.ApplicationInsights.HostingStartup) NuGet paketi. Yüklemeniz gereken sürüm yüklü geçerli sürümü ile eşleşmelidir `Microsoft.ApplicationInsights`
+1. Yükleme [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) NuGet paketi. Yüklemeniz gereken sürüm yüklü geçerli sürümü ile eşleşmelidir `Microsoft.ApplicationInsights`
+
+En son Microsoft.ApplicationInsights.AspNetCore 2.7.1 sürümüdür ve sürüm 2.10 Microsoft.applicationınsights için başvurur. Bu nedenle yüklenecek Microsoft.AspNet.ApplicationInsights.HostingStartup 2.10.0 olması gerekir
 
 2. Değiştirme `ConfigureServices` yönteminde, `Startup.cs` sınıfı.:
 

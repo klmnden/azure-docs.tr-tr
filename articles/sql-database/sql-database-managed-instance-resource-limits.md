@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
-ms.date: 06/13/2019
-ms.openlocfilehash: 89df33f453217585e8f0b8ff13d06ee223474fae
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 06/26/2019
+ms.openlocfilehash: a0846a7d03cc2f63af6747c8b8514b563c1d4a5d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272233"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447811"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Genel Bakış Azure SQL veritabanı yönetilen örneği kaynak sınırları
 
@@ -42,6 +42,9 @@ Azure SQL veritabanı yönetilen örnek üzerinde iki donanım Nesilleri dağıt
 | Maks. bellek içi OLTP bellek | Örnek sınırı: Sanal çekirdek başına 3 GB<br/>Veritabanı sınırları:<br/> -8 Çekirdek: Veritabanı başına 8 GB<br/> -16 Çekirdek: Veritabanı başına 20 GB<br/> -24 çekirdekli: Veritabanı başına 36 GB | Örnek sınırı: Sanal çekirdek başına 2,5 GB<br/>Veritabanı sınırları:<br/> -8 Çekirdek: Veritabanı başına 13 GB<br/> -16 Çekirdek: Veritabanı başına 32 GB |
 | En büyük örnek depolama (genel amaçlı) |  8 TB | 8 TB |
 | En büyük örnek depolama (iş açısından kritik) | 1 TB | 1 TB, 2 TB veya 4 TB çekirdek sayısına bağlı olarak |
+
+> [!IMPORTANT]
+> Yeni 4. nesil veritabanları, AustraliaEast bölgesinde artık desteklenmemektedir.
 
 ### <a name="service-tier-characteristics"></a>Hizmet katmanı özellikleri
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: allensu
-ms.openlocfilehash: 7aee68ef41b696549aa1db4386d467b55cd2d981
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8df1c29bc5230e925d05be9fd356de050a9b0f06
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071068"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550372"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager uç nokta izleme
 
@@ -102,7 +102,7 @@ Aşağıdaki olaylardan herhangi biri gerçekleştiğinde bir uç nokta sağlam 
 - İzleme Protokolü, HTTP veya HTTPS ise:
     - 200 yanıt ya da belirtilen durum aralığı içermeyen bir yanıt **beklenen durum kodu aralığı** ayarı (301/302 yeniden yönlendirme veya farklı 2xx kod dahil) alınır.
 - İzleme protokol TCP olduğunda: 
-    - Traffic Manager tarafından gönderilen bağlantı kurma denemesi eşitleme isteğine yanıt olarak ACK veya SYN ACK dışındaki bir yanıt aldı.
+    - Traffic Manager tarafından gönderilen bağlantı kurma denemesi SYN isteğine yanıt olarak ACK veya SYN ACK dışındaki bir yanıt aldı.
 - Zaman aşımı. 
 - Uç noktası erişilebilir olmaması kaynaklanan herhangi başka bir bağlantı sorunu.
 

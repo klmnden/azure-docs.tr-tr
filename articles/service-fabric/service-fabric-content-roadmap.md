@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
-ms.openlocfilehash: a95baeb60ddff38e2aa1e36e7728c012d9d44930
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1227871f2003ded7b9cb92eaf32bd9a984958f9f
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540713"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537817"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Bu nedenle, Service Fabric hakkında öğrenmek ister misiniz?
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur.  Ancak, Service Fabric, büyük bir yüzey alanı vardır ve öğreneceğiniz çok şey yoktur.  Bu makale, Service fabric'in bir özeti sağlar ve programlama modellerini, uygulama yaşam döngüsü, test, kümeler ve sistem durumu izleme temel kavramları açıklar. Okuma [genel bakış](service-fabric-overview.md) ve [mikro hizmetler nedir?](service-fabric-overview-microservices.md) giriş ve Service Fabric mikro hizmetler oluşturmak için nasıl kullanılabilir. Bu makalede, kapsamlı bir içerik listesi içermiyor, ancak genel bakış ve Service Fabric için her bir alanı Başlarken makaleleri bağlantı. 
@@ -27,16 +27,18 @@ Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemey
 ## <a name="core-concepts"></a>Temel kavramlar
 [Service Fabric terminolojisi](service-fabric-technical-overview.md), [uygulama modeli](service-fabric-application-model.md), ve [desteklenen programlama modelleri](service-fabric-choose-framework.md) kavramları ve açıklamaları daha fazla sağlar, ancak temel bilgiler aşağıda verilmiştir.
 
-### <a name="design-time-application-type-service-type-application-package-and-manifest-service-package-and-manifest"></a>Tasarım zamanı: uygulama türü, hizmet türü, uygulama paketini ve bildirimi, hizmet paketi ve bildirimi
-Hizmet türlerinin bir koleksiyona atanan adı/sürümü bir uygulama türüdür. Bu tanımlanan bir *ApplicationManifest.xml* dosyasını bir uygulama paketi dizinine eklenir. Uygulama paketi daha sonra Service Fabric kümenin görüntü deposuna kopyalanır. Ardından, ardından kümede çalışan uygulama türünden adlandırılmış bir uygulama oluşturabilirsiniz. 
+### <a name="design-time-service-type-service-package-and-manifest-application-type-application-package-and-manifest"></a>Tasarım zamanı: hizmet türü, hizmet paketi ve bildirim, uygulama türü, uygulama paketini ve bildirimi
+Hizmet adı/sürümü hizmetin kod paketleri, veri paketleri ve yapılandırma paketleri için atanan türüdür. Bu bir ServiceManifest.xml dosyasında tanımlanır. Hizmet türü yürütülebilir kod ve çalışma zamanında yüklenen, hizmet yapılandırma ayarları ve hizmet tarafından kullanılan statik veri kümesinden oluşur.
 
-Hizmet adı/sürümü hizmetin kod paketleri, veri paketleri ve yapılandırma paketleri için atanan türüdür. Bu, bir hizmet paketi dizinde katıştırılmış bir ServiceManifest.xml dosyasında tanımlanır. Hizmet paketi dizini sonra bir uygulama paketin tarafından başvurulan *ApplicationManifest.xml* dosya. Küme içinde adlandırılmış bir uygulama oluşturduktan sonra adlandırılmış bir hizmet uygulaması türün hizmet türlerinden birini oluşturabilirsiniz. Hizmet türü tarafından açıklanan kendi *ServiceManifest.xml* dosya. Hizmet türü yürütülebilir kod ve çalışma zamanında yüklenen, hizmet yapılandırma ayarları ve hizmet tarafından kullanılan statik veri kümesinden oluşur.
+Kod, statik veri ve hizmet türü için yapılandırma paketleri başvuran hizmet türün ServiceManifest.xml dosyasını içeren bir disk dizin hizmeti paketidir. Örneğin, bir hizmet paketi, kod, statik veri ve bir veritabanı hizmeti oluşturan yapılandırma paketlerini başvurabileceğiniz.
+
+Hizmet türlerinin bir koleksiyona atanan adı/sürümü bir uygulama türüdür. Bu bir ApplicationManifest.xml dosyasında tanımlanır.
 
 ![Service Fabric uygulama türleri ve hizmet türleri][cluster-imagestore-apptypes]
 
-Uygulama paketi uygulama türün içeren bir disk dizindir *ApplicationManifest.xml* uygulama türü yaptığı her bir hizmet türünün hizmet paketleri başvuran dosya. Örneğin, bir uygulama paketi e-posta uygulama türü için bir kuyruk hizmeti paketi, bir ön uç hizmeti paketi ve bir veritabanı hizmeti paketi başvuruları içerebilir. Uygulama paketi dizindeki dosyaların, Service Fabric kümenin görüntü deposuna kopyalanır. 
+Uygulama paketi uygulama türü yaptığı her bir hizmet türünün hizmet paketleri başvuruda uygulama türün ApplicationManifest.xml dosyasını içeren bir disk dizindir. Örneğin, bir uygulama paketi e-posta uygulama türü için bir kuyruk hizmeti paketi, bir ön uç hizmeti paketi ve bir veritabanı hizmeti paketi başvuruları içerebilir.  
 
-Hizmet Paketi hizmet türün içeren bir disk dizindir *ServiceManifest.xml* kod, statik veri ve hizmet türü için yapılandırma paketleri başvuran dosya. Hizmet paketi dizindeki dosyaların uygulama türün tarafından başvurulan *ApplicationManifest.xml* dosya. Örneğin, bir hizmet paketi, kod, statik veri ve bir veritabanı hizmeti oluşturan yapılandırma paketlerini başvurabileceğiniz.
+Uygulama paketi dizindeki dosyaların, Service Fabric kümenin görüntü deposuna kopyalanır. Ardından, ardından kümede çalışan uygulama türünden adlandırılmış bir uygulama oluşturabilirsiniz. Adlandırılmış bir uygulama oluşturduktan sonra adlandırılmış bir hizmet uygulaması türün hizmet türlerinden birini oluşturabilirsiniz. 
 
 ### <a name="run-time-clusters-and-nodes-named-applications-named-services-partitions-and-replicas"></a>Çalışma zamanı: kümeler ve uygulamalar, hizmetler, bölümler ve çoğaltmalar adlı adlı düğümleri
 [Service Fabric kümesi](service-fabric-deploy-anywhere.md), mikro hizmetlerin dağıtılıp yönetildiği, ağa bağlı bir sanal veya fiziksel makine kümesidir. Kümeler binlerce makine içerecek şekilde ölçeklendirilebilir.

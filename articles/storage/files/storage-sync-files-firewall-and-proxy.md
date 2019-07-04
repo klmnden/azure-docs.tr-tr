@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d9b7296a116ebd06542a53087afbd083dbd3a7eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fdbbea2d32762d2d4030ec3a10826595dadd371c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696758"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449822"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure Dosya Eşitleme proxy’si ve güvenli duvarı ayarları
 Azure dosya eşitleme, şirket içi sunucularınızı Azure çok siteli eşitleme ve bulut katmanlaması özellikleri etkinleştirme dosyaları'na bağlanır. Bu nedenle, bir şirket içi sunucu internet'e bağlanması gerekir. Bir BT yöneticisi Azure bulut hizmetlerine erişmek sunucu için en iyi yolu karar vermeniz gerekir.
@@ -111,20 +111,31 @@ Varsa &ast;. one.microsoft.com çok geniş, Azure dosya eşitleme hizmeti yalnı
 
 | Bulut  | Bölge | Birincil uç nokta URL'si | Eşleştirilmiş bölge | Bulma URL'si |
 |--------|--------|----------------------|---------------|---------------|
-| Genel |Avustralya Doğu | https://kailani-aue.one.microsoft.com | Avustralya Güneydoğu | https://kailani-aue.one.microsoft.com |
+| Genel |Avustralya Doğu | https://kailani-aue.one.microsoft.com | Avustralya Güneydoğu | https://tm-kailani-aue.one.microsoft.com |
 | Genel |Avustralya Güneydoğu | https://kailani-aus.one.microsoft.com | Avustralya Doğu | https://tm-kailani-aus.one.microsoft.com |
+| Genel | Güney Brezilya | https://brazilsouth01.afs.azure.net | Orta Güney ABD | https://tm-brazilsouth01.afs.azure.net |
 | Genel | Orta Kanada | https://kailani-cac.one.microsoft.com | Doğu Kanada | https://tm-kailani-cac.one.microsoft.com |
 | Genel | Doğu Kanada | https://kailani-cae.one.microsoft.com | Orta Kanada | https://tm-kailani.cae.one.microsoft.com |
+| Genel | Orta Hindistan | https://kailani-cin.one.microsoft.com | Güney Hindistan | https://tm-kailani-cin.one.microsoft.com |
 | Genel | Orta ABD | https://kailani-cus.one.microsoft.com | Doğu ABD 2 | https://tm-kailani-cus.one.microsoft.com |
 | Genel | Doğu Asya | https://kailani11.one.microsoft.com | Güneydoğu Asya | https://tm-kailani11.one.microsoft.com |
-| Genel | Doğu ABD | https://kailani1.one.microsoft.com | Batı ABD | https://tm-kailani1.one.microsoft.com |
+| Genel | East US | https://kailani1.one.microsoft.com | Batı ABD | https://tm-kailani1.one.microsoft.com |
 | Genel | Doğu ABD 2 | https://kailani-ess.one.microsoft.com | Orta ABD | https://tm-kailani-ess.one.microsoft.com |
+| Genel | Japonya Doğu | https://japaneast01.afs.azure.net | Japonya Batı | https://tm-japaneast01.afs.azure.net |
+| Genel | Japonya Batı | https://japanwest01.afs.azure.net | Japonya Doğu | https://tm-japanwest01.afs.azure.net |
+| Genel | Kore Orta | https://koreacentral01.afs.azure.net/ | Kore Güney | https://tm-koreacentral01.afs.azure.net/ |
+| Genel | Kore Güney | https://koreasouth01.afs.azure.net/ | Kore Orta | https://tm-koreasouth01.afs.azure.net/ |
+| Genel | Orta Kuzey ABD | https://northcentralus01.afs.azure.net | Orta Güney ABD | https://tm-northcentralus01.afs.azure.net |
 | Genel | Kuzey Avrupa | https://kailani7.one.microsoft.com | Batı Avrupa | https://tm-kailani7.one.microsoft.com |
+| Genel | Orta Güney ABD | https://southcentralus01.afs.azure.net | Orta Kuzey ABD | https://tm-southcentralus01.afs.azure.net |
+| Genel | Güney Hindistan | https://kailani-sin.one.microsoft.com | Orta Hindistan | https://tm-kailani-sin.one.microsoft.com |
 | Genel | Güneydoğu Asya | https://kailani10.one.microsoft.com | Doğu Asya | https://tm-kailani10.one.microsoft.com |
 | Genel | Birleşik Krallık Güney | https://kailani-uks.one.microsoft.com | Birleşik Krallık Batı | https://tm-kailani-uks.one.microsoft.com |
 | Genel | Birleşik Krallık Batı | https://kailani-ukw.one.microsoft.com | Birleşik Krallık Güney | https://tm-kailani-ukw.one.microsoft.com |
+| Genel | Batı Orta ABD | https://westcentralus01.afs.azure.net | Batı ABD 2 | https://tm-westcentralus01.afs.azure.net |
 | Genel | Batı Avrupa | https://kailani6.one.microsoft.com | Kuzey Avrupa | https://tm-kailani6.one.microsoft.com |
-| Genel | Batı ABD | https://kailani.one.microsoft.com | Doğu ABD | https://tm-kailani.one.microsoft.com |
+| Genel | Batı ABD | https://kailani.one.microsoft.com | East US | https://tm-kailani.one.microsoft.com |
+| Genel | Batı ABD 2 | https://westus201.afs.azure.net | Batı Orta ABD | https://tm-westus201.afs.azure.net |
 | Devlet | ABD Devleti Arizona | https://usgovarizona01.afs.azure.us | ABD Devleti Texas | https://tm-usgovarizona01.afs.azure.us |
 | Devlet | ABD Devleti Texas | https://usgovtexas01.afs.azure.us | ABD Devleti Arizona | https://tm-usgovtexas01.afs.azure.us |
 

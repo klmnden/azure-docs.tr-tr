@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: apimpm
-ms.openlocfilehash: 34c4ef2885a82b6c392b814eeb624e616e341d48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a57f8e44d19432f82abe4fa5e7bafce900db3394
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304344"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448004"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Azure API Management katmanları özellik tabanlı karşılaştırması
 
@@ -40,6 +40,7 @@ Her API Management [fiyatlandırma katmanı](https://aka.ms/apimpricing) özelli
 | [Git üzerinden Yönetimi](api-management-configuration-repository-git.md)                        | Hayır                            | Evet            | Evet            | Evet            | Evet            |
 | Doğrudan yönetim API'si                                                                        | Hayır                            | Evet            | Evet            | Evet            | Evet            |
 | Azure İzleyici günlükleri ve ölçümler                                                               | Hayır                | Evet            | Evet            | Evet            | Evet            |
+| Statik IP                                                               | Hayır                | Evet            | Evet            | Evet            | Evet            |
 
 <sup>1</sup> Azure AD'ye kullanılmasına olanak tanır (ve Azure AD B2C) bir kimlik sağlayıcısı kullanıcı için oturum açın Geliştirici portalında.<br/>
 <sup>2</sup> ilgili işlevleri dahil olmak üzere örn kullanıcıları, grupları, sorunları, uygulamaları ve e-posta şablonları ve bildirimleri.<br/>

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 88de601caf984d2511229cd68190554086c3da38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e527d9c35ccc87f270755947cd969c7acee380b0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65779551"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449176"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örnek meta veri hizmeti
 
@@ -37,11 +37,11 @@ Azure'nın örnek meta veri hizmeti REST uç noktası aracılığıyla oluşturu
 
 Hizmet genel kullanıma sunulan Azure bölgelerinde kullanılabilir. Tüm API sürümü tüm Azure bölgelerinde kullanılabilir.
 
-Bölgeler                                        | Kullanılabilirlik?                                 | Desteklenen Sürümler
+Regions                                        | Kullanılabilirlik?                                 | Desteklenen Sürümler
 -----------------------------------------------|-----------------------------------------------|-----------------
 [Tüm genel kullanıma sunulan Global Azure bölgeleri](https://azure.microsoft.com/regions/)     | Genel Kullanıma Sunuldu | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Devlet Kurumları](https://azure.microsoft.com/overview/clouds/government/)              | Genel Kullanıma Sunuldu | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-[Azure Çin](https://www.azure.cn/)                                                     | Genel Kullanıma Sunuldu | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure Çin](https://azure.microsoft.com/global-infrastructure/china/)                  | Genel Kullanıma Sunuldu | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Almanya](https://azure.microsoft.com/overview/clouds/germany/)                    | Genel Kullanıma Sunuldu | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Genel Batı Orta ABD](https://azure.microsoft.com/regions/)                           | Genel Kullanıma Sunuldu | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01
 
@@ -62,7 +62,7 @@ Daha yeni sürümler eklendikçe betiklerinizi özgü veri biçimleri üzerinde 
 
 Hiçbir sürüm belirtildiğinde, bir hata yeni Desteklenen sürümlerin bir listesi döndürülür.
 
-> [!NOTE] 
+> [!NOTE]
 > Yanıt, bir JSON dizesi. Aşağıdaki örnek yanıt okunabilirlik açısından pretty yazdırılır.
 
 **İstek**
@@ -205,7 +205,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
     "location": "centralus",
     "name": "negasonic",
     "offer": "lampstack",
@@ -283,7 +283,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
     "location": "centralus",
     "name": "negasonic",
     "offer": "lampstack",
@@ -340,7 +340,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 #### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>Aşağıdaki API meta veri uç noktası aracılığıyla kullanılabilir:
 
-Veriler | Açıklama | Kullanıma sunulan sürümü
+Data | Açıklama | Kullanıma sunulan sürümü
 -----|-------------|-----------------------
 TPM'de | Bkz: [TPM'de veri](#attested-data) | 2018-10-01
 identity | Azure kaynakları için yönetilen kimlikleri. Bkz: [erişim belirteci alma](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
@@ -353,7 +353,7 @@ scheduledevents | Bkz: [zamanlanmış olaylar](scheduled-events.md) | 2017-08-01
 > [!NOTE]
 > Meta veri uç noktası Aşağıdaki kategorilerde örnek/işlem erişilir.
 
-Veriler | Açıklama | Kullanıma sunulan sürümü
+Data | Açıklama | Kullanıma sunulan sürümü
 -----|-------------|-----------------------
 azEnvironment | Azure ortamı burada VM çalışıyor | 2018-10-01
 customData | Bkz: [özel veri](#custom-data) | 2019-02-01
@@ -383,7 +383,7 @@ bölge | [Kullanılabilirlik alanı](../../availability-zones/az-overview.md) sa
 > [!NOTE]
 > Meta veri uç noktası Aşağıdaki kategorilerde ağ/örnek/arabirimi üzerinden erişilir.
 
-Veriler | Açıklama | Kullanıma sunulan sürümü
+Data | Açıklama | Kullanıma sunulan sürümü
 -----|-------------|-----------------------
 ipv4/privateIpAddress | Sanal makinenin yerel IPv4 adresi | 2017-04-02
 ipv4/publicIpAddress | Sanal makinenin genel IPv4 adresi | 2017-04-02
@@ -537,8 +537,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnviro
 
 **Yanıt**
 ```bash
-AZUREPUBLICCLOUD
+AzurePublicCloud
 ```
+Bulut ve Azure ortamı değerlerini aşağıda listelenmiştir.
+
+ Bulut   | Azure ortamı
+---------|-----------------
+[Tüm genel kullanıma sunulan Global Azure bölgeleri](https://azure.microsoft.com/regions/)     | AzurePublicCloud
+[Azure Devlet Kurumları](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
+[Azure Çin](https://azure.microsoft.com/global-infrastructure/china/)                  | AzureChinaCloud
+[Azure Almanya](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
 ### <a name="getting-the-tags-for-the-vm"></a>VM için etiketler alınıyor
 
@@ -604,7 +612,7 @@ Verification successful
 }
 ```
 
-Veriler | Açıklama
+Data | Açıklama
 -----|------------
 nonce | Kullanıcı tarafından sağlanan isteği ile isteğe bağlı dize. Hiçbir nonce istekte belirtilirse, geçerli UTC zaman damgası döndürülür
 planı | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) bir VM'de bir Azure Market görüntüsü için adı, ürün ve yayımcı içerir.
@@ -619,11 +627,11 @@ Yukarıdaki imza aldıktan sonra imza Microsoft'tan olduğunu doğrulayabilirsin
 > [!NOTE]
 > Sertifika genel Bulut ve bağımsız bulut için farklı olacaktır.
 
- Bölgeler | Sertifika
+ Bulut | Sertifika
 ---------|-----------------
 [Tüm genel kullanıma sunulan Global Azure bölgeleri](https://azure.microsoft.com/regions/)     | Metadata.Azure.com
 [Azure Devlet Kurumları](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
-[Azure Çin](https://www.azure.cn/)                                                           | Metadata.Azure.CN
+[Azure Çin](https://azure.microsoft.com/global-infrastructure/china/)                  | Metadata.Azure.CN
 [Azure Almanya](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
 
 ```bash

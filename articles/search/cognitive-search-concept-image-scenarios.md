@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: ca9b3607041f75b1c866aa2813308312ad5d1017
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8bea47467d141869b1a668668bc57451a882a54b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023760"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448445"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Bilişsel arama senaryolarda görüntülerdeki bilgileri işleme ve ayıklama nasıl
 
@@ -30,7 +30,7 @@ Bu makalede, görüntü işleme daha ayrıntılı olarak ele alınmaktadır ve b
 
 Belge çözme işleminin bir parçası olarak yeni bir görüntü dosya veya görüntü dosyaları katıştırılmış işlemek için dizin oluşturucuyu yapılandırma parametreleri kümesi vardır. Bu parametreler, görüntüleri daha da aşağı akış işleme için'leri normalleştirmek için kullanılır. Görüntüleri normalleştirme bunların daha tekdüzen sağlar. Büyük resimler için bir maksimum yükseklik ve genişlik kullanılabilir hale getirmek için yeniden boyutlandırılır. Meta veriler üzerinde yönlendirme sağlanarak görüntüleri için görüntü döndürme dikey yükleme için ayarlanır. Meta veri ayarlamalar her görüntü için oluşturulan karmaşık bir tür içinde yakalanır. 
 
-Görüntü normalleştirmeyi kapatamazsınız. Görüntüleri yineleme becerileri normalleştirilmiş görüntüsü bekler.
+Görüntü normalleştirmeyi kapatamazsınız. Görüntüleri yineleme becerileri normalleştirilmiş görüntüsü bekler. Bir dizin oluşturucu görüntü normalleştirmede etkinleştirme bir beceri kümesi için dizin oluşturucu eklenmesi gerekir.
 
 | Yapılandırma parametresi | Açıklama |
 |--------------------|-------------|

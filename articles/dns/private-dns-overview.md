@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: 7012bbe98e41a3eb273b26e7e4ade705a6eaf8e1
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: aedace031eaedf2709993b5185979e8777821759
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147576"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444832"
 ---
 # <a name="what-is-azure-private-dns"></a>Azure Özel DNS nedir?
 
@@ -59,6 +59,13 @@ Azure DNS, aşağıdaki özellikleri sağlar:
 * **İleriye doğru DNS çözümlemesi, özel bölgesiyle bağlantılı sanal ağlar desteklenir**. DNS çözümlemesi arası sanal ağ için olduğunu açık bağımlılığı olmayan sanal ağlar birbiriyle eşlenmiş gibi. Ancak, diğer senaryolar (örneğin, HTTP trafiğini) için sanal ağları eşleyebilme isteyebilirsiniz.
 
 * **Geriye doğru DNS araması sanal ağ kapsamı içinde desteklenen**. Özel bir bölgesi için atanmış sanal ağ içindeki özel bir IP için ters DNS araması konak/kayıt adı ve bölge adı soneki içeren FQDN döndürür.
+
+## <a name="known-issues"></a>Bilinen sorunlar
+Bilinen hataları ve sorunları Önizleme sürümünde aşağıdaki öğeler şunlardır:
+* Özel bir DNS bölgesi için bağlı bir sanal ağ silerseniz, özel DNS bölgesi bağlantılar silmez. Sanal ağ ile aynı adı ve kaynak grubu oluşturmanız ve tüm özel DNS bölgesi için bağlantısını yeniden denemek bağlantı başarısız olur. Bu sorunu geçici olarak çözmek için farklı bir kaynak grubunda veya farklı bir adla aynı kaynak grubunda sanal ağ oluşturun.
+* Bir sanal ağ başka bir kaynak grubuna veya aboneliğe taşıma, özel DNS bölgesi için bağlantıları güncelleştirmez. Taşınan sanal ağ için ad çözümlemesi çalışmaya, ancak özel DNS bölgenizi, sanal ağ bağlantıları'nı görüntülediğinizde, sanal ağın eski ARM kimlikleri görürsünüz devam eder.
+* Şu anda barındırılan BAE Kuzey BAE Orta, Güney Afrika Batı, Güney Afrika Kuzey, Doğu Kanada, Fransa Güney bağlı sanal ağlar başarısız olabilir ve aralıklı DNS çözümlemesi sorunları görebilirsiniz. 
+
 
 ## <a name="other-considerations"></a>Dikkat edilecek diğer noktalar
 

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cody-dkdc
 ms.author: copeters
 ms.date: 06/20/2019
-ms.openlocfilehash: 56761c32484d4f5b27800e56143c62d3731da852
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: a03e3124647869e7148f271810bb523986a851c6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332960"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442377"
 ---
 # <a name="what-is-data-drift-monitoring-preview"></a>Veri nedir, izleme (Önizleme) kayma?
 
@@ -37,7 +37,7 @@ Dağıtılan modeliniz için girdi verilerini değişebilir düşünüyorsanız,
 
 ## <a name="how-data-drift-is-monitored-in-azure-machine-learning-service"></a>Azure Machine Learning hizmeti veri değişikliklerini nasıl izlenir
 
-Kullanarak **Azure Machine Learning hizmeti**, veri değişikliklerini, veri kümeleri veya dağıtımları ile izlenir. İçin veri değişikliklerini izlemek için bir temel veri kümesi - genellikle eğitim veri kümesi için bir model - belirtilir. İkinci bir veri kümesi - genellikle bir dağıtımdan - model giriş verileri toplanan temel veri kümesinde sınanır. Her iki veri kümelerinin olduğunu [profili](how-to-create-dataset-snapshots.md) ve giriş verileri için farklı izleme hizmeti. İki veri kümesi arasındaki farkları algılamak için makine öğrenme modeli eğitilir. Modelin performans değişikliklerini katsayısı, iki veri kümesi arasında kayması büyüklüğünü ölçer dönüştürülür. Kullanarak [model interpretability](machine-learning-interpretability-explainability.md) kayması katsayısı için katkıda bulunan özellikler hesaplanır. Veri kümesi profilinden her özellik hakkında istatistiksel bilgi izlenir. 
+Kullanarak **Azure Machine Learning hizmeti**, veri değişikliklerini, veri kümeleri veya dağıtımları ile izlenir. İçin veri değişikliklerini izlemek için bir temel veri kümesi - genellikle eğitim veri kümesi için bir model - belirtilir. İkinci bir veri kümesi - genellikle bir dağıtımdan - model giriş verileri toplanan temel veri kümesinde sınanır. Her iki veri kümelerinin olduğunu [profili](how-to-explore-prepare-data.md#explore-with-summary-statistics) ve giriş verileri için farklı izleme hizmeti. İki veri kümesi arasındaki farkları algılamak için makine öğrenme modeli eğitilir. Modelin performans değişikliklerini katsayısı, iki veri kümesi arasında kayması büyüklüğünü ölçer dönüştürülür. Kullanarak [model interpretability](machine-learning-interpretability-explainability.md) kayması katsayısı için katkıda bulunan özellikler hesaplanır. Veri kümesi profilinden her özellik hakkında istatistiksel bilgi izlenir. 
 
 ## <a name="data-drift-metric-output"></a>Veri değişikliklerini ölçüm çıkış
 

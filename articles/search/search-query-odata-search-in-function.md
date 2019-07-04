@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f72a59aac448796cf15220e15a3c8a4f12803bb5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a61291e547021077341a5f1b3db7422afa5b9440
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079736"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449979"
 ---
 # <a name="odata-searchin-function-in-azure-search"></a>OData `search.in` Azure Search işlevi
 
@@ -40,7 +40,7 @@ Ancak, kullanarak bunu yazmak için bir kısa bir yol yoktur `search.in` işlevi
 > Daha kısa ve kolay okunur, kullanarak yanı sıra `search.in` de sağlar [performans avantajlarının](#bkmk_performance) ve belirli önler [boyut sınırlamaları filtre](search-query-odata-filter.md#bkmk_limits) yüzlerce veya binlerce değerleri filtreye eklenecek. Bu nedenle, kullanarak öneririz `search.in` eşitlik ifadeleridir, daha karmaşık bir ayrım yerine.
 
 > [!NOTE]
-> OData standardı 4.01 sürümünü kısa bir süre önce tanıtılan [ `in` işleci](http://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), benzer davranışlara sahip `search.in` Azure Search'te işlevi. Kullanmanız gerekir ancak, Azure Search bu işleci desteklemez `search.in` işlevini.
+> OData standardı 4.01 sürümünü kısa bir süre önce tanıtılan [ `in` işleci](https://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), benzer davranışlara sahip `search.in` Azure Search'te işlevi. Kullanmanız gerekir ancak, Azure Search bu işleci desteklemez `search.in` işlevini.
 
 ## <a name="syntax"></a>Sözdizimi
 

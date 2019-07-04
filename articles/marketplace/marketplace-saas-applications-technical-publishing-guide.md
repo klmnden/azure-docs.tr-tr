@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: 4501a343b406f07b4775f3ad0e84d71825412a4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2b44b89443b5e7e82d303e1447533546d27ec9a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752732"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445737"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS uygulamaları sunma yayımlama Kılavuzu
 
@@ -94,7 +94,7 @@ Ayrıca, Azure Active Directory Hizmet güncelleştirmeleri denetlemek için sit
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Deneme için Azure Active Directory kullanma  
 
-Microsoft kimlik doğrulaması ile Azure AD, bu nedenle tüm Market kullanıcılarının kimliği doğrulanmış bir kullanıcı Market'teki deneme listenizi aracılığıyla tıkladığında ve deneme ortamınıza yeniden yönlendirildiğinde, gerek kalmadan kullanıcıya doğrudan bir deneme sağlayabilirsiniz bir ek oturum açma adımı. Uygulamanız kimlik doğrulaması sırasında Azure AD'den aldığı belirteci sağlama deneyimini otomatikleştirmek ve dönüştürme olasılığını artırmak sağlayarak uygulamanızı, bir kullanıcı hesabı oluşturmak için kullanabileceğiniz değerli kullanıcı bilgilerini içerir. Belirteç hakkında daha fazla bilgi için bkz: [örnek belirteçleri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
+Microsoft Azure AD ile tüm Market kullanıcılarının kimliğini doğrulayan şekilde kimliği doğrulanmış bir kullanıcı Market'teki deneme listenizi aracılığıyla tıklar ve deneme ortamınıza yeniden yönlendirildiğinde, kullanıcı doğrudan bir deneme gerek kalmadan sağlayabileceğiniz bir ek oturum açma adımı. Uygulamanız kimlik doğrulaması sırasında Azure AD'den aldığı belirteci sağlama deneyimini otomatikleştirmek ve dönüştürme olasılığını artırmak sağlayarak uygulamanızı, bir kullanıcı hesabı oluşturmak için kullanabileceğiniz değerli kullanıcı bilgilerini içerir. Belirteç hakkında daha fazla bilgi için bkz: [örnek belirteçleri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
 
 Uygulamanızı veya deneme 1-tıklatma kimlik doğrulamasını etkinleştirmek için Azure AD kullanarak şunları yapar:  
 * Deneme sürümü için müşteri deneyimini Market kolaylaştırır.  
@@ -104,7 +104,7 @@ Uygulamanızı veya deneme 1-tıklatma kimlik doğrulamasını etkinleştirmek i
 
 ## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Azure AD tümleştirmenizi Market için sertifikalandırma  
 
-Uygulamanız tek kiracılı veya çok kiracılı olup olmamasına bağlı olarak birkaç farklı şekilde, Azure AD tümleştirmesi onaylamak ve yeni için Azure AD Federasyon çoklu oturum açma (SSO)'yı mı zaten desteklemektedir.  
+Uygulamanızı tek kiracılı veya çok kiracılı olup olmamasına bağlı olarak birkaç farklı şekilde, Azure AD tümleştirmesi onaylamak ve yeni için Azure AD Federasyon çoklu oturum açma (SSO)'yı mı zaten desteklemektedir.  
 
 **Çok kiracılı uygulamalar için:**  
 

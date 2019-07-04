@@ -5,68 +5,34 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 05/21/2019
+ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: b36c041c24a07f89701e78aea4d08270342b8d22
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: db263c1c7f0a8b87b315c5aa6da31336229c9643
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978944"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502737"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin grafik desteği
 Azure Cosmos DB destekler [Apache Tinkerpop'ın](https://tinkerpop.apache.org) grafik olarak bilinen, çapraz dil [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps). Grafik varlıkları (köşeler ve kenarlar) oluşturmak, bu varlıkların içindeki özellikleri değiştirmek, sorgu ve geçiş işlemleri gerçekleştirmek ve varlıkları silmek için Gremlin dilini kullanabilirsiniz. 
 
-Azure Cosmos DB, kurumsal kullanıma hazır özellikleri grafik veritabanlarına getirir. Bu özellikler genel dağıtım, ölçeklendirme depolama ve aktarım hızı, tahmin edilebilir Tek haneli milisaniyelik gecikme süreleri, bağımsız okuma veritabanı hesaplarında iki veya daha fazla Azure bölgesini kapsayan için kullanılabilirlik SLA'ları, otomatik dizin. Azure Cosmos DB TinkerPop/Gremlin desteklediğinden, başka bir uyumlu bir grafik veritabanını kullanarak yazılmış uygulamaları kolayca geçiş yapabilirsiniz. Azure Cosmos DB, Gremlin desteği sayesinde [Apache Spark GraphX](https://spark.apache.org/graphx/) gibi TinkerPop etkin analitik çerçevelerle de sorunsuz bir şekilde tümleşir. 
-
 Bu makalede Gremlin ilişkin hızlı bir kılavuz sağlar ve Gremlin API'sı tarafından desteklenmeyen Gremlin özellikleri listeleme.
 
-## <a name="gremlin-by-example"></a>Örneğe göre Gremlin
-Sorguların Gremlin’de nasıl ifade edildiğini anlamak için örnek bir grafik kullanalım. Aşağıdaki şekilde kullanıcılar, ilgi alanları ve cihazlar hakkındaki verileri yöneten bir iş uygulaması grafik biçiminde gösterilir.  
+## <a name="compatible-client-libraries"></a>Uyumlu bir istemci kitaplıkları
 
-![Kişileri, cihazları ve ilgi alanlarını gösteren örnek grafik](./media/gremlin-support/sample-graph.png) 
+Aşağıdaki tabloda Azure Cosmos DB’ye karşı kullanabileceğiniz popüler Gremlin sürücüleri gösterilir:
 
-Bu grafikte aşağıdaki köşe türleri (Gremlin’de “etiket” olarak adlandırılır) vardır:
+| İndirme | source | Başlarken | Desteklenen bağlayıcı sürümü |
+| --- | --- | --- | --- |
+| [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [GitHub’da Gremlin.NET](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [.NET kullanarak Grafik oluşturma](create-graph-dotnet.md) | 3.4.0-RC2 |
+| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Java kullanarak Grafik oluşturma](create-graph-java.md) | 3.2.0+ |
+| [Node.js](https://www.npmjs.com/package/gremlin) | [GitHub’da Gremlin-JavaScript](https://github.com/jbmusso/gremlin-javascript) | [Node.js kullanarak Grafik oluşturma](create-graph-nodejs.md) | 3.3.4+ |
+| [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python on GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Python kullanarak Grafik oluşturma](create-graph-python.md) | 3.2.7 |
+| [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Github'da Gremlin-PHP](https://github.com/PommeVerte/gremlin-php) | [PHP kullanarak Grafik oluşturma](create-graph-php.md) | 3.1.0 |
+| [Gremlin konsolu](https://tinkerpop.apache.org/downloads.html) | [TinkerPop belgeleri](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Gremlin konsolunu kullanarak Grafik oluşturma](create-graph-gremlin-console.md) | 3.2.0 + |
 
-- Kişiler: Grafiği bir kez deneme Thomas ve Ben üç kişi vardır
-- İlgi alanları: Bu örnekte, oyunu futbol kendi ilgi alanlarına
-- Cihazlar: Kullanımı cihazlar
-- İşletim sistemleri: Cihaz üzerinde çalışan işletim sistemleri
-
-Aşağıdaki kenar türleri/etiketleri üzerinden bu varlıklar arasındaki ilişkiyi temsil ediyoruz:
-
-- Bilir: Örneğin, "Thomas Robin bilir"
-- İster misiniz: Bizim Graph'te kişiler, örneğin, "Ben futbol ilgilenmektedir" ilgi alanları göstermek için
-- RunsOS: Dizüstü bilgisayar Windows işletim sistemi çalıştırır.
-- Kullanır: Bir kişi hangi cihaz göstermek için kullanır. Örneğin Robin, seri numarası 77 olan bir Motorola telefon kullanır
-
-Şimdi [Gremlin Console](https://tinkerpop.apache.org/docs/3.3.2/reference/#gremlin-console)’u kullanarak bu grafiğe yönelik birkaç işlem yapalım. Dilerseniz bu işlemleri, tercih ettiğiniz platformdaki (Java, Node.js, Python veya .NET) Gremlin sürücülerini kullanarak da gerçekleştirebilirsiniz.  Azure Cosmos DB’de nelerin desteklendiğine bakmadan önce söz dizimine hakkında bilgi edinmek için birkaç örneğe bakalım.
-
-İlk olarak CRUD’a bakalım. Aşağıdaki Gremlin deyimi “Thomas” köşesini grafiğe ekler:
-
-```java
-:> g.addV('person').property('id', 'thomas.1').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44)
-```
-
-Daha sonra aşağıdaki Gremlin deyimi, Thomas ve Robin arasına bir “Tanıma” kenarı ekler.
-
-```java
-:> g.V('thomas.1').addE('knows').to(g.V('robin.1'))
-```
-
-Aşağıdaki sorgu, “kişiler” köşesini ilk adlarına göre azalan sırada döndürür:
-```java
-:> g.V().hasLabel('person').order().by('firstName', decr)
-```
-
-Grafiklerin asıl iyi olduğu kısımlar, “Thomas’ın arkadaşları hangi işletim sistemini kullanıyor?” gibi sorular sorduğunuzda ortaya çıkıyor. Grafikten ilgili bilgi almak için bu Gremlin geçişi çalıştırabilirsiniz:
-
-```java
-:> g.V('thomas.1').out('knows').out('uses').out('runsos').group().by('name').by(count())
-```
-Şimdi de Azure Cosmos DB’nin Gremlin geliştiricilerine neler sunduğuna bakalım.
-
-## <a name="gremlin-features"></a>Gremlin özellikleri
+## <a name="supported-graph-objects"></a>Graf nesneleri desteklenen
 TinkerPop, çeşitli grafik teknolojilerini kapsayan bir standarttır. Bu nedenle bir grafik sağlayıcısı tarafından sağlanan özellikleri tanımlamaya yönelik standart bir terminolojisi vardır. Azure Cosmos DB kalıcı, yüksek eşzamanlılığa sahip, birden çok sunucu ve kümeye ayrılabilen yazılabilir bir grafik veritabanı sağlar. 
 
 Aşağıdaki tabloda Azure Cosmos DB tarafından uygulanan TinkerPop özellikleri listelenmektedir: 
@@ -128,7 +94,7 @@ Köşe için GraphSON tarafından kullanılan özellikleri aşağıda verilmişt
 | Özellik | Açıklama | 
 | --- | --- | --- |
 | `id` | Köşenin kimliği. Benzersiz olmalıdır (değeriyle birlikte `_partition` varsa). Hiçbir değer sağlanmışsa, otomatik olarak bir GUID ile sağlanır | 
-| `label` | Köşenin etiketi. Bu varlık türü tanımlamak için kullanılır. |
+| `label` | Köşenin etiketi. Bu özellik, varlık türünü belirtmek için kullanılır. |
 | `type` | Grafik olmayan belgelerdeki köşeleri ayırt etmek için kullanılır |
 | `properties` | Köşe ile ilişkili, kullanıcı tanımlı özellikler paketi. Her bir özellik birden çok değere sahip olabilir. |
 | `_partition` | Köşenin bölüm anahtarı. İçin kullanılan [grafik bölümleme](graph-partitioning.md). |
@@ -184,16 +150,16 @@ Her bir özellik, bir dizi içinde birden çok değer depolayabilir.
 | `sample` | Sonuçları geçişten örneklendirmek için kullanılır | [sample step](https://tinkerpop.apache.org/docs/3.3.2/reference/#sample-step) |
 | `select` | Sonuçları geçişten projelendirmek için kullanılır |  [select step](https://tinkerpop.apache.org/docs/3.3.2/reference/#select-step) |
 | `store` | Geçişteki engelleyici olmayan toplamalar için kullanılır | [store step](https://tinkerpop.apache.org/docs/3.3.2/reference/#store-step) |
-| `TextP.startingWith(string)` | Dize işlev filtreleme. Bu işlev için bir koşul olarak kullanılan `has()` adım ile belirtilen bir dizenin başına bir özelliğini eşleştirmek için | [TextP doğrulamaları](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.endingWith(string)` |  Dize işlev filtreleme. Bu işlev için bir koşul olarak kullanılan `has()` belirli bir dize sonu ile bir özelliğini eşleştirmek için adım | [TextP doğrulamaları](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.containing(string)` | Dize işlev filtreleme. Bu işlev için bir koşul olarak kullanılan `has()` adım ile belirtilen bir dizenin içeriklerini bir özelliğini eşleştirmek için | [TextP doğrulamaları](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notStartingWith(string)` | Dize işlev filtreleme. Bu işlev için bir koşul olarak kullanılan `has()` belirli bir dize ile başlamıyor bir özelliğini eşleştirmek için adım | [TextP doğrulamaları](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notEndingWith(string)` | Dize işlev filtreleme. Bu işlev için bir koşul olarak kullanılan `has()` belirli bir dize ile sonlanmıyor bir özelliğini eşleştirmek için adım | [TextP doğrulamaları](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notContaining(string)` | Dize işlev filtreleme. Bu işlev için bir koşul olarak kullanılan `has()` belirli bir dize içermeyen bir özelliğini eşleştirmek için adım | [TextP doğrulamaları](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.startingWith(string)` | Dize işlev filtreleme. Bu işlev için bir koşul olarak kullanılan `has()` adım ile belirtilen bir dizenin başına bir özelliğini eşleştirmek için | [TextP doğrulamaları](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.endingWith(string)` |  Dize işlev filtreleme. Bu işlev için bir koşul olarak kullanılan `has()` belirli bir dize sonu ile bir özelliğini eşleştirmek için adım | [TextP doğrulamaları](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.containing(string)` | Dize işlev filtreleme. Bu işlev için bir koşul olarak kullanılan `has()` adım ile belirtilen bir dizenin içeriklerini bir özelliğini eşleştirmek için | [TextP doğrulamaları](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notStartingWith(string)` | Dize işlev filtreleme. Bu işlev için bir koşul olarak kullanılan `has()` belirli bir dize ile başlamıyor bir özelliğini eşleştirmek için adım | [TextP doğrulamaları](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notEndingWith(string)` | Dize işlev filtreleme. Bu işlev için bir koşul olarak kullanılan `has()` belirli bir dize ile sonlanmıyor bir özelliğini eşleştirmek için adım | [TextP doğrulamaları](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notContaining(string)` | Dize işlev filtreleme. Bu işlev için bir koşul olarak kullanılan `has()` belirli bir dize içermeyen bir özelliğini eşleştirmek için adım | [TextP doğrulamaları](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
 | `tree` | Bir köşeden ağaca yolları toplar | [tree step](https://tinkerpop.apache.org/docs/3.3.2/reference/#tree-step) |
 | `unfold` | Adım olarak bir yineleyici açar| [unfold step](https://tinkerpop.apache.org/docs/3.3.2/reference/#unfold-step) |
 | `union` | Birden çok geçişin sonuçlarını birleştirir| [union step](https://tinkerpop.apache.org/docs/3.3.2/reference/#union-step) |
-| `V` | Köşe ve kenarlar arasında geçiş için gerekli olan adımları içerir: `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV` ve `otherV`  | [vertex steps](https://tinkerpop.apache.org/docs/3.3.2/reference/#vertex-steps) |
+| `V` | Köşe ve kenarlar arasında geçiş için gerekli olan adımları içerir: `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV` ve `otherV` | [vertex steps](https://tinkerpop.apache.org/docs/3.3.2/reference/#vertex-steps) |
 | `where` | Geçişten alınan sonuçları filtrelemek için kullanılır. `eq`, `neq`, `lt`, `lte`, `gt`, `gte` ve `between` işleçlerini destekler  | [where step](https://tinkerpop.apache.org/docs/3.3.2/reference/#where-step) |
 
 Azure Cosmos DB tarafından sağlanan, yazma için iyileştirilmiş altyapı, köşe ve kenarlar içindeki tüm özelliklerin dizinlerinin otomatik olarak oluşturulmasını varsayılan olarak destekler. Bu nedenle herhangi bir özellik üzerindeki sorgulu filtreler, aralık sorguları, sıralama veya toplamalar dizinden işlenir ve etkin bir biçimde sunulur. Azure Cosmos DB’de dizin oluşturmanın işleyişi hakkında daha fazla bilgi için [schema-agnostic dizin oluşturma](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) makalemizi okuyun.

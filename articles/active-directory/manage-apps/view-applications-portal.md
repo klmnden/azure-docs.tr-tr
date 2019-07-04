@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 537916ef14a7cd2748ad453e2d0d91e3b5c936b1
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: cccd5ddc2f268eda48bd9803596a1db1c5ee9395
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826058"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481170"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Azure Active Directory kiracınızdaki uygulamaları görüntüleme
 
@@ -39,7 +39,7 @@ Azure AD kiracınızdaki uygulamaları Azure portalın **Kurumsal uygulamalar** 
 
 Kiracı uygulamalarınızı bulmak için:
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde seçin **Azure Active Directory**. 
+1. İçinde  **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde seçin **Azure Active Directory**. 
 
 1. İçinde **Azure Active Directory** bölmesinde **kurumsal uygulamalar**. 
 
@@ -64,7 +64,6 @@ Aradığınız ne göre seçenekleri belirleyin.
 1. **Uygulama Görünürlüğü** bölümünde **Tümü** veya **Gizli** seçeneğini belirleyin. **Gizli** seçenek kiracıda olan ancak kullanıcılar için görünür olmayan uygulamaları gösterir.
 
 1. Seçmek istediğiniz seçenekleri seçtikten sonra **Uygula**.
- 
 
 ## <a name="search-for-a-tenant-application"></a>Belirli bir kiracı uygulamasını arama
 
@@ -74,19 +73,17 @@ Belirli bir uygulama için arama yapmak için:
 
 1. Bulmak istediğiniz uygulamanın adını girin. Uygulamanın Azure AD kiracınıza eklenmişse, arama sonuçlarında görünür. Bu örnek, GitHub Kiracı uygulamalarına eklenmemiş gösterir.
 
-    ![Uygulama arama](media/view-applications-portal/search-for-tenant-application.png)
+    ![Örnek, bir uygulama kiracıya eklenip eklenmediğini gösterir.](media/view-applications-portal/search-for-tenant-application.png)
 
 1. Uygulama adının ilk birkaç harfini girmeyi deneyin. Bu örnek **Sales** ile başlayan tüm uygulamaları gösterir.
 
-    ![Ön ek ile arama](media/view-applications-portal/search-by-prefix.png)
+    ![Örnek satış ile başlayan tüm uygulamaları gösterir.](media/view-applications-portal/search-by-prefix.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu hızlı başlangıçta, Azure AD kiracınızda uygulamaları görüntüleme öğrendiniz. Uygulama türü, durum ve görünürlük uygulamaların listesini filtrelemek öğrendiniz. Ayrıca belirli bir uygulamayı aramayı da öğrendiniz.
 
-Uygulama buldunuz göre devam edebilirsiniz için arıyorduk [kiracınıza daha fazla uygulama eklemek](add-application-portal.md). Veya, görüntülemek veya özellikleri ve yapılandırma seçenekleri düzenlemek için bir uygulama seçebilirsiniz. Örneğin çoklu oturum açmayı yapılandırabilirsiniz. 
+Uygulama buldunuz göre devam edebilirsiniz için arıyorduk [kiracınıza daha fazla uygulama eklemek](add-application-portal.md). Veya, görüntülemek veya özellikleri ve yapılandırma seçenekleri düzenlemek için bir uygulama seçebilirsiniz. Örneğin çoklu oturum açmayı yapılandırabilirsiniz.
 
 > [!div class="nextstepaction"]
 > [Çoklu oturum açmayı yapılandırma](configure-single-sign-on-portal.md)
-
-

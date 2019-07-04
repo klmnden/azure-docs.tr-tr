@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: ea890a49fc7b6a153ece183b153f5bc2a49760b5
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 5ef30fbf647492f79c64508d8306868aa1f6b278
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496563"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444572"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Azure'da bir HTTP ile tetiklenen işlev oluşturma
 
@@ -32,9 +32,9 @@ Başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 + Yükleme [Python 3.6](https://www.python.org/downloads/).
 
-+ Yükleme [Azure işlevleri çekirdek Araçları](./functions-run-local.md#v2) 2.6.666 sürümü veya üzeri.
++ Yükleme [Azure işlevleri çekirdek Araçları](./functions-run-local.md#v2) 2.6.1071 sürümü veya sonraki bir sürümü.
 
-+ Yükleme [Azure CLI](/cli/azure/install-azure-cli) sürüm 2.x veya üzeri.
++ Yükleme [Azure CLI](/cli/azure/install-azure-cli) sürüm 2.x veya sonraki bir sürümü.
 
 + Etkin bir Azure aboneliği.
 
@@ -44,18 +44,18 @@ Başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 Yerel olarak geliştirip test Python işlevleri için bir Python 3.6 ortamında çalışmalıdır. Oluşturma ve adlı bir sanal ortam etkinleştirmek için aşağıdaki komutları çalıştırın `.env`.
 
-### <a name="bash-or-a-terminal-window"></a>Bash veya bir terminal penceresi:
+### <a name="bash"></a>Bash:
 
 ```bash
-python3.6 -m venv .env
-source .env/bin/activate
+python3.6 -m venv .venv
+source .venv/bin/activate
 ```
 
 ### <a name="powershell-or-a-windows-command-prompt"></a>PowerShell veya bir Windows komut istemi:
 
 ```powershell
-py -3.6 -m venv .env
-.env\scripts\activate
+py -3.6 -m venv .venv
+.venv\scripts\activate
 ```
 
 Sanal ortamın içinde kalan komutlar çalıştırılır.
@@ -66,7 +66,7 @@ Sanal ortamın içinde kalan komutlar çalıştırılır.
 
 Sanal ortamda aşağıdaki komutu çalıştırın, seçme komutunu **python** , alt çalışma zamanı.
 
-```command
+```console
 func init MyFunctionProj
 ```
 
@@ -78,25 +78,17 @@ Adlı bir klasör _MyFunctionProj_ oluşturulur, aşağıdaki üç dosyaları i�
 
 Yeni MyFunctionProj klasöre gidin:
 
-```command
+```console
 cd MyFunctionProj
 ```
 
 Ardından, uzantı paketleri etkinleştirmek için host.json dosyasını güncelleştirin.  
 
-## <a name="reference-bindings"></a>Başvuru bağlamaları
-
-Uzantı paketleri kolaylaştırır yol aşağı bağlama uzantıları. Ayrıca .NET Core yükleme gereksinimini kaldırır 2.x SDK. Uzantı paketleri, temel Araçlar 2.6.1071 sürümünü veya sonraki bir sürümünü gerektirir. 
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
-
-Artık, bir işlev projenize ekleyebilirsiniz.
-
 ## <a name="create-a-function"></a>İşlev oluşturma
 
 Projenize bir işlev eklemek için aşağıdaki komutu çalıştırın:
 
-```command
+```console
 func new
 ```
 

@@ -9,20 +9,42 @@ ms.topic: quickstart
 ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: a01da3218b07307faa8e94acab1473c82bd86c41
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65bf4e973ce33b2898abf585fe306a8bc85c64a0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306215"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477795"
 ---
+::: zone target="docs"
+
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Azure Data Box Disk dağıtma
+
+::: zone-end
+
+::: zone target="chromeless"
+
+# <a name="get-started-with-azure-data-box-disk-using-azure-portal"></a>Azure Data Box Azure portalını kullanarak Disk ile çalışmaya başlama
+
+::: zone-end
+
+::: zone target="docs"
 
 Bu hızlı başlangıçta Azure portalı kullanarak Azure Data Box Disk'i dağıtma adımları anlatılmaktadır. Bu adımlar sipariş oluşturma, diskleri alma, paketini açma, bağlama, disklere veri kopyalama ve Azure'a yükleme işlemlerini kapsamaktadır.
 
 Ayrıntılı adım adım dağıtım ve izleme yönergeleri için Git [Öğreticisi: Azure Data Box Disk sipariş](data-box-disk-deploy-ordered.md). 
 
 Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+
+::: zone-end
+
+::: zone target="chromeless"
+
+Bu hızlı başlangıçta Azure portalı kullanarak Azure Data Box Disk'i dağıtma adımları anlatılmaktadır. Adımları gözden geçirme Önkoşullar dahil etme, diskleri kilidini, bağlanın ve Azure'a yükler, böylece verileri disklere kopyalayın.
+
+::: zone-end
+
+::: zone target="docs"
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -33,6 +55,23 @@ Başlamadan önce:
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
 [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs) adresinden Azure portalında oturum açın.
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="prerequisites"></a>Önkoşullar
+
+- Kullanma Data Box Disk Siparişiniz yerleştirdiğiniz [Öğreticisi: Azure Data Box Disk sipariş](data-box-disk-deploy-ordered.md).
+- Disklerinizi aldınız ve portaldaki iş durumu **Teslim Edildi** olarak güncelleştirildi.
+- Kullanılabilir bir istemci bilgisayar, verileri kopyalamak sahip. İstemci bilgisayarınızda:
+
+    - Çalıştıran bir [işletim sistemi desteklenen](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
+    - Sahip [diğer gerekli yazılımı](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) Windows istemci ise yüklü.
+
+::: zone-end
+
+::: zone target="docs"
 
 ## <a name="order"></a>Sipariş verme
 
@@ -123,3 +162,5 @@ Bu hızlı başlangıçta Azure'a veri aktarımı konusunda yardım almak için 
 
 > [!div class="nextstepaction"]
 > [Azure portalı kullanarak Data Box Disk'i yönetme](data-box-portal-ui-admin.md)
+
+::: zone-end

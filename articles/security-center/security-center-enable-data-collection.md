@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: b1280274122800147c442b73b360bc5141530a0e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86d48360e37f26d19d15c62a8109c030d421c661
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050589"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551901"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde veri toplamayı
 Güvenlik Merkezi, Azure sanal makineleri (VM'ler), sanal makine ölçek kümeleri, Iaas kapsayıcılarınızdaki ve Azure olmayan (dahil, şirket içi) bilgisayarlar güvenlik açıklarını ve tehditleri izlemek için veri toplar. Veriler, makineden güvenlikle ilgili çeşitli yapılandırmaları ve olay günlüklerini okuyup verileri analiz için çalışma alanınıza kopyalayan Microsoft Monitoring Agent kullanılarak toplanır. Bu tür verilerin örnekleri şunlardır: işletim sistemi türü ve sürümü, işletim sistemi günlükleri (Windows olay günlükleri) çalışan işlemler, makine adı, IP adresleri ve kullanıcı oturum. Microsoft Monitoring Agent aracı, ayrıca kilitlenme bilgi dökümü dosyalarını çalışma alanınıza kopyalar.
@@ -46,12 +46,12 @@ Otomatik sağlama açık olduğunda Güvenlik Merkezi desteklenen tüm Azure Vm'
 
 
 Microsoft Monitoring Agent için otomatik sağlamayı etkinleştirmek üzere:
-1. Güvenlik Merkezi ana menüsünde seçin **Güvenlik İlkesi**.
-2. Tıklayın **ayarlarını Düzenle** listesinde istediğiniz Abonelik ayarları sütununda.
+1. Güvenlik Merkezi ana menüsünde seçin **fiyatlandırma & ayarları**.
+2. Geçerli aboneliğe tıklayın
 
    ![Abonelik seçme][7]
 
-3. **Güvenlik ilkesi** bölümünde **Veri Toplama**’yı seçin.
+3. Seçin **veri toplama**.
 4. Altında **otomatik sağlama**seçin **üzerinde** otomatik sağlamayı etkinleştirmek için.
 5. **Kaydet**’i seçin.
 
@@ -131,11 +131,11 @@ Mevcut bir Log Analytics çalışma alanı seçmek için:
 
 5. Microsoft Monitoring agent'ı ayarlamayı planladığınız istenen çalışma alanı için fiyatlandırma katmanını seçin. <br>Mevcut bir çalışma alanını kullanmak için çalışma alanı için fiyatlandırma katmanını ayarlayın. Zaten mevcut değilse bu çalışma alanında bir Güvenlik Merkezi çözümü yükler.
 
-    a.  Güvenlik Merkezi ana menüsünde seçin **Güvenlik İlkesi**.
+    a.  Güvenlik Merkezi ana menüsünde seçin **fiyatlandırma & ayarları**.
      
-    b.  Hangi düşündüğünüz aracı tıklayarak bağlanmak istediğiniz çalışma alanını seçin **ayarlarını Düzenle** listesinde istediğiniz Abonelik ayarları sütununda.
-        ![Çalışma alanı seçin][8] c. Fiyatlandırma katmanını ayarlayın.
-        ![Fiyatlandırma katmanı seçin][9] 
+    b.  Aracıyı bağlanmak istediğiniz istediğiniz çalışma alanını seçin.
+        ![Çalışma alanı seçin][7] c. Fiyatlandırma katmanını ayarlayın.
+        ![Fiyatlandırma katmanı seçin][9]
    
    >[!NOTE]
    >Çalışma alanı zaten varsa, bir **güvenlik** veya **SecurityCenterFree** etkin çözüm, fiyatlandırma ayarlanacak otomatik olarak. 
@@ -165,8 +165,8 @@ Bu ayarlar, tipik senaryoları için tasarlanmıştır. Uygulamadan önce gereks
 
 Ait olayları belirlemek üzere **ortak** ve **Minimal** olay kümeleri çalıştık filtrelenmemiş sıklığını her olay ve kullanımları hakkında bilgi edinmek için müşteriler ve endüstri standartları. Bu işlem aşağıdaki yönergeleri kullandık:
 
-- **En az** -bu küme yalnızca başarılı ihlal gösterebilir olayları ve çok düşük bir birime sahip önemli olayları kapsadığından emin olun. Örneğin, bu kullanıcının başarılı ve başarısız oturum açma (olay kimliği 4624 4625) içerir, ancak denetim için önemlidir, ancak algılama için anlamlı ve görece yüksek hacimli olan oturum kapatma içermiyor. Bu veri hacmini çoğunu, oturum açma olayları ve işlem oluşturma olayı (olay kimliği 4688) olur.
-- **Ortak** -bu kümesindeki bir tam kullanıcı denetim kaydı sağlar. Örneğin, bu ayarla, hem kullanıcı oturum açma bilgileri ve kullanıcı oturum kapatma (olay kimliği 4634) içerir. Güvenlik grubu değişikliklerini, anahtar etki alanı denetleyicisi Kerberos işlemleri ve sektör kuruluşlar tarafından önerilen diğer olaylar gibi eylemleri denetimi ekliyoruz.
+- **En az** -bu küme yalnızca başarılı ihlal gösterebilir olayları ve çok düşük bir birime sahip önemli olayları kapsadığından emin olun. Örneğin, bu kullanıcı başarılı ve başarısız oturum açma (olay kimliği 4624 4625) içerir, ancak oturum içermiyor denetimi için önemlidir, ancak algılama için anlamlı ve görece yüksek hacimli içeren çıkış. Bu veri hacmini çoğunu, oturum açma olayları ve işlem oluşturma olayı (olay kimliği 4688) olur.
+- **Ortak** -bu kümesindeki bir tam kullanıcı denetim kaydı sağlar. Örneğin, bu ayarla, hem kullanıcı oturum açma bilgileri ve kullanıcı oturum çıkarmayı (olay kimliği 4634) içerir. Güvenlik grubu değişikliklerini, anahtar etki alanı denetleyicisi Kerberos işlemleri ve sektör kuruluşlar tarafından önerilen diğer olaylar gibi eylemleri denetimi ekliyoruz.
 
 Tüm olayları üzerine miktarının azaltılmasını ve belirli olay filtre için olduğunu seçin için ana motivasyon olarak ortak çok düşük bir birime sahip olayları dahil edilmişti.
 
@@ -191,7 +191,7 @@ Güvenlik ve App Locker olay kimlikleri her küme için tam bir dökümü aşağ
 >
 
 Filtreleme ilkenizi seçmek için:
-1. Üzerinde **güvenlik ilkesinde veri toplamayı** dikey penceresinde, filtreleme ilkesini altında seçin **güvenlik olaylarını**.
+1. Üzerinde **veri toplama** sayfasında, filtre ilkenizi altında **güvenlik olaylarını**.
 2. **Kaydet**’i seçin.
 
    ![Filtreleme ilkesi seçin][5]

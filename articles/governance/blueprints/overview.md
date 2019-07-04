@@ -7,12 +7,12 @@ ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 8b340eeaaae41815482f4dfed4168dfd8367aba9
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 5f403ee7d2bf4a0730ceaa9b5a95b3e7b11f3695
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67143901"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428769"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Azure şemaları hizmetine genel bakış
 
@@ -109,7 +109,7 @@ Bir şemayı atamak veya atamasını kaldırmak için hesabınız şu izinlere s
 Yukarıdaki izinlerin hepsine yer **sahibi** rol. **Katkıda bulunan** rol oluşturma şema ve delete şema izinleri vardır, ancak blueprint ataması izinlere sahip değil. Bu yerleşik roller güvenlik gereksinimlerinize uygun değilse [özel rol](../../role-based-access-control/custom-roles.md) oluşturabilirsiniz.
 
 > [!NOTE]
-> Azure şema için hizmet sorumlusu kullanarak sistem tarafından atanan kimlik yönetiliyorsa, gerektirir **sahibi** dağıtımı etkinleştirmek için atanan abonelik rolü. Portalı kullanıyorsanız bu rol dağıtım için otomatik olarak verilir ve iptal edilir. REST API kullanıyorsanız bu rolün el ile verilmesi gerekir ancak dağıtım tamamlandıktan sonra iptal işlemi otomatik olarak gerçekleştirilir. Kullanarak bir kullanıcı tarafından atanan kimlik yönetiliyorsa, yalnızca şema atamasını oluşturma kullanıcının erişmesi **sahibi** izinleri.
+> Azure kavramsal tasarımlar için hizmet sorumlusu kullanarak sistem tarafından atanan kimlik yönetiliyorsa, gerektirir **sahibi** dağıtımı etkinleştirmek için atanan abonelik rolü. Portalı kullanıyorsanız bu rol dağıtım için otomatik olarak verilir ve iptal edilir. REST API kullanıyorsanız bu rolün el ile verilmesi gerekir ancak dağıtım tamamlandıktan sonra iptal işlemi otomatik olarak gerçekleştirilir. Kullanarak bir kullanıcı tarafından atanan kimlik yönetiliyorsa, yalnızca şema atamasını oluşturma kullanıcının erişmesi **sahibi** izinleri.
 
 ## <a name="video-overview"></a>Genel bakış videosu
 

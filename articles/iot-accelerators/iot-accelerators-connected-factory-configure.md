@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 042277899ff22066cfa890e64f5c6c0f2e0134f9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3ddbf5832424cdafad2c29254f51754203c7f079
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080467"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428312"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Bağlı Fabrika çözüm Hızlandırıcısını yapılandırın
 
@@ -29,7 +29,7 @@ Contoso fabrikası her üç istasyonlardan her oluşur üretim hatlarının sahi
 * Test istasyonu
 * Paketleme istasyonu
 
-OPC UA düğümleri bu OPC UA sunucunuz varsa ve [OPC yayımcı](https://github.com/Azure/iot-edge-opc-publisher) bağlı Fabrika için bu düğümler değerlerini gönderir. Buna aşağıdakiler dahildir:
+OPC UA düğümleri bu OPC UA sunucunuz varsa ve [OPC yayımcı](overview-opc-publisher.md) bağlı Fabrika için bu düğümler değerlerini gönderir. Buna aşağıdakiler dahildir:
 
 * Geçerli çalışma durumu gibi geçerli güç tüketimi.
 * Ürün sayısı gibi üretim bilgileri oluşturdu.
@@ -307,7 +307,7 @@ Son değer görselleştirme veya zaman serisi görüşleri sorgular oluşturma g
 
   OPC UA sunucusu düğümünün değerini tanımlar. Özelliğin biçimi olmalıdır OPC UA belirtiminde belirtilen. Alınan iletileri, bu özellik olarak gönderilen **nodeId**.
 
-Denetleme [bu](https://github.com/Azure/iot-edge-opc-publisher) telemetri veri Fabrikasına bağlı OPC yayımcısını kullanma nasıl alınır hakkında daha fazla bilgi için GitHub sayfası.
+Bkz: [OPC yayımcı nedir](overview-opc-publisher.md) bağlı Fabrika için telemetri verilerini nasıl alınır hakkında daha fazla bilgi.
 
 ## <a name="example-how-kpi1-is-calculated"></a>Örnek: KPI1 nasıl hesaplanır
 

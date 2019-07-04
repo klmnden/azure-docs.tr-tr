@@ -12,27 +12,31 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 05/21/2019
 ms.author: cawa
-ms.openlocfilehash: f46467871a5ae0147b5dc60881bda4175eabac56
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 56c20c995a95058b5039b7268c7b7b1426e900fa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60458566"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442973"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Depolama Gezgini ile Azure Blob depolama kaynaklarını yönetme
+
 ## <a name="overview"></a>Genel Bakış
+
 [Azure Blob Depolama](storage/blobs/storage-dotnet-how-to-use-blobs.md) büyük miktarda gelen her yerinden HTTP veya HTTPS aracılığıyla dünyanın erişilebilen metin veya ikili veriler gibi yapılandırılmamış verileri depolamak için bir hizmettir.
 Verileri genel olarak herkese açık kullanıma sunmak veya uygulama verilerini özel olarak depolamak için Blob Storage’ı kullanabilirsiniz. Bu makalede, blob kapsayıcıları ve blobları ile çalışmak için Depolama Gezgini'ni kullanma öğreneceksiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
 * [Depolama Gezgini’ni indirip yükleme](https://www.storageexplorer.com)
 * [Bir Azure depolama hesabı veya hizmetine bağlanma](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Blob kapsayıcısı oluşturma
+
 Tüm BLOB'lar, BLOB'ları yalnızca mantıksal bir gruplandırması olan bir blob kapsayıcısında bulunmalıdır. Bir hesapta sınırsız sayıda kapsayıcı olabilir ve her kapsayıcı, BLOB'ları, sınırsız sayıda depolayabilirsiniz.
 
 Aşağıdaki adımlar, depolama Gezgini'ndeki bir blob kapsayıcısı oluşturma işlemini göstermektedir.
@@ -42,7 +46,7 @@ Aşağıdaki adımlar, depolama Gezgini'ndeki bir blob kapsayıcısı oluşturma
 3. Sağ **Blob kapsayıcıları**ve - seçin bağlam menüsünden - **Blob kapsayıcısı Oluştur**.
 
    ![BLOB kapsayıcıları bağlam menüsü oluşturma][0]
-4. Bir metin kutusu altında görünür **Blob kapsayıcıları** klasör. Blob kapsayıcınızın adını girin. Bkz: [kapsayıcı oluşturma ve izinleri ayarlama](storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) blob kapsayıcılarını adlandırmayla ilgili kural ve kısıtlamaların hakkında bilgi için.
+4. Bir metin kutusu altında görünür **Blob kapsayıcıları** klasör. Blob kapsayıcınızın adını girin. Bkz: [bir kapsayıcı oluşturma](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) blob kapsayıcılarını adlandırmayla ilgili kural ve kısıtlamaların hakkında bilgi için.
 
    ![BLOB kapsayıcıları metin kutusu oluşturma][1]
 5. Tuşuna **Enter** blob kapsayıcısı oluşturma işlemi tamamlandığında veya **Esc** iptal etmek için. Blob kapsayıcısı başarıyla oluşturulduktan sonra uygulamanın altında görüntülenecek **Blob kapsayıcıları** seçili depolama hesabı için bir klasör.
@@ -50,6 +54,7 @@ Aşağıdaki adımlar, depolama Gezgini'ndeki bir blob kapsayıcısı oluşturma
    ![Oluşturulan blob kapsayıcısı][2]
 
 ## <a name="view-a-blob-containers-contents"></a>Bir blob kapsayıcının içeriğini görüntüleme
+
 BLOB kapsayıcıları, blobları ve (Ayrıca BLOB'ları içerebilir) klasörleri içerir.
 
 Aşağıdaki adımlar, depolama Gezgini'ndeki bir blob kapsayıcı içeriğini görüntüleme işlemini göstermektedir:
@@ -66,6 +71,7 @@ Aşağıdaki adımlar, depolama Gezgini'ndeki bir blob kapsayıcı içeriğini g
    ![BLOB kapsayıcı Düzenleyicisi][3]
 
 ## <a name="delete-a-blob-container"></a>Bir blob kapsayıcısını Sil
+
 BLOB kapsayıcıları kolayca oluşturulabilir ve gerektiğinde silinebilir. (Tek tek bloblar silin, bölümüne bakın yapılacağını görmek için [blob kapsayıcı içindeki blobları yönetme](#managing-blobs-in-a-blob-container).)
 
 Aşağıdaki adımlar, depolama Gezgini'ndeki bir blob kapsayıcısını silme işlemini göstermektedir:
@@ -82,6 +88,7 @@ Aşağıdaki adımlar, depolama Gezgini'ndeki bir blob kapsayıcısını silme i
    ![BLOB kapsayıcısını onaylama sil][5]
 
 ## <a name="copy-a-blob-container"></a>Bir blob kapsayıcısına kopyalayın
+
 Depolama Gezgini, bir blob kapsayıcısı panoya kopyalayın ve ardından bu blob kapsayıcısında başka bir depolama hesabına yapıştırabilirsiniz sağlar. (Tek tek bloblar kopyalayın, bölümüne bakın yapılacağını görmek için [blob kapsayıcı içindeki blobları yönetme](#managing-blobs-in-a-blob-container).)
 
 Aşağıdaki adımlar, bir blob kapsayıcısına bir depolama hesabından diğerine kopyalama işlemini göstermektedir.
@@ -97,6 +104,7 @@ Aşağıdaki adımlar, bir blob kapsayıcısına bir depolama hesabından diğer
    ![Yapıştırma blob kapsayıcı bağlam menüsü][7]
 
 ## <a name="get-the-sas-for-a-blob-container"></a>Blob kapsayıcısı için SAS alma
+
 [Paylaşılan erişim imzası (SAS)](storage/common/storage-dotnet-shared-access-signature-part-1.md), depolama hesabınızdaki kaynaklara temsilci erişimi sağlar.
 Başka bir deyişle, hesap erişim anahtarlarınızı paylaşmak zorunda kalmadan, depolama hesabınızdaki nesnelere belirli bir süre için ve belirli bir izin kümesiyle sınırlı istemci izinleri verebilirsiniz.
 
@@ -119,6 +127,7 @@ Aşağıdaki adımlar, bir blob kapsayıcısı için SAS oluşturma işlemini g�
 8. İşiniz bittiğinde **Kapat**’ı seçin.
 
 ## <a name="manage-access-policies-for-a-blob-container"></a>Blob kapsayıcısı için erişim ilkelerini yönetme
+
 Aşağıdaki adımları nasıl yönetileceği gösterilmektedir (ekleme ve kaldırma) bir blob kapsayıcısı için erişim ilkelerini:
 
 1. Depolama Gezgini'ni açın.
@@ -129,7 +138,7 @@ Aşağıdaki adımları nasıl yönetileceği gösterilmektedir (ekleme ve kald�
    ![Erişim ilkelerini yönet bağlam menüsü][11]
 5. **Erişim ilkeleri** iletişim için seçilen blob kapsayıcısı zaten oluşturulmuş erişim ilkeleri listelenir.
 
-   ![Erişim ilkesi seçenekleri][12]        
+   ![Erişim ilkesi seçenekleri][12]
 6. Erişim ilkesi yönetim görevine bağlı olarak aşağıdaki adımları izleyin:
 
    * **Yeni bir erişim ilkesi ekleme** - **Ekle**’yi seçin. Oluşturulduktan sonra, **Erişim İlkeleri** iletişim kutusunda yeni eklenen erişim ilkesi (varsayılan ayarlarla birlikte) gösterilir.
@@ -137,6 +146,7 @@ Aşağıdaki adımları nasıl yönetileceği gösterilmektedir (ekleme ve kald�
    * **Erişim ilkesini kaldırma** - Kaldırmak istediğiniz erişim ilkesinin yanındaki **Kaldır** öğesini seçin.
 
 ## <a name="set-the-public-access-level-for-a-blob-container"></a>Blob kapsayıcısı genel erişim düzeyi
+
 Varsayılan olarak, her bir blob kapsayıcısı "Hiçbir genel erişim" olarak ayarlanır.
 
 Aşağıdaki adımlar, bir blob kapsayıcısı genel erişim düzeyini belirtmek nasıl göstermektedir.
@@ -153,6 +163,7 @@ Aşağıdaki adımlar, bir blob kapsayıcısı genel erişim düzeyini belirtmek
 6. **Uygula**’yı seçin.
 
 ## <a name="managing-blobs-in-a-blob-container"></a>Bir blob kapsayıcısında BLOB'ları yönetme
+
 Bir blob kapsayıcısını oluşturduktan sonra bu blob kapsayıcısına bir blob yüklemek, blob yerel bilgisayarınıza indirme, yerel bilgisayarınıza ve çok daha fazlasını blob açın.
 
 Aşağıdaki adımlar, bir blob kapsayıcısı içinde BLOB'ları (ve klasörleri) yönetme göstermektedir.
@@ -175,7 +186,7 @@ Aşağıdaki adımlar, bir blob kapsayıcısı içinde BLOB'ları (ve klasörler
      2. **Dosyaları Karşıya Yükle** iletişim kutusunda, **Dosyalar** metin kutusunun sağ tarafındaki üç noktayı ( **…** ) seçerek karşıya yüklemek istediğiniz dosyaları belirleyin.
 
         ![Karşıya yükleme dosyaları seçenekleri][16]
-     3. Türünü belirtin **Blob türü**. Bkz: [kapsayıcı oluşturma ve izinleri ayarlama](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) daha fazla bilgi için.
+     3. Türünü belirtin **Blob türü**. Bkz: [bir kapsayıcı oluşturma](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) daha fazla bilgi için.
      4. İsteğe bağlı olarak, seçili dosyalar karşıya yükleneceği bir hedef klasör belirtin. Hedef klasör mevcut değilse, oluşturulur.
      5. **Karşıya Yükle**’yi seçin.
    * **Klasör bir blob kapsayıcısına yükleyin.**
@@ -186,7 +197,7 @@ Aşağıdaki adımlar, bir blob kapsayıcısı içinde BLOB'ları (ve klasörler
      2. **Klasörü karşıya yükle** iletişim kutusunda, **Klasör** metin kutusunun sağ tarafındaki üç noktayı ( **…** ) seçerek içeriklerini karşıya yüklemek istediğiniz klasörü belirleyin.
 
         ![Klasör Seçenekleri'ni yükleyin][18]
-     3. Türünü belirtin **Blob türü**. Bkz: [kapsayıcı oluşturma ve izinleri ayarlama](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) daha fazla bilgi için.
+     3. Türünü belirtin **Blob türü**. Bkz: [bir kapsayıcı oluşturma](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) daha fazla bilgi için.
      4. İsteğe bağlı olarak, seçili klasörün içeriklerinin yükleneceği bir hedef klasör belirtin. Hedef klasör mevcut değilse, oluşturulur.
      5. **Karşıya Yükle**’yi seçin.
    * **Blob yerel bilgisayarınıza indirme**
@@ -213,6 +224,7 @@ Aşağıdaki adımlar, bir blob kapsayıcısı içinde BLOB'ları (ve klasörler
      3. Onay iletişim kutusunda **Evet**’i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * [En son Depolama Gezgini yayın notlarını ve videolarını](https://www.storageexplorer.com) görüntüleyin.
 * [Azure bloblarını, tablolarını, kuyruklarını ve dosyalarını kullanarak uygulama oluşturma](https://azure.microsoft.com/documentation/services/storage/) hakkında bilgi edinin.
 

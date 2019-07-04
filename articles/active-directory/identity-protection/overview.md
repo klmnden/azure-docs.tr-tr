@@ -17,16 +17,16 @@ ms.date: 01/29/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a1154e6484ebc86743202239dcd94f0772c8011
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 660793cdba61b5438283ea54a9f7349bdfbc98e1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67204512"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440504"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Azure Active Directory kimlik koruması nedir?
 
-Azure Active Directory kimlik koruması, kullanıcı kimliklerini ilgili algılanan kuşkulu eylemleri için otomatik yanıtlar yapılandırmak, kuruluşların sağlar.
+Azure Active Directory [kimlik](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology) kuruluşların, kullanıcı kimliklerini ilgili algılanan kuşkulu eylemleri için otomatik yanıtlar yapılandırmak korumayı etkinleştirir.
 
 ## <a name="get-started"></a>başlarken
 
@@ -69,7 +69,7 @@ Azure Active Directory kimlik koruması bir izleme ve raporlama aracıyla daha b
 
 Yük Dengelemesi için yönetimi etkinlikleri, kimlik koruması uygulamanızın etrafında çeşitli roller atayabilirsiniz. Azure AD kimlik koruması 3 dizin rolünü destekler:
 
-| Rol | Yapabilirsiniz | Bunu yapamazsınız |
+| Role | Yapabilirsiniz | Bunu yapamazsınız |
 | :-- | --- | --- |
 | Genel yönetici | Kimlik koruması, yerleşik kimlik koruması tam erişim| |
 | Güvenlik yöneticisi | Kimlik koruması tam erişim | Yerleşik kimlik koruması, kullanıcı parolalarını sıfırlama |

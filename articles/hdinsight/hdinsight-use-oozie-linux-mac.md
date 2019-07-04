@@ -7,12 +7,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 55db43bf3037fcba59e7ad783c6d8c06f1886bdb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8227ff0c56e147db66c4cdc93083d671b08d1d98
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142821"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433409"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Tanımlamak ve Linux tabanlı Azure HDInsight üzerinde bir iş akışı çalıştırmak için Apache Hadoop ile Apache Oozie kullanma
 
@@ -127,7 +127,7 @@ Bir sorguyu tanımlayan bir Hive sorgu dili (HiveQL) betiği oluşturmak için a
 
    * `${hiveDataFolder}`: Tablo için veri dosyalarının depolanacağı konumu içerir.
 
-     İş akışı tanım dosyası, bu öğreticideki workflow.xml bu HiveQL betiğini çalışma zamanında bu değerleri geçirir.
+     İş akışı tanım dosyası, bu makaledeki workflow.xml bu HiveQL betiğini çalışma zamanında bu değerleri geçirir.
 
 4. Dosyayı kaydetmek için Ctrl + X seçip girin `Y`ve ardından **Enter**.  
 
@@ -708,7 +708,7 @@ Karşılaşabileceğiniz belirli hata ve bunların nasıl çözüleceğine aşa�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir Oozie iş akışının tanımlayın ve Oozie işinin nasıl çalıştırılacağını öğrendiniz. HDInsight ile çalışma hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
+Bu makalede, bir Oozie iş akışının tanımlayın ve Oozie işinin nasıl çalıştırılacağını öğrendiniz. HDInsight ile çalışma hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * [HDInsight, Apache Hadoop işleri için veri yükleme][hdinsight-upload-data]
 * [HDInsight, Apache Hadoop ile Apache Sqoop'u kullanma][hdinsight-use-sqoop]

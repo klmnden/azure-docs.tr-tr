@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 06/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6251df2317ceff9dded92f2d829bfab0503fdf1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f626ce2e009a18afcb4d04b7caa6850ea58c7483
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237598"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446824"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Sağlama ve Azure zaman serisi öngörüleri önizlemesi yönetme
 
@@ -45,7 +45,7 @@ Aşağıdaki adımlar bir Azure zaman serisi öngörüleri önizlemesi ortamın�
 
 1. Seçin **PAYG** düğmesini **SKU** menüsü. Bir ortam adı sağlayın ve hangi Abonelik grubu ve kaynak grubunu kullanmayı seçin. Ardından barındırılması için ortamı için desteklenen bir konum seçin.
 
-   [![Azure Time Series Insights örneği oluşturun.](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
+   [![Azure Time Series Insights örneği oluşturun.](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 1. Zaman serisi girin kimliği
 
@@ -56,7 +56,7 @@ Aşağıdaki adımlar bir Azure zaman serisi öngörüleri önizlemesi ortamın�
 
 1. Azure depolama hesabınız depolama hesabı adı seçerek ve bir çoğaltma seçeneği belirleme oluşturun. Otomatik olarak yapılması, bir Azure depolama genel amaçlı v1 hesabı oluşturur. Daha önce seçtiğiniz Azure zaman serisi öngörüleri Önizleme ortamı ile aynı bölgede oluşturulur.
 
-    [![Örneğiniz için bir Azure depolama hesabı oluşturma](media/v2-update-manage/manage_five.PNG)](media/v2-update-manage/manage_five.PNG#lightbox)
+    [![Örneğiniz için bir Azure depolama hesabı oluşturma](media/v2-update-manage/manage-five.png)](media/v2-update-manage/manage-five.png#lightbox)
 
 1. İsteğe bağlı olarak, bir olay kaynağı ekleyebilirsiniz.
 
@@ -67,11 +67,11 @@ Aşağıdaki adımlar bir Azure zaman serisi öngörüleri önizlemesi ortamın�
      > [!TIP]
      > İleti sıraya süresi, toplu iş olayı veya geçmiş verileri karşıya yükleme senaryoları kullanmak için en iyi şekilde yapılandırılan bir ayarı olmayabilir. Kullanacağınıza karar kullanın veya bir zaman damgası özelliği, bu gibi durumlarda kullanmamanız doğruladığınızdan emin olun.
 
-     [![Olay kaynağı sekmesi](media/v2-update-manage/manage_two.PNG)](media/v2-update-manage/manage_two.PNG#lightbox)
+     [![Olay kaynağı sekmesi](media/v2-update-manage/manage-two.png)](media/v2-update-manage/manage-two.png#lightbox)
 
 1. Ortamınızı istenen ayarlarla sağlandığını doğrulayın.
 
-    [![Gözden geçir + sekme oluşturma](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
+    [![Gözden geçir + sekme oluşturma](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 ## <a name="manage-the-environment"></a>Ortam yönetme
 
@@ -88,7 +88,7 @@ Azure portalını kullanarak Azure zaman serisi öngörüleri Önizleme ortamın
 
 * Azure portalının **başvuru verileri** dikey başvuru verileri bir bileşen PAYG ortamların olmadığından Azure zaman serisi öngörüleri önizlemesinde kaldırıldı.
 
-[![Azure portalında zaman serisi öngörüleri Önizleme ortamı](media/v2-update-manage/manage_four.PNG)](media/v2-update-manage/manage_four.PNG#lightbox)
+[![Azure portalında zaman serisi öngörüleri Önizleme ortamı](media/v2-update-manage/manage-four.png)](media/v2-update-manage/manage-four.png#lightbox)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

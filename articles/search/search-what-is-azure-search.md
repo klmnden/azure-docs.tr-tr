@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 23754a1184f89d1fb563b2d73109f3a10c48920c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 7ba653795791f0e6a2c3d3c73ff574a3ed31f314
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65539328"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485228"
 ---
 # <a name="what-is-azure-search"></a>Azure Search nedir?
 Azure Search, geliştiricilere, web uygulamalarındaki, mobil uygulamalardaki ve kurumsal uygulamalardaki özel, heterojen içeriğe yönelik zengin arama deneyimi ekleme araçlarını ve API’lerini sunan, hizmet olarak arama bulut çözümüdür. Sorgu yürütme işlemi, kullanıcı tarafından tanımlanan bir dizine göre gerçekleştirilir.
@@ -36,7 +36,7 @@ Bilgi alma sürecinin karmaşıklığını maskeleyen basit bir [REST API’si](
 | Core&nbsp;search&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Özellikler |
 |-------------------|----------|
 |Serbest biçimli metin arama | [**Tam metin araması** ](search-lucene-query-architecture.md) çoğu arama tabanlı uygulamalar için birincil kullanım örneği olan. Desteklenen bir söz dizimi kullanılarak sorgular formüle edilebilir. <br/><br/>[**Basit sorgu söz dizimi**](query-simple-syntax.md), mantıksal işleçler, tümcecik arama işleçleri, sonek işleçleri, öncelik işleçleri sağlar.<br/><br/>[**Lucene sorgu söz dizimi**](query-lucene-syntax.md), belirsiz arama, yakınlık araması, terimle yükseltme ve düzenli ifadeler için uzantılarla birlikte basit söz diziminde tüm işlemleri içerir.|
-| İlgi | [**Basit puanlama**](index-add-scoring-profiles.md), Azure Search’ün temel avantajıdır. Belgelerdeki değer işlevi olarak ilgi düzeyini modellemek için puanlama profilleri kullanılır. Örneğin, yeni ürünlerin veya indirimli ürünlerin arama sonuçlarında daha yukarıda görüntülenmesini isteyebilirsiniz. Ayrı olarak izleyip depoladığınız müşteri arama tercihlerine göre kişiselleştirilmiş puanlama için etiketleri kullanarak da puanlama profilleri derleyebilirsiniz. |
+| İlgi düzeyi | [**Basit puanlama**](index-add-scoring-profiles.md), Azure Search’ün temel avantajıdır. Belgelerdeki değer işlevi olarak ilgi düzeyini modellemek için puanlama profilleri kullanılır. Örneğin, yeni ürünlerin veya indirimli ürünlerin arama sonuçlarında daha yukarıda görüntülenmesini isteyebilirsiniz. Ayrı olarak izleyip depoladığınız müşteri arama tercihlerine göre kişiselleştirilmiş puanlama için etiketleri kullanarak da puanlama profilleri derleyebilirsiniz. |
 | Coğrafi arama | Azure Search, coğrafi konumları işler, filtreler ve görüntüler. Kullanıcıların, bir arama sonucunun fiziksel bir konuma göre yakınlığına göre verileri bulmasını sağlar. Daha fazla bilgi edinmek için [bu videoyu izleyin](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) veya [bu örneği gözden geçirin](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). |
 | Filtreler ve modeller | [**Modellenmiş gezinti**](search-faceted-navigation.md), tek bir sorgu parametresi aracılığıyla etkinleştirilir. Azure Search, kendinden yönlendirmeli filtreleme için (örneğin, fiyat aralığına veya markaya göre katalog öğelerini filtrelemek için) bir kategori listesinin ardında kod olarak kullanabileceğiniz çok yönlü bir gezinti yapısını döndürür. <br/><br/> [**Filtreler**](query-odata-filter-orderby-syntax.md), uygulamanın kullanıcı arabiriminde çok yönlü gezintiye yer vermek, sorgu oluşumunu geliştirmek ve kullanıcı veya geliştirici tarafından belirtilen ölçütlere göre filtreleme yapmak için kullanılabilir. OData söz dizimini kullanarak filtreler oluşturun. |
 | Kullanıcı deneyimi özellikleri | [**Otomatik Tamamlama** ](search-autocomplete-tutorial.md) arama çubuğunda yazarken tamamlanan sorgular için etkinleştirilebilir. <br/><br/>[**Arama önerileri**](https://docs.microsoft.com/rest/api/searchservice/suggesters) de arama çubuğuna girilen kısmi metinler için kullanılabilir ancak sonuçlar sorgu terimi yerine dizininizdeki gerçek belgeler olur. <br/><br/>[**Eş anlamlılar**](search-synonyms.md), kullanıcının alternatif terim belirtmesine gerek kalmadan bir sorguyu kapsamını genişleten eşdeğer terimlerle ilişkilendirir. <br/><br/>[**İsabet vurgulama**](https://docs.microsoft.com/rest/api/searchservice/Search-Documents), arama sonuçlarında eşleşen bir anahtar sözcüğe metin biçimlendirmesi uygular. Hangi alanların vurgulanan kod parçacıklarını döndürdüğünü seçebilirsiniz.<br/><br/>Dizin şeması aracılığıyla birden fazla alan için [**Sıralama**](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) sunulur ve sonra tek bir arama parametresi ile sorgu zamanında açılıp kapatılır.<br/><br/> Azure Search’ün arama sonuçlarınız üzerinde sunduğu hassas kontrol sayesinde arama sonuçlarınızı [**disk belleğine almak**](search-pagination-page-layout.md) ve azaltmak çok kolaydır.  <br/><br/>|
@@ -57,11 +57,11 @@ Bilgi alma sürecinin karmaşıklığını maskeleyen basit bir [REST API’si](
 |-------------------|----------|
 | Prototip oluşturma ve inceleme araçları | Portalda, dizin oluşturucuları yapılandırmak için [**Veri içeri aktarma sihirbazını**](search-import-data-portal.md), dizini öne çıkarmak için dizin tasarımcısını ve sorguları test edip puanlama profillerini daraltmak için [**Arama gezgini**](search-explorer.md)’ni kullanabilirsiniz. Şemasını görüntülemek için herhangi bir dizini de açabilirsiniz. |
 | İzleme ve tanılama | [**İzleme özelliklerini etkinleştirme** ](search-monitor-usage.md) ölçümleri-a her zaman portalda görünür olan bakışta ötesine gidin. Ek bir yapılandırma gerekmeden saniye başına sorgu sayısı, gecikme süresi ve azaltma ölçümleri toplanıp portal sayfalarında raporlanır. <br/><br/>[**Arama trafiği analizi** ](search-traffic-analytics.md) başka bir izleme, sunucu tarafı burada alternatiftir ve istemci tarafı veriler toplanır ve hangi kullanıcıların arama kutusuna yazmaya hakkında Öngörüler analiz edilir. |
-| Sunucu tarafı şifrelemesi | [**Microsoft tarafından yönetilen şifreleme bekleyen** ](search-security-overview.md#encrypted-transmission-and-storage) iç depolama katmanı oluşturulmuştur ve değiştirilemeyen. Varsayılan şifreleme ile isteğe bağlı olarak, ek [ **müşteri tarafından yönetilen bir şifreleme anahtarları (Önizleme)**](search-security-manage-encryption-keys.md). Oluşturduğunuz ve Azure anahtar Kasası'nda yönetme anahtarlar dizinleri şifrelemek için kullanılır ve Azure Search'te eş anlamlı eşler. |
+| Sunucu tarafı şifrelemesi | [**Microsoft tarafından yönetilen şifreleme bekleyen** ](search-security-overview.md#encrypted-transmission-and-storage) iç depolama katmanı oluşturulmuştur ve değiştirilemeyen. Varsayılan şifreleme ile isteğe bağlı olarak, ek [ **müşteri tarafından yönetilen bir şifreleme anahtarları (Önizleme)** ](search-security-manage-encryption-keys.md). Oluşturduğunuz ve Azure anahtar Kasası'nda yönetme anahtarlar dizinleri şifrelemek için kullanılır ve Azure Search'te eş anlamlı eşler. |
 | Altyapı | **Yüksek oranda kullanılabilir platform**, son derece güvenilir arama hizmeti deneyimi sağlar. Düzgün şekilde ölçeklendirildiğinde [Azure Search, %99,9 SLA sunar](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> Uçtan uca çözüm olarak **tam olarak yönetilen ve ölçeklendirilebilir** Azure Search kesinlikle bir altyapı yönetimi gerektirmez. Hizmetiniz daha fazla belge depolamayı, daha yüksek sorgu yüklerini veya her ikisini birden işlemek için iki boyutta ölçeklendirilerek ihtiyaçlarınıza göre uyarlanabilir.<br/><br/>|
 
 ## <a name="how-to-use-azure-search"></a>Azure Search’ü kullanma
-### <a name="step-1-provision-service"></a>1. Adım: Sağlama hizmeti
+### <a name="step-1-provision-service"></a>1\. adım: Sağlama hizmeti
 [Azure portalında](https://portal.azure.com/) veya [Azure Resource Management API’si](/rest/api/searchmanagement/) aracılığıyla Azure Search hizmeti sağlayabilirsiniz. Diğer abonelerle paylaşılan ücretsiz hizmeti veya yalnızca hizmetiniz tarafından kullanılan kaynakları ayıran [ücretli katmanı](https://azure.microsoft.com/pricing/details/search/) seçebilirsiniz. Ücretli katmanlar için bir hizmeti iki boyutta ölçeklendirebilirsiniz: 
 
 - Çoğaltmalar ekleyerek yoğun sorgu yüklerini işlemek için kapasitenizi büyütün.   
@@ -69,19 +69,19 @@ Bilgi alma sürecinin karmaşıklığını maskeleyen basit bir [REST API’si](
 
 Belge depolamayı ve sorgu aktarım hızını ayrı olarak işleyerek üretim gereksinimlerine göre kaynak sağlamayı kalibre edebilirsiniz.
 
-### <a name="step-2-create-index"></a>2. Adım: Dizin oluştur
+### <a name="step-2-create-index"></a>2\. adım: Dizin oluşturma
 Aranabilir içeriği karşıya yükleyebilmeniz için önce bir Azure Search dizini tanımlamanız gerekir. Dizin, verilerinizi bulunduran ve arama sorgularını kabul edebilen bir veritabanı tablosuna benzer. Bir veritabanındaki alanlara benzer şekilde, aramak istediğiniz belgelerin yapısını yansıtmak için eşlenecek dizin şemasını tanımlarsınız.
 
 Azure portalında veya [.NET SDK](search-howto-dotnet-sdk.md) ya da [REST API](/rest/api/searchservice/) kullanılarak programlama yoluyla bir şema oluşturulabilir.
 
-### <a name="step-3-load-data"></a>3. adım: Verileri yükleyin
+### <a name="step-3-load-data"></a>3\. adım: Veri yükleme
 Bir dizin tanımladıktan sonra içeriği karşıya yüklemeye hazır olursunuz. Bir itme veya çekme modeli kullanabilirsiniz.
 
 Çekme modeli, dış veri kaynaklarından verileri alır. Verilere bağlanma, verileri okuma ve seri hale getirme gibi veri alımı işlemlerini kolaylaştıran ve otomatikleştiren *dizin oluşturucular* aracılığıyla desteklenir. [Dizin oluşturucular](/rest/api/searchservice/Indexer-operations), bir Azure sanal makinesinde barındırılan Azure Cosmos DB, Azure SQL Veritabanı, Azure Blob Depolama ve SQL Server için kullanılabilir. İsteğe bağlı veya zamanlanan veri yenileme için dizin oluşturucuyu yapılandırabilirsiniz.
 
 Güncelleştirilmiş belgeleri dizine göndermek için kullanılan SDK veya REST API’leri aracılığıyla itme modeli sağlanır. JSON biçimini kullanarak hemen hemen her veri kümesinden verileri itebilirsiniz. Verileri yüklemeye ilişkin kılavuz için bkz. [Belgeler ekleme, güncelleştirme veya silme](/rest/api/searchservice/addupdate-or-delete-documents) veya [.NET SDK’sını kullanma](search-howto-dotnet-sdk.md).
 
-### <a name="step-4-search"></a>4. Adım: Arama
+### <a name="step-4-search"></a>4\. Adım: Ara
 Bir dizin doldurulduktan sonra, REST API’si veya .NET SDK’sı ile basit HTTP isteklerini kullanarak hizmet uç noktanıza [arama sorguları düzenleyebilirsiniz](/rest/api/searchservice/Search-Documents).
 
 ## <a name="how-it-compares"></a>Karşılaştırma
@@ -134,7 +134,7 @@ Alternatif olarak, [MSDN abone Avantajlarınızı etkinleştirebilir](https://az
 3. .NET veya REST API'sini kullanarak kod yazmaya yönelin:
 
    + [.NET SDK’sını kullanma](search-howto-dotnet-sdk.md), yönetilen kodda ana iş akışını gösterir.  
-   + [REST API'si ile çalışmaya başlama](https://github.com/Azure-Samples/search-rest-api-getting-started), REST API’sinin kullanımıyla aynı adımları gösterir. Bu hızlı başlangıçta, Postman veya Fiddler, REST API'leri çağırmak için de kullanabilirsiniz: [Azure Search REST API'lerini keşfetme](search-fiddler.md).
+   + [REST API'si ile çalışmaya başlama](https://github.com/Azure-Samples/search-rest-api-getting-started), REST API’sinin kullanımıyla aynı adımları gösterir. Bu hızlı başlangıçta, Postman veya Fiddler, REST API'leri çağırmak için de kullanabilirsiniz: [Azure Search REST API'lerini keşfetme](search-get-started-postman.md).
 
 ## <a name="watch-this-video"></a>Bu videoyu izleyin
 
@@ -144,7 +144,7 @@ Program yöneticisi Liam Cavanagh’ın bu 9 dakikalık videosunda, arama motoru
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
  
-+ 0.-3. dakikada, temel özellikler ve kullanım durumları ele alınmaktadır.
-+ 3.-4. dakikada, hizmet sağlama ele alınmaktadır. 
-+ 4.-6. dakikada, yerleşik emlak veri kümesini kullanarak bir dizin oluşturmak için kullanılan Veri İçeri Aktarma sihirbazı ele alınmaktadır.
-+ 6.-9. dakikada, Arama gezgini ve çeşitli sorgular ele alınmaktadır.
++ 0\.-3. dakikada, temel özellikler ve kullanım durumları ele alınmaktadır.
++ 3\.-4. dakikada, hizmet sağlama ele alınmaktadır. 
++ 4\.-6. dakikada, yerleşik emlak veri kümesini kullanarak bir dizin oluşturmak için kullanılan Veri İçeri Aktarma sihirbazı ele alınmaktadır.
++ 6\.-9. dakikada, Arama gezgini ve çeşitli sorgular ele alınmaktadır.

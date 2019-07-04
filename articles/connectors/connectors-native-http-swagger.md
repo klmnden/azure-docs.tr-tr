@@ -1,129 +1,171 @@
 ---
-title: Azure Logic Apps'ten REST uç noktalarını çağırma | Microsoft Docs
-description: Görevler ve REST uç noktaları ile iletişim kurmak HTTP + Swagger'ı kullanarak iş akışlarını otomatikleştirmek Azure Logic Apps Bağlayıcısı
+title: Azure Logic Apps'ten REST Uç noktalara bağlanmak
+description: Azure Logic Apps kullanarak otomatik görevler, süreçleri ve iş akışlarını REST uç noktalarını izleme
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, jehollan, LADocs
-ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
+ms.reviewer: klam, LADocs
+ms.topic: conceptual
+ms.date: 07/05/2019
 tags: connectors
-ms.topic: article
-ms.date: 07/18/2016
-ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f0410ed7a98e4838e41407868cf26b5254811ae3
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60448657"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541663"
 ---
-# <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>HTTP + Swagger REST uç noktalarına çağrı Azure Logic Apps Bağlayıcısı
+# <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Azure Logic Apps'ı kullanarak REST uç noktalarını çağırma
 
-Herhangi bir REST uç noktası için birinci sınıf bir bağlayıcı oluşturabilirsiniz bir [Swagger belgesinin](https://swagger.io) da HTTP + Swagger kullandığınızda, mantıksal uygulama iş akışı eylemi. Ayrıca, birinci sınıf bir mantıksal Uygulama Tasarımcısı deneyimi ile herhangi bir REST uç noktasını çağırmak için mantıksal uygulamaları genişletebilirsiniz.
+İle [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ve yerleşik HTTP + Swagger Bağlayıcısı, herhangi bir REST uç noktası aracılığıyla düzenli olarak çağıran iş akışlarını otomatik hale getirebilirsiniz bir [Swagger dosyası](https://swagger.io) oluşturan mantıksal uygulamalar tarafından. HTTP + Swagger tetikleyin ve aynı iş eylemi [HTTP tetikleyici ve eylem](connectors-native-http.md) ancak API yapısı ve Swagger dosyası tarafından tanımlanan çıkış göstererek mantıksal Uygulama Tasarımcısı'nda daha iyi bir deneyim sağlar. Yoklama tetikleyici uygulamak için açıklanan yoklama yapıdadır [logic apps'ten diğer API'leri, hizmetleri ve sistemleri çağırmak için özel API'ler oluşturma](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
-Bağlayıcılarla mantıksal uygulamalar oluşturma konusunda bilgi almak için bkz: [yeni bir mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+## <a name="prerequisites"></a>Önkoşullar
 
-## <a name="use-http--swagger-as-a-trigger-or-an-action"></a>Kullanım HTTP + Swagger bir tetikleyici veya eylemi
+* Azure aboneliği. Azure aboneliğiniz yoksa [ücretsiz bir Azure hesabı için kaydolun](https://azure.microsoft.com/free/).
 
-HTTP + Swagger tetikleyin ve aynı iş eylemi [HTTP eylemi](connectors-native-http.md) ancak API yapısı ve çıkışları göstererek Logic App Tasarımcısı'nda daha iyi bir deneyim sunmak [Swagger meta verileri](https://swagger.io). HTTP da kullanabileceğinizi + bir tetikleyici olarak Swagger Bağlayıcısı. Yoklama tetikleyici uygulamak istiyorsanız, açıklanan yoklama desenler izleyen [logic apps'ten diğer API'leri, hizmetleri ve sistemleri çağırmak için özel API'ler oluşturma](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
+* Hedef REST uç noktasını tanımlayan Swagger dosyası URL'si
 
-Daha fazla bilgi edinin [mantıksal uygulama Tetikleyicileri ve eylemleri](../connectors/apis-list.md).
+  Genellikle, REST uç noktasını iş Bağlayıcısı bu ölçütü karşılaması gerekir:
 
-Kullanım HTTP + Swagger işlem bir eylem olarak bir mantıksal uygulama bir iş akışında ilişkin bir örnek aşağıda verilmiştir.
+  * Swagger dosyası genel olarak erişilebilir olan bir HTTPS URL'si üzerinde barındırılması gerekir.
 
-1. Seçin **yeni adım** düğmesi.
-2. Seçin **Eylem Ekle**.
-3. Eylem arama kutusuna **swagger** listesi HTTP + Swagger eylem.
-   
-    ![HTTP + Swagger'ı seçin eylemi](./media/connectors-native-http-swagger/using-action-1.png)
-4. Swagger belgesinin URL'sini yazın:
-   
-   * Mantıksal Uygulama Tasarımcısı'ndan çalışmak için URL bir HTTPS uç noktası olması gerekir ve CORS etkinleştirmesi gerekir.
-   * Swagger belgesinin bu gereksinimi karşılamıyorsa, belge depolamak için CORS'yi etkinleştirerek Azure depolamayı kullanabilirsiniz.
-5. Tıklayın **sonraki** okuyun ve Swagger belgesi işlemek için.
-6. HTTP çağrı için gerekli olan herhangi bir parametre ekleyin.
-   
-    ![HTTP eylemi tamamlandı](./media/connectors-native-http-swagger/using-action-2.png)
-7. Kaydet ve mantıksal uygulamanızı yayımlamak için tıklatın **Kaydet** tasarımcı araç çubuğunda.
+  * Swagger dosyası olmalıdır [çıkış noktaları arası kaynak paylaşımı (CORS)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) etkin.
 
-### <a name="host-swagger-from-azure-storage"></a>Azure depolama biriminden konak Swagger
-Değil barındırılan veya, güvenlik ve tasarımcı için çıkış noktaları arası gereksinimleri karşılamıyor bir Swagger belgesi başvurmak isteyebilirsiniz. Bu sorunu çözmek için Swagger belgesinin Azure Storage'a depoladığınız ve belge başvurmak CORS'yi etkinleştirme.  
+  Bir Swagger dosyası değil bulunan veya güvenlik ve çıkış noktaları arası gereksinimleri karşılamıyor başvurmak için [Swagger dosyası bir Azure depolama hesabındaki bir blob kapsayıcıya yüklemeniz](#host-swagger)ve bu depolama hesabında, bu nedenle CORS'yi etkinleştirme Dosya, başvurabilirsiniz.
 
-Oluşturma, yapılandırma ve Azure Depolama'da Swagger belgeleri depolamak için adımlar şunlardır:
+  Bu konuda kullanım örnekleri [Bilişsel hizmetler yüz tanıma API'si](https://docs.microsoft.com/azure/cognitive-services/face/overview), gerektiren bir [Bilişsel Hizmetler hesabı ve erişim anahtarını](../cognitive-services/cognitive-services-apis-create-account.md).
 
-1. [Azure Blob Depolama ile bir Azure depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md). Bu adımı gerçekleştirmek için izinleri ayarla **genel erişim**.
+* Hakkında temel bilgilere [mantıksal uygulamalar oluşturmak nasıl](../logic-apps/quickstart-create-first-logic-app-workflow.md). Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](../logic-apps/logic-apps-overview.md)
 
-2. CORS bloba etkinleştirin. 
+* Hedef uç noktasını çağırmak istediğiniz mantıksal uygulaması. Başlamak da HTTP + Swagger tetiklemek, [boş mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). Kullanım HTTP + Swagger eylem, mantıksal uygulamanızın istediğiniz herhangi bir tetikleyici ile başlayın. Bu örnek kullanımları HTTP + Swagger tetikleyici ilk adım olarak.
 
-   Bu ayar otomatik olarak yapılandırmak için kullanabileceğiniz [bu PowerShell Betiği](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1).
+## <a name="add-an-http--swagger-trigger"></a>Bir HTTP + Swagger ekleme tetikleyicisi
 
-3. Swagger dosyası için blob karşıya yükleyin. 
+Bu yerleşik bir tetikleyici bir REST API'sini açıklayan ve bu dosyanın içeriğini içeren bir yanıt döndürür bir Swagger dosyası için bir URL bir HTTP isteği gönderir.
 
-   Bu adımda gerçekleştirdiğiniz [Azure portalında](https://portal.azure.com) veya gibi bir araçla [Azure Depolama Gezgini](https://storageexplorer.com/).
+1. [Azure Portal](https://portal.azure.com) oturum açın. Boş mantıksal uygulamanızı Logic Apps Tasarımcısı'nda açın.
 
-4. Azure Blob depolama alanındaki bir belge için bir HTTPS bağlantısı başvuru. 
+1. Üzerinde tasarımcıda arama kutusuna filtreniz olarak "swagger" girin. Gelen **Tetikleyicileri** listesinden **da HTTP + Swagger** tetikleyici.
 
-   Bağlantı şu biçimi kullanır:
+   ![Select da HTTP + Swagger tetikleyin](./media/connectors-native-http-swagger/select-http-swagger-trigger.png)
 
-   `https://*storageAccountName*.blob.core.windows.net/*container*/*filename*`
+1. İçinde **SWAGGER uç nokta URL'si** kutusuna için Swagger dosyası URL'sini girin ve seçin **sonraki**.
 
-## <a name="technical-details"></a>Teknik Ayrıntılar
-Tetikleyiciler ve Eylemler ile ilgili ayrıntıları aşağıda verilmiştir, bu da HTTP + Swagger Bağlayıcısı destekler.
+   Bu örnekte Batı ABD bölgesi için bulunan Swagger URL'si [Bilişsel hizmetler yüz tanıma API'si](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236):
 
-## <a name="http--swagger-triggers"></a>HTTP + Swagger Tetikleyicileri
-Bir tetikleyici bir mantıksal uygulamada tanımlanan iş akışını başlatmak için kullanılan bir olaydır. HTTP + Swagger Bağlayıcısı, bir tetikleyici vardır. [Tetikleyiciler hakkında daha fazla bilgi](../connectors/apis-list.md).
+   `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
-| Tetikleyici | Açıklama |
-| --- | --- |
-| HTTP + Swagger |HTTP çağrısı ve yanıt içeriği döndürür |
+   ![Swagger uç noktası için URL girin](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
 
-## <a name="http--swagger-actions"></a>HTTP + Swagger eylemleri
-Bir eylem mantıksal uygulamada tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. HTTP + Swagger Bağlayıcısı olası bir eylem vardır. [Eylemler hakkında daha fazla bilgi](../connectors/apis-list.md).
+1. Tasarımcı Swagger dosyası tarafından tanımlanan işlemlerini gösterir, kullanmak istediğiniz işlemi seçin.
 
-| Eylem | Açıklama |
-| --- | --- |
-| HTTP + Swagger |HTTP çağrısı ve yanıt içeriği döndürür |
+   ![Swagger dosyası işlemlerinde](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
 
-### <a name="action-details"></a>Eylem ayrıntıları
-HTTP + Swagger Bağlayıcısı olası tek bir eylem ile birlikte gelir. Aşağıda, her eylemleri, bunların gerekli ve isteğe bağlı bir giriş alanlarını ve bunların kullanımıyla ilişkili çıkış ayrıntıları hakkında bilgi verilmektedir.
+1. Uç nokta çağrısında eklemek istediğiniz seçili işlem göre değişiklik gösteren tetikleyici parametreler için değerleri girin. Uç noktasını çağırmak için yineleme tetikleyicisi istediğiniz sıklığı için ayarlayın.
 
-#### <a name="http--swagger"></a>HTTP + Swagger
-Giden HTTP isteği, Swagger meta verileri ile ilgili Yardım olun.
-Bir yıldız işareti (*) gerekli bir alan anlamına gelir.
+   Bu örnekte, tetikleyiciyi yeniden adlandırır "HTTP + Swagger tetikleyin: Yüz tanıma - algıla"adım daha açıklayıcı bir ad sahip olacak şekilde.
 
-| Display name | Özellik adı | Açıklama |
-| --- | --- | --- |
-| Yöntem * |method |Kullanılacak HTTP fiili. |
-| URI * |URI |HTTP isteği için URI. |
-| Üst bilgiler |Üst bilgileri |HTTP üstbilgileri dahil etmek için bir JSON nesnesi. |
-| Gövde |Gövde |HTTP istek gövdesi. |
-| Kimlik Doğrulaması |kimlik doğrulaması |İstek için kullanılacak kimlik doğrulaması. Daha fazla bilgi için [HTTP Bağlayıcısı](connectors-native-http.md#authentication). |
+   ![İşlem ayrıntıları](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
 
-**Çıkış Ayrıntıları**
+1. Kullanılabilir diğer parametre eklemek için açık **yeni parametre Ekle** listesinde ve istediğiniz parametreleri seçin.
 
-HTTP yanıtı
+   HTTP + Swagger kullanılabilir kimlik doğrulama türleri hakkında daha fazla bilgi için bkz: [HTTP kimlik doğrulaması tetikleyiciler ve Eylemler](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
-| Özellik Adı | Veri türü | Açıklama |
-| --- | --- | --- |
-| Üst bilgiler |object |Yanıt Üstbilgileri |
-| Gövde |object |Yanıt nesnesi |
-| Durum kodu |int |HTTP durum kodu |
+1. Mantıksal uygulamanızın Tetikleyici etkinleştirildiğinde çalıştırılan eylemleri iş akışı oluşturmaya devam edin.
 
-### <a name="http-responses"></a>HTTP yanıtları
-Çeşitli eylemler çağrı yaparken, belirli yanıtlarını alabilirsiniz. Aşağıdaki karşılık gelen yanıtları ve açıklamaları özetleyen bir tablodur.
+1. İşlemi tamamladığınızda, mantıksal uygulamanızı kaydetmeyi unutmayın. Tasarımcı araç çubuğunda **Kaydet**.
 
-| Ad | Açıklama |
-| --- | --- |
-| 200 |Tamam |
-| 202 |Kabul edildi |
-| 400 |Hatalı istek |
-| 401 |Yetkilendirilmemiş |
-| 403 |Yasak |
-| 404 |Bulunamadı |
-| 500 |İç sunucu hatası. Bilinmeyen bir hata oluştu. |
+## <a name="add-an-http--swagger-action"></a>Bir HTTP + Swagger ekleme eylemi
+
+Bu yerleşik eylem, bu dosyanın içeriğini içeren bir yanıt döndürür ve bir REST API'sini açıklayan Swagger dosyası URL'si için bir HTTP isteği yapar.
+
+1. [Azure Portal](https://portal.azure.com) oturum açın. Mantıksal uygulamanızı Logic Apps Tasarımcısı'nda açın.
+
+1. HTTP + Swagger eklemek istediğiniz adımı altında seçme eylemini **yeni adım**.
+
+   Adımlar arasında bir eylem eklemek için işaretçinizi adımlar arasındaki okun üzerine getirin. Artı işaretini seçin ( **+** ), görünür ve ardından **Eylem Ekle**.
+
+1. Üzerinde tasarımcıda arama kutusuna filtreniz olarak "swagger" girin. Gelen **eylemleri** listesinden **da HTTP + Swagger** eylem.
+
+    ![HTTP + Swagger'ı seçin eylemi](./media/connectors-native-http-swagger/select-http-swagger-action.png)
+
+1. İçinde **SWAGGER uç nokta URL'si** kutusuna için Swagger dosyası URL'sini girin ve seçin **sonraki**.
+
+   Bu örnekte Batı ABD bölgesi için bulunan Swagger URL'si [Bilişsel hizmetler yüz tanıma API'si](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236):
+
+   `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
+
+   ![Swagger uç noktası için URL girin](./media/connectors-native-http-swagger/http-swagger-action-parameters.png)
+
+1. Tasarımcı Swagger dosyası tarafından tanımlanan işlemlerini gösterir, kullanmak istediğiniz işlemi seçin.
+
+   ![Swagger dosyası işlemlerinde](./media/connectors-native-http-swagger/http-swagger-action-operations.png)
+
+1. Uç nokta çağrısında eklemek istediğiniz seçili işlem göre farklılık eylem parametreleri için değerleri girin.
+
+   Bu örnek için hiç parametre yok, ancak bu eylem için yeniden adlandırır "HTTP + Swagger eylem: Yüz tanıma - tanımlamak"adım daha açıklayıcı bir ad sahip olacak şekilde.
+
+   ![İşlem ayrıntıları](./media/connectors-native-http-swagger/http-swagger-action-operation-details.png)
+
+1. Kullanılabilir diğer parametre eklemek için açık **yeni parametre Ekle** listesinde ve istediğiniz parametreleri seçin.
+
+   HTTP + Swagger kullanılabilir kimlik doğrulama türleri hakkında daha fazla bilgi için bkz: [HTTP kimlik doğrulaması tetikleyiciler ve Eylemler](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+
+1. İşlemi tamamladığınızda, mantıksal uygulamanızı kaydetmeyi unutmayın. Tasarımcı araç çubuğunda **Kaydet**.
+
+<a name="host-swagger"></a>
+
+## <a name="host-swagger-in-azure-storage"></a>Azure depolama alanında konak Swagger
+
+Swagger dosyası değil barındırılan veya bir Azure depolama hesabındaki blob kapsayıcısına bu dosyayı karşıya yükleme ve bu depolama hesabında CORS'yi etkinleştirme güvenlik ve çıkış noktaları arası gereksinimlerini karşılayan değil başvurabilirsiniz. Swagger dosyaları Azure Storage'a depoladığınız oluşturmak ve ayarlamak için bu adımları izleyin:
+
+1. [Bir Azure depolama hesabı oluşturun](../storage/common/storage-create-storage-account.md).
+
+1. Şimdi blob için CORS'yi etkinleştirin. Depolama hesabınızın menüsünde **CORS**. Üzerinde **Blob hizmeti** sekme, bu değerleri belirtin ve ardından **Kaydet**.
+
+   | Özellik | Değer |
+   |----------|-------|
+   | **İzin verilen çıkış noktaları** | `*` |
+   | **İzin verilen yöntemleri** | `GET`, `HEAD`, `PUT` |
+   | **İzin verilen üst bilgiler** | `*` |
+   | **Sunulan üst bilgiler** | `*` |
+   | **Maksimum yaş** (saniye cinsinden) | `200` |
+   |||
+
+   Bu örnek kullansa [Azure portalında](https://portal.azure.com), gibi bir araç kullanın [Azure Depolama Gezgini](https://storageexplorer.com/), ya da otomatik olarak bu örneği kullanarak bu ayarı yapılandırın [PowerShellBetiği](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1).
+
+1. [Bir blob kapsayıcısı oluşturursunuz](../storage/blobs/storage-quickstart-blobs-portal.md). Kapsayıcının üzerinde **genel bakış** bölmesinde **erişim düzeyini Değiştir**. Gelen **genel erişim düzeyi** listesinden **Blob (yalnızca BLOB'lar için anonim okuma erişimi)** seçip **Tamam**.
+
+1. [Swagger dosyası blob kapsayıcısına yükleyin](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), ya da aracılığıyla [Azure portalında](https://portal.azure.com) veya [Azure Depolama Gezgini](https://storageexplorer.com/).
+
+1. Blob kapsayıcısında dosyaya başvurmak için büyük/küçük harfe Bu biçim izleyen bir HTTPS bağlantısı kullanın:
+
+   `https://<storage-account-name>.blob.core.windows.net/<blob-container-name>/<swagger-file-name>`
+
+## <a name="connector-reference"></a>Bağlayıcı başvurusu
+
+Bir HTTP + Swagger çıkışları hakkında daha fazla bilgi aşağıdadır tetikleyici veya eylemi. HTTP + Swagger çağrısı bu bilgileri döndürür:
+
+| Özellik adı | Tür | Açıklama |
+|---------------|------|-------------|
+| Üst bilgileri | object | İstek üstbilgileri |
+| Gövde | object | JSON nesnesi | İstek gövdesi içeriğe sahip nesne |
+| Durum kodu | int | İstek durum kodu |
+|||
+
+| Durum kodu | Açıklama |
+|-------------|-------------|
+| 200 | Tamam |
+| 202 | Kabul edildi |
+| 400 | Hatalı istek |
+| 401 | Yetkilendirilmemiş |
+| 403 | Yasak |
+| 404 | Bulunamadı |
+| 500 | İç sunucu hatası. Bilinmeyen bir hata oluştu. |
+|||
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Mantıksal uygulama oluşturun.](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Diğer bağlayıcıları bulma](apis-list.md)
+* Diğer hakkında bilgi edinin [Logic Apps bağlayıcıları](../connectors/apis-list.md)

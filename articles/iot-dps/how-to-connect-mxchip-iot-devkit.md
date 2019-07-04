@@ -3,17 +3,17 @@ title: MXChip IOT DevKit IOT Hub'ınızla kaydolmak için Azure IOT Hub cihazı 
 description: MXChip IOT DevKit IOT Hub'ınızla kaydolmak için Azure IOT Hub cihazı sağlama hizmeti otomatik sağlama kullanma
 author: liydu
 ms.author: liydu
-ms.date: 12/18/2018
+ms.date: 06/25/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: 80e4895e0b276e701a6d7f10d8fc67649db0f188
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c809077b0ec14240d231e9b281285080f68596b3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122835"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439497"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>MXChip IOT DevKit IOT Hub'ınızla kaydolmak için Azure IOT Hub cihazı sağlama hizmeti otomatik sağlama kullanın
 
@@ -30,7 +30,7 @@ Bu makalede, Azure IOT Hub cihazı sağlama hizmeti kullanmayı açıklar [otoma
 
 Bu öğreticideki adımları tamamlamak için önce aşağıdaki görevleri yapın:
 
-* DevKit'ın Wi-Fi yapılandırma ve adımları izleyerek geliştirme ortamınızı hazırlama [IOT DevKit AZ3166 bulutta Azure IOT hub'a bağlanma](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+* DevKit'ın Wi-Fi yapılandırma ve "geliştirme ortamınızı Hazırlama" bölümünde adımları izleyerek geliştirme ortamınızı hazırlama [IOT DevKit AZ3166 bulutta Azure IOT hub'a bağlanma](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment).
 * En son üretici yazılımı yükseltin (1.3.0 veya üzeri) ile [güncelleştirme DevKit bellenim](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) öğretici.
 * Oluşturma ve adımları izleyerek bir IOT hub'a bir cihaz sağlama hizmeti örneği ile bağlantı [IOT Hub cihazı sağlama hizmeti Azure portalıyla ayarlama](/azure/iot-dps/quick-setup-auto-provision).
 

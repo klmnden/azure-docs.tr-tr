@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 4ae22a5cd6ad044a86db88986daf9cc7c05c00a2
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: c2565a5549cbca08b987883e5905f09070b5ab2c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342307"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443195"
 ---
-# <a name="add-an-azure-storage-queue-binding-to-your-function"></a>Bir Azure depolama kuyruğu bağlaması işlevinize ekleyin
+# <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Bir Azure depolama kuyruğu bağlaması Python işlevinize ekleyin
 
 Azure işlevleri kendi tümleştirme kod yazmak zorunda kalmadan işlevleri için Azure Hizmetleri ve diğer kaynaklara bağlanmanıza olanak sağlar. Bunlar *bağlamaları*, hem giriş hem de çıktıyı temsil içine işlev tanımı bildirilir. Veri bağlamaları işlevi için parametre olarak sağlanır. Bir tetikleyici, giriş bağlaması özel türüdür. Bir işlevi yalnızca bir tetikleyiciye sahip olmakla birlikte, birden çok giriş ve çıkış bağlamaları. Daha fazla bilgi için bkz. [Azure işlevleri Tetikleyicileri ve bağlamaları kavramları](functions-triggers-bindings.md).
 
@@ -32,7 +32,7 @@ Bu makalede başlamadan önce bölümündeki adımları tamamlamanız [Python h�
 
 ## <a name="download-the-function-app-settings"></a>İşlev uygulaması ayarlarını indirme
 
-Önceki hızlı başlangıç makalesinde, Azure depolama hesabı ile birlikte bir işlev uygulaması oluşturdunuz. Bu hesap için bağlantı dizesini uygulama ayarlarını azure'da güvenli bir şekilde depolanır. Bu makalede, aynı hesaptaki bir depolama kuyruğuna ileti yazma. İşlevi yerel olarak çalışırken, depolama hesabınıza bağlanmak için uygulama ayarları için da local.settings.json dosyasını indirmeniz gerekir. Aşağıdaki komutu çalıştırın local.settings.json dosyasına ayarları indirmek için Azure işlevleri çekirdek Araçları komut değiştirerek `<APP_NAME>` önceki makaleden işlev uygulamanızın adıyla:
+Önceki hızlı başlangıç makalesinde Azure gerekli depolama hesabı ile birlikte bir işlev uygulaması oluşturdunuz. Bu hesap için bağlantı dizesini uygulama ayarlarını azure'da güvenli bir şekilde depolanır. Bu makalede, aynı hesaptaki bir depolama kuyruğuna ileti yazma. İşlevi yerel olarak çalışırken, depolama hesabınıza bağlanmak için uygulama ayarları için da local.settings.json dosyasını indirmeniz gerekir. Aşağıdaki komutu çalıştırın local.settings.json dosyasına ayarları indirmek için Azure işlevleri çekirdek Araçları komut değiştirerek `<APP_NAME>` önceki makaleden işlev uygulamanızın adıyla:
 
 ```bash
 func azure functionapp fetch-app-settings <APP_NAME>
@@ -45,13 +45,19 @@ Azure hesabınızda oturum açmak için gerekli.
 
 Değer ihtiyacınız `AzureWebJobsStorage`, depolama hesabı bağlantı dizesi olduğu. Çıkış bağlaması beklendiği gibi çalıştığını doğrulamak için bu bağlantıyı kullanın.
 
+## <a name="enable-extension-bundles"></a>Uzantı paketleri etkinleştir
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+Şimdi, ekleyebileceğiniz bir depolama çıkış bağlaması projenize.
+
 ## <a name="add-an-output-binding"></a>Çıktı bağlaması ekleme
 
 İşlevler, her tür bağlama gerektirir bir `direction`, `type`ve benzersiz bir `name` function.json dosyasında tanımlanmalıdır. Ek özellikler bağlama türüne bağlı olarak gerekli olabilir. [Kuyruk çıktı yapılandırma](functions-bindings-storage-queue.md#output---configuration) bir Azure depolama kuyruğu bağlama için gerekli alanlar açıklanır.
 
 Bir bağlamayı oluşturmak için bir bağlama yapılandırma nesnesine ekleme `function.json` dosya. Bir nesneye eklemek için HttpTrigger klasörünüze function.json dosyayı düzenleyin `bindings` dizi aşağıdaki özelliklere sahiptir:
 
-| Özellik | Value | Açıklama |
+| Özellik | Değer | Açıklama |
 | -------- | ----- | ----------- |
 | **`name`** | `msg` | Kodunuzda başvurulan bağlama parametresi tanımlayan ad. |
 | **`type`** | `queue` | Bir Azure depolama kuyruğu bağlaması bağlamadır. |
@@ -133,7 +139,7 @@ func host start
 ```
 
 > [!NOTE]  
-> Önceki makalede host.json içinde uzantı paketleri etkinleştirmenize olduğundan [depolama bağlama uzantısı](functions-bindings-storage-blob.md#packages---functions-2x) indirildi ve başlatma sırasında yüklenmiş.
+> Önceki makalede host.json içinde uzantı paketleri etkinleştirmenize olduğundan [depolama bağlama uzantısı](functions-bindings-storage-blob.md#packages---functions-2x) indirildi ve diğer Microsoft bağlama uzantıları birlikte başlatılırken yüklenmiş.
 
 Çalışma zamanı çıktısından `HttpTrigger` işlevinizin URL’sini kopyalayın ve tarayıcınızın adres çubuğuna yapıştırın. `?name=<yourname>` sorgu dizesini bu URL’ye ekleyip isteği yürütün. Önceki makalede yaptığınız gibi aynı yanıtı tarayıcıda görmeniz gerekir.
 

@@ -4,20 +4,20 @@ description: Bu hızlı başlangıçta bir Stream Analytic işi oluşturma, gird
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 06/03/2019
+ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 4efb8aa21622abddca1add3d8b2fcb523cf45da5
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: e05d293760b88cd02fdffae60e762f040a4d1311
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493368"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449226"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Stream Analytics işi oluşturma
 
-Bu hızlı başlangıçta bir Stream Analytics işini oluşturmaya nasıl başlanacağı gösterilmektedir. Bu hızlı başlangıçta, gerçek zamanlı akış verileri ve bir sıcaklık 27 ' büyük olan filtreleri iletileri okuyan bir Stream Analytics işi tanımlayın. Stream Analytics işinizin bir IOT Hub CİHAZDAN veri okuma, verileri dönüştürme ve verileri blob depolamadaki bir kapsayıcıda geri yazma. Bu hızlı başlangıçta kullanılan giriş veri Raspberry Pi çevrimiçi simülatör tarafından oluşturulur. 
+Bu hızlı başlangıçta bir Stream Analytics işini oluşturmaya nasıl başlanacağı gösterilmektedir. Bu hızlı başlangıçta, gerçek zamanlı akış verileri ve bir sıcaklık 27 ' büyük olan filtreleri iletileri okuyan bir Stream Analytics işi tanımlayın. Stream Analytics işinizi IOT Hub'ından veri okuma, verileri dönüştürme ve verileri blob depolamadaki bir kapsayıcıda geri yazma. Bu hızlı başlangıçta kullanılan giriş veri Raspberry Pi çevrimiçi simülatör tarafından oluşturulur. 
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -27,7 +27,7 @@ Bu hızlı başlangıçta bir Stream Analytics işini oluşturmaya nasıl başla
 
 ## <a name="prepare-the-input-data"></a>Girdi verilerini hazırlama
 
-Stream Analytics işini tanımlamadan önce daha sonra iş girdi olarak yapılandırılan verileri hazırlamanız gerekir. İş için gereken girdi verilerini hazırlamak için aşağıdaki adımları tamamlayın:
+Stream Analytics işini tanımlamadan önce giriş verileri hazırlamanız gerekir. Gerçek zamanlı sensör verilerini, daha sonra iş giriş olarak yapılandırılmış IOT Hub'ına alınır. İş için gereken girdi verilerini hazırlamak için aşağıdaki adımları tamamlayın:
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
@@ -179,7 +179,7 @@ Bu bölümde, IOT Hub cihaz giriş Stream Analytics işinin yapılandıracaksın
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli olmadığında kaynak grubunu, akış işini ve tüm ilgili kaynakları silin. İşin silinmesi, iş tarafından kullanılan akış birimlerinin faturalanmasını önler. İşi gelecekte kullanmayı planlıyorsanız, durdurup daha sonra gerektiğinde yeniden başlatabilirsiniz. Bu işi kullanmaya devam etmeyecekseniz aşağıdaki adımları kullanarak bu hızlı başlangıçla oluşturulan tüm kaynakları silin:
+Artık gerekli olmadığında kaynak grubunu, Stream Analytics işi ve tüm ilgili kaynakları silin. İşin silinmesi, iş tarafından kullanılan akış birimlerinin faturalanmasını önler. İşi gelecekte kullanmayı planlıyorsanız, durdurup daha sonra gerektiğinde yeniden başlatabilirsiniz. Bu işi kullanmaya devam etmeyecekseniz aşağıdaki adımları kullanarak bu hızlı başlangıçla oluşturulan tüm kaynakları silin:
 
 1. Azure portalında sol taraftaki menüden, **Kaynak grupları**'nı ve ardından oluşturduğunuz kaynağın adını seçin.  
 

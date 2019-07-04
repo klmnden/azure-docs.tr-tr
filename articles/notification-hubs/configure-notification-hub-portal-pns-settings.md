@@ -10,16 +10,16 @@ ms.workload: mobile
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: jowargo
-ms.openlocfilehash: ee627a168e6ca9bb758d994a3f75cc6185976971
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 1037d8d4652f238f03d8e80b0c59a5f396ab5605
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203699"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445726"
 ---
 # <a name="set-up-push-notifications-in-a-notification-hub-in-the-azure-portal"></a>Azure portalında bir bildirim hub'ı anında iletme bildirimleri ayarlayın
 
-Azure Notification hubs'ı, Ölçeklendirmesi eşitlenene ve kullanımı kolay olan bir anında iletme altyapısı sağlar. Herhangi bir arka uç (Bulut veya şirket içi) herhangi bir platformda (iOS, Android, Windows, Kindle, Baidu) bildirimleri göndermek için Notification Hubs'ı kullanın. Daha fazla bilgi için [Azure Notification Hubs nedir?](notification-hubs-push-notification-overview.md).
+Azure Notification hubs'ı, Ölçeklendirmesi eşitlenene ve kullanımı kolay olan bir anında iletme altyapısı sağlar. Herhangi bir platformda (iOS, Android, Windows, Baidu) ve herhangi bir arka uçtan (bulutta veya şirket içi) bildirimleri göndermek için Notification Hubs'ı kullanın. Daha fazla bilgi için [Azure Notification Hubs nedir?](notification-hubs-push-notification-overview.md).
 
 Bu hızlı başlangıçta, birden çok platformda anında iletme bildirimleri için ayarlamak için bildirim hub'ları, platform bildirim sistemi (PNS) ayarları kullanacaksınız. Hızlı başlangıçta Azure Portalı'nda atılması gereken adımları gösterilmektedir.
 
@@ -35,7 +35,7 @@ Apple anında iletilen bildirim servisi (APNS ayarlama) ayarlamak için:
 
    a. Seçerseniz **sertifika**:
    * Dosya simgesini seçin ve ardından *.p12* karşıya yüklemek istediğiniz dosya.
-   * Parola girin.
+   * Bir parola girin.
    * **Korumalı alan** modunu seçin. Uygulama Mağazası'ndan satın almış kullanıcılara anında iletme bildirimleri göndermek için seçin **üretim** modu.
 
      ![Ekran görüntüsü bir APNS sertifikası yapılandırma Azure portalında](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
@@ -95,17 +95,6 @@ Windows Phone için Microsoft anında iletme bildirimi Hizmeti'ni (MPNS ayarlama
 
 Daha fazla bilgi için [Notification Hubs'ı kullanarak anında iletme bildirimleri için Windows Phone uygulamaları](notification-hubs-windows-mobile-push-notifications-mpns.md).
       
-## <a name="amazon-device-messaging"></a>Amazon Device Messaging
-
-Anında iletme bildirimleri Amazon Device Messaging'i (ADM) ayarlamak için:
-
-1. Azure portalında, üzerinde **bildirim hub'ı** sayfasında **Amazon (ADM)** sol menüden.
-2. İçin değerler girin **istemci kimliği** ve **gizli**.
-3. **Kaydet**’i seçin.
-    
-   ![Azure portalının ekran görüntüsü, ADM ayarları](./media/notification-hubs-kindle-get-started/notification-hub-adm-settings.png)
-
-Daha fazla bilgi için [Kindle uygulamaları için Notification Hubs ile çalışmaya başlama](notification-hubs-kindle-amazon-adm-push-notification.md).
 
 ## <a name="baidu-android-china"></a>Baidu (Android China)
 
@@ -131,5 +120,4 @@ Bu hızlı başlangıçta, Azure portalında bir bildirim hub'ı platform bildir
 - [Notification Hubs ve FCM Google'ı kullanarak Android cihazlarına anında iletme bildirimleri](notification-hubs-android-push-notification-google-fcm-get-started.md)
 - [Windows cihaz üzerinde çalışan bir UWP uygulamasına anında iletme bildirimleri](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
 - [MPNS kullanarak bir Windows Phone 8 uygulaması anında iletme bildirimleri](notification-hubs-windows-mobile-push-notifications-mpns.md)
-- [Bir Kindle uygulamasına anında iletme bildirimleri gönderme](notification-hubs-kindle-amazon-adm-push-notification.md)
 - [Notification Hubs ve Baidu bulut anında iletme kullanarak anında iletme bildirimleri](notification-hubs-baidu-china-android-notifications-get-started.md)

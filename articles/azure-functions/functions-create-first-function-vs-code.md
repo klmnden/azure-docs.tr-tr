@@ -9,15 +9,15 @@ keywords: azure işlevleri, işlevler, olay işleme, işlem, sunucusuz mimari
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 06/25/2019
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cbe4dbd2ae741f4225cfdc628c31508956cbb95c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fcf9f1d6420dbbde359d386bc3b67a0866aca30d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61354560"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444610"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Visual Studio Code kullanarak ilk işlevinizi oluşturma
 
@@ -27,25 +27,26 @@ Bu makalede Microsoft Visual Studio Code’u kullanarak yerel bilgisayarınızda
 
 ![Visual Studio projesinde Azure İşlevleri kodu](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-Uzantı şu anda tam olarak destekler C#, JavaScript ve Java işlevleri, Python desteği şu anda önizlemede. Bu makaledeki adımlar, Azure İşlevleri projenizde tercih ettiğiniz dile göre değişiklik gösterebilir. Uzantı şu an önizleme aşamasındadır. Daha fazla bilgi edinmek için [Visual Studio Code için Azure İşlevleri uzantısı] sayfasına bakın.
+Uzantı şu anda desteklediği C#, JavaScript ve Java işlevleri, Python desteği şu anda önizlemede. Bu makalede ve aşağıdaki makalede adımlarda yalnızca JavaScript desteği ve C# işlevleri. Oluşturma ve yayımlama Python işlevleri için Visual Studio Code kullanmayı öğrenmek için bkz: [dağıtma Python için Azure işlevleri](https://code.visualstudio.com/docs/python/tutorial-azure-functions). Oluşturma ve yayımlama PowerShell işlevleri için Visual Studio Code kullanmayı öğrenmek için bkz. [Azure'da PowerShell ilk işlevinizi oluşturma](functions-create-first-function-powershell.md). 
+
+Uzantı şu an önizleme aşamasındadır. Daha fazla bilgi edinmek için [Visual Studio Code için Azure İşlevleri uzantısı] sayfasına bakın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için:
 
-* [Desteklenen platformlardan](https://code.visualstudio.com/docs/supporting/requirements#_platforms) birinde [Visual Studio Code](https://code.visualstudio.com/)’u yükleyin. Bu makale macOS (High Sierra) ile çalışan bir cihazda geliştirilmiş ve test edilmiştir.
+* [Desteklenen platformlardan](https://code.visualstudio.com/docs/supporting/requirements#_platforms) birinde [Visual Studio Code](https://code.visualstudio.com/)’u yükleyin.
 
-* [Azure İşlevleri Temel Araçları](functions-run-local.md#v2)’nın hala önizleme aşamasında olan 2.x sürümünü yükleyin.
+* Sürümünü yüklemek 2.x [Azure işlevleri çekirdek Araçları](functions-run-local.md#v2).
 
 * Seçtiğiniz dile özgü gereksinimleri yükleyin:
 
-    | Dil | Dahili numara |
+    | Dil | Gereksinim |
     | -------- | --------- |
-    | **C#** | [Visual Studio Code için C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI araçları](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)*   |
-    | **Java** | [Java hata ayıklayıcısı](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3+](https://maven.apache.org/) |
-    | **JavaScript** | [Node 8.0+](https://nodejs.org/)  |
-
-    \* Ayrıca Core Araçları için gereklidir.
+    | **C#** | [C# uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)  |
+    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> | 
+ 
+    <sup>*</sup>Etkin LTS ve Bakım LTS sürümleri (8.11.1 ve önerilen 10.14.1).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -53,47 +54,7 @@ Bu hızlı başlangıcı tamamlamak için:
 
 [!INCLUDE [functions-create-function-app-vs-code](../../includes/functions-create-function-app-vs-code.md)]
 
-## <a name="create-an-http-triggered-function"></a>HTTP ile tetiklenen işlev oluşturma
-
-1. Gelen **Azure: İşlevleri**, Create FUNCTION simgesini seçin.
-
-    ![İşlev oluşturma](./media/functions-create-first-function-vs-code/create-function.png)
-
-1. İşlev uygulaması projenizin yer aldığı klasörü seçin ve **HTTP tetikleyicisi** işlev şablonunu seçin.
-
-    ![HTTP tetikleyicisi şablonunu seçin](./media/functions-create-first-function-vs-code/create-function-choose-template.png)
-
-1. İşlev adı için `HTTPTrigger` yazın ve Enter tuşuna basın ve **Anonim** kimlik doğrulamasını seçin.
-
-    ![Anonim kimlik doğrulamasını seçin](./media/functions-create-first-function-vs-code/create-function-anonymous-auth.png)
-
-    HTTP ile tetiklenen işlevin şablonu kullanılarak, seçtiğiniz dilde bir işlev oluşturulur.
-
-    ![Visual Studio Code’daki HTTP ile tetiklenen işlev şablonu](./media/functions-create-first-function-vs-code/new-function-full.png)
-
-function.json dosyasını değiştirerek işlevinize giriş ve çıkış bağlamaları ekleyebilirsiniz. Daha fazla bilgi için bkz. [Azure İşlevleri tetikleyicileri ve bağlama kavramları](functions-triggers-bindings.md).
-
-İşlev projenizi ve HTTP ile tetiklenen işlev oluşturduğunuza göre, artık bunu yerel bilgisayarınızda test edebilirsiniz.
-
-## <a name="test-the-function-locally"></a>İşlevi yerel olarak test etme
-
-Azure İşlevleri Temel Araçları, Azure İşlevleri projenizi yerel geliştirme bilgisayarınızda çalıştırmanıza olanak sağlar. Visual Studio Code'da ilk kez bir işlev başlattığınızda bu araçları yüklemeniz istenir.  
-
-1. İşlevinizi test etmek için işlev kodunda bir kesme noktası ayarlayın ve işlev uygulaması projesini başlatmak için F5 tuşuna basın. Temel Araçlar’daki çıktı, **Terminal** panelinde görüntülenir.
-
-1. **Terminal** panelinde, HTTP ile tetiklenen işlevinizin URL uç noktasını kopyalayın.
-
-    ![Azure yerel çıktısı](./media/functions-create-first-function-vs-code/functions-vscode-f5.png)
-
-1. HTTP isteğinin URL’sini tarayıcınızın adres çubuğuna yapıştırın. `?name=<yourname>` sorgu dizesini bu URL’ye ekleyip isteği yürütün. Kesme noktasına gelindiğinde yürütme duraklatılır.
-
-    ![Visual Studio Code’da kesme noktasına gelen işlev](./media/functions-create-first-function-vs-code/function-debug-vscode-js.png)
-
-1. Yürütmeyi sürdürdüğünüzde GET isteğine tarayıcıda verilen yanıt aşağıda gösterilmiştir:
-
-    ![Tarayıcıdaki işlev localhost yanıtı](./media/functions-create-first-function-vs-code/functions-test-local-browser.png)
-
-1. Hata ayıklamayı durdurmak için Shift + F5 tuşuna basın.
+[!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
 İşlevin yerel bilgisayarınızda düzgün çalıştığını doğruladıktan sonra, projeyi Azure'da yayımlamanın zamanı gelmiştir.
 
@@ -101,7 +62,7 @@ Azure İşlevleri Temel Araçları, Azure İşlevleri projenizi yerel geliştirm
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 
-## <a name="test-your-function-in-azure"></a>Azure'da işlevinizi test etme
+## <a name="run-the-function-in-azure"></a>İşlev Azure'da çalıştırın
 
 1. **Çıktı** panelinden HTTP tetikleyicisinin URL’sini kopyalayın. Daha önce olduğu gibi, `?name=<yourname>` sorgu dizesini bu URL’nin sonuna ekleyip isteği yürütmeyi unutmayın.
 
@@ -115,10 +76,10 @@ Azure İşlevleri Temel Araçları, Azure İşlevleri projenizi yerel geliştirm
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-HTTP ile tetiklenen basit bir işlevi kullanarak bir işlev uygulaması oluşturmak için Visual Studio Code’u kullandınız. Daha fazla bilgi edinin isteyebilirsiniz [yerel test ve Terminal veya komut satırından hata ayıklama](functions-run-local.md) Azure işlevleri çekirdek araçları kullanarak.
+HTTP ile tetiklenen basit bir işlevi kullanarak bir işlev uygulaması oluşturmak için Visual Studio Code’u kullandınız. Sonraki makalede, bu işlev, bir çıkış bağlaması ekleyerek genişletin. Bu bağlama dize HTTP isteğinden Azure kuyruk depolama kuyruğuna bir ileti yazar. Sonraki makalede ayrıca oluşturduğunuz kaynak grubunu kaldırarak bu yeni Azure kaynakları temizleme işlemini gösterir.
 
 > [!div class="nextstepaction"]
-> [Application Insights tümleştirmesini etkinleştirme](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [Bir Azure depolama kuyruğu bağlaması işlevinize ekleyin](functions-add-output-binding-storage-queue-vs-code.md)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Visual Studio Code için Azure İşlevleri uzantısı]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

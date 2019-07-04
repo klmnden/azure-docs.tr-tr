@@ -11,12 +11,12 @@ ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: ec6177bb353602f20040f05215678e3a8a161ebc
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 2c90dcf1672a3d3505aaa19aec953ad97f5289bb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190829"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446213"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration runtime (IR) farklı ağ ortamları veri tümleştirme özellikleri sağlamak üzere Azure Data Factory kullanan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -74,7 +74,7 @@ Kendinden konak IR ile kopyalamak için adımların özeti için üst düzey ver
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Desteklenen işletim sistemi sürümleri, Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2 ve Windows Server 2016 ' dir. Şirket içinde barındırılan tümleştirme çalışma zamanı bir etki alanı denetleyicisindeki yükleme desteklenmez.
+- Desteklenen işletim sistemi sürümleri, Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 ve Windows Server 2019 ' dir. Şirket içinde barındırılan tümleştirme çalışma zamanı bir etki alanı denetleyicisindeki yükleme desteklenmez.
 - .NET framework 4.6.1 veya üstü gereklidir. Windows 7 makinesinde şirket içinde barındırılan tümleştirme çalışma zamanı'nı yüklüyorsanız, .NET Framework 4.6.1 yükleyin veya üzeri. Bkz: [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) Ayrıntılar için.
 - Şirket içinde barındırılan tümleştirme çalışma zamanı makine için önerilen yapılandırma, en az 2 GHz, dört çekirdek, 8 GB RAM ve 80 GB disk içindir.
 - Konak makine hazırda bekleme, şirket içinde barındırılan tümleştirme çalışma zamanı veri isteklere yanıt vermez. Şirket içinde barındırılan Integration runtime'ı yüklemeden önce bilgisayarda uygun bir güç planı yapılandırın. Makine hazırda bekleme için yapılandırılmışsa, şirket içinde barındırılan tümleştirme çalışma zamanı yükleme isteyen bir ileti alırsınız.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 19ae3322d26447cf7c7dd94d06f073ccf013738e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 336a9d9c76114920e92de2000152e500f7dce46f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60255064"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445311"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Operations Manager'ı Azure İzleyicisi ile bağlantı
 
@@ -40,7 +40,7 @@ Aşağıdaki diyagramda, System Center Operations Manager yönetim grubu ve bağ
 
 BT güvenlik ilkeleriniz bilgisayarları ağınızdaki Internet'e bağlanmasına izin vermiyorsa, yönetim sunucuları yapılandırma bilgilerini almak ve çözümleri bağlı olarak toplanan verileri göndermek için Log Analytics ağ geçidine bağlanmak için yapılandırılabilir. etkin. Daha fazla bilgi ve Azure İzleyici için bir Log Analytics ağ geçidi üzerinden iletişim kurmak için Operations Manager yönetim grubunuzun yapılandırma adımları için bkz. [Azure Log Analytics ağ geçidini kullanarak İzleyici bilgisayarları bağlama](../../azure-monitor/platform/gateway.md).  
 
-## <a name="prerequisites"></a>Önkoşullar 
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce aşağıdaki gereksinimleri gözden geçirin.
 
@@ -48,7 +48,19 @@ Başlamadan önce aşağıdaki gereksinimleri gözden geçirin.
 * System Center Operations Manager 2016 ABD kamu Bulutu ile tümleştirme, güncelleştirme paketi 2 veya daha sonra güncelleştirilmiş bir Advisor Yönetim Paketi gerektirir. System Center Operations Manager 2012 R2 güncelleştirme paketi 3 veya daha sonra güncelleştirilmiş bir Advisor Yönetim Paketi gerektirir.
 * Tüm Operations Manager aracılarının en düşük destek gereksinimlerini karşılaması gerekir. En düşük güncelleştirmeyi aracılardır Windows aracı iletişimi Aksi halde ve başarısız Operations Manager olay günlüğündeki hatalara neden emin olun.
 * Log Analytics çalışma alanı. Daha fazla bilgi için gözden [Log Analytics çalışma alanına genel bakış](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json).   
-* Azure'de bir üyesi olan bir hesapla kimlik doğrulamasını [Log Analytics katkıda bulunan rolü](../../azure-monitor/platform/manage-access.md#manage-accounts-and-users).  
+* Azure'de bir üyesi olan bir hesapla kimlik doğrulamasını [Log Analytics katkıda bulunan rolü](../../azure-monitor/platform/manage-access.md#manage-accounts-and-users).
+
+* Log Analytics çalışma alanına bağlamak için System Center Operations Manager tarafından desteklenen bölgeler - yalnızca aşağıdaki Azure bölgeleri desteklenir:
+    - Batı Orta ABD
+    - Avustralya Güneydoğu
+    - Batı Avrupa
+    - East US
+    - Güneydoğu Asya
+    - Japonya Doğu
+    - Birleşik Krallık Güney
+    - Orta Hindistan
+    - Orta Kanada
+    - Batı ABD 2
 
 >[!NOTE]
 >Azure API'leri yapılan son değişikliklerin, müşteriler kendi yönetim grubu ve Azure İzleyici arasındaki tümleştirme ilk kez başarıyla yapılandırabiliyor olmanın engeller. Var olan bağlantınızı yapılandırmak gerekli olmadıkça zaten kendi yönetim grubu hizmeti ile tümleştirilmiş müşteriler için etkilenmez.  
@@ -90,7 +102,7 @@ Azure İzleyici ile iletişim kurmak Operations Manager Aracısı, yönetim sunu
 
 ### <a name="tls-12-protocol"></a>TLS 1.2 Protokolü
 
-Azure İzleyici geçiş verilerinin güvenliğini sağlamak üzere en az kullanılacak aracı ve yönetim grubunu yapılandırmak için önemle öneririz Aktarım Katmanı Güvenliği (TLS) 1.2. TLS/Güvenli Yuva Katmanı (SSL) daha eski sürümleri, savunmasız bulundu ve bunlar yine de şu anda geriye dönük uyumluluk izin vermek için çalışırken, bunlar **önerilmez**. Ek bilgi için gözden [TLS 1.2 kullanarak güvenli bir şekilde veri gönderen](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
+Azure İzleyici geçiş verilerinin güvenliğini sağlamak üzere en az kullanılacak aracı ve yönetim grubunu yapılandırmak için önemle öneririz Aktarım Katmanı Güvenliği (TLS) 1.2. TLS/Güvenli Yuva Katmanı (SSL) daha eski sürümleri, savunmasız bulundu ve bunlar yine de şu anda geriye dönük uyumluluk izin vermek için çalışırken, bunlar **önerilmez**. Ek bilgi için gözden [TLS 1.2 kullanarak güvenli bir şekilde veri gönderen](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12).
 
 ## <a name="connecting-operations-manager-to-azure-monitor"></a>Azure İzleyici için Operations Manager'ı bağlama
 
@@ -105,7 +117,7 @@ Operations Manager yönetim grubunuzun bir Log Analytics çalışma alanıyla il
 
     `netsh winhttp set proxy <proxy>:<port>`
 
-Azure İzleyici ile tümleştirmek için aşağıdaki adımları tamamladıktan sonra yapılandırmayı çalıştırarak kaldırabilirsiniz `netsh winhttp reset proxy` ve ardından **proxy sunucusunu yapılandır** proxy veya günlük belirtmek için işletim konsolunda seçeneği Analytics ağ geçidi sunucusu. 
+Azure İzleyici ile tümleştirmek için aşağıdaki adımları tamamladıktan sonra yapılandırmayı çalıştırarak kaldırabilirsiniz `netsh winhttp reset proxy` ve ardından **proxy sunucusunu yapılandır** proxy veya günlük belirtmek için işletim konsolunda seçeneği Analytics ağ geçidi sunucusu.
 
 1. Operations Manager konsolunda **Yönetim** çalışma alanını seçin.
 1. Operations Management Suite düğümünü genişletin ve **Bağlantı**'ya tıklayın.
@@ -113,14 +125,14 @@ Azure İzleyici ile tümleştirmek için aşağıdaki adımları tamamladıktan 
 1. Üzerinde **Operations Management Suite Ekleme Sihirbazı: Kimlik doğrulaması** sayfasında, e-posta adresi veya telefon numarası ve OMS aboneliğinizle ilişkili yönetici hesabının parolasını girin ve tıklayın **oturum**.
 
    >[!NOTE]
-   >Operations Management Suite adı kullanımdan kaldırılmıştır. 
-   
+   >Operations Management Suite adı kullanımdan kaldırılmıştır.
+
 1. Başarılı bir şekilde, üzerinde kimlik doğrulaması yaptıktan sonra **Operations Management Suite Ekleme Sihirbazı: Çalışma alanı seçin** istenir Azure kiracısı, aboneliğiniz ve Log Analytics çalışma alanı seçin sayfasında. Birden çok çalışma alanınız varsa, açılan listeden Operations Manager yönetim grubuna kaydetmek istediğiniz çalışma alanını seçin ve ardından **İleri**'ye tıklayın.
-   
+
    > [!NOTE]
    > Operations Manager bir kerede tek bir Log Analytics çalışma alanını destekler. Azure İzleyici'den, bağlantı ve Azure İzleyici önceki çalışma alanı ile kaydedilmiş bilgisayarların kaldırılır.
-   > 
-   > 
+   >
+   >
 1. Üzerinde **Operations Management Suite Ekleme Sihirbazı: Özet** sayfasında, ayarları doğrulayın ve doğru olmaları durumunda tıklayın **Oluştur**.
 1. Üzerinde **Operations Management Suite Ekleme Sihirbazı: Son** sayfasında **Kapat**.
 
@@ -180,11 +192,11 @@ Aşağıdaki üretim yönetim grubunuzdaki Yönetim Paketi sürümleri denetleme
 1. Log Analytics genişletin ve seçin **bağlantıları**.
 1. Bölmenin orta kısmında **Operation Management Suite'i Yeniden Yapılandır** bağlantısını seçin.
 1. İzleyin **Log Analytics Ekleme Sihirbazı** e-posta adresi veya telefon numarası ve yeni Log Analytics çalışma alanınızla ilişkili yönetici hesabının parolasını girin.
-   
+
    > [!NOTE]
    > **Operations Management Suite Ekleme Sihirbazı: Çalışma alanı seçin** kullanımda olan mevcut bir çalışma sayfası sunar.
-   > 
-   > 
+   >
+   >
 
 ## <a name="validate-operations-manager-integration-with-azure-monitor"></a>Azure İzleyici ile Operations Manager tümleştirmesini doğrulama
 
@@ -194,9 +206,9 @@ Operations Manager tümleştirme için Azure İzleyici başarılı olduğunu do�
 
 1. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir.
 1. Log Analytics çalışma alanlarınızın listesinde uygun çalışma alanını seçin.  
-1. **Gelişmiş ayarlar**'ı, **Bağlı Kaynaklar**'ı ve sonra da **System Center**'ı seçin. 
+1. **Gelişmiş ayarlar**'ı, **Bağlı Kaynaklar**'ı ve sonra da **System Center**'ı seçin.
 1. System Center Operations Manager bölümünün altındaki tabloda yönetim grubu adının listelendiğini, ayrıca aracı sayısının ve veriler son alındığındaki durumun gösterildiğini görüyor olmalısınız.
-   
+
    ![oms-settings-connectedsources](./media/om-agents/oms-settings-connectedsources.png)
 
 ### <a name="to-confirm-integration-from-the-operations-console"></a>İşletim konsolunda tümleştirmeyi onaylamak için
@@ -205,7 +217,7 @@ Operations Manager tümleştirme için Azure İzleyici başarılı olduğunu do�
 1. **Yönetim Paketleri**'ni seçin ve **Aranan:** metin kutusuna **Advisor** veya **Intelligence** yazın.
 1. Etkinleştirdiğiniz çözümlere bağlı olarak, arama sonuçlarında ilgili yönetim paketinin listelendiğini görürsünüz.  Örneğin Uyarı Yönetimi çözümünü etkinleştirdiyseniz, listede Microsoft System Center Advisor Uyarı Yönetimi yönetim paketi yer alır.
 1. **İzleme** görünümünden **Operations Management Suite\Sistem Durumu** görünümüne gidin.  **Yönetim Sunucusu Durumu** bölmesinin altında bir Yönetim sunucusu seçin ve **Ayrıntı Görünümü** bölmesinde **Kimlik doğrulama hizmeti URI'si** özelliğinin değerinin Log Analytics Çalışma Alanı Kimliği ile eşleştiğini onaylayın.
-   
+
    ![oms-opsmgr-mg-authsvcuri-property-ms](./media/om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
 ## <a name="remove-integration-with-azure-monitor"></a>Azure İzleyici ile tümleştirmesi Kaldır
@@ -215,34 +227,34 @@ Artık Operations Manager yönetim grubunuzda Log Analytics çalışma alanı ar
 Çözümler için yönetim paketleri Operations Manager ile tümleştirilen etkinleştirdiğiniz ve Azure İzleyici ile tümleştirmeyi desteklemek için gereken yönetim paketleri yönetim grubundan kolayca silinemiyor. Bazı Azure izleme yönetim paketlerinin diğer ilgili yönetim paketlerine bağımlılıkları sahip olmasıdır. Diğer yönetim paketlerinde bağımlılıkları olan yönetim paketlerini silmek için, TechNet Betik Merkezi'nden [bağımlılıkları olan yönetim paketini kaldırma](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) betiğini indirin.  
 
 1. Operations Manager Yöneticiler rolüne üye olan bir hesapla Operations Manager Komut Kabuğu'nu açın.
-   
+
     > [!WARNING]
     > Devam etmeden önce adında Advisor veya IntelligencePack terimi bulunan hiçbir özel yönetim paketiniz olmadığını doğrulayın; aksi takdirde, aşağıdaki adımları o paketleri de yönetim grubundan siler.
-    > 
+    >
 
 1. Komut kabuğu istemcisine `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue` yazın
 1. Sonra `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue` yazın
 1. Diğer System Center Advisor yönetim paketlerinde bağımlılığı olan kalan yönetim paketlerini kaldırmak için, daha önce TechNet Betik Merkezi'nden indirmiş olduğunuz *RecursiveRemove.ps1* betiğini kullanın.  
- 
+
     > [!NOTE]
     > PowerShell ile Danışman yönetim paketleri kaldırmak için adımı System Center Advisor'ı Microsoft veya Microsoft System Center iç Danışman yönetim paketleri otomatik olarak silinmez.  Silmek üzere çalışmayın.  
     >  
 
 1. Operations Manager Yöneticiler rolüne üye olan bir hesapla Operations Manager İşletim konsolunu açın.
 1. **Yönetim**'in altında **Yönetim Paketleri** düğümünü açın, **Aranan:** kutusuna **Advisor** yazın ve aşağıdaki yönetim paketlerinin yönetim grubunuza aktarılmış durumda olduğunu doğrulayın:
-   
+
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
 
 1. Azure portalında **ayarları** Döşe.
 1. Seçin **bağlı kaynakları**.
 1. System Center Operations Manager bölümünün altındaki tabloda, çalışma alanından kaldırmak istediğiniz yönetim grubunun adını görmeniz gerekir. **Son Veriler** sütununun altında **Kaldır**'a tıklayın.  
-   
+
     > [!NOTE]
     > Bağlı yönetim grubundan hiçbir etkinlik algılanmazsa 14 gün geçene kadar **Kaldır** bağlantısı kullanılamaz.  
-    > 
+    >
 
-1. Kaldırma işlemine devam etmek istediğinizi onaylamanızı isteyen bir pencere görüntülenir.  Devam etmek için **Evet**'e tıklayın. 
+1. Kaldırma işlemine devam etmek istediğinizi onaylamanızı isteyen bir pencere görüntülenir.  Devam etmek için **Evet**'e tıklayın.
 
 İki bağlayıcıyı (Microsoft.SystemCenter.Advisor.DataConnector ve Advisor Connector) silmek için, aşağıdaki PowerShell betiğini bilgisayarınıza kaydedin ve aşağıdaki örnekleri kullanarak yürütün:
 
@@ -253,8 +265,8 @@ Artık Operations Manager yönetim grubunuzda Log Analytics çalışma alanı ar
 
 > [!NOTE]
 > Bu betiği çalıştırdığınız bilgisayar bir yönetim sunucusu değilse, yönetim grubunuzun sürümüne bağlı olarak bu bilgisayarda Operations Manager komut kabuğunun yüklü olması gerekir.
-> 
-> 
+>
+>
 
 ```powershell
     param(

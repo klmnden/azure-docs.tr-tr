@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9e7441ab9503919fbf1d0890ce69f04259f38986
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d43bef902b66976c32735b6d45029f41bb5e3264
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065778"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514046"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
@@ -24,6 +24,57 @@ Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.  
 + Azure Machine Learning [ **veri hazırlama SDK'sı**](https://aka.ms/data-prep-sdk)
 
 Bkz: [bilinen sorunların listesi](resource-known-issues.md) bilinen hataların ve geçici çözümleri hakkında bilgi edinmek için.
+
+
+## <a name="2019-07-01"></a>2019-07-01
+
+### <a name="azure-machine-learning-data-prep-sdk-v117"></a>Azure Machine Learning veri hazırlama SDK v1.1.7
+
+Bu Azure Databricks kullanarak bazı müşteriler için sorunlara neden gibi biz Gelişmiş performans, bir değişikliği geri döndürüldü. Azure Databricks üzerinde bir sorun olduysa, aşağıdaki yöntemlerden birini kullanarak 1.1.7 sürümüne yükseltebilirsiniz:
+1. Yükseltmek için bu betiği çalıştırın: `%sh /home/ubuntu/databricks/python/bin/pip install azureml-dataprep==1.1.7`
+2. En son veri hazırlığı SDK sürümü yükleyecek kümeyi yeniden oluşturun.
+
+## <a name="2019-06-25"></a>2019-06-25
+
+### <a name="azure-machine-learning-sdk-for-python-v1045"></a>Azure Machine SDK için Python v1.0.45 Learning
+
++ **Yeni Özellikler**
+  + Azureml açıklayan model paketindeki açıklama taklit etmek için karar ağacı vekil modeli ekleme
+  + Çıkarım görüntülerinde yüklenmesi için CUDA sürümünü belirtme seçeneği. CUDA 10.0 9.0 ve 9.1 için destek.
+  + Azure ML eğitim bilgi temel görüntüleri adresinde artık [Azure ML kapsayıcıları GitHub deposunu](https://github.com/Azure/AzureML-Containers) ve [DockerHub](https://hub.docker.com/_/microsoft-azureml)
+  + Eklenen CLI için işlem hattı zamanlamayı destekler. Daha fazla bilgi için "az ml işlem hattı -h" çalıştırın
+  + AKS webservice dağıtım yapılandırması ve CLI özel Kubernetes ad alanı parametresi eklendi.
+  + İşlem hattı adımların tümünü kullanım dışı hash_paths parametresi
+  + Model.Register destekleyen birden çok tek tek dosya kullanımını tek bir model olarak kaydetme `child_paths` parametresi.
+  
++ **Önizleme özellikleri**
+    + Puanlama explainers artık isteğe bağlı olarak conda kaydedebilir ve daha güvenilir serileştirme ve seri durumundan çıkarma için bilgi pip.
+    + Otomatik özellik Seçici için hata düzeltmesi.
+    + Düzeltme hataları yeni bir uygulama tarafından kullanıma sunulan yeni API'ye mlflow.azureml.build_image güncelleştirildi.
+
++ **Bozucu değişiklikler**
+
++ **Hata düzeltmeleri ve geliştirmeleri**
+  + Azureml çekirdekli'den kaldırılan paramiko bağımlılığı. Eski işlem hedefi için eklenen kullanımdan kaldırma uyarıları yöntemleri ekleyin.
+  + Run.create_children'ın performansını artırma
+  + Öğretmen olasılık şekil değerleri ölçeklendirme için kullanılan ikili dosya sınıflandırıcı ile mimic açıklama içinde olasılıklar sırası düzeltildi
+  + Geliştirilmiş hata işleme ve machine Learning otomatik ileti. 
+  + Otomatik machine learning için yineleme zaman aşımı sorun düzeltildi.
+  + Otomatik machine learning için zaman serisi dönüştürme performansı geliştirildi.
+
+## <a name="2019-06-24"></a>2019-06-24
+
+### <a name="azure-machine-learning-data-prep-sdk-v116"></a>Azure Machine Learning veri hazırlama SDK v1.1.6
+
++ **Yeni Özellikler**
+  + Eklenen en yüksek değerleri için Özet işlevleri (`SummaryFunction.TOPVALUES`) ve alt değerleri (`SummaryFunction.BOTTOMVALUES`).
+
++ **Hata düzeltmeleri ve geliştirmeleri**
+  + Performansını önemli ölçüde geliştirildi `read_pandas_dataframe`.
+  + Neden olan hata düzeltildi `get_profile()` başarısız olmasına ikili dosyalara işaret eden bir veri akışı üzerinde.
+  + Kullanıma sunulan `set_diagnostics_collection()` programlı etkinleştirme/devre dışı bırakmak için telemetri toplama izin vermek için.
+  + Davranışı değişti `get_profile()`. NaN değerleri artık Min, ortalama, standart ve Pandas davranışını hizalar toplam, göz ardı edilir.
+
 
 ## <a name="2019-06-10"></a>2019-06-10
 
@@ -38,7 +89,6 @@ Bkz: [bilinen sorunların listesi](resource-known-issues.md) bilinen hataların 
     + Tahmin için STL özelliği Oluşturucu
     + KMeans kümeleme özelliği Süpürme için etkindir
   + AmlCompute kota onaylar yalnızca daha hızlı hale geldi! Biz, artık bir eşik içinde kota istekleri onaylama işlemi otomatikleştirdiniz. Kotalar nasıl çalıştığı hakkında daha fazla bilgi için bilgi [kotalarını yönetmek nasıl](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
- 
 
 + **Önizleme özellikleri**
     + İle tümleştirme [MLflow](https://mlflow.org) azureml mlflow paket üzerinden izleme 1.0.0 ([örnek not defterleri](https://aka.ms/azureml-mlflow-examples)).

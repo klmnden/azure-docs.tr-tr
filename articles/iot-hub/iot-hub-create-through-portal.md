@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
-ms.openlocfilehash: 21758d112cd7eaf45b8b279cf2a6f6060c44c9c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f070462dca6e835504a33014a7ed48e9949f874
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571059"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67432641"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Azure portalını kullanarak IOT hub oluşturma
 
@@ -50,13 +50,15 @@ Tıklayın **Ekle** açmak için **bir paylaşılan erişim ilkesi ekleme** dike
 
 ![Paylaşılan erişim ilkesi ekleme gösteren ekran görüntüsü](./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png)
 
-* **Kayıt defterini oku** ve **kayıt defteri yazma** ilkeleri kimlik kayıt defterini okuma ve yazma erişimi hakkı verin. Otomatik olarak yazma seçeneğini seçerken, salt okunur seçeneğini seçer.
+* **Kayıt defterini oku** ve **kayıt defteri yazma** ilkeleri kimlik kayıt defterini okuma ve yazma erişimi hakkı verin. Bu izinleri, cihaz kimliklerini yönetme için arka uç bulut Hizmetleri tarafından kullanılır. Otomatik olarak yazma seçeneğini seçerken, salt okunur seçeneğini seçer.
 
-* **Hizmetini bağlama** ilkesinin hizmet uç noktaları gibi erişim izni verdiği **CİHAZDAN buluta alma**. 
+* **Hizmetini bağlama** ilke hizmet uç noktaları erişmesine izin verir. Bu izin, güncelleştirmek ve cihaz ikizi ve modül ikizi verileri okumak için farklı cihazlardan da iletileri alıp göndermek için arka uç bulut Hizmetleri tarafından kullanılır.
 
-* **Cihazı bağlayın** İlkesi, IOT Hub cihaz tarafındaki uç noktalarda kullanarak ileti gönderme ve alma için izinler verir.
+* **Cihazı bağlayın** İlkesi, IOT Hub cihaz tarafındaki uç noktalarda kullanarak ileti gönderme ve alma için izinler verir. Bu izin, cihazlar tarafından gönderin ve bir IOT hub'ından iletiler alan, güncelleştirme ve cihaz ikizi ve modül ikizi veri okumak ve karşıya dosya yükleme işlemleri gerçekleştirmek için kullanılır.
 
 Tıklayın **Oluştur** Bu ilke mevcut listesine yeni oluşturulan eklemek için.
+
+Özel izinler tarafından verilen erişimi hakkında daha ayrıntılı bilgi için bkz: [IOT hub'ı izinleri](./iot-hub-devguide-security.md#iot-hub-permissions).
 
 ## <a name="message-routing-for-an-iot-hub"></a>Bir IOT hub ileti yönlendirme
 

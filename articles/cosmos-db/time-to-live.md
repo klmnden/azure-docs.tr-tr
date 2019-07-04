@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 692e0ec575904ff0a70b8c73268d2df62e776bb6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b32665b09eb02c337a12ac3cfc2b474fa82711a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978784"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447239"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB süresi (TTL) 
 
@@ -45,6 +45,42 @@ Saniye cinsinden yaşam süresi değeri ayarlanır ve bir öğenin son değişti
 * Bir kapsayıcı TTL -1 olarak ayarlanırsa, zaman n, Canlı kümesine sahiptir, bu kapsayıcıdaki bir öğe n saniye sonra sona erecek ve kalan öğeleri dolmaz. 
 
 TTL temel öğeleri silmek ücretsizdir. Hiçbir ek ücret yoktur (diğer bir deyişle, hiçbir ek RU tüketilir) sonucunda TTL bitiş öğesi silindiğinde.
+
+## <a name="examples"></a>Örnekler
+
+Bu bölümde, kapsayıcı ve öğeler için atanan değerler farklı süresi ile ilgili bazı örnekler gösterilmektedir:
+
+### <a name="example-1"></a>Örnek 1
+
+TTL kapsayıcısı üzerinde ayarlanmış null (DefaultTimeToLive = null)
+
+|Öğe TTL| Sonuç|
+|---|---|
+|TTL = null|    TTL devre dışı bırakıldı. Öğesi (varsayılan) hiçbir zaman sona erecek.|
+|TTL = -1   |TTL devre dışı bırakıldı. Öğesi hiçbir zaman sona erecek.|
+|TTL 2000 = |TTL devre dışı bırakıldı. Öğesi hiçbir zaman sona erecek.|
+
+
+### <a name="example-2"></a>Örnek 2
+
+Kapsayıcı TTL -1 olarak ayarlayın (DefaultTimeToLive = -1)
+
+|Öğe TTL| Sonuç|
+|---|---|
+|TTL = null |TTL etkinleştirilir. Öğesi (varsayılan) hiçbir zaman sona erecek.|
+|TTL = -1   |TTL etkinleştirilir. Öğesi hiçbir zaman sona erecek.|
+|TTL 2000 = |TTL etkinleştirilir. Öğe, 2000 saniye sonra sona erecek.|
+
+
+### <a name="example-3"></a>Örnek 3
+
+Kapsayıcı TTL 1000'e ayarlayın (DefaultTimeToLive = 1000)
+
+|Öğe TTL| Sonuç|
+|---|---|
+|TTL = null|    TTL etkinleştirilir. Öğesi (varsayılan) 1000 saniye sonra sona erecek.|
+|TTL = -1   |TTL etkinleştirilir. Öğesi hiçbir zaman sona erecek.|
+|TTL 2000 = |TTL etkinleştirilir. Öğe, 2000 saniye sonra sona erecek.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

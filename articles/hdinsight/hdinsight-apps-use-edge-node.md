@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: hrasheed
-ms.openlocfilehash: ee9b5b651f440bc7d179b1a06c7ddbd3f9137a0d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 41313c7d484df5568fbf729b683a0e9df5325abc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165894"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433746"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>HDInsight, Apache Hadoop kümelerinde boş kenar düğümlerini kullanma
 
@@ -108,7 +108,7 @@ Bu bölümde, bir kenar düğümü ile HDInsight kümesi oluşturmak için Resou
    * **Küme oturum açma parolası**: Hadoop HTTP kullanıcı parolasını girin.
    * **SSH kullanıcı adı**: SSH kullanıcı adı girin. Varsayılan ad **sshuser**.
    * **SSH parolası**: SSH kullanıcı parolasını girin.
-   * **Yükleme komut dosyası eylemi**: Bu öğreticide gitmek için varsayılan değer tutun.
+   * **Yükleme komut dosyası eylemi**: Bu makalede gitmek için varsayılan değer tutun.
      
      Bazı özellikler şablondaki olmuştur: Küme türü, küme çalışan düğümü sayısı, Edge düğüm boyutu ve kenar düğümünün adı.
 4. Denetleme **hüküm ve koşulları yukarıda belirtilen kabul ediyorum**ve ardından **satın alma** içeren edge düğümü kümeyi oluşturun.

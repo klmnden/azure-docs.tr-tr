@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
-ms.openlocfilehash: 5a70eec15003a1f75a80740f269f6df3523012a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fffa6784702f239e0af0e9e88a4b9937d20b86ed
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64685388"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488639"
 ---
 # <a name="registration-management"></a>Kayıt yönetimi
 
@@ -90,6 +90,9 @@ Yüklemesi aşağıdaki özellikleri içerebilir. Yükleme özellikleri hakkınd
 > Varsayılan olarak, kayıtları ve yüklemelerini dolmaz.
 
 Kayıtları ve yüklemelerini her cihaz/kanal için geçerli bir PNS tanıtıcısını içermelidir. PNS tanıtıcılarını kaydetmekten, cihazda bir istemci uygulamasında yalnızca alınabilir olduğundan, bir istemci uygulaması ile bir cihazda doğrudan kayıt modelidir. Öte yandan, güvenlik hususlarının yanı sıra etiketlerle ilgili iş mantığı uygulama arka ucu, cihaz kaydını Yönet gerektirebilir.
+
+> [!NOTE]
+> (Kayıtları API yapmasına rağmen) yüklemeleri API Baidu hizmet desteklemez. 
 
 ### <a name="templates"></a>Şablonlar
 
