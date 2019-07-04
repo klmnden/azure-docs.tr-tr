@@ -109,7 +109,7 @@ Veri alma ilişkin bazı örnekler _myTemplateArtifact_ örnek:
 
 | İfade | Tür | Değer |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").outputs.myArray]` | Dizi | \["önce", "saniye"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["önce", "saniye"\] |
 |`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "first" |
 |`[artifacts("myTemplateArtifact").outputs.myString]` | String | "Benim dize değeri" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | {"myproperty": "my value", "anotherProperty": true} |

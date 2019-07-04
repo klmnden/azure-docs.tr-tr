@@ -53,7 +53,7 @@ Bazı isteğe bağlıdır, ancak bu üst düzey öğeleri Tetikleyiciler vardır
 | Değer | Tür | Açıklama | 
 |-------|------|-------------| 
 | <*trigger-name*> | String | Tetikleyici adı | 
-| <*Tetikleyici türü*> | String | Örneğin "Http" veya "ApiConnection" tetikleyici türü | 
+| <*trigger-type*> | String | Örneğin "Http" veya "ApiConnection" tetikleyici türü | 
 | <*trigger-inputs*> | JSON nesnesi | Tetikleyicinin davranışını tanımlayan girişleri | 
 | <*time-unit*> | String | Tetikleyici ne sıklıkta açıklayan zaman birimi: "Saniye", "Minute", "Hour", "Day", "Week", "Month" | 
 | <*number-of-time-units*> | Integer | Tetikleyici ne sıklıkta belirten bir değeri sıklığı temel yeniden tetikleyici kadar beklenecek zaman birimlerinin sayısı tabanlı <p>Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Günü: 1-500 gün </br>-Saat: 12.000 1 saat </br>-Dakikası: 1-72,000 dakika </br>-Saniye: 1-9,999,999 saniye<p>Örneğin, aralığı 6 sıklığıdır "Month" ise, her 6 ayda bir yineleme olur. | 
