@@ -63,6 +63,10 @@
               href: google-federation.md
             - name: Bir kerelik geçiş kodu kimlik doğrulaması
               href: one-time-passcode.md
+            - name: Doğrudan federasyon
+              href: direct-federation.md
+            - name: AD FS ile doğrudan federasyon örneği
+              href: direct-federation-adfs.md
             - name: Davetlere izin verme veya davetleri engelleme
               href: allow-deny-list.md
             - name: Davetiye olmadan B2B kullanıcıları ekleme

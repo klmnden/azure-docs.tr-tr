@@ -11,10 +11,8 @@
       href: create-cluster-database-portal.md
     - name: Örnek verileri ekleme
       href: ingest-sample-data.md
-    - name: Verileri sorgulama
-      items:
-        - name: Web kullanıcı arabirimi
-          href: web-query-data.md
+    - name: Verileri web arabirimiyle sorgulama
+      href: web-query-data.md
 - name: Öğreticiler
   items:
     - name: Kod kullanmadan verileri alma
@@ -88,14 +86,14 @@
               href: power-bi-imported-query.md
             - name: SQL sorgusu
               href: power-bi-sql-query.md
-        - name: ODBC bağlayıcısı
-          href: connect-odbc.md
-        - name: Sisense
-          href: sisense.md
         - name: Grafana
           href: grafana.md
+        - name: ODBC bağlayıcısı
+          href: connect-odbc.md
         - name: Tableau
           href: tableau.md
+        - name: Sisense
+          href: sisense.md
     - name: Yönetme
       items:
         - name: Veritabanı izinlerini yönetme

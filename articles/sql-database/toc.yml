@@ -8,6 +8,8 @@
       href: sql-database-paas-vs-sql-server-iaas.md
     - name: Sürüm notları
       href: sql-database-release-notes.md
+    - name: Ağ geçidi IP geçişi güncelleştirmeleri
+      href: sql-database-gateway-migration.md
 - name: Hızlı Başlangıçlar
   expanded: true
   items:

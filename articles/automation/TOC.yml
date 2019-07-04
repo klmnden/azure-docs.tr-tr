@@ -124,6 +124,8 @@
         - name: Runbook sorunlarını giderme
           href: troubleshoot/runbooks.md
           displayName: troubleshoot
+        - name: VM’leri başlatma/durdurma
+          href: troubleshoot/start-stop-vm.md
 - name: Güncelleştirme Yönetimi
   items:
     - name: Güncelleştirme Yönetimine genel bakış
@@ -313,6 +315,8 @@
   items:
     - name: Azure Otomasyonu iş verilerini Log Analytics’e iletme
       href: automation-manage-send-joblogs-log-analytics.md
+    - name: Log Analytics Çalışma Alanı Eşlemeleri için Desteklenen Bölgeler
+      href: how-to/region-mappings.md
 - name: Geçiş
   items:
     - name: Orchestrator'dan geçiş

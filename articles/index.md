@@ -6,12 +6,12 @@ description: Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 4d1d8756bcc5cea1e392560233b4e91aa9b8e22f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f7a0afd8058d2de277da8f7ab3d1eb37abae4add
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67429868"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544177"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1795,6 +1795,12 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                             <a href="/azure/avere-vfxt/">
                                                 <img src="media/index/avere.svg" alt="" />
                                                 <p>Avere vFXT</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/fxt-edge-filer/">
+                                                <img src="media/index/azure-fxt-edge-filer.svg" alt="" />
+                                                <p>Azure FXT Edge Filer</p>
                                             </a>
                                         </li>
                                         <li>
@@ -5955,6 +5961,25 @@ PowerShell betiklerini kullanarak Azure görevlerini otomatikleştirme </a>
                                                 <div class="cardText">
                                                     <h3>Avere vFXT</h3>
                                                     <p>Azure’da yüksek performanslı, dosya tabanlı iş yüklerini çalıştırma</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/fxt-edge-filer/" data-linktype="absolute-path">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img alt="" src="media/index/azure-fxt-edge-filer.svg" data-linktype="relative-path">
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure FXT Edge Filer</h3>
+                                                    <p>HPC ortamları için hibrit depolama iyileştirme çözümü</p>
                                                 </div>
                                             </div>
                                         </div>

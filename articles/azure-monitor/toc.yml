@@ -122,8 +122,6 @@
       href: visualizations.md
     - name: İş ortağı tümleştirmeleri
       href: platform/partners.md
-    - name: OMS portalının kullanımdan kalkması
-      href: platform/oms-portal-transition.md
     - name: SSS
       items:
         - name: Log Analytics
@@ -837,10 +835,12 @@
               items:
                 - name: Etkinlik günlüğü olayıyla ilgili uyarı
                   href: platform/alerts-activity-log.md
-                - name: Yönetim olaylarını etkinlik günlüğü uyarılarına geçirme
-                  href: platform/migrate-management-alerts.md
-                - name: Hizmet durumu bildirimleriyle ilgili uyarı
-                  href: platform/alerts-activity-log-service-notifications.md
+            - name: Etkinlik günlüğündeki hizmet durumu bildirimleri
+              items:
+                - name: Sistem durumu bildirimlerini görüntüleme
+                  href: ../service-health/service-notifications.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+                - name: Sistem durumu uyarı kuralı yapılandırma
+                  href: ../service-health/alerts-activity-log-service-notifications.md?toc=%2fazure%2fazure-monitor%2ftoc.json
             - name: Eylem gruplarını kullanma
               items:
                 - name: Eylem grubu oluşturma
@@ -885,12 +885,6 @@
                   href: platform/alerts-enable-template.md
                 - name: Web kancasını çağıran klasik ölçüm uyarısı
                   href: platform/alerts-webhooks.md
-        - name: Etkinlik günlüğündeki hizmet durumu bildirimleri
-          items:
-            - name: Bildirimleri görüntüleme
-              href: platform/service-notifications.md
-            - name: Bildirim olaylarıyla ilgili uyarıları yapılandırma
-              href: platform/alerts-activity-log-service-notifications.md
         - name: Otomatik Ölçeklendirme
           items:
             - name: Kılavuz
@@ -1076,12 +1070,10 @@
           href: ./platform/classic-api-retirement-metrics-autoscale.md
         - name: Klasik uyarı ve izleme
           href: platform/monitoring-classic-retirement.md
-        - name: Uyarıları Log Analytics’ten Azure’a genişletme
-          href: platform/alerts-extend.md
-        - name: Uyarıları OMS portalından Azure portalına kopyalama
-          href: platform/alerts-extend-tool.md
         - name: Günlük uyarısı API tercihini değiştirme
           href: platform/alerts-log-api-switch.md
+        - name: OMS portalının kullanımdan kalkması
+          href: platform/oms-portal-transition.md
 - name: Kaynaklar
   items:
     - name: Azure Yol Haritası

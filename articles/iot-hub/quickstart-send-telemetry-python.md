@@ -53,7 +53,7 @@ Microsoft Azure IOT uzantısı için Azure CLI Cloud Shell Örneğinize eklemek 
 az extension add --name azure-cli-iot-ext
 ```
 
-https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip adresinden örnek Python projesini indirin ve ZIP arşivini ayıklayın.
+[https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip ) adresinden örnek Python projesini indirin ve ZIP arşivini ayıklayın.
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 

@@ -47,8 +47,6 @@
       href: container-registry-image-formats.md
     - name: Coğrafi çoğaltma
       href: container-registry-geo-replication.md
-    - name: Roller ve izinler
-      href: container-registry-roles.md
     - name: En iyi kayıt defteri uygulamalar
       href: container-registry-best-practices.md
 - name: Nasıl yapılır kılavuzları
@@ -87,6 +85,8 @@
               href: container-registry-auth-aci.md
             - name: Azure Kubernetes Hizmeti'nden (AKS) kimliği doğrulama
               href: container-registry-auth-aks.md
+        - name: Roller ve izinler
+          href: container-registry-roles.md
         - name: İçerik güveni
           href: container-registry-content-trust.md
     - name: ACR Görevleri
@@ -107,6 +107,10 @@
           href: ../aks/tutorial-kubernetes-prepare-app.md
         - name: Service Fabric
           href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+    - name: Sorun giderme
+      items:
+        - name: Genel sorunları tanılama
+          href: container-registry-check-health.md
 - name: Başvuru
   items:
     - name: Azure CLI
@@ -131,6 +135,8 @@
       href: container-registry-webhook-reference.md
     - name: Olay Kılavuz şeması
       href: ../event-grid/event-schema-container-registry.md
+    - name: Sistem durumu sorunları
+      href: container-registry-health-error-reference.md
       maintainContext: true
 - name: Kaynaklar
   items:

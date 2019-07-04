@@ -1,8 +1,8 @@
-- name: Analysis Services Belgeleri
+- name: Azure Analysis Services Belgeleri
   href: index.md
 - name: Genel Bakış
   items:
-    - name: Analysis Services nedir?
+    - name: Azure Analysis Services nedir?
       href: analysis-services-overview.md
 - name: Hızlı Başlangıçlar
   items:

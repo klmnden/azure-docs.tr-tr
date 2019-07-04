@@ -31,6 +31,8 @@
               maintainContext: true
             - name: Mavi/yeşil desen kullanarak AKS’ye dağıtma
               href: jenkins-aks-blue-green-deployment.md
+            - name: Azure Dev Spaces ile CI/CD
+              href: tutorial-jenkins-dev-spaces.md
         - name: App Service
           items:
             - name: İşlem hattı işinde Azure kaynakları oluşturma
