@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: answer-search
 ms.topic: reference
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 09fab691ea04ad98472abc4f4dee5ecb4d22e660
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: rosh
+ms.openlocfilehash: 4384bf658024f89664c5202ba10d793d7ad734e0
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60721020"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592923"
 ---
 # <a name="project-answer-search-v7-reference"></a>Proje yanıt arama v7 başvurusu
 
@@ -55,7 +55,7 @@ Maksimum sorgu URL'SİNİN uzunluğu 2.048 karakterdir. URL uzunluğu sınırı 
 > URL önizlemesi, diğer arama API'lerini için anlamlı olan bazı istek üst etkilemez
 > - Pragma – URL önizlemesi önbellek kullanıp kullanmadığını denetim çağırana sahip değil
 > - Önbellek denetimi – çağıran URL önizlemesi önbellek kullanıp kullanmadığını denetim yok
-> - Kullanıcı Aracısı
+> - User-Agent
 > 
 > Ayrıca, bazı parametreler için URL önizleme API'sı şu anda anlamlı değildir, ancak gelecekte geliştirilmiş Genelleştirme için kullanılabilir. 
  
@@ -201,7 +201,7 @@ Hakkında bilgilerini tanımlayan bir önizleme Web sayfası.
 |name|Sayfa başlığı, mutlaka HTML Başlığı|String|
 |url|Aslında gezinilen URL'si (istek ve ardından yeniden yönlendirmeleri)|String|  
 |description|Sayfa içeriği ve kısa açıklama|String|  
-|isFamilyFriendly|Web dizindeki öğeler için en doğru; Bu algılama yöntemi yalnızca bir URL ve sayfa içeriği göre gerçek zamanlı öğesinden yapın|boole|
+|isFamilyFriendly|Web dizindeki öğeler için en doğru; Bu algılama yöntemi yalnızca bir URL ve sayfa içeriği göre gerçek zamanlı öğesinden yapın|boolean|
 |primaryImageOfPage/contentUrl|Önizlemede dahil etmek için temsili bir görüntü URL'si|String| 
   
   

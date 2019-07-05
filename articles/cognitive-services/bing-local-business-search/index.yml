@@ -13,7 +13,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 08/02/2018
-  ms.author: 'rosh, v-gedod'
+  ms.author: rosh
 abstract:
   description: 'Bing Yerel İşletme Arama API''si, uygulamalarınızın arama sorguları temelinde yerel işletmeler hakkında ilgili kişi ve konum bilgilerini bulmasına olanak tanır.'
 sections:

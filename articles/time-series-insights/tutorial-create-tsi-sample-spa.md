@@ -8,12 +8,12 @@ ms.date: 06/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: e415c681ae5a35de6e8ff76e09cfef8cc8cc98f8
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 8ee4cd30d5742896df96ccfd714d85ebbab194f9
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544074"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595711"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Öğretici: Azure Time Series Insights tek sayfalı web uygulaması oluşturma
 
@@ -101,7 +101,7 @@ Bu öğreticide, örnek uygulamanın zaman serisi görüşleri ortamından veri 
       <link rel="stylesheet" type="text/css" href="../../dist/tsiclient.css"> -->
       ```
 
-   1. Uygulamayı Azure AD uygulama kayıt Kimliğinizi kullanacak şekilde yapılandırmak için değiştirme `clientID` kullanılacak değeri **uygulama kimliği** , içinde kopyalanan **3. adım** olduğunda, [uygulamaya kayıtlı Azure AD'yi kullanın](#register-the-application-with-azure-ad). Oluşturulduktan sonra bir **oturum kapatma URL'si** olarak bu değeri Azure AD'de ayarlamak `postLogoutRedirectUri` değeri.
+   1. Uygulamayı Azure AD uygulama kayıt Kimliğinizi kullanacak şekilde yapılandırmak için değiştirme `clientID` kullanılacak değeri **uygulama kimliği** , içinde kopyalanan **3. adım** olduğunda, [kullanmak için uygulamayı kayıtlı Azure AD](#register-the-application-with-azure-ad). Oluşturulduktan sonra bir **oturum kapatma URL'si** olarak bu değeri Azure AD'de ayarlamak `postLogoutRedirectUri` değeri.
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 

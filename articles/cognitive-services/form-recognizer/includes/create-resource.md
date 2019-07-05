@@ -1,16 +1,16 @@
 ---
 author: PatrickFarley
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/12/2019
 ms.author: pafarley
-ms.openlocfilehash: d322aa27c7c9dcf4ad365ec22f8074aeacc85d3b
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: a37087c90b6c9b3629402c7a8c2fa5861e46ae9a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502855"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592517"
 ---
 Form tanıyıcı kullanmak için erişim verildiğinde, bir karşılama iletisi alırsınız birkaç bağlantı ve kaynakları içeren e-posta. "Azure portalında" bağlantıyı Azure portalını açın ve bir Form tanıyıcı kaynak oluşturmak için bu iletiyi kullanın. İçinde **Oluştur** bölmesinde aşağıdaki bilgileri sağlayın:
 

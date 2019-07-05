@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 06/05/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 1c432ee5851115e029b55722b6b238b4672e8345
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d74539ec1de8f503b0d0e423adf6273d1422fed5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446710"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592345"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>SharePoint Online'a erişimi, dosya paylaşımı içeriğinizi geçirmek için Azure veri kutusu ağır kullanın
 
@@ -23,7 +23,7 @@ Microsoft Azure Data Box cihazı Microsoft Azure portalından sipariş olanak sa
 
 - [Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview) ile küçük ve orta veri kümeleri için Sipariş başına 35 TB kullanılabilir kapasite.
 - [Veri kutusu](https://docs.microsoft.com/azure/databox/data-box-overview) Orta ila büyük ölçekli veri kümeleri için cihaz başına 80 TB kullanılabilir kapasite ile.
-- [Veri kutusu ağır](https://docs.microsoft.com/azure/databox/data-box-heavy-overview) ile büyük veri kümeleri için cihaz başına 770 TB kullanılabilir kapasite. Veri kutusu ağır şu anda Önizleme aşamasındadır.
+- [Veri kutusu ağır](https://docs.microsoft.com/azure/databox/data-box-heavy-overview) ile büyük veri kümeleri için cihaz başına 770 TB kullanılabilir kapasite.
 
 Bu makalede özellikle veri kutusu ağır SharePoint Online'a erişimi, dosya paylaşımı içeriğinizi geçirmek için nasıl kullanılacağı hakkında konuşuyor.
 

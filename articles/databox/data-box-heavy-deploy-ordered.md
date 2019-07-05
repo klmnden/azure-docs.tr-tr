@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/29/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 8453a3592c1822489a3724dacdf8f0ff5e8492f1
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: c7fbd37ff8d40f27e0ca18a6f9816d3d96422ab9
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427916"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592405"
 ---
-# <a name="tutorial-order-azure-data-box-heavy-preview"></a>Öğretici: Sipariş Azure veri kutusu ağır (Önizleme)
+# <a name="tutorial-order-azure-data-box-heavy"></a>Öğretici: Azure veri kutusu ağır sırası
 
 
 Azure veri kutusu ağır şirket içi verilerinizi Azure'da hızlı, kolay ve güvenilir bir şekilde alma olanak tanıyan bir karma çözümüdür. Verilerinizi bir Microsoft tarafından sağlanan 770 TB (yaklaşık kullanılabilir kapasite) depolama cihazına aktarabilir ve ardından cihazı geri gönderin. Bu veriler daha sonra Azure'a yüklenir.

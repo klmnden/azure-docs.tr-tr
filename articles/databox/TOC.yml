@@ -143,6 +143,14 @@
               items:
                 - name: SMB aracılığıyla
                   href: data-box-heavy-deploy-copy-data.md
+                - name: NFS aracılığıyla
+                  href: data-box-heavy-deploy-copy-data-via-nfs.md
+                - name: REST aracılığıyla
+                  href: data-box-heavy-deploy-copy-data-via-rest.md
+                - name: Veri kopyalama hizmeti aracılığıyla
+                  href: data-box-heavy-deploy-copy-data-via-copy-service.md
+                - name: Yönetilen disklere
+                  href: data-box-heavy-deploy-copy-data-from-vhds.md
             - name: '4 - İade etme, karşıya yükleme, doğrulama'
               href: data-box-heavy-deploy-picked-up.md
         - name: Kavramlar

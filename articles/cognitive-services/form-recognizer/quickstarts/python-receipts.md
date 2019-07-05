@@ -5,16 +5,16 @@ description: Bu hızlı başlangıçta, satış makbuzuna görüntülerden veril
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: pafarley
-ms.openlocfilehash: da699c9e5ca933c182c83a33dd0c09b49a0726c3
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 8bd4d441859df6dbb36f594d8423eefd84274ec4
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503444"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592538"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Hızlı Başlangıç: Python ile Form tanıyıcı REST API kullanarak giriş verilerini ayıklama
 
