@@ -14,22 +14,22 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 5c6ad222110081cd8f8838208da407e0e1d50f75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8be34a85cb1a1863ee8a78c7b97af66627612fea
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "54851275"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444756"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Konusu, aboneliği ve kuralı bir Azure Resource Manager şablonu kullanarak bir Service Bus ad alanı oluşturma
 
 Bu makalede, bir konu, aboneliği ve kuralı (filtre) ile bir Service Bus ad alanı oluşturan bir Azure Resource Manager şablonunun nasıl kullanılacağı gösterilmektedir. Makalede nasıl belirtmek için hangi kaynaklara dağıtılır ve parametrelerin nasıl dağıtıldığının ve dağıtım yürütülürken belirtilen açıklanmaktadır. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz
 
-Şablon oluşturma hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma][Authoring Azure Resource Manager templates].
+Şablonları oluşturma hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma][Authoring Azure Resource Manager templates].
 
 Azure kaynakları adlandırma kuralları hakkında uygulama ve desenler hakkında daha fazla bilgi için bkz. [Azure kaynakları için önerilen adlandırma kuralları][Recommended naming conventions for Azure resources].
 
-Tam şablon için bkz: [konusu, aboneliği ve kuralı ile Service Bus ad alanı] [ Service Bus namespace with topic, subscription, and rule] şablonu.
+Tam şablon için bkz: [konusu, aboneliği ve kuralı ile Service Bus ad alanı][Service Bus namespace with topic, subscription, and rule] şablonu.
 
 > [!NOTE]
 > Aşağıdaki Azure Resource Manager şablonları, yükleme ve dağıtım için kullanılabilir.
@@ -39,7 +39,7 @@ Tam şablon için bkz: [konusu, aboneliği ve kuralı ile Service Bus ad alanı]
 > * [Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace.md)
 > * [Konu ve abonelik ile Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-topic.md)
 > 
-> En yeni şablonları denetlemek için ziyaret [Azure hızlı başlangıç şablonları] [ Azure Quickstart Templates] galeri ve Service Bus arayın.
+> En yeni şablonları denetlemek için ziyaret [Azure hızlı başlangıç şablonları][Azure Quickstart Templates] galeri ve Service Bus arayın.
 > 
 > 
 
@@ -179,7 +179,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Oluşturulan ve dağıtılan kaynakları Azure Resource Manager kullanarak göre bu kaynakları Bu makaleler görüntüleyerek yönetmeyi öğrenin:
+Abonelik filtresi oluşturmak nasıl gösteren aşağıdaki konuya bakın: [Konusu, aboneliği ve kuralı bir Azure Resource Manager şablonu kullanarak bir Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-topic-with-rule.md)
+
+Bu makaleler görüntüleyerek bu kaynakları yönetmeyi öğrenin:
 
 * [Azure Service Bus'ı yönetme](service-bus-management-libraries.md)
 * [Service Bus’ı PowerShell ile yönetme](service-bus-manage-with-ps.md)

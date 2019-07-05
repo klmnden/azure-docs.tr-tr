@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bc2acaa24637c3297af8e91f01b67e5d30f2931
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 794a99481d9394229e77168e75c48f4110735578
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60357549"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536928"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD parola yönetimi için raporlama seçenekleri
 
@@ -175,6 +175,7 @@ Aşağıdaki listede, bu etkinliğin ayrıntılı açıklanmıştır:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+* [SSPR ve MFA kullanımı ve raporlama öngörüleri](howto-authentication-methods-usage-insights.md)
 * [SSPR’yi başarılı bir şekilde nasıl piyasaya çıkarabilirim?](howto-sspr-deployment.md)
 * [Parolanızı sıfırlama veya değiştirme](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Self servis parola sıfırlama için kaydolma](../user-help/active-directory-passwords-reset-register.md).

@@ -10,16 +10,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cawa
-ms.openlocfilehash: 2a31131b662d01f9841a3f1c5b0a6c459a117e77
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 45df8f9e57223ea60a11c6af2187d362184cae2b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075374"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443363"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Azure İzleyici'de uygulama değişikliği analizi (Önizleme) kullanma
 
-Canlı site sorun veya kesinti oluştuğunda, hızlı bir şekilde kök nedeni belirlemek önemlidir. Standart izleme çözümleri için sorun uyarı gönderebilir. Bunlar bile hangi bileşenin başarısız olduğunu gösteriyor olabilir. Ancak, bu uyarı, hemen her zaman hata'nın neden açıklayan olmaz. Siteniz beş dakika önce çalışan ve artık bozduğunu bildiğiniz. Son beş dakika içinde değişiklikler? Bu soru ise, uygulama değişikliği analizi, Azure İzleyici'de yanıtlamak için tasarlanmıştır. 
+Canlı site sorun veya kesinti oluştuğunda, hızlı bir şekilde kök nedeni belirlemek önemlidir. Standart izleme çözümleri için sorun uyarı gönderebilir. Bunlar bile hangi bileşenin başarısız olduğunu gösteriyor olabilir. Ancak, bu uyarı, hemen her zaman hata'nın neden açıklayan olmaz. Siteniz beş dakika önce çalışan ve artık bozduğunu bildiğiniz. Son beş dakika içinde değişiklikler? Bu soru ise, uygulama değişikliği analizi, Azure İzleyici'de yanıtlamak için tasarlanmıştır.
 
 Gücünü oluşturmaya [Azure kaynak Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), değişiklik analiz observability artırmak ve MTTR (onarmak için saati) azaltmak için Azure uygulama değişikliklerinizi dair Öngörüler sağlar.
 
@@ -62,21 +62,18 @@ Azure İzleyici'de değişiklik analiz Self Servis şu anda yerleşik **tanılay
 
     !["Kullanılabilirlik ve sorun giderme seçenekleri performans" ekran görüntüsü](./media/change-analysis/availability-and-performance.png)
 
-1. Seçin **uygulama kilitlenmesi**.
+1. Seçin **uygulama değişiklikleri**. Bu özellik ayrıca içinde kullanılabilir değil **uygulama kilitlenmeleri**.
 
-   !["Uygulama kilitlenmeleri" düğmesinin Ekran görüntüsü](./media/change-analysis/application-crashes-tile.png)
+   !["Uygulama kilitlenmeleri" düğmesinin Ekran görüntüsü](./media/change-analysis/application-changes.png)
 
 1. Değişiklik analiz etkinleştirmek için seçin **şimdi etkinleştirmek**.
 
-   !["Uygulama kilitlenmeleri" seçeneklerinin ekran görüntüsü](./media/change-analysis/application-crashes.png)
+   !["Uygulama kilitlenmeleri" seçeneklerinin ekran görüntüsü](./media/change-analysis/enable-changeanalysis.png)
 
-1. Tam değişiklik analiz işlevsellikten yararlanmak için açma **değişiklik analiz**, **kod değişikliklerini tara**, ve **her zaman**. Daha sonra **Kaydet**’e tıklayın.
+1. Açma **değişiklik analiz** seçip **Kaydet**.
 
     !["Değişiklik analizini etkinleştir" kullanıcı arabiriminin ekran görüntüsü](./media/change-analysis/change-analysis-on.png)
 
-    - Etkinleştirme **değişiklik analiz** kaynak düzeyinde değişikliklerini algılamak için. 
-    - Etkinleştirme **kod değişikliklerini tara** dağıtım dosyaları görebilir ve site yapılandırma değişikliği. 
-    - Etkinleştirme **her zaman** değişiklik tarama performansını iyileştirmek için. Ancak, unutmayın, bu ayar fatura ek ücretlere neden.
 
 1. Değişiklik analiz erişmek için seçin **Tanıla ve problemleri çözmenize** > **kullanılabilirliğini ve performansını** > **uygulama kilitlenmeleri**. Bu değişiklikler hakkında ayrıntılı bilgi ile birlikte zaman içinde tür değişiklikler özetleyen bir grafik görürsünüz:
 
@@ -106,7 +103,7 @@ Aboneliğinizi çok sayıda web uygulaması içeriyorsa, web uygulamasının dü
         Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.ChangeAnalysis" -ListAvailable #Check for feature flag availability
         Register-AzureRmProviderFeature -FeatureName PreviewAccess -ProviderNamespace Microsoft.ChangeAnalysis #Register feature flag
         ```
-    
+
 1. Abonelik için değişiklik analiz kaynak sağlayıcısını kaydedin.
 
    - Git **abonelikleri**ve değişiklik hizmeti etkinleştirmek istediğiniz aboneliği seçin. Ardından kaynak sağlayıcılarını seçin:
@@ -121,12 +118,12 @@ Aboneliğinizi çok sayıda web uygulaması içeriyorsa, web uygulamasının dü
 
         ```PowerShell
         Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState #Check if RP is ready for registration
-    
+
         Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis" #Register the Change Analysis RP
         ```
 
         Bir web uygulaması gizli bir etiket ayarlamak için PowerShell kullanmak için aşağıdaki komutu çalıştırın:
-    
+
         ```powershell
         $webapp=Get-AzWebApp -Name <name_of_your_webapp>
         $tags = $webapp.Tags

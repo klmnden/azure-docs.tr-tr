@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 86e30c465a605681519565261beec75d88ccd472
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 4f77eafd3309d7c1d679c126b1a5eb1ff0e9a28d
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190797"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490105"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Eşleme veri akışı kaynak dönüşümü 
 
@@ -146,6 +146,12 @@ Metin dosyanızı tanımlı bir şeması varsa, seçin **veri türünü Algıla*
 Daha sonra türetilmiş sütun dönüştürme sütun veri türlerini değiştirebilirsiniz. Bir select dönüştürme, sütun adlarını değiştirmek için kullanın.
 
 ![Varsayılan veri biçimleri için ayarları](media/data-flow/source2.png "varsayılan biçimleri")
+
+### <a name="add-dynamic-content"></a>Dinamik İçerik Ekle
+
+Ayar alanlar içinde tıklattığınızda, "Dinamik içerik Ekle" için bir köprü görürsünüz. Burada tıkladığınızda, ifade oluşturucu başlatılır. İfadeler, statik değişmez değerler veya parametreleri kullanılarak dinamik olarak ayarları için değerleri ayarlayabileceğiniz budur.
+
+![Parametreleri](media/data-flow/params6.png "parametreleri")
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

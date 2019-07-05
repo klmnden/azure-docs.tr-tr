@@ -6,13 +6,13 @@ manager: evansma
 ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: f2787cd74525e7676befb133a6106ce83d9c2a20
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: dc086bc1252c084b717807213b5ba4c7f9d7bb97
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072627"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514059"
 ---
 # <a name="create-a-new-saas-offer"></a>Yeni bir SaaS teklifi oluşturma
 
@@ -42,7 +42,9 @@ Bir teklif türlerinden birini seçerseniz, eski yönlendirilecek [bulut iş ort
 
 **Oluştur**’u seçin.  Bir **genel bakış sunan** sayfası, bu teklif için oluşturulur.  
 
-![İş ortağı merkezine genel bakış sunar.](./media/commercial-marketplace-offer-overview.png)
+<!---
+![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
+-->
 
 ## <a name="offer-overview"></a>Teklif genel bakış
 
@@ -94,7 +96,7 @@ Yazılım Lisans ücretleri aylık, yinelenen site tabanlı abonelik sabit fiyat
 
 |**Microsoft faturalar**|**Aylık 100 ABD Doları**|
 |:---|:---|
-|Microsoft, lisans maliyeti 80 oranında öder <br>**Tam SaaS uygulamaları için Microsoft lisans maliyetinizin %90 öder.*|80\.00 başına aylık <br>*$* her ay * 90.00|
+|Microsoft, lisans maliyeti 80 oranında öder <br>**Tam SaaS uygulamaları için Microsoft lisans maliyetinizin %90 öder.*|80.00 başına aylık <br>*$* her ay * 90.00|
 
 
 #### <a name="csp-program-opt-in"></a>CSP programı kabul etme
@@ -172,7 +174,7 @@ Unutmayın **Kaydet** sonraki bölüme geçmeden önce!
 
 Seçin **Kaydet** bu alanlar tamamladıktan sonra. 
 
-### <a name="category"></a>Kategori
+### <a name="category"></a>Category
 En az biri bir (1) ve uygun Market arama alanlarına teklifinizi gruplandırmak için kullanılan üç (3) kategorilerin en fazla'ı seçin. Nasıl teklifinizi kategorilerine teklif açıklamasında destekleyip çağırın. 
 
 ### <a name="industry"></a>Sektör
@@ -260,11 +262,11 @@ En çok on (10) e-posta adreslerini el ile ekleyin veya canlı yirmi (var olan M
 
 ## <a name="technical-configuration"></a>Teknik yapılandırma
 
-**Teknik yapılandırma** sekmesini teklifinizin bağlanmak için kullanılan teknik ayrıntılar (URL yolu, Web kancası, Kiracı kimliği ve uygulama kimliği) tanımlar. Bu bağlantı, elde etmeyi seçerlerse müşterinin Azure aboneliğindeki bir kaynak olarak teklifinizi sağlama sağlıyor.
+**Teknik yapılandırma** sekmesini teklifinizin bağlanmak için kullanılan teknik ayrıntılar (URL yolu, Web kancası, Kiracı kimliği ve uygulama kimliği) tanımlar. Bu bağlantı, elde etmeyi seçerlerse, teklifiniz için son müşteri sağlamak sağlıyor. Toplanan alanları kullanımını açıklayan diyagram olan belgeler için kullanılabilir [SaaS yerine getirme API'leri](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
 
-- **Giriş sayfası URL'si** (gerekli): Teklifinizi Market'ten aldıktan sonra yerleşmesi müşteriler URL yönlendirilmiş sitesini tanımlayın. Bu URL, aynı zamanda Microsoft ticaret kolaylaştırmak için API bağlantı alma uç noktası olacaktır.
+- **Giriş sayfası URL'si** (gerekli): Müşteriler üzerinde teklifinizi Market'ten aldıktan sonra ulaşırsınız ve site URL'sini tanımlar. Bu URL, bir müşteri sayfasına yönlendirilir yükleyen bir belirteç alır uç noktası olacaktır. Çözümleme yerine getirme API'leri kullanma hakkında ayrıntılı bilgiler sağlamak için bu belirteci değiştirilebilir. Bu ayrıntıları ve tüm diğer topladığınız deneyiminizi yerleşik müşteri etkileşimli bir web sayfasının parçası olarak kayıt işlemini tamamlamak ve satın alma sırasında etkinleştirmek için kullanılabilir.
 
-- **Bağlantı Web kancası** (gerekli): Microsoft, müşteri adına göndermek için gereken tüm zaman uyumsuz olaylar için (örnek: Azure aboneliği geçmiş geçersiz), bağlantı Web kancası girmenizi isteriz. Yerinde bir Web kancası sistemine sahip değilseniz, en basit yapılandırmadır, kendisine gönderilmesini meydana gelen olayları dinler ve ardından uygun şekilde işlemesine bir HTTP uç noktası mantıksal uygulama sağlamaktır (örneğin, https:\//prod-1westus.logic.azure.com:443/work). Daha fazla bilgi için [çağrı, tetikleyici veya iç içe iş akışları ile HTTP uç noktalarını logic apps'teki](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Bağlantı Web kancası** (gerekli): Microsoft, müşteri adına göndermek için gereken tüm zaman uyumsuz olaylar için (örnek: SaaS abonelik geçmiş geçersiz), bağlantı Web kancası girmenizi isteriz. Yerinde bir Web kancası sistemine sahip değilseniz, en basit yapılandırmadır, kendisine gönderilmesini meydana gelen olayları dinler ve ardından uygun şekilde işlemesine bir HTTP uç noktası mantıksal uygulama sağlamaktır (örneğin, https:\//prod-1westus.logic.azure.com:443/work). Daha fazla bilgi için [çağrı, tetikleyici veya iç içe iş akışları ile HTTP uç noktalarını logic apps'teki](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
 - **Azure AD Kiracı kimliği** (gerekli): Azure portalı içinde biz gerektiren, [Azure Active Directory (AD) uygulama oluşturma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) bir kimliği doğrulanmış iletişim, böylelikle bağlantı iki hizmetlerimiz arasında doğrulayabilirsiniz. Bulmak için [Kiracı kimliği](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id), Azure Active Directory'ye gidip seçin **özellikleri**, ardından Ara **dizin kimliği** numarası listelenen (örn.) 50c464d3-4930-494c-963c-1e951d15360e).
 
@@ -438,7 +440,7 @@ Test Sürüşü sizin adınıza dağıtmak için lütfen oluşturun ve ayrı ve 
 
 - **Azure AD uygulama kimliği** (gerekli): Azure Active Directory (AD) girin [uygulama kimliği](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). Bu Kimliğini bulmak için oturum açın [Azure portalında](https://portal.azure.com/), soldaki menüde Active Directory sekmesini seçin, **uygulama kayıtları**, ardından Ara **uygulama kimliği** numarası (örneğin 50c464d3-4930-494c-963c-1e951d15360e) listelenir.
 
-- **Azure AD uygulama anahtarı** (gerekli): Azure Active Directory (AD) girin [uygulama anahtarı](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). Bu Kimliğini bulmak için oturum açın [Azure portalında](https://portal.azure.com/), soldaki menüde Active Directory sekmesini seçin, **uygulama kayıtları** , ardından **ayarları**  >  **Anahtarları**.
+- **Azure AD uygulaması gizli** (gerekli): Azure AD uygulamanız girin [gizli](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). Bu değeri bulmak için oturum açın [Azure portalında](https://portal.azure.com/). Seçin **Azure Active Directory** sekmesini seçin soldaki menüde **uygulama kayıtları**, ardından test sürücü uygulamanızı seçin. Ardından, **sertifikalarını ve gizli dizilerini**seçin **yeni gizli**, bir açıklama girin, seçin **hiçbir zaman** altında **Expires**, ardından seçin **Ekle**. Değeri kopyalamak emin olun. (Bunu, aksi takdirde önce değeri erişemezsiniz sayfadan çıkmak yoktur.)
 
 Unutmayın **Kaydet** sonraki bölüme geçmeden önce!
 

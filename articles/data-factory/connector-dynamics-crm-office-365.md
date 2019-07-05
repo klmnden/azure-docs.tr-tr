@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 07/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 481b19d0121e93c84d123579e91bcbfb9fb50815
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f7bf3ce8c01e82fa69b3b041b573b4b31a719d2
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356966"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514096"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri kopyalama kaynak ve hedef (Common Data Service) Dynamics 365 veya Dynamics CRM
 
@@ -27,7 +27,13 @@ Bu makalede, kopyalama etkinliği Azure Data Factory'de gelen ve Microsoft Dynam
 
 Tüm desteklenen havuz veri deposuna (Common Data Service) Dynamics 365 veya Dynamics CRM veri kopyalayabilirsiniz. Tüm desteklenen kaynak veri deposundan (Common Data Service) Dynamics 365 veya Dynamics CRM veri kopyalayabilirsiniz. Kopyalama etkinliği tarafından kaynak ve havuz desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
-Bu Dynamics bağlayıcı aşağıdaki Dynamics sürümleri ve kimlik doğrulama türlerini destekler. (IFD için internet'e yönelik dağıtım içindir.)
+Bu Dynamics bağlayıcı Dynamics sürümü destekler hem de 9.x çevrimiçi veya şirket içi 7.x. Daha açık belirtmek gerekirse
+
+- Dynamics CRM 2015 sürümü 7.x eşlenir
+- Dynamics CRM 2016 ve Dynamics 365 ' ın eski bir sürümü için sürüm 8.x eşlemeleri
+- Dynamics 365 ' ın sonraki sürümü için sürüm 9.x eşlemeleri
+
+Desteklenen kimlik doğrulama türleri ve yapılandırmaları ilgili Dynamics sürümleri/ürünleri için aşağıdaki tabloya bakın. (IFD için internet'e yönelik dağıtım içindir.)
 
 | Dynamics sürümleri | Kimlik doğrulama türleri | Bağlı hizmet örnekleri |
 |:--- |:--- |:--- |
@@ -43,6 +49,8 @@ Dynamics 365 için özellikle, aşağıdaki uygulama türlerini destekler:
 - Pazarlama için Dynamics 365
 
 Diğer uygulama türleri örn Finans ve işlemleri, yetenek, vb. Bu bağlayıcı tarafından desteklenmez.
+
+Bu Dynamics bağlayıcı üst kısmındaki yerleşik [Dynamics XRM Araçları](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 >[!TIP]
 >Verileri kopyalamak için **Dynamics 365 Finans ve operasyon**, kullanabileceğiniz [Dynamics AX bağlayıcı](connector-dynamics-ax.md).
@@ -156,7 +164,7 @@ Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi
 > [!IMPORTANT]
 >- Dynamics verileri kopyaladığınızda, isteğe bağlıdır, ancak bir belirleyici kopyalama sonuç emin olmak için Dynamics kümesindeki yüksek oranda recommanded "yapı" bölümü. Sütun adı ve veri türü üzerinde kopyalamak istediğiniz Dynamics verileri tanımlar. Daha fazla bilgi için bkz. [Dataset yapısını](concepts-datasets-linked-services.md#dataset-structure-or-schema) ve [Dynamics için veri türü eşlemesi](#data-type-mapping-for-dynamics).
 >- Şema ADF Infer UI yazma şeması alınırken üst satırları Dynamics sorgu sonuç yok değerleri büyük/küçük harf sütunlarla atlanacak yapısı oluşturma başlatmak için yeniden örnekleyerek. Aynı davranışı, açık yapı tanımı yok ise yürütme kopyalamak için geçerlidir. Gözden geçirin ve kopyalama çalışma zamanı sırasında kullanılacaktır Dynamics veri kümesi şema/yapıda gerektiğinde daha fazla sütun ekleyin.
->- Dynamics verileri kopyaladığınızda, "yapı" bölümünde Dynamics kümesinde isteğe bağlıdır. Hangi sütunların kopyalayın kaynak veri şema tarafından belirlenir. Kaynağınız bir üst bilgi içermeyen bir CSV dosyası ise giriş veri kümesi "yapı" sütun adı ve veri türü ile belirtin. Bunlar sırayla CSV dosyasındaki tek tek alanları eşleyin.
+>- Dynamics verileri kopyaladığınızda, "yapı" bölümünde Dynamics kümesinde isteğe bağlıdır. Hangi sütunların kopyalayın, kaynak veri şemasına göre belirlenir. Kaynağınız bir üst bilgi içermeyen bir CSV dosyası ise giriş veri kümesi "yapı" sütun adı ve veri türü ile belirtin. Bunlar sırayla CSV dosyasındaki tek tek alanları eşleyin.
 
 **Örnek:**
 
@@ -341,9 +349,8 @@ Karşılık gelen Data Factory veri türü, kaynak Dynamics veri türü eşlemes
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
-
 > [!NOTE]
-> AttributeType.CalendarRules ve AttributeType.PartyList Dynamics veri türleri desteklenmiyor.
+> AttributeType.CalendarRules ve AttributeType.MultiSelectPicklist AttributeType.PartyList Dynamics veri türleri desteklenmiyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Veri fabrikasında kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).

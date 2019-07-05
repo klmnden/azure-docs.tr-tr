@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck;amverma
-ms.openlocfilehash: ad490084b34a8bf6e89c7feb14d5cd2e70a8138f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fc5b5a287a421f93d3184ded3e429c5cff8fa3c
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755328"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566289"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Yüksek performanslı bilgi işlem VM boyutları
 
@@ -31,11 +31,10 @@ ms.locfileid: "66755328"
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
 
-* **İşletim sistemi** -Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+* **İşletim sistemi** -Windows Server 2016'da tüm yukarıdaki HPC serisi VM'ler. Windows Server 2012 R2, Windows Server 2012, (Bu nedenle HB ve HC hariç) SR-IOV olmayan etkin Vm'lerde de desteklenir.
 
-* **MPI** -Microsoft MPI (MS-MPI) 2012 R2 veya sonraki sürümlerde, Intel MPI kitaplığının 5.x
-
-  SR-IOV olmayan etkin Vm'lerde desteklenen MPI uygulamaları örnekleri arasında iletişim kurmak için Microsoft ağ doğrudan (ND) kullanıcı arabirimini kullanın. SR-etkin sanal makine boyutları (HB ve HC serisi) Azure üzerinde neredeyse her Mellanox OFED ile kullanılacak MPI sürümünü izin IOV. 
+* **MPI** -SR-IOV etkin VM boyutları (HB, HC) Azure üzerinde neredeyse her Mellanox OFED ile kullanılacak MPI örneğinizin izin.
+SR-IOV olmayan etkin Vm'lerde desteklenen MPI uygulamaları örnekleri arasında iletişim kurmak için Microsoft ağ doğrudan (ND) kullanıcı arabirimini kullanın. Bu nedenle, yalnızca Microsoft MPI (MS-MPI) 2012 R2 veya üzeri ve Intel MPI 5.x sürümleri desteklenir. Sonraki sürümlerinde (2017, 2018) Intel MPI çalışma zamanı kitaplığı olabilir veya Azure RDMA sürücüleri ile uyumlu olmayabilir.
 
 * **InfiniBandDriverWindows VM uzantısı** - RDMA özellikli VM'ler, InfiniBand etkinleştirmek için InfiniBandDriverWindows uzantısını ekleyin. Bu Windows VM uzantısı (SR-IOV olmayan vm'lerde) doğrudan Windows ağ sürücüleri veya RDMA bağlantısı için Mellanox OFED sürücülerini (vm'lerde SR-IOV) yükler.
 A8 ve A9 örnekleri bazı dağıtımlarda HpcVmDrivers uzantısı otomatik olarak eklenir. Not; HpcVmDrivers VM uzantısı onaylanmaz. güncelleştirilmez. Bir VM için VM uzantısı eklemek için kullanabileceğiniz [Azure PowerShell](/powershell/azure/overview) cmdlet'leri. 
@@ -53,7 +52,16 @@ A8 ve A9 örnekleri bazı dağıtımlarda HpcVmDrivers uzantısı otomatik olara
   "typeHandlerVersion": "1.0",
   } 
   ```
-  
+
+  Aşağıdaki komut, mevcut bir VM ölçek kümesini adlandırılmış RDMA özellikli tüm sanal makineler en son sürüm 1.0 InfiniBandDriverWindows uzantıyı yükler. *myVMSS* adlı kaynak grubunda dağıtılan *myResourceGroup*:
+
+  ```powershell
+  $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
+  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.0"
+  Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "MyVMSS" -VirtualMachineScaleSet $VMSS
+  Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
+  ```
+
   Daha fazla bilgi için [sanal makine uzantıları ve özellikleri](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Uzantıları ile dağıtılmış VM'ler için çalışabilir [Klasik dağıtım modeli](classic/manage-extensions.md).
 
 * **RDMA ağ adres alanı** -azure'da RDMA ağ adres alanı 172.16.0.0/16 ayırır. Bir Azure sanal ağında dağıtılan örneklerinde MPI uygulamalarını çalıştırmak için sanal ağ adres alanı RDMA ağ çakışmadığından emin olun.
@@ -66,6 +74,8 @@ Azure, RDMA ağ aracılığıyla iletişim kuran bir Windows HPC VM kümeleri ol
 * **Sanal makineler** -RDMA özellikli HPC VM'lerin aynı kullanılabilirlik (Azure Resource Manager dağıtım modeli kullandığınız zaman) kümesinde dağıtın. Klasik dağıtım modelini kullanıyorsanız, aynı bulut hizmetindeki sanal makineleri dağıtın. 
 
 * **Sanal makine ölçek kümeleri** - bir sanal makine ölçek kümesi, tek bir yerleştirme grubu dağıtımı sınırladığınızdan emin olun. Örneğin, bir Resource Manager şablonunda ayarlamak `singlePlacementGroup` özelliğini `true`. 
+
+* **Sanal makineler arasında MPI** - Vm'leri de aynı kullanılabilirlik kümesinde veya sanal aynı makine MPI iletişim sanal makineleri (VM'ler) arasında gerekirse sağlamak, Ölçek kümesi.
 
 * **Azure CycleCloud** -bir HPC kümesi oluşturma [Azure CycleCloud](/azure/cyclecloud/) Windows düğümlerinde MPI işlerini çalıştırma için.
 

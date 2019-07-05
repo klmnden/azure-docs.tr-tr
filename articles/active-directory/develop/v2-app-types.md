@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd7055794860398ecc6296d0174a691e7fac4450
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac3dbd3f2148c14780c380cc0c7f2fab2a41e165
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235246"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482400"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft kimlik platformu için uygulama türleri
 
@@ -55,7 +55,7 @@ Birçok modern uygulamanın, JavaScript'te öncelikli olarak yazılmış tek say
 
 Bu akışta uygulama belirteçlerini doğrudan Microsoft kimlik platformu alır. herhangi bir sunucudan sunucuya değişimleri olmadan bir uç nokta yetkilendirin. Tüm kimlik doğrulama mantığı ve gerçekleştirilen işlemlerin işleme oturumu tamamen JavaScript istemcisi, ek sayfa yeniden yönlendirmeleri olmadan yerleştirin.
 
-![Örtük kimlik doğrulama akışı](./media/v2-app-types/convergence-scenarios-implicit.svg)
+![Örtük kimlik doğrulaması akışı gösterir](./media/v2-app-types/convergence-scenarios-implicit.svg)
 
 Bu senaryoyu çalışırken görmek için tek sayfalı uygulama kodu örneklerinden birini deneyin [Başlarken Microsoft kimlik platformu](v2-overview.md#getting-started) bölümü.
 
@@ -80,7 +80,7 @@ Microsoft kimlik platformu uç noktası kullanılan belirteçlerin farklı türl
 
 Web sunucu uygulamalarında oturum açma kimlik doğrulaması akışı şu üst düzey adımları gerçekleştirir:
 
-![Web uygulama kimlik doğrulama akışı](./media/v2-app-types/convergence-scenarios-webapp.svg)
+![Web uygulaması kimlik doğrulaması akışı gösterir](./media/v2-app-types/convergence-scenarios-webapp.svg)
 
 Microsoft kimlik platformu uç noktasından alınan bir ortak imzalama anahtarı ile kimlik belirteci doğrulayarak, kullanıcının kimliğini sağlayabilirsiniz. Sonraki sayfa isteklerinde kullanıcı tanımlamak için kullanılabilecek oturum tanımlama bilgisinin ayarlanır.
 
@@ -106,7 +106,7 @@ Bir Web API'si kullanıcıların kabul et veya belirli işlevleri veya veri yete
 
 Bir Web API uygulamaları, web sunucu uygulamaları, masaüstü ve mobil uygulamalar, tek sayfalık uygulamalar, sunucu tarafı Daemon'ları ve hatta diğer Web API'leri dahil olmak üzere tüm türlerden erişim belirteçleri alabilir. Web API'si için üst düzey akış şöyle görünür:
 
-![Web API'si kimlik doğrulama akışı](./media/v2-app-types/convergence-scenarios-webapi.svg)
+![Web API'si kimlik doğrulama akışı gösterir](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
 Web API kod örnekleri kullanıma OAuth2 erişim belirteçleri kullanarak Web API'si güvenliğini sağlamayı öğrenmek için [Başlarken Microsoft kimlik platformu](v2-overview.md#getting-started) bölümü.
 
@@ -118,7 +118,7 @@ Mobil ve Masaüstü uygulamaları gibi cihaz olarak yüklenen uygulamalar genell
 
 Kullanıcı oturum açtığında bu akışta uygulama Microsoft kimlik platformu uç noktasından bir yetkilendirme kodunu alır. Yetkilendirme kodu uygulamanın, oturum açmış kullanıcı adına arka uç hizmetlerini çağırma izni temsil eder. Uygulama arka planda bir OAuth 2.0 erişim belirteci ve yenileme belirteci için yetkilendirme kodunu değiştirebilir. Uygulama, Web API'leri için HTTP isteklerinde kimlik doğrulaması için erişim belirtecini kullanır ve eski erişim belirteçlerin süresi dolduğunda yeni erişim belirteçlerini almak için yenileme belirtecini kullanın.
 
-![Yerel uygulama kimlik doğrulama akışı](./media/v2-app-types/convergence-scenarios-native.svg)
+![Yerel uygulama kimlik doğrulaması akışı gösterir](./media/v2-app-types/convergence-scenarios-native.svg)
 
 ## <a name="daemons-and-server-side-apps"></a>Daemon'ları ve sunucu tarafı uygulamalar
 
@@ -126,6 +126,6 @@ Uzun süre çalışan işlemler sahip olan veya bir kullanıcı etkileşimi olma
 
 Bu akışta uygulama doğrudan etkileşime `/token` erişim edinmek için uç nokta:
 
-![Arka plan programı uygulama kimlik doğrulama akışı](./media/v2-app-types/convergence-scenarios-daemon.svg)
+![Arka plan programı uygulama kimlik doğrulaması akışı gösterir](./media/v2-app-types/convergence-scenarios-daemon.svg)
 
 Bir arka plan programı uygulaması oluşturmak için bkz. [istemci kimlik bilgileri belgeleri](v2-oauth2-client-creds-grant-flow.md), veya bir [.NET örnek uygulaması](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

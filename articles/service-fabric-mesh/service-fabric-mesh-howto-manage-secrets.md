@@ -9,12 +9,12 @@ ms.date: 4/2/2019
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chackdan
-ms.openlocfilehash: 251611e814f890e3cebf0fda2d33ab548a8ff213
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c2548ea3cf892ebe1a56cbb0909bfa5d5e805acf
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65506442"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503303"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Service Fabric Mesh uygulama parolalarını yönetme
 Service Fabric Mesh gizli Azure kaynaklarını destekler. Service Fabric Mesh gizli dizi herhangi bir depolama bağlantı dizeleri, parolalar veya güvenli şekilde iletilmesini ve depolanan gereken diğer değerleri gibi hassas metin bilgi olabilir. Bu makalede, Service Fabric güvenli Store hizmeti dağıtma ve gizli dizileri korumak için nasıl kullanılacağını gösterir.
@@ -208,7 +208,7 @@ Ya da geçirmeniz **şablon dosyası** veya **URI şablonu** (ancak her ikisini 
 
 Örneğin:
 - az kafes dağıtım--c:\MyMeshTemplates\SecretTemplate1.txt oluştur
-- az kafes dağıtım create-- https://www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
+- az kafes dağıtım oluşturma--https:\//www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
 
 ### <a name="show-a-secret"></a>Gizli dizi Göster
 Gizli dizi (ancak değer değil) açıklamasını döndürür.

@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ccac719c78ce2844a8dd37a80445e11baa4a488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22f3e4cde892a70ec331523524508a50008a4073
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962868"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483017"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Neden Microsoft identity platformuna (v2.0) güncelleştirilsin mi?
 
@@ -46,7 +46,7 @@ Microsoft kimlik platformu endpoint için Kurumsal dünyaları ve tüketici, eğ
 
 Azure AD v1.0 uç noktası kullanan uygulamalar gibi gerekli OAuth 2.0 izinlerini önceden belirtmeniz gerekir:
 
-![İzinleri kayıt kullanıcı Arabirimi](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
+![İzinleri kayıt kullanıcı arabirimini gösteren örnek](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
 
 Doğrudan uygulama kaydı üzerinde izinler **statik**. Azure Portalı'nda tanımlanan uygulamanın statik izinleri güzel ve basit kod toplarken, geliştiriciler için olası bazı sorunlar sunar:
 

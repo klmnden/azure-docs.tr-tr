@@ -1,7 +1,6 @@
 ---
-title: Azure abonelikleri için fatura ile ödeme | Microsoft Docs
-description: Azure abonelikleri için fatura ile ödemeyi açıklar
-documentationcenter: ''
+title: Azure abonelikleri için fatura ile ödeme
+description: Azure abonelikleri için fatura ile ödemeyi açıklar.
 author: bandersmsft
 manager: jureid
 tags: billing
@@ -10,27 +9,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 7af8789d61069f37d34d07653177e839caf35304
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9ca726ef737ce4750018d2461bc4bcd6c7ebb5f5
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076502"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491196"
 ---
-# <a name="pay-azure-subscription-by-invoice"></a>Azure abonelik, fatura ile ödeme
+# <a name="pay-for-your-azure-subscription-by-invoice"></a>Azure aboneliğiniz için fatura ile ödeme
 
-Fatura ile ödemeyi geçiş yaparsanız, Fatura tarihinden itibaren 30 gün içinde faturanızı ödeme yapacağınız anlamına gelir. Azure aboneliğinizi faturayla ödeme yapmak için uygun olmak için bir Azure destek isteği gönderin. İsteğiniz onaylandıktan sonra fatura ödeme için bir aboneliğe geçebilirsiniz, [Azure portalında](https://portal.azure.com).
+Fatura ile ödemeyi geçiş yapıyorsanız, bu onay/havale tarafından Fatura tarihinden sonraki 30 gün içinde faturanızın ödeme anlamına gelir. Azure aboneliğinizi faturayla ödeme yapmak için uygun olmak için bir Azure destek isteği gönderin. İsteğiniz onaylandıktan sonra fatura ödeme (onay/havale) içinde geçebilirsiniz [Azure portalında](https://portal.azure.com).
 
 > [!IMPORTANT]
-> * Fatura ödeme, yalnızca iş hesapları için kullanılabilir.
+> * Fatura ödeme (onay/havale) yalnızca iş hesapları için kullanılabilir.
 > * Fatura ödeme geçmeden önce tüm ödenmemiş ödeme yapmanız gerekir.
-> * Fatura ödeme geçiş yaptıktan sonra geri kredi kartı veya banka kartıyla ödeme geçiş yapamazsınız.
 
 ## <a name="request-to-pay-by-invoice"></a>Faturayla ödeme talep
 
-1. [Azure portal](https://portal.azure.com/) oturum açın. Seçin **Yardım + Destek** > **yeni destek isteği**.
+1. [Azure Portal](https://portal.azure.com/) oturum açın. Seçin **Yardım + Destek** > **yeni destek isteği**.
 
     ![Yardım ve destek bağlantısı](./media/billing-how-to-pay-by-invoice/help-and-support.png)
 
@@ -70,11 +68,17 @@ Fatura ile ödemeyi geçiş yaparsanız, Fatura tarihinden itibaren 30 gün içi
 
 Size gereken kredi miktarı nedeniyle bir kredi kontrolü çalıştırmanız gerekiyorsa, kredi application should check göndereceğiz.
 
-## <a name="switch-to-invoice-pay"></a>Ödeme faturaya geç
+## <a name="switch-to-invoice-pay-checkwire-transfer"></a>Ödeme (onay/havale) faturaya geç
 
-Fatura ile ödemeyi onaylandıktan sonra Azure aboneliğinizi faturalı ödeme yöntemi geçebilirsiniz [Azure portalında](https://portal.azure.com).
+Faturayla ödeme onaylandıktan sonra Azure portalında ödeme (onay/havale) fatura geçiş yapabilirsiniz.
 
-1. Oturum açma için [Azure portalında](https://portal.azure.com) hesap yöneticisi olarak.
+Bir Microsoft Online Services programı hesabınız varsa, onay/aktarım kablo için Azure aboneliğinizi geçiş yapabilirsiniz. Microsoft Müşteri sözleşmesi varsa, onay/aktarım kablo için fatura profilinizde geçiş yapabilirsiniz. [Hesap türünüzü kontrol öğrenin](#check-access-to-a-microsoft-customer-agreement).
+
+### <a name="switch-azure-subscription-to-checkwire-transfer"></a>Onay/aktarım kablo için Azure aboneliğine geçiş
+
+Fatura ödeme (onay/havale) için Azure aboneliğinizi geçiş yapmak için aşağıdaki adımları izleyin. **Fatura ödeme (onay/havale) geçtikten sonra kredi kartına geçiş yapamazsınız**.
+
+1. Oturum [Azure portalında](https://portal.azure.com) hesap yöneticisi olarak.
 1. Arama **maliyet Yönetimi + faturalandırma**.
 
     ![Arama gösteren ekran görüntüsü](./media/billing-how-to-pay-by-invoice/search.png)
@@ -85,9 +89,32 @@ Fatura ile ödemeyi onaylandıktan sonra Azure aboneliğinizi faturalı ödeme y
 
     ![Ödeme tarafından Fatura düğmesini gösteren ekran görüntüsü](./media/billing-how-to-pay-by-invoice/pay-by-invoice.png)
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun
+### <a name="switch-billing-profile-to-checkwire-transfer"></a>Geçiş için onay/aktarım kablo faturalandırma profili
+
+Onay/kablo aktarımı için bir faturalandırma profili geçmek için aşağıdaki adımları izleyin. Azure için kaydolan kişi varsayılan ödeme yöntemini'fatura profilinin değiştirebileceğinizi unutmayın.
+
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+1. Arama **maliyet Yönetimi + faturalandırma**.
+1. Soldaki menüde tıklayarak **faturalandırma profilleri**.
+
+    ![Faturalandırma profili menüde gösteren ekran görüntüsü](./media/billing-how-to-pay-by-invoice/billing-profile.png)
+
+1. Faturalandırma profili seçin.
+1. Soldaki menüde **ödeme yöntemlerini**.
+
+   ![Menüde ödeme yöntemlerini gösteren ekran görüntüsü](./media/billing-how-to-pay-by-invoice/billing-profile-payment-methods.png)
+
+1. Onay/havale ile ödeme yapmak uygun olan bildiren mavi başlığa tıklayın.
+
+    ![Onay/kablo geçmek için mavi renkli bir başlık gösteren ekran görüntüsü](./media/billing-how-to-pay-by-invoice/customer-led-switch-to-invoice.png)
+
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için erişim denetimi
+[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 - Gerekirse, fatura kişi bilgilerinizi güncelleştirin [Azure hesap Merkezi](https://account.azure.com/Profile).

@@ -1,26 +1,23 @@
 ---
-title: Görüntüle ve indir Azure kullanım ve ücret | Microsoft Docs
+title: Görüntüle ve indir Azure kullanımı ve ücretleri
 description: Azure günlük kullanımı ve ücretleri görüntüleme veya indirme işlemini açıklamaktadır.
 keywords: Kullanım faturalandırma, kullanım ücretlerini, kullanım, kullanımını görüntüleyin, azure fatura, azure kullanımı indir
-services: billing
-documentationcenter: ''
-author: genlin
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 520d3f6a45b44ba2023dee34642f796689f48221
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d2d7be562eaaa7dd21e63735f5697ffe5a62f8a
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60919010"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491440"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Azure kullanım ve Ücret görüntülemenize ve indirmenize
 
@@ -77,11 +74,11 @@ Microsoft Müşteri sözleşmesi varsa, Azure kullanımı ve ücretleri fatura p
 ### <a name="download-usage-for-billed-charges"></a>Faturalandırılan ücretler kullanımı indir
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Arama **maliyet Yönetimi + faturalandırma**.
+2. Arama *maliyet Yönetimi + faturalandırma*.
 3. Faturalandırma profili seçin. Erişiminizi bağlı olarak, bir faturalama hesabı seçmeniz gerekebilir.
 4. **Faturalar**'ı seçin.
 5. Fatura kılavuzunda fatura indirmek istediğiniz kullanım için karşılık gelen satırı bulur.
-6. Üç noktaya tıklayın (`...`) satırın sonunda.
+6. Üç nokta simgesine tıklayın (`...`) satırın sonunda.
 
     ![Satır sonundaki üç noktayı gösteren ekran görüntüsü](./media/billing-download-azure-invoice/billingprofile-invoicegrid.png)
 
@@ -94,9 +91,9 @@ Microsoft Müşteri sözleşmesi varsa, Azure kullanımı ve ücretleri fatura p
 Geçerli fatura dönemi için ayın başından bu yana kullanımı da indirebilirsiniz. Henüz faturalandırılmış değil Bu kullanım ücretlerine uygulanır.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Arama **maliyet Yönetimi + faturalandırma**.
+2. Arama *maliyet Yönetimi + faturalandırma*.
 3. Faturalandırma profili seçin. Erişiminizi bağlı olarak, bir faturalama hesabı seçmeniz gerekebilir.
-4. İçinde **genel bakış** dikey penceresinde, indirme bağlantıları ay başından bu yana ücretleri altında bulabilirsiniz.
+4. İçinde **genel bakış** alanında, indirme bağlantıları ay başından bu yana ücretleri altında bulabilirsiniz.
 5. Seçin **Azure kullanım ve Ücret**.
 
     ![Genel Bakış'tan indirmeyi gösteren ekran görüntüsü](./media/billing-download-azure-usage/open-usage.png)
@@ -104,7 +101,7 @@ Geçerli fatura dönemi için ayın başından bu yana kullanımı da indirebili
 ## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi erişiminizi kontrol edin
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 

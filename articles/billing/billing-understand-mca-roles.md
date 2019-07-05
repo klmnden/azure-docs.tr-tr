@@ -1,24 +1,21 @@
 ---
 title: Microsoft Müşteri sözleşmesi - Azure için fatura yönetici rollerini anlama
 description: Hesapları Azure için Microsoft Müşteri anlaşmalarını fatura için fatura rolleri hakkında bilgi edinin.
-services: billing
-documentationcenter: ''
 author: amberbhargava
 manager: amberbhargava
-editor: ''
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 780870cc71e95507a52ba6a9338026f895a96ac1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 12e492fee95192d0af49ff7b6a5be3144398fef8
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370977"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490436"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Azure'da Microsoft Müşteri sözleşmesi yönetici rollerini anlama
 
@@ -30,7 +27,7 @@ Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi iç
 
 Aşağıdaki tablo profiller faturalama fatura hesabınıza yönetmek için kullanın ve bölümleri Fatura Fatura roller açıklanmıştır.
 
-|Rol|Açıklama|
+|Role|Açıklama|
 |---|---|
 |Fatura hesap sahibi|Fatura hesabı için her şeyi yönetme|
 |Faturalama hesabı Katılımcısı|Fatura hesap izinlerini dışında her şeyi yönetme|
@@ -46,7 +43,7 @@ Aşağıdaki tablo profiller faturalama fatura hesabınıza yönetmek için kull
 
 ## <a name="billing-account-roles-and-tasks"></a>Faturalama hesabı roller ve görevler
 
-Bir faturalama hesabı, kuruluşunuz için fatura bilgilerini yönetmenizi sağlar. Maliyetleri, İzleyici ücretleri ve faturalarını düzenleyin ve kuruluşunuz için fatura erişimi denetlemek için Faturalama hesabı kullanın. Daha fazla bilgi için [Faturalama hesabı anlamak](billing-mca-overview.md#understand-billing-account).
+Bir faturalama hesabı, kuruluşunuz için fatura bilgilerini yönetmenizi sağlar. Maliyetleri, İzleyici ücretleri ve faturalarını düzenleyin ve kuruluşunuz için fatura erişimi denetlemek için Faturalama hesabı kullanın. Daha fazla bilgi için [Faturalama hesabı anlamak](billing-mca-overview.md#your-billing-account).
 
 Aşağıdaki tablolarda, Faturalama hesabı bağlamında görevlerini yapmanız hangi rolü gösterilmektedir.
 
@@ -92,7 +89,7 @@ Aşağıdaki tablolarda, Faturalama hesabı bağlamında görevlerini yapmanız 
 
 ## <a name="billing-profile-roles-and-tasks"></a>Faturalandırma profili rolleri ve görevleri
 
-Faturalandırma profili faturaları ve ödeme yöntemlerini yönetmenizi sağlar. Bir aylık fatura Azure abonelik ve faturalandırma profili kullanılarak satın alınan diğer ürünler için oluşturulur. Fatura ödemek için ödeme yöntemleri kullanın. Daha fazla bilgi için [fatura profillerini anlayabilir](billing-mca-overview.md#understand-billing-profiles).
+Faturalandırma profili faturaları ve ödeme yöntemlerini yönetmenizi sağlar. Bir aylık fatura Azure abonelik ve faturalandırma profili kullanılarak satın alınan diğer ürünler için oluşturulur. Fatura ödemek için ödeme yöntemleri kullanın. Daha fazla bilgi için [fatura profillerini anlayabilir](billing-mca-overview.md#billing-profiles).
 
 Aşağıdaki tablolarda, hangi rolü bağlamında faturalandırma profili, görevleri tamamlama gerek gösterilmektedir.
 
@@ -142,7 +139,7 @@ Aşağıdaki tablolarda, hangi rolü bağlamında faturalandırma profili, göre
 
 ## <a name="invoice-section-roles-and-tasks"></a>Fatura bölüm rolleri ve görevleri
 
-Bir fatura bölümü faturanızla ilgili maliyetleri düzenlemenize olanak sağlar. Kuruluşunuzun ihtiyaçlarına göre veya maliyetlerinizi geliştirme ortamını departmana göre düzenlemek için bir bölüm oluşturabilirsiniz. Diğer bölüm için Azure abonelikleri oluşturabilmesi için izin verin. Tüm kullanım ücretleri ve satın alma işlemleri için abonelikler sonra Fatura bölümündeki göster. Daha fazla bilgi için [anlayın fatura bölüm](billing-mca-overview.md#understand-invoice-sections).
+Bir fatura bölümü faturanızla ilgili maliyetleri düzenlemenize olanak sağlar. Kuruluşunuzun ihtiyaçlarına göre veya maliyetlerinizi geliştirme ortamını departmana göre düzenlemek için bir bölüm oluşturabilirsiniz. Diğer bölüm için Azure abonelikleri oluşturabilmesi için izin verin. Tüm kullanım ücretleri ve satın alma işlemleri için abonelikler sonra Fatura bölümündeki göster. Daha fazla bilgi için [anlayın fatura bölüm](billing-mca-overview.md#invoice-sections).
 
 Aşağıdaki tablolarda, hangi rolü bağlamında fatura bölümler, görevleri tamamlama için ihtiyacınız gösterilmektedir.
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 19a8400a076825f17501fabdb3f38ea05915822e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e00e41a34bb28a2569d5922926a8f6c4fbe4bd57
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65138757"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481417"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Azure Active Directory (genel Önizleme) ile uygulamalar için Grup talepleri yapılandırma
 
@@ -137,7 +137,7 @@ Grup talepleri de yapılandırılabilir [isteğe bağlı bir talep](../../active
 
 3. Grup adı yapılandırması isteğe bağlı talepleri ayarlayın.
 
-   Belirteç grupları şirket içi AD grup öznitelikleri isteğe bağlı bir talep bölümünde hangi belirteç türü isteğe bağlı bir talep uygulanması gerektiğini belirtmek, istenen isteğe bağlı bir talep ve istenen herhangi bir ek özellik adını içerecek şekilde isterseniz.  Birden çok belirteç türleri listelenir:
+   Şirket içi AD grup öznitelikleri isteğe bağlı bir talep bölümünde hangi belirteç türü isteğe bağlı bir talep uygulanması gerektiğini belirtmek, istenen isteğe bağlı bir talep ve istenen herhangi bir ek özellik adını içermesi için gruplar belirtecindeki istiyorsanız.  Birden çok belirteç türleri listelenir:
 
    - OIDC kimlik belirteci için ilgili Idtoken
    - OAuth/OIDC erişim belirteci için accessToken

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39a591a335d022ef7b2b99fdec930ddf0496cd47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 970fdaba1870097e253b51c70e523e399bc88dfc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112584"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440797"
 ---
 # <a name="what-are-baseline-policies"></a>Temel ilkeleri nelerdir?
 
@@ -30,18 +30,18 @@ Temel ilkeler, kuruluş pek çok ortak saldırılarına karşı korumaya yardım
 
 Kuruluşların etkinleştirebilirsiniz dört temel ilkeleri vardır:
 
-* [Yöneticiler için MFA gerektirme](howto-baseline-protect-administrators.md)
+* [Mfa'yı (Önizleme) yöneticileri için gerekli](howto-baseline-protect-administrators.md)
 * [Son kullanıcı protection (Önizleme)](howto-baseline-protect-end-users.md)
 * [Blok eski kimlik doğrulama (Önizleme)](howto-baseline-protect-legacy-auth.md)
 * [MFA istemek için Hizmet Yönetimi (Önizleme)](howto-baseline-protect-azure.md)
 
 Bu ilkelerin dört eski Office Masaüstü istemcileri POP ve IMAP gibi eski bir kimlik doğrulama akışları etkiler.
 
-### <a name="require-mfa-for-admins"></a>Yöneticiler için MFA gerektirme
+### <a name="require-mfa-for-admins-preview"></a>Mfa'yı (Önizleme) yöneticileri için gerekli
 
 Güç ve Yönetici hesaplarına sahip erişim nedeniyle özel dikkatlice değerlendirmeniz gerekir. Ayrıcalıklı hesapların geliştirmek için bir ortak yöntemi oturum açmak için kullanılan hesap doğrulama daha güçlü bir form gerektirmektir. Azure Active Directory'de kaydolun ve Azure multi-Factor Authentication'ı kullanmak Yöneticiler isteyerek daha güçlü bir hesap doğrulama alabilirsiniz.
 
-[Yöneticiler için mfa'yı gerekli](howto-baseline-protect-administrators.md) en yüksek ayrıcalıklı Azure AD rolleri kabul şu dizin rolleri için çok faktörlü kimlik doğrulaması (MFA) gerektiren bir taban çizgisi ilke olduğunu:
+[Mfa'yı (Önizleme) yöneticileri için gerekli](howto-baseline-protect-administrators.md) en yüksek ayrıcalıklı Azure AD rolleri kabul şu dizin rolleri için çok faktörlü kimlik doğrulaması (MFA) gerektiren bir taban çizgisi ilke olduğunu:
 
 * Genel yönetici
 * SharePoint yöneticisi
@@ -52,7 +52,7 @@ Güç ve Yönetici hesaplarına sahip erişim nedeniyle özel dikkatlice değerl
 * Faturalama yöneticisi
 * Kullanıcı Yöneticisi
 
-Kuruluşunuz, betikleri veya kodları kullanımda bu hesapları varsa, bunları ile değiştirmeyi göz önüne alın [yönetilen kimlikleri](../managed-identities-azure-resources/overview.md). Geçici bir çözüm, belirli kullanıcı hesaplarını temel ilkesinden hariç tutabilirsiniz.
+Kuruluşunuz, betikleri veya kodları kullanımda bu hesapları varsa, bunları ile değiştirmeyi göz önüne alın [yönetilen kimlikleri](../managed-identities-azure-resources/overview.md).
 
 ### <a name="end-user-protection-preview"></a>Son kullanıcı protection (Önizleme)
 
@@ -96,7 +96,7 @@ Daha fazla bilgi için bkz.
 
 * [Kimlik altyapınızın güvenliğini sağlamak için beş adım](../../security/azure-ad-secure-steps.md)
 * [Azure Active Directory'de koşullu erişim nedir?](overview.md)
-* [Yöneticiler için MFA gerektirme](howto-baseline-protect-administrators.md)
+* [Mfa'yı (Önizleme) yöneticileri için gerekli](howto-baseline-protect-administrators.md)
 * [Son kullanıcı protection (Önizleme)](howto-baseline-protect-end-users.md)
 * [Blok eski kimlik doğrulama (Önizleme)](howto-baseline-protect-legacy-auth.md)
 * [MFA istemek için Hizmet Yönetimi (Önizleme)](howto-baseline-protect-azure.md)

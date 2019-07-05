@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: 54449d9ea14fef6b2373aa8e0ea3341417c2d3fe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a19653f7ae3900fd7999f347ef4d3ef710be1430
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057991"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436347"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Azure VM’sini oluşturduğunuz sırada yedeklemeyi etkinleştirme
 
@@ -54,7 +54,8 @@ Hesabınıza zaten oturum açmadıysanız, oturum [Azure portalında](https://po
 
 
 > [!NOTE]
-> Azure Backup hizmeti adlandırma biçimi ile anlık görüntü deposu için ayrı bir kaynak grubu (dışında VM kaynak grubu) oluşturur **AzureBackupRG_geography_number** (örnek: AzureBackupRG_northeurope_1). Bu kaynak grubundaki veriler, belirtilen gün sayısı süresince korunur *tut anında kurtarma anlık görüntü* Azure sanal makine yedekleme ilkesinin bir bölümü.  Bu kaynak grubu için bir kilit uygulama, yedekleme hatalarına neden olabilir.
+> Azure Backup hizmeti adlandırma biçimi ile anlık görüntü deposu için ayrı bir kaynak grubu (dışında VM kaynak grubu) oluşturur **AzureBackupRG_geography_number** (örnek: AzureBackupRG_northeurope_1). Bu kaynak grubundaki veriler, belirtilen gün sayısı süresince korunur *tut anında kurtarma anlık görüntü* Azure sanal makine yedekleme ilkesinin bir bölümü.  Bu kaynak grubu için bir kilit uygulama, yedekleme hatalarına neden olabilir.<br>
+Kısıtlama İlkesi yeniden yedekleme hatalarına neden olduğu kaynak noktası koleksiyonları oluşturulmasını engeller olarak bu kaynak grubu adı/etiketi kısıtlamalar da bırakılmalıdır.
 
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>VM oluşturduktan sonra bir yedeklemeyi başlatın.

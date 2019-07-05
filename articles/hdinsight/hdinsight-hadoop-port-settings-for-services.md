@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: 16041d2b7a971c9ba479c133261930b38d130792
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77e7aec1797a4b33068430371ba0969d1737746e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66252789"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508783"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight üzerinde Apache Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları
 
@@ -41,7 +41,7 @@ Bir HDInsight kümesindeki tüm düğümler, bir Azure sanal ağında bulunur ve
 | sshd |23 |SSH |İstemciler sshd üzerinde ikincil baş düğümüne bağlanır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | Ambari |443 |HTTPS |Ambari web kullanıcı Arabirimi. Bkz: [Apache Ambari Web kullanıcı arabirimini kullanarak HDInsight yönetme](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Ambari REST API. Bkz: [Apache Ambari REST API'yi kullanarak HDInsight yönetme](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |HCatalog REST API. Bkz: [Curl ile Apache Hive kullanma](hadoop/apache-hadoop-use-pig-curl.md), [Curl ile Apache Pig kullanma](hadoop/apache-hadoop-use-pig-curl.md), [Curl ile MapReduce kullanma](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| WebHCat |443 |HTTPS |HCatalog REST API. Bkz: [Curl ile MapReduce kullanma](hadoop/apache-hadoop-use-mapreduce-curl.md) |
 | HiveServer2 |443 |ODBC |İçin Hive ODBC kullanarak bağlanır. Bkz: [bağlanmak Excel için Microsoft ODBC sürücüsü ile HDInsight](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
 | HiveServer2 |443 |JDBC |İçin ApacheHive JDBC kullanarak bağlanır. Bkz: [Hive JDBC sürücüsü kullanarak HDInsight üzerinde Apache Hive Bağlan](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 

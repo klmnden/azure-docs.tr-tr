@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d6f44005080bbd8583ae2e2fdad31ef2c823c7ca
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 61c3d37f365034984231c780199e181872c010c6
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154526"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544126"
 ---
 # <a name="accessing-the-vmware-solution-by-cloudsimple-portal-from-azure-portal"></a>Azure portalından CloudSimple portal tarafından VMware çözümü erişme
 
@@ -21,7 +21,16 @@ ms.locfileid: "67154526"
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Yalnızca yerleşik olan kullanıcılar **sahibi** ve **katkıda bulunan** rolleri CloudSimple portalına erişebilir.  Rolleri, abonelik üzerinde yapılandırılmalıdır.  Rolünüz denetimi ile ilgili daha fazla bilgi için bkz: [rol atamalarını görüntüleyin](https://docs.microsoft.com/azure/role-based-access-control/check-access) makalesi.
+Yerleşik kullanıcılarla **sahibi** ve **katkıda bulunan** rolleri CloudSimple portalına erişebilir.  Rolleri CloudSimple hizmet dağıtıldığı kaynak grubu üzerinde yapılandırılmalıdır.  Rolleri CloudSimple hizmet nesnesinde de yapılandırılabilir.  Rolünüz denetimi ile ilgili daha fazla bilgi için bkz: [rol atamalarını görüntüleyin](https://docs.microsoft.com/azure/role-based-access-control/check-access) makalesi.
+
+Özel roller kullanıyorsanız, rolü altında aşağıdaki işlemlerden birini olmalıdır ```Actions```.  Özel roller hakkında daha fazla bilgi için bkz. [Azure kaynakları için özel roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).  İşlemlerden birini ise bir parçası ```NotActions```, kullanıcı portalı CloudSimple erişemez. 
+
+```
+Microsoft.VMwareCloudSimple/*
+Microsoft.VMwareCloudSimple/*/write
+Microsoft.VMwareCloudSimple/dedicatedCloudServices/*
+Microsoft.VMwareCloudSimple/dedicatedCloudServices/*/write
+```
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 

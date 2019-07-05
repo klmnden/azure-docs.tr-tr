@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 06/24/2019
 ms.author: mimart
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 315aba8ac8617f8bf2db71784ec0f9a8dec66cf7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2cac7e3ba458caad9c373160be1b66e2a665088a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108357"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440450"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Uygulama proxy'si sorunlarını ve hata iletileri sorunlarını giderme
 Yayımlanan bir uygulamaya erişen veya yayımlama uygulamalarda hata oluşursa, Microsoft Azure AD uygulama ara sunucusu doğru şekilde çalışıp çalışmadığını görmek için aşağıdaki seçeneklerden denetleyin:
@@ -31,7 +31,7 @@ Yayımlanan bir uygulamaya erişen veya yayımlama uygulamalarda hata oluşursa,
 * Olay Görüntüleyicisi'ni açın ve uygulama ara sunucusu Bağlayıcısı olayları arayın **uygulama ve hizmet günlükleri** > **Microsoft** > **AadApplicationProxy**  >  **Bağlayıcı** > **yönetici**.
 * Gerekli olursa, daha ayrıntılı günlüklere tarafından [uygulama Proxy Bağlayıcısı oturumu açtığında kapatma](application-proxy-connectors.md#under-the-hood).
 
-Azure AD sorun giderme aracı hakkında daha fazla bilgi için bkz. [bağlayıcı ağ önkoşulları doğrulamak için sorun giderme aracını](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites).
+Uygulama proxy'si ile ilgili sorunları giderirken Başlat sorun giderme akış inceleyerek öneririz [uygulama ara sunucusu Bağlayıcısı hata ayıklama sorunları](application-proxy-debug-connectors.md)uygulama Proxy bağlayıcıları düzgün yapılandırılıp yapılandırılmadığını belirlemek için. Sorun giderme flow'da uygulamaya bağlanırken sorun yaşamaya devam ediyorsanız izleyin [hata ayıklama uygulama proxy'si uygulama sorunlarını](application-proxy-debug-apps.md).
 
 ## <a name="the-page-is-not-rendered-correctly"></a>Sayfa doğru işlenmez
 İşleme veya belirli hata iletileri almadan hatalı işlev uygulamanız ile ilgili sorunlar olabilir. Bu makalede yolu yayımlanan ancak uygulama dışında yolun var olduğundan içerik gerektiriyor ortaya çıkabilir.
@@ -50,12 +50,13 @@ Olay günlüğünden Bağlayıcısı hata bulduğunuzda, sorunu çözmek için b
 
 | Hata | Önerilen adımlar |
 | ----- | ----------------- |
-| Bağlayıcı kaydı başarısız oldu: Azure Yönetim Portalı'nda uygulama ara sunucusu ve Active Directory kullanıcı adını ve parolasını doğru girdiğinizi etkin olduğundan emin olun. Hata: 'Bir veya daha fazla hata oluştu.' | Azure AD'ye açmadan kayıt pencereyi kapattıysanız, bağlayıcı Sihirbazı'nı yeniden çalıştırın ve bağlayıcıyı kaydedin. <br><br> Kayıt penceresi açar ve oturum açmanızı vermeden hemen kapatır, bu hata büyük olasılıkla alırsınız. Sisteminizde bir ağ hatası olduğunda bu hata oluşur. Bir tarayıcıdan genel bir Web sitesine bağlanmak mümkündür ve bağlantı noktalarını belirtildiği şekilde açık olduğundan emin olun [uygulama ara sunucusu önkoşulları](application-proxy-add-on-premises-application.md). |
+| Bağlayıcı kaydı başarısız oldu: Azure Yönetim Portalı'nda uygulama ara sunucusu ve Active Directory kullanıcı adını ve parolasını doğru girdiğinizi etkin olduğundan emin olun. Hata: 'Bir veya daha fazla hata oluştu.' | Azure AD'ye açmadan kayıt pencereyi kapattıysanız, bağlayıcı Sihirbazı'nı yeniden çalıştırın ve bağlayıcıyı kaydedin. <br><br> Kayıt penceresi açar ve oturum açmanızı vermeden hemen kapatır, bu hata büyük olasılıkla alırsınız. Sisteminizde bir ağ hatası olduğunda bu hata oluşur. Bir tarayıcıdan genel bir Web sitesine bağlanmak mümkündür ve bağlantı noktalarını belirtildiği şekilde açık olduğundan emin olun [uygulama ara sunucusu önkoşulları](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). |
 | NET hata kayıt penceresinde görüntülenir. Devam edilemiyor | Bu hatayı ve ardından pencereyi kapatır, yanlış kullanıcı adı veya parola girildi. Yeniden deneyin. |
 | Bağlayıcı kaydı başarısız oldu: Azure Yönetim Portalı'nda uygulama ara sunucusu ve Active Directory kullanıcı adını ve parolasını doğru girdiğinizi etkin olduğundan emin olun. Hata: ' AADSTS50059: Kiracı tanımlayan hiçbir bilgi veya istek bulunamadı veya asıl URI başarısız oldu, kimlik bilgileri ve arama hizmeti tarafından sağlanan tarafından kapsanan. | Bir Microsoft Account ve Kuruluş Kimliği erişmeye çalıştığınız dizininin parçası olan etki alanı kullanarak oturum çalışıyorsunuz. Yönetici Kiracı etki alanı olarak aynı etki alanı adının bir parçasıdır, örneğin, Azure AD etki alanı contoso.com ise yönetici olmalıdır emin admin@contoso.com. |
 | PowerShell komut dosyaları çalıştırmak için geçerli yürütme İlkesi alınamadı. | Bağlayıcısı yüklemesi başarısız olursa, PowerShell yürütme ilkesini devre dışı olduğunu emin olmak için kontrol edin. <br><br>1. Grup İlkesi Düzenleyicisi'ni açın.<br>2. Git **Bilgisayar Yapılandırması** > **Yönetim Şablonları** > **Windows bileşenleri**  >   **Windows PowerShell** ve çift **betik yürütmeyi açma**.<br>3. Yürütme ilkesini olarak ayarlanabilir **yapılandırılmadı** veya **etkin**. Varsa kümesine **etkin**seçenekleri altında olduğundan emin olun, yürütme İlkesi ayarlandığından **yerel ve uzak imzalanmış komut dosyalarını izin** veya **tüm betiklere izin vermek**. |
 | Bağlayıcı yapılandırması yüklenemedi. | Kimlik doğrulaması için kullanılır, bağlayıcının istemci sertifikasının süresi doldu. Bir proxy'nin arkasında yüklü bağlayıcı varsa bu da oluşabilir. Bu durumda, bağlayıcı Internet'e erişemez ve uzak kullanıcılar uygulamalara sağlamak mümkün olmayacaktır. Güven kullanarak el ile yenileme `Register-AppProxyConnector` Windows PowerShell cmdlet'i. Bağlayıcınızı bir proxy'nin arkasındayken, Internet erişimi Bağlayıcısı hesaplarına "Ağ Hizmetleri" ve "yerel sistem." vermek gerekli değildir Bu, bunları ara sunucuya erişim verme veya bunları proxy atlama ayarlayarak gerçekleştirilebilir. |
 | Bağlayıcı kaydı başarısız oldu: Bağlayıcıyı kaydetmek için Active Directory Uygulama Yöneticisi olduğundan emin olun. Hata: 'Kayıt isteği reddedildi.' | Bir yönetici bu etki alanında oturum açmada çalıştığınız diğer ad değil. Bağlayıcınızı kullanıcının etki alanı sahibi olan dizin için her zaman yüklenir. Oturum açmak için çalıştığınız yönetici hesabı Azure AD kiracısı için en az uygulama yönetici izinlerine sahip olduğundan emin olun. |
+| Bağlayıcı hizmeti ağ sorunları nedeniyle bağlantı kuramadı. Bağlayıcı, aşağıdaki URL erişmeyi denedi. | Bağlayıcı, uygulama proxy'si bulut hizmetine bağlanamıyor. Bir güvenlik duvarı kuralı bağlantıyı engelliyor varsa bu durum oluşabilir. Emin olun doğru bağlantı noktalarına erişim izni verdiğiniz ve URL'leri listelenen [uygulama ara sunucusu önkoşulları](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). |
 
 ## <a name="kerberos-errors"></a>Kerberos hataları
 

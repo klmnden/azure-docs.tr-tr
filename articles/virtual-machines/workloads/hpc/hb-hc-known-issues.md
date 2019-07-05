@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: ff65f3937069be87e922dad9287ba22380632329
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a41155b90257f7eaec85c3adbd975a0a37e24d91
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66810045"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560414"
 ---
 # <a name="known-issues-with-hb-series-and-hc-series-vms"></a>HB serisi ve HC serisi sanal makineler ile ilgili bilinen sorunlar
 
@@ -31,13 +31,13 @@ HB serisi VM'ler, şu anda yalnızca 228 GB RAM Konuk vm'lerinin getirebilir. Az
 
 Şu anda Azure hızlandırılmış ağ etkin değil, ancak Önizleme dönemi ilerledikçe olur. Bu özellik desteklendiğinde, müşterilerin bilgilendireceğiz.
 
+## <a name="qp0-access-restriction"></a>qp0 erişimi kısıtlama
+
+Kuyruk çifti, güvenlik açıklarına neden olabilir, alt düzey donanım erişimi engellemek için 0 Konuk VM'ler sağlayan erişilebilir değil. Bu, yalnızca genellikle yönetim ConnectX-5 NIC ile ilişkili ve ibdiagnet, ancak son kullanıcı uygulamaları kendilerini gibi bazı InfiniBand tanılama çalıştırma eylemleri etkiler.
+
 ## <a name="ud-transport"></a>UD taşıma
 
-Başlatma sırasında dinamik olarak bağlı Aktarım (DCT) HB serisi desteklemez. Zaman içinde DCT desteği uygulanacaktır. Güvenilir bir bağlantı (RC) ve güvenilir veri birimi (UD) aktarımları desteklenir.
-
-## <a name="azure-batch"></a>Azure Batch
-
-HB serisi VM'ler önizlemede olsa da, hizmet modunda kullanıcı aboneliği modunda bir Batch hesabı kullanın.
+Başlatma sırasında dinamik olarak bağlı Aktarım (DCT) HB ve HC serisi desteklemez. Zaman içinde DCT desteği uygulanacaktır. Güvenilir bir bağlantı (RC) ve güvenilir veri birimi (UD) aktarımları desteklenir.
 
 ## <a name="gss-proxy"></a>GSS Proxy
 

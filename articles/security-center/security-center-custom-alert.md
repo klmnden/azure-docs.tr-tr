@@ -14,27 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: ab7165c3315e3a53f90900be8eaf1b9c614a2b07
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 984bd4d5db210679884655721be0cbcdac8c1705
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341121"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485290"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Azure Güvenlik Merkezi'ndeki Özel Uyarı Kuralları (Önizleme)
 Bu belge, Azure Güvenlik Merkezi'nde özel uyarı kuralları oluşturmanıza yardımcı olur.
 
 > [!NOTE]
-> Özel uyarılar 30 Haziran 2019 üzerinde kullanımdan kaldırılacaktır.
+> Özel uyarılar kullanımdan kaldırıldı Güvenlik Merkezi'nden. 
 
 ## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde devre dışı bırakılması özel uyarı kuralları
 
-Özel uyarı deneyimi 30 Haziran 2019 dayanır emeklilik altyapının nedeniyle kullanımdan kaldırılacaktır. Zaman çerçevesinde kullanımdan kaldırma kadar kullanıcılar var olan özel uyarı kuralları düzenlemek mümkün olacaktır, ancak yenilerini eklemek mümkün olmayacaktır. Kullanımdan kaldırma, tanımlanan herhangi bir özel uyarı etkinleşmez ve bu özel uyarılar kurallara göre güvenlik uyarıları oluşturulmaz.
+Özel uyarı deneyimi 30 Haziran 2019, altyapının üzerinde yararlandı emeklilik nedeniyle kullanımdan kaldırılmıştır. önce retriement tanımlanan herhangi bir özel uyarı etkisi olmuyor ve bu özel uyarılar kurallara göre güvenlik uyarıları değil oluşturuluyor. Yine de bunları aşağıda belirtilen alternatifleri de yeniden oluşturmak için Güvenlik Merkezi'ndeki özel uyarı kurallarınızı sorguları görüntüleyebilirsiniz:
+
 Kullanıcılar için önerilir:
 - Etkinleştirme [Azure Gözcü](https://azure.microsoft.com/services/azure-sentinel/) ve yerleşik [analytics](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) işlevselliği, uyarı kuralları yeniden oluşturmak için
 - Azure izleyici günlüğü uyarıları, uyarılarla yeniden oluşturun
                                      
-Mevcut uyarılarınızı tutun ve bunları Azure Gözcü için geçirmek için lütfen [Azure Gözcü başlatma](https://portal.azure.com/#create/Microsoft.ASI/preview). İlk adımı olarak özel uyarıları depolandığı çalışma alanını seçin ve ardından, özel uyarı kuralları ayarlamak için 'Analytics' menü öğesini seçin. Lütfen [belgeleri](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) ek bilgi için.
+Mevcut uyarılarınızı tutun ve Azure Gözcü bunları yeniden oluşturmak için lütfen [Azure Gözcü başlatma](https://portal.azure.com/#create/Microsoft.ASI/preview). İlk adımı olarak özel uyarıları depolandığı çalışma alanını seçin ve ardından, özel uyarı kuralları ayarlamak için 'Analytics' menü öğesini seçin. Lütfen [belgeleri](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) ek bilgi için.
 
 > [!NOTE]
 > Kullanarak özel uyarılar [arama](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries) veya [birleşim](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) deyimleri sorgular Azure Gözcü içinde desteklenmez. Geçişi gerçekleştirmeden önce lütfen bu uyarılar düzenleyin.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: edc3c2ddcddaa8a51ae634a7abcd3a61aab530e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7e93dc12b9932fed90c7f9fa3145e56a3488b32
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357260"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448031"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Yönetimi SSS
 Azure API Management için sık sorulan sorular, desenleri ve en iyi yanıtları alın.
@@ -65,7 +65,7 @@ API Management ağ geçidi ve arka uç hizmetlerinizi arasındaki bağlantıyı 
 
 * HTTP temel kimlik doğrulaması kullanın. Daha fazla bilgi için [içeri aktarma ve ilk API'nizi yayımlama](import-and-publish.md).
 * SSL ile karşılıklı kimlik doğrulaması bölümünde anlatıldığı gibi kullanın [arka uç Hizmetleri istemcisini kullanarak sertifika kimlik doğrulaması Azure API Management güvenliğini nasıl](api-management-howto-mutual-certificates.md).
-* IP beyaz listesi, arka uç hizmet kullanın. API Management'ın tüm katmanlara ağ geçidinin IP adresi ile birkaç sabit kalır [uyarılar](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). Bu IP adreslerine izin verecek şekilde, beyaz liste ayarlayabilirsiniz. Azure Portalı'ndaki Panoda, API Management örneğinizin IP adresini alabilirsiniz.
+* IP beyaz listesi, arka uç hizmet kullanın. API Management tüketim katmanı hariç tüm katmanlarda ağ geçidinin IP adresi ile birkaç sabit kalır [uyarılar](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). Bu IP adreslerine izin verecek şekilde, beyaz liste ayarlayabilirsiniz. Azure Portalı'ndaki Panoda, API Management örneğinizin IP adresini alabilirsiniz.
 * API Management örneğinizin bir Azure sanal ağına bağlayın.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>My API Management hizmet örneği için yeni bir örneğini nasıl kopyalayabilirim?

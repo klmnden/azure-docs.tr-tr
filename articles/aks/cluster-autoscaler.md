@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 58552914f369c49eed33ccefbb7736cf8dbf1fc6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c4fe05c96b1006a7d110caa019619ce8be396fe8
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475637"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491566"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Önizleme - Azure Kubernetes Service'teki (AKS) uygulama taleplerini karşılamak üzere küme otomatik olarak ölçeklendirme
 
@@ -28,34 +28,38 @@ Bu makalede etkinleştirin ve bir AKS kümesindeki Küme ölçeklendiriciyi yön
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalede, Azure CLI Sürüm 2.0.65 gerekir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
+Bu makalede, Azure CLI Sürüm 2.0.65 gerekir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme][azure-cli-install].
 
 ### <a name="install-aks-preview-cli-extension"></a>Aks önizlemesini CLI uzantısını yükleme
 
-Küme otomatik ölçeklendiricinin destekleyen AKS kümeleri sanal makine ölçek kümeleri'ni kullanın ve Kubernetes sürümü çalıştıran *1.12.7* veya üzeri. Bu ölçek kümesi desteği Önizleme aşamasındadır. Kabul et ve ölçek kümelerini kullanmak kümeleri oluşturmak için ilk yükleme *aks önizlemesini* uzantısını Azure CLI kullanarak [az uzantısı ekleme] [ az-extension-add] komutunu aşağıda gösterildiği gibi Örnek:
+Küme ölçeklendiriciyi kullanmak için gerekir *aks önizlemesini* CLI 0.4.1 uzantı sürümü veya üzeri. Yükleme *aks önizlemesini* uzantısını Azure CLI kullanarak [az uzantısı ekleme][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] komut::
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-> [!NOTE]
-> Daha önce yüklediyseniz *aks önizlemesini* uzantısını kullanarak güncelleştirmeleri yükle kullanılabilen `az extension update --name aks-preview` komutu.
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### <a name="register-scale-set-feature-provider"></a>Ölçek kümesi özelliği sağlayıcısını Kaydet
 
-Ölçek kullanan bir AKS oluşturmak için ayarlar, ayrıca, aboneliğinizde özellik bayrağı etkinleştirmeniz gerekir. Kaydedilecek *VMSSPreview* özellik bayrağı, kullanın [az özelliği kayıt] [ az-feature-register] komutu aşağıdaki örnekte gösterildiği gibi:
+Ölçek kullanan bir AKS oluşturmak için ayarlar, ayrıca, aboneliğinizde özellik bayrağı etkinleştirmeniz gerekir. Kaydedilecek *VMSSPreview* özellik bayrağı, kullanın [az özelliği kayıt][az-feature-register] komutu aşağıdaki örnekte gösterildiği gibi:
+
+> [!CAUTION]
+> Bir Abonelikteki bir özellik kaydettiğinizde, bu özellik şu anda kaydını yapamazsınız. Bazı Önizleme özellikleri etkinleştirdikten sonra varsayılan ardından aboneliği için oluşturulan tüm AKS kümeleri için kullanılabilir. Önizleme özellikleri üretim Aboneliklerde etkinleştirmeyin. Önizleme özellikleri test ve geri bildirim toplamak için ayrı bir abonelik kullanın.
 
 ```azurecli-interactive
 az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
-Gösterilecek durum için birkaç dakika sürer *kayıtlı*. Kayıt kullanarak durumu denetleyebilirsiniz [az özellik listesi] [ az-feature-list] komutu:
+Gösterilecek durum için birkaç dakika sürer *kayıtlı*. Kayıt kullanarak durumu denetleyebilirsiniz [az özellik listesi][az-feature-list] komutu:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
-Hazır olduğunuzda, kayıt yenileme *Microsoft.ContainerService* kullanarak kaynak sağlayıcısını [az provider register] [ az-provider-register] komutu:
+Hazır olduğunuzda, kayıt yenileme *Microsoft.ContainerService* kullanarak kaynak sağlayıcısını [az provider register][az-provider-register] komutu:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -66,7 +70,6 @@ az provider register --namespace Microsoft.ContainerService
 Oluştururken ve küme ölçeklendiriciyi kullanmak AKS kümelerini yönetme aşağıdaki sınırlamalar geçerlidir:
 
 * HTTP uygulama yönlendirme eklenti kullanılamaz.
-* Birden fazla düğüm havuzu (şu anda önizlemede aks'deki) şu anda kullanılamaz.
 
 ## <a name="about-the-cluster-autoscaler"></a>Küme otomatik ölçeklendiricinin hakkında
 
@@ -85,7 +88,7 @@ Yatay pod otomatik ölçeklendiricinin hem de küme ölçeklendirici, pod'ların
 
 Nasıl küme ölçeklendiriciyi ölçeğini olabilir hakkında daha fazla bilgi için bkz. [pod'ların can ne tür bir düğüm kaldırmasını küme ölçeklendiriciyi önlemek?][autoscaler-scaledown]
 
-Küme otomatik ölçeklendiricinin ölçek olayları ve kaynak eşikleri arasında zaman aralıkları gibi şeyler için başlangıç parametreleri kullanır. Bu parametreler Azure platformu tarafından tanımlanır ve ayarlamak için şu anda kullanıma sunulmaz. Hangi parametreler hakkında daha fazla bilgi için küme ölçeklendiriciyi kullanır, bkz: [küme ölçeklendiriciyi parametreleri nelerdir?] [autoscaler-parameters].
+Küme otomatik ölçeklendiricinin ölçek olayları ve kaynak eşikleri arasında zaman aralıkları gibi şeyler için başlangıç parametreleri kullanır. Bu parametreler Azure platformu tarafından tanımlanır ve ayarlamak için şu anda kullanıma sunulmaz. Hangi parametreler hakkında daha fazla bilgi için küme ölçeklendiriciyi kullanır, bkz: [küme ölçeklendiriciyi parametreleri nelerdir?][autoscaler-parameters].
 
 İki autoscalers birlikte çalışabilir ve genellikle bir kümede hem de dağıtılır. Birleştirildiğinde yatay pod otomatik ölçeklendiricinin üzerinde çalışan uygulama talebi karşılamak için gerekli pod'ların sayısını odaklanmıştır. Küme otomatik ölçeklendiricinin zamanlanmış pod'ların desteklemek için gereken düğüm üzerinde çalışan odaklanmıştır.
 
@@ -94,7 +97,7 @@ Küme otomatik ölçeklendiricinin ölçek olayları ve kaynak eşikleri arasın
 
 ## <a name="create-an-aks-cluster-and-enable-the-cluster-autoscaler"></a>AKS kümesi oluşturma ve küme ölçeklendiriciyi etkinleştir
 
-Bir AKS kümesi oluşturmak ihtiyacınız varsa [az aks oluşturma] [ az-aks-create] komutu. Belirtin bir *--kubernetes sürümü* , karşıladığını veya önceki özetlendiği gibi gerekli en düşük sürüm numarası [başlamadan önce](#before-you-begin) bölümü. Etkinleştirmek ve küme ölçeklendiriciyi yapılandırmak için kullanın *--enable-kümesi-otomatik ölçeklendiricinin* parametresi ve bir düğüm belirtin *--min-count* ve *--sayısı üst sınırı*.
+Bir AKS kümesi oluşturmak ihtiyacınız varsa [az aks oluşturma][az-aks-create] komutu. Belirtin bir *--kubernetes sürümü* , karşıladığını veya önceki özetlendiği gibi gerekli en düşük sürüm numarası [başlamadan önce](#before-you-begin) bölümü. Etkinleştirmek ve küme ölçeklendiriciyi yapılandırmak için kullanın *--enable-kümesi-otomatik ölçeklendiricinin* parametresi ve bir düğüm belirtin *--min-count* ve *--sayısı üst sınırı*.
 
 > [!IMPORTANT]
 > Küme otomatik ölçeklendiricinin Kubernetes bileşendir. AKS kümesi bir sanal makine ölçek kümesi düğümleri kullansa da, yoksa el ile etkinleştirmeniz veya Azure portalında veya Azure CLI kullanarak ölçek kümesi ölçeklendirme ayarlarını düzenleyin. Kubernetes küme ölçeklendiriciyi gerekli ölçek ayarları yönetmenize olanak tanır. Daha fazla bilgi için [AKS kaynakları MC_ kaynak grubunda değişiklik yapabilirsiniz?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc_-resource-group)
@@ -120,7 +123,7 @@ Kümeyi oluşturmak ve küme ölçeklendiriciyi ayarlarını yapılandırmak iç
 
 ### <a name="enable-the-cluster-autoscaler-on-an-existing-aks-cluster"></a>Mevcut bir AKS kümesinde Küme ölçeklendiriciyi etkinleştir
 
-Önceki özetlenen gereksinimleri karşılayan mevcut bir AKS kümesinde Küme ölçeklendiriciyi etkinleştirebilirsiniz [başlamadan önce](#before-you-begin) bölümü. Kullanım [az aks güncelleştirme] [ az-aks-update] komut ve tercih *--etkin küme ölçeklendiriciyi*, ardından bir düğüm belirtin *--min-count* ve *--sayısı üst sınırı*. Aşağıdaki örnek, en az kullanan mevcut bir kümede küme ölçeklendiriciyi etkinleştirir *1* ve en fazla *3* düğümleri:
+Önceki özetlenen gereksinimleri karşılayan mevcut bir AKS kümesinde Küme ölçeklendiriciyi etkinleştirebilirsiniz [başlamadan önce](#before-you-begin) bölümü. Kullanım [az aks güncelleştirme][az-aks-update] komut ve tercih *--etkin küme ölçeklendiriciyi*, ardından bir düğüm belirtin *--min-count* ve *--sayısı üst sınırı* . Aşağıdaki örnek, en az kullanan mevcut bir kümede küme ölçeklendiriciyi etkinleştirir *1* ve en fazla *3* düğümleri:
 
 ```azurecli-interactive
 az aks update \
@@ -137,7 +140,7 @@ En düşük düğüm sayısı mevcut kümedeki düğüm sayısını daha büyük
 
 Oluşturulacak veya güncelleştirilecek var olan bir AKS kümesi önceki adımda küme ölçeklendiriciyi en düşük düğüm sayısı ayarlandı *1*, ve en yüksek düğüm sayısı ayarlandı *3*. Uygulamanızı taleplerini değiştirin, küme ölçeklendiriciyi düğüm sayısı ayarlamanız gerekebilir.
 
-Düğüm sayısını değiştirmek için kullanın [az aks güncelleştirme] [ az-aks-update] komut ve minimum ve maksimum değer belirtin. Aşağıdaki örnek kümeleri *--min-count* için *1* ve *--sayısı üst sınırı* için *5*:
+Düğüm sayısını değiştirmek için kullanın [az aks güncelleştirme][az-aks-update] komut ve minimum ve maksimum değer belirtin. Aşağıdaki örnek kümeleri *--min-count* için *1* ve *--sayısı üst sınırı* için *5*:
 
 ```azurecli-interactive
 az aks update \
@@ -155,7 +158,7 @@ Uygulama ve hizmetlerinizin performansını izlemek ve küme ölçeklendiriciyi 
 
 ## <a name="disable-the-cluster-autoscaler"></a>Küme otomatik ölçeklendiricinin devre dışı bırak
 
-Artık küme ölçeklendiriciyi kullanmak istemiyorsanız, bunu kullanarak devre dışı bırakabilirsiniz [az aks güncelleştirme] [ az-aks-update] komutu. Küme otomatik ölçeklendiricinin devre dışı bırakıldığında düğümleri kaldırılmaz.
+Artık küme ölçeklendiriciyi kullanmak istemiyorsanız, bunu kullanarak devre dışı bırakabilirsiniz [az aks güncelleştirme][az-aks-update] komutu. Küme otomatik ölçeklendiricinin devre dışı bırakıldığında düğümleri kaldırılmaz.
 
 Küme otomatik ölçeklendiricinin kaldırmak için belirtin *--devre dışı bırakma küme ölçeklendiriciyi* parametresi, aşağıdaki örnekte gösterildiği gibi:
 
@@ -166,7 +169,7 @@ az aks update \
   --disable-cluster-autoscaler
 ```
 
-Küme kullanarak el ile ölçekleyebilir [az aks ölçek] [ az-aks-scale] komutu. Yatay pod otomatik ölçeklendiricinin kullanırsanız, bu özelliği devre dışı küme ölçeklendiriciyi ile çalışmaya devam eden, ancak pod'ların düğümünde kaynaklarını tüm kullanımda olduğunda zamanlanmış kurulamıyor bitirebilirsiniz.
+Küme kullanarak el ile ölçekleyebilir [az aks ölçek][az-aks-scale] komutu. Yatay pod otomatik ölçeklendiricinin kullanırsanız, bu özelliği devre dışı küme ölçeklendiriciyi ile çalışmaya devam eden, ancak pod'ların düğümünde kaynaklarını tüm kullanımda olduğunda zamanlanmış kurulamıyor bitirebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -185,9 +188,10 @@ Bu makalede otomatik olarak AKS düğümleri sayısının ölçeğini nasıl olu
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [autoscaler-scaledown]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-types-of-pods-can-prevent-ca-from-removing-a-node
 [autoscaler-parameters]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca

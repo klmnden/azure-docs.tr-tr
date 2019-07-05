@@ -1,19 +1,19 @@
 ---
-title: Azure ayrılmış kapasite ile SQL veri ambarı ücretleri için ön ödeme | Microsoft Docs
+title: Azure ayrılmış kapasite ile SQL veri ambarı ücretleri için ön ödeme
 description: Nasıl, SQL veri ambarı ücretleri paradan tasarruf etmek için ayrılmış kapasite ön ödeme öğrenin.
 services: billing
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 07/03/2019
 ms.author: banders
-ms.openlocfilehash: 3d56ee99f8056139a234477b6eed93d9fcbe2bbb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cea2c8e6d476c3ea2799337ab2da1f9406731814
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371198"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565354"
 ---
 # <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>SQL veri ambarı ücretleri için ön ödeme ile ayrılmış kapasite
 
@@ -43,14 +43,15 @@ Rezervasyon boyutu toplam dayanmalıdır SQL veri ambarı işlem tükettiğiniz 
 
 ## <a name="buy-sql-data-warehouse-reserved-capacity"></a>SQL veri ambarı ayrılmış kapasite satın alın
 
-1. Oturum açma için [Azure portalında](https://portal.azure.com/).
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Seçin **tüm hizmetleri** > **ayırmaları**.
 3. Bir abonelik seçin. Abonelik listesi ayrılmış kapasitesi için ödeme için kullanılan aboneliği seçmek için kullanın. Abonelik ödeme yöntemini, ön maliyet ayrılmış kapasite için ücretlendirilir. Kurumsal Anlaşma abonelik türü olmalıdır (sayılar sunar: MS-AZR-0017P veya MS-AZR - 0148 P) ya da Kullandıkça Öde (sayılar sunar: MS-AZR-0003P veya MS-AZR-0023P).
   - Kurumsal abonelik için ücretler kaydın maddi işlem bakiyesinden düşülür ve fazla kullanım olarak ücretlendirilir.
   - Kullandıkça Öde aboneliğinde ücretler, aboneliğin kredi kartı veya fatura ödeme yöntemi ile faturalandırılır.
 4. Bir kapsam seçin. Kapsam listesi abonelik kapsamında seçmek için kullanın.
-  - İle **tek** seçeneği, ayırma indirimini SQL veri ambarı seçili abonelikte dağıtılmış uygulanır.
-  - İle **paylaşılan** seçeneği, ayırma indirimini herhangi bir abonelik, fatura bağlamı içinde çalışan örneklerine uygulanır.
+  - **Tek bir kaynak grup kapsamı** — ayırma indirimi, eşleşen kaynakları yalnızca seçilen kaynak grubunda uygular.
+  - **Tek abonelik kapsamında** — ayırma indirimi, eşleşen kaynaklara seçili Abonelikteki geçerlidir.
+  - **Paylaşılan kapsam** — fatura bağlamında uygun aboneliklerin kaynaklarında eşleşen ayırma indirimi geçerlidir. Kurumsal Anlaşma müşterileri için fatura bağlamı kaydı değil. Kullandıkça Öde tarifesine göre ile tek tek abonelikleri için faturalama Hesap Yöneticisi tarafından oluşturulan tüm uygun abonelikleri kapsamıdır.
     - Kurumsal müşteriler için fatura bağlamı EA kayıt ' dir.
     - Kullandıkça Öde müşterileri için paylaşılan tüm Kullandıkça Öde abonelikleri Hesap Yöneticisi tarafından oluşturulan kapsamdır.
 5. Ayrılmış kapasite tarafından kapsanan bir Azure bölgesi seçmek için bir bölge seçin.

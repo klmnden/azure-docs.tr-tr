@@ -4,21 +4,21 @@ description: Azure Cosmos DB'de uygulamalarınızdaki çok yöneticili yapıland
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 07/02/2019
+ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 73b4ada713e264aaa2504fe4d4f504e07ae45181
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 646706eabf1b3a33c3143410f0e922a03e6a8ad6
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538091"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565899"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Uygulamalarınızda Azure Cosmos DB kullanmayı çok ana yapılandırma
 
 Birden çok yazma bölgeleri etkinleştirilmiş bir hesap oluşturulduktan sonra Azure Cosmos DB'de çok yöneticili ve çok girişli özellikleri etkinleştirmek DocumentClient için ConnectionPolicy uygulamanıza iki değişiklik yapmanız gerekir. ConnectionPolicy içinde UseMultipleWriteLocations true ve SetCurrentLocation için uygulamanın dağıtıldığı bölge adını ayarlayın. Bu konumdan geçirilen coğrafi yakınlık göre PreferredLocations özelliği doldurur. Yeni bir bölgeye hesabınıza daha sonra eklenirse, uygulamasının imzalanmasını veya güncelleştirilecek yok, daha yakın bir bölgeye otomatik olarak algılar ve otomatik-açın, bölgesel bir olayı gerçekleşmesi gerektiğini giriş.
 
-> [!TIP]
-> Sıfır kesinti, cosmos hesaplar için çok yöneticili başlangıçta yapılandırılmış oluşturulmamış geçirilebilir. Bkz: daha fazla bilgi edinmek için [birden çok yazma bölgeleri yapılandırın](how-to-manage-database-account.md#configure-multiple-write-regions)
+> [!Note]
+> Başlangıçta tek bir yazma bölgesi ile yapılandırılan cosmos hesaplar, birden fazla yazma bölgeleri (yani çok yöneticili) sıfır kesinti için yapılandırılabilir. Bkz: daha fazla bilgi edinmek için [birden çok yazma bölgeleri yapılandırın](how-to-manage-database-account.md#configure-multiple-write-regions)
 
 ## <a id="netv2"></a>.NET SDK'sı v2
 

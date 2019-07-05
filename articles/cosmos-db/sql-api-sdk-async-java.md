@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 3/5/2019
+ms.date: 07/01/2019
 ms.author: moderakh
-ms.openlocfilehash: 356838f16f7f13506657326bae5dbe994d54bdd5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3cafa4d5aecaa4c8f3863c3269ec02793340e3e6
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "57570105"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509272"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK'sı SQL API'si için: Sürüm Notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -43,6 +43,16 @@ SQL API Async Java SDK'sı desteği ile zaman uyumsuz işlemleri sağlayarak SQL
 | **En düşük desteklenen çalışma zamanı**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>Sürüm notları
+
+### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
+* TCP modunu artık varsayılan olarak
+* Çapraz bölüm sorgu ölçümleri, artık tüm bölümleri döndürür
+* Genel tanımlayıcı artık düzgün çalışıyor
+* Sorgular için yük devretme düzgün şekilde çok ana için yeniden deneme sayısı
+* Güvenlik düzeltmeleri bağımlılık tümsekler
+
+### <a name="a-name245245"></a><a name="2.4.5"/>2.4.5
+* Hata düzeltmesi karma V2 desteği
 
 ### <a name="a-name243243"></a><a name="2.4.3"/>2.4.3
 * Client#close() üzerinde kaynak sızıntıları için hata düzeltmesi ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88)).

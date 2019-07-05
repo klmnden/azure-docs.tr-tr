@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 6/13/2019
+ms.date: 6/27/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: d9bbc76fe60a5d363cd05b75df33f6fce00d7e9a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 2399fcaa683e5807d2a5cd69d3dd3357d804fd28
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303397"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449965"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure dosya eşitleme Aracısı sürüm notları
 Azure Dosya Eşitleme aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Windows Server yüklemeleriniz, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürülür. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilirsiniz. Dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
@@ -26,7 +26,8 @@ Azure Dosya Eşitleme aracısı aşağıdaki sürümleri destekler:
 | Kilometre Taşı | Aracı sürüm numarası | Sürüm tarihi | Durum |
 |----|----------------------|--------------|------------------|
 | V7 Yayın - [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 Haziran 2019 | [Yayını](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
-| Güncelleştirme paketi - Haziran 2019 [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 Haziran 2019 | Desteklenen (önerilen sürüm) |
+| Güncelleştirme paketi - Haziran 2019 [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 27 Haziran 2019 | Desteklenen (önerilen sürüm) |
+| Güncelleştirme paketi - Haziran 2019 [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 Haziran 2019 | Desteklenen |
 | Güncelleştirme paketi - Mayıs 2019 [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 Mayıs 2019 | Desteklenen |
 | V6 Yayın - [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 Nisan 2019 | Desteklenen |
 | Güncelleştirme paketi - Nisan 2019 [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 4 Nisan 2019 | Desteklenen |
@@ -113,6 +114,14 @@ Aşağıdaki öğeler eşitlenmez ancak sistem normal şekilde çalışmaya deva
 ### <a name="cloud-tiering"></a>Bulut katmanlaması
 - Katmanlanmış bir dosya Robocopy kullanılarak başka bir konuma kopyalanırsa, elde edilen dosya katmanlanmaz. Robocopy bu özniteliği kopyalama işlemlerine yanlışlıkla dahil ettiği için çevrimdışı özniteliği ayarlanmış olabilir.
 - Robocopy kullanarak dosyaları kopyalarken/MIR seçeneği dosya zaman damgası korumak için kullanın. Bu, eski dosyalar son erişilen dosyaların daha çabuk katmanlı garanti eder.
+
+## <a name="agent-version-6300"></a>Aracı sürümü 6.3.0.0
+Aşağıdaki sürüm notları, 27 Haziran 2019 yayımlanan Azure dosya eşitleme aracısının sürümü için 6.3.0.0 geçerlidir. Bu Notlar 6.0.0.0 sürümü için listelenen sürüm notlarına ek olarak var.
+
+Bu sürümde giderilen sorunlar listesi:  
+- Uygulama ayarlarına erişme veya bir sunucu uç noktası konumu SMB üzerinden gözatma Windows Server 2012 R2'de yavaş 
+- Azure dosya eşitleme v6 aracıyı yükledikten sonra daha yüksek CPU kullanımı
+- Bulut katmanlaması telemetri geliştirmeleri
 
 ## <a name="agent-version-6200"></a>Aracı sürümü 6.2.0.0
 Aşağıdaki sürüm notları 13 Haziran 2019 yayımlanan Azure dosya eşitleme aracısının sürümü için 6.2.0.0 ' dir. Bu Notlar 6.0.0.0 sürümü için listelenen sürüm notlarına ek olarak var.

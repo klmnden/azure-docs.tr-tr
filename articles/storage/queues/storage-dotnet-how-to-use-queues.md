@@ -10,12 +10,12 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 44f1953d01f827db1cbb65f9029c62569425745e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59995715ab42b4682befa7d1512b14427740dea2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077030"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446852"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>.NET kullanarak Azure Kuyruk Depolamaya başlayın
 
@@ -82,7 +82,7 @@ Bu paketler almak için NuGet kullanabilirsiniz. Şu adımları uygulayın:
 > [!NOTE]
 > Depolama istemci kitaplıkları paketleri de dahil edilir [.NET için Azure SDK'sı](https://azure.microsoft.com/downloads/). Ancak, depolama istemci kitaplıkları da her zaman en son sürümlerine sahip olduğunuzdan emin olun Nuget'ten yüklemenizi öneririz.
 >
-> .NET için depolama istemci kitaplıkları ODataLib bağımlılıkları, WCF veri Hizmetleri'nden değil, NuGet üzerindeki ODataLib paketleriyle çözümlenir. ODataLib kitaplıkları NuGet aracılığıyla doğrudan indirilebilir veya kod projenizle başvurulabilir. Depolama istemci kitaplıkları tarafından kullanılan belirli ODataLib paketleri [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/), ve [uzamsal](http://nuget.org/packages/System.Spatial/). Bu kitaplıklar, Azure Table storage sınıfları tarafından kullanılırken depolama istemcisi kitaplıkları'yla programlama için gerekli bağımlılıkları değildirler.
+> .NET için depolama istemci kitaplıkları ODataLib bağımlılıkları, WCF veri Hizmetleri'nden değil, NuGet üzerindeki ODataLib paketleriyle çözümlenir. ODataLib kitaplıkları NuGet aracılığıyla doğrudan indirilebilir veya kod projenizle başvurulabilir. Depolama istemci kitaplıkları tarafından kullanılan belirli ODataLib paketleri [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/), ve [uzamsal](https://nuget.org/packages/System.Spatial/). Bu kitaplıklar, Azure Table storage sınıfları tarafından kullanılırken depolama istemcisi kitaplıkları'yla programlama için gerekli bağımlılıkları değildirler.
 
 ### <a name="determine-your-target-environment"></a>Hedef ortamınızı saptama
 

@@ -1,19 +1,20 @@
 ---
-title: PostgreSQL - tek bir sunucu için Azure veritabanı'nda sınırlamaları
-description: Bu makalede, PostgreSQL - bağlantı ve depolama altyapısı seçenekleri sayısı gibi tek bir sunucu için Azure veritabanı'nda sınırlamalarını açıklar.
+title: PostgreSQL - tek bir sunucu için Azure veritabanı sınırları
+description: Bu makalede, PostgreSQL - bağlantı ve depolama altyapısı seçenekleri sayısı gibi tek bir sunucu için Azure veritabanı'nda sınırları açıklanır.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 3e1597def26c09378d3917ad2d49163ef17732f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.custom: fasttrack-edit
+ms.openlocfilehash: e4752112acf136d9ffb19a0b7383bc3aff5de5e0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66732874"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448094"
 ---
-# <a name="limitations-in-azure-database-for-postgresql---single-server"></a>PostgreSQL - tek bir sunucu için Azure veritabanı'nda sınırlamaları
+# <a name="limits-in-azure-database-for-postgresql---single-server"></a>PostgreSQL - tek bir sunucu için Azure veritabanı sınırları
 Aşağıdaki bölümlerde, kapasite ve veritabanı hizmetinde işlev sınırlamaları açıklanmaktadır. Kaynak (işlem, bellek, depolama) katmanları hakkında bilgi edinmek istiyorsanız, bkz. [fiyatlandırma katmanları](concepts-pricing-tiers.md) makalesi.
 
 
@@ -34,7 +35,7 @@ Fiyatlandırma katmanı ve sanal çekirdek başına bağlantıları sayısı aş
 |Bellek için İyileştirilmiş| 4| 500|
 |Bellek için İyileştirilmiş| 8| 960|
 |Bellek için İyileştirilmiş| 16| 1900|
-|Bellek için İyileştirilmiş| 32| 1900|
+|Bellek için İyileştirilmiş| 32| 1987|
 
 Bağlantı sınırı aştıklarında aşağıdaki hata iletisini alabilirsiniz:
 > Önemli: ne yazık ki zaten çok fazla sayıda istemci
@@ -48,6 +49,9 @@ Azure sistem PostgreSQL sunucusu için Azure veritabanı izlemek için beş bağ
 
 ### <a name="server-version-upgrades"></a>Sunucu sürümü yükseltme
 - Ana veritabanı altyapısı sürümleri arasında otomatik geçişi şu anda desteklenmiyor. Bir sonraki ana sürümüne yükseltmek istiyorsanız, olması bir [döküm ve geri yükleme](./howto-migrate-using-dump-and-restore.md) yeni altyapısı sürümü ile oluşturulmuş bir sunucu için.
+
+> Sürüm 10, PostgreSQL önce dikkat [PostgreSQL sürüm oluşturma ilkesine](https://www.postgresql.org/support/versioning/) kabul bir _ana sürüm_ ilk artışı olacak şekilde yükseltme _veya_ numarası (ikinci Örneğin, 9.5 için 9.6 kabul bir _ana_ sürüm yükseltmesi).
+> 10 sürümden itibaren bir ana sürüm yükseltmesi yalnızca ilk sayı bir değişiklik olarak kabul edilir (örneğin, 10.0 için 10.1 olan bir _küçük_ sürüm yükseltmesi ve 10-11 bir _ana_ sürüm yükseltmesi).
 
 ### <a name="vnet-service-endpoints"></a>Sanal ağ hizmet uç noktaları
 - Yalnızca genel amaçlı ve bellek için iyileştirilmiş sunucuları için sanal ağ hizmet uç noktaları desteğidir.

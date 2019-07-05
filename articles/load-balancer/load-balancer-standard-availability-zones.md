@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: kumud
-ms.openlocfilehash: 6f33be6e418366f57d243f578035b5c87079c99e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0820285555110e8e85bff814f4774d6da6443f69
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734465"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491980"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standard Load Balancer ve Kullanılabilirlik Bölgeleri
 
@@ -186,7 +186,7 @@ Yük Dengeleyiciyi kullanılabilirlik bağlamında bilerek esnektir. Bölgesel o
 
 Yük Dengeleyici bölgesel olarak yedekli bir ön ucu olarak tek bir IP basitleştirir. Bölgesel olarak yedekli bir IP adresi herhangi bir bölgedeki bölgesel bir kaynak güvenli bir şekilde görebilir ve bir bölgeyi bölge içinde sağlıklı kaldığı sürece bir veya daha fazla bölge hataları hayatta kalamaz. Buna karşılık, bölgesel bir ön uç hizmetinin tek bir bölge ve paylaşımları kader ilgili bölge ile azaltma ' dir.
 
-Bölge artıklığı hitless datapath ya da Denetim düzlemi anlamına gelmez;  Bu, veri düzlemi açıkça olur. Bölgesel olarak yedekli akışlar hiçbir bölge kullanabilirsiniz ve bir müşterinin akışlar bir bölgede tüm sağlıklı bölgeleri kullanır. Bölge hatası durumunda, o noktasında sağlıklı bölgeleri kullanarak trafik akışları etkilenmez.  Bir bölgeyi bölge hata sırasındaki kullanarak trafik akışları etkilenmiş olabilir ancak uygulamaları kurtarabilir ve Azure bölgesi hata etrafında hiper yakınsama sonra bu akışlar aktarım veya reestablishment bölge içinde kalan sağlıklı bölgelerinde devam edebilirsiniz.
+Bölge artıklığı hitless datapath ya da Denetim düzlemi anlamına gelmez;  Bu, veri düzlemi açıkça olur. Bölgesel olarak yedekli akışlar hiçbir bölge kullanabilirsiniz ve bir müşterinin akışlar bir bölgede tüm sağlıklı bölgeleri kullanır. Bölge hatası durumunda, o noktasında sağlıklı bölgeleri kullanarak trafik akışları etkilenmez.  Bir bölgeyi bölge hata sırasındaki kullanarak trafik akışları etkilenmiş olabilir, ancak uygulamalar kurtarabilirsiniz. Azure bölgesi hata etrafında hiper yakınsama sonra bu akışlar aktarım veya reestablishment, bölge içinde kalan sağlıklı bölgelerinde devam edebilir.
 
 ### <a name="xzonedesign"></a> Çapraz bölge sınırları
 

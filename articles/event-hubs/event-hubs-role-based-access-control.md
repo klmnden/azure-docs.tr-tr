@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: ae970b9612154a6463c4bf44a65da71a20c81635
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dfdeee9591b5d6ccbadadaef83c6598dd0e850d8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978305"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448137"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Etkin Directory Role-Based erişim denetimi (Önizleme)
 
@@ -29,10 +29,10 @@ SAS kuralları ve anahtarlar ya da olay hub'ları için belirli diğer herhangi 
 ## <a name="event-hubs-roles-and-permissions"></a>Olay hub'ları rolleri ve izinleri
 Azure Event Hubs ad alanına erişim yetkisi vermek için aşağıdaki yerleşik RBAC rolleri sağlar:
 
-[Olay hub'ları veri sahibi (Önizleme)](../role-based-access-control/built-in-roles.md#service-bus-data-owner) bir Event Hubs ad alanı ve varlıkları (kuyruklar, konular, abonelikler ve filtreleri) veri erişim rolünü etkinleştirir
+[Azure olay hub'ları veri sahibi (Önizleme)](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview) bir Event Hubs ad alanı ve varlıkları (kuyruklar, konular, abonelikler ve filtreleri) veri erişim rolünü etkinleştirir
 
 >[!IMPORTANT]
-> Biz daha önce desteklenen yönetilen kimliğe ekleme **sahibi** veya **katkıda bulunan** rol. Ancak, veri ayrıcalıklarına erişim **sahibi** ve **katkıda bulunan** rolü artık dikkate alınır. Kullanıyorsanız **sahibi** veya **katkıda bulunan** rolü kullanmanın anahtar **olay hub'ları veri sahibi** rol.
+> Biz daha önce desteklenen yönetilen kimliğe ekleme **sahibi** veya **katkıda bulunan** rol. Ancak, veri ayrıcalıklarına erişim **sahibi** ve **katkıda bulunan** rolü artık dikkate alınır. Kullanıyorsanız **sahibi** veya **katkıda bulunan** rolü kullanmanın anahtar **Azure olay hub'ları veri sahibi (Önizleme)** rol.
 
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>Event Hubs ile bir Azure AD etki alanı kullanıcı hesabı kullanın.

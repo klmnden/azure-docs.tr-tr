@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6ae271fc464e2a5735ef95a428b3070066058ddc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5234835f5fbfd5617e6b0440ff38fa900051470a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696139"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450117"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Hortonworks korumalı alanı ile Intellij için HDInsight araçları kullanma
 
@@ -24,7 +24,7 @@ Apache Scala uygulamaları geliştirin ve uygulamalar üzerinde test etmek için
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
+Bu makaleye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 
 - Hortonworks Data Platform (HDP) 2.4 yerel bilgisayarınızda çalışan Hortonworks korumalı. HDP ayarlamak için bkz [Apache Hadoop ekosistemindeki bir sanal makinede bir Hadoop korumalı alanı ile çalışmaya başlama](apache-hadoop-emulator-get-started.md). 
     > [!NOTE]
@@ -142,7 +142,7 @@ Bir projeye bir öykünücü göndermek için:
 2. Aşağıdaki adımları tamamlayın:
 
     1. İçinde **Spark kümesi (yalnızca Linux)** aşağı açılan listesinde, yerel Hortonworks korumalı alanı seçin.
-    2. İçinde **ana sınıf adı** kutusunda seçin veya ana sınıf adı girin. Bu öğreticide, addır **GroupByTest**.
+    2. İçinde **ana sınıf adı** kutusunda seçin veya ana sınıf adı girin. Bu makalede addır **GroupByTest**.
 
 3. Seçin **gönderme**. İş gönderme günlüklerini Spark gönderimi araç penceresinde gösterilir.
 

@@ -8,12 +8,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: 17b5c0b459e70909d9f305beb8bf87b83f1cf65c
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 2e2d13e6923535a8993a6477cbbfb921f6092d66
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296509"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565601"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Azure İzleyici'de Log Analytics ile çalışmaya başlama
 
@@ -55,7 +55,7 @@ Event | search "error"
 
 Bu sorgu arar _olay_ terimini içeren kayıtlar için tablo _hata_ herhangi bir özelliği olarak.
 
-Sorgular, bir tablo adı ile başlatabilir veya [arama](/kusto/query/searchoperator) komutu. Yukarıdaki örnekte tablo adı ile başlayan _olay_, olay tablonun tüm kayıtları alır. Aşağıdaki komutun girdi olarak ilk çıktısını hizmet için çizgi (|) karakter komutları ayırır. Herhangi bir sayıda komutları için tek bir sorgu ekleyebilirsiniz.
+Sorgular, bir tablo adı ile başlatabilir veya [arama](/azure/kusto/query/searchoperator) komutu. Yukarıdaki örnekte tablo adı ile başlayan _olay_, olay tablonun tüm kayıtları alır. Aşağıdaki komutun girdi olarak ilk çıktısını hizmet için çizgi (|) karakter komutları ayırır. Herhangi bir sayıda komutları için tek bir sorgu ekleyebilirsiniz.
 
 Aynı sorgu yazmak için başka bir yolu şu şekilde olur:
 

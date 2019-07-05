@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 3cad3722a9d0a52b1a0e66c760e948ceb3c1671c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b7fa59f4086608a8bacabde21f0c02c108f1f5e8
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061044"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466738"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Kullanımı ve Azure İzleyici günlüklerine ile maliyetleri yönetme
 
@@ -105,10 +105,12 @@ Aşağıdaki adımları ne kadar günlük verileri çalışma alanınızda taraf
 3. Bölmede artırın veya gün sayısını azaltın, ardından kaydırıcıyı **Tamam**.  Kullanıyorsanız *ücretsiz* katmanı, veri bekletme süresini değiştirmek mümkün olmayacaktır ve bu ayarı denetlemek için ücretli katmana yükseltmeniz gerekir.
 
     ![Çalışma alanı veri saklama ayarını değiştirme](media/manage-cost-storage/manage-cost-change-retention-01.png)
+    
+Bekletme de olabilir [ARM ayarlamak](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) kullanarak `dataRetention` parametresi. Ayrıca, veri saklama için 30 gün ayarlarsanız, eski verileri kullanarak, hemen bir temizleme tetikleyebilirsiniz `immediatePurgeDataOn30Days` parametresini uyumluluk ilgili senaryolarda yararlı olabilir. Bu işlev, yalnızca ARM sunulur. 
 
 ## <a name="legacy-pricing-tiers"></a>Eski fiyatlandırma katmanları
 
-Abonelikleri olan ve Log Analytics çalışma alanı veya Application Insights kaynağı 2 Nisan 2018'den önce olduğunu veya 1 Şubat 2019'dan önce kullanmaya bir Kurumsal Anlaşma bağlantılı fiyatlandırma katmanları eski erişiminiz devam eder: **Ücretsiz**, **tek başına (GB başına)** ve **düğüm başına (OMS)** .  Ücretsiz fiyatlandırma katmanı çalışma alanları, günlük veri alımı (hariç, Azure Güvenlik Merkezi tarafından toplanan güvenlik veri türleri) 500 MB ile sınırlı olacaktır ve veri saklama için 7 gün sınırlıdır. Ücretsiz fiyatlandırma katmanı, yalnızca değerlendirme amacıyla tasarlanmıştır. Çalışma alanları tek başına veya fiyatlandırma katmanları düğüm başına en fazla 2 yıllık kullanıcı tarafından yapılandırılabilir saklama sahiptir. 
+Abonelikleri olan ve Log Analytics çalışma alanı veya Application Insights kaynağı 2 Nisan 2018'den önce olduğunu veya 1 Şubat 2019'dan önce kullanmaya bir Kurumsal Anlaşma bağlantılı fiyatlandırma katmanları eski erişiminiz devam eder: **Ücretsiz**, **tek başına (GB başına)** ve **düğüm başına (OMS)** .  Ücretsiz fiyatlandırma katmanı çalışma alanları, günlük veri alımı (hariç, Azure Güvenlik Merkezi tarafından toplanan güvenlik veri türleri) 500 MB ile sınırlı olacaktır ve veri saklama için 7 gün sınırlıdır. Ücretsiz fiyatlandırma katmanı, yalnızca değerlendirme amacıyla tasarlanmıştır. Çalışma alanları tek başına veya fiyatlandırma katmanları düğüm başına en fazla 2 yıllık kullanıcı tarafından yapılandırılabilir saklama sahiptir. Nisan 2016'dan önce oluşturulan çalışma alanları da özgün erişim sahibi **standart** ve **Premium** fiyatlandırma katmanları. Fiyatlandırma katmanı sınırlamaları hakkında daha fazla ayrıntı kullanılabilir [burada](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces).
 
 > [!NOTE]
 > OMS E1 paketi, OMS E2 Suite veya System Center için OMS eklentisi satın alındıktan sonra sunulan destek haklarını kullanmak için Log Analytics seçin *düğüm başına* fiyatlandırma katmanı.
@@ -126,11 +128,7 @@ Log Analytics çalışma alanınızın eski fiyatlandırma katmanları arasında
 3. Altında **fiyatlandırma katmanı**, bir fiyatlandırma katmanı seçin ve ardından **seçin**.  
     ![Seçili fiyatlandırma planı](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-Çalışma alanınızdaki geçerli fiyatlandırma katmanına taşımak istiyorsanız, aboneliğinizin izleme değiştirmek gereken [Azure İzleyicisi'nde fiyatlandırma modeli](usage-estimated-costs.md#moving-to-the-new-pricing-model) bu Abonelikteki tüm çalışma alanlarını fiyatlandırma katmanını değiştirir.
-
-> [!NOTE]
-> Fiyatlandırma katmanını ayarlama hakkında daha fazla zaman [bir Azure Resource Manager şablonu kullanarak](template-workspace-configuration.md#create-a-log-analytics-workspace) çalışma alanı oluşturma ve emin olup olmamasına bakılmaksızın, Azure Resource Manager şablonu dağıtımı başarısız olur aboneliği eski veya yeni fiyatlandırma modeli. 
-
+Ayrıca [ARM aracılığıyla fiyatlandırma katmanını ayarlamak](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) kullanarak `ServiceTier` parametresi. 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Log Analytics, artık veri topluyor neden sorunlarını giderme
 

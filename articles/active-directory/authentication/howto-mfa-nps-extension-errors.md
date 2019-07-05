@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f80ecf02a7e517300c41e84986659a66cfa11c90
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c0d04db6e9ccedc1e67ed0cdfd914ab42ebea0b1
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60414945"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536941"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication için NPS uzantısından alınan hata iletilerini çözme
 
@@ -31,7 +31,7 @@ Azure multi-Factor Authentication için NPS uzantısı ile hatalarla karşılaş
 | **ESTS_TOKEN_ERROR** | Bölümündeki yönergeleri [MFA NPS uzantısı sorun giderme](howto-mfa-nps-extension.md#troubleshooting) araştırmaya sorun istemci sertifikası ve ADAL belirteç. |
 | **HTTPS_COMMUNICATION_ERROR** | Azure mfa'yı yanıtları almak NPS sunucusunu değiştiremiyor. Güvenlik duvarlarınızdan ve ondan trafik için açık çift yönlü olduğunu doğrulayın https://adnotifications.windowsazure.com |
 | **HTTP_CONNECT_ERROR** | NPS uzantısını çalıştıran sunucuda, size ulaşabildiğimizden doğrulayın https://adnotifications.windowsazure.com ve https://login.microsoftonline.com/. Bu siteler yükleme, o sunucudaki bağlantı sorunlarını giderme. |
-| **Azure mfa NPS uzantısı:** <br> Azure mfa NPS uzantısı yalnızca RADIUS isteklerini AccessAccept durumundaki ikincil kimlik doğrulaması gerçekleştirir. İstek yoksayılıyor AccessReject, yanıt durumu ile kullanıcının kullanıcı adı için alınan istek. | Bu hata, genellikle bir kimlik doğrulama hatası AD'de yansıtır veya Azure AD'den yanıtlar almasına NPS sunucusunu alamıyor. Güvenlik duvarlarınızdan ve ondan trafik için açık çift yönlü olduğunu doğrulayın https://adnotifications.windowsazure.com ve https://login.microsoftonline.com 80 ve 443 bağlantı noktalarını kullanarak. Ağ erişim izinleri arama Giriş sekmesinde "NPS Ağ İlkesi aracılığıyla erişimi denetlemek için" ayarının olduğunu denetlemek önemlidir. |
+| **Azure mfa NPS uzantısı:** <br> Azure mfa NPS uzantısı yalnızca RADIUS isteklerini AccessAccept durumundaki ikincil kimlik doğrulaması gerçekleştirir. İstek yoksayılıyor AccessReject, yanıt durumu ile kullanıcının kullanıcı adı için alınan istek. | Bu hata, genellikle bir kimlik doğrulama hatası AD'de yansıtır veya Azure AD'den yanıtlar almasına NPS sunucusunu alamıyor. Güvenlik duvarlarınızdan ve ondan trafik için açık çift yönlü olduğunu doğrulayın https://adnotifications.windowsazure.com ve https://login.microsoftonline.com 80 ve 443 bağlantı noktalarını kullanarak. Ağ erişim izinleri arama Giriş sekmesinde "NPS Ağ İlkesi aracılığıyla erişimi denetlemek için" ayarının olduğunu denetlemek önemlidir. Kullanıcı bir lisans atanmazsa, bu hata ayrıca tetikleyebilirsiniz. |
 | **REGISTRY_CONFIG_ERROR** | Kayıt defteri kaynaklanıyor olabilir uygulamanın bir anahtar eksik [PowerShell Betiği](howto-mfa-nps-extension.md#install-the-nps-extension) yüklendikten sonra Çalıştır değildi. Hata iletisi, eksik bir anahtar içermelidir. HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa anahtarında olduğundan emin olun. |
 | **REQUEST_FORMAT_ERROR** <br> RADIUS isteğini zorunlu RADIUS userName\Identifier özniteliği eksik. NPS RADIUS isteklerini aldığını doğrulayın. | Bu hata genellikle bir yükleme sorunu yansıtır. RADIUS isteklerini alabileceğini NPS sunucuları NPS uzantısı'nın yüklü olması gerekir. RDG ve RRAS gibi hizmetler için bağımlılık olarak yüklenen NPS sunucuları, RADIUS isteklerini alacak yok. NPS uzantısı, kimlik doğrulama isteğini ayrıntıları okunamıyor olduğundan bu tür yüklemeleri ve hataları üzerinden yüklendiğinde çalışmaz. |
 | **REQUEST_MISSING_CODE** | Parola şifreleme protokolünü NPS ve NAS sunucuları arasında kullanmakta olduğunuz ikincil kimlik doğrulama yöntemini desteklediğinden emin olun. **PAP** bulutta Azure MFA'ın tüm kimlik doğrulama yöntemleri destekler: telefon araması, tek yönlü SMS mesajı, mobil uygulama bildirimi ve mobil uygulama doğrulama kodu. **CHAPV2** ve **EAP** telefon araması ve mobil uygulama bildirimi destekler. |

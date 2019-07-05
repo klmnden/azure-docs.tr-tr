@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f57b0189708f48d1dc403ce778f5f9693b6dc702
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 833a22635c1d53dce9086aa3e11220d5868a302c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110388"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471985"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'deki yenilikler nelerdir?
 
@@ -36,6 +36,90 @@ Azure AD iyileştirmeleri düzenli olarak alır. İle en son gelişmeleri günce
 - Değişiklikleri planları
 
 Bu sayfaya ay güncelleştirilir, böylece bunu düzenli olarak tekrar ziyaret. Altı aydan eski olan öğeleri arıyorsanız, bunları bulabilirsiniz [Azure Active Directory'deki yenilikler için arşiv](whats-new-archive.md).
+
+---
+
+## <a name="june-2019"></a>Haziran 2019
+
+### <a name="new-riskdetections-api-for-microsoft-graph-public-preview"></a>Microsoft Graph (genel Önizleme) için yeni riskDetections API
+
+**Türü:** Yeni özellik  
+**Hizmet kategorisi:** Kimlik Koruması  
+**Ürün özelliği:** Kimlik güvenliği ve koruması
+
+Microsoft Graph için yeni riskDetections API'si artık genel önizlemeye sunuldu duyurmaktan Mutluluk duyuyoruz. Kuruluşunuzun kimlik koruması ile ilgili kullanıcı ve oturum açma riski algılamalar listesini görüntülemek için bu yeni API'yi kullanabilirsiniz. Bu API, saptama türü, durumu, düzey ve diğer ilgili ayrıntılar dahil olmak üzere, risk algılamaların daha verimli bir şekilde sorgulamak için de kullanabilirsiniz.
+
+Daha fazla bilgi için [Risk algılama API başvuru belgeleri](https://docs.microsoft.com/graph/api/resources/riskdetection?view=graph-rest-beta).
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---june-2019"></a>Yeni Federasyon uygulamaları kullanılabilir Azure AD uygulama galerisinde - Haziran 2019
+
+**Türü:** Yeni özellik  
+**Hizmet kategorisi:** Kurumsal uygulamalar  
+**Ürün özelliği:** 3. taraf tümleştirme
+
+Haziran 2019 ' federasyon ile 22 Bu yeni uygulamalar için uygulama Galerisi desteği ekledik:
+
+[Azure AD SAML Araç Seti](https://docs.microsoft.com/azure/active-directory/saas-apps/saml-toolkit-tutorial), [Otsuka Shokai (大塚商会)](https://docs.microsoft.com/azure/active-directory/saas-apps/otsuka-shokai-tutorial), [ANAQUA](https://docs.microsoft.com/azure/active-directory/saas-apps/anaqua-tutorial), [Azure VPN istemcisi](https://portal.azure.com/), [ExpenseIn](https://docs.microsoft.com/azure/active-directory/saas-apps/expensein-tutorial), [ Yardımcısı Yardımcısı](https://docs.microsoft.com/azure/active-directory/saas-apps/helper-helper-tutorial), [Costpoint](https://docs.microsoft.com/azure/active-directory/saas-apps/costpoint-tutorial), [GlobalOne](https://docs.microsoft.com/azure/active-directory/saas-apps/globalone-tutorial), [araç Mercedes Benz Office](https://me.secure.mercedes-benz.com/), [Skore](https://app.justskore.it/), [ Oracle bulut altyapısı konsol](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-cloud-tutorial), [CyberArk SAML kimlik doğrulaması](https://docs.microsoft.com/azure/active-directory/saas-apps/cyberark-saml-authentication-tutorial), [Scrible Edu](https://www.scrible.com/sign-in/#/create-account), [PandaDoc](https://docs.microsoft.com/azure/active-directory/saas-apps/pandadoc-tutorial), [Perceptyx ](https://apexdata.azurewebsites.net/docs.microsoft.com/azure/active-directory/saas-apps/perceptyx-tutorial), [Proptimise işletim sistemi](https://proptimise.co.uk/property-software/), [Vtiger CRM (SAML)](https://docs.microsoft.com/azure/active-directory/saas-apps/vtiger-crm-saml-tutorial), Oracle için Oracle perakende satış, Oracle E-Business Suite, IDCS Oracle için Oracle Erişim Yöneticisi Erişim Yöneticisi için E-Business Suite, Oracle PeopleSoft, Oracle için azure'da JD Edwards IDCS için IDCS
+
+Uygulamalar hakkında daha fazla bilgi için bkz. [Azure Active Directory ile SaaS uygulama tümleştirmesi](https://aka.ms/appstutorial). Azure AD uygulama galerisinde uygulamanızı listeleme hakkında daha fazla bilgi için bkz. [uygulamanızı Azure Active Directory Uygulama galerisinde listeleyin](https://aka.ms/azureadapprequest).
+
+---
+
+### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>Bu yeni destekli SaaS uygulamaları için hesap kullanıcı sağlamayı otomatikleştirin
+
+**Türü:** Yeni özellik  
+**Hizmet kategorisi:** Kurumsal uygulamalar  
+**Ürün özelliği:** İzleme ve Raporlama
+
+Oluşturma, güncelleştirme ve silme bu yeni tümleşik uygulamalar için kullanıcı hesapları artık otomatikleştirebilirsiniz:
+
+- [Yakınlaştırma](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial)
+
+- [Envoy](https://docs.microsoft.com/azure/active-directory/saas-apps/envoy-provisioning-tutorial)
+
+- [Proxyclick](https://docs.microsoft.com/azure/active-directory/saas-apps/proxyclick-provisioning-tutorial)
+
+- [4me](https://docs.microsoft.com/azure/active-directory/saas-apps/4me-provisioning-tutorial)
+
+Daha iyi otomatik kullanıcı hesabı sağlama kullanarak, kuruluşunuzun güvenliğini sağlama hakkında daha fazla bilgi için bkz. [Azure AD ile SaaS uygulamalarına kullanıcı sağlamayı otomatikleştirin](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)
+
+---
+
+### <a name="view-the-real-time-progress-of-the-azure-ad-provisioning-service"></a>Azure AD sağlama hizmeti, gerçek zamanlı ilerlemeyi görüntüleyebilirsiniz
+
+**Türü:** Değişen özellik  
+**Hizmet kategorisi:** Uygulama sağlama  
+**Ürün özelliği:** Kimlik yaşam döngüsü yönetimi
+
+Ne kadar sağlama işlemi kullanıcı olduğunu gösteren yeni bir ilerleme çubuğu içerecek şekilde sağlama deneyimini Azure AD'ye güncelleştirdik. Çok sayıda kullanıcı tarih için sağlanan nasıl bu güncelleştirilmiş deneyim ayrıca geçerli döngüsü sırasında sağlanan kullanıcı sayısı hakkında bilgi de sağlar.
+
+Daha fazla bilgi için [kullanıcı sağlama durumunu kontrol](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user).
+
+---
+
+### <a name="company-branding-now-appears-on-sign-out-and-error-screens"></a>Oturumu kapatın ve hata ekranları şirket markası artık görünür
+
+**Türü:** Değişen özellik  
+**Hizmet kategorisi:** Kimlik doğrulamaları (oturum açma bilgileri)  
+**Ürün özelliği:** Kullanıcı Kimlik Doğrulaması
+
+Şirket markanızı şimdi Oturumu Kapat ve hata iletilerini yanı üzerinde oturum açma sayfasında görünmesi, Azure AD güncelleştirdik. Bu özelliği açmak için herhangi bir şey yapmanız gerekmez, Azure AD, yalnızca zaten ayarladığınız içinde varlıkları kullanan **şirket markası ekleme** Azure portal'ın alan.
+
+Şirketinizin markasını ayarlama hakkında daha fazla bilgi için bkz. [ekleyin, kuruluşunuzun Azure Active Directory sayfalara marka](https://docs.microsoft.com/azure/active-directory/fundamentals/customize-branding).
+
+---
+
+### <a name="azure-multi-factor-authentication-mfa-server-is-no-longer-available-for-new-deployments"></a>Azure multi-Factor Authentication (MFA) sunucusu artık yeni dağıtımlar için kullanılabilir
+
+**Türü:** Kullanım Dışı  
+**Hizmet kategorisi:** MFA  
+**Ürün özelliği:** Kimlik güvenliği ve koruması
+
+1 Temmuz 2019'dan itibaren Microsoft artık yeni dağıtımlar için MFA sunucusu sunacaktır. Çok faktörlü kimlik doğrulaması, kuruluş içindeki gerekli olmasını istediğiniz yeni müşteriler artık Azure multi-Factor Authentication'ı bulut tabanlı kullanmanız gerekir. MFA sunucusu 1 Temmuz'dan önce etkinleştiren müşteriler, bir değişikliği göremezsiniz. Yine de etkinleştirme kimlik bilgileri oluştur en son sürümünü indirin ve gelecek güncelleştirmeleri almak mümkün olacaktır.
+
+Daha fazla bilgi için [Azure multi-Factor Authentication Sunucusu'nu kullanmaya başlama](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy). Bulut tabanlı Azure multi-Factor Authentication hakkında daha fazla bilgi için bkz: [bulut tabanlı bir Azure multi-Factor Authentication dağıtım planlaması](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted).
 
 ---
 
@@ -329,7 +413,7 @@ Azure AD Connect, e-posta uyarı sistemleri geçiş sürecinde bazı müşterile
 
 ### <a name="upn-suffix-changes-are-now-successful-between-federated-domains-in-azure-ad-connect"></a>UPN soneki değişiklikler Azure AD CONNECT'te federe etki alanları arasında başarılı
 
-**Türü:** düzeltildi  
+**Türü:** Sabit  
 **Hizmet kategorisi:** AD eşitleme  
 **Ürün özelliği:** Platform
 
@@ -511,7 +595,7 @@ Bu özellik hakkında daha fazla ayrıntı için bkz. [hızlı başlangıç: Azu
 
 ---
 
-### <a name="breaking-change-updates-to-condition-evaluation-by-exchange-activesync-eas"></a>Yeni değişiklik: Koşul değerlendirme Exchange ActiveSync (EAS) göre güncelleştirmeler
+### <a name="breaking-change-updates-to-condition-evaluation-by-exchange-activesync-eas"></a>Hataya neden olan değişiklik: Koşul değerlendirme Exchange ActiveSync (EAS) göre güncelleştirmeler
 
 **Türü:** Değişiklik planı  
 **Hizmet kategorisi:** Koşullu Erişim  
@@ -732,211 +816,5 @@ Daha fazla bilgi için [Microsoft Authenticator uygulaması hakkında SSS](https
 Privileged Identity Management (PIM) yöneticileri, artık tüm alt kaynaklar için rol atamalarını içeren belirli bir kaynak için tüm etkin ve uygun rolü atamalarını dışarı aktarabilirsiniz. Daha önce yöneticilerin bir abonelik için rol atamalarını tam bir listesini almak için zordu ve her belirli bir kaynak rolü atamalarını dışarı aktarma gerekiyordu.
 
 Daha fazla bilgi için [PIM Azure kaynak rolleri için etkinlik ve denetim geçmişini görüntüle](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac).
-
----
-
-## <a name="novemberdecember-2018"></a>Kasım/aralık 2018
-
-### <a name="users-removed-from-synchronization-scope-no-longer-switch-to-cloud-only-accounts"></a>Kullanıcıları eşitleme kapsamından uzun anahtarı olmadan yalnızca bulutta yer alan hesaplarına kaldırıldı
-
-**Türü:** düzeltildi  
-**Hizmet kategorisi:** Kullanıcı Yönetimi  
-**Ürün özelliği:** Dizin
-
->[!Important]
->Biz aldık ve nedeniyle bu düzeltme, sıkıntıya anlayın. Alana kadar bu nedenle, biz bu değişikliği düzeltme, kuruluşunuzda uygulamak daha kolay yapabiliyoruz, geri.
-
-Bir kullanıcının DirSyncEnabled bayrağını deneyebileceğinizi moduna geçiş yapılamaz için bir hatayı düzelttik **False** Active Directory etki alanı Hizmetleri (AD DS) nesnesinin eşitleme kapsamının dışında bırakılan ve ardından geri dönüşüm kutusu için taşınır zaman Azure AD üzerinde aşağıdaki eşitleme döngüsü. Kullanıcı eşitleme kapsamının dışında bırakılan ve daha sonra Azure AD Geri Dönüşüm Kutusu'ndan, geri bu düzeltmenin sonucu olarak, kullanıcı hesabı gelen eşitlenmiş olarak kalır AD, beklendiği gibi şirket içinde ve bulutta kaynağına yetki başlangıcı (SoA) olarak kalır beri yönetilemez Böylece, şirket içi AD.
-
-Bu düzeltme önce bir sorun oluştu, DirSyncEnabled bayrağını yanlış olarak değiştirildi. Bu hesaplar için yalnızca bulutta yer alan nesneler dönüştürüldü ve bulutta yönetilen hesapları yanlış izlenimini verdiği. Hesapları geldiğini, SoA şirket içi ve tüm eşitlenmiş özellikleri (gölge öznitelikleri) olarak yine de korunur ancak şirket içi AD. Bu durumun nedeni, Azure AD'de birden çok sorunla ve bu hesaplar AD'den eşitlenen olarak değerlendirilecek bekleniyordu, ancak artık yalnızca bulut hesapları gibi mu davrandığı, diğer bulut iş yüklerini (Exchange Online gibi).
-
-Şu anda gerçekten eşitlenmiş gelen-AD hesabı yalnızca bulut hesabına dönüştürmek için tek DirSync SoA aktarmak için bir arka uç işlemi tetikler ve Kiracı düzeyinde devre dışı bırakarak yoludur. Bu tür bir SoA değişiklik gerektirir (ancak bunlarla sınırlı değil) tüm şirket içi temizleme ilişkili öznitelikleri (LastDirSyncTime gibi ve gölge öznitelikler) ve diğer bulut iş yüklerini yalnızca bulutta yer alan bir hesap için çok dönüştürülen ilgili nesne için sinyal gönderme .
-
-Bu düzeltme, sonuç olarak gerekli olan bazı senaryolarda geçmişte doğrudan İmmutableıd özniteliği AD'den eşitlenen bir kullanıcı güncelleştirmeleri engeller. Adından da anlaşılacağı gibi tasarım gereği, Azure AD'de bir nesnenin Immutableıd sabit olması amaçlanmıştır. Bu tür senaryolara Azure AD Connect Health ve Azure AD Connect eşitlemesi istemcisinde uygulanan yeni özellikler mevcuttur:
-
-- **Çok aşamalı bir yaklaşım kullanıcılar için büyük ölçekli Immutableıd güncelleştirme**
-  
-  Örneğin, uzun bir AD DS ormanlar arası geçiş yapmanız gerekir. Çözüm: Azure AD Connect'e kullanın **kaynak bağlantısını yapılandır** ve kullanıcı geçirir, mevcut Immutableıd değerlerini Azure AD'den yerel AD DS kullanıcının ms-DS-tutarlılık-Guid özniteliği yeni ormanın kopyalayın. Daha fazla bilgi için [ms-DS-Consistencyguid'i sourceAnchor olarak kullanma](/azure/active-directory/hybrid/plan-connect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor).
-
-- **Tek seferde çok sayıda kullanıcı için büyük ölçekli Immutableıd güncelleştirmeleri**
-
-  Örneğin, Azure AD Connect uygulama çalışırken bir hata yaparsanız ve artık SourceAnchor özniteliği değiştirmeniz gerekir. Çözüm: DirSync ve Kiracı düzeyinde devre dışı bırakın ve tüm geçersiz Immutableıd değerleri temizleyin. Daha fazla bilgi için [Office 365 için dizin eşitleme devre dışı bırakma](/office365/enterprise/turn-off-directory-synchronization).
-
-- **Azure AD'de mevcut bir kullanıcının şirket içi kullanıcıyla rematch** Örneğin, AD DS'de yeniden oluşturulmuş bir kullanıcı bir yinelenen bir var olan Azure AD hesabı (yalnız bırakılmış nesneye) ile rematching yerine Azure AD hesabı oluşturur. Çözüm: Azure AD Connect Health, Azure portalında kaynak bağlayıcı/Immutableıd yeniden eşlemek için kullanın. Daha fazla bilgi için [Kitaplar'daki nesne senaryo](/azure/active-directory/hybrid/how-to-connect-health-diagnose-sync-errors#orphaned-object-scenario).
-
-### <a name="breaking-change-updates-to-the-audit-and-sign-in-logs-schema-through-azure-monitor"></a>Yeni değişiklik: Denetim ve Azure İzleyici aracılığıyla oturum açma günlükleri şema güncelleştirmeleri
-
-**Türü:** Değişen özellik  
-**Hizmet kategorisi:** Raporlama  
-**Ürün özelliği:** İzleme ve Raporlama
-
-Günlük dosyaları, SIEM araçlarınızı veya Log Analytics ile sorunsuz bir şekilde tümleştirebilmeniz için biz şu anda Azure İzleyici aracılığıyla denetim hem oturum açma günlük akışları yayımlıyor. Geri bildirimleriniz ve bu özelliğin genel kullanılabilirlik duyurusuyla hazırlığında bağlı olarak, aşağıdaki değişiklikleri bizim şemaya yapıyoruz. Bu şema değişiklikleri ve onun ilişkili belge güncelleştirmeleri Ocak ilk haftası tarafından gerçekleşir.
-
-#### <a name="new-fields-in-the-audit-schema"></a>Yeni alan denetim şeması
-Ekliyoruz yeni **işlem türü** işlemi türünü sağlamak için alan, kaynak üzerinde gerçekleştirilen. Örneğin, **Ekle**, **güncelleştirme**, veya **Sil**.
-
-#### <a name="changed-fields-in-the-audit-schema"></a>Denetim şeması değiştirilen alanları
-Aşağıdaki alanları denetim şemada değiştiriyorsunuz:
-
-|Alan adı|Değişiklikler|Eski değer|Yeni değerleri|
-|----------|------------|----------|----------|
-|Kategori|Bu **hizmet adı** alan. Artık **denetim kategorisini** alan. **Hizmet adı** adlandırıldı **loggedByService** alan.|<ul><li>Hesap Sağlama</li><li>Çekirdek Dizin</li><li>Self Servis parola sıfırlama</li></ul>|<ul><li>Kullanıcı Yönetimi</li><li>Grup Yönetimi</li><li>Uygulama Yönetimi</li></ul>|
-|targetResources|İçerir **TargetResourceType** en üst düzeyde.|&nbsp;|<ul><li>İlke</li><li>Uygulama</li><li>Kullanıcı</li><li>Grup</li></ul>|
-|loggedByService|Denetim günlüğü oluşturulan hizmetin adını sağlar.|Null|<ul><li>Hesap Sağlama</li><li>Çekirdek Dizin</li><li>Self servis parola sıfırlama</li></ul>|
-|Sonuç|Denetim günlüklerini sonucu sağlar. Daha önce bu listelenmiş, ancak artık gerçek değeri göstereceğiz.|<ul><li>0</li><li>1</li></ul>|<ul><li>Başarılı</li><li>Hata</li></ul>|
-
-#### <a name="changed-fields-in-the-sign-in-schema"></a>Oturum açma şema değiştirilen alanları
-Aşağıdaki alanları, oturum açma şemada değiştiriyorsunuz:
-
-|Alan adı|Değişiklikler|Eski değer|Yeni değerleri|
-|----------|------------|----------|----------|
-|appliedConditionalAccessPolicies|Bu **conditionalaccessPolicies** alan. Artık **appliedConditionalAccessPolicies** alan.|Değişiklik yok|Değişiklik yok|
-|conditionalAccessStatus|Oturum açma işlemi sırasında koşullu erişim ilkesi durumu sonucu sağlar. Daha önce bu listelenmiş, ancak artık gerçek değeri göstereceğiz.|<ul><li>0</li><li>1\.</li><li>2</li><li>3</li></ul>|<ul><li>Başarılı</li><li>Hata</li><li>Uygulanmadı</li><li>Devre dışı</li></ul>|
-|appliedConditionalAccessPolicies: sonuç|Oturum açma işlemi sırasında bireysel koşullu erişim ilkesi durumu sonucu sağlar. Daha önce bu listelenmiş, ancak artık gerçek değeri göstereceğiz.|<ul><li>0</li><li>1\.</li><li>2</li><li>3</li></ul>|<ul><li>Başarılı</li><li>Hata</li><li>Uygulanmadı</li><li>Devre dışı</li></ul>|
-
-Şeması hakkında daha fazla bilgi için bkz. [yorumlama Azure AD denetim günlükleri şema Azure İzleyici (Önizleme)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema)
-
----
-
-### <a name="identity-protection-improvements-to-the-supervised-machine-learning-model-and-the-risk-score-engine"></a>Kimlik koruması geliştirmeleri için denetimli makine öğrenimi modeli ve risk puanı altyapısı
-
-**Türü:** Değişen özellik  
-**Hizmet kategorisi:** Kimlik Koruması  
-**Ürün özelliği:** Risk puanları
-
-Kimlik koruması ile ilgili kullanıcı ve oturum açma risk değerlendirmesi altyapısı iyileştirmeleri kullanıcı risk doğruluk ve kapsamını artırmak yardımcı olabilir. Yöneticiler kullanıcı risk düzeyi artık doğrudan belirli algılamalar risk düzeyine bağlıdır ve sayısı ve riskli oturum açma olaylarını düzeyi arasında bir artış olduğunu fark edebilirsiniz.
-
-Risk algılama artık, denetimli makine öğrenimi, kullanıcının oturum açma ek özellikleri ve algılamalar desenini kullanarak kullanıcı riski hesaplar modelinde tarafından değerlendirilir. Bu kullanıcı ile ilişkili olan algılama düşük veya Orta riskini olsa bile bu modelini temel alan kullanıcı yüksek risk puanları ile yönetici bulabilirsiniz. 
-
----
-
-### <a name="administrators-can-reset-their-own-password-using-the-microsoft-authenticator-app-public-preview"></a>Yöneticiler, Microsoft Authenticator uygulamasını (genel Önizleme) kullanarak kendi parolalarını sıfırlayabilir
-
-**Türü:** Değişen özellik  
-**Hizmet kategorisi:** Self Servis parola sıfırlama  
-**Ürün özelliği:** Kullanıcı Kimlik Doğrulaması
-
-Azure AD yöneticileri artık Microsoft Authenticator uygulama içi bildirimler veya herhangi bir mobil kimlik doğrulayıcısı uygulaması veya donanım bir kod kullanarak kendi parola sıfırlama belirteci. Kullanıcıların kendi parolalarını sıfırlamak için Yöneticiler artık iki aşağıdaki yöntemlerden birini kullanmanız mümkün olacaktır:
-
-- Microsoft Authenticator uygulama bildirimi
-
-- Diğer Mobil kimlik doğrulayıcısı uygulaması / donanım belirteç kodu
-
-- Email
-
-- Telefon araması
-
-- Kısa mesaj
-
-Parola sıfırlama için Microsoft Authenticator uygulamasını kullanma hakkında daha fazla bilgi için bkz. [Azure AD Self Servis parola sıfırlama - mobil uygulama ve SSPR (Önizleme)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks#mobile-app-and-sspr-preview)
-
----
-
-### <a name="new-azure-ad-cloud-device-administrator-role-public-preview"></a>Yeni Azure AD bulut cihaz yöneticisi rolü (genel Önizleme)
-
-**Türü:** Yeni özellik  
-**Hizmet kategorisi:** Cihaz kaydı ve Yönetimi  
-**Ürün özelliği:** Erişim denetimi
-
-Yöneticiler, kullanıcıların bulut cihaz Yöneticisi görevleri gerçekleştirmek için yeni bulut cihaz yöneticisi rolü atayabilirsiniz. Bulut cihaz Yöneticiler rolünün atandığı kullanıcılar etkinleştirebilir, devre dışı ve Windows 10 BitLocker Anahtarları (varsa) Azure Portalı'nda okuma yetkisi olan yanı sıra Azure AD'de cihazları silin.
-
-Rolleri ve izinleri hakkında daha fazla bilgi için bkz: [Azure Active Directory'de yönetici rolleri atama](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
-
----
-
-### <a name="manage-your-devices-using-the-new-activity-timestamp-in-azure-ad-public-preview"></a>Yeni Etkinlik zaman damgası Azure AD'de (genel Önizleme) kullanarak cihazlarınızı yönetme
-
-**Türü:** Yeni özellik  
-**Hizmet kategorisi:** Cihaz kaydı ve Yönetimi  
-**Ürün özelliği:** Cihaz yaşam döngüsü yönetimi
-
-Biz, zamanla yenileyin ve gerekir, ortamınızda eski cihazları önlemek için Azure AD'de, kuruluşların cihazları devre dışı bırakma olduğunu unutmayın. Bu işlemde size yardımcı olacak artık Azure AD, cihaz yaşam döngüsünü yönetmenize yardımcı olacak cihazlarınızı yeni bir etkinlik damgasıyla güncelleştirir.
-
-Alın ve bu zaman damgasından kullanma hakkında daha fazla bilgi için bkz. [nasıl yapılır: Azure AD'de eski cihazları yönetme](https://docs.microsoft.com/azure/active-directory/devices/manage-stale-devices)
-
----
-
-### <a name="administrators-can-require-users-to-accept-a-terms-of-use-on-each-device"></a>Yöneticileri, kullanıcıların her cihazda kullanım koşullarını kabul etmesini zorunlu kılabilir
-
-**Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kullanım koşulları  
-**Ürün özelliği:** İdare
- 
-Yöneticiler şimdi Aç **kullanıcıların her cihazda kabul etmesini zorunlu tut** kiracınızda kullandıkları her bir cihazdaki kullanım koşullarınızı kabul etmelerini zorunlu hale getirin.
-
-Daha fazla bilgi için [kullanım özelliği, Azure Active Directory Koşulları'nın kullanımı bölümünde cihaz başına koşullarını](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#per-device-terms-of-use).
-
----
-
-### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-a-recurring-schedule"></a>Yöneticiler, yinelenen bir zamanlamaya göre süresi dolacak şekilde kullanım koşulları yapılandırabilirsiniz
-
-**Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kullanım koşulları  
-**Ürün özelliği:** İdare
- 
-
-Yöneticiler şimdi Aç **sona onayları** kullanım koşullarını hale getirme seçeneği süresi dolacak tüm kullanıcılarınız, belirtilen yinelenme çizelgesine dayalıdır. Zamanlama, BI aylık, üç aylık dönem veya aylık olarak yıllık olabilir. Kullanım koşullarını süresi dolduktan sonra kullanıcıların yeniden kabul etmesini gerektirmek gerekir.
-
-Daha fazla bilgi için [ekleme kullanım özelliği, Azure Active Directory Koşulları'nın kullanımı bölümünde koşullarını](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
-
----
-
-### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-each-users-schedule"></a>Yöneticiler her kullanıcının zamanlamaya göre süresi dolacak şekilde kullanım koşulları yapılandırabilirsiniz.
-
-**Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kullanım koşulları  
-**Ürün özelliği:** İdare
-
-Yöneticiler artık bir süre belirtin, kullanıcı kullanım koşullarını artırmasını gerekir. Örneğin, Yöneticiler, kullanıcılar her 90 günde Kullanım Koşulları'nı artırmasını gerekir belirtebilirsiniz.
-
-Daha fazla bilgi için [ekleme kullanım özelliği, Azure Active Directory Koşulları'nın kullanımı bölümünde koşullarını](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
- 
----
-
-### <a name="new-azure-ad-privileged-identity-management-pim-emails-for-azure-active-directory-roles"></a>Yeni Azure AD Privileged Identity Management (PIM) Azure Active Directory rolleri için e-posta gönderir.
-
-**Türü:** Yeni özellik  
-**Hizmet kategorisi:** Privileged Identity Management  
-**Ürün özelliği:** Privileged Identity Management
- 
-Azure AD Privileged Identity Management (PIM) kullanan müşteriler artık son yedi gün için aşağıdaki bilgiler dahil olmak üzere bir Haftalık Özet e-posta alabilir:
-
-- En uygun ve kalıcı rol atamaları genel bakış
-
-- Rol etkinleştirme kullanıcı sayısı
-
-- PIM rollerine atanan kullanıcıların sayısı
-
-- PIM dışında rollerine atanan kullanıcıların sayısı
-
-- Kullanıcılar "yapılmış kalıcı" PIM sayısı
-
-PIM ve kullanılabilir e-posta bildirimleri hakkında daha fazla bilgi için bkz. [e-posta bildirimleri PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications).
-
----
-
-### <a name="group-based-licensing-is-now-generally-available"></a>Grup tabanlı lisanslama genel kullanıma sunulmuştur
-
-**Türü:** Değişen özellik  
-**Hizmet kategorisi:** Diğer  
-**Ürün özelliği:** Dizin
-
-Grup tabanlı lisanslama, genel Önizleme dışında olan ve genel kullanıma sunulmuştur. Bu genel sürüm bir parçası olarak bu özellik daha ölçeklenebilir hale getirdik ve tek bir kullanıcının grup tabanlı lisans atamalarını suretiyle olanağı ve Office 365 E3/A3 lisanslarıyla grup tabanlı lisanslama kullanma olanağı ekledik.
-
-Grup tabanlı lisanslama hakkında daha fazla bilgi için bkz. [grup tabanlı Azure Active Directory lisansı nedir?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal)
-
----
-
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---november-2018"></a>Yeni Federasyon uygulamaları kullanılabilir Azure AD uygulama galerisinde - Kasım 2018
-
-**Türü:** Yeni özellik  
-**Hizmet kategorisi:** Kurumsal uygulamalar  
-**Ürün özelliği:** 3. taraf tümleştirme
- 
-Kasım 2018'de Federasyon ile bu 26 yeni uygulamalar için uygulama Galerisi desteği ekledik:
-
-[CoreStack](https://cloud.corestack.io/site/login), [HubSpot](https://docs.microsoft.com/azure/active-directory/saas-apps/HubSpot-tutorial), [GetThere](https://docs.microsoft.com/azure/active-directory/saas-apps/getthere-tutorial), [gri Pe](https://docs.microsoft.com/azure/active-directory/saas-apps/grape-tutorial), [eHour](https://getehour.com/try-now), [Consent2Go](https://docs.microsoft.com/azure/active-directory/saas-apps/Consent2Go-tutorial), [Appinux](https://docs.microsoft.com/azure/active-directory/saas-apps/appinux-tutorial), [DriveDollar](https://azuremarketplace.microsoft.com/marketplace/apps/savitas.drivedollar-azuread?tab=Overview), [Useall](https://docs.microsoft.com/azure/active-directory/saas-apps/useall-tutorial), [sonsuz kampüs](https://docs.microsoft.com/azure/active-directory/saas-apps/infinitecampus-tutorial), [Alaya](https://alayagood.com/en/demo/), [ HeyBuddy](https://docs.microsoft.com/azure/active-directory/saas-apps/heybuddy-tutorial), [Wrike SAML](https://docs.microsoft.com/azure/active-directory/saas-apps/wrike-tutorial), [kayması](https://docs.microsoft.com/azure/active-directory/saas-apps/drift-tutorial), [Zenegy iş merkezi 365](https://accounting.zenegy.com/), [Everbridge üye portalı](https://docs.microsoft.com/azure/active-directory/saas-apps/everbridge-tutorial), [IDEO](https://profile.ideo.com/users/sign_up), [Ivanti Hizmet Yöneticisi'ni (ISM)](https://docs.microsoft.com/azure/active-directory/saas-apps/ivanti-service-manager-tutorial), [Peakon](https://docs.microsoft.com/azure/active-directory/saas-apps/peakon-tutorial), [Allbound SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/allbound-sso-tutorial), [parçalı uygulamaları - Klasik Test](https://test.plexonline.com/signon), [parçalı uygulamaları – Klasik](https://www.plexonline.com/signon), [parçalı uygulamaları - UX Test](https://test.cloud.plex.com/sso), [parçalı uygulamaları – UX](https://cloud.plex.com/sso), [parçalı uygulamaları – IAM](https://accounts.plex.com/), [UĞRAŞIYOR - Childcare kayıtları, katılımcı ve finansal izleme sistemi](https://getcrafts.ca/craftsregistration) 
-
-Uygulamalar hakkında daha fazla bilgi için bkz. [Azure Active Directory ile SaaS uygulama tümleştirmesi](https://aka.ms/appstutorial). Azure AD uygulama galerisinde uygulamanızı listeleme hakkında daha fazla bilgi için bkz. [uygulamanızı Azure Active Directory Uygulama galerisinde listeleyin](https://aka.ms/azureadapprequest).
 
 ---

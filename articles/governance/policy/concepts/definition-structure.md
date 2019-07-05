@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 398efd36e6c8d82a5090b7446c95abb2d1bfbca1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979544"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428754"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -72,6 +72,10 @@ Tüm Azure ilkesi örnekleri altındadır [Azure ilkesi örnekleri](../samples/i
 
 ## <a name="mode"></a>Mod
 
+**Modu** olduğu bir Azure Resource Manager özelliği veya bir kaynak sağlayıcısı özelliği ilkenin hedeflediği bağlı olarak yapılandırılmamış.
+
+### <a name="resource-manager-modes"></a>Resource Manager modları
+
 **Modu** hangi kaynak türlerinin bir ilke değerlendirileceğini belirler. İlişkin desteklenen modları şunlardır:
 
 - `all`: kaynak grupları ve tüm kaynak türleri değerlendirin
@@ -80,6 +84,13 @@ Tüm Azure ilkesi örnekleri altındadır [Azure ilkesi örnekleri](../samples/i
 Ayarlamanızı öneririz **modu** için `all` çoğu durumda. Portalı kullanarak oluşturulan tüm ilke tanımlarını `all` modu. PowerShell veya Azure CLI kullanıyorsanız, belirtebilmeniz için **modu** parametresi el ile. İlke tanımı içermiyorsa bir **modu** değeri, varsayılan olarak için `all` Azure PowerShell ve çok `null` Azure clı'daki. A `null` modu kullanarak aynı olup `indexed` geriye dönük uyumluluğunu desteklemek için.
 
 `indexed` etiketleri veya konumları zorunlu ilkeleri oluştururken kullanılmalıdır. Gerekli olmasa da, etiketler ve konumları olarak uyumluluk sonuçları uyumlu olmayan gösteren gelen desteklemeyen kaynakları engeller. Özel durum **kaynak grupları**. Konum veya bir kaynak grubu etiketleri takım politikaları ayarlamalıdır **modu** için `all` ve özellikle hedef `Microsoft.Resources/subscriptions/resourceGroups` türü. Bir örnek için bkz. [kaynak grubu etiketleri zorunlu](../samples/enforce-tag-rg.md). Etiketleri destekleyen kaynaklar listesi için bkz. [etiket Azure kaynakları için destek](../../../azure-resource-manager/tag-support.md).
+
+### <a name="resource-provider-modes"></a>Kaynak sağlayıcısı modları
+
+Şu anda desteklenen tek kaynak sağlayıcısı moddur `Microsoft.ContainerService.Data` üzerinde giriş denetleyicisine kuralları yönetmek için [Azure Kubernetes hizmeti](../../../aks/intro-kubernetes.md).
+
+> [!NOTE]
+> [Kubernetes için Azure İlkesi](rego-for-aks.md) genel Önizleme aşamasındadır ve yalnızca yerleşik ilke tanımları destekler.
 
 ## <a name="parameters"></a>Parametreler
 
@@ -389,6 +400,7 @@ Azure İlkesi etkisi aşağıdaki türlerini destekler:
 - **AuditIfNotExists**: bir kaynak mevcut değilse denetim sağlar
 - **Deployıfnotexists**: zaten mevcut değilse bir kaynak dağıtır.
 - **Devre dışı bırakılmış**: uyumluluk İlkesi kuralı için kaynakları değerlendirmez
+- **EnforceRegoPolicy**: Açık İlke Aracısı kullandılar denetleyicisi Azure Kubernetes hizmeti (Önizleme) yapılandırır.
 
 İçin **ekleme**, aşağıdaki ayrıntıları sağlamanız gerekir:
 

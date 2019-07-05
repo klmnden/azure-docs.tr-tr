@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e94b307d562c4317a87713612a62e6da007f9703
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4afe5c89a83f251ee354c955b6dc28b0bccc9e6c
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64570649"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561134"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure için ağ ilkesi sunucusu uzantısı kullanarak VPN altyapınız ile Azure mfa'yı tümleştirme
 
@@ -246,7 +246,7 @@ Bu bölümde, VPN sunucunuzu, RADIUS kimlik doğrulaması kullanacak şekilde ya
 
     b. İçin **paylaşılan gizlilik**seçin **değişiklik**ve ardından oluşturduğunuz ve daha önce kaydedilmiş paylaşılan gizli parolasını girin.
 
-    c. İçinde **zaman aşımı (saniye)** kutusunda, bir değer seçerek **30** aracılığıyla **60**.  
+    c. İçinde **zaman aşımı (saniye)** kutusunda, değeri girin **30**.  
     Zaman aşımı değeri, ikinci faktör kimlik doğrulamasını tamamlamak için yeterli zamana izin vermek gereklidir.
 
     ![RADIUS sunucusu penceresi zaman aşımını yapılandırma Ekle](./media/howto-mfa-nps-extension-vpn/image16.png)
@@ -304,7 +304,7 @@ Bu sorunları gidermek için başlatmak için ideal bir RADIUS sunucusu güvenli
 
 ## <a name="configure-multi-factor-authentication"></a>Çok faktörlü kimlik doğrulamasını yapılandırma
 
-Kullanıcılar için multi-Factor Authentication yapılandırma Yardım makalelere göz atın [bir kullanıcı veya grup için iki aşamalı doğrulama gerektirme](howto-mfa-userstates.md) ve [hesabım için iki aşamalı doğrulama ayarlayın](../user-help/multi-factor-authentication-end-user-first-time.md)
+Kullanıcılar için multi-Factor Authentication yapılandırma Yardım makalelere göz atın [bulut tabanlı bir Azure multi-Factor Authentication dağıtım planlaması](howto-mfa-getstarted.md#create-conditional-access-policy) ve [hesabım için iki aşamalı doğrulama ayarlayın](../user-help/multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="install-and-configure-the-nps-extension"></a>Yükleme ve NPS uzantısı yapılandırma
 

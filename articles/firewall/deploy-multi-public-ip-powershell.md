@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 06/21/2019
+ms.date: 7/2/2019
 ms.author: victorh
-ms.openlocfilehash: 9ec37197376c815c4fb9072164520a707b02be2b
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: a5a53766df3338bb36913b589ebda970de55ec94
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312735"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491928"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>Azure PowerShell kullanarak birden çok genel IP adresi ile bir Azure Güvenlik Duvarı'nı dağıtma
 
@@ -21,7 +21,7 @@ ms.locfileid: "67312735"
 > Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir.
 > Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Bir Azure güvenlik duvarı en fazla 600 genel IP adresi ile dağıtabilirsiniz.
+Bir Azure güvenlik duvarı en fazla 100 genel IP adresi ile dağıtabilirsiniz.
 
 Bu özellik aşağıdaki senaryolar sağlar:
 

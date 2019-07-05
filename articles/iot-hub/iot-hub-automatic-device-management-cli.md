@@ -6,14 +6,14 @@ manager: bruz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/13/2018
+ms.date: 06/28/2019
 ms.author: chrisgre
-ms.openlocfilehash: 0302146634904ccf1d87220d3a24553149e10372
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d57dbbdd7614d09d52fef0f613c43d4ca1d08136
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61322585"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485857"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-cli"></a>Azure CLI kullanarak ölçek otomatik IOT cihaz Yönetimi
 
@@ -29,7 +29,9 @@ Otomatik cihaz Yönetimi works istediğiniz özelliklere sahip bir dizi cihaz ik
 
 * **Hedef içerik** veya hedeflenen cihaz ikizlerini güncelleştirilemiyor için istenen özellikleri tanımlar. İçerik değiştirilmesi için istenen özellikler kısmında bir yolu içerir.
 
-* **Ölçümleri** gibi çeşitli yapılandırma durumlarının Özet sayıları tanımlamak **başarı**, **sürüyor**, ve **hata**. Özel ölçümler olarak cihaz sorguları belirtilen çiftinin bildirilen özelliklerini.  Sistem, hedeflenen cihaz ikizlerini sayısı ve başarıyla güncelleştirildi ikizlerini sayısı gibi ikizi güncelleştirme durumunu ölçen varsayılan ölçümler ölçümleridir. 
+* **Ölçümleri** gibi çeşitli yapılandırma durumlarının Özet sayıları tanımlamak **başarı**, **sürüyor**, ve **hata**. Özel ölçümler olarak cihaz sorguları belirtilen çiftinin bildirilen özelliklerini.  Sistem, hedeflenen cihaz ikizlerini sayısı ve başarıyla güncelleştirildi ikizlerini sayısı gibi ikizi güncelleştirme durumunu ölçen varsayılan ölçümler ölçümleridir.
+
+Otomatik cihaz yapılandırmaları, kısa süre içinde yapılandırma oluşturulduktan sonra ilk kez ve ardından beş dakikalık aralıklarla çalıştırın. Ölçüm sorguları, otomatik cihaz yapılandırması her çalıştığında çalıştırın.
 
 ## <a name="cli-prerequisites"></a>CLI önkoşulları
 
@@ -56,7 +58,7 @@ Bir yapılandırma oluşturmadan önce değiştirmek istediğiniz hangi cihazlar
 
 ## <a name="define-the-target-content-and-metrics"></a>Hedef içerik ve ölçümlerinizi tanımlayın
 
-Hedef içerik ve ölçüm sorguları, cihaz açıklayan bir JSON belgelerini kümesine istenen özellikleri ve ölçmek üzere bildirilen özellikleri ikizi gibi belirtilir.  Azure CLI kullanarak bir otomatik cihaz yapılandırmasını oluşturmak için Ölçümler ve hedef içerik yerel olarak .txt dosyaları olarak kaydedin. Cihazınıza yapılandırmayı uygulamak için komutu çalıştırdığınızda, bir sonraki bölümde dosya yolları kullanın. 
+Hedef içerik ve ölçüm sorguları, cihaz açıklayan bir JSON belgelerini kümesine istenen özellikleri ve ölçmek üzere bildirilen özellikleri ikizi gibi belirtilir.  Azure CLI kullanarak bir otomatik cihaz yapılandırmasını oluşturmak için Ölçümler ve hedef içerik yerel olarak .txt dosyaları olarak kaydedin. Cihazınıza yapılandırmayı uygulamak için komutu çalıştırdığınızda, bir sonraki bölümde dosya yolları kullanın.
 
 Temel hedef içerik örneği aşağıdadır:
 

@@ -3,6 +3,7 @@ title: Azure SQL veritabanı Machine Learning Hizmetleri (Önizleme) için temel
 description: Bu konuda, Azure SQL veritabanı Machine Learning Hizmetleri (R ile) ve SQL Server Machine Learning Hizmetleri arasındaki önemli farklılıkları açıklar.
 services: sql-database
 ms.service: sql-database
+ms.subservice: machine-learning
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +12,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: 92785015a1ce122b8301b56fa62d122c8d95180c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ee92b598625b1346cf87c661d1867cc1cb012b60
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64725045"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67486002"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Machine Learning Hizmetleri (Önizleme) Azure SQL veritabanında SQL Server arasındaki temel farklılıklar
 
@@ -43,12 +44,15 @@ SQL veritabanı ve SQL Server arasındaki farklı iş R paket yönetimi ve yükl
 - Paketleri giden ağ çağrıları gerçekleştirilemiyor. Bu sınırlama benzer [Machine Learning Hizmetleri için varsayılan güvenlik duvarı kuralları](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration) SQL Server'da, SQL veritabanı'nda değiştirilemez, ancak.
 - Dış çalışma zamanları (Java gibi) bağımlı veya yükleme veya kullanım için işletim sistemi API'lerine erişmesi gereken paketler desteği yoktur.
 
+## <a name="writing-to-a-temporary-table"></a>Geçici bir tabloya yazma
+
+Azure SQL veritabanı'nda RODBC kullanmakta olduğunuz sonra içinde veya dışında oluşturulup oluşturulmadığını geçici bir tabloya yazılamıyor `sp_execute_external_script` oturumu. Geçici çözüm kullanmaktır [RxOdbcData](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxodbcdata) ve [rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep) (= FALSE ile üzerine yazma ve ekleme = "satır") için daha önce oluşturduğunuz genel geçici bir tabloya yazılacak `sp_execute_external_script` sorgu.
+
 ## <a name="resource-governance"></a>Kaynak idaresi
 
 R kaynaklarında sınırlamak mümkün değildir [kaynak İdarecisi](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) ve dış kaynak havuzu.
 
 Genel Önizleme sırasında R kaynakları en fazla %20 SQL veritabanı kaynaklarının ayarlanır ve bağımlı, hangi hizmet katmanı seçin. Daha fazla bilgi için [Azure SQL veritabanı'nın satın alma modeli](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
-
 ### <a name="insufficient-memory-error"></a>Yetersiz bellek hatası
 
 R için kullanılabilir bellek yetersiz ise bir hata iletisi alırsınız. Genel hata iletileri şunlardır:
