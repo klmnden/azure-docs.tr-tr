@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 07/01/2019
-ms.openlocfilehash: 9e0caa8b98133dad3af083e8910d0603bbd2563b
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: HT
+ms.date: 07/03/2019
+ms.openlocfilehash: 31c6521ca77d9d85fc8388d7ebc5d25defc69bd0
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67489927"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568388"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances-ri"></a>Azure ayrılmış VM örnekleri (RI) ile sanal makineler için ön ödeme
 
@@ -66,20 +66,19 @@ Ayrılmış VM örnekleri, bazı özel durumlar ile çoğu VM boyutları için k
 ## <a name="buy-a-reserved-vm-instance"></a>Ayrılmış VM örneği satın alın
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Seçin **tüm hizmetleri** > **ayırmaları**.
-3. Seçin **Ekle** yeni bir rezervasyon satın almak için.
-4. Gerekli alanları girin. Çalışan VM ayırma indirim almak için öznitelikleri uygun eşleşen örnekleri. Kapsam ve seçilen miktar indirim almak, sanal makine örneği gerçek sayısını bağlıdır.
+1. Seçin **tüm hizmetleri** > **ayırmaları**.
+1. Seçin **Ekle** yeni bir rezervasyon satın alın ve ardından **sanal makine**.
+1. Gerekli alanları girin. Çalışan VM ayırma indirim almak için öznitelikleri uygun eşleşen örnekleri. Kapsam ve seçilen miktar indirim almak, sanal makine örneği gerçek sayısını bağlıdır.
 
-    | Alan      | Açıklama|
-    |------------|--------------|
-    |Ad        |Bu rezervasyon adı.|
-    |Abonelik|Ayırma için ödeme yapmak üzere kullanılan abonelik. Aboneliğinizin ödeme yöntemini, ön maliyet ayırma için ücretlendirilir. Kurumsal Anlaşma abonelik türü olmalıdır (sayılar sunar: MS-AZR-0017P veya MS-AZR - 0148 P) ya da Kullandıkça Öde tarifesine göre tek tek bir abonelikle (sayılar sunar: MS-AZR-0003P veya MS-AZR-0023P). Kurumsal abonelik için ücretler kaydın maddi işlem bakiyesinden düşülür ve fazla kullanım olarak ücretlendirilir. Kullandıkça Öde tarifesine göre olan bir abonelik için ücretleri, aboneliğinizin kredi kartı veya fatura ödeme yöntemi için faturalandırılır.|    
-    |`Scope`       |Ayırma'nın kapsamı, bir abonelik veya birden çok abonelik (paylaşılan kapsamı) ele. Seçerseniz: <ul><li>Tek bir abonelik - ayırma indirimini bu abonelikte Vm'lere uygulanır. </li><li>Paylaşılan - ayırma indirimi herhangi bir abonelik, fatura bağlamı içinde çalışan Vm'lere uygulanır. Kurumsal müşteriler için Paylaşılan kapsam kayıt ve kayıt içinde tüm abonelikleri içerir. Kullandıkça Öde tarifesine göre olan abonelikleri olan müşteriler için Paylaşılan kapsam Kullandıkça Öde fiyatları üzerinden Hesap Yöneticisi tarafından oluşturulan tüm aboneliklere ' dir.</li></ul>|
-    |Bölge    |Ayırma tarafından kapsanan Azure bölgesi.|    
-    |VM Boyutu     |Sanal makine örneği boyutu.|
-    |İçin en iyi duruma getirme     |Sanal makine örneği boyutu esnekliği, aynı diğer VM'ler için ayırma indirimi geçerlidir [VM boyutu grubu](https://aka.ms/RIVMGroups). Kapasite önceliği dağıtımlarınız için veri merkezi kapasitenizi önceliklendirir. Bu, ihtiyaç duyduğunuzda sanal makine örneklerini başlatma yeteneğinizi ek güvence sunar. Kapasite önceliği yalnızca ayırma kapsamı tek bir abonelik olduğunda kullanılabilir. |
-    |Terim        |Bir yıl veya üç yıl.|
-    |Miktar    |İçinde rezervasyon satın örnek sayısı. Çalışan faturalandırma indirim almak sanal makine örneği sayısını miktarıdır. Doğu ABD bölgesinde 10 işler için standart_d2 VM çalıştırıyorsanız, örneğin, ardından, miktar avantajı tüm çalışan makineler için en üst düzeye çıkarmak için 10 olarak belirtmeniz gerekir. |
+| Alan      | Açıklama|
+|------------|--------------|
+|Abonelik|Ayırma için ödeme yapmak üzere kullanılan abonelik. Aboneliğinizin ödeme yöntemini, ön maliyet ayırma için ücretlendirilir. Kurumsal Anlaşma abonelik türü olmalıdır (sayılar sunar: MS-AZR-0017P veya MS-AZR - 0148 P) ya da Kullandıkça Öde tarifesine göre tek tek bir abonelikle (sayılar sunar: MS-AZR-0003P veya MS-AZR-0023P). Kurumsal abonelik için ücretler kaydın maddi işlem bakiyesinden düşülür ve fazla kullanım olarak ücretlendirilir. Kullandıkça Öde tarifesine göre olan bir abonelik için ücretleri, aboneliğinizin kredi kartı veya fatura ödeme yöntemi için faturalandırılır.|    
+|`Scope`       |Ayırma'nın kapsamı, bir abonelik veya birden çok abonelik (paylaşılan kapsamı) ele. Seçerseniz: <ul><li>**Tek bir kaynak grup kapsamı** — ayırma indirimi, eşleşen kaynakları yalnızca seçilen kaynak grubunda uygular.</li><li>**Tek abonelik kapsamında** — ayırma indirimi, eşleşen kaynaklara seçili Abonelikteki geçerlidir.</li><li>**Paylaşılan kapsam** — fatura bağlamında uygun aboneliklerin kaynaklarında eşleşen ayırma indirimi geçerlidir. Kurumsal Anlaşma müşterileri için fatura bağlamı kaydı değil. Kullandıkça Öde tarifesine göre ile tek tek abonelikleri için faturalama Hesap Yöneticisi tarafından oluşturulan tüm uygun abonelikleri kapsamıdır.</li></ul>|
+|Bölge    |Ayırma tarafından kapsanan Azure bölgesi.|    
+|VM Boyutu     |Sanal makine örneği boyutu.|
+|İçin en iyi duruma getirme     |Sanal makine örneği boyutu esnekliği, varsayılan olarak seçilidir. Aynı diğer VM'ler için ayırma indirimini uygulamak için örnek boyutunu esneklik değeri değiştirmek için Gelişmiş ayarları [VM boyutu grubu](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md). Kapasite önceliği dağıtımlarınız için veri merkezi kapasitenizi önceliklendirir. Bu, ihtiyaç duyduğunuzda sanal makine örneklerini başlatma yeteneğinizi ek güvence sunar. Kapasite önceliği yalnızca ayırma kapsamı tek bir abonelik olduğunda kullanılabilir. |
+|Terim        |Bir yıl veya üç yıl.|
+|Miktar    |İçinde rezervasyon satın örnek sayısı. Çalışan faturalandırma indirim almak sanal makine örneği sayısını miktarıdır. Doğu ABD bölgesinde 10 işler için standart_d2 VM çalıştırıyorsanız, örneğin, ardından, miktar avantajı tüm çalışan makineler için en üst düzeye çıkarmak için 10 olarak belirtmeniz gerekir. |
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
 
