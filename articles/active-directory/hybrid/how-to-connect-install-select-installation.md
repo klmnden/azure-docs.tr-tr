@@ -56,7 +56,7 @@ Seçenekler burada Express kullanmaya devam edebilirsiniz:
 - Birden fazla ormanınız veya birden fazla orman gelecekte eşitlemek planlama.
 - Connect sunucusundan ulaşılabilir değil, ormanınızdaki etki alanınız.
 - Kullanıcı oturum açma için Federasyon veya geçişli kimlik doğrulaması kullanmayı planlayın.
-- 100\. 000'den fazla nesneniz ve tam SQL Server'ı kullanmanız gerekir.
+- 100. 000'den fazla nesneniz ve tam SQL Server'ı kullanmanız gerekir.
 - Grup tabanlı filtreleme ve yalnızca etki alanı veya OU tabanlı filtreleme kullanmayı planlayın.
 
 ## <a name="upgrade-from-dirsync"></a>DirSync'ten yükseltme

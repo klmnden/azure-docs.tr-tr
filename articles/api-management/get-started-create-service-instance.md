@@ -31,7 +31,7 @@ Bu hızlı başlangıç, Azure portalını kullanarak yeni bir API Management ö
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-https://portal.azure.com adresinden Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com ) adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-new-service"></a>Yeni hizmet oluşturma
 

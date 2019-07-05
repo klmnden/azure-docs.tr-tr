@@ -38,10 +38,10 @@ Kodunuzda, yeni genel veya gizli bir istemci (veya kullanıcı aracısı için M
 ## <a name="authority"></a>Yetkilisi
 MSAL belirteçleri isteyebileceği bir dizin belirten bir URL yetkilisidir. Ortak yetkilileri şunlardır:
 
-- https://login.microsoftonline.com/&lt ; Kiracı&gt; / burada &lt; Kiracı&gt; Azure Active Directory (Azure AD) kiracısı ya da bu Azure AD Kiracı ile ilişkilendirilen bir etki alanı Kiracı Kimliğini gösterir. Yalnızca belirli bir kuruluşun kullanıcıları imzalamak için kullanılır.
-- https://login.microsoftonline.com/common/. Kullanıcılar iş ve Okul hesapları veya kişisel Microsoft hesapları ile imzalamak için kullanılır.
-- https://login.microsoftonline.com/organizations/. Kullanıcılar iş ve Okul hesapları ile imzalamak için kullanılır.
-- https://login.microsoftonline.com/consumers/. Kullanıcılar (eski adıyla Windows Live ID hesabı olarak da bilinir) yalnızca kişisel Microsoft hesapları ile imzalamak için kullanılır.
+- [https://login.microsoftonline.com/&amp;lt](https://login.microsoftonline.com/&lt ); Kiracı&gt; / burada &lt; Kiracı&gt; Azure Active Directory (Azure AD) kiracısı ya da bu Azure AD Kiracı ile ilişkilendirilen bir etki alanı Kiracı Kimliğini gösterir. Yalnızca belirli bir kuruluşun kullanıcıları imzalamak için kullanılır.
+- [https://login.microsoftonline.com/common/](https://login.microsoftonline.com/common/ ). Kullanıcılar iş ve Okul hesapları veya kişisel Microsoft hesapları ile imzalamak için kullanılır.
+- [https://login.microsoftonline.com/organizations/](https://login.microsoftonline.com/organizations/ ). Kullanıcılar iş ve Okul hesapları ile imzalamak için kullanılır.
+- [https://login.microsoftonline.com/consumers/](https://login.microsoftonline.com/consumers/ ). Kullanıcılar (eski adıyla Windows Live ID hesabı olarak da bilinir) yalnızca kişisel Microsoft hesapları ile imzalamak için kullanılır.
 
 Yetkilisi ayarı, uygulama kayıt Portalı'nda bildirilen ile tutarlı olması gerekiyor.
 

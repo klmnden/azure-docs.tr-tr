@@ -41,7 +41,7 @@ Bu öğretici aşağıdaki görevleri kapsar:
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma 
 
-1.  [Azure portalda](https://portal.azure.com/) oturum açın.  
+1.  [Azure portalda](https://portal.azure.com/) oturum açın. 
 
 2. **Kaynak oluştur** > **Veritabanları** > **Azure Cosmos DB** seçeneğini belirleyin. 
 

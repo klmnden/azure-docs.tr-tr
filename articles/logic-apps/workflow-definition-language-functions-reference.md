@@ -113,8 +113,8 @@ Koleksiyonlar, genellikle dizi, dizeleri ve sözlükleri ile bazen çalışmak i
 | [Son](../logic-apps/workflow-definition-language-functions-reference.md#last) | Bir koleksiyondaki son öğeyi döndürür. |
 | [Uzunluğu](../logic-apps/workflow-definition-language-functions-reference.md#length) | Bir dize ya da dizideki öğe sayısını döndürür. |
 | [Atla](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Bir koleksiyonun önünden öğeleri kaldırıp dönüş *diğer tüm* öğeleri. |
-| [sınav zamanı](../logic-apps/workflow-definition-language-functions-reference.md#take) | Bir koleksiyonun önünden öğelerini döndürür. |
-| [birleşim](../logic-apps/workflow-definition-language-functions-reference.md#union) | Sahip bir koleksiyonun dönüş *tüm* belirtilen koleksiyonlarla öğelerinden. |
+| [take](../logic-apps/workflow-definition-language-functions-reference.md#take) | Bir koleksiyonun önünden öğelerini döndürür. |
+| [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | Sahip bir koleksiyonun dönüş *tüm* belirtilen koleksiyonlarla öğelerinden. |
 |||
 
 <a name="comparison-functions"></a>
@@ -126,11 +126,11 @@ Her işlev hakkındaki tam başvuru için bkz: [alfabetik liste](../logic-apps/w
 
 | Mantıksal bir karşılaştırma işlevi | Görev |
 | --------------------------- | ---- |
-| [ve](../logic-apps/workflow-definition-language-functions-reference.md#and) | Tüm ifadelerin doğru olup olmadığını denetleyin. |
+| [and](../logic-apps/workflow-definition-language-functions-reference.md#and) | Tüm ifadelerin doğru olup olmadığını denetleyin. |
 | [eşittir](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Her iki değer eşit olup olmadığını denetleyin. |
 | [daha büyük](../logic-apps/workflow-definition-language-functions-reference.md#greater) | İlk değer ikinci değerden büyük olup olmadığını denetleyin. |
 | [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | İlk değer ikinci değerine eşit veya daha büyük olup olmadığını denetleyin. |
-| [Eğer](../logic-apps/workflow-definition-language-functions-reference.md#if) | İfadenin true veya false olup olmadığını denetleyin. Sonuca bağlı, belirli bir değeri döndürme. |
+| [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | İfadenin true veya false olup olmadığını denetleyin. Sonuca bağlı, belirli bir değeri döndürme. |
 | [less](../logic-apps/workflow-definition-language-functions-reference.md#less) | İkinci değer ilk değer olup değerinden denetleyin. |
 | [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | İlk değer ya da ikinci değer eşit olup olmadığını denetleyin. |
 | [not](../logic-apps/workflow-definition-language-functions-reference.md#not) | Bir ifadenin false olup olmadığını denetleyin. |
@@ -288,7 +288,7 @@ Her işlev hakkındaki tam başvuru için bkz: [alfabetik liste](../logic-apps/w
 | İşleme işlevi | Görev |
 | --------------------- | ---- |
 | [addProperty](../logic-apps/workflow-definition-language-functions-reference.md#addProperty) | Bir özellik, değer veya ad-değer çifti için bir JSON nesnesi ekleyin ve güncelleştirilmiş nesneyi döndürür. |
-| [birleşim](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | Bir veya daha fazla parametrelerinden ilk null olmayan değer döndürür. |
+| [coalesce](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | Bir veya daha fazla parametrelerinden ilk null olmayan değer döndürür. |
 | [removeProperty](../logic-apps/workflow-definition-language-functions-reference.md#removeProperty) | Bir JSON nesnesinden bir özelliğini kaldırın ve güncelleştirilmiş nesneyi döndürür. |
 | [setProperty](../logic-apps/workflow-definition-language-functions-reference.md#setProperty) | Bir JSON nesnesi özelliği değerini ayarlayın ve güncelleştirilmiş nesneyi döndürür. |
 | [XPath](../logic-apps/workflow-definition-language-functions-reference.md#xpath) | Düğümleri veya bir (XML Path Language) XPath ifadesi eşleşen değerler için XML denetleyin ve eşleşen düğümleri veya değerleri döndürür. |
@@ -751,7 +751,7 @@ Ve isteğe bağlı bir "D" biçim kullanarak sonucunu döndürür: `"Tuesday, Ja
 
 <a name="and"></a>
 
-### <a name="and"></a>ve
+### <a name="and"></a>and
 
 Tüm ifadelerin doğru olup olmadığını denetleyin.
 Tüm ifadeler doğru olduğunda true döndürür veya en az bir ifade false olduğunda false döndürür.
@@ -1042,7 +1042,7 @@ Ve bu sonuçları döndürür:
 
 <a name="coalesce"></a>
 
-### <a name="coalesce"></a>birleşim
+### <a name="coalesce"></a>coalesce
 
 Bir veya daha fazla parametrelerinden ilk null olmayan değer döndürür.
 Boş dizeler, boş diziler ve boş nesneler boş değildir.
@@ -3492,7 +3492,7 @@ Ve isteğe bağlı "D" biçimini kullanarak bu sonucunu döndürür: `"Monday, J
 
 <a name="take"></a>
 
-### <a name="take"></a>sınav zamanı
+### <a name="take"></a>take
 
 Bir koleksiyonun önünden öğelerini döndürür.
 
@@ -3776,7 +3776,7 @@ Ve bu sonucu verir: `"Hello World"`
 
 <a name="union"></a>
 
-### <a name="union"></a>birleşim
+### <a name="union"></a>union
 
 Sahip bir koleksiyonun dönüş *tüm* belirtilen koleksiyonlarla öğelerinden.
 Sonuçta görüntülenmek üzere bu işleve geçirilen koleksiyondaki bir öğe görünebilir. Bir veya daha fazla öğe aynı ada sahipse, bu ada sahip son öğeyi sonuçta da görüntülenir.
