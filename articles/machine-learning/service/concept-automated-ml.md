@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b9fe8ff710cbfe7fbb4a4d8bd351028bb50efcb0
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 137ef1ad78548053f3c5b8f30b7d83f2370f62da
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331729"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442429"
 ---
 # <a name="what-is-automated-machine-learning"></a>Nedir, makine öğrenimi otomatik?
 
@@ -120,7 +120,7 @@ Otomatik ML ayrıca gibi diğer Microsoft çözümleri kullanılabilir:
 
 Örneklere bakın ve otomatik makine öğrenimini kullanarak model oluşturmayı öğrenin:
 
-+ İzleyin [Öğreticisi: Otomatik olarak bir Azure Machine Learning otomatik sınıflandırma modeli eğitme](tutorial-auto-train-models.md)
++ İzleyin [Öğreticisi: Otomatik olarak Azure Machine Learning otomatik ile bir regresyon modeli eğitimi](tutorial-auto-train-models.md)
 
 + Otomatik eğitim denemesini için ayarları yapılandırın:
   + Azure portal arabiriminde [şu adımları kullanarak](how-to-create-portal-experiments.md).

@@ -1,20 +1,19 @@
 ---
 title: IoT Edge üzerinde Azure Stream Analytics
 description: Edge işleri, Azure Stream Analytics'te oluşturmak ve bunları Azure IOT Edge çalıştıran cihazlara dağıtabilirsiniz.
-services: stream-analytics
+ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 4/2/2019
+ms.date: 07/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17b9d11b75e2677e22fa2e38c21a69f018a4bee8
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60804002"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508351"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>IoT Edge üzerinde Azure Stream Analytics
  
@@ -111,7 +110,7 @@ IOT Edge belgeleri için bu adımları açıklanan [Windows](https://docs.micros
 
 > [!Note]
 > Bu adım sırasında ASA (Bunu zaten mevcut değilse) depolama kapsayıcısında "EdgeJobs" adlı bir klasör oluşturur. Her bir dağıtım için "EdgeJobs" klasöründe yeni bir alt klasör oluşturulur.
-> İşinizi uç cihazlarına dağıtmak için ASA işi tanım dosyasını bir paylaşılan erişim imzası (SAS) oluşturur. SAS anahtarını, cihaz ikizi kullanarak IOT Edge cihazları güvenli bir şekilde aktarılır. Bu anahtarı süre sonu oluşturulduğu günden itibaren üç yıldır.
+> IOT Edge cihazlarına iş dağıttığınızda, ASA işi tanım dosyasını bir paylaşılan erişim imzası (SAS) oluşturur. SAS anahtarını, cihaz ikizi kullanarak IOT Edge cihazları güvenli bir şekilde aktarılır. Bu anahtarı süre sonu oluşturulduğu günden itibaren üç yıldır. IOT Edge işi güncelleştirdiğinizde, SAS değişir, ancak görüntü sürümü değişmez. Sonra **güncelleştirme**, dağıtım iş akışını izleyin ve cihazda bir güncelleştirme bildirimi günlüğe kaydedilir.
 
 
 IOT Edge dağıtımları hakkında daha fazla bilgi için bkz [bu sayfayı](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
@@ -203,9 +202,31 @@ Başvuru verileri güncelleştirmek için iki yolu vardır:
 * [IOT Edge üzerinde Azure Stream Analytics, lisans](https://go.microsoft.com/fwlink/?linkid=862827). 
 * [IOT Edge üzerinde Azure Stream Analytics için üçüncü taraf bildirimi](https://go.microsoft.com/fwlink/?linkid=862828).
 
+## <a name="azure-stream-analytics-module-image-information"></a>Azure Stream Analytics modülü görüntü bilgileri 
+
+Bu sürüm bilgileri 2019-06-27 en son güncelleştirildiği:
+
+- Görüntü: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-amd64`
+   - temel görüntü: microsoft/dotnet:2.1.6-runtime-alpine3.7
+   - Platform:
+      - Mimari: amd64
+      - os: linux
+  
+- Görüntü: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-arm32v7`
+   - temel görüntü: microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
+   - Platform:
+      - Mimari: arm
+      - os: linux
+  
+- Görüntü: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-windows-amd64`
+   - temel görüntü: microsoft/dotnet:2.1.6-runtime-nanoserver-1809
+   - Platform:
+      - Mimari: amd64
+      - işletim sistemi: windows
+      
+      
 ## <a name="get-help"></a>Yardım alın
 Daha fazla yardım için deneyin [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

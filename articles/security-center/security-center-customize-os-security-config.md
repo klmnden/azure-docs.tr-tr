@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: d9dc9f3a4ab964b66e3a2cb03f4aad442c5665e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7095992253fbbe5aafce1eab889965250f5d59a8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64573596"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551392"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>İşletim sistemi güvenlik yapılandırmaları (Önizleme) Azure Güvenlik Merkezi'nde özelleştirme
 
@@ -56,13 +56,11 @@ Güvenlik Merkezi'nde varsayılan işletim sistemi güvenlik yapılandırmasın�
 
 1.  **Güvenlik Merkezi** panosunu açın.
 
-2.  Sol bölmede seçin **Güvenlik İlkesi**.      
+2.  Sol bölmede seçin **fiyatlandırma & ayarları**.
 
     ![Güvenlik İlkesi listesi](media/security-center-customize-os-security-config/manual-provision.png)
 
-3.  Özelleştirmek istediğiniz abonelik satırının **ayarlarını Düzenle**.
-
-4. Seçin **güvenlik yapılandırmalarını Düzenle**.  
+4. Geçerli abonelik seçip **güvenlik yapılandırmalarını Düzenle**.  
 
     !["Güvenlik yapılandırmalarını Düzenle" penceresi](media/security-center-customize-os-security-config/blade.png)
 

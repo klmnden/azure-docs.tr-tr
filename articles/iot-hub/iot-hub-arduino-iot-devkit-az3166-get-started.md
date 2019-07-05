@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 04/17/2019
+ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 2f86b74299b5d47a87ed0b8e89a992f0f91a84be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4017a3be5e03e1a9b85b4002b8069a1adc3a6b83
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924641"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551578"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>IOT DevKit AZ3166 Azure IOT hub'a bağlama
 
@@ -30,6 +30,8 @@ Kullanabileceğiniz [MXChip IOT DevKit](https://microsoft.github.io/azure-iot-de
 * Geliştirme ortamınızı hazırlama ve IOT DevKit için uygulama geliştirmek nasıl.
 
 Bir DevKit henüz yok mu? Deneyin [DevKit simülatör](https://azure-samples.github.io/iot-devkit-web-simulator/) veya [bir DevKit satın](https://aka.ms/iot-devkit-purchase).
+
+Tüm DevKit eğitimlerinde için kaynak kodunu bulabilirsiniz [IoTDevEnvExamples](https://github.com/IoTDevEnvExamples) depo.
 
 ## <a name="what-you-need"></a>Ne gerekiyor
 
@@ -132,6 +134,11 @@ DevKit IOT hub'ınızdaki bir cihaza özel uç noktasına bağlanır ve sıcakl�
     ![Wi-Fi IP](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/wifi-ip.jpg)
 
     ![Veri gönderme](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/sending-data.jpg)
+
+1. Azure'a gönderilen telemetri verilerini doğrulamak için Azure Cloud Shell'de aşağıdaki komutu çalıştırın:
+    ```bash
+    az iot hub monitor-events --hub-name YourIoTHubName --output table
+    ```
 
 ## <a name="prepare-the-development-environment"></a>Geliştirme ortamını hazırlama
 
@@ -301,7 +308,7 @@ Kullanabileceğiniz [Azure IOT Araçları](https://marketplace.visualstudio.com/
 1. VS Code'da tıklayın `F1`yazın ve seçin **Azure IOT Hub: IOT Hub bağlantı dizesine ayarlayın**. Bağlantı dizesini buraya kopyalayın.
     ![Azure IOT Hub bağlantı dizesine ayarlayın](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/set-iothub-connection-string.png)
 
-1. Genişletin **AZURE IOT HUB CİHAZLARI** sağ tıklayın, oluşturduğunuz ve seçin cihaz adına sağ bölmesinde **D2C iletisini İzlemeyi Başlat**.
+1. Genişletin **AZURE IOT HUB CİHAZLARI** sağ tıklayın, oluşturduğunuz ve seçin cihaz adına sağ bölmesinde **Başlat yerleşik olay uç nokta izleme**.
     ![İzleyici D2C iletisini](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/monitor-d2c.png)
 
 1. İçinde **çıkış** bölmesinde, IOT hub'ına gelen D2C iletileri görebilirsiniz.

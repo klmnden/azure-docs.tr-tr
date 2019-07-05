@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 06/26/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e850b915cd01b6bacd70d6df7752eeb83f7101d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf888b72cca806822ca7a37542e71a5be0c8d5c3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153852"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443734"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-powershell"></a>PowerShell ile RBAC ile Azure blob ve kuyruk verilere erişim izni ver
 
@@ -30,7 +30,7 @@ Bu makalede, yerleşik RBAC rolleri listelemek ve onları kullanıcılara atamak
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>Kaynak kapsamını belirle 
+## <a name="determine-resource-scope"></a>Kaynak kapsamını belirle
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
@@ -54,9 +54,9 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## <a name="assign-an-rbac-role-to-a-user"></a>Bir kullanıcıya bir RBAC rolü atayın
+## <a name="assign-an-rbac-role-to-a-security-principal"></a>Bir güvenlik sorumlusu için bir RBAC rolü atayın
 
-Bir kullanıcıya bir RBAC rolü atamak için kullanın [yeni AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) komutu. Komut biçimi atama kapsamına göre değişebilir. Aşağıdaki örnekler, çeşitli kapsamları sırasında bir kullanıcıya rol atamak gösterilmektedir.
+Bir RBAC rolü için bir güvenlik sorumlusu atama [yeni AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) komutu. Komut biçimi atama kapsamına göre değişebilir. Aşağıdaki örnekler, çeşitli kapsamları sırasında bir kullanıcıya rol atamak gösterilmektedir, ancak aynı komutu tüm güvenlik sorumlusu rol atamak için kullanabilirsiniz.
 
 ### <a name="container-scope"></a>Kapsayıcı kapsamı
 

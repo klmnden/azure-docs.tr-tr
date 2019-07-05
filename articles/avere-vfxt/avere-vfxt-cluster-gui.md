@@ -4,14 +4,14 @@ description: VFXT küme ve tarayıcı tabanlı Avere Avere vFXT yapılandırmak 
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 06/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: f989f4d103efecf2b6e206287dd8b7b300a1796d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 830be92d37f304598cca05c3ac80973158c38a59
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60794313"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439981"
 ---
 # <a name="access-the-vfxt-cluster"></a>Erişim vFXT küme
 
@@ -27,9 +27,11 @@ VFXT kümesi özel bir sanal ağ içinde yer alan olduğundan, bir SSH tüneli o
 
 Bağlamadan önce küme denetleyicisi oluştururken kullanılan SSH ortak/özel anahtar çifti yerel makinenizde yüklü olduğundan emin olun. SSH anahtarları belgelerini okuyun [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) veya [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) yardıma ihtiyacınız varsa. (Bir parola yerine bir ortak anahtar kullandıysanız, bağlandığınızda girmeniz istenir.) 
 
-## <a name="ssh-tunnel-with-a-linux-host"></a>Bir Linux ana bilgisayarla SSH tüneli
+## <a name="create-an-ssh-tunnel"></a>SSH tüneli oluşturma 
 
-Linux tabanlı bir istemci kullanıyorsanız, bir SSH tünel oluşturma komutu ile bu formu kullanın: 
+Bir SSH tüneli, Linux tabanlı bir komut satırından veya Windows 10 istemci sistemi oluşturabilirsiniz. 
+
+Bir SSH tünel oluşturma komutu ile bu formu kullanın: 
 
 SSH -L *local_port*:*cluster_mgmt_ip*: 443 *controller_username*\@*controller_public_IP*
 
@@ -40,28 +42,6 @@ Bu komut kümenin yönetim IP adresi küme denetleyicisinin IP adresi üzerinden
 ```sh
 ssh -L 8443:10.0.0.5:443 azureuser@203.0.113.51
 ```
-
-SSH ortak anahtarınızı kümeyi oluşturmak için kullanılan ve eşleşen anahtarı istemci sisteminde yüklüyse kimlik doğrulaması otomatiktir. Kullandıysanız, parolayı sistem girmek isteyip istemediğinizi sorar.
-
-## <a name="ssh-tunnel-with-a-windows-host"></a>Bir Windows ana bilgisayarla SSH tüneli
-
-Bu örnek genel Windows tabanlı terminal yardımcı programını PuTTY kullanır.
-
-PuTTY içinde dolgu **ana bilgisayar adı** küme denetleyicisi kullanıcı adı ve IP adresi alanı: *your_username*\@*controller_public_IP*.
-
-Örnek: ``azureuser@203.0.113.51``
-
-İçinde **yapılandırma** paneli:
-
-1. Genişletin **bağlantı** > **SSH** soldaki. 
-1. Tıklayın **tüneller**. 
-1. Bir kaynak bağlantı noktası 8443 gibi girin. 
-1. Hedef için vFXT kümenin yönetim IP adresi ve bağlantı noktası 443'ü girin. 
-   Örnek: ``203.0.113.51:443``
-1. **Ekle**'yi tıklatın.
-1. Tıklayın **açık**.
-
-![Tünel eklemek için tıklatın nerede gösteren ekran görüntüsü, Putty uygulama](media/avere-vfxt-ptty-numbered.png)
 
 SSH ortak anahtarınızı kümeyi oluşturmak için kullanılan ve eşleşen anahtarı istemci sisteminde yüklüyse kimlik doğrulaması otomatiktir. Kullandıysanız, parolayı sistem girmek isteyip istemediğinizi sorar.
 

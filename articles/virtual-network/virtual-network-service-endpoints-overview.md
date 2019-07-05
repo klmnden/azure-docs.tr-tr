@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: e621eeeca7a4f325efcfb242c204b2f727e55fc4
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 54178ae8988266c751ae0e23ae8c5e6ef7a16f20
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147755"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544151"
 ---
 # <a name="virtual-network-service-endpoints"></a>Sanal Ağ Hizmeti Uç Noktaları
 
@@ -43,6 +43,7 @@ Bu özellik aşağıdaki Azure hizmetleri ve bölgeleri için sağlanır:
 **Genel önizlemeye sunuldu**
 
 - **[Azure kapsayıcı kayıt defteri](../container-registry/container-registry-vnet.md)** : Azure Container Registry kullanılabilir olduğu tüm Azure bölgelerinde kullanılabilir Önizleme.
+- **[Azure App Service'e](https://docs.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions)** : Uygulama hizmet kullanılabilir olduğu tüm Azure bölgelerinde kullanılabilir Önizleme.
 
 En güncel bildirimler için [Azure Sanal Ağ güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network) sayfasını inceleyin.
 

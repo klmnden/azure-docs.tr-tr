@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/18/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: ddbb535d386fb90ccb2042e0908e66146e854f00
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: cd2a776988ba27add54c69b0feccbc3fce8337aa
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603467"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551520"
 ---
 # <a name="what-is-azure-data-box"></a>Azure Data Box nedir?
 
@@ -116,6 +116,9 @@ Veri kutusu hizmeti dağıtılan bölgeye göre veri aktarma cihazı sevk ülke/
     - Avrupa Birliği: Batı Avrupa ve Kuzey Avrupa.
     - Birleşik Krallık: UK Güney ve UK Batı.
     - Fransa: Fransa Orta ve Fransa Güney.
+    - Japonya - Japonya Doğu ve Japonya Batı.
+    - Avustralya - Avustralya Doğu ve Avustralya Güneydoğu.
+    - Kanada - Kanada Doğu ve Kanada orta.
 
 - **Hedef Depolama hesapları**: Verilerin depolandığı depolama hesapları, hizmetin kullanılabildiği tüm Azure bölgelerinde sağlanır.  
 

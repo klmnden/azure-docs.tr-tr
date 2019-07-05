@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 77bbb333157f5c8cec9fa87e5f76fa4ae2678058
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8c7f6695880cfdb0a350edc37d61e771d03b92df
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070607"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543709"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>HDInsight üzerinde Apache Hive ve Apache Hadoop kullanarak Twitter verilerini çözümleme
 
@@ -322,7 +322,7 @@ Bu komutlar, veri kümedeki tüm düğümlerin erişebileceği bir konuma depola
 Yapılandırılmamış bir JSON veri kümesi yapılandırılmış bir dönüştürme hakkında bilgi edindiniz [Apache Hive](https://hive.apache.org/) tablo. HDInsight üzerindeki Hive'a hakkında daha fazla bilgi edinmek için aşağıdaki belgelere bakın:
 
 * [HDInsight ile çalışmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [HDInsight'ı kullanarak uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data-linux.md)
+* [HDInsight'ı kullanarak uçuş gecikme verilerini çözümleme](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 
 [curl]: https://curl.haxx.se
 [curl-download]: https://curl.haxx.se/download.html

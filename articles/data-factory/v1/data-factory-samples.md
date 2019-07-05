@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 03127dc777588f669ef07af52c8f73d986bfe0ea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7ebc57e09691af1583815ae9672e1afb820145b
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61260470"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462074"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - örnekleri
 > [!NOTE]
@@ -30,20 +30,20 @@ ms.locfileid: "61260470"
 
 | Örnek | Açıklama |
 |:--- |:--- |
-| [ADF gözden geçirme](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |Bu örnek veri günlük dosyalarında ınsights'a kapatmak için Azure Data factory'yi kullanarak günlük dosyalarını işlemek için bir uçtan uca kılavuz sağlar. <br/><br/>Bu izlenecek yolda, Data Factory işlem hattı işlemleri örnek günlükleri toplar ve günlüklerinden verilerini başvuru verileriyle zenginleştirir ve son başlatılan bir pazarlama kampanyasının verimliliğini değerlendirmek için verileri dönüştürür. |
-| [JSON örnekleri](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) |Bu örnek JSON örnekleri için genel senaryolar verilmiştir. |
-| [HTTP veri yükleyici örneği](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) |Bu örnek nu tanıtarak özel bir .NET etkinliği kullanarak Azure Blob Depolama için bir HTTP uç noktasından veri yükleniyor. |
-| [AppDomain Dot Net etkinlik örnek arası](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Bu örnek için ADF Başlatıcısı (örneğin, WindowsAzure.Storage verze 4.3.0, aynı zamanda Newtonsoft.Json v6.0.x, vb.) tarafından kullanılan derleme sürümlerini sınırlı değildir özel bir .NET etkinliği yazmanızı sağlar. |
-| [R betiği çalıştırma](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) |Bu örnek RScript.exe çağırmak için kullanılan Data Factory özel etkinlik içerir. Bu örnek, (zaten yüklü R üzerinde sahip yalnızca kendi değil isteğe bağlı) HDInsight kümesi ile çalışır. |
-| [HDInsight Hadoop kümesi üzerinde Spark işleri çağırma](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark) |Bu örnek, MapReduce etkinliği Spark programının çağırmak için nasıl kullanılacağını gösterir. Spark programının yalnızca verileri bir Azure Blob kapsayıcısından diğerine kopyalar. |
-| [Azure Machine Learning toplu iş Puanlama etkinliği kullanarak twitter çözümlemesi](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Bu örnek AzureMLBatchScoringActivity twitter yaklaşım analizi, Puanlama, tahmin vb. gerçekleştiren bir Azure Machine Learning modeli çağırmak için nasıl kullanılacağını gösterir. |
-| [Twitter özel etkinlik kullanma analizi](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Bu örnek, özel bir .NET etkinliği twitter yaklaşım analizi, Puanlama, tahmin vb. gerçekleştiren bir Azure Machine Learning modeli çağırmak için nasıl kullanılacağını gösterir. |
-| [Azure Machine Learning için parametreli işlem hatları](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ParameterizedPipelinesForAzureML/) |Örnek, bir uçtan uca sağlar C# dağıtmak için Puanlama ve her bölgelerin listesini nereden geldiğini Bu örnek ile birlikte bir dosyadan parameters.txt farklı bir bölgeye parametre ile yeniden eğitme N işlem hatları için kod. |
-| [Başvuru verileri yenilemek için Azure Stream Analytics işleri](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs) |Bu örnek, Azure Data Factory ve Azure Stream Analytics birlikte başvuru verileri ile sorgular çalıştırın ve bir zamanlamaya göre başvuru verileri için yenileme için nasıl kullanılacağını gösterir. |
-| [Şirket içi Hortonworks Hadoop ile karma işlem hattı](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HybridPipelineWithOnPremisesHortonworksHadoop) |Örnek, bir HDInsight Hadoop kümesinin bulut dayanan storsimple çözümü gibi diğer işlem hedeflerine yalnızca eklediğiniz gibi işleri Data Factory'de çalıştırmak için bir işlem hedefi olarak bir şirket içi Hadoop kümesi kullanır. |
-| [JSON dönüştürme aracı](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSONConversionTool) |Bu araç, önce bir 2015-07-01-preview en son veya 2015-07-01-preview (varsayılan) sürümünden Json'lerini dönüştürmenize olanak sağlar. |
-| [U-SQL örnek giriş dosyası](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/U-SQL%20Sample%20Input%20File) |Bu dosya, bir U-SQL etkinliği tarafından kullanılan bir örnek dosyasıdır. |
-| [BLOB Dosya Sil](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/DeleteBlobFileFolderCustomActivity) | Bu örnek gösteren bir C# ADF özel bir .net etkinliği bir parçası olarak dosyaları kopyaladıktan sonra Azure Blob konumu kaynak dosyaları silmek için kullanılan dosya.|
+| [ADF gözden geçirme](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFWalkthrough) |Bu örnek veri günlük dosyalarında ınsights'a kapatmak için Azure Data factory'yi kullanarak günlük dosyalarını işlemek için bir uçtan uca kılavuz sağlar. <br/><br/>Bu izlenecek yolda, Data Factory işlem hattı işlemleri örnek günlükleri toplar ve günlüklerinden verilerini başvuru verileriyle zenginleştirir ve son başlatılan bir pazarlama kampanyasının verimliliğini değerlendirmek için verileri dönüştürür. |
+| [JSON örnekleri](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSON) |Bu örnek JSON örnekleri için genel senaryolar verilmiştir. |
+| [HTTP veri yükleyici örneği](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample) |Bu örnek nu tanıtarak özel bir .NET etkinliği kullanarak Azure Blob Depolama için bir HTTP uç noktasından veri yükleniyor. |
+| [AppDomain Dot Net etkinlik örnek arası](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Bu örnek için ADF Başlatıcısı (örneğin, WindowsAzure.Storage verze 4.3.0, aynı zamanda Newtonsoft.Json v6.0.x, vb.) tarafından kullanılan derleme sürümlerini sınırlı değildir özel bir .NET etkinliği yazmanızı sağlar. |
+| [R betiği çalıştırma](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |Bu örnek RScript.exe çağırmak için kullanılan Data Factory özel etkinlik içerir. Bu örnek, (zaten yüklü R üzerinde sahip yalnızca kendi değil isteğe bağlı) HDInsight kümesi ile çalışır. |
+| [HDInsight Hadoop kümesi üzerinde Spark işleri çağırma](https://docs.microsoft.com/azure/data-factory/tutorial-transform-data-spark-portal) |Bu örnek, MapReduce etkinliği Spark programının çağırmak için nasıl kullanılacağını gösterir. Spark programının yalnızca verileri bir Azure Blob kapsayıcısından diğerine kopyalar. |
+| [Azure Machine Learning toplu iş Puanlama etkinliği kullanarak twitter çözümlemesi](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Bu örnek AzureMLBatchScoringActivity twitter yaklaşım analizi, Puanlama, tahmin vb. gerçekleştiren bir Azure Machine Learning modeli çağırmak için nasıl kullanılacağını gösterir. |
+| [Twitter özel etkinlik kullanma analizi](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Bu örnek, özel bir .NET etkinliği twitter yaklaşım analizi, Puanlama, tahmin vb. gerçekleştiren bir Azure Machine Learning modeli çağırmak için nasıl kullanılacağını gösterir. |
+| [Azure Machine Learning için parametreli işlem hatları](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ParameterizedPipelinesForAzureML) |Örnek, bir uçtan uca sağlar C# dağıtmak için Puanlama ve her bölgelerin listesini nereden geldiğini Bu örnek ile birlikte bir dosyadan parameters.txt farklı bir bölgeye parametre ile yeniden eğitme N işlem hatları için kod. |
+| [Başvuru verileri yenilemek için Azure Stream Analytics işleri](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs) |Bu örnek, Azure Data Factory ve Azure Stream Analytics birlikte başvuru verileri ile sorgular çalıştırın ve bir zamanlamaya göre başvuru verileri için yenileme için nasıl kullanılacağını gösterir. |
+| [Şirket içi Hortonworks Hadoop ile karma işlem hattı](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HybridPipelineWithOnPremisesHortonworksHadoop) |Örnek, bir HDInsight Hadoop kümesinin bulut dayanan storsimple çözümü gibi diğer işlem hedeflerine yalnızca eklediğiniz gibi işleri Data Factory'de çalıştırmak için bir işlem hedefi olarak bir şirket içi Hadoop kümesi kullanır. |
+| [JSON dönüştürme aracı](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/JSONConversionTool) |Bu araç, önce bir 2015-07-01-preview en son veya 2015-07-01-preview (varsayılan) sürümünden Json'lerini dönüştürmenize olanak sağlar. |
+| [U-SQL örnek giriş dosyası](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/U-SQL%20Sample%20Input%20File) |Bu dosya, bir U-SQL etkinliği tarafından kullanılan bir örnek dosyasıdır. |
+| [BLOB Dosya Sil](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/DeleteBlobFileFolderCustomActivity) | Bu örnek gösteren bir C# ADF özel bir .net etkinliği bir parçası olarak dosyaları kopyaladıktan sonra Azure Blob konumu kaynak dosyaları silmek için kullanılan dosya.|
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager şablonları
 Aşağıdaki Azure Resource Manager şablonları, Data Factory github'da bulabilirsiniz.

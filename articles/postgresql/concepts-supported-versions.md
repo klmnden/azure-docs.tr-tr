@@ -6,12 +6,13 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 0fc4eb90d9bed3877b4618fd839d9e8bf1608718
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.custom: fasttrack-edit
+ms.openlocfilehash: c328f0dc510c1b7d36b547e6560a292f98d72f6f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063734"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448035"
 ---
 # <a name="supported-postgresql-database-versions"></a>Desteklenen PostgreSQL veritabanı sürümleri
 PostgreSQL altyapısının n-2 sürümlerini - tek bir sunucu PostgreSQL için Azure veritabanı'nda desteklemek için Microsoft amaçlar. Sürümler, geçerli ana sürüme (n) azure'da ve iki önceki ana sürümü (-2) olacaktır.
@@ -35,6 +36,9 @@ Başvurmak [PostgreSQL belgeleri](https://www.postgresql.org/docs/9.5/static/rel
 
 ## <a name="managing-updates-and-upgrades"></a>Yönetme güncelleştirmeler ve yükseltmeler
 PostgreSQL için Azure veritabanı, ikincil sürüm düzeltme eklerini otomatik olarak yönetir. Şu anda ana sürüm yükseltme desteklenmez. Örneğin, PostgreSQL 9.6 için PostgreSQL 9.5 ' yükseltme desteklenmiyor. Bir sonraki ana sürümüne yükseltmek istiyorsanız, bir veritabanı oluşturma [döküm ve geri yükleme](./howto-migrate-using-dump-and-restore.md) yeni altyapısı sürümü ile oluşturulmuş bir sunucu için.
+
+> Sürüm 10, PostgreSQL önce dikkat [PostgreSQL sürüm oluşturma ilkesine](https://www.postgresql.org/support/versioning/) kabul bir _ana sürüm_ ilk artışı olacak şekilde yükseltme _veya_ numarası (ikinci Örneğin, 9.5 için 9.6 kabul bir _ana_ sürüm yükseltmesi).
+> 10 sürümden itibaren bir ana sürüm yükseltmesi yalnızca ilk sayı bir değişiklik olarak kabul edilir (örneğin, 10.0 için 10.1 olan bir _küçük_ sürüm yükseltmesi ve 10-11 bir _ana_ sürüm yükseltmesi).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 PostgreSQL Uzantıları desteği hakkında daha fazla bilgi için bkz. [PostgreSQL uzantıları](concepts-extensions.md).

@@ -4,7 +4,7 @@ description: Azure kuyruk depolama tetikleyicisi ve çıktı bağlaması Azure i
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Azure işlevleri, İşlevler, olay işleme dinamik işlem, sunucusuz mimari
 ms.service: azure-functions
 ms.devlang: multiple
@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 72460136f5fa0dcfec78716fc02e0aaf9e860840
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9604ef276625d1fcc9164a9b75b94ebc22cb51e1
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472288"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480150"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure kuyruk depolama bağlamaları
 
@@ -307,7 +307,7 @@ Kuyruk tetikleyicisi otomatik olarak bir işleve bir kuyruk iletisi birden çok 
 
 [Host.json](functions-host-json.md#queues) dosyası kuyruğu tetikleyici davranışını denetleyen ayarları içerir. Bkz: [host.json ayarları](#hostjson-settings) kullanılabilir ayarlar ile ilgili ayrıntıları bölümü.
 
-## <a name="output"></a>Çıktı
+## <a name="output"></a>Output
 
 Azure kuyruk depolama çıkış bağlaması bir kuyruğa ileti yazmak için kullanın.
 

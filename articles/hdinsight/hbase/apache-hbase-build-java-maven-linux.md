@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.openlocfilehash: a4c601e81390efa3bb53a6f07225bb6e939bc9bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ec4e9cbfd1d70c128f530bd996793a49c8a7d00
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726449"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484129"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Apache HBase için Java uygulamaları oluşturun
 
@@ -34,9 +34,6 @@ Bu adımları belge kullanım [Apache Maven](https://maven.apache.org/) ve proje
 * PowerShell kullanarak, ihtiyacınız olacak [AZ modül](https://docs.microsoft.com/powershell/azure/overview).
 
 * Bir metin düzenleyici. Bu makalede, Microsoft Notepad kullanır.
-
-> [!IMPORTANT]  
-> Azure PowerShell cmdlet'lerini [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) ve [Get-AzHDInsightJobOutput](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightjoboutput) şu anda ne zaman iş değil [güvenli aktarım](../../storage/common/storage-require-secure-transfer.md) depolama hesabında etkin .
 
 ## <a name="test-environment"></a>Test ortamı
 Windows 10 çalıştıran bir bilgisayar için bu makalede kullanılan ortamı oluştu.  Komutları komut isteminde yürütüldü ve çeşitli dosyaların Notepad ile düzenlendi. Uygun şekilde değiştirin, ortamınız için.

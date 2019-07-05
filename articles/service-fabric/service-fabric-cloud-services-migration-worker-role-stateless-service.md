@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 10fb44b0e76282ad78e7687beaa2e50e819e5cd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e82abd6a7915123a94b4355e24cb94f13f9693c8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110021"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550377"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Web ve çalışan rolleri için Service Fabric durum bilgisi olmayan hizmetler dönüştürme Kılavuzu
 Bu makalede, Cloud Services Web ve çalışan rolleri için Service Fabric durum bilgisi olmayan hizmetler geçirmeyi açıklar. Bu en basit geçiş bulut hizmetlerinden Service fabric'e genel, mimarisi, yaklaşık aynı kalmasını geçiyor uygulamalar için yoludur.
@@ -32,7 +32,7 @@ Service Fabric uygulaması projesi için bir dizi dağıtılacak bir uygulama ya
 ![Service Fabric ve Cloud Services projesi karşılaştırması][3]
 
 ## <a name="worker-role-to-stateless-service"></a>Çalışan rolü için durum bilgisi olmayan hizmet
-Kavramsal olarak, bir çalışan rolü istekleri herhangi bir zamanda herhangi bir örneğine yönlendirilebilir ve iş yükü'nin her örneğinin aynı anlamı durum bilgisi olmayan bir iş yükünü temsil eder. Her örnek, önceki isteği hatırlamak beklenmiyor. İş yükü çalışır duruma Azure tablo depolama veya Azure Document DB gibi bir dış durumlarını mağaza tarafından yönetilir. Service Fabric'te, iş yükü bu tür bir durum bilgisi olmayan hizmet tarafından temsil edilir. Bir çalışan rolü Service Fabric'e geçiş için en kolay yaklaşım, durum bilgisi olmayan hizmete çalışan rolü kodunu dönüştürerek yapılabilir.
+Kavramsal olarak, bir çalışan rolü istekleri herhangi bir zamanda herhangi bir örneğine yönlendirilebilir ve iş yükü'nin her örneğinin aynı anlamı durum bilgisi olmayan bir iş yükünü temsil eder. Her örnek, önceki isteği hatırlamak beklenmiyor. İş yükü çalışır duruma Azure tablo depolama veya Azure Cosmos DB gibi bir dış durumlarını mağaza tarafından yönetilir. Service Fabric'te, iş yükü bu tür bir durum bilgisi olmayan hizmet tarafından temsil edilir. Bir çalışan rolü Service Fabric'e geçiş için en kolay yaklaşım, durum bilgisi olmayan hizmete çalışan rolü kodunu dönüştürerek yapılabilir.
 
 ![Çalışan rolü için durum bilgisi olmayan hizmet][4]
 

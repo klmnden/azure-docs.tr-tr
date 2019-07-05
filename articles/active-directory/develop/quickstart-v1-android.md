@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a05d8b9182451fc52dd1860dac1dcce57ba2c55
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 6023e4bd4028cf1679051b6665297afd00b1eba7
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66122004"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482649"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir Android uygulamasından Microsoft Graph API çağırma
 
@@ -45,7 +45,7 @@ Başlamak için, kullanıcıları oluşturabildiğiniz ve uygulama kaydedebildi�
 
 ## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>Senaryo: Kullanıcılar oturum ve Microsoft Graph'i çağırmaya
 
-![Topoloji](./media/quickstart-v1-android/active-directory-android-topology.png)
+![Azure AD gösterir ve Android topolojisi](./media/quickstart-v1-android/active-directory-android-topology.png)
 
 Bu uygulamayı tüm Azure AD hesaplarında kullanabilirsiniz. Hem tek kiracılı hem de çok kiracılı senaryoları destekler (adımlarda açıklanmıştır). Kurumsal kullanıcılarla bağlantı kurmak ve Microsoft Graph üzerinden onların Azure + O365 verilerine erişmek için nasıl uygulama oluşturabileceğinizi gösterir. Kimlik doğrulaması akışı sırasında son kullanıcıların oturum açması ve uygulama izinlerini onaylaması gerekebilir. Bazı durumlarda da yöneticinin uygulamaya onay vermesi gerekebilir. Bu örnekteki mantığın büyük bölümü, son kullanıcının kimliğini doğrulamayı ve Microsoft Graph’a temel bir çağrı yapmayı gösterir.
 
@@ -76,7 +76,7 @@ mAuthContext.acquireToken(
 mAuthResult.getAccessToken()
 ```
 
-## <a name="step-1-register-and-configure-your-app"></a>1. Adım: Kaydetme ve uygulamanızı yapılandırma
+## <a name="step-1-register-and-configure-your-app"></a>1\. adım: Kaydetme ve uygulamanızı yapılandırma
 
 [Azure portalını](https://portal.azure.com) kullanarak Microsoft'a kaydedilmiş yerel bir istemci uygulamanız olması gerekir.
 
@@ -100,7 +100,7 @@ mAuthResult.getAccessToken()
     - `Application ID`
     - `Redirect URI`
 
-## <a name="step-2-get-the-sample-code"></a>2. Adım: Örnek kodunu alma
+## <a name="step-2-get-the-sample-code"></a>2\. adım: Örnek kodunu alma
 
 1. Kodu kopyalayın.
     ```
@@ -109,14 +109,14 @@ mAuthResult.getAccessToken()
 2. Örneği Android Studio’da açın.
     - **Var olan Android Studio projesini aç**'ı seçin.
 
-## <a name="step-3-configure-your-code"></a>3. adım: Kodunuzu yapılandırın
+## <a name="step-3-configure-your-code"></a>3\. adım: Kodunuzu yapılandırın
 
 Bu kod örneğinin tüm yapılandırmasını ***src/main/java/com/azuresamples/azuresampleapp/MainActivity.java*** dosyasında bulabilirsiniz.
 
 1. `CLIENT_ID` sabitini `ApplicationID` ile değiştirin.
 2. `REDIRECT URI` sabitini daha önce yapılandırdığınız `Redirect URI` ile (`http://localhost`) değiştirin.
 
-## <a name="step-4-run-the-sample"></a>4. Adım: Örneği çalıştırma
+## <a name="step-4-run-the-sample"></a>4\. Adım: Örneği çalıştırma
 
 1. **Derle > Projeyi Temizle**’yi seçin.
 2. **Çalıştır > Uygulamayı çalıştır**’ı seçin.

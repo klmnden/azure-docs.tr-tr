@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 58c50eac60f1a8a47aac9a88125bc3e0132ec3db
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ba4763e8d4835911d33d21c0f5bb431851a649b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059149"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444707"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Kapasite planlama ve Azure Service Fabric için ölçeklendirme
 
@@ -78,6 +78,8 @@ Düğüm özellikleri ve bildirilen yerleştirme kısıtlamaları aşağıdaki a
 2. Çalıştırma `Get-ServiceFabricNode` düğümü devre dışı olarak çözümlemeye geçmiş emin olmak için. Aksi durumda, düğümü devre dışı kadar bekleyin. Bu, her düğüm için birkaç saat sürebilir. Düğümü devre dışı olarak çözümlemeye geçmiş kadar devam yok.
 3. Tek düğüm türü VM'lerin sayısını azaltın. En yüksek VM örneği şimdi kaldırılacak.
 4. 1 ile gerektiği gibi 3. adımları yineleyin, ancak hiçbir zaman ölçeğini birincil düğüm türlerinde ne gerektirdiğini güvenilirlik katmanını daha az örnek sayısı. Bkz: [Service Fabric küme kapasitesini planlama](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) önerilen örnekleri listesi.
+5. Tüm sanal makineler ("Alt" gösterilir) emekli oluyor fabric: / Sistem/InfrastructureService / [düğüm adı] bir hata durumu gösterilir. Ardından, düğüm türü kaldırmak için küme kaynağı güncelleştirebilirsiniz. ARM şablon dağıtımı'nı kullanabilir veya küme kaynağı aracılığıyla Düzenle [Azure resource manager](https://resources.azure.com). Bu doku kaldıracak bir küme yükseltmesi başlatır: / Sistem/InfrastructureService / [düğüm türü] hizmeti, hata durumunda.
+ 6. Sonra VMScaleSet isteğe bağlı olarak silebilirsiniz, ancak "Aşağı" Service Fabric Explorer'ın görüntülerken düğümleri yine de görürsünüz. İle temizlemek için son adım olacaktır `Remove-ServiceFabricNodeState` komutu.
 
 ### <a name="example-scenario"></a>Örnek senaryo
 Ne zaman dikey bir ölçeklendirme işlemi gerçekleştirmek için desteklenen bir senaryodur: uygulama ve Service Fabric kümesi yönetilmeyen bir diskten uygulama kapalı kalma süresi olmadan yönetilen disklere geçirmek istediğiniz. 

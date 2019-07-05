@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: aedfa381f6520a5295467821097b38dd28dcd60c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: df88c3e2e07165182c917eaf30a5f37451fbd073
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057920"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509587"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Azure Data Lake depolama Gen1 gelen veya veri kopyalama kullanarak Azure Data Factory
 > [!div class="op_single_selector" title1="Azure Data Factory, kullanmakta olduğunuz sürümünü seçin:"]
@@ -81,7 +81,7 @@ Hizmet sorumlusu kimlik doğrulaması kullanmak için bir uygulama varlığı Az
 >Listeye klasör, kökten başlayarak izni için izin verilen hizmet sorumlusunun ayarlamalısınız **"Yürütme" iznine sahip kök düzeyinde**. Kullandığınızda, bu durum geçerlidir:
 >- **Kopya veri aracını** Yazar kopyalama işlem hattını için.
 >- **Data Factory kullanıcı arabirimini** bağlantı ve geliştirme sırasında klasörleri gezinme test etmek için.
->Kök düzeyinde izni verme hakkında endişeleriniz varsa, bağlantı testi atlar ve yazma sırasında yolu kendiniz girin. Hizmet sorumlusu kopyalanması için uygun izinlere dosyalarını verilen sürece kopyalama etkinliği çalışır.
+>Geliştirme sırasında kök düzeyinde izni verme hakkında endişeleriniz test bağlantısı ve yolu belirtilen izni paraent yoluyla ardından gelen göz atmak için giriş atlayın. Hizmet sorumlusu kopyalanması uygun ile dosyalarını izni olduğu sürece, etkinlik works kopyalayın.
 
 Aşağıdaki özellikler desteklenir:
 
@@ -135,7 +135,7 @@ Azure kaynakları ile kimlik doğrulaması için yönetilen kimlikleri kullanmak
 >Listeye klasör, kökten başlayarak izni için izin verilen yönetilen kimlik ayarlamalısınız **"Yürütme" iznine sahip kök düzeyinde**. Kullandığınızda, bu durum geçerlidir:
 >- **Kopya veri aracını** Yazar kopyalama işlem hattını için.
 >- **Data Factory kullanıcı arabirimini** bağlantı ve geliştirme sırasında klasörleri gezinme test etmek için.
->Kök düzeyinde izni verme hakkında endişeleriniz varsa, bağlantı testi atlar ve yazma sırasında yolu kendiniz girin. Yönetilen kimlik kopyalanacak uygun ile dosyalarını izni sürece kopyalama etkinliği çalışır.
+>Geliştirme sırasında kök düzeyinde izni verme hakkında endişeleriniz test bağlantısı ve yolu belirtilen izni olan bir üst yol ardından gelen göz atmak için giriş atlayın. Hizmet sorumlusu kopyalanması uygun ile dosyalarını izni olduğu sürece, etkinlik works kopyalayın.
 
 Azure Data Factory'de bağlı hizmet Data Lake Store genel bilgilerin yanı sıra herhangi bir özelliği belirtmeniz gerekmez.
 

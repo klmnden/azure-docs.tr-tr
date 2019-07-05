@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 5f8fd9b2ecb58b34476bf8ecca7aa08dfc446040
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 39d39b313cd2e65989989080d4cb0729b0be1e65
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273398"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561460"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Öğretici: Bir Azure Data Box Disk sipariş
 
@@ -87,7 +87,7 @@ Data Box Disk sipariş için aşağıdaki adımları uygulayın.
     |Hedef Azure bölgesi| Depolama hesabınız için bir bölge seçin.<br> Şu anda depolama hesapları ABD, Batı ve Kuzey Avrupa, Kanada ve Avustralya’nın tüm bölgelerinde desteklenmektedir. |
     |TB cinsinden tahmini veri boyutu| TB cinsinden tahmini veri boyutunu girin. <br>Microsoft, veri boyutuna uygun sayıda 8 TB boyuta sahip SSD'ler (7 TB kullanılabilir kapasite) gönderir. <br>5 diskin maksimum kullanılabilir kapasitesi 35 TB olacaktır. |
     |Disk geçiş anahtarı| **Azure tarafından oluşturulan geçiş anahtarı yerine özel anahtar kullanın** seçeneğini işaretlerseniz disk geçiş anahtarını sağlayın. <br> En az bir sayısal ve bir özel karakter olan 12-ile 32 karakter alfasayısal bir anahtar sağlar. İzin verilen karakterler: `@?_+`. <br> Bu seçeneği atlayabilir ve disklerinizin kilidini açmak için Azure tarafından oluşturulan destek anahtarını kullanabilirsiniz.|
-    |Depolama hedefi     | Depolama hesabı veya yönetilen diskleri veya her ikisini de seçin. <br> Belirtilen Azure bölgeye göre mevcut bir depolama hesabını filtrelenmiş listesinden bir depolama hesabı seçin. Data Box en çok 10 depolama hesabına bağlanabilir. <br> Ayrıca yeni bir oluşturabilirsiniz **genel amaçlı v1**, **genel amaçlı v2**, veya **Blob Depolama hesabı**. <br>Yapılandırılmış kurallara sahip depolama hesapları kullanılamaz. Depolama hesapları gereken **tüm ağlardan erişime izin ver** güvenlik duvarları ve sanal ağlar bölümünde.|
+    |Depolama hedefi     | Depolama hesabı veya yönetilen diskleri veya her ikisini de seçin. <br> Belirtilen Azure bölgeye göre mevcut bir depolama hesabını filtrelenmiş listesinden bir depolama hesabı seçin. Data Box Disk ile yalnızca 1 depolama hesabına bağlanabilir. <br> Ayrıca yeni bir oluşturabilirsiniz **genel amaçlı v1**, **genel amaçlı v2**, veya **Blob Depolama hesabı**. <br>Depolama hesaplarını sanal ağlarla desteklenir. Güvenli Depolama hesapları ile çalışmak Data Box hizmeti izin vermek için depolama hesabı ağ güvenlik duvarı ayarlarını içindeki güvenilir hizmetler sağlar. Daha fazla bilgi için bkz. nasıl [güvenilir bir hizmet olarak Azure Data Box ekleme](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).|
 
     Depolama hesabı depolama hedefi kullanıyorsanız, aşağıdaki ekran görüntüsüne bakın:
 

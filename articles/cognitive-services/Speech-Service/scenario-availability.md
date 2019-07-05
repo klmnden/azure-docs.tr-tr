@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cbasoglu
-ms.openlocfilehash: d844b171ff99dc97e5d1107bcb745f9e8d5b3e9d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7aa2c72a01f1887ea9680f8d5706b825a49039a1
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65519820"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561281"
 ---
 # <a name="scenario-availability"></a>Senaryo kullanılabilirlik
 
@@ -25,7 +25,7 @@ Konuşma hizmeti SDK'sını programlama dilleri ve ortamlar arasında birçok fa
   - Tüm programlama dilleri/ortamları ok bağlantısına olduğu <img src="media/index/link.jpg" height="15" width="15"></img> Hızlı Başlangıç tabloda [burada](https://aka.ms/csspeech).
 - **Metin okuma (TTS)**
   - C++/Windows & Linux
-  - C#/Windows
+  - C#/ Windows UWP & Unity
   - Diğer her durumda TTS REST API'si kullanılabilir.
 - **Uyandırma sözcüğünü (anahtar sözcüğü Spotter/KWS)**
   - C++/Windows & Linux

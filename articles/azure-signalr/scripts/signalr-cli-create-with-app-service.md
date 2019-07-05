@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/20/2018
 ms.author: zhshang
 ms.custom: mvc
-ms.openlocfilehash: 5fd9e593a9a5158b35d3c0e17436d54bc7c1bd03
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0f0747aa393475265be4aeb9ca05000fbd5b97b
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66128401"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565749"
 ---
 # <a name="create-a-signalr-service-with-an-app-service"></a>App Service ile SignalR Hizmeti Oluşturma
 
@@ -46,8 +46,8 @@ Tablodaki her komut, komuta özgü belgelere yönlendirir. Bu betik şu komutlar
 | Komut | Notlar |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [az signalr create](/cli/azure/ext/signalr/signalr#ext-signalr-az-signalr-create) | Bir Azure SignalR Hizmeti kaynağı oluşturur. |
-| [az signalr key list](/cli/azure/ext/signalr/signalr/key#ext-signalr-az-signalr-key-list) | SignalR ile gerçek zamanlı içerik güncelleştirmeleri gönderilirken uygulamanız tarafından kullanılacak anahtarları listeler. |
+| [az signalr create](/cli/azure/signalr#az-signalr-create) | Bir Azure SignalR Hizmeti kaynağı oluşturur. |
+| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | SignalR ile gerçek zamanlı içerik güncelleştirmeleri gönderilirken uygulamanız tarafından kullanılacak anahtarları listeler. |
 | [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) | Web uygulamalarını barındırmak için bir Azure App Service Planı oluşturur. |
 | [az webapp create](/cli/azure/webapp#az-webapp-create) | App Service barındırma planını kullanarak bir Azure Web uygulaması oluşturur. |
 | [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Web uygulaması için yeni bir uygulama ayarı ekler. Bu uygulama ayarı, SignalR bağlantı dizesini depolamak için kullanılır. |

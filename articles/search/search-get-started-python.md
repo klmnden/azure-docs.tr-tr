@@ -1,6 +1,6 @@
 ---
-title: "Hızlı Başlangıç: Python ve REST API'ler - Azure Search'ü"
-description: Oluşturma, yükleme ve Python, Jupyter not defterleri ve Azure Search REST API'sini kullanarak dizin sorgulama.
+title: "Python hızlı başlangıç: Kullanarak Azure Search REST API'lerini - Azure Search dizinlerini sorgulamanız oluşturma ve yükleme"
+description: Dizin oluşturma, veri yükleme ve Python, Jupyter not defterleri ve Azure Search REST API'sini kullanarak sorguları çalıştırma açıklanmaktadır.
 ms.date: 06/20/2019
 author: heidisteen
 manager: cgronlun
@@ -10,23 +10,23 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 227da2739216961dcd1f2fb8c643703a1b62e51a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 613879abd4c5c09450b690b793500a99428cff29
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67302289"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485467"
 ---
-# <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>Hızlı Başlangıç: Jupyter Python not defterlerini kullanarak bir Azure Search dizini oluşturma
+# <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>Hızlı Başlangıç: Jupyter not defterlerini kullanarak Python'da bir Azure Search dizini oluşturma
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
-> * [Postman (REST)](search-fiddler.md)
+> * [Postman (REST)](search-get-started-postman.md)
 > * [Portal](search-create-index-portal.md)
 > 
 
-Jupyter not defteri oluşturur, yükler ve Python kullanarak Azure Search dizini sorgular oluşturun ve [Azure Search REST API'lerini](https://docs.microsoft.com/rest/api/searchservice/). Bu makalede, sıfırdan başlayarak adım adım bir not defteri oluşturmak açıklanmaktadır. Alternatif olarak, tamamlanmış bir not defteri çalıştırabilirsiniz. Bir kopyasını indirmek için Git[azure aearch python örnekleri deposu](https://github.com/Azure-Samples/azure-search-python-samples).
+Jupyter not defteri oluşturur, yükler ve Python kullanarak Azure Search dizini sorgular oluşturun ve [Azure Search REST API'lerini](https://docs.microsoft.com/rest/api/searchservice/). Bu makalede, sıfırdan başlayarak adım adım bir not defteri oluşturmak açıklanmaktadır. Alternatif olarak, tamamlanmış bir not defteri çalıştırabilirsiniz. Bir kopyasını indirmek için Git[azure-search-python-samples deposuna](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -46,7 +46,7 @@ REST çağrıları için her istekte hizmet URL'sinin ve bir erişim anahtarın�
 
 1. İçinde **ayarları** > **anahtarları**, hizmette tam haklarına yönelik bir yönetici anahtarını alın. Bir gece yarısında gerektiği durumlarda iş sürekliliği için sağlanan iki birbirinin yerine yönetici anahtarı mevcuttur. Ekleme, değiştirme ve silme nesneler için istekleri birincil veya ikincil anahtar kullanabilirsiniz.
 
-![Bir HTTP uç noktası ve erişim anahtarını alma](media/search-fiddler/get-url-key.png "bir HTTP uç noktası ve erişim anahtarını alma")
+![Bir HTTP uç noktası ve erişim anahtarını alma](media/search-get-started-postman/get-url-key.png "bir HTTP uç noktası ve erişim anahtarını alma")
 
 Tüm istekleri hizmete gönderilen her istekte bir API anahtarı gerektirir. İstek başına geçerli bir anahtara sahip olmak, isteği gönderen uygulama ve bunu işleyen hizmet arasında güven oluşturur.
 
@@ -275,7 +275,7 @@ Bu adım bir dizin kullanarak nasıl sorgulanacağını gösterir [arama belgele
 
     ![Dizin arama](media/search-get-started-python/search-index.png "dizin arama")
 
-1. Bir genel görünüm sözdizimi almak için birkaç diğer sorgu örnekleri deneyin. AramaDizesi Aşağıdaki örnekler ile değiştirin ve ardından arama isteği yeniden çalıştırın. 
+1. Bir genel görünüm sözdizimi almak için birkaç diğer sorgu örnekleri deneyin. Değiştirebilirsiniz `searchstring` Aşağıdaki örnekler ve ardından arama isteği yeniden çalıştırın. 
 
    Bir filtre uygula: 
 

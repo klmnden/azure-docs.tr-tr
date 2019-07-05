@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: b5a08b9b998f8d0b30091af016af564e836d4651
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: dcb90eb8ee25b8b0c780006f3555a5a9b815ffdd
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331674"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514250"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -100,6 +100,8 @@ Harici olarak oluşturulmuş bir model sunarak kaydedebileceğiniz bir **yerel y
 **Tahmini Süre**: Yaklaşık 10 saniye.
 
 Daha fazla bilgi için başvuru belgeleri için bkz. [Model sınıfı](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
+
+Dış Azure Machine Learning hizmeti modelleriyle çalışma hakkında daha fazla bilgi eğitim için bkz: [mevcut bir model dağıtma](how-to-deploy-existing-model.md).
 
 <a name="target"></a>
 
@@ -259,16 +261,22 @@ Daha fazla örnek komut dosyası için aşağıdaki örneklere bakın:
 
 ### <a name="2-define-your-inferenceconfig"></a>2. InferenceConfig tanımlayın
 
-Çıkarım yapılandırma Öngörüler bulunmak üzere modelinizi yapılandırılması açıklanmaktadır. Aşağıdaki örnek, çıkarım yapılandırmasının nasıl oluşturulacağını gösterir:
+Çıkarım yapılandırma Öngörüler bulunmak üzere modelinizi yapılandırılması açıklanmaktadır. Aşağıdaki örnek, çıkarım yapılandırmasının nasıl oluşturulacağını gösterir. Bu yapılandırma, çalışma zamanı, giriş betik ve conda ortam dosyası (isteğe bağlı olarak) belirtir:
 
 ```python
-inference_config = InferenceConfig(source_directory="C:/abc",
-                                   runtime= "python",
+inference_config = InferenceConfig(runtime= "python",
                                    entry_script="x/y/score.py",
                                    conda_file="env/myenv.yml")
 ```
 
+Daha fazla bilgi için [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) sınıf başvurusu.
+
+Çıkarım yapılandırmasıyla özel Docker görüntüsü kullanma hakkında daha fazla bilgi için bkz. [özel Docker görüntüsü kullanarak bir model dağıtma](how-to-deploy-custom-docker-image.md).
+
 ### <a name="cli-example-of-inferenceconfig"></a>CLI örneği InferenceConfig
+
+Aşağıdaki JSON belgesi, machine learning CLI ile kullanmak için örnek bir çıkarımı yapılandırma verilmiştir:
+
 ```JSON
 {
    "entryScript": "x/y/score.py",
@@ -277,6 +285,23 @@ inference_config = InferenceConfig(source_directory="C:/abc",
    "sourceDirectory":"C:/abc",
 }
 ```
+
+Bu dosyada, aşağıdaki varlıkları geçerlidir:
+
+* __entryScript__: Görüntü için çalıştırılacak kodu içeren yerel dosya yolu.
+* __Çalışma zamanı__: Görüntüyü kullanmak için hangi çalışma zamanı. Geçerli desteklenen çalışma zamanları şunlardır: 'spark-py' ve 'python'.
+* __condaFile__ (isteğe bağlı): Görüntü için kullanılacak bir conda ortam tanımı içeren yerel dosya yolu.
+* __extraDockerFileSteps__ (isteğe bağlı): Görüntüyü oluşturan ayarlarken çalıştırmak için ek Docker adımlar içeren yerel dosya yolu.
+* __sourceDirectory__ (isteğe bağlı): Görüntüyü oluşturmak için tüm dosyaları içeren klasörlere yolu.
+* __enableGpu__ (isteğe bağlı): GPU etkinleştirme gerekip gerekmediğini, görüntüyü destekler. GPU görüntüyü Azure Container Instances, Azure Machine Learning işlem, Azure sanal makineler ve Azure Kubernetes hizmeti gibi Microsoft Azure Hizmetleri kullanılmalıdır. Varsayılan değeri False'tur.
+* __baseImage__ (isteğe bağlı): Özel bir görüntü, temel görüntü olarak kullanılacak. Temel görüntü belirtilmezse, temel görüntü kapatıp belirli bir çalışma zamanı parametre tabanlı kullanılır.
+* __baseImageRegistry__ (isteğe bağlı): Temel görüntü içeren görüntü kayıt.
+* __cudaVersion__ (isteğe bağlı): GPU desteğe ihtiyaç duyan görüntüler için yüklemek için CUDA sürümü. GPU görüntüyü Azure Container Instances, Azure Machine Learning işlem, Azure sanal makineler ve Azure Kubernetes hizmeti gibi Microsoft Azure Hizmetleri kullanılmalıdır. Desteklenen sürümler 9.0 9.1 ve 10.0 ' dir. 'Enable_gpu' olarak ayarlanırsa '9.1 için' varsayılan olarak.
+
+Bu varlıklar için parametreleri eşleme [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) sınıfı.
+
+Aşağıdaki komut üç rol CLI kullanarak bir model dağıtma gösterilmektedir:
+
 ```azurecli-interactive
 az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 ```
@@ -287,8 +312,6 @@ Bu örnekte, yapılandırma aşağıdaki öğeleri içerir:
 * Bu model Python gerektirir
 * [Giriş betik](#script), dağıtılmış hizmette gönderilen web isteklerini işlemek için kullanılır
 * Çıkarım için gereken Python paketlerini tanımlayan conda dosyası
-
-InferenceConfig işlevler hakkında daha fazla bilgi için bkz. [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) sınıf başvurusu.
 
 Çıkarım yapılandırmasıyla özel Docker görüntüsü kullanma hakkında daha fazla bilgi için bkz. [özel Docker görüntüsü kullanarak bir model dağıtma](how-to-deploy-custom-docker-image.md).
 
@@ -309,9 +332,7 @@ Aşağıdaki tabloda, her işlem hedefi için bir dağıtım yapılandırması o
 Aşağıdaki bölümlerde, dağıtım yapılandırması oluşturun ve web hizmeti dağıtmak için kullanmak nasıl ekleyebileceğiniz gösterilmektedir.
 
 ### <a name="optional-profile-your-model"></a>İsteğe bağlı: Modelinizi profil
-Modelinizi bir hizmeti dağıtmadan önce en iyi CPU ve bellek gereksinimlerini belirlemek için profil isteyebilirsiniz.
-
-CLI veya SDK'sını kullanarak modelinizi profili yapabilirsiniz.
+Modelinizi bir hizmeti dağıtmadan önce en iyi CPU ve bellek gereksinimlerini belirlemek için profil isteyebilirsiniz. CLI veya SDK'sını kullanarak modelinizi profili yapabilirsiniz.
 
 Daha fazla bilgi için SDK'sı belgelerimize burada kontrol edebilirsiniz: https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
 
@@ -544,6 +565,34 @@ service.update(models = [new_model])
 print(service.state)
 print(service.get_logs())
 ```
+
+## <a name="continuous-model-deployment"></a>Sürekli model dağıtımı 
+
+Modelleri için Machine Learning uzantısını kullanarak sürekli dağıtım yapabilirsiniz [Azure DevOps](https://azure.microsoft.com/services/devops/). Azure DevOps için Machine Learning uzantısı kullanarak, Azure Machine Learning hizmeti çalışma alanında yeni bir machine learning modeli kaydedildiğinde bir dağıtım işlem hattı tetikleyebilirsiniz. 
+
+1. Kaydolun [Azure işlem hatları](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), hangi mümkün kılar sürekli tümleştirme ve teslim bulut uygulamanızın herhangi bir platform/any. Azure işlem hatları [ML ardışık düzen ' farklı](concept-ml-pipelines.md#compare). 
+
+1. [Azure DevOps projesi oluşturun.](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
+
+1. Yükleme [Azure işlem hatları için Machine Learning uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList) 
+
+1. Kullanım __bağlantılara hizmet__ tüm yapıtlar erişmek için Azure Machine Learning hizmeti çalışma alanında bir hizmet sorumlusu bağlantı ayarlamak için. Proje Ayarları'na gidin, hizmet bağlantıları ve Azure Resource Manager'ı seçin.
+
+    ![Görünüm hizmet bağlantısı](media/how-to-deploy-and-where/view-service-connection.png) 
+
+1. AzureMLWorkspace olarak tanımlamak __kapsam düzeyi__ ve sonraki parametreleri doldurun.
+
+    ![azure resource manager görüntüle](media/how-to-deploy-and-where/resource-manager-connection.png)
+
+1. Ardından, Azure işlem hatları kullanarak makine öğrenimi modelinizi sürekli olarak dağıtmak için işlem hatları altında seçin __yayın__. Yeni yapıt ekleme, önceki adımda oluşturulan hizmet bağlantı ve AzureML modeli yapıt seçin. Bir dağıtımı tetiklemek için sürümü ve modeli seçin. 
+
+    ![Select AzureMLmodel yapıt](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
+
+1. Model, model yapıt tetikleyici etkinleştirin. Tetikleyici, her zaman belirtilen sürümü (yani açarak en yeni sürümü) çalışma alanınızda Bu modelin kaydıdır, bir Azure DevOps yayın işlem hattı tetiklenir. 
+
+    ![etkinleştirme modeli tetikleyicisi](media/how-to-deploy-and-where/set-modeltrigger.png)
+
+Örnek projeler ve örnekler için kullanıma [MLOps depo](https://github.com/Microsoft/MLOps)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 Dağıtılmış bir web hizmetini silmek için kullanın `service.delete()`.

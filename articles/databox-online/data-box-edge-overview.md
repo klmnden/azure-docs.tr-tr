@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 06/11/2019
+ms.date: 06/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 438e25a72361866acd449024b6e7e8c06ed6c9c7
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 3972f9f93cc6323601102f1a54bb067a8995d9e4
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144225"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484752"
 ---
 # <a name="what-is-azure-data-box-edge"></a>Azure Data Box Edge nedir? 
 
@@ -55,7 +55,7 @@ Data Box Edge'in şöyle özellikleri vardır:
 |Özellik |Açıklama  |
 |---------|---------|
 |Yüksek performans     | Tümüyle otomatik ve son derece iyileştirilmiş veri aktarımı ve bant genişliği.|
-|Desteklenen protokoller     | Veri alımında standart SMB ve NFS protokolleri için destek. <br> Desteklenen sürümler hakkında daha fazla bilgi için bkz. [Data Box Edge sistem gereksinimleri](https://aka.ms/dbe-docs).|
+|Desteklenen protokoller     | Veri alımında standart SMB ve NFS protokolleri için destek. <br> Desteklenen sürümler hakkında daha fazla bilgi için bkz. [Data Box Edge sistem gereksinimleri](data-box-edge-system-requirements.md).|
 |Bilgi işlem       |Verilerin analizine, işlenmesine, filtrelenmesine olanak tanır.|
 |Veri erişimi     | Bulutta ek veri işleme için bulut API'lerini kullanarak Azure Depolama Blobları ve Azure Dosyaları'ndan doğrudan veri erişimi.|
 |Hızlı erişim     | En son kullanılan dosyalara hızlı erişim için cihazda yerel önbellek.|
@@ -75,13 +75,13 @@ Data Box Edge çözümü Data Box Edge kaynağından, Data Box Edge fiziksel cih
 
     <!--![The Data Box Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
-    Daha fazla bilgi için, [Data Box Edge cihazınızı yönetmek için Data Box Edge hizmetini kullanma](https://aka.ms/dbe-docs) konusuna gidin.
+    Daha fazla bilgi için Git [veri kutusu Edge cihazınız için bir sipariş oluşturma](data-box-edge-deploy-prep.md#create-a-new-resource).
 
 * **Data Box yerel web kullanıcı arabirimi** - Tanılama çalıştırmak, Data Box Edge cihazını kapatmak ve yeniden başlatmak, kopya günlüklerini görüntülemek ve hizmet isteğinde bulunmak üzere Microsoft Desteği'ne başvurmak için yerel web kullanıcı arabirimini kullanın.
 
     <!--![The Data Box Edge local web UI](media/data-box-Edge-overview/data-box-Edge-local-web-ui.png)-->
 
-    Web tabanlı kullanıcı arabirimini kullanma hakkında bilgi için, [Data Box'ınızı yönetmek için web tabanlı kullanıcı arabirimini kullanma](https://aka.ms/dbe-docs) konusuna gidin.
+    Web tabanlı kullanıcı arabirimini kullanma hakkında bilgi için, [Data Box'ınızı yönetmek için web tabanlı kullanıcı arabirimini kullanma](data-box-edge-manage-access-power-connectivity-mode.md) konusuna gidin.
 
 
 ## <a name="region-availability"></a>Bölge kullanılabilirliği

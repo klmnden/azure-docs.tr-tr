@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/12/2019
-ms.openlocfilehash: ad3e2157e7b8748174cc8b81d1debd5de0ba77b9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: a2f9b7597022822272692d20976e1da654b9d524
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079489"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462049"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı performans önerileri
 
-**Şunlara uygulanır:** 10.2s MariaDB için Azure veritabanı
+**Şunlara uygulanır:** 10.2 MariaDB için Azure veritabanı
 
 > [!NOTE]
-> Performans önerileri önizlemededir. Performans önerileri için destek Azure portalında kullanıma sunulacaktır ve henüz bölgenizde kullanılamıyor olabilir.
+> Performans önerileri önizlemededir.
 
 Performans önerileri özelliği, performansı artırmak için özelleştirilmiş öneri oluşturmak için veritabanlarınızı analiz eder. Öneriler üretmek için şema dahil olmak üzere çeşitli veritabanı özellikleri, analiz arar. Etkinleştirme [Query Store](concepts-query-store.md) performans önerileri özelliği tam olarak yararlanmak için sunucunuzdaki. Performans şema kapalı ise, Query Store üzerinde kapatma performance_schema ve performans şema Instruments özellik için gerekli bir alt kümesi sağlar. Herhangi bir performans önerisi uyguladıktan sonra bu değişikliklerin etkisini değerlendirmek için performans test etmeniz gerekir.
 

@@ -1,6 +1,6 @@
 ---
-title: PowerShell örneği-coğrafi çoğaltma yük devretme grubu-tek Azure SQL Veritabanı | Microsoft Docs
-description: Etkin coğrafi çoğaltma yük devretme kümesi için azure PowerShell örnek betiği, Azure SQL veritabanı'nda tek bir veritabanı için Grup ve yük devretme.
+title: PowerShell örneği-etkin coğrafi çoğaltma - Azure SQL veritabanı tek veritabanı | Microsoft Docs
+description: Azure SQL veritabanı'nda tek bir veritabanı için etkin coğrafi çoğaltma ayarlayıp yük devretme için azure PowerShell örnek betiği.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,14 +12,14 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: a90753d075f7f4db9dbae95fde979d471db3247c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 1733e117c2a5b0d58e37c3f5af451f949bd253f9
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729204"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561481"
 ---
-# <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-database-in-azure-sql-database"></a>Azure SQL veritabanı'nda bir tek bir veritabanı için etkin coğrafi çoğaltma yük devretme grubu yapılandırmak için PowerShell kullanma
+# <a name="use-powershell-to-configure-active-geo-replication-for-a-single-database-in-azure-sql-database"></a>Azure SQL veritabanı'nda tek bir veritabanı için etkin coğrafi çoğaltmayı yapılandırma için PowerShell kullanma
 
 Bu PowerShell Betiği örneği, bir tek bir veritabanı için etkin coğrafi çoğaltma yük devretme grubu yapılandırır ve veritabanının ikincil bir çoğaltmasına yük devreder.
 

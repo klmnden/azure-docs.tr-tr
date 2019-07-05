@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e95f167cf6dcfe90fff1c2be174ca197cb2aa004
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67829b6245fe4fea8da88c97fa8d5aeedccc90a0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204031"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446618"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory ve Batch kullanarak işlem büyük ölçekli veri kümeleri
 > [!NOTE]
@@ -124,7 +124,7 @@ En az iki işlem düğümleri ile bir Batch havuzu oluşturun.
    f. Seçin **Tamam** havuzu oluşturun.
 
 #### <a name="azure-storage-explorer"></a>Azure Depolama Gezgini
-Kullandığınız [Azure Depolama Gezgini 6](https://azurestorageexplorer.codeplex.com/) veya [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (ürünü olan yazılımından) incelemek ve veri depolama projelerinizde değiştirmek için. Ayrıca inceleyin ve veriyi bulutta barındırılan uygulamalarınızı günlüklerinde değiştirin.
+Kullandığınız [Azure Depolama Gezgini 6](https://azurestorageexplorer.codeplex.com/) veya [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (ürünü olan yazılımından) incelemek ve veri depolama projelerinizde değiştirmek için. Ayrıca inceleyin ve veriyi bulutta barındırılan uygulamalarınızı günlüklerinde değiştirin.
 
 1. Adlı bir kapsayıcı oluşturun **mycontainer** özel erişim (anonim erişim yok).
 

@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/09/2019
+ms.date: 06/27/2019
 ms.author: raynew
-ms.openlocfilehash: 2cf9aee498c649cdbf973652a60fb2d1f3feb371
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 55275144746dbc1a3ead7c7c12a6901ab6f9269e
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312157"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514118"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Azure VM'lerini bir bölgeden diğerine çoğaltma için destek matrisi
 
@@ -70,7 +70,7 @@ Almanya | Almanya Orta, Almanya Kuzeydoğu
 
 **Ayar** | **Destek** | **Ayrıntılar**
 --- | --- | ---
-Genel amaçlı V2 depolama hesaplarının (sık erişimli ve seyrek erişimli katman) | Desteklenmiyor. | V2 ilişkin işlem maliyetlerini V1 depolama hesaplarından daha önemli ölçüde daha yüksek olduğu için önbellek depolama için sınırlama bulunmaktadır.
+Genel amaçlı V2 depolama hesaplarının (sık erişimli ve seyrek erişimli katman) | Desteklenen | V2 ilişkin işlem maliyetlerini V1 depolama hesaplarından daha önemli ölçüde daha yüksek olduğu için GPv2 kullanımı önerilmez.
 Sanal ağlar için Azure depolama güvenlik duvarları  | Desteklenen | Güvenlik Duvarı etkin önbellek depolama hesabı veya hedef depolama hesabı kullanıyorsanız, emin ['İzin güvenilen Microsoft Hizmetleri'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 
@@ -82,7 +82,7 @@ Site Recovery, Azure Bu bölümde listelenen işletim sistemlerini çalıştıra
 
 **İşletim sistemi** | **Ayrıntılar**
 --- | ---
-Windows Server 2019 |
+Windows Server 2019 | Sunucu Çekirdeği, masaüstü deneyimi ile sunucu
 Windows Server 2016  | Sunucu Çekirdeği, masaüstü deneyimi ile sunucu
 Windows Server 2012 R2 |
 Windows Server 2012 |
@@ -151,7 +151,7 @@ SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.22 | SP1 3.12.49-11-default 3
 
 **Ayar** | **Destek** | **Ayrıntılar**
 --- | --- | ---
-Boyut | Herhangi bir Azure VM boyutu en az 2 CPU Çekirdeği ve 1 GB RAM | Doğrulama [Azure sanal makine boyutları](../virtual-machines/windows/sizes.md).
+Size | Herhangi bir Azure VM boyutu en az 2 CPU Çekirdeği ve 1 GB RAM | Doğrulama [Azure sanal makine boyutları](../virtual-machines/windows/sizes.md).
 Kullanılabilirlik kümeleri | Desteklenen | Varsayılan seçeneklerle bir Azure VM için çoğaltmayı etkinleştirin, bir kullanılabilirlik kümesinde kaynak bölge ayarlara göre otomatik olarak oluşturulur. Bu ayarları değiştirebilirsiniz.
 Kullanılabilirlik alanları | Desteklenen |
 Hibrit kullanım teklifi (HUB) | Desteklenen | Kaynak VM etkin bir HUB lisans yük devretme testi veya yük devretme varsa VM, ayrıca HUB lisansı kullanır.
@@ -208,7 +208,7 @@ RA-GRS | Desteklenen |
 ZRS | Desteklenmiyor |
 Seyrek erişimli ve sık erişimli depolama | Desteklenmiyor | Seyrek erişimli ve sık erişimli depolama alanı sanal makine diskleri desteklenmez
 Sanal ağlar için Azure depolama güvenlik duvarları  | Desteklenen | Depolama hesapları için sanal ağ erişimini kısıtlama, etkinleştirme [izin güvenilen Microsoft Hizmetleri](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
-Genel amaçlı V2 depolama hesaplarının (hem sık erişimli ve seyrek erişimli Katmanlar) | Hayır | İşlem maliyetleri artırmak için genel amaçlı V1 depolama hesaplarında önemli ölçüde karşılaştırılır.
+Genel amaçlı V2 depolama hesaplarının (hem sık erişimli ve seyrek erişimli Katmanlar) | Evet | İşlem maliyetleri artırmak için genel amaçlı V1 depolama hesaplarında önemli ölçüde karşılaştırılır.
 
 >[!IMPORTANT]
 > Performans sorunlarını önlemek için VM disk ölçeklenebilirlik ve performans hedefleri için izlediğinizden emin olun [Linux](../virtual-machines/linux/disk-scalability-targets.md) veya [Windows](../virtual-machines/windows/disk-scalability-targets.md) VM'ler. Site Recovery, varsayılan ayarları kullanırsanız, gerekli diskler ve depolama hesapları, kaynak yapılandırmasına bağlı olarak oluşturur. Özelleştirme ve kendi ayarlarınızı seçin, kaynak VM'lerin disk ölçeklenebilirlik ve performans hedefleri izleyin.
@@ -246,7 +246,7 @@ Birden çok IP adresi | Desteklenmiyor | Bir NIC ile birden çok IP adresine sah
 Traffic Manager     | Desteklenen | Traffic Manager, trafiğin uç noktasına düzenli olarak kaynak bölgede ve uç noktaya yük devretme durumunda hedef bölgede yönlendirilmesi önceden yapılandırabilirsiniz.
 Azure DNS | Desteklenen |
 Özel DNS  | Desteklenen |
-Kimliği doğrulanmamış proxy | Desteklenen | [Daha fazla bilgi]. (site-recovery-azure-to-azure-networking-guidance.md)   
+Kimliği doğrulanmamış proxy | Desteklenen | [Daha fazla bilgi edinin](site-recovery-azure-to-azure-networking-guidance.md)    
 Kimliği doğrulanmış Proxy | Desteklenmiyor | VM için giden bağlantı kimliği doğrulanmış bir ara sunucu kullanıyorsa, Azure Site Recovery kullanarak yinelenemez.    
 Şirket içi VPN siteden siteye bağlantı<br/><br/>(ile veya olmadan ExpressRoute)| Desteklenen | Udr ve Nsg'ler Site Recovery trafiği şirket içi yönlendirilmemesidir şekilde yapılandırıldığından emin olun. [Daha fazla bilgi edinin](site-recovery-azure-to-azure-networking-guidance.md)    
 VNET'ten VNET'e bağlantı | Desteklenen | [Daha fazla bilgi edinin](site-recovery-azure-to-azure-networking-guidance.md)  

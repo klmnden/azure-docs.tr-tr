@@ -1,91 +1,130 @@
 ---
-title: Azure özel sağlayıcılar Önizlemesi'ne genel bakış
-description: Azure Resource Manager ile özel kaynak sağlayıcısı oluşturmak için kavramları açıklar
-author: MSEvanhi
+title: Azure özel kaynak sağlayıcıları genel bakış
+description: Azure özel kaynak sağlayıcıları ve iş akışlarınızı sığdırmak için Azure API düzlemi genişletme hakkında bilgi edinin.
+author: jjbfour
 ms.service: managed-applications
 ms.topic: conceptual
-ms.date: 05/01/2019
-ms.author: evanhi
-ms.openlocfilehash: bbfb10f612690af0f4fd3683e0f58986a21048d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.author: jobreen
+ms.openlocfilehash: f418cd6c5470740ce123448ddbbe54cb6e89dabe
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65159863"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67475957"
 ---
-# <a name="azure-custom-providers-preview-overview"></a>Azure özel sağlayıcıları Önizleme genel bakış
+# <a name="azure-custom-resource-providers-overview"></a>Azure özel kaynak sağlayıcılara genel bakış
 
-Azure özel sağlayıcıları ile hizmetiniz ile çalışmak için Azure genişletebilirsiniz. Size özelleştirilmiş kaynak türleri ve Eylemler dahil olmak üzere, kendi kaynak sağlayıcısı oluşturun. Özel bir sağlayıcı, Azure Resource Manager ile tümleşiktir. Hizmetinizin güvenliğini sağlama ve dağıtma için Resource Manager'ın özellikleri, şablon dağıtımları ve rol tabanlı access control gibi kullanabilirsiniz.
+Azure özel kaynak sağlayıcıları, Azure için genişletilebilirlik platformudur. Azure deneyimini tanımladığınız varsayılan zenginleştirmek için kullanılan özel API'ler sağlar. Bu belgede açıklanmaktadır:
 
-Bu makalede, özel sağlayıcılar ve özelliklerine genel bakış sağlar. Aşağıdaki görüntüde kaynaklara ve işlemlere tanımlanan özel bir sağlayıcı için iş akışı gösterilmektedir.
+- Derleme ve Azure özel kaynak sağlayıcısı dağıtma nasıl.
+- Mevcut iş akışlarına genişletmek için Azure özel kaynak sağlayıcıları nasıl.
+- Başlamak için kılavuzları ve kod örneklerini nerede bulacağını.
 
 ![Özel sağlayıcı genel bakış](./media/custom-providers-overview/overview.png)
 
 > [!IMPORTANT]
 > Özel sağlayıcıları şu an genel Önizleme aşamasındadır.
-> Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir.
+> Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="define-your-custom-provider"></a>Özel sağlayıcınızın tanımlayın
+## <a name="what-can-custom-resource-providers-do"></a>Özel kaynak sağlayıcıları neler yapabilirsiniz
 
-Azure Resource Manager'ın özel sağlayıcınızın hakkında bilmeniz vererek başlattığınız. Azure'da kaynak türünü kullanan bir özel sağlayıcı kaynak dağıtma **Microsoft.CustomProviders/resourceProviders**. Bu kaynakta hizmetiniz için kaynakları ve eylemleri tanımlayın.
+Azure özel kaynak sağlayıcılarıyla elde edebileceğiniz bazı örnekler şunlardır:
 
-Örneğin, hizmetiniz adlı bir kaynak türü gerekiyorsa **kullanıcılar**, bu kaynak türü özel sağlayıcı Tanımınızda içerir. Her kaynak türü için bu kaynak türü için REST işlemlerini (PUT, alma, silme) sunan bir uç nokta sağlar. Uç nokta, herhangi bir ortam üzerinde barındırılabilir ve hizmetinizi kaynak türü üzerinde işlemler nasıl işlediğini için mantığı içerir.
+- Azure Resource Manager REST API'si iç ve dış hizmetler içerecek şekilde genişletin.
+- Mevcut Azure iş akışlarını en üstünde özel senaryolara olanak tanır.
+- Azure Resource Manager şablonları denetimi ve etkili özelleştirin.
 
-Kaynak sağlayıcınız için özel eylemler de tanımlayabilirsiniz. Eylemler sonrası işlemleri temsil eder. Eylemler, Başlat, Durdur veya yeniden başlatma gibi işlemler için kullanın. İsteği işleyen bir uç nokta sağlar.
+## <a name="what-is-a-custom-resource-provider"></a>Özel kaynak sağlayıcısı nedir
 
-Aşağıdaki örnek, bir eylem ve bir kaynak türü ile özel bir sağlayıcı tanımlamak gösterilmektedir.
+Azure özel kaynak sağlayıcıları, Azure ve uç nokta arasında bir sözleşme oluşturarak yapılır. Bu sözleşmeyi yeni kaynakları ve eylemleri aracılığıyla yeni bir kaynak listesi tanımlar **Microsoft.CustomProviders/resourceProviders**. Özel kaynak sağlayıcısı, ardından bu yeni API'leri azure'da açığa çıkarır. Azure özel kaynak sağlayıcıları, üç bölümden oluşur: özel kaynak sağlayıcısı **uç noktaları**ve özel kaynakların.
 
-```json
+## <a name="how-to-build-custom-resource-providers"></a>Özel kaynak sağlayıcıları oluşturma
+
+Özel kaynak sağlayıcıları, Azure ve uç noktaları arasında sözleşmeleri listesidir. Bu sözleşme, Azure, bir uç nokta ile nasıl etkileşim kuracağını açıklar. Kaynak sağlayıcısı davranır isteklerini ve yanıtlarını belirtilen gelen ve giden iletir ve bir proxy gibi **uç nokta**. Bir kaynak sağlayıcısı sözleşmeleri iki türü belirtebilirsiniz: [ **kaynak türlerinin** ](./custom-providers-resources-endpoint-how-to.md) ve [ **eylemleri**](./custom-providers-action-endpoint-how-to.md). Bu uç nokta tanımları etkinleştirilir. Bir uç nokta tanımı üç alandan oluşur: **adı**, **routingType**, ve **uç nokta**.
+
+Örnek uç noktası:
+
+```JSON
 {
-  "apiVersion": "2018-09-01-preview",
-  "type": "Microsoft.CustomProviders/resourceProviders",
-  "name": "[parameters('funcName')]",
-  "location": "[parameters('location')]",
-  "properties": {
-    "actions": [
-      {
-        "name": "ping",
-        "routingType": "Proxy",
-        "endpoint": "[concat('https://', parameters('funcName'), '.azurewebsites.net/api/{requestPath}')]"
-      }
-    ],
-    "resourceTypes": [
-      {
-        "name": "users",
-        "routingType": "Proxy,Cache",
-        "endpoint": "[concat('https://', parameters('funcName'), '.azurewebsites.net/api/{requestPath}')]"
-      }
-    ]
-  }
-},
-```
-
-İçin **routingType**, kabul edilen değerler `Proxy` ve `Cache`. Proxy kaynak türü için istekleri anlamına gelir veya eylem bitiş noktası tarafından işlenir. Önbellek ayarını, yalnızca eylemleri değil kaynak türleri için desteklenir. Önbellek belirtmek için proxy belirtmeniz gerekir. Önbellek yanıtları uç noktasından okuma işlemleri en iyi duruma getirme depolanan anlamına gelir. Önbellek ayarını kullanarak diğer Resource Manager hizmetleriyle tutarlı ve uyumlu olan API uygulama kolaylaştırır.
-
-## <a name="deploy-your-resource-types"></a>Kaynak türlerinizi dağıtma
-
-Özel sağlayıcınızın tanımladıktan sonra özelleştirilmiş kaynak türlerini dağıtabilirsiniz. Aşağıdaki örnek, kaynak türü, özel sağlayıcınızın dağıtmak için şablonunuzdaki dahil JSON'u göstermektedir. Bu kaynak türü, diğer Azure kaynaklarıyla aynı şablonu içinde dağıtılabilir.
-
-```json
-{
-    "apiVersion": "2018-09-01-preview",
-    "type": "Microsoft.CustomProviders/resourceProviders/users",
-    "name": "[concat(parameters('rpname'), '/santa')]",
-    "location": "[parameters('location')]",
-    "properties": {
-        "FullName": "Santa Claus",
-        "Location": "NorthPole"
-    }
+  "name": "{endpointDefinitionName}",
+  "routingType": "Proxy",
+  "endpoint": "https://{endpointURL}/"
 }
 ```
 
-## <a name="manage-access"></a>Erişimi yönetme
+Özellik | Gerekli | Açıklama
+---|---|---
+name | *Evet* | Uç nokta tanımı adı. Azure kullanıma sunma bu adı altında kendi API aracılığıyla ' /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders / {resourceProviderName} / {endpointDefinitionName}'
+routingType | *Yok* | Sözleşme türü ile belirler **uç nokta**. Belirtilmezse, varsayılan olarak "Proxy'sine" olacaktır.
+endpoint | *Evet* | İstekleri yönlendirmek için uç nokta. Bu isteğin tüm yan etkileri yanı sıra yanıt işler.
 
-Azure kullanan [rol tabanlı erişim denetimi](../role-based-access-control/overview.md) kaynak sağlayıcısına erişimi yönetmek için. Atayabileceğiniz [yerleşik roller](../role-based-access-control/built-in-roles.md) sahibi, katkıda bulunan veya okuyucu kullanıcılara gibi. Veya tanımlayabilirsiniz [özel roller](../role-based-access-control/custom-roles.md) özgü, kaynak sağlayıcısı işlemleri.
+### <a name="building-custom-resources"></a>Özel kaynaklar oluşturma
+
+**Kaynak türlerinin** Azure'a eklenen yeni özel kaynaklar açıklanır. Bu temel RESTful CRUD yöntemleri açığa. Bkz: [özel kaynakları oluşturma hakkında daha fazla bilgi](./custom-providers-resources-endpoint-how-to.md)
+
+Örnek özel kaynak sağlayıcısı ile **kaynak türlerinin**:
+
+```JSON
+{
+  "properties": {
+    "resourceTypes": [
+      {
+        "name": "myCustomResources",
+        "routingType": "Proxy",
+        "endpoint": "https://{endpointURL}/"
+      }
+    ]
+  },
+  "location": "eastus"
+}
+```
+
+API'leri, yukarıdaki örnek için Azure'a eklendi:
+
+HttpMethod | Örnek URI | Açıklama
+---|---|---
+PUT | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}?api-version=2018-09-01-preview | Yeni bir kaynak oluşturmak için Azure REST API çağrısı.
+DELETE | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}?api-version=2018-09-01-preview | Mevcut bir kaynağı silmek için Azure REST API çağrısı.
+GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}?api-version=2018-09-01-preview | Mevcut bir kaynağı almak için Azure REST API çağrısı.
+GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources? api sürümü 2018-09-01-preview = | Var olan kaynakların listesini almak için Azure REST API çağrısı.
+
+### <a name="building-custom-actions"></a>Özel Eylemler oluşturma
+
+**Eylemler** Azure'a eklenen yeni eylemler anlatılmaktadır. Bunlar kaynak sağlayıcısı üzerine ifşa edilememesi ya altında iç içe bir **resourceType**. Bkz: [özel eylemler oluşturma hakkında daha fazla bilgi](./custom-providers-action-endpoint-how-to.md)
+
+Örnek özel kaynak sağlayıcısı ile **Eylemler**:
+
+```JSON
+{
+  "properties": {
+    "actions": [
+      {
+        "name": "myCustomAction",
+        "routingType": "Proxy",
+        "endpoint": "https://{endpointURL}/"
+      }
+    ]
+  },
+  "location": "eastus"
+}
+```
+
+API'leri, yukarıdaki örnek için Azure'a eklendi:
+
+HttpMethod | Örnek URI | Açıklama
+---|---|---
+POST | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomAction? api sürümü 2018-09-01-preview = | Eylemini etkinleştirmek için Azure REST API çağrısı.
+
+## <a name="looking-for-help"></a>Yardım
+
+Azure özel kaynak sağlayıcısı geliştirme için ilgili sorularınız varsa, sorma [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). Benzer bir soru soruların sorulmuş olduğunu ve sorularınızın, ilk önce yayınlayarak kontrol edin. Etiket Ekle ```azure-custom-providers``` hızlı yanıt almak için!
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu makalede, özel sağlayıcıları hakkında bilgi edindiniz. Özel bir sağlayıcı oluşturmak için sonraki makaleye gidin.
 
-> [!div class="nextstepaction"]
-> [Öğretici: Özel bir sağlayıcı oluşturmak ve özel kaynakları dağıtma](create-custom-provider.md)
+- [Öğretici: Azure özel kaynak sağlayıcısı oluşturursanız ve özel kaynakları dağıtma](./create-custom-provider.md)
+- [Nasıl Yapılır: Azure REST API'si için özel eylemler ekleme](./custom-providers-action-endpoint-how-to.md)
+- [Nasıl Yapılır: Azure REST API'si için özel kaynak ekleme](./custom-providers-resources-endpoint-how-to.md)

@@ -3,31 +3,30 @@ title: Azure Digital Twins'e genel bakış | Microsoft Docs
 description: Uzamsal zekaya yönelik bir Azuer IoT çözümü olan Azure Digital Twins hakkında daha fazla bilgi edinin.
 author: julieseto
 ms.author: jseto
-ms.date: 12/14/2018
+ms.date: 05/31/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 41a6b040c04c3a212a7ee89897b29f5ec96048d7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0bbbb924cace93e44af84fd96926a2d7153dd5f8
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072187"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67459011"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Azure Digital Twins'e genel bakış
 
-Azure Digital Twins, fiziksel ortamların kapsamlı modellerini oluşturan bir Azure IoT hizmetidir. Bu kişiler, boşluk ve cihazlar arasındaki etkileşimler ve ilişkileri modellemek için uzamsal zeka grafikler oluşturabilirsiniz.
+Azure dijital İkizlerini Önizleme fiziksel ortamının kapsamlı modelleri oluşturan bir Azure IOT hizmetidir. Bu kişiler, boşluk ve cihazlar arasındaki etkileşimler ve ilişkileri modellemek için uzamsal zeka grafikler oluşturabilirsiniz.
 
-Azure ile dijital İkizlerini, fiziksel bir boşluk yerine birçok farklı sensörlerden alınan verileri sorgulayabilirsiniz. Bu hizmet dijital ve fiziksel dünya genelindeki akış veri bağlantısı yeniden kullanılabilir, ölçeklenebilir, mekan kullanan deneyimleri oluşturmanıza yardımcı olur. Uygulamalarınızı bu benzersiz olarak ilgili bağlamsal özellikler tarafından geliştirilmiştir. Azure dijital çiftleri için aşağıdaki örnek görevler için kullanılabilir:
+Azure ile dijital İkizlerini, fiziksel bir boşluk yerine birçok farklı sensörlerden alınan verileri sorgulayabilirsiniz. Bu hizmet dijital ve fiziksel dünya genelindeki akış veri bağlantısı yeniden kullanılabilir, ölçeklenebilir, mekan kullanan deneyimleri oluşturmanıza yardımcı olur. Uygulamalarınızı bu benzersiz olarak ilgili bağlamsal özellikler tarafından geliştirilmiştir. 
+
+Azure dijital İkizlerini ortamları, tüm türleri için olduğu gibi ambar, ofisleri, okullar, hastaneler ve bankalar geçerlidir. Hatta kurucular, fabrikaları, park, parka, Akıllı Kılavuzlar ve şehir için kullanılabilir. Burada Azure dijital İkizlerini yararlı olabilir bazı senaryolar aşağıda verilmiştir:
 
 - İçin bir Fabrika bakım ihtiyaçlarını tahmin edin.
 - Bir Elektrik şebekesi için gerçek zamanlı enerji gereksinimleri analiz edin.
 - Office için kullanılabilir alan kullanımı iyileştirin.
-
-Azure dijital İkizlerini ortamları tüm türleri için geçerlidir. Ambar, ofisleri, okullar, hastaneler ve bankalar bunun yalnızca birkaç örnektir. Hatta kurucular, fabrikaları, park, parka, Akıllı Kılavuzlar ve şehir için kullanılabilir. Azure dijital çiftleri için aşağıdaki örnek senaryolarda kullanılabilir:
-
 - Günlük sıcaklık arasında çeşitli durumları izler.
 - Meşgul bir insansız hava aracı yolları izleyin.
 - Otonom taşıtlardan belirleyin.
@@ -46,15 +45,15 @@ Azure dijital İkizlerini aşağıdaki temel özellikleri vardır.
 
 ### <a name="spatial-intelligence-graph"></a>Uzamsal zeka grafı
 
-[ *Uzamsal zeka grafik*](./concepts-objectmodel-spatialgraph.md), veya *uzamsal graf*, fiziksel ortam sanal bir gösterimidir. Kişiler, yerler ve cihazlar arasındaki ilişkileri modellemek için kullanabilirsiniz.
+[ *Uzamsal zeka grafik*](./concepts-objectmodel-spatialgraph.md#graph), veya *uzamsal graf*, fiziksel ortam sanal bir gösterimidir. Kişiler, yerler ve cihazlar arasındaki ilişkileri modellemek için kullanabilirsiniz.
 
 Bir Komşuları bağlı birkaç elektrik kullanım ölçümleri içeren bir akıllı yardımcı uygulama göz önünde bulundurun. Akıllı yardımcı şirket gerekir doğru bir şekilde izleyin ve elektrik kullanımını tahmin edin ve faturalandırma. Her bir cihaz ve algılayıcıyı konumu ve faturalandırılmaya müşteri hakkında bağlam ile modellenmesi gerekir. Bu tür karmaşık ilişkileri modellemek için uzamsal zeka Grafiği'ni kullanabilirsiniz.
 
 ### <a name="digital-twin-object-models"></a>Dijital ikiz nesne modelleri
 
-[Dijital ikizini nesne modellerini](./concepts-objectmodel-spatialgraph.md) önceden tanımlanmış cihaz protokolleri ve veri şeması. Bunlar, geliştirme işlemini basitleştirin ve hızlandırın, çözümünüzün gereksinimlerini karşılayacak etki alanına özgü hizalayın.
+[Dijital ikizini nesne modellerini](./concepts-objectmodel-spatialgraph.md#model) önceden tanımlanmış cihaz protokolleri ve veri şeması. Bunlar, geliştirme işlemini basitleştirin ve hızlandırın, çözümünüzün gereksinimlerini karşılayacak etki alanına özgü hizalayın.
 
-Bir oda doluluk uygulama kampüs, bina, kat ve yer gibi önceden tanımlanmış alan türlerini kullanabilir bir örnektir.
+Örneğin, bir oda doluluk uygulama kampüs, bina, kat ve yer gibi önceden tanımlanmış alan türlerini kullanabilir.
 
 ### <a name="multiple-and-nested-tenants"></a>Birden çok ve iç içe yerleştirilmiş kiracılar
 

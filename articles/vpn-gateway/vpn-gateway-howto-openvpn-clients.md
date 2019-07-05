@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: a3806a7f64f30e5073182f96f552b8584cf1ce0c
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: b8f1626da730178d2cd9c2f31c4f9876102b3d46
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147249"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477838"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Azure VPN ağ geçidi için OpenVPN istemcilerini yapılandırma
 
@@ -67,9 +67,9 @@ VPN ağ geçidiniz OpenVPN yapılandırma adımları tamamladığınızdan emin 
 4. P2S istemci sertifikası bölümünü base64’teki P2S istemci sertifikası genel anahtarı ile doldurun. PEM biçimli bir sertifikada .cer dosyasını açıp base64 anahtarını sertifika üst bilgileri arasına kopyalamanız yeterlidir. Bkz: [ortak anahtarını dışarı aktarmak](vpn-gateway-certificates-point-to-site.md#cer) kodlanmış ortak anahtarı almak için bir sertifikayı dışarı aktarma hakkında bilgi için.
 5. Özel anahtar bölümünü, base64’teki P2S istemci sertifikası özel anahtarı ile doldurun. Bkz: [, özel anahtarı dışarı aktar](https://openvpn.net/community-resources/how-to/#pki) özel anahtarınızı ayıklamanız hakkında bilgi için.
 6. Başka bir alanı değiştirmeyin. VPN’e bağlanmak için istemci girişinde doldurulmuş yapılandırmayı kullanın.
-7. İçinde tunnelblik profili oluşturmak için profili dosyasına çift tıklayın.
-8. Uygulamaları klasöründen Tunnelblik başlatın.
-9. Sistem tepsisindeki Tunnelblik simgesine tıklayın ve çekme bağlanın.
+7. İçinde Tunnelblick profili oluşturmak için profili dosyasına çift tıklayın.
+8. Uygulamaları klasöründen Tunnelblick başlatın.
+9. Sistem tepsisindeki Tunnelblick simgesine tıklayın ve çekme bağlanın.
 
 > [!IMPORTANT]
 >Yalnızca iOS 11.0 ve yukarıdaki ve MacOS 10.13 ve yukarıdaki OpenVPN protokolü ile desteklenir.

@@ -1,55 +1,51 @@
 ---
-title: Bir Microsoft Müşteri sözleşmesi Azure kullanım ve Ücret CSV ilgili koşulları anlama | Microsoft Docs
-description: Okuma ve Azure kullanım ve faturalandırma profiliniz için CSV ücretleri bölümlerini anlama hakkında bilgi edinin
-services: ''
-documentationcenter: ''
+title: Azure kullanımı ve ücretleri dosya için bir Microsoft Müşteri sözleşmesinin koşulları
+description: Okuma ve Azure kullanım ve faturalandırma profiliniz için CSV ücretleri bölümlerini anlama hakkında bilgi edinin.
 author: bandersmsft
-manager: alherz
-editor: ''
+manager: jureid
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d11e31366ea5aa15cf7a790eaee800fa2ea6dabe
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371317"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490617"
 ---
-# <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>Bir Microsoft Müşteri sözleşmesi Azure kullanım ve Ücret CSV ilgili koşulları anlama
+# <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Azure kullanımı ve ücretleri dosya için bir Microsoft Müşteri sözleşmesinin koşulları
 
 Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi için geçerlidir. [Microsoft Müşteri sözleşmesi erişimi olup olmadığını denetlemek](#check-access-to-a-microsoft-customer-agreement).
 
 Azure kullanım ve Ücret CSV dosyası, geçerli fatura dönemi için günlük ve ölçüm düzey kullanım ücretlerini içerir.
 
-Azure kullanımı ve ücretleri dosyasını almak için bkz. [ve görüntüleyin ve indirme Azure kullanım ücretleri için Microsoft Müşteri sözleşmenizi](billing-download-azure-daily-usage.md).
-Elektronik tablo uygulamasında açabileceğiniz bir virgülle ayrılmış değerler (.csv) dosya biçiminde kullanılabilir.
+Azure kullanımı ve ücretleri dosyasını almak için bkz. [ve görüntüleyin ve indirme Azure kullanım ücretleri için Microsoft Müşteri sözleşmenizi](billing-download-azure-daily-usage.md). Elektronik tablo uygulamasında açabileceğiniz bir virgülle ayrılmış değerler (.csv) dosya biçiminde kullanılabilir.
 
 Kullanım ücretleri, toplam **aylık** ücretleri bir Abonelikteki. Kullanım ücretleri, herhangi bir kredi veya indirim dikkate almaz.
 
-## <a name="changes-in-the-enterprise-agreement-azure-usage-and-charges-csv"></a>Kurumsal Anlaşma Azure kullanım ve Ücret CSV değişiklikleri
+## <a name="changes-from-azure-ea-usage-and-charges"></a>Azure EA kullanımı ve ücretleri değişiklikleri
 
-Bir EA müşterisinin olsaydı, faturalandırma profili CSV dosyası Azure kullanım koşullarını EA Azure kullanım CSV dosyasında koşulları farklı olan fark edeceksiniz. Bir eşleme profili kullanım koşulları faturalandırma için EA Kullanım Koşulları'nın şu şekildedir:
+Bir EA müşterisinin olsaydı, Azure faturalandırma profili kullanım CSV dosyası koşullarını Azure EA kullanım CSV dosyasında terimlerden farklı olduğunu fark edeceksiniz. Bir eşleme profili kullanım koşulları faturalandırma için EA Kullanım Koşulları'nın şu şekildedir:
 
-| Kurumsal Anlaşma Azure kullanım CSV | Microsoft Müşteri sözleşmesi Azure kullanım ve Ücret CSV |
+| Azure EA kullanım CSV | Microsoft Müşteri sözleşmesi Azure kullanım ve Ücret CSV |
 | --- | --- |
 | Tarih | date |
 | Ay| date |
 | Gün | date |
 | Yıl | date |
-| Product | Ürün |
+| Product | product |
 | MeterId | meterID |
 | MeterCategory | MeterCategory |
 | MeterSubCategory | MeterSubCategory |
 | MeterRegion | MeterRegion |
 | MeterName | MeterName |
 | ConsumedQuantity | Miktar |
-| ResourceRate | effectivePrice | <!-- this was highlighted -->
+| ResourceRate | effectivePrice |
 | ExtendedCost | maliyet |
 | resourceLocation | resourceLocation |
 | ConsumedService | ConsumedService |
@@ -59,17 +55,15 @@ Bir EA müşterisinin olsaydı, faturalandırma profili CSV dosyası Azure kulla
 | Additionalınfo | Additionalınfo |
 | Tags | tags |
 | StoreServiceIdentifier | Yok |
-| Bölüm adı | invoiceSection | <!-- this was highlighted -->
+| Bölüm adı | invoiceSection |
 | CostCenter | CostCenter |
 | UnitOfMeasure | unitofMeasure |
-| ResourceGroup | Kaynak grubu |
-| ChargesBilledSeparately | isAzureCreditEligible | <!-- this was highlighted -->
+| ResourceGroup | resourceGroup |
+| ChargesBilledSeparately | isAzureCreditEligible |
 
-<!-- TO DO: Marketplace CSV? -->
+## <a name="detailed-terms-and-descriptions"></a>Ayrıntılı hüküm ve açıklamaları
 
-## <a name="detailed-terms-and-descriptions-in-your-azure-usage-and-charges-file"></a>Ayrıntılı hüküm ve Azure kullanım ve Ücret dosyanızdaki açıklamaları
-
-Aşağıdaki bölümde Azure kullanımı ve ücretleri dosyasında gösterilen önemli koşullar açıklanmaktadır.
+Aşağıdaki terimler Azure kullanım ve Ücret dosyasında gösterilmektedir.
 
 Terim | Açıklama
 --- | ---
@@ -98,7 +92,7 @@ MeterSubCategory | Ölçüm alt sınıflandırma kategorisi adı
 MeterRegion | Ölçüm hizmeti için kullanılabilir olduğu bölge adı. Veri Merkezi konumuna göre ücretlendirilen belirli hizmetler için veri merkezinin konumunu belirtir.
 Teklif | Satın alınan teklif adı
 productId | Ücretler tahakkuk ürün için benzersiz tanımlayıcı
-Ürün | Ücretler tahakkuk ürün adı
+product | Ücretler tahakkuk ürün adı
 Abonelik kimliği | Ücretler tahakkuk abonelik için benzersiz tanımlayıcı
 subscriptionName | Ücretler tahakkuk abonelik adı
 Reservationıd | Satın alınan ayırmanın örneği için benzersiz tanımlayıcı
@@ -120,9 +114,9 @@ ServiceInfo2 | İsteğe bağlı hizmete özgü meta veriler yakalanır eski alan
 Additionalınfo | Ek hizmete özgü meta veriler.
 tags | Kaynağa atadığınız etiketler
 
-### <a name="how-do-i-make-sure-that-the-charges-in-my-azure-usage-and-charges-file-are-correct"></a>Azure kullanım ve Ücret dosyamı ücretleri doğru olduğunu nasıl emin olabilirim?
+### <a name="make-sure-that-charges-are-correct"></a>Ücretleri doğru olduğundan emin olun
 
-Daha fazla ayrıntı istediğiniz ayrıntılı kullanım dosyanızdaki bir ücret yoksa bkz [fatura profil faturasında ücretlerini anlama](billing-mca-understand-your-bill.md)
+Ayrıntılı kullanım dosyanızdaki ücretleri doğru olduğundan emin olmak istiyorsanız, bunları doğrulayabilirsiniz. Bkz: [fatura profil faturasında ücretlerini anlama](billing-mca-understand-your-bill.md)
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için erişim denetimi
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 9bfd6c34d81e193fe31610f840474f1e4c91170d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02231f86d4ceddd6cde53fd242c2c91158d744a9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430936"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480761"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Azure App Service için özel bir Linux kapsayıcısını yapılandırın
 
@@ -50,10 +50,10 @@ Kullanabileceğiniz */home* yeniden başlatmaları arasındaki dosyaları kalıc
 
 Ne zaman kalıcı depolama devre dışı bırakıldı ve Yazar `/home` uygulama yeniden başlatmaları arasında veya birden fazla örnek arasında dizin kalıcı değildir. Tek özel durum `/home/LogFiles` dizinini Docker ve kapsayıcı günlüklerini depolamak için kullanılır. Kalıcı depolama etkinleştirildiğinde, tüm yazma işlemlerini `/home` dizin kalıcı ve genişletilmiş uygulama tüm örnekleri tarafından erişilebilir.
 
-Varsayılan olarak, kalıcı depolama, *devre dışı*. Etkinleştirmek veya devre dışı bırakmak için ayarlanmış `WEBSITES_ENABLE_APP_SERVICE_STORAGE` çalıştırarak uygulama ayarı [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) Cloud shell'de komutu. Örneğin:
+Varsayılan olarak, kalıcı depolama, *etkin* ve ayar uygulama ayarlarında gösterilmez. Devre dışı bırakmak için ayarlanmış `WEBSITES_ENABLE_APP_SERVICE_STORAGE` çalıştırarak uygulama ayarı [ `az webapp config appsettings set` ](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) Cloud shell'de komutu. Örneğin:
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=true
+az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
 ```
 
 > [!NOTE]

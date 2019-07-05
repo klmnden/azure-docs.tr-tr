@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 6/27/2019
 ms.author: raynew
-ms.openlocfilehash: f2d64e0a081ff483be84053c442f48e7d145ca50
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9c7aa2be945e4fbaa65bdd2a145d576422c5539
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66396496"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491762"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: sık sorulan sorular (SSS)
 Bu makalede, Azure Site Recovery hakkında sık sorulan sorular özetlenmektedir.</br>
@@ -150,7 +150,7 @@ Azure Site Recovery, genel bir uç nokta verileri Azure depolama hesabınız ya 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>VPN üzerinden neden çoğaltma yapamaz?
 
-Azure'a çoğalttığınızda, çoğaltma trafiği ortak uç noktalar Azure Depolama'nın ulaşır. Bu nedenle, yalnızca ExpressRoute (genel eşdüzey hizmet sağlama) ile genel internet üzerinden çoğaltma yapabilirsiniz ve VPN çalışmaz.
+Azure'a çoğalttığınızda, çoğaltma trafiği ortak uç noktalar Azure Depolama'nın ulaşır. Bu nedenle, yalnızca ExpressRoute (Microsoft eşdüzey hizmet sağlama veya bir mevcut genel eşdüzey hizmet sağlama) ile genel internet üzerinden çoğaltma yapabilirsiniz ve VPN çalışmaz.
 
 ### <a name="can-i-use-riverbed-steelheads-for-replication"></a>Riverbed SteelHeads çoğaltma için kullanabilir miyim?
 
@@ -159,12 +159,11 @@ Azure'a çoğalttığınızda, çoğaltma trafiği ortak uç noktalar Azure Depo
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>Sanal makinelerini Azure'a çoğaltma için ExpressRoute kullanabilir miyim?
 Evet, [ExpressRoute kullanılabilir](concepts-expressroute-with-site-recovery.md) şirket içi sanal makinelerini Azure'a çoğaltma için.
 
-- Azure Site Recovery, genel bir uç nokta verileri bir Azure depolama alanına çoğaltır. Kurmanız gerekecektir [genel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#publicpeering) veya [Microsoft eşlemesi](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) Site Recovery çoğaltması için ExpressRoute kullanmak için.
+- Azure Site Recovery, genel bir uç nokta verileri bir Azure depolama alanına çoğaltır. Kurmanız gerekecektir [Microsoft eşlemesi](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) veya mevcut bir [genel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#publicpeering) (yeni bağlantı hatları için kullanım dışı) Site Recovery çoğaltması için ExpressRoute kullanmak için.
 - Microsoft eşlemesi, çoğaltma için önerilen Yönlendirme etki alanıdır.
-- Sanal makineler üzerinde bir Azure sanal ağı için başarısız olduktan sonra bunları erişebilirsiniz kullanarak [özel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#privatepeering) kurulum ile Azure sanal ağı.
 - Çoğaltma özel eşdüzey hizmet sağlama üzerinden desteklenmiyor.
-- VMware makineleri veya fiziksel makineleri koruyorsanız, yapılandırma sunucusu uygun olduğundan emin olun [gereksinimlerinde](vmware-azure-configuration-server-requirements.md#network-requirements) çoğaltma. 
-
+- VMware makineleri veya fiziksel makineleri koruyorsanız, emin [ağ gereksinimleri](vmware-azure-configuration-server-requirements.md#network-requirements) için yapılandırma sunucusunu da karşılandığından. Belirli URL'lere bağlantısı yapılandırma sunucusu tarafından Site Recovery çoğaltma düzenleme için gereklidir. ExpressRoute için bağlantı kullanılamaz.
+- Sanal makineler üzerinde bir Azure sanal ağı için başarısız olduktan sonra bunları erişebilirsiniz kullanarak [özel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#privatepeering) kurulum ile Azure sanal ağı.
 
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-or-managed-disk-do-i-need"></a>Azure'a çoğaltma, ne tür bir depolama hesabı veya yönetilen disk ihtiyacım var?

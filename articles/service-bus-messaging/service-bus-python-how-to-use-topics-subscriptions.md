@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 47cd0621a601e3f1ef53572bc7bb8bc1c7ea76ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd75ba9d407399703a382596019d5f370808b20a
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991992"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543674"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Service Bus konuları ve abonelikleri ile Python kullanma
 
@@ -79,9 +79,9 @@ bus_service.create_topic('mytopic', topic_options)
 Konu abonelikleri ile de oluşturulur **ServiceBusService** nesne. Abonelikler adlandırılır ve aboneliğin sanal kuyruğuna teslim ileti kümesini sınırlayan isteğe bağlı bir filtre içerebilir.
 
 > [!NOTE]
-> Abonelikleri kalıcıdır ve bunlar ya da, bunlar abonesiniz, silinen konu kadar var olmaya devam eder.
+> Varsayılan olarak, abonelikleri kalıcıdır ve bunlar ya da, bunlar abonesiniz, silinen konu kadar var olmaya devam eder.
 > 
-> 
+> Otomatik olarak ayarlayarak silinmiş abonelikleri olabilir [auto_delete_on_idle özelliği](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Varsayılan (MatchAll) filtreyle abonelik oluşturma
 
@@ -178,7 +178,7 @@ Uygulama iletiyi ancak önce çökmesi durumunda, `delete` yöntemi çağrılır
 
 ## <a name="delete-topics-and-subscriptions"></a>Konu başlıklarını ve abonelikleri silme
 
-Konuları ve abonelikleri kalıcıdır ve açıkça olmalıdır aracılığıyla silindi [Azure portalında] [ Azure portal] veya programlama yoluyla. Aşağıdaki örnekte adlı konu gösterilmektedir `mytopic`:
+Konuları ve abonelikleri kalıcı sürece [auto_delete_on_idle özelliği](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) ayarlanır. Olabilirler aracılığıyla silindi [Azure portalında][Azure portal] veya programlama yoluyla. Aşağıdaki örnekte adlı konu gösterilmektedir `mytopic`:
 
 ```python
 bus_service.delete_topic('mytopic')

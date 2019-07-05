@@ -9,18 +9,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 6/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: c0a76ecd12143e0bbaa9997bfc6d7295df9c4ec7
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 1a9caf83c6f4cd4ed15290afc872043c11234552
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340874"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508708"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>Örnek verilerle bir Stream Analytics sorgu testi
 
 Azure Stream Analytics kullanarak örnek giriş verileri veya sorguları Azure Portalı'nda başlangıç veya bir işi durduruluyor test etmek için örnek verileri karşıya yükleme.
 
-## <a name="upload-sample-data-and-test-the-query"></a>Örnek verileri karşıya yükleme ve sorgu testi
+## <a name="upload-or-sample-data-from-a-live-source-to-test-the-query"></a>Karşıya yükleme veya sorguyu test etmek için Canlı bir kaynaktan örnek veriler
 
 1. Azure Portal’da oturum açın. 
 
@@ -30,7 +30,7 @@ Azure Stream Analytics kullanarak örnek giriş verileri veya sorguları Azure P
 
 4. Sorgunuz test etmek için ardından ya da bir canlı girdi veya bir dosyadan karşıya veri örnekleme yapabilirsiniz. Veri, JSON, CSV veya AVRO seri hale getirilmelidir. Örnek giriş UTF-8 olarak kodlanmış ve sıkıştırılmaz. Yalnızca virgül (,) sınırlayıcı CSV giriş portalında test etme için desteklenir.
 
-    1. Canlı girişini kullanarak: girişlerinizi birini sağ tıklayın. Ardından **örnek giriş verileri**. Sonraki ekranda, örnek süresini ayarlayabilirsiniz.
+    1. Canlı girişini kullanarak: girişlerinizi birini sağ tıklayın. Ardından **örnek giriş verileri**. Sonraki ekranda, örnek süresini ayarlayabilirsiniz. Örneklenen verileri belirtilen tam zaman aralığını temsil etmeyebilir için örnekleme olaylarını canlı bir kaynaktan gelen olayları veya 1 MB (hangisi önce gerçekleşirse), 1000 adede kadar alın.
 
     1. Dosyasıyla: girişlerinizi birini sağ tıklayın. Ardından **örnek verileri dosyadan karşıya**. 
 

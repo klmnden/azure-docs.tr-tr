@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9cf0b848e551d3c0e7d7275af9eb2c8e970dbd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd4c6952aab1581a968fc671141792c0e16a7d46
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113390"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536970"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure multi-Factor authentication'da raporları
 
@@ -188,5 +188,6 @@ Aşağıdaki tabloda, çok faktörlü kimlik doğrulaması Etkinlik Raporu indir
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+* [SSPR ve MFA kullanımı ve raporlama öngörüleri](howto-authentication-methods-usage-insights.md)
 * [Kullanıcılar için](../user-help/multi-factor-authentication-end-user.md)
 * [Dağıtılacağı yeri](concept-mfa-whichversion.md)

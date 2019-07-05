@@ -8,17 +8,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: AyoOlubeko
-ms.author: ayolubek
+author: Ninarn
+ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/12/2019
-ms.openlocfilehash: b2109afe6760eb87269a33ed74784149c2bf3e03
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/28/2019
+ms.openlocfilehash: 52041ba3c057e871b60f283f293dd79a18f3b21e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61409090"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508765"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Hızlı Başlangıç: Bağlanmak ve veri sorgulamak için Azure portalında SQL sorgu Düzenleyicisi'ni kullanın
 
@@ -32,14 +32,14 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
   || Tek veritabanı |
   |:--- |:--- |
-  | Oluştur| [Portal](sql-database-single-database-get-started.md) | 
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | 
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | 
-  | Yapılandırma | [sunucu düzeyinde IP güvenlik duvarı kuralı](sql-database-server-level-firewall-rule.md)| 
+  | Create| [Portal](sql-database-single-database-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
+  | Yapılandırma | [sunucu düzeyinde IP güvenlik duvarı kuralı](sql-database-server-level-firewall-rule.md)|
   |||
 
 > [!NOTE]
-> Emin olun **Azure hizmetlerine erişime izin ver** seçeneği **ON** SQL server güvenlik duvarı ayarlarınızda. Bu seçenek, SQL sorgu Düzenleyicisi erişimi veritabanlarınıza ve veri ambarlarınıza erişmesini sağlar.
+> Sorgu Düzenleyicisi, bağlantı noktası 443 ve 1443 iletişim kurmak için kullanır.  Bu bağlantı noktalarında giden HTTPS trafiğini etkin olun. Giden IP adresiniz veritabanlarınıza ve veri ambarlarınıza erişmesini server'ın izin verilen güvenlik duvarı kuralları eklemeniz gerekir.
 
 ## <a name="sign-in-the-azure-portal"></a>Azure portalında oturum açın
 
@@ -49,13 +49,13 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 1. Seçin **SQL veritabanları** seçin ve sol taraftaki menüden **mySampleDatabase**.
 
-2. Sol taraftaki menüde bulmak ve seçmek **sorgu Düzenleyicisi (Önizleme)**. **Oturum açma** sayfası görüntülenir.
+2. Sol taraftaki menüde bulmak ve seçmek **sorgu Düzenleyicisi (Önizleme)** . **Oturum açma** sayfası görüntülenir.
 
     ![sorgu düzenleyicisini bulma](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
 3. Gelen **Yetkilendirme türü** açılan menüsünde, select **SQL Server kimlik doğrulamasını** ve kullanıcı kimliği ve veritabanı oluşturmak için kullanılan sunucu yönetici hesabı parolasını girin.
 
-    ![oturum aç](./media/sql-database-connect-query-portal/login-menu.png) 
+    ![oturum aç](./media/sql-database-connect-query-portal/login-menu.png)
 
 4. **Tamam**’ı seçin.
 
@@ -78,8 +78,8 @@ Bir Active Directory (AD) yöneticisinin yapılandırılması, Azure portalı ve
 
 4. AD Yönetim sayfası araç çubuğundan seçin **Kaydet**.
 
-5. Gidin **mySampleDatabase** veritabanı ve sol taraftaki menüden **sorgu Düzenleyicisi (Önizleme)**. **Oturum açma** sayfası görüntülenir. Bir AD, daha sonra sağ tarafta altında yöneticisiyseniz **Active Directory çoklu oturum açma**, açtığınızdan bildiren bir ileti görüntülenir. 
-   
+5. Gidin **mySampleDatabase** veritabanı ve sol taraftaki menüden **sorgu Düzenleyicisi (Önizleme)** . **Oturum açma** sayfası görüntülenir. Bir AD, daha sonra sağ tarafta altında yöneticisiyseniz **Active Directory çoklu oturum açma**, açtığınızdan bildiren bir ileti görüntülenir.
+
 6. **Tamam**’ı seçin.
 
 
@@ -160,7 +160,7 @@ Aşağıdaki komutu çalıştırın [Sil](https://msdn.microsoft.com/library/ms1
 
 Sorgu Düzenleyicisi ile çalışırken bilmeniz gereken birkaç nokta vardır.
 
-* Sanal ağ içinde sorgu SQL server veritabanları için sorgu Düzenleyicisi'ni kullanamazsınız.
+* Sorgu Düzenleyicisi, bağlantı noktası 443 ve 1443 iletişim kurmak için kullanır.  Bu bağlantı noktalarında giden HTTPS trafiğini etkin olun. Giden IP adresiniz veritabanlarınıza ve veri ambarlarınıza erişmesini server'ın izin verilen güvenlik duvarı kuralları eklemeniz gerekir.
 
 * F5 tuşuna basarak sorgu Düzenleyicisi sayfası yenilenir ve üzerinde çalışılmakta olan herhangi bir sorgu kaybolur.
 

@@ -2,27 +2,21 @@
 title: Karma Azure Active Directory join uygulaması Azure Active Directory'de (Azure AD) nasıl | Microsoft Docs
 description: Hibrit Azure Active Directory'ye katılmış cihazları elle nasıl yapılandıracağınızı öğrenin.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a1c349ae7cdd66c09db412331c344d6512ecd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c476c2b326045db37c54a358d68f4b5f8bbaed9a
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110605"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509599"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Nasıl Yapılır: Hibrit Azure Active Directory join uygulamanızı planlama
 
@@ -83,7 +77,7 @@ Ortamınızı kimlik verilerini birden fazla Azure AD kiracınıza eşitlemek, t
 
 Hibrit Azure AD'ye katılımı, Sanal Masaüstü Altyapısı (VDI) kullanırken, şu anda desteklenmiyor.
 
-Hibrit Azure AD'ye FIPS uyumlu TPM'ler için desteklenmiyor. FIPS uyumlu TPM'ler cihazlarınız varsa, bunları hibrit Azure AD'ye katılma devam etmeden önce devre dışı bırakmanız gerekir. Microsoft, TPM üreticisine bağımlı olduğu FIPS modundayken TPM'ler için devre dışı bırakmak için herhangi bir aracı sağlamaz. Lütfen OEM donanımınız için desteğe başvurun.
+Hibrit Azure AD'ye katılım FIPS uyumlu TPM'ler için desteklenmiyor. FIPS uyumlu TPM'ler cihazlarınız varsa, bunları hibrit Azure AD'ye katılma devam etmeden önce devre dışı bırakmanız gerekir. Microsoft, TPM üreticisine bağımlı olduğu FIPS modundayken TPM'ler için devre dışı bırakmak için herhangi bir aracı sağlamaz. Lütfen OEM donanımınız için desteğe başvurun.
 
 Hibrit Azure AD'ye katılım etki alanı denetleyicisi (DC) rolünü çalıştıran Windows Server için desteklenmiyor.
 
@@ -99,13 +93,11 @@ Windows 10 etki alanına katılmış ise zaten cihazlardır [kayıtlı Azure AD]
 - Etki alanına katılmış cihaz Azure AD'ye bu kayıt defteri anahtarı - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" ekleyerek kayıtlı olmasını engelleyebilir = DWORD: 00000001.
 - Bu değişiklik ile uygulanan KB4489894 için Windows 10, 1803 sürümü kullanıma sunulmuştur. Windows iş için Hello yapılandırılmış varsa, ancak kullanıcı re-Windows iş için Hello ikili durum sonra temizleme kurulumu için gereklidir.
 
-
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Hibrit Azure AD'ye katılma denetimli doğrulama gözden geçirin
 
 Tüm önkoşulların yerinde olduğundan, Azure AD kiracınızda cihaz olarak Windows cihazları otomatik olarak kaydeder. Bu cihaz kimliklerini Azure AD'de durumunu hibrit Azure AD'ye katılım adlandırılır. Bu makalede ele alınan kavramları hakkında daha fazla bilgi makalelerde bulunabilir [Azure Active Directory'de cihaz kimlik yönetimine giriş](overview.md) ve [, hibrit Azure Active Directory katılım'ı planlama Uygulama](hybrid-azuread-join-plan.md).
 
 Kuruluşlar, tek seferde tüm kuruluşlarındaki etkinleştirmeden önce hibrit Azure AD'ye katılım denetimli bir doğrulama yapmak isteyebilirsiniz. Makalesini gözden geçirin [denetlenen hibrit Azure AD'ye katılma doğrulaması](hybrid-azuread-join-control.md) bunu yerine getirmeyi anlamak için.
-
 
 ## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>Temel kimlik altyapınızı senaryonuzu seçin
 
@@ -135,8 +127,6 @@ Eşleşen kimlik altyapınızı senaryo temel alınarak, bakın:
 
 - [Hibrit Azure Active Directory join Federasyon ortamı için yapılandırma](hybrid-azuread-join-federated-domains.md)
 - [Hibrit Azure Active Directory join yönetilen ortam için yapılandırma](hybrid-azuread-join-managed-domains.md)
-
-
 
 ## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>Gözden geçirme şirket içi hibrit Azure AD'ye katılma AD UPN'sini desteği
 

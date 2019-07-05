@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 335b5b87de0a625e357bdfaa7d5a4c0a7a9e4997
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4c184b3c38db53caed31b9fc463ad68f11c73479
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339411"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550327"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Linux sanal makineleri hakkında sık sorulan sorular
 Bu makalede Azure Resource Manager dağıtım modeli kullanılarak oluşturulan Linux sanal makineleri hakkında bazı yaygın sorular ele alınmıştır. Bu konuda Windows sürümü için bkz: [Windows sanal makineleri hakkında sık sorulan soruya](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -29,7 +29,7 @@ Bu makalede Azure Resource Manager dağıtım modeli kullanılarak oluşturulan 
 Tüm aboneler bir Azure sanal makinesinde sunucu yazılımı çalıştırabilir. Daha fazla bilgi için [Azure-Endorsed dağıtımlarda Linux](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Bir sanal makineyle birlikte ne kadar depolama alanı kullanabilirim?
-Her veri diski 4 TB'a kadar (4.095 GB) olabilir. Kullanabileceğiniz veri diski sayısı, sanal makinenin boyutuna bağlıdır. Ayrıntılar için bkz. [Virtual Machines boyutları](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Her veri diski 32.767 GiB kadar olabilir. Kullanabileceğiniz veri diski sayısı, sanal makinenin boyutuna bağlıdır. Ayrıntılar için bkz. [Virtual Machines boyutları](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Azure yönetilen diskler önerilen disk depolama kullanmak için Azure sanal makineler ile veri kalıcı depolama için tekliflerdir. Her bir Sanal Makine ile birden fazla Yönetilen Disk kullanabilirsiniz. Yönetilen diskler teklif iki tür dayanıklı depolama seçeneği Premium ve standart yönetilen diskler. Fiyatlandırma bilgileri için bkz: [yönetilen diskler fiyatlandırma](https://azure.microsoft.com/pricing/details/managed-disks).
 

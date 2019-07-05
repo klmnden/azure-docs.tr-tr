@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 05/06/2019
-ms.openlocfilehash: 520dba611e6791fca990e21173424a914c3d8e14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/26/2019
+ms.openlocfilehash: e9d1ce3bcd3bf958be0a7837e8416300af03f5a2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693341"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449743"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Sanal çekirdek hizmet katmanları seçin ve DTU hizmet katmanı arasından geçirme
 
@@ -28,6 +28,8 @@ Sanal çekirdek (vCore)-tabanlı satın alma modeli bağımsız olarak ölçekle
 
 Donanım 4. nesil sanal çekirdek başına önemli ölçüde daha fazla bellek sunar. Ancak, 5. nesil donanım çok daha yüksek bilgi işlem kaynaklarını ölçeklendirme olanak tanır.
 
+> [!IMPORTANT]
+> Yeni 4. nesil veritabanları, AustraliaEast bölgesinde artık desteklenmemektedir.
 > [!NOTE]
 > DTU tabanlı hizmet katmanları hakkında daha fazla bilgi için bkz: [hizmet katmanları için DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md). DTU tabanlı hizmet katmanları ve sanal çekirdek tabanlı satın alma modeli arasındaki farklar hakkında daha fazla bilgi için bkz: [Azure SQL veritabanı'nın satın alma modeli](sql-database-purchase-models.md).
 

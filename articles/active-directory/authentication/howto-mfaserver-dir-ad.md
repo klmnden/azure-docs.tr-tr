@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82aa566c5bcd6347a6f62b2f693a7ad796347438
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eac6cff0f0f12daaf772549f547aafd670600d61
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055990"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536975"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA Sunucusu ile Active Directory arasında dizin tümleştirme
 
@@ -31,6 +31,9 @@ Active Directory veya başka bir LDAP dizini ile tümleştirmek için Azure MFA 
 Varsayılan olarak, Azure Multi-Factor Authentication (MFA) Sunucusu kullanıcıları Active Directory'den içeri aktaracak ya da eşitleyecek şekilde yapılandırılır.  Dizin Tümleştirme sekmesi, varsayılan davranışın üzerine yazmanızı ve farklı bir LDAP dizini, ADAM dizini ya da belirli bir Active Directory etki alanı denetçisine bağlamanızı sağlar.  Ayrıca, LDAP Kimlik Doğrulaması için kullanmak üzere RADIUS hedefi olarak LDAP ya da LDAP Bağlama sunma, IIS Kimlik Doğrulaması için önceden kimlik doğrulaması ya da Kullanıcı Portalı için birincil kimlik doğrulaması sağlar.  Aşağıdaki tabloda tek tek ayarlar açıklanır.
 
 ![MFA Sunucusu'nda LDAP yapılandırmasını düzenle](./media/howto-mfaserver-dir-ad/dirint.png)
+
+> [!NOTE]
+> Dizin tümleştirme dizinleri dışında Active Directory Domain Services ile çalışacak şekilde garanti edilmez.
 
 | Özellik | Açıklama |
 | --- | --- |

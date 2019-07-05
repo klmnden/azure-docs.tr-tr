@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 85eaa81a0cfd7ccfe8ad3ae818f89966280d279e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d81e5e69837f6074d94278f4e54f9178a656335
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64730372"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433783"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Azure sanal ağdaki HDInsight üzerinde Apache HBase kümeleri oluşturma
 Azure HDInsight Apache HBase kümeleri oluşturmayı öğrenin bir [Azure sanal ağı][1].
@@ -25,7 +25,7 @@ Uygulamalar HBase ile doğrudan iletişim kurabilmesi için sanal ağ ile tümle
 * Genel bir uç nokta sokmadan daha güvenli bir şekilde hassas bilgi işleme yeteneği.
 
 ### <a name="prerequisites"></a>Önkoşullar
-Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
+Bu makaleye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Azure PowerShell içeren bir iş istasyonu**. Bkz: [yükleme ve Azure PowerShell kullanma](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
@@ -63,7 +63,7 @@ Bu bölümde, bir Azure sanal ağı kullanarak bağımlı Azure depolama hesabı
    * **Hüküm ve yukarıdaki koşulları kabul ediyorum**: (Seç)
 3. **Satın al**’a tıklayın. Bir küme oluşturmak yaklaşık 20 dakika sürer. Küme oluşturulduktan sonra küme dikey penceresini açmak için portalda tıklayabilirsiniz.
 
-Öğreticiyi tamamladıktan sonra kümeyi silmek isteyebilirsiniz. HDInsight ile, verileriniz Azure Storage’da depolanır, böylece kullanılmadığında bir kümeyi güvenle silebilirsiniz. Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. Küme ücretleri depolama ücretlerinin birkaç katı olduğundan, kullanılmadığında kümelerin silinmesi mantıklı olandır. Küme silme yönergeleri için bkz: [yönetme Apache Hadoop, Azure portalını kullanarak HDInsight kümeleri](../hdinsight-administer-use-portal-linux.md#delete-clusters).
+Makaleyi tamamladıktan sonra kümeyi silmek isteyebilirsiniz. HDInsight ile, verileriniz Azure Storage’da depolanır, böylece kullanılmadığında bir kümeyi güvenle silebilirsiniz. Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. Küme ücretleri depolama ücretlerinin birkaç katı olduğundan, kullanılmadığında kümelerin silinmesi mantıklı olandır. Küme silme yönergeleri için bkz: [yönetme Apache Hadoop, Azure portalını kullanarak HDInsight kümeleri](../hdinsight-administer-use-portal-linux.md#delete-clusters).
 
 Yeni bir HBase kümesi ile çalışmaya başlamak için bulunan yordamları kullanabilirsiniz [HDInsight, Apache Hadoop ile Apache HBase kullanmaya başlama](./apache-hbase-tutorial-get-started-linux.md).
 
@@ -233,7 +233,7 @@ Bu bilgiler bir Java uygulamasında kullanmak için adımları izleyebilirsiniz 
 > Kendi DNS sunucunuzu kullanmak nasıl dahil olmak üzere sanal ağlar, azure'da ad çözümlemesi hakkında daha fazla bilgi için bkz [adı çözümleme (DNS)](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, bir Apache HBase kümesi oluşturmayı öğrendiniz. Daha fazla bilgi için bkz:
+Bu makalede, bir Apache HBase kümesi oluşturmayı öğrendiniz. Daha fazla bilgi için bkz:
 
 * [HDInsight ile çalışmaya başlama](../hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [HDInsight içinde boş kenar düğümlerini kullanma](../hdinsight-apps-use-edge-node.md)

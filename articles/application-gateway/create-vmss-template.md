@@ -1,34 +1,26 @@
 ---
-title: Azure Application Gateway - şablonları oluşturun | Microsoft Docs
-description: Bu sayfa, Azure Resource Manager şablonunu kullanarak, Azure uygulama ağ geçidi oluşturma yönergelerini verir.
-documentationcenter: na
+title: Azure Application Gateway - şablonları oluşturma
+description: Bu makale Azure Resource Manager şablonu kullanarak bir Azure uygulama ağ geçidi oluşturmak için yönergeler sağlar
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.topic: conceptual
+ms.date: 6/26/2019
 ms.author: victorh
-ms.openlocfilehash: 7ff6db5acb150207f975931155386a308c48888b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a762e8c9ed1981173f3729837456ac2cfea081b8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66134088"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449545"
 ---
-# <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Azure Resource Manager şablonunu kullanarak uygulama ağ geçidi oluşturma
+# <a name="create-an-application-gateway-using-the-azure-resource-manager-template"></a>Azure Resource Manager şablonu kullanarak bir uygulama ağ geçidi oluşturma
 
-Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirket içinde olmalarından bağımsız olarak, farklı sunucular arasında yük devretme ve performans yönlendirmeli HTTP istekleri sağlar. Application Gateway; HTTP yük dengeleme, tanımlama bilgisi tabanlı oturum benzeşimi, Güvenli Yuva Katmanı (SSL) boşaltma, özel sistem durumu araştırmaları, çoklu site desteği gibi birçok uygulama teslim denetleyicisi (ADC) özelliği sunar. Desteklenen özelliklerin tam bir listesi için bkz [Application Gateway'e genel bakış](overview.md)
+Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirket içinde olmalarından bağımsız olarak, farklı sunucular arasında yük devretme ve performans yönlendirmeli HTTP istekleri sağlar. Application Gateway; HTTP yük dengeleme, tanımlama bilgisi tabanlı oturum benzeşimi, Güvenli Yuva Katmanı (SSL) boşaltma, özel sistem durumu araştırmaları, çoklu site desteği gibi birçok uygulama teslim denetleyicisi (ADC) özelliği sunar. Desteklenen özelliklerin tam bir listesi için bkz [Application Gateway'e genel bakış](application-gateway-introduction.md)
 
-Bu makalede indiriliyor ve var olan bir değiştirme için size [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md) GitHub ve şablonu GitHub, PowerShell ve Azure CLI'yı dağıtma.
+Bu makalede indiriliyor ve var olan bir değiştirme için size [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md) GitHub ve şablonu GitHub, Azure PowerShell ve Azure CLI'yı dağıtma.
 
 Yalnızca şablon herhangi bir değişiklik yapmadan doğrudan github'dan dağıtıyorsanız, github'dan şablon dağıtma bölümüne atlayın.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario"></a>Senaryo
 
@@ -42,7 +34,7 @@ Bu senaryoda:
 > [!NOTE]
 > Bu ayarlar, bu şablonun parametreleridir. Şablonu özelleştirmek için kuralları, dinleyiciyi, SSL ve diğer seçenekleri azuredeploy.json dosyasındaki değiştirebilirsiniz.
 
-![Senaryo](./media/create-vmss-template/scenario.png)
+![Senaryo](./media/application-gateway-create-gateway-arm-template/scenario.png)
 
 ## <a name="download-and-understand-the-azure-resource-manager-template"></a>Azure Resource Manager şablonu indirme ve anlama
 
@@ -51,9 +43,9 @@ GitHub’dan sanal ağ ve iki adet alt ağ oluşturmak için, mevcut Azure Resou
 1. Gidin [oluşturma Application Gateway web uygulaması Güvenlik Duvarı etkin](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-waf).
 1. **azuredeploy.json** ve **RAW** öğelerine sırayla tıklayın.
 1. Dosyayı bilgisayarınızdaki yerel bir klasöre kaydedin.
-1. Eğer Azure Resource Manager şablonları hakkında bilginiz varsa, 7. adıma atlayın.
-1. Kaydettiğiniz dosyayı açın ve altındaki içeriğe bakın **parametreleri** satırında
-1. Azure Resource Manager şablonu parametreleri, dağıtım sırasında doldurulabilecek değerler için yer tutucu sağlar.
+1. Azure Resource Manager şablonları ile bilginiz varsa 7. adıma geçin.
+2. Kaydettiğiniz dosyayı açın ve altındaki içeriğe bakın **parametreleri** satırında
+3. Azure Resource Manager şablonu parametreleri, dağıtım sırasında doldurulabilecek değerler için yer tutucu sağlar.
 
    | Parametre | Açıklama |
    | --- | --- |
@@ -70,7 +62,7 @@ GitHub’dan sanal ağ ve iki adet alt ağ oluşturmak için, mevcut Azure Resou
 
    * **type**. Şablon tarafından oluşturulan kaynak türü. Bu durumda, türü, `Microsoft.Network/applicationGateways`, bir uygulama ağ geçidini temsil eder.
    * **name**. Kaynağın adı. Kullanımına dikkat edin `[parameters('applicationGatewayName')]`, adı giriş olarak bir parametre dosyası tarafınızdan girilerek veya dağıtım sırasında sağlanan anlamına gelir.
-   * **properties**. Kaynak özelliklerinin listesi. Bu şablon, uygulama ağ geçidi oluştururken sanal ağı ve genel IP adresini kullanır. JSON söz dizimi ve bir uygulama ağ geçidi şablondaki özellikleri için bkz [Microsoft.Network/applicationGateways](/azure/templates/microsoft.network/applicationgateways).
+   * **properties**. Kaynak özelliklerinin listesi. Bu şablon, uygulama ağ geçidi oluştururken sanal ağı ve genel IP adresini kullanır.
 
 1. Geri gidin [ https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/ ](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Tıklayın **azuredeploy-parameters.json**ve ardından **ham**.
@@ -116,46 +108,48 @@ GitHub’dan sanal ağ ve iki adet alt ağ oluşturmak için, mevcut Azure Resou
      }
      ```
 
-1. Dosyayı kaydedin. JSON şablonunu ve parametre şablonunu, [JSlint.com](https://www.jslint.com/) gibi çevrimiçi JSON doğrulama araçlarını kullanarak test edebilirsiniz.
+1. Dosyayı kaydedin. JSON şablonunu ve parametre şablonunu gibi çevrimiçi JSON doğrulama araçlarını kullanarak test [JSlint.com](https://www.jslint.com/).
 
-## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>PowerShell kullanarak Azure Resource Manager şablonu dağıtma
+## <a name="deploy-the-azure-resource-manager-template-using-azure-powershell"></a>Azure PowerShell kullanarak Azure Resource Manager şablonu dağıtma
 
-Azure PowerShell'i hiç kullanmadıysanız, ziyaret edin: [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview) ve Azure'da oturum açıp aboneliğinizi seçmek için yönergeleri izleyin.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. PowerShell oturum açın
+Azure PowerShell'i hiç kullanmadıysanız, bakın: [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview) ve Azure'da oturum açıp aboneliğinizi seçmek için yönergeleri izleyin.
 
-    ```powershell
-    Login-AzAccount
+1. Azure'a Bağlanma
+
+    ```azurepowershell
+    Connect-AzAccount
     ```
 
 1. Hesapla ilişkili abonelikleri kontrol edin.
 
-    ```powershell
+    ```azurepowershell
     Get-AzSubscription
     ```
 
-    Kimlik bilgilerinizle kimliğinizi doğrulamanız istenir.
+    Kimlik bilgilerinizle kimlik doğrulaması istenir.
 
 1. Hangi Azure aboneliğinizin kullanılacağını seçin.
 
-    ```powershell
+    ```azurepowershell
     Select-AzSubscription -Subscriptionid "GUID of subscription"
     ```
 
-1. Gerekirse, **New-AzureResourceGroup** cmdlet’ini kullanarak bir kaynak grubu oluşturun. Aşağıdaki örnekte Doğu ABD konumunda AppgatewayRG adlı yeni bir kaynak grubu oluşturacaksınız.
+1. Gerekirse, kullanarak bir kaynak grubu oluşturmanız **New-AzureResourceGroup** cmdlet'i. Aşağıdaki örnekte Doğu ABD konumunda AppgatewayRG adlı yeni bir kaynak grubu oluşturacaksınız.
 
-    ```powershell
+    ```azurepowershell
     New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
 1. Çalıştırma **yeni AzResourceGroupDeployment** indirdiğiniz ve değiştirdiğiniz şablonu ve parametre kullanarak yeni sanal ağı dağıtmak için cmdlet dosyaları.
     
-    ```powershell
+    ```azurepowershell
     New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
 
-## <a name="deploy-the-azure-resource-manager-template-by-using-the-azure-cli"></a>Azure CLI kullanarak Azure Resource Manager şablonu dağıtma
+## <a name="deploy-the-azure-resource-manager-template-using-the-azure-cli"></a>Azure CLI kullanarak Azure Resource Manager şablonu dağıtma
 
 Azure CLI kullanarak indirdiğiniz Azure Resource Manager şablonu dağıtmak için aşağıdaki adımları izleyin:
 
@@ -177,7 +171,7 @@ Azure CLI kullanarak indirdiğiniz Azure Resource Manager şablonu dağıtmak i�
     az group deployment create --resource-group appgatewayRG --name TestAppgatewayDeployment --template-file azuredeploy.json --parameters @azuredeploy-parameters.json
     ```
 
-## <a name="deploy-the-azure-resource-manager-template-by-using-click-to-deploy"></a>Dağıtmak için tıkla özelliğini kullanarak Azure Resource Manager şablonu dağıtma
+## <a name="deploy-the-azure-resource-manager-template-using-click-to-deploy"></a>Dağıtmak için kullanarak Azure Resource Manager şablonu dağıtma
 
 Dağıtmak için tıkla, Azure Resource Manager şablonlarını kullanmanın başka bir yoludur. Kolay bir Azure portalıyla şablonları kullanma yoludur.
 
@@ -185,21 +179,22 @@ Dağıtmak için tıkla, Azure Resource Manager şablonlarını kullanmanın ba�
 
 1. **Azure’a dağıt**’a tıklayın.
 
-    ![Azure’a dağıtma](./media/create-vmss-template/deploytoazure.png)
+    ![Azure’a dağıtma](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
     
 1. Portalda, dağıtım şablonu parametrelerini doldurun ve **Tamam**’a tıklayın.
 
-    ![Parametreler](./media/create-vmss-template/ibiza1.png)
+    ![Parametreler](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
     
 1. Seçin **hüküm ve koşulları yukarıda belirtilen kabul ediyorum** tıklatıp **satın alma**.
 
-1. Özel dağıtım dikey penceresinde **Oluştur**’a tıklayın.
+1. Özel dağıtım sayfasında tıklayın **Oluştur**.
 
 ## <a name="providing-certificate-data-to-resource-manager-templates"></a>Resource Manager şablonlarının sağlayan sertifika verileri
 
 SSL ile bir şablonu kullanılırken, sertifikayı karşıya yüklenen yerine bir base64 dizesi sağlanması gerekir. Bir .pfx veya base64 dizesi için .cer dönüştürerek aşağıdaki komutlardan birini. Aşağıdaki komutları sertifika şablonu için sağlanan bir base64 dizesine dönüştürün. Beklenen çıktıyı bir değişkende depolanan ve şablonda yapıştırılan bir dizedir.
 
 ### <a name="macos"></a>Mac OS
+
 ```bash
 cert=$( base64 <certificate path and name>.pfx )
 echo $cert
@@ -214,9 +209,9 @@ echo $cert
 
 Bu makalede oluşturulan tüm kaynakları silmek için aşağıdaki adımlardan birini tamamlayın:
 
-### <a name="powershell"></a>PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 
-```powershell
+```azurepowershell
 Remove-AzResourceGroup -Name appgatewayRG
 ```
 
@@ -228,12 +223,11 @@ az group delete --name appgatewayRG
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-SSL yük boşaltmayı yapılandırmak istiyorsanız, ziyaret edin: [SSL yük boşaltımı için bir uygulama ağ geçidi](tutorial-ssl-cli.md).
+SSL yük boşaltmayı yapılandırmak istiyorsanız, bkz: [SSL yük boşaltımı için bir uygulama ağ geçidi](application-gateway-ssl.md).
 
-Bir iç yük dengeleyiciyle kullanacağınız uygulama ağ geçidi yapılandırmak istiyorsanız, ziyaret edin: [İç yük dengeleyici (ILB) ile bir uygulama ağ geçidi oluşturma](redirect-internal-site-cli.md).
+Bir iç yük dengeleyiciyle kullanacağınız uygulama ağ geçidi yapılandırmak istiyorsanız, bkz: [İç yük dengeleyici (ILB) ile bir uygulama ağ geçidi oluşturma](application-gateway-ilb.md).
 
-Yük dengeleme seçenekleri hakkında daha fazla genel bilgi edinmek istiyorsanız, bkz.:
+Yük dengeleme seçenekleri hakkında daha fazla genel bilgi edinmek istiyorsanız, bkz.
 
 * [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-

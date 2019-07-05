@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 05/20/2019
-ms.openlocfilehash: 3e56244f074e31672cf77bc74998096e215a4db7
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.date: 06/27/2019
+ms.openlocfilehash: 1eeb37ce74b3e2f57588197d6bb88f59944c61cf
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357341"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460675"
 ---
 # <a name="automated-backups"></a>Otomatik yedeklemeler
 
-SQL veritabanı otomatik olarak 7 ila 35 gün arasında tutulduğu veritabanı yedeklerini oluşturur ve Azure [okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) veri merkezi kullanılamaz durumda olsa bile, korunduğundan emin olmak için. Bu yedeklemeler, otomatik olarak ve ek ücret olmadan oluşturulur. Bunları gerçekleştirmek için herhangi bir şey yapmanız gerekmez. Bunlar yanlışlıkla Bozulması veya silinmesi, verilerinizi korumak için veritabanı yedeklerini tüm iş sürekliliği ve olağanüstü durum kurtarma stratejinize önemli bir parçasıdır. Güvenlik kuralları, yedeklemelerinizi süre (en fazla 10 yıl) uzun bir süre için kullanılabilir olduğunu gerektiriyorsa, yapılandırabileceğiniz bir [uzun süreli saklama](sql-database-long-term-retention.md) tek veritabanları ve elastik havuzları.
+SQL veritabanı otomatik olarak 7 ila 35 gün arasında tutulduğu veritabanı yedeklerini oluşturur ve Azure [okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) veri merkezi kullanılamaz durumda olsa bile, korunduğundan emin olmak için. Bu yedeklemeler otomatik olarak oluşturulur. Bunlar yanlışlıkla Bozulması veya silinmesi, verilerinizi korumak için veritabanı yedeklerini tüm iş sürekliliği ve olağanüstü durum kurtarma stratejinize önemli bir parçasıdır. Güvenlik kuralları, yedeklemelerinizi süre (en fazla 10 yıl) uzun bir süre için kullanılabilir olduğunu gerektiriyorsa, yapılandırabileceğiniz bir [uzun süreli saklama](sql-database-long-term-retention.md) tek veritabanları ve elastik havuzları.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

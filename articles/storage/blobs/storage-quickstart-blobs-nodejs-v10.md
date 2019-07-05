@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: f426ee10017533c21021d618d613dc0931767988
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e2deda6bc9a5d13a631e9917f3020cfa68ee1e10
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149445"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536160"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>Hızlı Başlangıç: Azure depolama v10 SDK için JavaScript kullanarak silme blobları yükleme, indirme, liste ve
 
-Bu hızlı başlangıçta blob yükleme, indirme, listeleme ve silme ile kapsayıcıları yönetme amacıyla Node.js'de [JavaScript için Azure Storage v10 SDK'sını](https://github.com/Azure/azure-storage-js) kullanmayı öğreneceksiniz.
+Bu hızlı başlangıçta blob yükleme, indirme, listeleme ve silme ile kapsayıcıları yönetme amacıyla Node.js'de [JavaScript için Azure Storage v10 SDK'sını](https://github.com/Azure/azure-sdk-for-js) kullanmayı öğreneceksiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -99,7 +99,7 @@ Kimlik bilgileri, uygun bağlama göre ortam değişkenlerinden okunur.
 
 ```javascript
 if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').load();
+    require('dotenv').config();
 }
 ```
 

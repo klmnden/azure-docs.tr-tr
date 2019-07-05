@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
 ms.custom: ''
-ms.openlocfilehash: ce57aae1119261c0545b59a037226fdc12ec115f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9806a982982971b1b3ac9c28454e17813b2ad2a5
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050676"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479876"
 ---
 # <a name="continuous-delivery-using-azure-devops"></a>Azure DevOps kullanarak sürekli teslim
 
@@ -158,6 +158,10 @@ steps:
     azureSubscription: '<Azure service connection>'
     appType: functionApp
     appName: '<Name of function app>'
+    #Uncomment the next lines to deploy to a deployment slot
+    #deployToSlotOrASE: true
+    #resourceGroupName: '<Resource Group Name>'
+    #slotName: '<Slot name>'
 ```
 
 #### <a name="linux-function-app"></a>Linux işlev uygulaması
@@ -171,6 +175,11 @@ steps:
     azureSubscription: '<Azure service connection>'
     appType: functionAppLinux
     appName: '<Name of function app>'
+    #Uncomment the next lines to deploy to a deployment slot
+    #Note that deployment slots is not supported for Linux Dynamic SKU
+    #deployToSlotOrASE: true
+    #resourceGroupName: '<Resource Group Name>'
+    #slotName: '<Slot name>'
 ```
 
 ## <a name="template-based-pipeline"></a>Şablona dayalı bir işlem hattı
@@ -206,9 +215,11 @@ Yeni bir yayın ardışık düzeni oluştururken, Azure işlevleri sürüm şabl
 
 ![](media/functions-how-to-azure-devops/release-template.png)
 
+Bir dağıtım yuvasına dağıtma, sürüm şablonunda desteklenmiyor.
+
 ## <a name="creating-an-azure-pipeline-using-the-azure-cli"></a>Azure CLI kullanarak bir Azure işlem hattı oluşturma
 
-Kullanarak `az functionapp devops-pipeline create` [komut](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create), derleme ve yayın deponuzda herhangi bir kod değişikliği için bir Azure işlem hattı oluşturulup. Bu komut, derleme ve yayın işlem hattı tanımlayan yeni bir YAML dosyası oluşturmak ve deponuza işleyin.
+Kullanarak `az functionapp devops-pipeline create` [komut](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create), derleme ve yayın deponuzda herhangi bir kod değişikliği için bir Azure işlem hattı oluşturulup. Bu komut, derleme ve yayın işlem hattı tanımlayan yeni bir YAML dosyası oluşturmak ve deponuza işleyin. Bir dağıtım yuvasına dağıtma Azure CLI komutu tarafından desteklenmiyor.
 Bu komut için ön koşullar, kodun konumuna bağlıdır:
 
 - Kodunuzu GitHub ise:

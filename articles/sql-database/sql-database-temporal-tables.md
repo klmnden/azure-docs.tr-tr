@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: fbb2458e73330a09124c00cebe3eb7bcaba5408d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/26/2019
+ms.openlocfilehash: ac57e873a6948e85e78849bd4e22db85491c4bfb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951505"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441550"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Zamana bağlı tablolarda Azure SQL veritabanı ile çalışmaya başlama
 
@@ -195,6 +195,7 @@ Sistem sürümü tutulan zamana bağlı tablolarda geçmiş tablosunda normal ta
 * [Özel bir temizleme betiği](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_3)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Zamana bağlı tablolar hakkında ayrıntılı bilgi için kullanıma [MSDN belgelerine](https://msdn.microsoft.com/library/dn935015.aspx).
-Dinlemek için Channel 9 ziyaret bir [gerçek müşteri zamana bağlı uygulama başarı hikayesi](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) ve izleme bir [zamana bağlı tanıtım canlı](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
+
+- Zamana bağlı tablolar hakkında daha fazla bilgi için bkz. kullanıma [zamana bağlı tablolarda](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables).
+- Dinlemek için Channel 9 ziyaret bir [gerçek müşteri zamana bağlı uygulama başarı hikayesi](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) ve izleme bir [zamana bağlı tanıtım canlı](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 

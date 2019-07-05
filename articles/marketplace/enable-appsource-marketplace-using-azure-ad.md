@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211
-ms.openlocfilehash: 981d9427dc8407c7300f01c941e39ba9723d53a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 950371fd92d255ed01dfa89d5c2fcbded686a971
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938097"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443075"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Azure Active Directory kullanarak AppSource ve Market listesini etkinleştirme
 
@@ -89,4 +89,4 @@ Azure AD'ye destek aşağıdaki eylemlerden birini kullanın:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Seçtiğiniz emin [Azure Marketi'nde kayıtlı](https://azuremarketplace.microsoft.com/sell).
-- Oturum [bulut iş ortağı portalı](https://cloudpartner.azure.com/) oluşturmak veya teklifiniz tamamlayın.
+- Bkz: [bir iş ortağı merkezi hesabınız oluşturma](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) oluşturma veya teklifiniz tamamlamak hakkında daha fazla bilgi için.

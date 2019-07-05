@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: e75c6290474d876ca22b5888d06b1fc0e4c8cd05
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24b27c16573a35b1d8749d7ff381fbef970f4bd0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077319"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471649"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Azure Data Factory'de yürütme veri akışı etkinliği
 Yürütme veri akışı etkinliği hattının hata ayıklama (sanal) ve tetiklenen işlem hattı çalıştırmaları, ADF veri akışı çalıştırmak için kullanın.
@@ -80,11 +80,17 @@ Parametreli veri kümeleri kullanıyorsanız, parametre değerlerini ayarlamak e
 
 ![Veri akışı parametrelerin](media/data-flow/params.png "parametreleri")
 
-### <a name="debugging-parameterized-data-flows"></a>Hata ayıklama parametreli veri akışları
+## <a name="parameterized-data-flows"></a>Parametreli veri akışları
 
-Yalnızca bir veri akışı işlem hattı yürütme veri akışı etkinliği kullanarak çalıştırma hata ayıklama parametreli kümelerinden ile hata ayıklaması yapabilirsiniz. Şu anda, ADF veri akışını etkileşimli hata ayıklama oturumlarında, parametreli veri kümeleriyle çalışmaz. İşlem hattı yürütme ve çalıştırmaların hata ayıklama parametreleriyle çalışır.
+İçinde veri akışı parametreleri varsa, yürütme veri akışı etkinlik parametreleri bölümünde, veri akışı parametre değerlerini dinamik ayarlar. Parametre değerlerini dinamik ifadelerle ya da değişmez statik değeri ayarlamak için ADF işlem hattı ifade dili (yalnızca dize parametre türleri için) veya veri akışı ifade dili kullanabilirsiniz.
 
-Tasarım zamanında tam meta veri sütunu yayma sahip statik bir veri kümesi, veri akışı oluşturmak iyi bir uygulamadır. Veri akışı işlem hattınızı kullanıma hazır hale getirme, statik veri kümesi bir dinamik parametreli veri kümesi ile değiştirin.
+![Yürütme veri akışı parametre örneği](media/data-flow/parameter-example.png "parametresi örneği")
+
+### <a name="debugging-data-flows-with-parameters"></a>Parametrelerle bir hata ayıklama veri akışı
+
+Bu şu anda veri akışları ile işlem hattı yürütme veri akışı etkinliği kullanarak çalıştırma hata ayıklama parametrelerinden yalnızca hata ayıklama yapabilirsiniz. ADF veri akışını etkileşimli hata ayıklama oturumlarında yakında geliyor. Ancak, işlem hattı yürütme ve hata ayıklama çalıştırmaların parametrelerle birlikte çalışır.
+
+Böylece trouble-shooting için tasarım zamanında tam meta veri sütunu yayma sahip statik içeriğe sahip veri akışınızı oluşturma iyi bir uygulamadır. Veri akışı işlem hattınızı kullanıma hazır hale getirme, statik veri kümesi bir dinamik parametreli veri kümesi ile değiştirin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Data Factory tarafından desteklenen diğer denetim akışı etkinlikleri bakın: 

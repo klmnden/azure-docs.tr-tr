@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 6/21/2019
+ms.date: 6/26/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 2567c47e41306a7940b6d065feb49ae80bb16198
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
-ms.translationtype: HT
+ms.openlocfilehash: 9a875f4450b700fc9db74b4402471e282f8e9dab
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312694"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442903"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Güvenlik Duvarı nedir?
 
@@ -24,15 +24,13 @@ Azure Güvenlik Duvarı, Azure Sanal Ağ kaynaklarınızı koruyan yönetilen, b
 
 Aboneliklerle sanal ağlarda uygulama ve ağ bağlantısı ilkelerini merkezi olarak oluşturabilir, zorlayabilir ve günlüğe alabilirsiniz. Azure Güvenlik Duvarı, dış güvenlik duvarlarının sanal ağınızdan kaynaklanan trafiği tanımlamasına olanak tanımak amacıyla sanal ağ kaynaklarınız için statik genel bir IP adresi kullanır.  Hizmet, günlük ve analiz için Azure İzleyici ile tamamen tümleşik çalışır.
 
-## <a name="features"></a>Özellikler
-
 Azure Güvenlik Duvarı şu özellikleri sunar:
 
-### <a name="built-in-high-availability"></a>Yerleşik yüksek kullanılabilirlik
+## <a name="built-in-high-availability"></a>Yerleşik yüksek kullanılabilirlik
 
 Yüksek kullanılabilirlik, yapılandırmanız gereken bir şey yoktur ve hiçbir ek yük dengeleyicisi gerekli şekilde oluşturulmuştur.
 
-### <a name="availability-zones-public-preview"></a>Kullanılabilirlik alanları (genel Önizleme)
+## <a name="availability-zones-public-preview"></a>Kullanılabilirlik alanları (genel Önizleme)
 
 Azure güvenlik duvarı, yüksek kullanılabilirlik için birden fazla kullanılabilirlik yaymasına izin dağıtımı sırasında yapılandırılabilir. Kullanılabilirlik alanları ile % 99,99 çalışma süresi için uygulamanızın kullanılabilirliğini artırır. Daha fazla bilgi için bkz: Azure Güvenlik Duvarı [hizmet düzeyi sözleşmesi (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/). İki veya daha fazla kullanılabilirlik seçildiğinde % 99,99 çalışma süresi SLA sunulur.
 
@@ -47,41 +45,41 @@ Azure güvenlik duvarı kullanılabilirlik alanları, kullanılabilirlik alanlar
 
 Kullanılabilirlik alanları hakkında daha fazla bilgi için bkz. [Azure kullanılabilirlik alanları nedir?](../availability-zones/az-overview.md)
 
-### <a name="unrestricted-cloud-scalability"></a>Kısıtlamasız bulut ölçeklenebilirliği
+## <a name="unrestricted-cloud-scalability"></a>Kısıtlamasız bulut ölçeklenebilirliği
 
 Azure Güvenlik Duvarı, değişen ağ trafiği akışlarıyla başa çıkmak için gerek duyduğunuz kadar ölçeklenebilir, bu sayede trafiğinizin en yoğun olduğu durum için bütçe yapmak zorunda kalmazsınız.
 
-### <a name="application-fqdn-filtering-rules"></a>Uygulama FQDN filtreleme kuralları
+## <a name="application-fqdn-filtering-rules"></a>Uygulama FQDN filtreleme kuralları
 
 Giden HTTP/S trafiğini, joker karakter de içerebilen tam etki alanı adlarının (FQDN) belirtilen bir listesiyle sınırlayabilirsiniz. Bu özellik, SSL sonlandırma gerektirmez.
 
-### <a name="network-traffic-filtering-rules"></a>Ağ trafiği filtreleme kuralları
+## <a name="network-traffic-filtering-rules"></a>Ağ trafiği filtreleme kuralları
 
 Ağ filtreleme kurallarını kaynak ve hedef IP adresine, bağlantı noktasına ve protokole göre merkezi olarak oluşturabilir, *izin verebilir* veya *reddedebilirsiniz*. Azure Güvenlik Duvarı tamamen durum bilgisine sahiptir; bu nedenle, farklı türden bağlantıların geçerli paketlerini tanıyabilir. Kurallar, birden çok abonelik ve sanal ağda zorlanır ve günlüğe kaydedilir.
 
-### <a name="fqdn-tags"></a>FQDN etiketleri
+## <a name="fqdn-tags"></a>FQDN etiketleri
 
 FQDN etiketleri, tanınan Azure hizmeti ağ trafiğine güvenlik duvarınızda izin vermenizi kolaylaştırır. Örneğin Windows Update ağ trafiğine güvenlik duvarınızda izin vermek istediğiniz varsayalım. Bir uygulama kuralı oluşturup Windows Update etiketini eklersiniz. Artık Windows Update’in ağ trafiği, güvenlik duvarınızdan geçebilir.
 
-### <a name="service-tags"></a>Hizmet etiketleri
+## <a name="service-tags"></a>Hizmet etiketleri
 
 Hizmet etiketi, güvenlik kuralı oluşturma sırasındaki karmaşıklığı en aza indirmeye yardımcı olmak için bir IP adresi ön eki grubunu temsil eder. Kendi hizmet etiketinizi oluşturamaz veya hangi IP adreslerinin bir etiket içinde yer belirtin. Hizmet etiketine dahil olan adres ön ekleri Microsoft tarafından yönetilir ve hizmet etiketi adresler değiştikçe otomatik olarak güncelleştirilir.
 
-### <a name="threat-intelligence"></a>Tehdit bilgileri
+## <a name="threat-intelligence"></a>Tehdit bilgileri
 
 Güvenlik duvarınız için tehdit bilgileri tabanlı filtrelemeyi etkinleştirerek, kötü amaçlı olduğu bilinen IP adresleri ve etki alanları ile trafik yaşanması durumunda uyarı alabilir ve trafiği reddedebilirsiniz. IP adresleri ve etki alanları, Microsoft Tehdit Bilgileri akışından alınır.
 
-### <a name="outbound-snat-support"></a>Giden SNAT desteği
+## <a name="outbound-snat-support"></a>Giden SNAT desteği
 
 Tüm giden sanal ağ trafiği IP adresleri Azure Güvenlik Duvarı genel IP’sine çevrilir (Kaynak Ağ Adresi Çevirisi). Sanal ağınızdan kaynaklanan uzak İnternet hedeflerine yönelik trafiği tanımlayabilir ve buna izin verebilirsiniz. Azure güvenlik duvarı, hedef IP başına özel bir IP aralığı olduğunda SNAT değil [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Kuruluşunuz özel ağlar için genel bir IP adres aralığını kullanıyorsa, Azure güvenlik duvarı AzureFirewallSubnet güvenlik duvarı özel IP adresleriyle birini trafiğe SNAT olur.
 
-### <a name="inbound-dnat-support"></a>Gelen DNAT desteği
+## <a name="inbound-dnat-support"></a>Gelen DNAT desteği
 
 Güvenlik duvarınızın genel IP adresine gelen trafik çevrilir (Hedef Ağ Adresi Çevirisi) ve sanal ağınızdaki özel IP adreslerine filtrelenir.
 
-### <a name="multiple-public-ips-public-preview"></a>Birden çok genel IP'ler (genel Önizleme)
+## <a name="multiple-public-ips-public-preview"></a>Birden çok genel IP'ler (genel Önizleme)
 
-(En fazla 600) birden çok genel IP adresleri, güvenlik duvarı ile ilişkilendirebilirsiniz.
+(En fazla 100) birden çok genel IP adresleri, güvenlik duvarı ile ilişkilendirebilirsiniz.
 
 Bu, aşağıdaki senaryolar sağlar:
 
@@ -91,7 +89,7 @@ Bu, aşağıdaki senaryolar sağlar:
 > [!NOTE]
 > Genel Önizleme sırasında çalışan bir güvenlik duvarı için genel bir IP adresi ekleyip, dnat'ı kurallarını kullanarak var olan bir gelen bağlantı 40-120 saniye çalışmayabilir. İlk genel IP adresini güvenlik duvarı serbest veya kaldırılana kadar güvenlik duvarı atanan kaldırılamıyor.
 
-### <a name="azure-monitor-logging"></a>Azure İzleyici günlükleri
+## <a name="azure-monitor-logging"></a>Azure İzleyici günlükleri
 
 Tüm olaylar, bir depolama hesabına veya olay hub'ınıza olayları akış günlüklerini arşivleyin veya Azure İzleyici günlüklerine şirketlerde olanak tanıyan Azure İzleyici ile tümleştirilmiştir.
 
@@ -113,6 +111,7 @@ TCP/UDP dışı protokollere (örneğin ICMP) yönelik ağ filtreleme kuralları
 |İlk genel IP adresi kaldırılamıyor|İlk genel IP adresini güvenlik duvarı serbest veya kaldırılana kadar güvenlik duvarı atanan kaldırılamıyor.|Bu tasarım gereğidir.|
 |Genel bir IP adresi ekleyip, dnat'ı kuralları geçici olarak çalışmayabilir.| Çalışan bir Güvenlik Duvarı'na bir genel IP adresi ekleyip, dnat'ı kurallarını kullanarak var olan bir gelen bağlantı 40-120 saniye çalışmayabilir.|Bu özellik genel önizlemeye ilişkin bir sınırlama budur.|
 |Kullanılabilirlik alanları yalnızca dağıtım sırasında yapılandırılabilir.|Kullanılabilirlik alanları yalnızca dağıtım sırasında yapılandırılabilir. Bir güvenlik duvarı dağıtıldıktan sonra kullanılabilirlik alanları yapılandıramazsınız.|Bu tasarım gereğidir.|
+|SNAT gelen bağlantılar|Dnat'ı, genel IP adresini güvenlik duvarı aracılığıyla bağlantı yanı sıra (gelen) olan bir Güvenlik Duvarı'nın Snat özel IP'ler. Bu gereksinim bugün (Ayrıca için aktif/aktif nva'ları) simetrik yönlendirilmesini sağlamak için.|HTTP/S için orijinal kaynak korumak için kullanmayı [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) üstbilgileri. Örneğin, bir hizmet gibi kullanın [Azure ön kapısı](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend) güvenlik duvarının önünde. Ayrıca, WAF Azure ön kapı ve zincire bir parçası olarak güvenlik duvarı ekleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

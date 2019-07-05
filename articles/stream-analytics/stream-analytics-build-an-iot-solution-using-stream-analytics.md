@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f372c2a85a9a03c7ead779bd4db64722891c9a4c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5b2c153646021aeb8ee0dbb787cfce41af19568d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60201525"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443669"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Stream Analytics kullanarak bir IOT çözümü oluşturma
 
@@ -138,7 +138,8 @@ Bir kaynak grubunda birlikte birkaç tıklamayla kolayca dağıtılabilir çeşi
 10. Birkaç dakika sonra onaylamak için bir bildirim görüntülenir. **dağıtım başarılı**.
 
 ### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>Azure Stream Analytics TollApp kaynakları gözden geçirin
-1. Azure portalında oturum açma
+
+1. Azure portalında oturum açın
 
 2. Önceki bölümde adlı kaynak grubunu bulun.
 
@@ -171,7 +172,7 @@ Bir kaynak grubunda birlikte birkaç tıklamayla kolayca dağıtılabilir çeşi
    - **Kayıt** giriştir gerektiğinde aramalar için kullanılan bir statik registration.json dosyasına işaret eden bir Azure Blob Depolama bağlantısı. Bu başvuru veri girişi, daha sonra farklılığı sorgu söz dizimi kullanılır.
 
 4. TollApp örnek iş çıktıları inceleyin.
-   - **Cosmos DB** çıktıdır çıkış havuzu olaylarını alır bir Cosmos veritabanı koleksiyonu. Bu çıkış akış sorgu yan TÜMCESİNE kullanıldığını unutmayın.
+   - **Cosmos DB** çıktı, çıkış havuzu olaylarını alır bir Cosmos veritabanı kapsayıcıdır. Bu çıkış akış sorgu yan TÜMCESİNE kullanıldığını unutmayın.
 
 ## <a name="start-the-tollapp-streaming-job"></a>İş akışında TollApp Başlat
 Akış işi başlatmak için aşağıdaki adımları izleyin:

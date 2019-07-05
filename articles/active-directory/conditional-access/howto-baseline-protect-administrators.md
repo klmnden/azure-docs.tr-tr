@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b2ffd2949c2540265539a743cb41d8070d7ba2a
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4474283b9a233e39497cd05f0f04ea0984f02401
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204627"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560945"
 ---
-# <a name="baseline-policy-require-mfa-for-admins"></a>Temel ilke: Yöneticiler için MFA gerektirme
+# <a name="baseline-policy-require-mfa-for-admins-preview"></a>Temel ilke: Mfa'yı (Önizleme) yöneticileri için gerekli
 
 Kullanıcılara ayrıcalıklı hesaplara erişim ortamınıza sınırsız erişimi vardır. Bu hesaplara sahip güç nedeniyle, bunları özel dikkatli düşünmelisiniz. Ayrıcalıklı hesapların geliştirmek için bir ortak oturum açma için kullanıldığında, daha güçlü bir form Hesap doğrulama gerektirecek şekilde yöntemidir. Azure Active Directory'ye multi factor authentication (MFA) zorunlu daha güçlü bir hesap doğrulama alabilirsiniz.
 
-**Yöneticiler için mfa'yı gerekli** olduğu bir [temel ilke](concept-baseline-protection.md) ayrıcalıklı yönetici aşağıdaki rollerden birinde oturum açtığı her seferinde mfa'yı gerektirir:
+**Mfa'yı (Önizleme) yöneticileri için gerekli** olduğu bir [temel ilke](concept-baseline-protection.md) ayrıcalıklı yönetici aşağıdaki rollerden birinde oturum açtığı her seferinde mfa'yı gerektirir:
 
 * Genel yönetici
 * SharePoint yöneticisi
@@ -35,11 +35,9 @@ Kullanıcılara ayrıcalıklı hesaplara erişim ortamınıza sınırsız erişi
 
 Yöneticiler ilkesi için gerekli MFA etkinleştirme sırasında yukarıdaki dokuz yönetici rolleri kimlik doğrulayıcı uygulamasını kullanarak MFA'ya kaydetmeniz gerekir. MFA kayıt tamamlandıktan sonra Yöneticiler, oturum açma tek her seferinde MFA gerçekleştirmeniz gerekir.
 
-![Yöneticiler için temel İlkesi MFA gerektirme](./media/howto-baseline-protect-administrators/baseline-policy-require-mfa-for-admins.png)
-
 ## <a name="deployment-considerations"></a>Dağıtma konuları
 
-Çünkü **yöneticileri için MFA gerektiren** ilkenin geçerli tüm kritik yöneticilere, çeşitli konuları sorunsuz bir dağıtım sağlamak için yapılması gerekir. Kullanıcılar ve uygulamalar ve modern kimlik doğrulamayı desteklemeyen, kuruluşunuz tarafından kullanılan istemcilerin yanı sıra MFA'yı gerçekleştirmemelisiniz veya Azure AD'de hizmet ilkeleri tanımlayan bu konuları içerir.
+Çünkü **yöneticileri (Önizleme) için MFA gerektiren** ilkenin geçerli tüm kritik yöneticilere, çeşitli konuları sorunsuz bir dağıtım sağlamak için yapılması gerekir. Kullanıcılar ve uygulamalar ve modern kimlik doğrulamayı desteklemeyen, kuruluşunuz tarafından kullanılan istemcilerin yanı sıra MFA'yı gerçekleştirmemelisiniz veya Azure AD'de hizmet ilkeleri tanımlayan bu konuları içerir.
 
 ### <a name="legacy-protocols"></a>Eski protokolleri
 
@@ -48,28 +46,16 @@ Eski bir kimlik doğrulama protokolleri (IMAP, SMTP, POP3, vb.), kimlik doğrula
 > [!WARNING]
 > Bu ilke etkinleştirmeden önce eski kimlik doğrulama protokolleri yöneticilerinize kullanmadığınız emin olun. Makaleye göz atın [nasıl yapılır: Azure AD koşullu erişim ile eski kimlik blok](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) daha fazla bilgi için.
 
-### <a name="user-exclusions"></a>Kullanıcı dışlamaları
-
-Bu temel ilke kullanıcılar dışında seçeneği sağlar. Kiracınız için ilke etkinleştirmeden önce aşağıdaki hesapları hariç öneririz:
-
-* **Acil Durum erişim** veya **sonu cam** Kiracı genelinde hesap kilitleme önlemek için hesaplar. Tüm Yöneticiler, kiracınızın dışında kilitli olduğundan olası senaryoda, Acil Durum erişimi yönetici hesabınızın erişim kurtarmak için Kiracı alma adımları oturum kullanılabilir.
-   * Daha fazla bilgi makalesinde bulunabilir [Azure AD'de Acil Durum erişim hesapları yönetme](../users-groups-roles/directory-emergency-access.md).
-* **Hizmet hesapları** ve **servis ilkeleri**, Azure AD Connect eşitleme hesabı gibi. Hizmet, belirli bir kullanıcıya bağlı değil, etkileşimli olmayan hesaplar hesaplarıdır. Bunlar genellikle arka uç Hizmetleri tarafından kullanılan ve uygulamalar için programlı erişim izni. Hizmet hesapları, MFA programlı bir şekilde tamamlanamıyor beri hariç tutulması gerekir.
-   * Kuruluşunuz, betikleri veya kodları kullanımda bu hesapları varsa, bunları ile değiştirmeyi göz önüne alın [yönetilen kimlikleri](../managed-identities-azure-resources/overview.md). Geçici bir çözüm, bu belirli hesapların temel ilkesinden hariç tutabilirsiniz.
-* Sahip değil veya akıllı telefonunuz kullanmanız mümkün olmayacaktır kullanıcılar.
-   * Bu ilke, Yöneticiler, Microsoft Authenticator uygulamasını kullanarak MFA'ya kaydetmeniz gerektirir.
-
 ## <a name="enable-the-baseline-policy"></a>Temel ilke etkinleştir
 
-İlke **temel ilke: Yöneticiler için mfa'yı gerekli** önceden yapılandırılmış olarak gelir ve Azure portalında koşullu erişim dikey penceresine gittiğinizde en üstünde gösterilir.
+İlke **temel ilke: Mfa'yı (Önizleme) yöneticileri için gerekli** önceden yapılandırılmış olarak gelir ve Azure portalında koşullu erişim dikey penceresine gittiğinizde en üstünde gösterilir.
 
 Bu ilkeyi etkinleştirmek ve yöneticileriniz korumak için:
 
 1. Oturum **Azure portalında** genel yönetici, güvenlik yöneticisi veya koşullu erişim Yöneticisi olarak.
 1. Gözat **Azure Active Directory** > **koşullu erişim**.
-1. İlkeler listesinde seçin **temel ilke: Yöneticiler için mfa'yı gerekli**.
+1. İlkeler listesinde seçin **temel ilke: Mfa'yı (Önizleme) yöneticileri için gerekli**.
 1. Ayarlama **ilkesini etkinleştir** için **ilkeyi hemen kullan**.
-1. Herhangi bir kullanıcı özel tıklayarak Ekle **kullanıcılar** > **dışlanan kullanıcılar seçin** ve hariç tutulması gerektiğini kullanıcıları seçme. Tıklayın **seçin** ardından **Bitti**.
 1. Tıklayın **Kaydet**.
 
 > [!WARNING]

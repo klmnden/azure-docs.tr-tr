@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 35fb529be28fc985460421c185872c7e35603341
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 26fca12060363f4ad05baaeceb6fb800a0d76216
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274285"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449261"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory karma kimlik çözümünüz için doğru kimlik doğrulama yöntemini seçin 
 
@@ -81,7 +81,7 @@ Karar sorular hakkında ayrıntılar:
    * Çok siteli şirket içi kimlik doğrulama çözümüdür.
 5. Azure AD kimlik koruması, hangi oturum açma yöntemi, sağlamak için seçtiğiniz bakılmaksızın parola karması eşitlemesi gerektirir *kimlik bilgileri sızdırılan kullanıcılar* rapor. Kuruluşlar, birincil, oturum açma yöntemleri başarısız olursa ve hata olayından önce yapılandırılan parola karma eşitlemesi yük devretme gerçekleştirebilirsiniz.
 
->[!NOTE]
+> [!NOTE]
 > Azure AD kimlik koruması gerektiren [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) lisansları.
 
 ## <a name="detailed-considerations"></a>Ayrıntılı değerlendirmeler
@@ -94,7 +94,10 @@ Karar sorular hakkında ayrıntılar:
 
 * **Gelişmiş senaryolar**. Kuruluşlar için seçerseniz, Azure AD Premium P2 ile Azure AD kimlik koruması raporlarla kimlikleri ınsights'tan kullanmak da mümkündür. Sızan kimlik bilgileri rapor buna bir örnektir. Windows iş için Hello sahip [parola karması eşitleme kullandığınızda belirli gereksinimleri](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD etki alanı Hizmetleri](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) sağlama kullanıcılar yönetilen etki alanında Kurumsal kimlik bilgileriyle parola karma eşitlemesini gerektirir.
 
-    Parola Karması eşitleme ile çok faktörlü kimlik doğrulaması gerektiren kuruluşlar, Azure AD ile çok faktörlü kimlik doğrulaması kullanmanız gerekir. Kuruluşlar, üçüncü taraf veya şirket içinde çok faktörlü kimlik doğrulama yöntemleri kullanamaz.
+    Çok faktörlü kimlik doğrulaması parola karması eşitleme ile Azure AD ile çok faktörlü kimlik doğrulaması kullanmalıdır gerektiren kuruluşlar veya [koşullu erişim özel denetimler](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Kuruluşlar, üzerinde Federasyon kullanır üçüncü taraf veya şirket içinde çok faktörlü kimlik doğrulama yöntemleri kullanamazsınız.
+
+> [!NOTE]
+> Azure AD koşullu erişim gerektiren [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/) lisansları.
 
 * **İş sürekliliği**. Parola Karması eşitleme bulut kimlik doğrulamasını kullanarak tüm Microsoft veri merkezleri için ölçeklenebilir bir bulut hizmeti yüksek oranda kullanılabilir. Parola Karması eşitleme uzun süreler ermez emin olmak için ikinci bir Azure AD Connect sunucusu hazırlama modunda bir bekleme yapılandırmasında dağıtın.
 
@@ -115,7 +118,7 @@ Başvurmak [parola karması eşitlemeyi uygulama](https://docs.microsoft.com/azu
 
 * **Gelişmiş senaryolar**. Geçişli kimlik doğrulaması, oturum açma zaman şirket içi hesap ilkeleri uygular. Örneğin, bir şirket içi kullanıcı hesabının durumu devre dışıysa, kilitli, zaman erişim reddedildi veya [parolasının süresi doldu](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) veya kullanıcının ne zaman izin oturum açmak için saatleri dışında kalan. 
 
-    Geçişli kimlik doğrulaması ile çok faktörlü kimlik doğrulaması gerektiren kuruluşlar, Azure multi-Factor Authentication (MFA) kullanmanız gerekir. Kuruluşlar, bir üçüncü taraf veya şirket içinde çok faktörlü kimlik doğrulama yöntemi olarak kullanamazsınız. Gelişmiş Özellikler, geçişli kimlik doğrulaması seçtiğiniz olup olmadığını parola karması eşitleme dağıtıldığını gerektirir. Kimlik koruması, sızan kimlik bilgileri rapor buna bir örnektir.
+    Geçişli kimlik doğrulaması ile çok faktörlü kimlik doğrulaması, Azure multi-Factor Authentication (MFA) kullanmalıdır gerektiren kuruluşlar veya [koşullu erişim özel denetimler](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Kuruluşlar, üzerinde Federasyon kullanan bir üçüncü taraf veya şirket içinde çok faktörlü kimlik doğrulaması yöntemi olarak kullanamazsınız. Gelişmiş Özellikler, geçişli kimlik doğrulaması seçtiğiniz olup olmadığını parola karması eşitleme dağıtıldığını gerektirir. Kimlik koruması, sızan kimlik bilgileri rapor buna bir örnektir.
 
 * **İş sürekliliği**. İki ek doğrudan kimlik doğrulama aracılarının dağıtmanızı öneririz. Azure AD Connect sunucusu ilk aracıda yanı sıra bu ek özellikler şunlardır. Bu ek dağıtım kimlik doğrulama isteklerini yüksek kullanılabilirliğini sağlar. Dağıtılan üç aracınız varsa, bakım için başka bir aracı kapalı olduğunda, bir aracı yine de başarısız olabilir. 
 
@@ -136,7 +139,7 @@ Başvurmak [geçişli kimlik doğrulaması uygulama](https://docs.microsoft.com/
 * **Gelişmiş senaryolar**. Müşteriler Azure AD yerel olarak desteklemeyen bir kimlik doğrulaması gerekli olduğunda, bir Federasyon kimlik doğrulaması çözüm genellikle gereklidir. Yardımcı olmak için ayrıntılı bilgi [doğrudan oturum açma seçeneğini](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/). Ortak aşağıdaki gereksinimleri göz önünde bulundurun:
 
   * Akıllı kart veya sertifika gerektiren kimlik doğrulaması.
-  * Şirket içi MFA sunucularda veya çok faktörlü üçüncü taraf sağlayıcılar.
+  * Şirket içi MFA sunucusu veya Federasyon kimlik sağlayıcısı gerektiren çok faktörlü üçüncü taraf sağlayıcılar.
   * Üçüncü taraf kimlik doğrulama çözümlerini kullanarak kimlik doğrulaması. Bkz: [Azure AD Federasyonu uyumluluk listesi](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
   * Oturum açma gerektiren bir sAMAccountName, örneğin, etki alanı\kullanıcı adı, yerine bir kullanıcı asıl adı (UPN), örneğin, user@domain.com.
 

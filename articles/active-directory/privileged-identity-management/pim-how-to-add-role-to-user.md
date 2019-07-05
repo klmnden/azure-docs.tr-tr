@@ -13,12 +13,12 @@ ms.subservice: pim
 ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07259d90c7119dec4ca9139e10af2fb20a439425
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1760d0e0bd356a05d84c07eda005e0526da5d13
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60289472"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476518"
 ---
 # <a name="assign-azure-ad-roles-in-pim"></a>Azure AD PIM Rolleri Ata
 
@@ -42,17 +42,17 @@ Bir kullanıcı için Azure AD Yönetici rolüne uygun hale getirmek için aşa�
 
 1. Tıklayın **rolleri** veya **üyeleri**.
 
-    ![Azure AD rolleri](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![Azure AD rolleri, rol ve üyeleri menü seçenekleri ile vurgulanmış](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. Tıklayın **Üye Ekle** üyeleri Ekle açmak için yönetilen.
 
 1. Tıklayın **bir rol seçin**, yönetmek ve ardından istediğiniz bir rolünü **seçin**.
 
-    ![Bir rol seçin](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
+    ![Azure AD rolleri listeleyen bir rol bölmesinde seçin](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
 
 1. Tıklayın **üyelerini seçin**, role atamak ve ardından istediğiniz kullanıcıları seçin **seçin**.
 
-    ![Bir rol seçin](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+    ![Bir kullanıcı seçebileceğiniz üyeler bölmesi seçin](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
 1. Yönetilen üyeleri Ekle **Tamam** rolüne kullanıcı eklemek için.
 
@@ -60,7 +60,7 @@ Bir kullanıcı için Azure AD Yönetici rolüne uygun hale getirmek için aşa�
 
      Rol atandığında, seçtiğiniz kullanıcı üye listesi görünür **uygun** rolü için.
 
-    ![Kullanıcı rolü için uygun](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
+    ![Rolü üyelerinin kendi etkinleştirme durumu ile birlikte listelenir.](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
 
 1. Kullanıcı rolü için uygundur, bunlar bu yönergeleri göre etkinleştirmelerini bildirmek [PIM Azure AD'ye rollerimi etkinleştir](pim-how-to-activate-role.md).
 
@@ -76,17 +76,17 @@ Varsayılan olarak, yeni kullanıcılar yalnızca Azure AD Yönetici rolüne iç
 
 1. Tıklayın **üyeleri**.
 
-    ![Üye listesi](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+    ![Azure AD rolleri - üyeleri gösterme rolü ve etkinleştirme durumunu listeler.](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
 1. ' A tıklayın bir **uygun** kalıcı hale getirmek istediğiniz rol.
 
 1. Tıklayın **daha fazla** ve ardından **yapma izni**.
 
-    ![Rol ataması kalıcı yap](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
+    ![Daha fazla menü seçeneklerini sahip bir rol için uygun olan bir kullanıcı listeleme bölmesini açın](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
 
     Rol olarak listelendiğine **kalıcı**.
 
-    ![Kalıcı değişiklikle üyelerin listesi](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
+    ![Üye listesi artık kalıcıdır rolü ve etkinleştirme durumu gösteriliyor](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
 
 ## <a name="remove-a-user-from-a-role"></a>Bir kullanıcıyı rolden Kaldır
 
@@ -100,17 +100,17 @@ Belirli bir kullanıcının bir Azure AD yönetici rolünden kaldırmak için a�
 
 1. Tıklayın **üyeleri**.
 
-    ![Üye listesi](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+    ![Azure AD rolleri - gösteren rolü ve etkinleştirme stat üyelerini listeleyin.](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
 1. Kaldırmak istediğiniz bir rol ataması'na tıklayın.
 
 1. Tıklayın **daha fazla** ve ardından **Kaldır**.
 
-    ![Bir rolü Kaldır](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
+    ![Daha fazla menü seçenekleri ile kalıcı bir rol olan bir kullanıcının listeleme bölmesini açın](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
 
 1. Onaylamanızı ister iletisinde tıklayın **Evet**.
 
-    ![Bir rolü Kaldır](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
+    ![Rolden üyeyi kaldırma isteyip istemediğinizi soran ileti](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     Rol ataması kaldırıldı.
 
@@ -140,13 +140,13 @@ MS-PIM hizmet sorumlusu bir abonelik için kullanıcı erişimi yöneticisi rol�
 
 1. İçinde **seçin** listesinde, bulmak ve seçmek **MS PIM** hizmet sorumlusu.
 
-   ![MS-PIM için izinler ekleme](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
+   ![Rol ataması bölmesi ekleme - MS-PIM hizmet sorumlusunun izinlerini ekleme](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
 
 1. Seçin **Kaydet** rol atamak için.
 
    Birkaç dakika sonra MS-PIM hizmet sorumlusu abonelik kapsamında kullanıcı erişimi yöneticisi rolü atanır.
 
-   ![MS-PIM için kullanıcı erişimi yöneticisi rolü](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
+   ![Kullanıcı erişimi yöneticisi rol ataması için MS-PIM gösteren erişim denetimi (IAM) dikey penceresi](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

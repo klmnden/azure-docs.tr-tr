@@ -3,7 +3,7 @@ title: Xamarin Forms uygulaması, Mobile Apps için kimlik doğrulamasını kull
 description: Kimlik sağlayıcıları, AAD, Google, Facebook, Twitter ve Microsoft gibi çeşitli Xamarin Forms uygulamanızdaki kullanıcıların kimliğini doğrulamak için Mobile Apps'ı kullanmayı öğrenin.
 services: app-service\mobile
 documentationcenter: xamarin
-author: panarasi
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179
@@ -12,23 +12,27 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/24/2018
-ms.author: panarasi
-ms.openlocfilehash: 2945cefc18a378b31700104049f1a14a1f320136
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: f1777fcb5a4e7899da982bd9d1d35905cb408ad2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66019784"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446298"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Xamarin Forms kimlik doğrulaması ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+
+> [!NOTE]
+> Visual Studio App Center, mobil uygulama geliştirme merkezi hizmetlerinde yeni ve tümleşik yatırım yapıyor. Geliştiriciler **derleme**, **Test** ve **Dağıt** hizmetlerinin sürekli tümleştirme ve teslim işlem hattı ayarlayın. Uygulama dağıtıldığında, geliştiriciler kendi uygulamasını kullanarak kullanımı ve durumu izleyebilirsiniz **Analytics** ve **tanılama** kullanarak kullanıcılarla etkileşim kurun ve hizmetlerini **anında iletme** hizmeti. Geliştiriciler de yararlanabilir **Auth** , kullanıcıların kimliğini doğrulamak ve **veri** kalıcı hale getirmek ve uygulama verilerini bulutta eşitleme hizmeti. Kullanıma [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-users) bugün.
+>
 
 ## <a name="overview"></a>Genel Bakış
 Bu konu bir App Service mobil uygulama istemci uygulamanızın kullanıcılarının kimlik doğrulaması yapmayı gösterir. Bu öğreticide, App Service tarafından desteklenen bir kimlik sağlayıcısı kullanarak Xamarin Forms hızlı başlangıç projesi için kimlik doğrulaması ekleyin. Mobil uygulamanız tarafından yetkili başarıyla yapıldığını ve sonra kullanıcı kimliği değeri görüntülenir ve kısıtlı tablo verilerine erişmek mümkün olacaktır.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu öğretici ile en iyi sonuç için önce tamamlamanızı öneririz [bir Xamarin Forms uygulaması oluşturma] [ 1] öğretici. Bu öğreticiyi tamamladıktan sonra bir çoklu platform Yapılacaklar listesi uygulaması bir Xamarin.Forms projesi olacaktır.
+Bu öğretici ile en iyi sonuç için önce tamamlamanızı öneririz [bir Xamarin Forms uygulaması oluşturma][1] öğretici. Bu öğreticiyi tamamladıktan sonra bir çoklu platform Yapılacaklar listesi uygulaması bir Xamarin.Forms projesi olacaktır.
 
 İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, kimlik doğrulaması uzantı paketi projenize eklemeniz gerekir. Server uzantısı paketleri hakkında daha fazla bilgi için bkz. [Azure Mobile Apps için .NET arka uç sunucu SDK'sı ile çalışma][2].
 
@@ -53,7 +57,8 @@ Uygulamanız için yeni bir URL şemasını tanımlamak güvenli kimlik doğrula
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-authentication-to-the-portable-class-library"></a>Taşınabilir sınıf kitaplığı için kimlik doğrulaması ekleme
-Mobile Apps kullanan [LoginAsync] [ 3] genişletme yöntemini [MobileServiceClient] [ 4] App Service ile bir kullanıcının oturum açmak için kimlik doğrulaması. Bu örnek uygulamada sağlayıcıya ait oturum açma arabirimine görüntüleyen bir sunucu yönetilen kimlik doğrulama akışı kullanır. Daha fazla bilgi için [sunucu yönetilen kimlik doğrulaması][5]. Üretim uygulamanızdaki daha iyi bir kullanıcı deneyimi sağlamak için dikkate almanız gereken kullanmayı [yönetilen kimlik doğrulaması][6].
+Mobile Apps kullanan [LoginAsync][3] extension method on the [MobileServiceClient][4] to sign in a user with App Service authentication. This sample
+uses a server-managed authentication flow that displays the provider's sign-in interface in the app. For more information, see [Server-managed authentication][5]. Üretim uygulamanızdaki daha iyi bir kullanıcı deneyimi sağlamak için dikkate almanız gereken kullanmayı [yönetilen kimlik doğrulaması][6].
 
 Bir Xamarin.Forms projesi ile kimlik doğrulaması için tanımladığınız bir **IAuthenticate** arabirimi uygulaması için taşınabilir Sınıf Kitaplığı'nda. Ardından Ekle bir **oturum** tanımlanan taşınabilir sınıf hangi kimlik doğrulaması'nı başlatmak için tıklatın kitaplığında, düğme kullanıcı arabirimi. Veriler mobil uygulama arka ucundan başarılı kimlik doğrulamasından sonra yüklenir.
 

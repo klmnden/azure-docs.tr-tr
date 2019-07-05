@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/06/2019
+ms.date: 07/03/2019
 ms.author: Kumud
-ms.openlocfilehash: ec68038a5b0fe7edca095e0d9b190d5da09c8e82
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08670c8aa6d5c9830ab84bc848bac38063bd41c0
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754678"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550933"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Standard Load Balancer ölçümleri ve sistem durumu tanılama
 
@@ -37,12 +37,12 @@ Azure Load Balancer'ı Azure Portal'daki yeni Azure ölçümleri aracılığıyl
 
 | Ölçüm | Kaynak türü | Açıklama | Önerilen toplama |
 | --- | --- | --- | --- |
-| Veri yolu Kullanılabilirliği (VIP kullanılabilirlik)| Herkese açık yük dengeleyici | Standart Load Balancer veri yolundan bir bölgede yük dengeleyici ön ucuna, tüm sanal makinenizin destekler SDN yığınını için sürekli olarak uygular. Sağlıklı örnekleri kaldığı sürece, ölçüm olarak uygulamanızın yük dengeli trafik aynı yolu izler. Müşterilerinizin kullandığı veri yolu ayrıca doğrulanır. Ölçüm uygulamanıza görünmez ve diğer işlemlerle etkilemez.| Ortalama |
-| Sistem durumu araştırma durumu (DIP kullanılabilirlik) |  Genel ve iç yük dengeleyici | Standart Load Balancer, uygulama uç noktasının yapılandırma ayarlarınıza göre izler bir dağıtılmış sistem durumu yoklaması hizmeti kullanır. Bu ölçüm, bir toplama veya uç nokta başına sağlar filtrelenmiş görünüm load balancer Havuzu'ndaki her örneğinin uç noktası. Load Balancer, uygulama durumunu nasıl görüntülediğine, sistem durumu araştırması yapılandırması tarafından belirtildiği şekilde görebilirsiniz. |  Ortalama |
-| SYN (eşitleme) paketleri |  Herkese açık yük dengeleyici | Standart Load Balancer İletim Denetimi Protokolü (TCP) bağlantılarını sonlandırmak veya TCP veya UDP paket akışları ile etkileşim desteklemez. Akışlar ve bunların el sıkışmaları her zaman kaynağı ile sanal makine örneği arasındadır. TCP protokolü senaryolarınızı daha iyi gidermek için SYN kullanmak yapabileceğiniz kaç TCP bağlantısı anlamak için paket sayaçları denemesi yapıldı. Ölçüm alınan TCP SYN paketlerin sayısını raporlar.| Ortalama |
-| SNAT bağlantıları |  Genel Load Balancer |Standart yük dengeleyici genel IP adresi ön ucu verdiğinizi giden akışlar sayısını raporlar. Kaynak ağ adresi çevirisi (SNAT) bağlantı noktaları exhaustible bir kaynaktır. Bu ölçüm, ne kadar yoğun olarak uygulamanız üzerinde SNAT giden kaynaklı akışlar için güvenmektedir bir göstergesini verebilirsiniz. Başarılı ve başarısız giden SNAT akışlar için sayaçları bildirilir ve sorun giderme ve giden akış durumunu anlamak için kullanılabilir.| Ortalama |
-| Bayt sayaçları |  Genel ve iç yük dengeleyici | Standart yük dengeleyici ön uç işlenen veri bildirir.| Ortalama |
-| Paket sayaçları |  Genel ve iç yük dengeleyici | Standart yük dengeleyici ön uç işlenen paket bildirir.| Ortalama |
+| Veri yolu Kullanılabilirliği (VIP kullanılabilirlik)| Herkese açık yük dengeleyici | Standart Load Balancer veri yolundan bir bölgede yük dengeleyici ön ucuna, tüm sanal makinenizin destekler SDN yığınını için sürekli olarak uygular. Sağlıklı örnekleri kaldığı sürece, ölçüm olarak uygulamanızın yük dengeli trafik aynı yolu izler. Müşterilerinizin kullandığı veri yolu ayrıca doğrulanır. Ölçüm uygulamanıza görünmez ve diğer işlemlerle etkilemez.| Average |
+| Sistem durumu araştırma durumu (DIP kullanılabilirlik) |  Genel ve iç yük dengeleyici | Standart Load Balancer, uygulama uç noktasının yapılandırma ayarlarınıza göre izler bir dağıtılmış sistem durumu yoklaması hizmeti kullanır. Bu ölçüm, bir toplama veya uç nokta başına sağlar filtrelenmiş görünüm load balancer Havuzu'ndaki her örneğinin uç noktası. Load Balancer, uygulama durumunu nasıl görüntülediğine, sistem durumu araştırması yapılandırması tarafından belirtildiği şekilde görebilirsiniz. |  Average |
+| SYN (eşitleme) paketleri |  Herkese açık yük dengeleyici | Standart Load Balancer İletim Denetimi Protokolü (TCP) bağlantılarını sonlandırmak veya TCP veya UDP paket akışları ile etkileşim desteklemez. Akışlar ve bunların el sıkışmaları her zaman kaynağı ile sanal makine örneği arasındadır. TCP protokolü senaryolarınızı daha iyi gidermek için SYN kullanmak yapabileceğiniz kaç TCP bağlantısı anlamak için paket sayaçları denemesi yapıldı. Ölçüm alınan TCP SYN paketlerin sayısını raporlar.| Average |
+| SNAT bağlantıları |  Genel Load Balancer |Standart yük dengeleyici genel IP adresi ön ucu verdiğinizi giden akışlar sayısını raporlar. Kaynak ağ adresi çevirisi (SNAT) bağlantı noktaları exhaustible bir kaynaktır. Bu ölçüm, ne kadar yoğun olarak uygulamanız üzerinde SNAT giden kaynaklı akışlar için güvenmektedir bir göstergesini verebilirsiniz. Başarılı ve başarısız giden SNAT akışlar için sayaçları bildirilir ve sorun giderme ve giden akış durumunu anlamak için kullanılabilir.| Average |
+| Bayt sayaçları |  Genel ve iç yük dengeleyici | Standart yük dengeleyici ön uç işlenen veri bildirir.| Average |
+| Paket sayaçları |  Genel ve iç yük dengeleyici | Standart yük dengeleyici ön uç işlenen paket bildirir.| Average |
 
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Azure portalında yük dengeleyici ölçümlerinizi görüntüleyin
 
@@ -85,7 +85,7 @@ Standard Load Balancer kaynaklarınız için veri yolu kullanılabilirliği alma
 Ölçüm etkin, bant dışı bir ölçüye göre oluşturulur. Bölge içinde bir yoklama hizmeti, ölçüm için trafiğin kaynaklandığı. Hizmet genel ön uç ile bir dağıtımını oluşturun ve ön uç kaldırana kadar devam sürede etkin hale gelir. 
 
 >[!NOTE]
->İç ön uçlar, şu anda desteklenmiyor. 
+>İç yük dengeleyici ön uçlar için veri yolu Kullanılabilirliği (VIP kullanılabilirlik) kullanılamıyor. 
 
 Dağıtımınızın ön uç ve kural eşleşen bir paket düzenli olarak oluşturulur. Bu bölge kaynaktan konağa arka uç havuzundaki bir VM'nin bulunduğu erişir. Diğer tüm trafik için yaptığı gibi yük dengeleyici altyapı aynı Yük Dengeleme ve çeviri işlemleri gerçekleştirir. Bu araştırma bant dışı yük dengeli uç nokta üzerinde. Arka uç havuzunda iyi durumda VM bulunduğu, işlem konak üzerinde araştırma ulaştıktan sonra işlem konak araştırma hizmetine bir yanıt oluşturur. Bu trafik, sanal Makinenizin görmez.
 
@@ -208,6 +208,10 @@ Aşağıdaki tabloda çeşitli kaynak sistem durumları ve açıklamalarının l
 | Kullanılabilir | Genel standart yük dengeleyici kaynağınızı sağlıklı ve kullanılabilir. |
 | Kullanılamaz | Genel standart yük dengeleyici kaynağınızı iyi durumda değil. Seçerek sağlığını tanılamanız **Azure İzleyici** > **ölçümleri**.<br>(*Kullanılamıyor* durumu anlamına da kaynak genel standard load balancer'ınız ile bağlı değil.) |
 | Bilinmiyor | Kaynak sistem durumu, genel standart yük dengeleyici kaynağı için henüz güncelleştirilmemiş.<br>(*Bilinmeyen* durumu anlamına da kaynak genel standard load balancer'ınız ile bağlı değil.)  |
+
+## <a name="limitations"></a>Sınırlamalar 
+
+- İç yük dengeleyici ön uçlar için veri yolu Kullanılabilirliği (VIP kullanılabilirlik) kullanılamıyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

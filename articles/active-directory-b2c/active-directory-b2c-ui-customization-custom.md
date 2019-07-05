@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c3c97e786e2147f043a63b90b886e01eb5944cb4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a051b0e853b60dfc1f5b6c3453d9ed8361f1748
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507684"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67438830"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de bir özel ilke kullanarak uygulamanızın kullanıcı arabirimini özelleştirme
 
@@ -31,7 +31,7 @@ Bölümündeki adımları tamamlamanız [özel ilkeleri kullanmaya başlama](act
 
 Sayfa UI özelleştirmesi özelliğini kullanarak, herhangi bir özel ilke görünümünü özelleştirebilirsiniz. Ayrıca bu sayede uygulamanızla Azure AD B2C arasında marka ve görsel tutarlılığı sağlayabilirsiniz.
 
-Şekli aşağıda verilmiştir: Azure AD B2C kod müşterinizin tarayıcıda çalışan ve modern bir yaklaşımı adlı kullanır [çıkış noktaları arası kaynak paylaşımı (CORS)](https://www.w3.org/TR/cors/). İlk olarak, özelleştirilmiş HTML içerikli özel ilkesindeki bir URL belirtin. Azure AD B2C, kullanıcı arabirimi öğelerini URL'nizden yüklenen HTML içeriğiyle birleştirdikten sonra sayfayı müşteriye gösterir.
+Şöyle çalışır: Azure AD B2C kod müşterinizin tarayıcıda çalışan ve modern bir yaklaşımı adlı kullanır [çıkış noktaları arası kaynak paylaşımı (CORS)](https://www.w3.org/TR/cors/). İlk olarak, özelleştirilmiş HTML içerikli özel ilkesindeki bir URL belirtin. Azure AD B2C, kullanıcı arabirimi öğelerini URL'nizden yüklenen HTML içeriğiyle birleştirdikten sonra sayfayı müşteriye gösterir.
 
 ## <a name="create-your-html5-content"></a>HTML5 içerik oluşturma
 
@@ -79,18 +79,19 @@ Blob depolama alanındaki bu HTML içeriğini barındırmak için aşağıdakile
 
 Blob Depolama alanında ortak bir kapsayıcı oluşturmak için aşağıdakileri yapın:
 
-1. Tıklayın **genel bakış** sekmesi.
-2. Tıklayın **kapsayıcı**.
-3. İçin **adı**, türü **$root**.
-4. Ayarlama **erişim türü** için **Blob**.
-5. Tıklayın **$root** yeni bir kapsayıcı açın.
+1. Altında **Blob hizmeti** sol taraftaki menüde **Blobları**.
+2. Tıklayın **+ kapsayıcı**.
+3. İçin **adı**, girin *kök*. Bu, örneğin, seçtiğiniz bir ad olabilir *wingtiptoys*, ancak kullandığımız *kök* kolaylık olması için bu örnekte.
+4. İçin **genel erişim düzeyi**seçin **Blob**, ardından **Tamam**.
+5. Tıklayın **kök** yeni bir kapsayıcı açın.
 6. **Karşıya Yükle**'ye tıklayın.
 7. Klasör simgesine tıklayın **bir dosya seçin**.
-8. Git **özelleştirme ui.html**, sayfa UI özelleştirmesi bölümünde daha önce oluşturduğunuz.
-9. **Karşıya Yükle**'ye tıklayın.
-10. Karşıya yüklediğiniz Özelleştir ui.html blob seçin.
-11. Yanındaki **URL**, tıklayın **kopyalama**.
-12. Bir tarayıcıda, kopyalanan URL'yi yapıştırın ve sitesine gidin. Site erişilemez durumdaysa emin kapsayıcı erişim türü ayarlanır **blob**.
+8. Bulun ve seçin **özelleştirme ui.html** sayfa UI özelleştirmesi bölümünde daha önce oluşturduğunuz.
+9. Bir alt klasöre yüklemek isterseniz, genişletme **Gelişmiş** ve bir klasör adı girin **karşıya yükleme klasörüne**.
+10. **Karşıya Yükle**’yi seçin.
+11. Seçin **özelleştirme ui.html** karşıya yüklediğiniz blobu.
+12. Sağındaki **URL** metin kutusunda **Panoya Kopyala** simgesini URL'sini panonuza kopyalayın.
+13. Web tarayıcısında karşıya yüklediğiniz blobu erişilebilir olduğunu doğrulamak için kopyaladığınız URL'ye gidin. Karşılaşırsanız örneğin erişilemez durumdaysa bir `ResourceNotFound` hata, kapsayıcı erişim türü emin olun kümesine **blob**.
 
 ## <a name="configure-cors"></a>CORS Yapılandırma
 
@@ -159,6 +160,7 @@ UI Özelleştirme yapılandırmak için kopyalama **ContentDefinition** ve uzant
 
 ## <a name="reference"></a>Başvuru
 
+### <a name="sample-templates"></a>Örnek şablonlar
 Örnek şablonları UI özelleştirmesi burada bulabilirsiniz:
 
 ```
@@ -174,6 +176,16 @@ Aşağıdaki HTML dosyaları sample_templates/wingtip klasör içerir:
 | *selfasserted.html* | Bu dosya, bir sosyal hesap kaydolma sayfası, bir yerel hesap kaydolma sayfası veya bir yerel hesap oturum açma sayfası için bir şablon olarak kullanın. |
 | *Unified.HTML* | Bu dosya bir birleşik kaydolma veya oturum açma sayfası için bir şablon olarak kullanın. |
 | *updateprofile.html* | Bu dosya için bir profil güncelleştirme sayfasını şablon olarak kullanın. |
+
+Örnek kullanımı konusunda adımlar şunlardır. 
+1. Deposunu yerel makinenize kopyalayın. Sample_templates altında bir şablon klasörü seçin. Kullanabileceğiniz `wingtip` veya `contoso`.
+2. Altındaki tüm dosyaları karşıya yükleme `css`, `fonts`, ve `images` klasörleri önceki bölümlerde açıklandığı gibi Blob Depolama. 
+3. Ardından, her açın \*.html dosyası ya da kökünde `wingtip` veya `contoso` (hangisi ilk adımda seçtiğiniz) ve tüm örneklerinin yerine "http://localhost" 2. adımda yüklediğiniz css, görüntü ve yazı tipleri dosyaların URL'leri ile.
+4. Kaydet \*.html dosyalarının ve bunları Blob depolama alanına yükleyin.
+5. Şimdi daha önce belirtildiği gibi uzantıları dosyasını değiştirin [uzantıları dosyasını değiştirme](#modify-the-extensions-file).
+6. Yazı tipleri, görüntüleri ya da css görürseniz, lütfen başvurularınızı uzantıları ilkesinde denetleyin ve \*.html dosyaları.
+
+### <a name="content-defintion-ids"></a>İçerik tanımı kimlikleri
 
 İçerik tanımı için yapılandırdığınız Değiştir kaydolma veya oturum açma özel bir ilke bölümü `api.idpselections`. İçerik kümesinin aşağıdaki tabloda, Azure AD B2C kimlik deneyimi çerçevesi ve açıklamalarının tarafından tanınan tanım kimlikleri şunlardır:
 

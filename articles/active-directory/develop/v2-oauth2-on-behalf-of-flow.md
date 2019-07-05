@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bdd91f8ee1228febe71244530a63fe992df56d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7582cd8453b25f071c18566f09d2155a6377a0a6
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110854"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482164"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft kimlik platformu ve OAuth 2.0 On-Behalf-Of akış
 
@@ -42,7 +42,7 @@ Kullanıcı bir uygulama kullanarak doğrulandıktan varsayar [OAuth 2.0 yetkile
 
 Aşağıdaki adımları OBO akışı oluşturan ve aşağıdaki diyagramda yardımıyla açıklanmıştır.
 
-![OAuth2.0 On-Behalf-Of akışı](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
+![On-Behalf-Of akışı OAuth2.0 gösterir](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
 
 1. İstemci uygulama bir API A belirteciyle bir istekte (ile bir `aud` API bir talep).
 1. API A için Microsoft kimlik platformu belirteç yayınında uç nokta kimlik doğrulaması ve API B'nin erişmek için bir belirteç istekleri

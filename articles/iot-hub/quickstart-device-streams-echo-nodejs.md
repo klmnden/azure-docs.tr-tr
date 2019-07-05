@@ -1,21 +1,20 @@
 ---
 title: Cihaz uygulamasında Node.js IOT Hub cihaz akışları (Önizleme) aracılığıyla kullanıcılara | Microsoft Docs
 description: Bu hızlı başlangıçta, bir IOT cihazı ile bir cihaz akış iletişim kuran bir Node.js Hizmet tarafı uygulamalar çalışır.
-author: rezasherafat
-manager: briz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
-ms.author: rezas
-ms.openlocfilehash: d9d083569d648b2bd22438f295a640b4e8d03b77
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.author: robinsh
+ms.openlocfilehash: 74a9e5e6be326bf9cef3dc6d26594b80491deb3e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733280"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446056"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Hızlı Başlangıç: Node.js IOT Hub cihaz akışları (Önizleme) ile bir cihaz uygulaması için iletişim
 

@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 0dbcc99850d0a8b3b7306fac2bd8f89e6c941e4c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 61a208f3e84125acc2a3cb22d3abccf16587e581
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163651"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543687"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight'ın bir Azure sanal ağı kullanarak genişletme
 
@@ -67,9 +67,7 @@ Nasıl yeni bir HDInsight mevcut bir Azure sanal ağına eklemek keşfetmek içi
 
     Birleştirilmiş sonra Resource Manager ağında yüklü HDInsight Klasik ağ içindeki kaynaklarla etkileşim kurabilir.
 
-2. Zorlamalı tünel kullanıyor musunuz? Zorlamalı tünel, giden Internet trafiği İnceleme için bir cihaz için zorlayan bir alt ağ ayarı ve günlük kaydı değildir. HDInsight, zorlamalı tünel desteklemez. HDInsight, var olan bir alt ağa dağıtmadan önce bir zorlamalı tünel kaldırın veya hiçbir zorlamalı tünel için HDInsight ile yeni bir alt ağ oluşturun.
-
-3. İçine veya dışına sanal ağ trafiği kısıtlamak için ağ güvenlik grupları, kullanıcı tanımlı yollar ve ağ sanal Gereçleri kullanıyorsunuz?
+2. İçine veya dışına sanal ağ trafiği kısıtlamak için ağ güvenlik grupları, kullanıcı tanımlı yollar ve ağ sanal Gereçleri kullanıyorsunuz?
 
     Yönetilen bir hizmet olarak HDInsight, Azure veri merkezinde birden fazla IP adresi için sınırsız erişim gerektirir. Bu IP adresleri ile iletişime izin vermek için herhangi bir mevcut ağ güvenlik grupları veya kullanıcı tanımlı yollar güncelleştirin.
     
@@ -108,7 +106,7 @@ Nasıl yeni bir HDInsight mevcut bir Azure sanal ağına eklemek keşfetmek içi
 
         Daha fazla bilgi için [yollarla ilgili sorunları giderme](../virtual-network/diagnose-network-routing-problem.md) belge.
 
-4. Bir HDInsight kümesi oluşturma ve yapılandırma sırasında Azure sanal ağı seçin. Adımları, küme oluşturma işlemi anlamak için aşağıdaki belgeleri kullanın:
+3. Bir HDInsight kümesi oluşturma ve yapılandırma sırasında Azure sanal ağı seçin. Adımları, küme oluşturma işlemi anlamak için aşağıdaki belgeleri kullanın:
 
     * [Azure portalını kullanarak HDInsight oluşturma](hdinsight-hadoop-create-linux-clusters-portal.md)
     * [Azure PowerShell kullanarak HDInsight oluşturma](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -247,14 +245,14 @@ Zorlamalı tünel bir kullanıcı tanımlı yönlendirme burada tüm trafiğin b
 
 ## <a id="hdinsight-ip"></a> Gerekli IP adresleri
 
-> [!IMPORTANT]  
-> Azure sistem durumu ve Yönetim Hizmetleri, HDInsight ile iletişim kurabildiğini olmalıdır. Ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanıyorsanız, IP adresleri HDInsight ulaşmak bu hizmetler için gelen trafiğe izin vermeniz.
->
+Trafiği denetlemek için ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanıyorsanız, HDInsight kümenizle iletişim kurabilmesi için Azure sistem durumu ve Yönetim Hizmetleri IP adreslerinden gelen trafiğe izin vermelidir. Bölge belirli IP adreslerinden bazıları ve bazıları tüm Azure bölgelerine uygulayın. Özel DNS kullanmıyorsanız, Azure DNS hizmeti gelen trafiğe izin gerekebilir. Alt ağ içindeki VM'ler arasında trafiği de izin vermeniz gerekir. İzin verilmiş olmalıdır IP adreslerini bulmak için aşağıdaki adımları kullanın:
+
+> [!Note]  
 > Bu bölümde, trafiği denetlemek için ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanmazsanız, yoksayabilirsiniz.
 
-Ağ güvenlik grupları kullanırsanız, HDInsight kümeleri bağlantı noktası 443 üzerinden erişmek için Azure sistem durumu ve Yönetim hizmetlerinden gelen trafiğe izin vermeniz gerekir. Alt ağ içindeki VM'ler arasında trafiği de izin vermeniz gerekir. İzin verilmiş olmalıdır IP adreslerini bulmak için aşağıdaki adımları kullanın:
+1. Azure tarafından sağlanan DNS hizmeti kullanıyorsanız erişime izin verecek __168.63.129.16__ bağlantı noktası 53. Daha fazla bilgi için [VM'ler ve rol için ad çözümlemesi örnekleri](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) belge. Özel DNS kullanıyorsanız bu adımı atlayın.
 
-1. Her zaman aşağıdaki IP adreslerinden gelen trafiğe izin vermeniz gerekir:
+2. Tüm Azure bölgeleri için geçerli Azure sistem durumu ve Yönetim Hizmetleri için aşağıdaki IP adreslerinden gelen trafiği izin ver:
 
     | Kaynak IP adresi | Hedef  | Direction |
     | ---- | ----- | ----- |
@@ -263,12 +261,12 @@ Ağ güvenlik grupları kullanırsanız, HDInsight kümeleri bağlantı noktası
     | 168.61.48.131 | \*:443 | Gelen |
     | 138.91.141.162 | \*:443 | Gelen |
 
-2. Ardından HDInsight kümenizi aşağıdaki bölgelerden birinde ise bölge için listelenen IP adreslerinden gelen trafiğe izin vermeniz gerekir:
+3. Kaynaklarınızı bulunduğu yere belirli bölgedeki Azure sistem durumu ve Yönetim Hizmetleri için listedeki IP adreslerinden gelen trafiğe izin ver:
 
     > [!IMPORTANT]  
     > Kullanmakta olduğunuz Azure bölgesi listede yoksa, yalnızca adım 1'deki dört IP adreslerini kullanır.
 
-    | Ülke | Bölge | İzin verilen kaynak IP adresleri | İzin verilen hedef | Direction |
+    | Country | Bölge | İzin verilen kaynak IP adresleri | İzin verilen hedef | Direction |
     | ---- | ---- | ---- | ---- | ----- |
     | Asya | Doğu Asya | 23.102.235.122</br>52.175.38.134 | \*:443 | Gelen |
     | &nbsp; | Güneydoğu Asya | 13.76.245.160</br>13.76.136.249 | \*:443 | Gelen |
@@ -296,15 +294,13 @@ Ağ güvenlik grupları kullanırsanız, HDInsight kümeleri bağlantı noktası
     | Birleşik Krallık | Birleşik Krallık Batı | 51.141.13.110</br>51.141.7.20 | \*:443 | Gelen |
     | &nbsp; | Birleşik Krallık Güney | 51.140.47.39</br>51.140.52.16 | \*:443 | Gelen |
     | Amerika Birleşik Devletleri | Orta ABD | 13.89.171.122</br>13.89.171.124 | \*:443 | Gelen |
-    | &nbsp; | Doğu ABD | 13.82.225.233</br>40.71.175.99 | \*:443 | Gelen |
+    | &nbsp; | East US | 13.82.225.233</br>40.71.175.99 | \*:443 | Gelen |
     | &nbsp; | Orta Kuzey ABD | 157.56.8.38</br>157.55.213.99 | \*:443 | Gelen |
     | &nbsp; | Batı Orta ABD | 52.161.23.15</br>52.161.10.167 | \*:443 | Gelen |
     | &nbsp; | Batı ABD | 13.64.254.98</br>23.101.196.19 | \*:443 | Gelen |
     | &nbsp; | Batı ABD 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Gelen |
 
     Azure kamu için kullanılacak IP adresleri hakkında daha fazla bilgi için bkz: [Azure kamu INTELLIGENCE + Analytıcs](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) belge.
-
-3. Erişim de izin vermeniz gerekir __168.63.129.16__. Azure'nın yinelemeli çözümleyici adresidir. Daha fazla bilgi için [VM'ler ve rol için ad çözümlemesi örnekleri](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) belge.
 
 Daha fazla bilgi için [ağ trafiğini denetleme](#networktraffic) bölümü.
 

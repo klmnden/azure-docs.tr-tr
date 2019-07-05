@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 69df9eff85d96c9cc6ca7fa1d3aabd2c54fae416
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 677a9d02493bf5fac1bfcbe8c40ce9efe2040be9
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60583879"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537708"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Konuk tarafından yürütülebilir birden çok uygulama dağıtma
 Bu makalede, paketleyin ve birden fazla Konuk yürütülebilir dosyaları Azure Service Fabric'e dağıtma gösterilmektedir. Oluşturmak ve tek bir Service Fabric paket dağıtımı için okuma nasıl için [Konuk yürütülebilir dosyası, Service Fabric'e dağıtma](service-fabric-deploy-existing-app.md).
@@ -33,7 +33,7 @@ Visual Studio, birden fazla Konuk yürütülebilir dosyaları içeren uygulama p
 * [İki Konuk yürütülebilir dosyalar (C# ve nodejs) iletişim REST kullanarak Adlandırma Hizmeti örnek](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>El ile birden fazla konuk tarafından yürütülebilir uygulama paketi
-Alternatif olarak el ile Konuk yürütülebilir dosyası paketleyebilirsiniz. El ile paketleme için bu makalede bulunabilir Service Fabric paketleme aracı kullanır. [ https://aka.ms/servicefabricpacktool ](https://aka.ms/servicefabricpacktool).
+Alternatif olarak el ile Konuk yürütülebilir dosyası paketleyebilirsiniz. Ayrıntılar için bkz [el ile paketleme ve dağıtma varolan bir yürütülebilir dosya](service-fabric-deploy-existing-app.md#manually-package-and-deploy-an-existing-executable).
 
 ### <a name="packaging-the-nodejs-application"></a>Node.js uygulaması paketleme
 Bu makalede, Node.js, Service Fabric kümesindeki düğümlere yüklenmedi varsayılır. Sonuç olarak node.js uygulamanızı paketleme önce kök dizinine Node.exe eklemeniz gerekir. Dizin yapısı (Express web çerçevesini ve Jade şablon altyapısı kullanılarak) Node.js uygulaması, aşağıdaki gibi görünmelidir:
@@ -207,7 +207,6 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 Uygulamayı yerel kümeye başarıyla yayımlandığında, Node.js uygulaması--örneğin http hizmet bildiriminde girdiğimiz bağlantı noktası üzerinde Node.js uygulaması erişebilirsiniz:\//localhost:3000.
 
 Bu öğreticide, bir Service Fabric uygulaması olarak iki mevcut uygulamaları kolayca paketlenecek öğrendiniz. Ayrıca bazı Service Fabric özellikleri, yüksek kullanılabilirlik ve sistem durumu sistem tümleştirmesi gibi yararlanabilir, böylece Service Fabric'e dağıtma gerçekleştirmeyi öğrendiniz.
-
 
 ## <a name="adding-more-guest-executables-to-an-existing-application-using-yeoman-on-linux"></a>Daha fazla Konuk yürütülebilir dosyaları, Linux üzerinde Yeoman kullanarak var olan bir uygulamaya ekleme
 

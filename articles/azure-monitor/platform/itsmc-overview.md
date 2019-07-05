@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f2574cc64e157ff0f8a6cb875a832db88cf13dd6
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60395875"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479809"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Azure BT Hizmet Yönetimi Bağlayıcısı'nı kullanarak ITSM araçlara bağlayın
 
@@ -62,7 +62,9 @@ Bir bağlantı oluşturmadan önce ITSM Bağlayıcısı çözümü eklemeniz ger
 
 3. İçinde **OMS çalışma alanı** bölümünde, istediğiniz çözümü yüklemek için Azure Log Analytics çalışma alanını seçin.
    >[!NOTE]
-   >Azure İzleyici sürekli geçiş Microsoft Operations Management Suite (OMS) gelen bir parçası olarak, OMS çalışma alanları artık için Log Analytics çalışma alanları bilinir.
+   > * Azure İzleyici sürekli geçiş Microsoft Operations Management Suite (OMS) gelen bir parçası olarak, OMS çalışma alanları artık için Log Analytics çalışma alanları bilinir.
+   > * ITSM Bağlayıcısı, yalnızca şu bölgelerde Log Analytics çalışma alanlarında yüklenebilir: Doğu ABD, Batı Avrupa, Güneydoğu Asya, Avustralya Güneydoğu, Batı Orta ABD, Doğu Japonya, Birleşik Krallık Güney, Orta Hindistan, Orta Kanada.
+
 4. İçinde **OMS çalışma alanı ayarlarını** bölümünde, istediğiniz çözüm kaynağının oluşturulacağı kaynak grubu seçin.
 
    ![ITSMC çalışma](media/itsmc-overview/itsmc-solution-workspace.png)
@@ -134,7 +136,7 @@ Aşağıdaki yordamı kullanın:
 
 6. Seçin **iş öğesi** aşağı açılan menüden türü.
    ITSM ürününüzü gerekli alanları doldurun veya mevcut bir şablonu kullanmak bu seçeneği seçin.
-7. **Tamam**'ı tıklatın.
+7. **Tamam** düğmesine tıklayın.
 
 Azure bir uyarı kuralı oluşturma veya düzenleme, bir ITSM eylemi olan bir eylem grubu kullanın. Uyarı tetiklendiğinde ITSM Aracı'nda oluşturulan/güncelleştirilen iş öğesi.
 
@@ -192,7 +194,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Kapatma tarihi
 - source
 - Atamayı alan
-- Kategori
+- Category
 - Unvan
 - Açıklama
 - Oluşturulma tarihi
@@ -215,7 +217,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Atamayı alan
 - Unvan
 - Tür
-- Kategori
+- Category
 - Eyalet
 - Yükseltme
 - Çakışma durumu
@@ -249,7 +251,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s  | Kapatma tarihi |
 | Source_s| Kişi türü |
 | AssignedTo_s | Atamayı alan  |
-| Category_s | Kategori |
+| Category_s | Category |
 | Title_s|  Kısa açıklama |
 | Description_s|  Notlar |
 | CreatedDate_t|  Açılan |
@@ -267,7 +269,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | AssignedTo_s | Atamayı alan  |
 | Title_s|  Kısa açıklama |
 | Type_s|  Tür |
-| Category_s|  Kategori |
+| Category_s|  Category |
 | CRState_s|  Eyalet|
 | Urgency_s|  Aciliyet |
 | Priority_s| Öncelik|

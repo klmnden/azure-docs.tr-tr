@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e55bf4a66dcd8c1c7cfbc881d6f93c3a12f5dc00
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8e9ea8956d87e2ec47cc65495e81d8a0f0ad8cb
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112310"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560932"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Temel ilke: Blok eski kimlik doğrulama (Önizleme)
 
@@ -28,8 +28,6 @@ Kullanıcılarınıza bulut uygulamalarınız için kolay erişim sunmak için A
 Bugün, tüm riske atmadan oturum açma girişimlerinin çoğunluğu eski kimlik doğrulamasını gelir. Eski bir kimlik doğrulama, çok faktörlü kimlik doğrulaması (MFA) desteklemez. Dizin üzerinde etkin bir MFA ilkesi olsa bile, kötü bir aktör eski bir protokol kullanarak kimlik doğrulaması ve mfa'yı atla.
 
 Eski protokolleri tarafından yapılan kötü amaçlı kimlik doğrulama istekleri hesabınızı korumak için en iyi yolu bu denemeleri tümünü bir araya engellemektir. Eski protokolleri tarafından yapılan tüm oturum açma isteklerinin engellenip engellenmeyeceğini kolaylaştırmak için yapan bir temel ilke oluşturduk.
-
-![Koşullu erişim bloğu eski kimlik doğrulaması](./media/howto-baseline-protect-legacy-auth/baseline-policy-block-legacy-authentication.png)
 
 **Eski bir kimlik doğrulama bloğu** olduğu [temel ilke](concept-baseline-protection.md) eski protokolleri arasından yapılan tüm kimlik doğrulama isteklerini engeller. Modern kimlik doğrulaması, tüm kullanıcılar için başarıyla oturum açmak için kullanılmalıdır. Diğer temel ilkeleri ile birlikte kullanıldığında, eski kurallarından gelen istekleri engellenir ve tüm kullanıcılar için gerekli olduğunda MFA gerekli olacaktır. Bu ilke, Exchange ActiveSync engellemez.
 
@@ -111,7 +109,6 @@ Bu ilkeyi etkinleştirmek ve kuruluşunuzu korumak için:
 1. Gözat **Azure Active Directory** > **koşullu erişim**.
 1. İlkeler listesinde seçin **temel ilke: Blok eski kimlik doğrulama (Önizleme)** .
 1. Ayarlama **ilkesini etkinleştir** için **ilkeyi hemen kullan**.
-1. Herhangi bir kullanıcı özel tıklayarak Ekle **kullanıcılar** > **dışlanan kullanıcılar seçin** ve hariç tutulması gerektiğini kullanıcıları seçme. Tıklayın **seçin** ardından **Bitti**.
 1. Tıklayın **Kaydet**.
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -2,26 +2,21 @@
 title: Azure Active Directory cihaz yönetimi hakkında SSS | Microsoft Docs
 description: Azure Active Directory cihaz yönetimi hakkında SSS.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/22/2019
+ms.topic: troubleshooting
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e29c58c0e9a31b2eb3e3d7e237a3db8173214faf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8802f9e5c84078725675d961ada7f8183c91c0ec
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110642"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481763"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory cihaz yönetimi hakkında SSS
 
@@ -61,17 +56,15 @@ Yeniden kaydetmek isterseniz, cihazda el ile bir eylem gerçekleştirmeniz gerek
 
 Windows 10 ve Windows Server 2016'de, şirket içi Active Directory etki alanına katılan birleşim durumu temizlemek için aşağıdaki adımları uygulayın:
 
-1.  Komut istemini yönetici olarak açın.
-
-2.  `dsregcmd.exe /debug /leave` yazın.
-
-3.  Oturumu kapatın ve yeniden Azure AD ile cihaz kaydeden zamanlanmış tetikleyici için oturum açın. 
+1. Komut istemini yönetici olarak açın.
+1. `dsregcmd.exe /debug /leave` yazın.
+1. Oturumu kapatın ve yeniden Azure AD ile cihaz kaydeden zamanlanmış tetikleyici için oturum açın. 
 
 Şirket içi Active Directory etki alanına katılan alt düzey Windows işletim sistemi sürümleri için aşağıdaki adımları uygulayın:
 
-1.  Komut istemini yönetici olarak açın.
-2.  `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"` yazın.
-3.  `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"` yazın.
+1. Komut istemini yönetici olarak açın.
+1. `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"` yazın.
+1. `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"` yazın.
 
 ---
 
@@ -79,13 +72,10 @@ Windows 10 ve Windows Server 2016'de, şirket içi Active Directory etki alanın
 
 **C:**
 
--   Yinelenen çalışır ayrılma ve aynı cihaza katılabilir, Windows 10 ve Windows Server 2016 için yinelenen girdiler neden olabilir. 
-
--   Kullanan her bir Windows kullanıcı **eklemek iş veya Okul hesabı** cihaz aynı ada sahip yeni bir cihaz kaydı oluşturur.
-
--   Şirket içi Azure Directory etki alanına katılmış olan alt düzey Windows işletim sistemi sürümleri için otomatik kayıt, cihaza oturum açtığı her etki alanı kullanıcısı için aynı cihaz adı ile yeni bir cihaz kaydı oluşturur. 
-
--   Cihaz aynı ada sahip başka bir kayıt olarak silinebilen, yeniden ve aynı adla yeniden katılınması bir Azure AD alanına katılmış makine gösterilir.
+- Yinelenen çalışır ayrılma ve aynı cihaza katılabilir, Windows 10 ve Windows Server 2016 için yinelenen girdiler neden olabilir. 
+- Kullanan her bir Windows kullanıcı **eklemek iş veya Okul hesabı** cihaz aynı ada sahip yeni bir cihaz kaydı oluşturur.
+- Şirket içi Azure Directory etki alanına katılmış olan alt düzey Windows işletim sistemi sürümleri için otomatik kayıt, cihaza oturum açtığı her etki alanı kullanıcısı için aynı cihaz adı ile yeni bir cihaz kaydı oluşturur. 
+- Cihaz aynı ada sahip başka bir kayıt olarak silinebilen, yeniden ve aynı adla yeniden katılınması bir Azure AD alanına katılmış makine gösterilir.
 
 ---
 
@@ -110,12 +100,11 @@ Windows 10 ve Windows Server 2016'de, şirket içi Active Directory etki alanın
 
 **C:** 
 - İçin hibrit Azure AD'ye katılan cihazlar otomatik kaydı Kapat emin olun. Ardından zamanlanmış görev cihazı yeniden kaydedin değil. Ardından, bir yönetici olarak bir komut istemi açın ve girin `dsregcmd.exe /debug /leave`. Veya toplu olarak ayrılma için birkaç cihaz arasında bir komut dosyası olarak şu komutu çalıştırın.
-
 - Saf Azure AD'ye katılan cihazlar çevrimdışı yerel yönetici hesabına sahip veya bir oluşturma emin olun. Tüm Azure AD kullanıcı kimlik bilgileriyle oturum açamazsınız. Ardından, Git **ayarları** > **hesapları** > **işe veya okula erişim**. Hesabınızı seçip **Bağlantıyı Kes**. Komut istemlerini izleyin ve istendiğinde yerel yönetici kimlik bilgilerini girin. Ayrılma işlemi tamamlamak için cihazı yeniden başlatın.
 
 ---
 
-### <a name="q-can-my-users-sign-in-to-azure-ad-joined-devices-that-are-deleted-or-disabled-in-azure-ad"></a>S: Kullanıcılar Azure AD'de devre dışı veya silinmiş bir Azure AD'ye katılmış cihazların oturum açarak?
+### <a name="q-can-my-users-sign-in-to-azure-ad-joined-devices-that-are-deleted-or-disabled-in-azure-ad"></a>S: Kullanıcıların Azure AD'de devre dışı veya silinmiş bir Azure AD'ye katılmış cihazların oturum açarak?
 
 **C:** Evet. Windows, önbelleğe alınan kullanıcı adı ve hatta ağ bağlantısı hızlıca erişmenizi önceden açmış kullanıcılar izin veren parola özelliği vardır. 
 
@@ -125,7 +114,7 @@ Daha önce oturum istemediğiniz Kullanıcılar Cihaz erişemez. Önbelleğe al�
 
 ---
 
-### <a name="q-can-disabled-or-deleted-users-sign-in-to-azure-ad-joined-devices"></a>S: Devre dışı bırakılan veya silinen kullanıcılar Azure AD'ye katılmış cihazlar için oturum açabilir?
+### <a name="q-can-a-disabled-or-deleted-user-sign-in-to-an-azure-ad-joined-devices"></a>S: Devre dışı bırakılmış veya silinmiş bir kullanıcının bir Azure AD'ye katılmış cihazlar için oturum
 
 **C:** Evet, ancak yalnızca sınırlı bir süreliğine. Bir kullanıcı silindi veya Azure AD'de devre dışı olduğunda Windows cihaza hemen bilinir. Bu nedenle önceden açmış kullanıcılar, Masaüstü önbelleğe alınan kullanıcı adı ve parola ile erişebilirsiniz. 
 
@@ -166,7 +155,6 @@ Daha önce oturum yaramadı silinmiş veya devre dışı bırakılmış kullanı
 Bu davranışı:
 
 - Geçerli Azure AD'ye katılmış ve Azure AD cihazları - kayıtlı ancak cihazlar için hibrit Azure AD'ye katılmamış.
-
 - Bu cihaza açan diğer bir kullanıcı için geçerli değildir. Bu cihaz erişim kadar tüm diğer kullanıcılar, çok faktörlü kimlik doğrulaması sınaması alın. Ardından bunlar çok faktörlü kimlik doğrulaması gerektiren uygulamalarda erişebilirsiniz.
 
 ---
@@ -176,11 +164,8 @@ Bu davranışı:
 **C:** Bu senaryo için yaygın nedenler aşağıda belirtilmiştir:
 
 - Kullanıcı kimlik bilgilerinizi artık geçerli değil.
-
 - Bilgisayarınızı Azure Active Directory ile iletişim kuramıyor. Tüm ağ bağlantısı sorunlarını denetleyin.
-
 - Federasyon oturum açma etkin ve erişilebilir olan WS-Trust uç noktaları desteklemek için Federasyon sunucunuz gerektirir. 
-
 - Geçişli kimlik doğrulaması etkin. Bu nedenle parolanızı geçici oturum açtığınızda değiştirilmesi gerekir.
 
 ---
@@ -205,10 +190,9 @@ Bu davranışı:
 
 ### <a name="qwhy-do-i-see-multiple-expired-certificates-issued-by-ms-organization-p2p-access-on-our-windows-10-devices-how-can-i-delete-them"></a>Q:Why bizim Windows 10 cihazlarda MS-Kuruluş-P2P-erişim tarafından verilen birden fazla süresi dolmuş sertifikaları görüyor musunuz? Bunları nasıl silebilir miyim?
 
-**C:** Windows 10 sürüm 1709 ve daha düşük burada MS Kuruluş P2P erişim süresi dolmuş sertifikaları mevcut bilgisayar deposunda şifreleme sorunları nedeniyle devam tanımlanan bir sorun oluştu. Süresi dolmuş sertifikaları çok sayıda işleyemiyor tüm VPN istemcileri (örneğin Cisco AnyConnect) kullanıyorsanız, kullanıcılarınızın ağ bağlantısına sahip bir sorunla karşılaşırsanız. Bu tür süresi dolmuş kuruluş P2P erişim MS sertifikaları otomatik olarak silmek için Windows 10, 1803 sürümde bu sorunu düzeltildi. Windows 10, 1803 cihazlarınızı güncelleştirerek bu sorunu çözebilir. Güncelleştirilecek bulamıyorsanız, olumsuz bir etkisi olmadan bu sertifikaları silebilirsiniz.  
+**C:** Windows 10 sürüm 1709 ve daha düşük burada MS Kuruluş P2P erişim süresi dolmuş sertifikaları mevcut bilgisayar deposunda şifreleme sorunları nedeniyle devam tanımlanan bir sorun oluştu. Süresi dolmuş sertifikaları çok sayıda işleyemiyor tüm VPN istemcileri (örneğin, Cisco AnyConnect) kullanıyorsanız, kullanıcılarınızın ağ bağlantısına sahip bir sorunla karşılaşırsanız. Bu tür süresi dolmuş kuruluş P2P erişim MS sertifikaları otomatik olarak silmek için Windows 10, 1803 sürümde bu sorunu düzeltildi. Windows 10, 1803 cihazlarınızı güncelleştirerek bu sorunu çözebilir. Güncelleştirilecek bulamıyorsanız, olumsuz bir etkisi olmadan bu sertifikaları silebilirsiniz.  
 
 ---
-
 
 ## <a name="hybrid-azure-ad-join-faq"></a>Hibrit Azure AD katılımı ile ilgili SSS
 
@@ -217,7 +201,6 @@ Bu davranışı:
 **C:** Sorun giderme bilgileri için şu makalelere bakın:
 
 - [Hibrit Azure Active Directory sorun giderme alanına katılmış Windows 10 ve Windows Server 2016 cihazları](troubleshoot-hybrid-join-windows-current.md)
-
 - [Alt düzey cihazları katılmış karma Azure Active Directory sorun giderme](troubleshoot-hybrid-join-windows-legacy.md)
  
 ### <a name="q-why-do-i-see-a-duplicate-azure-ad-registered-record-for-my-windows-10-hybrid-azure-ad-joined-device-in-the-azure-ad-devices-list"></a>S: Yinelenen bir Azure AD neden görüyorum my Windows 10 hibrit Azure AD'ye kayıtlı kaydı alanına katılmış cihaz Azure AD'ye cihaz listesinde?
@@ -226,27 +209,25 @@ Bu davranışı:
 
 Hibrit Azure AD'ye katılma Azure AD'ye kayıtlı durumu daha önceliklidir. Bu nedenle Cihazınızı herhangi bir kimlik doğrulama ve koşullu erişim değerlendirmesinin için Azure AD'ye katılmış karma olarak kabul edilir. Azure AD Portalı'ndan kayıtlı Azure AD cihaz kaydı güvenli bir şekilde silebilirsiniz. Öğrenme [önlemek veya Windows 10 makinesi üzerinde bu ikili durum Temizleme](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know). 
 
-
 ---
 
 ### <a name="q-why-do-my-users-have-issues-on-windows-10-hybrid-azure-ad-joined-devices-after-changing-their-upn"></a>S: Neden kullanıcılarımın UPN değiştirdikten sonra sorunları Windows 10 hibrit Azure AD'ye katılmış cihazlarda gerekiyor?
 
-**C:** Şu anda UPN değişiklikler ile hibrit Azure AD'ye katılmış cihazları tam olarak desteklenmemektedir. Kullanıcıların cihazda oturum açın ve kullanıcıların şirket içi uygulamalara karşın, bir UPN değiştirdikten sonra Azure AD ile kimlik doğrulaması başarısız olur. Sonuç olarak, kullanıcılar SSO ve kullanıcıların cihazlarında koşullu erişim verir. Şu anda, cihaz ("dsregcmd /leave" yükseltilmiş ayrıcalıklarla çalıştır) Azure AD'den ayrılma gerekir ve yeniden katılabilir (otomatik olarak gerçekleşir) sorunu gidermek için. Şu anda bu sorunu gidermeye çalışıyoruz. Ancak, kullanıcıların oturum Windows iş için Hello imzalama bu sorunla karşılaşmaya değil. 
+**C:** Şu anda UPN değişiklikler ile hibrit Azure AD'ye katılmış cihazları tam olarak desteklenmemektedir. Kullanıcıların cihazda oturum açın ve kullanıcıların şirket içi uygulamalara karşın, bir UPN değiştirdikten sonra Azure AD ile kimlik doğrulaması başarısız olur. Sonuç olarak, kullanıcılar SSO ve kullanıcıların cihazlarında koşullu erişim verir. Şu anda, cihaz ("dsregcmd /leave" yükseltilmiş ayrıcalıklarla çalıştır) Azure AD'den ayrılma gerekir ve (otomatik olarak gerçekleşir) katılabilir sorunu çözmek için. Şu anda bu sorunu gidermeye çalışıyoruz. Ancak, kullanıcıların oturum Windows iş için Hello imzalama bu sorunla karşılaşmaya değil. 
 
 ---
 
 ### <a name="q-do-windows-10-hybrid-azure-ad-joined-devices-require-line-of-sight-to-the-domain-controller-to-get-access-to-cloud-resources"></a>S: Windows 10 hibrit Azure AD'ye katılmış cihazları görebilmesi için bulut kaynaklarına erişim elde etmek için etki alanı denetleyicisi gerektiriyor mu?
 
-**C:** Kullanıcının parolasını değiştirildiğinde dışında genellikle Hayır. Onra Windows 10 hibrit Azure AD'ye katılımı tamamlandıktan ve kullanıcı en az bir kez oturum açtıktan, cihaz görebilmesi için bulut kaynaklarına erişmek için etki alanı denetleyicisi gerektirmez. Windows 10 alabilirsiniz çoklu oturum açma Azure AD uygulamalarına her yerden bir parola değiştirildiğinde dışında bir internet bağlantısı ile. Bir parolayı değiştirdikten sonra bile, bunlar görebilmesi için kendi etki alanı denetleyicisi olmasa bile tek almak için oturum açın. Windows iş için Hello devam eden kullanıcıların Azure AD uygulamaları için oturum. 
+**C:** Hayır, kullanıcının parolasını değiştirildiğinde dışında. Windows 10 hibrit Azure AD'ye katılım tamamlandıktan ve kullanıcı en az bir kez oturum açtıktan sonra cihaz görebilmesi için bulut kaynaklarına erişmek için etki alanı denetleyicisi gerektirmez. Windows 10, çoklu oturum açma için Azure AD uygulamalarına her yerden alabilirsiniz parola değiştirildiğinde dışında bir internet bağlantısı olan. Tek almak için oturum açın. Windows iş için Hello devam eden kullanıcıların Azure AD uygulamaları için bir parola değiştirdikten sonra bile, bunlar görebilmesi için kendi etki alanı denetleyicisi olmasa bile oturum. 
 
 ---
 
 ### <a name="q-what-happens-if-a-user-changes-their-password-and-tries-to-login-to-their-windows-10-hybrid-azure-ad-joined-device-outside-the-corporate-network"></a>S: Bir kullanıcı parolasını değiştirene ve Windows 10 hibrit Azure AD'ye için oturum açma girişiminde ne olur, kurumsal ağ dışından cihaz alanına?
 
-**C:** Bir parola kurumsal ağ dışından (örneğin, Azure AD SSPR kullanarak) olarak değiştirilirse, yeni parola ile kullanıcı oturum açma başarısız olur. Hibrit Azure AD'ye katılmış cihazlar için şirket içi Active Directory birincil yetkilisidir. Bir cihaz görebilmesi için etki alanı denetleyicisine sahip olmadığı durumlarda, yeni parolayı doğrulayamadı. Bu nedenle, etki alanı denetleyicisi (ya da VPN ya da şirket ağında olan aracılığıyla) ile bağlantı kurmak kullanıcı gereken yeni parola cihazla oturum açabilir gelmeden önce. Aksi takdirde, bunlar, eski parolayla nedeniyle Windows önbelleğe alınmış oturum açma özelliği yalnızca kaydolabilirsiniz. Ancak, eski parolayı belirteç isteği sırasında Azure AD tarafından geçersiz kılındı ve bu nedenle, üzerinde çoklu oturum açma engeller ve tüm cihaz tabanlı koşullu erişim ilkeleri başarısız olur. Windows Hello için iş kullanırsanız, bu sorun oluşmaz. 
+**C:** Bir parola kurumsal ağ dışından (örneğin, Azure AD SSPR kullanarak) olarak değiştirilirse, yeni parola ile kullanıcı oturum başarısız olur. Hibrit Azure AD'ye katılmış cihazlar için şirket içi Active Directory birincil yetkilisidir. Bir cihaz görebilmesi için etki alanı denetleyicisine sahip olmadığı durumlarda, yeni parolayı doğrulayamadı. Bu nedenle, etki alanı denetleyicisi (ya da VPN ya da şirket ağında olan aracılığıyla) ile bağlantı kurmak kullanıcı gereken yeni parola cihazla oturum açabilir gelmeden önce. Aksi takdirde, yalnızca kendi eski parolayla nedeniyle önbelleğe alınan oturum Windows özelliği, oturum açabilirsiniz. Ancak, eski parolayı belirteç isteği sırasında Azure AD tarafından geçersiz kılındı ve bu nedenle, çoklu oturum açma engeller ve tüm cihaz tabanlı koşullu erişim ilkeleri başarısız olur. Windows Hello için iş kullanırsanız, bu sorun oluşmaz. 
 
 ---
-
 
 ## <a name="azure-ad-register-faq"></a>Azure AD kaydı SSS
 
@@ -259,11 +240,15 @@ Hibrit Azure AD'ye katılma Azure AD'ye kayıtlı durumu daha önceliklidir. Bu 
 **C:** Aşağıdaki adımları uygulayın:
 
 1.  [Uyumluluk ilkesi oluşturma](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-2.  [MacOS cihazlar için koşullu erişim ilkesi tanımlama](../active-directory-conditional-access-azure-portal.md) 
+1.  [MacOS cihazlar için koşullu erişim ilkesi tanımlama](../active-directory-conditional-access-azure-portal.md) 
 
 **Notlar:**
 
 - Koşullu erişim ilkesi gereksiniminizi bulunan kullanıcılar bir [macOS için Office sürümü desteklenen](../conditional-access/technical-reference.md#client-apps-condition) kaynaklara erişmek için. 
-
 - İlk erişim denemede sırasında kullanıcılarınızın şirket Portalı'nı kullanarak cihazını kaydetmesi istenir.
 
+## <a name="next-steps"></a>Sonraki adımlar
+
+- Daha fazla bilgi edinin [Azure AD'ye kayıtlı cihazlar](concept-azure-ad-register.md)
+- Daha fazla bilgi edinin [Azure AD'ye katılmış cihazlar](concept-azure-ad-join.md)
+- Daha fazla bilgi edinin [hibrit Azure AD'ye katılmış cihazlar](concept-azure-ad-join-hybrid.md)

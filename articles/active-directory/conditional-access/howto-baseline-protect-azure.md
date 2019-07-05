@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24b54a3645fe97903219841dd148c0942dfcda76
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 203b752f9da67ebf60e373fe7ce0893b4fd7fcb5
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112380"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560954"
 ---
 # <a name="baseline-policy-require-mfa-for-service-management-preview"></a>Temel ilke: MFA istemek için Hizmet Yönetimi (Önizleme)
 
@@ -31,8 +31,6 @@ Hizmetlerinizi yönetmek üzere Azure Resource Manager kullanarak üst düzeyde 
 **Hizmet Yönetimi için mfa'yı gerekli** olduğu bir [temel ilke](concept-baseline-protection.md) Azure portalı, Azure PowerShell veya Azure CLI erişen herhangi bir kullanıcı için mfa'yı gerekebilir. Bu ilke, bunlar yöneticisiyseniz bağımsız olarak, Azure Resource Manager, erişen tüm kullanıcılar için geçerlidir.
 
 Bu ilke, bir kiracıda etkinleştirildikten sonra Azure yönetim kaynakları açan tüm kullanıcılar multi-Factor authentication ile sınanır. MFA için kullanıcı kayıtlı değilse, kullanıcı devam etmek için Microsoft Authenticator uygulamasını kullanarak kaydolmanız gerekir.
-
-![Azure Resource Manager için MFA gerektirme](./media/howto-baseline-protect-azure/baseline-policy-require-mfa-for-service-management.png)
 
 Etkileşimli oturum açma kullanarak gerçekleştirmek için [Azure Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps), kullanın [Connect AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet'i.
 
@@ -54,17 +52,6 @@ CLI varsayılan tarayıcınızı açabiliyorsa, tarayıcıyı açar ve oturum a�
 
 Çünkü **hizmet yönetimi için MFA gerektiren** İlkesi tüm Azure Resource Manager kullanıcıları için geçerlidir, çeşitli konuları sorunsuz bir dağıtım sağlamak için yapılması gerekir. Kullanıcılar ve uygulamalar ve modern kimlik doğrulamayı desteklemeyen, kuruluşunuz tarafından kullanılan istemcilerin yanı sıra MFA'yı gerçekleştirmemelisiniz veya Azure AD'de hizmet ilkeleri tanımlayan bu konuları içerir.
 
-### <a name="user-exclusions"></a>Kullanıcı dışlamaları
-
-Bu temel ilke kullanıcılar dışında seçeneği sağlar. Kiracınız için ilke etkinleştirmeden önce aşağıdaki hesapları hariç öneririz:
-
-* **Acil Durum erişim** veya **sonu cam** Kiracı genelinde hesap kilitleme önlemek için hesaplar. Tüm Yöneticiler, kiracınızın dışında kilitli olduğundan olası senaryoda, Acil Durum erişimi yönetici hesabınızın erişim kurtarmak için Kiracı alma adımları oturum kullanılabilir.
-   * Daha fazla bilgi makalesinde bulunabilir [Azure AD'de Acil Durum erişim hesapları yönetme](../users-groups-roles/directory-emergency-access.md).
-* **Hizmet hesapları** ve **servis ilkeleri**, Azure AD Connect eşitleme hesabı gibi. Hizmet, belirli bir kullanıcıya bağlı değil, etkileşimli olmayan hesaplar hesaplarıdır. Bunlar genellikle arka uç Hizmetleri tarafından kullanılan ve uygulamalar için programlı erişim izni. Hizmet hesapları, MFA programlı bir şekilde tamamlanamıyor beri hariç tutulması gerekir.
-   * Kuruluşunuz, betikleri veya kodları kullanımda bu hesapları varsa, bunları ile değiştirmeyi göz önüne alın [yönetilen kimlikleri](../managed-identities-azure-resources/overview.md). Geçici bir çözüm, bu belirli hesapların temel ilkesinden hariç tutabilirsiniz.
-* Sahip değil veya akıllı telefonunuz kullanmanız mümkün olmayacaktır kullanıcılar.
-   * Bu ilke, kullanıcıların MFA için Microsoft Authenticator uygulamasını kullanarak kaydolmasını gerektirir.
-
 ## <a name="enable-the-baseline-policy"></a>Temel ilke etkinleştir
 
 İlke **temel ilke: Hizmet Yönetimi (Önizleme) için mfa'yı gerekli** önceden yapılandırılmış olarak gelir ve Azure portalında koşullu erişim dikey penceresine gittiğinizde en üstünde gösterilir.
@@ -75,7 +62,6 @@ Bu ilkeyi etkinleştirmek ve yöneticileriniz korumak için:
 1. Gözat **Azure Active Directory** > **koşullu erişim**.
 1. İlkeler listesinde seçin **temel ilke: Hizmet Yönetimi (Önizleme) için mfa'yı gerekli**.
 1. Ayarlama **ilkesini etkinleştir** için **ilkeyi hemen kullan**.
-1. Herhangi bir kullanıcı özel tıklayarak Ekle **kullanıcılar** > **dışlanan kullanıcılar seçin** ve hariç tutulması gerektiğini kullanıcıları seçme. Tıklayın **seçin** ardından **Bitti**.
 1. Tıklayın **Kaydet**.
 
 ## <a name="next-steps"></a>Sonraki adımlar

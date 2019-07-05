@@ -14,12 +14,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: fa3e50374c47f863923252a47b4b54fc1e18f87d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b2a05a4695ee80873a2d7464c0a1cf4d46ed30f5
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991855"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543645"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Service Bus konuları ve abonelikleri ile Ruby kullanma
  
@@ -68,7 +68,9 @@ topic = azure_service_bus_service.create_topic(topic)
 ## <a name="create-subscriptions"></a>Abonelik oluşturma
 Konu abonelikleri ile de oluşturulur **Azure::ServiceBusService** nesne. Abonelikler adlandırılır ve aboneliğin sanal kuyruğuna teslim ileti kümesini sınırlayan isteğe bağlı bir filtre içerebilir.
 
-Kalıcı aboneliklerdir. Ya da bunlar kadar var olmaya devam etmek için veya ilişkili konu ile silindi. Uygulamanız mantıksal bir abonelik oluşturmak için içeriyorsa, ilk getSubscription yöntemi kullanarak abonelik zaten var olup denetlemelisiniz.
+Varsayılan olarak, abonelikleri kalıcıdır. Ya da bunlar kadar var olmaya devam etmek için veya ilişkili konu ile silindi. Uygulamanız mantıksal bir abonelik oluşturmak için içeriyorsa, ilk getSubscription yöntemi kullanarak abonelik zaten var olup denetlemelisiniz.
+
+Otomatik olarak ayarlayarak silinmiş abonelikleri olabilir [AutoDeleteOnIdle özelliği](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Varsayılan (MatchAll) filtreyle abonelik oluşturma
 Yeni bir abonelik oluşturulurken filtre belirtilmezse **MatchAll** filtre (varsayılan) kullanılır. Zaman **MatchAll** filtresinin kullanılacağının, konu başlığında yayımlanan tüm iletiler aboneliğin sanal kuyruğuna yerleştirilir. Aşağıdaki örnek "tüm iletileri" adlı bir abonelik oluşturulur ve varsayılan **MatchAll** filtre.
@@ -156,7 +158,7 @@ Ayrıca abonelikte kilitlenen iletiye ilişkin bir zaman aşımı yoktur ve uygu
 Uygulama iletiyi ancak önce çökmesi durumunda, `delete_subscription_message()` yöntemi çağrılır, ardından yeniden başlatıldığında ileti uygulamaya yeniden teslim. Genellikle adlı *en az bir kez işlenmesini*; diğer bir deyişle, her ileti en az bir kez işlenir ancak belirli durumlarda aynı ileti yeniden teslim edilebilir. Senaryo yinelenen işlemeyi kabul etmiyorsa yinelenen ileti teslimine izin vermek için uygulama geliştiricilerin uygulamaya ilave bir mantık eklemesi gerekir. Bu mantık, genellikle kullanılarak gerçekleştirilir `message_id` özelliğini iletinin teslim denemeleri arasında sabit kalır.
 
 ## <a name="delete-topics-and-subscriptions"></a>Konu başlıklarını ve abonelikleri silme
-Konuları ve abonelikleri kalıcıdır ve açıkça olmalıdır aracılığıyla silindi [Azure portalında] [ Azure portal] veya programlama yoluyla. Aşağıdaki örnekte adlı konu nasıl silineceği `test-topic`.
+Konuları ve abonelikleri kalıcı sürece [AutoDeleteOnIdle özelliği](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle) ayarlanır. Olabilirler aracılığıyla silindi [Azure portalında][Azure portal] veya programlama yoluyla. Aşağıdaki örnekte adlı konu nasıl silineceği `test-topic`.
 
 ```ruby
 azure_service_bus_service.delete_topic("test-topic")

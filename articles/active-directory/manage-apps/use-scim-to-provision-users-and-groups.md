@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a62f44783d63131812794a4b55f0e9f9f3b45f27
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4a51401bcb8d282fef10b0b06e646b652bf5f8e8
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742476"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67513403"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Kullanıcılar ve grupların Azure Active Directory'den uygulamalara otomatik olarak sağlamak için sistem etki alanları arası Kimlik Yönetimi (SCIM) kullanma
 
@@ -259,10 +259,10 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="get-user"></a>Kullanıcı Al
 
-###### <a name="request"></a>İstek
+###### <a name="request-1"></a>İstek
 *GET /Users/5d48a0a8e9f04aa38008* 
 
-###### <a name="response"></a>Yanıt
+###### <a name="response-1"></a>Yanıt
 *HTTP/1.1 200 TAMAM*
 ```json
 {
@@ -290,10 +290,10 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 ```
 #### <a name="get-user-by-query"></a>Kullanıcı tarafından sorgu Al
 
-##### <a name="request"></a>İstek
+##### <a name="request-2"></a>İstek
 *GET/kullanıcılar? filtre kullanıcıadı eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081" =*
 
-##### <a name="response"></a>Yanıt
+##### <a name="response-2"></a>Yanıt
 *HTTP/1.1 200 TAMAM*
 ```json
 {
@@ -329,10 +329,10 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="get-user-by-query---zero-results"></a>Kullanıcı sorgusu - sıfır sonuçlarını Al
 
-##### <a name="request"></a>İstek
+##### <a name="request-3"></a>İstek
 *GET/kullanıcılar? filtre kullanıcıadı eq "mevcut olmayan kullanıcı" =*
 
-##### <a name="response"></a>Yanıt
+##### <a name="response-3"></a>Yanıt
 *HTTP/1.1 200 TAMAM*
 ```json
 {
@@ -347,7 +347,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="update-user-multi-valued-properties"></a>[Birden çok değerli özellikler] kullanıcı güncelleştirme
 
-##### <a name="request"></a>İstek
+##### <a name="request-4"></a>İstek
 */ Kullanıcı/6764549bef60420686bc HTTP/1.1 düzeltme eki*
 ```json
 {
@@ -367,7 +367,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 }
 ```
 
-##### <a name="response"></a>Yanıt
+##### <a name="response-4"></a>Yanıt
 *HTTP/1.1 200 TAMAM*
 ```json
 {
@@ -396,7 +396,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="update-user-single-valued-properties"></a>Kullanıcı güncelleştirme [tek değerli özellikler]
 
-##### <a name="request"></a>İstek
+##### <a name="request-5"></a>İstek
 */ Kullanıcı/5171a35d82074e068ce2 HTTP/1.1 düzeltme eki*
 ```json
 {
@@ -409,7 +409,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 }
 ```
 
-##### <a name="response"></a>Yanıt
+##### <a name="response-5"></a>Yanıt
 *HTTP/1.1 200 TAMAM*
 ```json
 {
@@ -439,10 +439,10 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="delete-user"></a>Kullanıcı silme
 
-##### <a name="request"></a>İstek
+##### <a name="request-6"></a>İstek
 */Users/5171a35d82074e068ce2 HTTP/1.1 Sil*
 
-##### <a name="response"></a>Yanıt
+##### <a name="response-6"></a>Yanıt
 *HTTP/1.1 204 İçerik yok*
 
 ### <a name="group-operations"></a>Grup işlemleri
@@ -454,7 +454,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="create-group"></a>Grup Oluşturma
 
-##### <a name="request"></a>İstek
+##### <a name="request-7"></a>İstek
 *POST /Groups HTTP/1.1*
 ```json
 {
@@ -468,7 +468,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 }
 ```
 
-##### <a name="response"></a>Yanıt
+##### <a name="response-7"></a>Yanıt
 *HTTP/1.1 201 oluşturuldu*
 ```json
 {
@@ -488,10 +488,10 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="get-group"></a>Grubunu Al
 
-##### <a name="request"></a>İstek
+##### <a name="request-8"></a>İstek
 *GET/Grup/40734ae655284ad3abcc? excludedAttributes üyeleri HTTP/1.1 =*
 
-##### <a name="response"></a>Yanıt
+##### <a name="response-8"></a>Yanıt
 *HTTP/1.1 200 TAMAM*
 ```json
 {
@@ -509,10 +509,10 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 
 #### <a name="get-group-by-displayname"></a>DisplayName tarafından grubunu Al
 
-##### <a name="request"></a>İstek
+##### <a name="request-9"></a>İstek
 *GET /Groups? excludedAttributes üyeleri & Filtresi = "displayName" HTTP/1.1 displayName eq =*
 
-##### <a name="response"></a>Yanıt
+##### <a name="response-9"></a>Yanıt
 *HTTP/1.1 200 TAMAM*
 ```json
 {
@@ -536,7 +536,7 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 ```
 #### <a name="update-group-non-member-attributes"></a>Güncelleştirme grubu [olmayan üye öznitelikleri]
 
-##### <a name="request"></a>İstek
+##### <a name="request-10"></a>İstek
 */ Grup/fa2ce26709934589afc5 HTTP/1.1 düzeltme eki*
 ```json
 {
@@ -549,12 +549,12 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 }
 ```
 
-##### <a name="response"></a>Yanıt
+##### <a name="response-10"></a>Yanıt
 *HTTP/1.1 204 İçerik yok*
 
 ### <a name="update-group-add-members"></a>Güncelleştirme grubu [üye ekleme]
 
-##### <a name="request"></a>İstek
+##### <a name="request-11"></a>İstek
 */ Grup/a99962b9f99d4c4fac67 HTTP/1.1 düzeltme eki*
 ```json
 {
@@ -570,12 +570,12 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 }
 ```
 
-##### <a name="response"></a>Yanıt
+##### <a name="response-11"></a>Yanıt
 *HTTP/1.1 204 İçerik yok*
 
 #### <a name="update-group-remove-members"></a>Güncelleştirme grubu [Kaldır üyeleri]
 
-##### <a name="request"></a>İstek
+##### <a name="request-12"></a>İstek
 */ Grup/a99962b9f99d4c4fac67 HTTP/1.1 düzeltme eki*
 ```json
 {
@@ -591,15 +591,15 @@ Bu bölümde, örnek SCIM istekleri beklenen yanıt örneği ve Azure AD SCIM is
 }
 ```
 
-##### <a name="response"></a>Yanıt
+##### <a name="response-12"></a>Yanıt
 *HTTP/1.1 204 İçerik yok*
 
 #### <a name="delete-group"></a>Grubu Silme
 
-##### <a name="request"></a>İstek
+##### <a name="request-13"></a>İstek
 */Groups/cdb1ce18f65944079d37 HTTP/1.1 Sil*
 
-##### <a name="response"></a>Yanıt
+##### <a name="response-13"></a>Yanıt
 *HTTP/1.1 204 İçerik yok*
 
 

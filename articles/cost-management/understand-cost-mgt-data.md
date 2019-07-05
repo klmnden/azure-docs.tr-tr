@@ -5,29 +5,29 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: f4c296aeefacc9516303ad75dd8b7d67325e38ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4c1c987befe928d316b11c6ecd379be76f8f80d4
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969061"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490140"
 ---
 # <a name="understand-cost-management-data"></a>Maliyet Yönetimi verilerini anlama
 
-Bu makalede, hangi verilerin Azure maliyet Yönetimi'nde dahildir daha iyi anlamanıza yardımcı olur. Ve ne sıklıkta veri toplanan, gösterilen ve kapalı işleneceğini açıklar. Aylık Azure kullanım için faturalandırılırsınız. Bununla birlikte, faturalandırma ayınızdan sona erdiğinde Azure abonelik türü belirler. Maliyet Yönetimi veri değişir kullanım ne sıklıkta alan farklı etkenlere bağlı olarak. Verileri işlemek için ne kadar sürer ve Azure Hizmetleri kullanımı faturalandırma sistemine ne sıklıkta yayma gibi faktörleri içerir.
+Bu makale, Azure maliyet Yönetimi'nde bulunan Azure maliyet ve kullanım verileri daha iyi anlamanıza yardımcı olur. Bu, ne sıklıkta veri toplanan, gösterilen ve kapalı işleneceğini açıklar. Aylık Azure kullanım için faturalandırılırsınız. Faturama olan aylık dönemler döngüsü başlangıç ve bitiş tarihleri abonelik türüne göre farklılık rağmen. Maliyet Yönetimi veri değişir kullanım ne sıklıkta alan farklı etkenlere bağlı olarak. Verileri işlemek için ne kadar sürer ve Azure Hizmetleri kullanımı faturalandırma sistemine ne sıklıkta yayma gibi faktörleri içerir.
 
-Maliyet yönetimi, tüm kullanım ve satın alma işlemleri, ayırmaları ve üçüncü taraf teklifleri, Kurumsal Anlaşma (EA) hesapları için de dahil olmak üzere içerir. Microsoft Müşteri Sözleşmesi (MCA) hesapları ve Kullandıkça Öde Abonelikleri, yalnızca Azure ve Market Hizmetleri kullanımınızdan içerir. Destek ve diğer maliyetleri dahil değildir. Maliyet tahmini fatura oluşturulana kadar ve krediler faktör değildir.
+Maliyet yönetimi, tüm kullanım ve satın alma işlemleri, ayırmaları ve üçüncü taraf teklifleri, Kurumsal Anlaşma (EA) hesapları için de dahil olmak üzere içerir. Microsoft Müşteri Sözleşmesi (MCA) hesapları ve tek tek abonelikleri Kullandıkça Öde tarifesine göre ile yalnızca Azure ve Market Hizmetleri kullanımınızdan içerir. Destek ve diğer maliyetleri dahil değildir. Maliyet tahmini fatura oluşturulana kadar ve krediler faktör değildir.
 
-## <a name="supported-microsoft-offers"></a>Desteklenen Microsoft teklifleri
+## <a name="supported-microsoft-azure-offers"></a>Desteklenen Microsoft Azure teklifleri
 
-Aşağıdaki bilgiler, şu anda desteklenen gösterir [Microsoft Azure'un sunduğu](https://azure.microsoft.com/support/legal/offer-details/) Azure maliyet Yönetimi'nde.  Bir Azure teklifi, sahip olduğunuz Azure aboneliğinin türüdür.
+Aşağıdaki bilgiler, şu anda desteklenen gösterir [Microsoft Azure'un sunduğu](https://azure.microsoft.com/support/legal/offer-details/) tarafından Azure maliyet yönetimi. İmzalı sözleşmenize bir Azure teklifine sahip olduğunuz Azure aboneliğini türünü belirler.
 
-| Kategori  | **Teklif adı** | **Kota kimliği** | **Teklif numarası** |
+| Category  | **Teklif adı** | **Kota kimliği** | **Teklif numarası** |
 | --- | --- | --- | --- |
 | **Azure Almanya** | [Azure Almanya Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **Azure Devlet Kurumları** | Azure kamu Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
@@ -49,9 +49,9 @@ Aşağıdaki bilgiler, şu anda desteklenen gösterir [Microsoft Azure'un sundu�
 | **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)            | MSDN_2014-09-01 | MS-AZR-0063P |
 | **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)  | MSDN_2014-09-01 | MS-AZR-0064P |
 
-Aşağıdaki tabloda, desteklenmeyen teklifler gösterilmektedir.
+Aşağıdaki tablo, maliyet Yönetimi tarafından desteklenmeyen Azure tekliflerini gösterir.
 
-| Kategori  | **Teklif adı** | **Kota kimliği** | **Teklif numarası** |
+| Category  | **Teklif adı** | **Kota kimliği** | **Teklif numarası** |
 | --- | --- | --- | --- |
 | **Bulut çözümü sağlayıcısı (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **Bulut çözümü sağlayıcısı (CSP)** | Azure kamu CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
@@ -66,7 +66,7 @@ Aşağıdaki tabloda, desteklenmeyen teklifler gösterilmektedir.
 | **Destek planları** | Azure kamu profesyonel doğrudan desteği | Default_2014-09-01 | MS-AZR-USGOV-0042P |
 | **Destek planları** | Azure kamu Geliştirici Desteği  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
-Kullandıkça Öde, MSDN ve Visual Studio Teklif kategorileri olan müşteriler için veriler 02/10/2018 başlayarak maliyet Yönetimi'nde kullanılabilir. 02/10/2018 önce aboneliğinizi verilerine erişmek için kullanabileceğiniz [Azure hesap Merkezi](https://account.azure.com/subscriptions) kullanımınızı indirmek için bir CSV dosyasında ayrıntıları veya kullanabileceğiniz [kullanım ayrıntılarını API'si](/rest/api/consumption/usagedetails).
+Kullandıkça Öde olan müşteriler, MSDN ve Visual Studio kategorileri sunar, veriler 02/10/2018 başlayarak maliyet Yönetimi'nde kullanılabilir. 02/10/2018 önce aboneliğinizi verilerine erişmek için kullanabileceğiniz [Azure hesap Merkezi](https://account.azure.com/subscriptions) kullanımınızı indirmek için bir CSV dosyasında ayrıntıları veya kullanabileceğiniz [kullanım ayrıntılarını API'si](/rest/api/consumption/usagedetails).
 
 ## <a name="determine-your-offer-type"></a>Teklif türünüz belirleme
 Veriler için bir abonelik göremiyor ve aboneliğinizi desteklenen teklifleri altında kalırsa belirlemek istiyorsanız, aboneliğinizin desteklenip desteklenmediğini doğrulayabilirsiniz. Bir Azure aboneliği desteklendiğini doğrulamak için oturum [Azure portalında](https://portal.azure.com). Ardından **tüm hizmetleri** sol menü bölmesinde. Hizmetler listesinde seçin **abonelikleri**. Abonelik listesi menüde, doğrulamak istediğiniz aboneliğe tıklayın. Aboneliğiniz genel bakış sekmesinde gösterilen ve gördüğünüz **teklif** ve **Teklif kimliği**. Aşağıdaki resimde bir örnek gösterilir.
@@ -116,7 +116,7 @@ Faturalama ayının 15 Mayıs, tahmini ücretleri yukarı daha sonra 72 saat gü
 
 ### <a name="rerated-data"></a>Rerated veri
 
-Kullanıp [maliyet Yönetimi API'leri](https://aka.ms/costmgmt/docs), verileri almak için Power BI veya Azure portalında yeniden derecelendirilmiş ve fatura kapatılana kadar sonuç olarak, değiştirmek için geçerli fatura döneminin ücretleri bekler.
+Kullanıp [maliyet Yönetimi API'leri](index.yml), verileri almak için Power BI veya Azure portalında yeniden derecelendirilmiş ve fatura kapatılana kadar sonuç olarak, değiştirmek için geçerli fatura döneminin ücretleri bekler.
 
 ## <a name="usage-data-update-frequency-varies"></a>Kullanım verileri güncelleştirme sıklığını değişir
 
@@ -129,7 +129,7 @@ Bazı hizmetler, kullanım diğerlerinden daha sık gösterin. Bu nedenle, bazı
 
 ## <a name="historical-data-might-not-match-invoice"></a>Geçmiş verileri fatura aynı olmamalıdır
 
-Geçmiş verileri kredi tabanlı ve önceden ödeme teklifleri, faturanızı eşleşmeyebilir. Bazı Azure Kullandıkça Öde, MSDN ve Visual Studio teklifleri, Azure KREDİLERİ ve Gelişmiş ödemeleri için fatura uygulanan olabilir. Bununla birlikte, maliyet Yönetimi'nde gösterilen geçmiş verileri yalnızca, tahmini tüketim ücretleri alır. Maliyet Yönetimi geçmiş verileri, ödemeler ve krediler içermez. Sonuç olarak, aşağıdaki teklifler için gösterilen geçmiş verileri tam olarak faturanızı ile eşleşmeyebilir.
+Geçmiş verileri kredi tabanlı ve önceden ödeme teklifleri, faturanızı eşleşmeyebilir. Bazı Azure Kullandıkça Öde, MSDN ve Visual Studio Azure KREDİLERİ ve Gelişmiş ödemeleri için fatura uyguladığınız sunar. Bununla birlikte, maliyet Yönetimi'nde gösterilen geçmiş verileri yalnızca, tahmini tüketim ücretleri alır. Maliyet Yönetimi geçmiş verileri, ödemeler ve krediler içermez. Sonuç olarak, aşağıdaki teklifler için gösterilen geçmiş verileri tam olarak faturanızı ile eşleşmeyebilir.
 
 -   MS-AZR-0029P
 -   MS-AZR-0064P

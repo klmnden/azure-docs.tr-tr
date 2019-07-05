@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77154ef35242c55724becb77595dbd5ecf8a4da9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f98b72d9b5e59155bb7215181fd1ecd336126ee6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60359067"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440965"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Parola yönetimi hakkında sık sorulan sorular
 
@@ -114,7 +114,7 @@ Bu SSS, aşağıdaki bölümlere ayrılmıştır:
   >
 * **S:  Kullanıcılarım parolalarını sıfırlamak için yapılması gerekenler hakkında bilgilendirme nasıl?**
 
-  > **C:** Öneri bazılarını deneyin bizim [SSPR dağıtım](howto-sspr-deployment.md#sample-communication) makalesi.
+  > **C:** Öneri bazılarını deneyin bizim [SSPR dağıtım](howto-sspr-deployment.md#communications-plan) makalesi.
   >
   >
 * **S:  Bu sayfa bir mobil CİHAZDAN kullanabilir miyim?**

@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e51437a99217316ead50d4075be52f089225e618
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 04d13786dc731627ba2000ab6069ea06ed3183ba
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190866"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565454"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Hızlı Başlangıç: Oturum açma Microsoft ile bir ASP.NET Core web uygulamasına ekleme
 
@@ -38,15 +38,15 @@ Bu hızlı başlangıçta, ASP.NET Core web uygulaması kişisel hesapların nas
 > * [Express] [Seçenek 1: Kaydet ve otomatik Uygulamanızı yapılandırmak ve ardından, kod örneğini indirin](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
 > * [El ile] [Seçeneği 2: Kaydetme ve uygulama ve kod örneğinizi el ile yapılandırma](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>1. seçenek: Kaydet ve otomatik Uygulamanızı yapılandırmak ve ardından, kod örneğini indirin
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>1\. seçenek: Kaydet ve otomatik Uygulamanızı yapılandırmak ve ardından, kod örneğini indirin
 >
 > 1. Git [Azure Portalı - Uygulama kayıtları](https://aka.ms/aspnetcore2-1-aad-quickstart-v2).
 > 1. Uygulamanız için bir ad girin ve **Kaydet**'i seçin.
 > 1. Yönergeleri izleyerek yeni uygulamanızı tek tıkla indirin ve otomatik olarak yapılandırın.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>2. seçenek: Kaydetme ve uygulama ve kod örneğinizi el ile yapılandırma
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>2\. seçenek: Kaydetme ve uygulama ve kod örneğinizi el ile yapılandırma
 >
-> #### <a name="step-1-register-your-application"></a>1. Adım: Uygulamanızı kaydetme
+> #### <a name="step-1-register-your-application"></a>1\. adım: Uygulamanızı kaydetme
 > Uygulamanızı kaydedin ve uygulamanın kayıt bilgilerini çözümünüze el ile eklemek için bu adımları izleyin:
 >
 > 1. Bir iş veya okul hesabını ya da kişisel bir Microsoft hesabını kullanarak [Azure portalda](https://portal.azure.com) oturum açın.
@@ -63,7 +63,7 @@ Bu hızlı başlangıçta, ASP.NET Core web uygulaması kişisel hesapların nas
 >    - **Kaydet**’i seçin.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1. Adım: Uygulamanızı Azure portalında yapılandırma
+> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1\. adım: Uygulamanızı Azure portalında yapılandırma
 > Yanıt URL'si olarak eklemek gereken çalışmak bu hızlı başlangıç için kod örneği için `https://localhost:44321/` ve `https://localhost:44321/signin-oidc`, oturum kapatma URL'si olarak ekleme `https://localhost:44321/signout-oidc`ve istek kimliği belirteçleri yetkilendirme uç noktası tarafından verilmesi.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Bu değişikliği benim için yap]()
@@ -71,11 +71,11 @@ Bu hızlı başlangıçta, ASP.NET Core web uygulaması kişisel hesapların nas
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Zaten yapılandırılmış](media/quickstart-v2-aspnet-webapp/green-check.png) Uygulamanız bu özniteliklerle yapılandırılmış.
 
-#### <a name="step-2-download-your-aspnet-core-project"></a>2. Adım: ASP.NET Core projenizi indirin
+#### <a name="step-2-download-your-aspnet-core-project"></a>2\. adım: ASP.NET Core projenizi indirin
 
 - [Visual Studio 2019 çözümü indirin](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>3. Adım: Visual Studio projenizi yapılandırın
+#### <a name="step-3-configure-your-visual-studio-project"></a>3\. adım: Visual Studio projenizi yapılandırın
 
 1. Örneğin, bir yerel klasör Kök klasörde - zip dosyasını ayıklayın **C:\Azure-Samples**
 1. Visual Studio 2019 kullanırsanız, (isteğe bağlı) Visual Studio içinde çözümü açın.
@@ -85,6 +85,10 @@ Bu hızlı başlangıçta, ASP.NET Core web uygulaması kişisel hesapların nas
     "ClientId": "Enter_the_Application_Id_here"
     "TenantId": "Enter_the_Tenant_Info_Here"
     ```
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > Bu hızlı başlangıçta Enter_the_Supported_Account_Info_Here destekler.
 
 > [!div renderon="docs"]
 > Konumlar:
@@ -143,7 +147,7 @@ Yöntem `AddAuthentication` tarayıcı senaryolara kullanılan tanımlama bilgis
 > |Konum  |  |
 > |---------|---------|
 > | ClientId  | Azure Portalı'nda kayıtlı uygulamadan uygulama (istemci) kimliği. |
-> | Yetkili | Kullanıcının, kimlik doğrulaması STS uç noktası. Genellikle budur <https://login.microsoftonline.com/{tenant}/v2.0> {tenant} olduğu Kiracı veya Kiracı Kimliğinizi adı, genel bulut için veya *ortak* başvuru için ortak uç nokta (çok kiracılı uygulamalar için kullanılır) |
+> | Yetkilisi | Kullanıcının, kimlik doğrulaması STS uç noktası. Genellikle budur <https://login.microsoftonline.com/{tenant}/v2.0> {tenant} olduğu Kiracı veya Kiracı Kimliğinizi adı, genel bulut için veya *ortak* başvuru için ortak uç nokta (çok kiracılı uygulamalar için kullanılır) |
 > | Tokenvalidationparameters değerini | Belirteç doğrulaması için parametre listesi. Bu durumda, `ValidateIssuer` ayarlanır `false` herhangi bir kişisel veya iş veya Okul hesabı oturum açma işlemleri kabul ettiğinizi belirtmek için. |
 
 

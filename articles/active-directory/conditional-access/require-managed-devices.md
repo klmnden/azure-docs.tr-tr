@@ -2,27 +2,21 @@
 title: -Nasıl gerekli yönetilen cihazlar için Azure Active Directory koşullu erişim ile bulut uygulama erişimi | Microsoft Docs
 description: Bulut uygulama erişimi için yönetilen cihazları gerektiren Azure Active Directory (Azure AD) cihaz tabanlı koşullu erişim ilkelerinin nasıl yapılandırılacağını öğrenin.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 459dd981b73ae840b3fc61bd0cc83ecefb1cf393
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e9c99b8390cd43c3f0767123684fe06e0ae74f86
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112137"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509367"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Nasıl Yapılır: Koşullu erişim ile bulut uygulaması erişimi için yönetilen cihazları gerektirir
 
@@ -30,15 +24,12 @@ Bir mobil öncelikli ve bulut öncelikli dünyada, Azure Active Directory (Azure
 
 Bu makalede, ortamınızda belirli bulut uygulamalarına erişmek için yönetilen cihazları gerektiren bir koşullu erişim ilkelerini nasıl yapılandırabileceğiniz açıklanmaktadır. 
 
-
 ## <a name="prerequisites"></a>Önkoşullar
 
 Yönetilen cihazlar için bulut uygulama erişimi TIES gerektiren **Azure AD koşullu erişim** ve **Azure AD cihaz Yönetimi** birlikte. Bu alanlardan biri ile aşina değilseniz, aşağıdaki konularda ilk şöyle olmalıdır:
 
 - **[Azure Active Directory'de koşullu erişim](../active-directory-conditional-access-azure-portal.md)**  -bu makalede bir kavramsal genel bakış ilgili terminoloji ve koşullu erişimi sağlar.
-
 - **[Azure Active Directory'de cihaz yönetimine giriş](../devices/overview.md)**  -bu makalede, bir genel kuruluş denetimi altında cihazları almak için sahip olduğunuz çeşitli seçenekler sağlar. 
-
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
@@ -47,11 +38,8 @@ Güvenlik ve üretkenlik arasındaki dengeyi Uzmanlaşma kolay değildir. Bulut 
 Azure AD koşullu erişim ile erişim veren tek bir ilke ile ilgili bu gereksinim karşılayabilirsiniz:
 
 - Seçilen bulut uygulamaları için
-
 - Seçili kullanıcılar ve gruplar için
-
 - Yönetilen bir cihazı gerektirme
-
 
 ## <a name="managed-devices"></a>Yönetilen cihazlar  
 
@@ -59,18 +47,17 @@ Basit bir deyişle, yönetilen cihazlar altında olan cihazlardır *bazı sıral
   
 ![Cihaz temelli koşullar](./media/require-managed-devices/32.png)
 
-Azure AD'ye kayıtlı bir cihazı almak için üç seçeneğiniz vardır:
+Azure AD'ye kayıtlı bir cihazı almak için üç seçeneğiniz vardır: 
 
-- **[Azure AD'ye kayıtlı cihazlar](../devices/overview.md#azure-ad-registered-devices)**  - kişisel bir cihazı Azure AD'ye kayıtlı almak için
+- **Azure AD'ye kayıtlı cihazlar** - kişisel bir cihazı Azure AD'ye kayıtlı almak için
+- **Azure AD'ye katılmış cihazları** - kuruluş bir şirket içi katılmamış bir Windows 10 cihazına almak için AD, Azure AD'ye kayıtlı. 
+- **Hibrit Azure AD'ye katılmış cihazları** - Windows 10 veya bir şirket içi katıldığından desteklenen alt düzey cihaz almak için AD, Azure AD'ye kayıtlı.
 
-- **[Azure AD'ye katılmış cihazları](../devices/overview.md#azure-ad-joined-devices)**  - kuruluş bir şirket içi katılmamış bir Windows 10 cihazına almak için AD, Azure AD'ye kayıtlı. 
-
-- **[Hibrit Azure AD'ye katılmış cihazları](../devices/overview.md#hybrid-azure-ad-joined-devices)**  - Windows 10 veya bir şirket içi katıldığından desteklenen alt düzey cihaz almak için AD, Azure AD'ye kayıtlı.
+Bu üç seçenek makalesinde açıklanan [bir cihaz Kimliği nedir?](../devices/overview.md)
 
 Yönetilen bir cihazı olmak için kayıtlı bir cihazı olmalıdır bir **hibrit Azure AD'ye katılmış cihaz** veya **uyumlu olarak işaretli cihaz**.  
 
 ![Cihaz temelli koşullar](./media/require-managed-devices/47.png)
-
  
 ## <a name="require-hybrid-azure-ad-joined-devices"></a>Gerekli hibrit Azure AD'ye katılmış cihazlar
 
@@ -83,7 +70,6 @@ Bu ayar yalnızca Windows 10 veya Windows 7 veya Windows 8 gibi bir şirket içi
 ![Cihaz temelli koşullar](./media/require-managed-devices/45.png)
 
 Cihaz hibrit Azure AD'ye kılan yönetilen bir cihazı alanına?  Bir şirket içi katılan cihazlar için AD, yönetim çözümleri gibi kullanarak bu cihazlar üzerinde denetim zorunlu varsayılır **System Center Configuration Manager (SCCM)** veya **Grup İlkesi (GP)** bunları yönetmek için. Bu yöntemlerin herhangi biriyle uygulanmış olup olmadığını bir cihaza belirlemek Azure AD için hiçbir yöntemi olduğundan, hibrit Azure AD'ye katılmış gerektiren bir yönetilen cihazın gerektirmek için görece zayıf bir mekanizmadır. Cihazları böyle bir cihaz hibrit Azure AD'ye katılmış ise, yönetilen bir cihazı niteliğinde sağlam, şirket içi için uygulanan yöntemleri etki alanına katılmış olup olmadığını değerlendirmek için yönetici size kalmıştır olduğu.
-
 
 ## <a name="require-device-to-be-marked-as-compliant"></a>Cihazın uyumlu olarak işaretlenmesini gerektir
 
@@ -98,8 +84,6 @@ Bu seçenek, bir cihaz Azure AD'ye kayıtlı olması ve uyumlu olarak işaretlen
  
 ![Cihaz temelli koşullar](./media/require-managed-devices/46.png)
 
-
-
 Uyumlu olarak işaretlenmiş bir cihaz için kabul edilebilir: 
 
 - Çalışanlarınızın şirket verilerine erişmek için kullandığı mobil cihazlar olarak yönetilir
@@ -107,10 +91,6 @@ Uyumlu olarak işaretlenmiş bir cihaz için kabul edilebilir:
 - Şirket bilgilerinizi çalışanlarınızın erişim ve Paylaşım yöntemlerinin denetlenmesine yardımcı olarak korunuyor
 - Cihaz ve kendi uygulamaları şirket güvenlik gereksinimleriyle uyumlu
 
-
-
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Ortamınızda bir cihaz tabanlı koşullu erişim ilkesi yapılandırmadan önce bir göz atın [Azure Active Directory'de koşullu erişim için en iyi uygulamalar](best-practices.md).
-

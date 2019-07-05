@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 722097f1a61a10cd45c0c330e998021cd1abf0c8
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 94aca33b2f12c1c39297221a856296dcca052b0f
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147972"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565796"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy’i kullanmaya başlama
 
@@ -61,16 +61,21 @@ Bu tabloyu kılavuz olarak kullanın:
 | Depolama türü | Şu anda desteklenen yetkilendirme yöntemi |
 |--|--|
 |**Blob depolama** | Azure AD & SAS |
-|**BLOB Depolama (hiyerarşik ad alanı)** | Yalnızca Azure AD |
+|**BLOB Depolama (hiyerarşik ad alanı)** | Azure AD & SAS |
 |**Dosya depolama** | Yalnızca SAS |
 
 ### <a name="option-1-use-azure-ad"></a>1\. seçenek: Azure AD kullanma
 
+Azure AD kullanarak bir kez yerine her komut için bir SAS belirteci eklemek kimlik bilgilerini sağlayabilirsiniz.  
+
 Gereksinim duyduğunuz yetkilendirme düzeyi, dosyaları karşıya yükleme veya yalnızca karşıdan yüklemek planladığınız temel alır.
 
-Dosyaları indirmek istiyorsanız, doğrulama [depolama Blob verileri okuyucu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) kimliğinize atanmıştır.
+Dosyaları indirmek istiyorsanız, doğrulama [depolama Blob verileri okuyucu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) , kullanıcı kimliği veya hizmet sorumlusu atanmıştır. 
 
-Dosyaları yüklemek istiyorsanız, bu rollerden kimliğinize atandığını doğrulayın:
+> [!NOTE]
+> Kullanıcı kimliklerini ve hizmet sorumluları, her bir tür *güvenlik sorumlusu*terimini kullanacağız. Bu nedenle *güvenlik sorumlusu* için bu makalenin geri kalanında.
+
+Dosyaları yüklemek istiyorsanız, bu rollerden güvenlik sorumlunuzu atandığını doğrulayın:
 
 - [Depolama Blob verileri katkıda bulunan](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 - [Depolama Blob verileri sahibi](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
@@ -84,13 +89,16 @@ Bu roller, kimliğinize herhangi birinde bu kapsamlara atanabilir:
 
 Doğrulama ve roller atama konusunda bilgi almak için bkz: [verilere Azure blob ve kuyruk RBAC ile Azure portalında erişim ver](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Bu rollerden erişim denetim listesine hedef kapsayıcı ya da dizinin (ACL) kimliğinizi eklediyseniz, ıdentity'ye atanır olması gerekmez. ACL'de kimliğinizi hedef dizin üzerinde yazma izni ve kapsayıcı ve her bir üst dizin yürütme izni gerekiyor.
+> [!NOTE] 
+> RBAC rolü atamalarını yayılması için beş dakika sürebilir göz önünde bulundurun.
+
+Bu rollerden erişim denetim listesine hedef kapsayıcı ya da dizinin (ACL), güvenlik sorumlusu eklediyseniz, güvenlik Sorumlusu'na atanan olması gerekmez. ACL'de güvenlik sorumlusu hedef dizin üzerinde yazma izni ve kapsayıcı ve her bir üst dizin yürütme izni gerekiyor.
 
 Daha fazla bilgi için bkz. [Azure Data Lake depolama Gen2'deki erişim denetimi](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
-#### <a name="authenticate-your-identity"></a>Kimliğinizi kimlik doğrulaması
+#### <a name="authenticate-a-user-identity"></a>Bir kullanıcı kimliğini
 
-Kimliğinizi gerekli yetki düzeyini verildi doğruladıktan sonra bir komut istemi açın, aşağıdaki komutu yazın ve ardından ENTER tuşuna basın.
+Kullanıcı kimliğinizi gerekli yetki düzeyini verilen olduğunu doğruladıktan sonra bir komut istemi açın, aşağıdaki komutu yazın ve ardından ENTER tuşuna basın.
 
 ```azcopy
 azcopy login
@@ -109,6 +117,72 @@ Bu komut, kimlik doğrulaması kodu ve bir Web sitesinin URL'sini döndürür. W
 ![Bir kapsayıcı oluşturma](media/storage-use-azcopy-v10/azcopy-login.png)
 
 Bir oturum açma penceresi görünür. Bu pencerede, Azure hesabı kimlik bilgilerinizi kullanarak Azure hesabınızda oturum açın. Oturumunuz başarıyla açıldıktan sonra tarayıcı penceresini kapatın ve AzCopy kullanarak başlayın.
+
+<a id="service-principal" />
+
+#### <a name="authenticate-a-service-principal"></a>Bir hizmet sorumlusu kimlik doğrulaması
+
+Bu, kullanıcı etkileşimi olmadan çalışan bir komut dosyası içinde AzCopy kullanmayı planlıyorsanız, harika bir seçenektir. 
+
+Bu betiği çalıştırmadan önce etkileşimli olarak en az bir kez, hizmet sorumlusu kimlik bilgileri ile AzCopy sağlayabilmesi oturum gerekir.  Betiğinizi bu hassas bilgileri sağlamaya gerek kalmaz, bu kimlik bilgilerini bir güvenli ve şifrelenmiş dosyada depolanır.
+
+İstemci gizli anahtarı kullanarak veya hizmet sorumlusunun uygulama kaydı ile ilişkilendirilmiş sertifika parolasını kullanarak hesabınızda oturum açmak. 
+
+Hizmet sorumlusu oluşturma hakkında daha fazla bilgi için bkz: [nasıl yapılır: Azure AD'yi kaynaklara erişebilen uygulaması ve hizmet sorumlusu oluşturmak için portalı kullanma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+Hizmet sorumluları hakkında daha fazla genel bilgi için bkz: [uygulaması ve Azure Active Directory'de Hizmet sorumlusu nesneleri](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+
+##### <a name="using-a-client-secret"></a>İstemci gizli anahtarı kullanarak
+
+Başlangıç ayarlayarak `AZCOPY_SPA_CLIENT_SECRET` ortam değişkeni, bir hizmet sorumlusunun istemci gizli anahtarı için kullanıcının uygulama kaydı. 
+
+> [!NOTE]
+> Bu değer, komut isteminden ve ortamdaki değişken ayarlar işletim sisteminizin ayarladığınızdan emin olun. Böylece, değer yalnızca mevcut oturum için kullanılabilir.
+
+Bu örnek nasıl PowerShell'de bunu gösterir.
+
+```azcopy
+$env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
+```
+
+> [!NOTE]
+> Bu örnekte gösterildiği gibi bir komut istemi kullanmayı düşünün. Bu şekilde, istemci parolası, konsolun komut geçmişindeki görünmez. 
+
+Ardından, aşağıdaki komutu yazın ve ardından ENTER tuşuna basın.
+
+```azcopy
+azcopy login --service-principal --application-id <application-id>
+```
+
+Değiştirin `<application-id>` yer tutucusunu, hizmet sorumlusunun uygulama kimliği ile kullanıcının uygulama kaydı.
+
+##### <a name="using-a-certificate"></a>Bir sertifika kullanıyor
+
+Yetkilendirme için kendi kimlik bilgilerini kullanmayı tercih ederseniz, uygulama kaydı için bir sertifika yükleyin ve sonra oturum açmak için bu sertifikayı kullanın.
+
+Uygulama kaydınızı sertifikanızı karşıya yüklemeyi yanı sıra, ayrıca makine veya sanal makine AzCopy çalışacağı kaydedilen sertifikayı bir kopyasına sahip yapmanız gerekir. Bu sertifikanın kopyasını olması gerekir. PFX veya. PEM biçimlendirmek ve özel anahtar içermelidir. Özel anahtar parola korumalı olmalıdır. Windows kullanıyorsanız ve yalnızca bir sertifika deposunda sertifikanızı var, bu sertifika (özel anahtar dahil) bir PFX dosyasına aktarmak emin olun. Yönergeler için bkz [dışarı aktarma-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps)
+
+Ardından, ayarlama `AZCOPY_SPA_CERT_PASSWORD` ortam değişkenine sertifika parolası.
+
+> [!NOTE]
+> Bu değer, komut isteminden ve ortamdaki değişken ayarlar işletim sisteminizin ayarladığınızdan emin olun. Böylece, değer yalnızca mevcut oturum için kullanılabilir.
+
+Bu örnek nasıl PowerShell'de bunu gösterir.
+
+```azcopy
+$env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"
+```
+
+Ardından, aşağıdaki komutu yazın ve ardından ENTER tuşuna basın.
+
+```azcopy
+azcopy login --service-principal --certificate-path <path-to-certificate-file>
+```
+
+Değiştirin `<path-to-certificate-file>` sertifika dosyasının göreli veya tam olarak nitelenmiş yolu ile yer tutucu. AzCopy, bu sertifika için yol kaydeder ancak sertifikanın bir kopyasını Kaydet değil, bu nedenle bu sertifikanın bir yerde sakladığınızdan emin olun.
+
+> [!NOTE]
+> Bu örnekte gösterildiği gibi bir komut istemi kullanmayı düşünün. Bu şekilde, parolanızı, konsolun komut geçmişindeki görünmez. 
 
 ### <a name="option-2-use-a-sas-token"></a>2\. seçenek: Bir SAS belirteci kullanabilir
 
@@ -134,7 +208,11 @@ Kimliği doğrulanmış kimlik bilgilerinizi veya bir SAS belirteci elde sonra d
 
 - [AzCopy ve Amazon S3 demetleri ile veri aktarma](storage-use-azcopy-s3.md)
 
+- [Depolama, AzCopy ve Azure Stack ile veri aktarma](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#azcopy)
+
 ## <a name="use-azcopy-in-a-script"></a>Bir betikte Azcopy'yi kullanma
+
+Bu betiği çalıştırmadan önce etkileşimli olarak en az bir kez, hizmet sorumlusu kimlik bilgileri ile AzCopy sağlayabilmesi oturum gerekir.  Betiğinizi bu hassas bilgileri sağlamaya gerek kalmaz, bu kimlik bilgilerini bir güvenli ve şifrelenmiş dosyada depolanır. Örnekler için bkz [, hizmet sorumlusu kimlik doğrulaması](#service-principal) bu makalenin.
 
 AzCopy, zaman içinde [indirme bağlantısı](#download-and-install-azcopy) AzCopy yeni sürümlerini gösterir. Betiğinizi AzCopy yüklerse, betik AzCopy daha yeni bir sürümü betiğinizi bağımlı özellikler değiştirirse çalışmamaya başlayabilir. 
 

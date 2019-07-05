@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/14/2019
+ms.date: 07/0/2019
 ms.author: ramamill
-ms.openlocfilehash: 5f0578026e95378065fc68198434e347a87eb1fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 44588fedd53b363c43a369eeb1917ccaec58d948
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123923"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508771"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Fiziksel sunucuları azure'a olağanüstü durum kurtarması için yapılandırma sunucusunu ayarlama
 
@@ -24,7 +24,7 @@ Bu makalede, Azure'da Windows veya Linux çalıştıran fiziksel sunucuları ço
 Sahip olduğunuz varsayılır:
 - Bir kurtarma Hizmetleri kasası [Azure portalında](https://portal.azure.com "Azure portalında").
 - Yapılandırma sunucusunu yüklemek için fiziksel bir bilgisayar.
-- Yapılandırma sunucusunu yüklemekte makinede TLS 1.0 devre dışı bıraktık, TLs 1.2 etkin olduğundan ve .NET Framework 4.6 veya üzeri bir sürüm (devre dışı güçlü şifreleme ile) makinede yüklü emin olun. [Daha fazla bilgi edinin](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
+- Yapılandırma sunucusunu yüklemekte makinede TLS 1.0 devre dışı bıraktık, TLs 1.2 etkin olduğundan ve .NET Framework 4.6 veya üzeri bir sürüm (etkin güçlü şifreleme ile) makinede yüklü emin olun. [Daha fazla bilgi edinin](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
 ### <a name="configuration-server-minimum-requirements"></a>Yapılandırma sunucusunun en düşük gereksinimleri
 Aşağıdaki tabloda, en düşük donanım, yazılım ve yapılandırma sunucusu için ağ gereksinimleri listelenmektedir.

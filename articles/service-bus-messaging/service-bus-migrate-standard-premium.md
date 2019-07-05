@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 65c207b4d03e7d156c8c871a3642601fd0489ead
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57ab281e8d07537c22bd3cf60306dfb1c7e81541
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991410"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566073"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Mevcut Azure Service Bus standart ad alanları premium katmanına geçirme
 Daha önce Azure Service Bus ad alanları yalnızca standart katmanında sunulur. Ad alanları, aktarım hızının düşük olmasını ve geliştirici ortamları için iyileştirilen çok kiracılı kurulumları ' dir. Premium katmanı, tahmin edilebilir gecikme süresi ve sabit bir fiyat karşılığında artan iş hacmi için ad alanı başına ayrılmış kaynaklar sunar. Premium katmanı, yüksek aktarım hızı ve ek Kurumsal özellikleri gerektiren üretim ortamları için optimize edilmiştir.
@@ -117,6 +117,28 @@ Azure portalını kullanarak geçiş komutları kullanarak geçiş olarak aynı 
 1. Özet sayfasında değişiklikleri gözden geçirin. Seçin **geçişi Tamamla** ad alanları geçmek ve Geçişi tamamlamak için.
     ![Geçiş ad alanı - anahtar menü][] geçiş tamamlandığında onay sayfası görüntülenir.
     ![Geçiş ad alanı - başarılı][]
+
+## <a name="caveats"></a>Uyarılar
+
+Azure Service Bus standart katmanı tarafından sağlanan özelliklerden bazıları, Azure Service Bus Premium katmanı tarafından desteklenmez. Bu tasarım gereği, çünkü premium katmanı öngörülebilir üretilen iş hacmi ve gecikme süresi için ayrılmış kaynaklar sunar.
+
+Premium ve kendi risk azaltma tarafından desteklenmeyen özelliklerin bir listesi aşağıdadır- 
+
+### <a name="express-entities"></a>İfade varlıkları
+
+   Premium depolama için herhangi bir ileti veri işleme yok ifade varlıkları desteklenmez. Verilerin, tüm kurumsal Mesajlaşma sistemi beklendiği gibi kalıcı olmasını sağlarken önemli çıktısı geliştirmesi ayrılmış kaynaklar sağlanır.
+   
+   Geçiş sırasında herhangi bir standart ad alanınızdaki, ifade varlıkları Premium ad alanı üzerinde bir express dışı varlık olarak oluşturulur.
+   
+   Azure Resource Manager (ARM) şablonları yazılımınız varsa, lütfen otomatik iş akışlarınızı yürütülürken hatalar böylece 'enableExpress' bayrağı dağıtım yapılandırmasından kaldırın emin olun.
+
+### <a name="partitioned-entities"></a>Bölümlenen varlıklar
+
+   Bölümlenen varlıklar çok kiracılı kurulumunda daha iyi kullanılabilirlik sağlamak için standart katmana desteklendi. Premium katmanda ad alanı başına ayrılmış kaynakları sağlama ile artık bu gereklidir.
+   
+   Geçiş sırasında Premium ad alanı üzerinde bölümlenmemiş bir varlık olarak bölümlenmiş bir varlıkta standart ad alanı oluşturulur.
+   
+   Daha sonra ARM şablonunuzu 'true', ' enablePartitioning' belirli bir kuyruk veya konu için ayarlar, aracı tarafından yoksayılır.
 
 ## <a name="faqs"></a>SSS
 

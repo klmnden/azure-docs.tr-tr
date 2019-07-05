@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: bdba3f135f852312af1692f77643095d865f1d06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d78d8a689b860162a742e85c155205f072a3667c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254677"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446786"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Azure Danışmanı ile uygulamanızın kullanılabilirliğini artırın
 
@@ -93,6 +93,9 @@ Azure Danışmanı Java SDK'sı eski sürümlerini kullanan ve en son düzeltmel
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Azure Cosmos DB Spark Bağlayıcınızı Maven'dan en son sürüme yükseltin
 
 Azure Danışmanı Maven'dan, en son düzeltmeler, performans geliştirmeleri ve yeni özellikler için en son sürümüne yükseltmeniz önerilir ve Cosmos DB Spark Bağlayıcısı'nün eski sürümlerini kullanan Azure Cosmos DB hesapları tanımlar. [Cosmos DB Spark Bağlayıcısı hakkında daha fazla bilgi edinin](https://aka.ms/cosmosdb/spark-connector)
+
+## <a name="enable-virtual-machine-replication"></a>Sanal makine çoğaltmasını etkinleştirme
+Başka bir bölgeye etkin çoğaltma olmayan sanal makineleri için bölgesel kesintiler dayanıklı değildir. Hiçbir olumsuz etkisi, sanal makineleri çoğaltma sırasında Azure bölgesinde kesinti süresini azaltır. Advisor algılar çoğaltma olmayan sanal makineleri etkin ve böylece kesinti olması durumunda, hızlı bir şekilde uzak bir Azure bölgesinde sanal makinelerinizi sunabiliyoruz çoğaltma etkinleştirmenizi öneririz. [Sanal makine çoğaltma hakkında daha fazla bilgi edinin](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Yüksek kullanılabilirlik önerileri Danışman erişme
 

@@ -4,19 +4,19 @@ description: Bu hızlı başlangıçta bir IOT Edge cihazı oluşturma ve ardın
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/19/2019
+ms.date: 07/02/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 5c790d39ea471a599e8a6b46004b3e350834c318
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 58dc2f5d8862c0b51b36e028d52275b2c8e732be
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573963"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537557"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>Hızlı Başlangıç: İlk IOT Edge modülü bir Linux cihazına dağıtma
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>Hızlı Başlangıç: Linux cihazına ilk IoT Edge modülünüzü dağıtma
 
 Azure IoT Edge, bulutun gücünü Nesnelerin İnterneti cihazlarınıza taşır. Bu hızlı başlangıçta, önceden derlenmiş kodu uzaktan bir IoT Edge cihazına dağıtmak için bulut arabirimini kullanmayı öğrenin.
 
@@ -55,15 +55,14 @@ Bulut kaynakları:
 
 IoT Edge cihazı:
 
-* IoT Edge cihazınız olacak bir Linux cihazı veya sanal makinesi. Microsoft tarafından sağlanan kullanması gereken [Azure IOT Edge üzerinde Ubuntu'da](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) IOT Edge bir cihaz üzerinde çalıştırmak için ihtiyacınız olan her şey önceden yükleyen sanal makine. Aşağıdaki komutu kullanarak bu sanal makine oluşturun:
+* IoT Edge cihazınız olacak bir Linux cihazı veya sanal makinesi. Microsoft tarafından sağlanan kullanması gereken [Azure IOT Edge üzerinde Ubuntu'da](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) IOT Edge bir cihaz üzerinde çalıştırmak için ihtiyacınız olan her şey önceden yükleyen sanal makine. Aşağıdaki komutları kullanarak bu sanal makine oluşturun:
 
    ```azurecli-interactive
+   az vm image accept-terms --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
 
    Bu, oluşturmak ve yeni sanal makineyi başlatmak için birkaç dakika sürebilir.
-
-   Alabilirsiniz bir `MarketplacePurchaseEligibilityFailed` bu noktada hata. Böyle bir durumda giderek koşulları kabul etmeniz gerekir [Azure IOT Edge üzerinde Ubuntu'da](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) tıklayıp `Get It Now`. Oturum açın ve komutu yeniden denemeden önce koşullarını var. kabul edin.
 
    Yeni bir sanal makine oluşturduğunuzda, Not **Publicıpaddress**, oluşturma komut çıktısı bir parçası olarak sağlanır. Bu hızlı başlangıcın sonraki bölümlerinde sanal makineye bağlanmak için bu genel IP adresi kullanır.
 

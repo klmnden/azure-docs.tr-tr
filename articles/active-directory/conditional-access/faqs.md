@@ -2,26 +2,21 @@
 title: Azure Active Directory koşullu erişim ile ilgili SSS | Microsoft Docs
 description: Azure Active Directory'de koşullu erişim hakkında sık sorulan soruların yanıtlarını alın.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 111daef3448533cd863d45197d45c87d8d21264b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad0494868c494b488a238a81e504c58552813907
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112407"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508982"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Azure Active Directory koşullu erişim ile ilgili SSS
 
@@ -33,12 +28,9 @@ Koşullu erişim ilkeleriyle birlikte çalışma uygulamaları hakkında daha fa
 
 İlkeleri, işletmeler arası (B2B) işbirliği kullanıcıları için uygulanır. Ancak, bazı durumlarda, bir kullanıcı ilke gereksinimlerini karşılamak mümkün olmayabilir. Örneğin, bir konuk kullanıcının kuruluşunun çok faktörlü kimlik doğrulamasını desteklemiyor olabilir. 
 
-
-
 ## <a name="does-a-sharepoint-online-policy-also-apply-to-onedrive-for-business"></a>Bir SharePoint Online İlkesi, OneDrive iş için de geçerli midir?
 
 Evet. Bir SharePoint Online İlkesi, OneDrive iş için de geçerlidir.
-
 
 ## <a name="why-cant-i-set-a-policy-on-client-apps-like-word-or-outlook"></a>Bir ilke Word veya Outlook gibi istemci uygulamalarını neden ayarlayamıyorum?
 
@@ -56,7 +48,6 @@ Koşullu erişim ilkeleri, tüm kullanıcı hesaplarına uygulanır. Bu hizmet h
 
 Şu anda koşullu erişim ilkeleri, iOS ve Android cihazlarının kullanıcıları seçmeli olarak uygulanır. Diğer cihaz platformlarında uygulamalar varsayılan olarak, iOS ve Android cihazlar için koşullu erişim ilkesi tarafından etkilenmez. Bir kiracı Yöneticisi desteklenmeyen platformlardaki kullanıcılara erişimi engellemek için genel ilke geçersiz kılmayı seçebilirsiniz.
 
-
 ## <a name="how-do-conditional-access-policies-work-for-microsoft-teams"></a>Microsoft Teams için koşullu erişim ilkeleri nasıl çalışır?
 
 Microsoft Teams yoğun olarak Exchange Online ve SharePoint Online üzerinde toplantıları, takvimler ve dosya paylaşımı gibi temel üretkenlik senaryoları için kullanır. Bu bulut uygulamaları için ayarlanan koşullu erişim ilkeleri, Microsoft Teams kullanıcı işaretleri, doğrudan Microsoft Teams içinde geçerlidir.
@@ -64,3 +55,7 @@ Microsoft Teams yoğun olarak Exchange Online ve SharePoint Online üzerinde top
 Microsoft Teams ayrıca Azure Active Directory koşullu erişim ilkeleri, bulut uygulaması olarak ayrı olarak desteklenir. Bir kullanıcı oturum açtığında bir bulut uygulaması için ayarlanan koşullu erişim ilkeleri, Microsoft Teams için geçerlidir. Bununla birlikte, Exchange Online ve SharePoint Online gibi diğer uygulamalarda doğru ilkeleri olmadan kullanıcılar yine de bu kaynakları doğrudan erişmek mümkün olabilir.
 
 Windows ve Mac için Microsoft Teams Masaüstü istemcileri, modern kimlik doğrulamasını destekler. Modern kimlik doğrulaması, oturum üzerinde Azure Active Directory kimlik doğrulama kitaplığı (ADAL) Microsoft Office istemci uygulamaları için platformlar arasında açma getirir.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+- Ortamınız için koşullu erişim ilkeleri yapılandırmak için bkz: [Azure Active Directory'de koşullu erişim için en iyi uygulamalar](best-practices.md). 

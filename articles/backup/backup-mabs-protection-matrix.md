@@ -9,12 +9,12 @@ ms.date: 11/13/2018
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 83cfd2b7ccdf8ec14e828baec1031e11b28c988c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 21c832235eeb86dcea94e70f34abaf4ec3489c3c
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427373"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509610"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Azure Backup Sunucusu koruma matrisi
 
@@ -80,7 +80,7 @@ Bu makalede, çeşitli sunucular ve Azure Backup sunucusu ile Koruyabileceğiniz
 |Hyper-V konağı - Hyper-V konak sunucusu, kümesi veya VM'de DPM koruma Aracısı|Windows Server 2008 R2 SP1 - Enterprise ve Standard|Fiziksel sunucu<br /><br />Şirket içi Hyper-V sanal makinesi|E|E|Koruma: Hyper-V bilgisayarları, Küme Paylaşılan birimleri (CSV)<br /><br />Kurtarma: Sanal makine, dosya ve klasör, birimler, sanal sabit disk sürücüleri öğe düzeyinde kurtarma|
 |Hyper-V konağı - Hyper-V konak sunucusu, kümesi veya VM'de DPM koruma Aracısı|Windows Server 2008 SP2|Fiziksel sunucu<br /><br />Şirket içi Hyper-V sanal makinesi|N|N|Koruma: Hyper-V bilgisayarları, Küme Paylaşılan birimleri (CSV)<br /><br />Kurtarma: Sanal makine, dosya ve klasör, birimler, sanal sabit disk sürücüleri öğe düzeyinde kurtarma|
 |VMware Sanal Makineleri|VMware vCenter/vSphere ESX/ESXi lisanslı sürüm 5.5/6.0/6.5 |Fiziksel sunucu <br/>Şirket içi Hyper-V VM <br/> Windows VMWare VM|E|E|Küme Paylaşılan birimleri (CSV), NFS, VMware Vm'lerinde ve SAN depolama alanı<br /> Dosya ve klasörleri öğe düzeyinde kurtarma yalnızca Windows Vm'leri için kullanılabilir, VMware Vapps'i desteklenmez.|
-|VMware Sanal Makineleri|[VMware vSphere 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Fiziksel sunucu <br/>Şirket içi Hyper-V VM <br/> Windows VMWare VM|E|N|Küme Paylaşılan birimleri (CSV), NFS, VMware Vm'lerinde ve SAN depolama alanı<br /> Dosya ve klasörleri öğe düzeyinde kurtarma yalnızca Windows Vm'leri için kullanılabilir, VMware Vapps'i desteklenmez.|
+|VMware Sanal Makineleri|[VMware vSphere sürümü 6.7 lisanslı](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Fiziksel sunucu <br/>Şirket içi Hyper-V VM <br/> Windows VMWare VM|E|N|Küme Paylaşılan birimleri (CSV), NFS, VMware Vm'lerinde ve SAN depolama alanı<br /> Dosya ve klasörleri öğe düzeyinde kurtarma yalnızca Windows Vm'leri için kullanılabilir, VMware Vapps'i desteklenmez.|
 |Linux|Hyper-V veya VMware Konuğu olarak çalıştırılan Linux|Fiziksel sunucu <br/>Şirket içi Hyper-V VM <br/> Windows VMWare VM|E|E|Hyper-V, Windows Server 2012 R2 veya Windows Server 2016 çalıştırmalıdır. Koruma: Sanal makinenin tamamını<br /><br />Kurtarma: Sanal makinenin tamamını <br/><br/> Desteklenen Linux dağıtımları ve sürümleri tam listesi için bkz [tarafından Azure destekli dağıtımlarda Linux](../virtual-machines/linux/endorsed-distros.md).|
 
 ## <a name="azure-expressroute-support"></a>Azure ExpressRoute desteği

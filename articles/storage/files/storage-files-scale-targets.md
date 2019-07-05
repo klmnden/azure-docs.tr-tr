@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5e2f7b52ca3cb8a4d472b353e844bdad3aa1b0c1
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 91ec65e17b77ccb3864fce45e30729ff420a48b6
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150482"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542665"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure dosyaları ölçeklenebilirlik ve performans hedefleri
 
@@ -34,15 +34,17 @@ Azure depolama hesabınız bir Azure dosya paylaşımı için üst kaynaktır. B
 
 ## <a name="azure-files-scale-targets"></a>Azure dosyaları ölçek hedefleri
 
-### <a name="premium-scale-targets"></a>Premium ölçek hedefleri
+Azure dosyaları için dikkate alınması gereken sınırlamalar üç kategoriye ayrılır: depolama hesapları, paylaşımları ve dosyaları.
 
-Premium dosya paylaşımları için dikkate alınması gereken sınırlamalar üç kategoriye ayrılır: depolama hesapları, paylaşımları ve dosyaları.
+Örneğin: Premium dosya paylaşımları ile tek bir paylaşım 100.000 IOPS değerlerine ulaşabilir ve tek bir dosyayı en fazla 5000 IOPS ölçeklendirme yapabilirsiniz. Bu nedenle, bir paylaşımda üç dosyanız varsa bu paylaşımdan alabilirsiniz maksimum IOPS 15.000 ' dir.
 
-Örneğin: Tek bir paylaşım 100.000 IOPS değerlerine ulaşabilir ve tek bir dosyayı en fazla 5000 IOPS ölçeklendirme yapabilirsiniz. Bir paylaşımı üç dosyalarında varsa, bu nedenle, örneğin, bu paylaşımdan alabilirsiniz maksimum IOPS 15.000 olur.
+### <a name="standard-storage-account-limits"></a>Standart depolama hesabı sınırları
+
+Bkz: [Azure depolama hesabı ölçek hedefleri](#azure-storage-account-scale-targets) limitler bölümü.
 
 ### <a name="premium-filestorage-account-limits"></a>Premium dosya deposundan hesabı sınırları
 
-Premium dosya paylaşımları olarak adlandırılan bir özel depolama hesabında sağlanan **dosya (Önizleme) deposundan**. Bu hesap, standart dosya paylaşımları için kullanılan depolama hesabından biraz farklı ölçek hedefi vardır. Depolama hesabı ölçek hedefleri için tablosuna başvuran [Azure depolama hesabı ölçek hedefleri](#azure-storage-account-scale-targets) bölümü.
+[!INCLUDE [azure-storage-limits-filestorage](../../../includes/azure-storage-limits-filestorage.md)]
 
 > [!IMPORTANT]
 > Depolama hesabı sınırları, tüm paylaşımlar için geçerlidir. Kadar ölçeklendirme en yüksek dosya deposundan hesapları için yalnızca dosya deposundan hesap başına yalnızca bir paylaşım ise ulaşılabilir eşittir.

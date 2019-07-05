@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
-ms.openlocfilehash: 5ed41013535e4591d88bff5c017c1fcf4c4053cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a16ed7134fc9f3c159715f58f116de3fb30e8aca
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65237815"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481133"
 ---
 # <a name="back-up-an-sap-hana-database"></a>Bir SAP HANA veritabanını yedekleme
 
@@ -22,15 +22,13 @@ ms.locfileid: "65237815"
 > [!NOTE]
 > Bu özellik şu anda genel Önizleme aşamasındadır. Üretime hazır değil ve garantili bir SLA yoktur. 
 
-
 ## <a name="scenario-support"></a>Senaryo desteği
 
 **Destek** | **Ayrıntılar**
 --- | ---
 **Desteklenen coğrafi bölgeler** | Avustralya Güneydoğu, Doğu Avustralya <br> Güney Brezilya <br> Kanada Orta, Kanada Doğu <br> Güney Doğu Asya, Doğu Asya <br> Doğu ABD, Doğu ABD 2, Batı Orta ABD, Batı ABD, Batı ABD 2, Kuzey Orta ABD, Orta ABD, Güney Orta ABD<br> Hindistan Orta Hindistan, Güney Hindistan <br> Doğu Japonya, Batı Japonya<br> Kore Orta, Kore Güney <br> Kuzey Avrupa, Batı Avrupa <br> UK Güney, UK Batı
 **Desteklenen VM işletim sistemleri** | SLES 12 SP2 veya SP3.
-**Desteklenen HANA sürümleri** | SSDC on HANA 1.x, MDC on HANA 2.x <= SPS03
-
+**Desteklenen HANA sürümleri** | SDC on HANA 1.x, MDC on HANA 2.x <= SPS03
 
 ### <a name="current-limitations"></a>Geçerli sınırlamalar
 
@@ -39,12 +37,9 @@ ms.locfileid: "65237815"
 - Yalnızca, ölçek büyütme modunda veritabanlarını da yedekleyebilirsiniz.
 - 15 dakikada bir veritabanı günlüklerini yedekleyebilirsiniz. Günlük yedeklerinin, yalnızca veritabanı için başarılı bir tam yedekleme tamamlandıktan sonra akışı başlar.
 - Tam ve farklı yedeklemelerini alabilir. Artımlı yedekleme şu anda desteklenmemektedir.
-- SAP HANA yedeklemeler için uygulandıktan sonra yedekleme ilkesini değiştiremezsiniz. Farklı ayarlarla yedeklemek istiyorsanız, yeni bir ilke oluşturun veya farklı bir ilke atayabilirsiniz. 
-    - Yeni bir ilke oluşturmak için kasaya tıklayın **ilkeleri** > **yedekleme ilkeleri** >  **+ Ekle** > **SAP HANA'da Azure VM**, ilke ayarlarını belirtin.
-    - Veritabanı çalıştıran sanal Makinenin özelliklerinde farklı bir ilke atamak için geçerli ilke adına tıklayın. Ardından **yedekleme İlkesi** sayfa yedekleme için kullanılacak farklı bir ilke seçin.
-
-
-
+- SAP HANA yedeklemeler için uygulandıktan sonra yedekleme ilkesini değiştiremezsiniz. Farklı ayarlarla yedeklemek istiyorsanız, yeni bir ilke oluşturun veya farklı bir ilke atayabilirsiniz.
+  - Yeni bir ilke oluşturmak için kasaya tıklayın **ilkeleri** > **yedekleme ilkeleri** >  **+ Ekle** > **SAP HANA'da Azure VM**, ilke ayarlarını belirtin.
+  - Veritabanı çalıştıran sanal Makinenin özelliklerinde farklı bir ilke atamak için geçerli ilke adına tıklayın. Ardından **yedekleme İlkesi** sayfa yedekleme için kullanılacak farklı bir ilke seçin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -57,14 +52,16 @@ Yedeklemeleri yapılandırmadan önce aşağıdakileri yaptığınızdan emin ol
 
         ![Paket yükleme seçeneği](./media/backup-azure-sap-hana-database/hana-package.png)
 
-2.  VM üzerinde yüklemek ve ODBC sürücü paketleri ortamından resmi SLES paket/zypper, kullanarak aşağıdaki gibi etkinleştirin:
+2. VM üzerinde yüklemek ve ODBC sürücü paketleri ortamından resmi SLES paket/zypper, kullanarak aşağıdaki gibi etkinleştirin:
 
-    ``` 
+    ```unix
     sudo zypper update
     sudo zypper install unixODBC
     ```
-4.  Böylece aşağıdaki yordamda açıklandığı gibi Azure, ulaşabileceği bağlantı VM'den internet'e izin verin.
 
+3. Azure, yordamda anlatıldığı gibi ulaşabilmeleri VM'den internet'e bağlanmaya izin [aşağıda](#set-up-network-connectivity).
+
+4. Ön kayıt betiği, HANA kök kullanıcı olarak, yüklü olduğu sanal makinede çalıştırın. Betik [portalında](#discover-the-databases) akış ve ayarlamak için gerekli olan [sağ izinleri](backup-azure-sap-hana-database-troubleshoot.md#setting-up-permissions).
 
 ### <a name="set-up-network-connectivity"></a>Ağ bağlantısı ayarlama
 
@@ -80,7 +77,7 @@ Genel Önizleme aşamasında aşağıdaki gibi ekleme:
 - Portalda, abonelik Kimliğiniz için kurtarma Hizmetleri hizmet sağlayıcısı tarafından kaydetme [şu makaleyi](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal). 
 - PowerShell için bu cmdlet'i çalıştırın. Bunu, "Kaydedildi" doldurmanız gerekir.
 
-    ```
+    ```powershell
     PS C:>  Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
 
@@ -89,7 +86,6 @@ Genel Önizleme aşamasında aşağıdaki gibi ekleme:
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-the-databases"></a>Veritabanlarını Bul
-
 
 1. Bir kasadaki içinde **Başlarken**, tıklayın **yedekleme**. İçinde **iş yükünüz çalıştığı?** seçin **Azure VM'de SAP HANA**.
 2. Tıklayın **Başlat bulma**. Bu kasa bölgesindeki korumasız sanal makineleri bulma başlatır.
@@ -104,7 +100,7 @@ Genel Önizleme aşamasında aşağıdaki gibi ekleme:
 6. Azure yedekleme, VM üzerindeki tüm SAP HANA veritabanlarını bulur. Azure Backup, bulma sırasında VM'yi kasa ile kaydeder ve sanal makinede bir uzantı yükler. Aracı veritabanı üzerinde yüklü.
 
     ![SAP HANA veritabanlarını bulmak](./media/backup-azure-sap-hana-database/hana-discover.png)
-    
+
 ## <a name="configure-backup"></a>Yedeklemeyi yapılandırma  
 
 Şimdi yedeklemeyi etkinleştir.
@@ -116,6 +112,7 @@ Genel Önizleme aşamasında aşağıdaki gibi ekleme:
 5. Yedekleme yapılandırması ilerlemeyi **bildirimleri** portalının alan.
 
 ### <a name="create-a-backup-policy"></a>Bir yedekleme ilkesi oluşturma
+
 Bir yedekleme İlkesi yedeklemeleri ne zaman alınacağının ve ne kadar süreyle tutulur tanımlar.
 
 - Kasa düzeyinde bir ilke oluşturulur.
@@ -189,6 +186,5 @@ Yedekleme İlkesi zamanlamaya uygun olarak çalıştırın. Bir talep üzerine y
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+[Hakkında bilgi edinin](backup-azure-sap-hana-database-troubleshoot.md) nasıl Azure Vm'lerinde SAP HANA yedekleme kullanırken sık karşılaşılan hataları giderme.
 [Hakkında bilgi edinin](backup-azure-arm-vms-prepare.md) Azure VM'lerin yedeklenmesi.
-
-

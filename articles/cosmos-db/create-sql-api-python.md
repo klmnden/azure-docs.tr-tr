@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: f6420d073b4fe348b8533eaaaa5209323f35a25f
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: cb1cdbbd525d60342a6b0f1f7dfbfc9f81bc33ce
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754277"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514607"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB: Azure Cosmos DB SQL API hesabı kullanarak bir Python uygulaması oluşturma
 
@@ -184,13 +184,13 @@ Aşağıdaki kod parçacıklarının tümü `CosmosGetStarted.py` dosyasından a
 
 4. Tümleşik terminal penceresinde, azure-cosmos-db-python-getting-started klasöründe olduğunuzdan emin olun. Değilseniz, örnek klasörü değiştirmek için aşağıdaki komutu çalıştırın. 
 
-    ```
+    ```cmd
     cd "\git-samples\azure-cosmos-db-python-getting-started"`
     ```
 
 5. azure-cosmos package'i yüklemek için aşağıdaki komutu çalıştırın. 
 
-    ```
+    ```python
     pip3 install azure-cosmos
     ```
 
@@ -198,7 +198,7 @@ Aşağıdaki kod parçacıklarının tümü `CosmosGetStarted.py` dosyasından a
 
 6. Örneği çalıştırmak ve Azure Cosmos dB’de yeni belgeler oluşturup depolamak için aşağıdaki komutu çalıştırın.
 
-    ```
+    ```python
     python CosmosGetStarted.py
     ```
 

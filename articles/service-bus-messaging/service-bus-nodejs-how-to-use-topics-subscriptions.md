@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 3b805a80330dd44ac4a65db88950393d3d4d60b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 3dbec81237edd7cbf51e4812e83da068b9a366e0
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992106"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541005"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Nasıl yapılır kullanım Service Bus konuları ve abonelikleri ile Node.js ve azure-sb paketi
 > [!div class="op_multi_selector" title1="Programlama dili" title2="Node.js paketi"]
@@ -48,7 +48,7 @@ Konuları ve abonelikleri hakkında daha fazla bilgi için bkz: [sonraki adımla
     > Oluşturacağınız bir **konu** ve **abonelik** kullanarak konuya **Node.js** Bu hızlı başlangıçta. 
 
 ## <a name="create-a-nodejs-application"></a>Node.js uygulaması oluşturma
-Boş bir Node.js uygulaması oluşturun. Bir Node.js uygulaması oluşturma ile ilgili yönergeler için bkz. [Azure Web sitesine bir Node.js uygulaması oluşturma ve dağıtma], [Node.js bulut hizmeti][Node.js Cloud Service] Windows kullanma PowerShell veya WebMatrix ile Web sitesi.
+Boş bir Node.js uygulaması oluşturun. Bir Node.js uygulaması oluşturma ile ilgili yönergeler için bkz: [Azure Web sitesine bir Node.js uygulaması oluşturma ve dağıtma], [Node.js bulut hizmeti][Node.js Cloud Service] WebMatrix ile Windows PowerShell veya Web sitesini kullanarak.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Service Bus hizmetini kullanmak için uygulamanızı yapılandırma
 Service Bus hizmetini kullanmak için Node.js Azure paketini indirin. Bu paket, hizmet veri yolu REST Hizmetleri ile iletişim kuran bir dizi içerir.
@@ -148,9 +148,9 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 Konu abonelikleri ile de oluşturulur **ServiceBusService** nesne. Abonelikler adlandırılır ve aboneliğin sanal kuyruğuna teslim ileti kümesini sınırlayan isteğe bağlı bir filtre içerebilir.
 
 > [!NOTE]
-> Abonelikleri kalıcı ya da bunlar kadar veya ilişkili konu ile silindi. Uygulamanız mantıksal bir abonelik oluşturmak için içeriyorsa, ilk abonelik kullanarak mevcut olup olmadığını denetleyin `getSubscription` yöntemi.
+> Varsayılan olarak, abonelikleri ya da bunlar kadar kalıcı veya ilişkili konu ile silindi. Uygulamanız mantıksal bir abonelik oluşturmak için içeriyorsa, ilk abonelik kullanarak mevcut olup olmadığını denetleyin `getSubscription` yöntemi.
 >
->
+> Otomatik olarak ayarlayarak silinmiş abonelikleri olabilir [AutoDeleteOnIdle özelliği](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Varsayılan (MatchAll) filtreyle abonelik oluşturma
 **MatchAll** bir abonelik oluşturulurken kullanılan varsayılan filtresini filtredir. **MatchAll** filtresini kullandığınızda konu başlığında yayımlanan tüm iletiler aboneliğin sanal kuyruğuna yerleştirilir. Aşağıdaki örnek AllMessages adlı bir abonelik oluşturulur ve varsayılan **MatchAll** filtre.
@@ -166,7 +166,7 @@ serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
 ### <a name="create-subscriptions-with-filters"></a>Filtre içeren abonelik oluşturma
 İletiler konu başlığına gönderilen kapsamı için bir özel konu aboneliği içinde gösterilmesi gerekir sağlayan filtreler de oluşturabilirsiniz.
 
-En esnek filtre türü, abonelikler tarafından desteklenen **SqlFilter**, SQL92 kümesini uygular. SQL filtreleri, konu başlığında yayımlanan iletilerin özelliklerinde çalışır. SQL Filtresi ile kullanılabilen ifadeler hakkında daha fazla ayrıntı için gözden [SqlFilter.SqlExpression] [ SqlFilter.SqlExpression] söz dizimi.
+En esnek filtre türü, abonelikler tarafından desteklenen **SqlFilter**, SQL92 kümesini uygular. SQL filtreleri, konu başlığında yayımlanan iletilerin özelliklerinde çalışır. SQL Filtresi ile kullanılabilen ifadeler hakkında daha fazla ayrıntı için gözden [SqlFilter.SqlExpression][SqlFilter.SqlExpression] söz dizimi.
 
 Filtre eklenebilir aboneliği kullanarak `createRule` yöntemi **ServiceBusService** nesne. Bu yöntem, mevcut bir aboneliğe yeni filtreler eklemenize olanak tanır.
 
@@ -314,7 +314,7 @@ Ayrıca abonelikte kilitlenen iletiye ilişkin bir zaman aşımı vardır. (Örn
 Uygulama iletiyi ancak önce çökmesi durumunda `deleteMessage` yöntemi çağrıldığında, yeniden başlatıldığında ileti uygulamaya yeniden teslim. Bu davranışı genellikle adlandırılır *en az bir kez işlenmesini*. Diğer bir deyişle, her ileti en az bir kez işlenir ancak belirli durumlarda aynı ileti yeniden teslim edilebilir. Senaryo yinelenen işlemeyi kabul etmiyorsa yinelenen ileti teslimine izin vermek için uygulamanızı mantık eklemeniz gerekir. Kullanabileceğiniz **MessageID** özelliğini iletinin teslim denemeleri arasında sabit kalır.
 
 ## <a name="delete-topics-and-subscriptions"></a>Konu başlıklarını ve abonelikleri silme
-Konuları ve abonelikleri kalıcıdır ve açıkça olmalıdır aracılığıyla silindi [Azure portalında] [ Azure portal] veya programlama yoluyla.
+Konuları ve abonelikleri kalıcı sürece [autoDeleteOnIdle özelliği](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle) ayarlanır ve açıkça olmalıdır aracılığıyla silindi [Azure portalında][Azure portal] veya programlama yoluyla.
 Aşağıdaki örnekte adlı konu nasıl silineceği `MyTopic`:
 
 ```javascript
@@ -342,8 +342,8 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
 Hizmet veri yolu konuları hakkındaki temel bilgileri öğrendiniz, daha fazla bilgi için bu bağlantıları izleyin.
 
 * Bkz: [kuyruklar, konular ve abonelikler][Queues, topics, and subscriptions].
-* [SqlFilter][SqlFilter] için API başvurusu.
-* Ziyaret [düğüm için Azure SDK'sı] [ Azure SDK for Node] github deposu.
+* [SqlFilter][SqlFilter] için API başvurusu
+* Ziyaret [düğüm için Azure SDK'sı][Azure SDK for Node] github deposu.
 
 [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
 [Azure portal]: https://portal.azure.com

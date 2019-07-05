@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/29/2019
 ms.author: cephalin
-ms.openlocfilehash: b704e9074c8ef88d8fefd97f466884af952c46f8
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e74c32226815fe799529084da75dbc196771dc53
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919620"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514529"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service'te bir Python uygulaması oluşturma
 
@@ -170,7 +170,7 @@ return "Hello Azure!"
 
 Yaptığınız değişiklikleri kaydedin ve düzenleyiciden çıkın. Kaydetmek için `^S` ve çıkmak için `^Q` komutunu kullanın.
 
-Uygulamayı kullanarak yeniden [ `az webapp up` ](/cli/azure/ext/webapp/webapp?view=azure-cli-latest.md#ext-webapp-az-webapp-up) komutu. Uygulamanız için adı yerine `<app-name>`ve için bir konum belirtin `<location-name>` (öğesinden gösterilen değerleri kullanarak [ `az account list-locations` ](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) komutu).
+Uygulamayı kullanarak yeniden [ `az webapp up` ](/cli/azure/webapp#az-webapp-up) komutu. Uygulamanız için adı yerine `<app-name>`ve için bir konum belirtin `<location-name>` (öğesinden gösterilen değerleri kullanarak [ `az account list-locations` ](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) komutu).
 
 ```bash
 az webapp up -n <app-name> -l <location-name>

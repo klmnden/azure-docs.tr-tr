@@ -2,26 +2,21 @@
 title: Hibrit Azure Active Directory sorun giderme alanına katılmış cihazlar Windows 10 ve Windows Server 2016 | Microsoft Docs
 description: Hibrit Azure Active Directory sorun giderme alanına katılmış Windows 10 ve Windows Server 2016 cihazları.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/08/2017
+ms.topic: troubleshooting
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3671623312f0da00c8f6172a101529a5cd12be1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dfb4b03fb57efecff587a91dfc2ad293be96d9ba
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110553"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481617"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>Hibrit Azure Active Directory sorun giderme alanına katılmış Windows 10 ve Windows Server 2016 cihazları 
 
@@ -35,14 +30,10 @@ Diğer Windows istemcileri için bkz: [sorun giderme hibrit Azure Active Directo
 Bu makalede, sahibi olduğunuzu varsayar [yapılandırılmış hibrit Azure Active Directory alanına katılmış cihazlar](hybrid-azuread-join-plan.md) aşağıdaki senaryoları desteklemek için:
 
 - Cihaz tabanlı koşullu erişim
-
 - [Kurumsal Dolaşım ayarları](../active-directory-windows-enterprise-state-roaming-overview.md)
-
 - [İş İçin Windows Hello](../active-directory-azureadjoin-passport-deployment.md)
 
-
 Bu belge hakkında olası sorunları çözmek sorun giderme kılavuzu verilmiştir. 
-
 
 Windows 10 ve Windows Server 2016, hibrit Azure Active Directory join destekler için Windows 10 Kasım 2015 güncelleştirmesi ve üzeri. Yıldönümü Güncelleştirmesi'ni kullanmanızı öneririz.
 
@@ -53,8 +44,6 @@ Windows 10 ve Windows Server 2016, hibrit Azure Active Directory join destekler 
 1. Komut istemini yönetici olarak açın.
 
 2. Tür **dsregcmd/Status**
-
-
 
 ```
 +----------------------------------------------------------------------+
@@ -101,8 +90,6 @@ WamDefaultAuthority: organizations
          AzureAdPrt: YES
 ```
 
-
-
 ## <a name="step-2-evaluate-the-join-status"></a>2\. adım: Birleştirme durumu değerlendirin 
 
 Aşağıdaki alanlar gözden geçirin ve beklenen değerleri sahip olduğunuzdan emin olun:
@@ -114,22 +101,14 @@ Bu alan Azure AD ile cihazı alanına katılıp katılmadığını gösterir. De
 **Olası nedenler:**
 
 - Bir birleştirme için bilgisayarın kimlik doğrulaması başarısız oldu.
-
 - Bilgisayar tarafından bulunamıyorsa kuruluştaki bir HTTP Ara sunucusu yok
-
 - Azure AD kimlik doğrulaması için bilgisayar erişilemiyor veya kayıt için Azure DRS
-
 - Bilgisayar kuruluşunuzun iç ağ veya VPN ile doğrudan görebilmesi için şirket içi olmayabilir AD etki alanı denetleyicisi.
-
 - Bilgisayarda TPM varsa, hatalı durumda olabilir.
-
 - Olabilir bir yanlış yapılandırma Hizmetleri belirtildiği belgede daha önce yeniden doğrulamanız gerekir. Sık karşılaşılan örnekler:
-
-    - WS-Trust uç noktaları etkinleştirilmiş Federasyon sunucunuz yok.
-
-    - Federasyon sunucunuz bilgisayarlardan gelen kimlik doğrulama, tümleşik Windows kimlik doğrulaması kullanarak ağınızda izin vermez.
-
-    - Bilgisayar için ait olduğu AD ormanında Azure AD'de doğrulanmış etki alanı adınızı işaret eden bir hizmet bağlantı noktası nesne yok
+   - WS-Trust uç noktaları etkinleştirilmiş Federasyon sunucunuz yok.
+   - Federasyon sunucunuz bilgisayarlardan gelen kimlik doğrulama, tümleşik Windows kimlik doğrulaması kullanarak ağınızda izin vermez.
+   - Bilgisayar için ait olduğu AD ormanında Azure AD'de doğrulanmış etki alanı adınızı işaret eden bir hizmet bağlantı noktası nesne yok
 
 ---
 
@@ -150,9 +129,7 @@ Bu alan, kişisel cihaz olarak Azure AD ile cihazın kayıtlı olup olmadığın
 Bu alanlar, kullanıcının Azure AD'ye başarıyla yapıldığını olup olmadığını belirtmek için cihaz oturum açarken. Değerler **Hayır**, son olabilir:
 
 - Hatalı depolama anahtarı TPM cihazı kaydı (denetimi KeySignTest yükseltilmiş çalışırken) ile ilişkili (STK).
-
 - Alternatif oturum açma kimliği
-
 - HTTP Proxy bulunamadı
 
 ## <a name="next-steps"></a>Sonraki adımlar

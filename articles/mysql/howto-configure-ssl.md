@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/21/2019
-ms.openlocfilehash: eb405549ba2d1c97b16f5b465abf0dc54de3b80d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/02/2019
+ms.openlocfilehash: 46aca2c1a7d40df69b89e15917ff07b983f5ff5f
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66000926"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561478"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Güvenli bir MySQL için Azure veritabanı'na bağlanmak üzere uygulamanızda SSL bağlantısı yapılandırma
 MySQL için Azure veritabanı, Güvenli Yuva Katmanı (SSL) kullanarak istemci uygulamaları için Azure veritabanınızı MySQL sunucusuna bağlanmayı destekler. Veritabanı sunucunuzla istemci uygulamalarınız arasında SSL bağlantılarının zorunlu tutulması, sunucuya uygulamanız arasındaki veri akışını şifreleyerek "bağlantıyı izinsiz izleme" saldırılarına karşı korumaya yardımcı olur.
@@ -24,9 +24,18 @@ Azure veritabanınızı MySQL sunucusunun SSL üzerinden iletişim kurmak için 
 
 Belirli programlama dili için bağlantı dizelerini, başvurun [örnek kod](howto-configure-ssl.md#sample-code) aşağıda.
 
-### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>SSL üzerinden MySQL Workbench kullanarak sunucuya bağlanma
-MySQL Workbench, SSL üzerinden güvenli bir şekilde bağlanmak için yapılandırın. Yeni bağlantı oluştur iletişim kutusu gidin **SSL** sekmesi. İçinde **SSL CA dosyası:** dosya konumunu girin **BaltimoreCyberTrustRoot.crt.pem**. 
-![özelleştirilmiş kutucuk kaydetme](./media/howto-configure-ssl/mysql-workbench-ssl.png) varolan bağlantılar için SSL bağlantısı simgeye tıklanarak bağlayın ve Düzenle'yi seçin. Ardından gidin **SSL** sekme ve sertifika dosyası bağlayın.
+### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>SSL üzerinden MySQL Workbench kullanarak sunucuya bağlanma
+MySQL Workbench, SSL üzerinden güvenli bir şekilde bağlanmak için yapılandırın. 
+
+1. Yeni bağlantı oluştur iletişim kutusu gidin **SSL** sekmesi. 
+
+1. Güncelleştirme **SSL kullan** alanı "Gerekli".
+
+1. İçinde **SSL CA dosyası:** dosya konumunu girin **BaltimoreCyberTrustRoot.crt.pem**. 
+    
+    ![SSL yapılandırması'nı Kaydet](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+
+Varolan bağlantılar için SSL bağlantısı simgeye tıklanarak bağlamak ve Düzenle'yi seçin. Ardından gidin **SSL** sekme ve sertifika dosyası bağlayın.
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>SSL üzerinden MySQL CLI'yı kullanarak sunucuya bağlanma
 SSL sertifikası bağlama başka bir yolu, aşağıdaki komutları çalıştırarak MySQL komut satırı arabirimini kullanmaktır. 

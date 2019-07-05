@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 680c141e32333c4747ee69919229bd9381f536a4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60b634b0b927804249148737ee7a99c0e86dd7d6
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393798"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537764"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Geliştirme C# Visual Studio Code ile Service Fabric uygulamaları
 
@@ -77,6 +77,17 @@ Uygulamayı oluşturduktan sonra yerel kümeye dağıtabilirsiniz.
 4. Uygulamanın çalıştığı doğruladıktan sonra tarayıcıyı başlatın ve şu sayfayı açın: http:\//localhost:31002. Bu, uygulamanın ön uç web API'sidir. Geçerli sayaç değerini artırır olarak görmek için sayfayı yenileyin.
 
    ![Tarayıcıda sayacı hizmet uygulaması](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
+
+## <a name="publish-the-application-to-an-azure-service-fabric-cluster"></a>Azure Service Fabric kümesine uygulama yayımlama
+Uygulamayı yerel kümeye dağıtma ile birlikte, uzak bir Azure Service Fabric kümesine uygulama yayımlayabilirsiniz. 
+
+1. Yukarıdaki yönergeleri kullanarak uygulamanızı oluşturduğunuzdan emin olun. Oluşturulan yapılandırma dosyasını güncelleştirmeniz `Cloud.json` uzak kümede yayımlamak istediğiniz ayrıntılarını ile.
+
+2. Gelen **komut paleti**seçin **Service Fabric: Uygulama komutu yayımlama**. Yükleme işlemini çıktısı için tümleşik Terminalini gönderilir.
+
+   ![VS Code'da uygulama komutu yayımlama](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
+
+3. Dağıtım tamamlandığında, tarayıcıyı başlatın ve Service Fabric Explorer'ı açın: `https:<clusterurl>:19080/Explorer`. Uygulamanın çalıştığını görmelisiniz. Bu biraz zaman alabilir. Bu nedenle sabırlı olun. 
 
 ## <a name="debug-the-application"></a>Uygulamada hata ayıklama
 VS code'da uygulamalarında hata ayıklaması yaparken yerel bir kümede uygulamayı çalıştırması gerekir. Kesme noktaları ardından kodu eklenebilir.

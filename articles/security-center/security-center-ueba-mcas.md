@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7ffb9684045031c5bca7a79a15db7cb16fc99e9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af7896ec4afaeefda7261542bf593a89a7bb9ae8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332406"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551796"
 ---
 # <a name="ueba-for-azure-resources-and-users"></a>Azure kaynakları ve kullanıcıları için UEBA 
 
@@ -55,8 +55,8 @@ Güvenlik Merkezi, Cloud App Security anomali algılama uyarıları gibi destekl
 
 Bu uyarılar varsayılan olarak etkindir, ancak bunları devre dışı bırakabilirsiniz:
 
-1. Güvenlik Merkezi dikey penceresinden seçin **Güvenlik İlkesi**. Değiştirmek istediğiniz abonelik için tıklatın **ayarlarını Düzenle**.
-2.  Tıklayın **tehdit algılama**.
+1. Güvenlik Merkezi dikey penceresinden seçin **fiyatlandırma & ayarları** ve uygun aboneliği seçin.
+2. Tıklayın **tehdit algılama**.
 3. Altında **etkinleştirme tümleştirmeler**, işaretini kaldırın **izin Microsoft bulut uygulama verilerimi erişmek için Güvenlik**, tıklatıp **Kaydet**.
 
    ![Tehdit algılama Uyarısı](./media/security-center-ueba-mcas/security-center-mcas-optout.png)

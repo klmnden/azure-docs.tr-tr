@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 61bb102e17d9980d991fdf423174d7110cd5433d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d61d3d00de5b46f7dad44625509eabe6836ca7cf
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237860"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447265"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Azure Cosmos DB ile sorgu performansını ayarlama
 
@@ -272,7 +272,7 @@ Bazı ölçümler yorumlama sorgu yürütmeyi döndürdü ve bazı örnek sorgul
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Desteklenen SQL sorgu işleçlerini ve anahtar sözcükleri hakkında bilgi edinmek için [SQL sorgusu](how-to-sql-query.md). 
+* Desteklenen SQL sorgu işleçlerini ve anahtar sözcükleri hakkında bilgi edinmek için [SQL sorgusu](sql-query-getting-started.md). 
 * İstek birimleri hakkında bilgi edinmek için [istek birimi](request-units.md).
 * Dizin oluşturma ilkesi hakkında bilgi edinmek için [dizin oluşturma ilkesi](index-policy.md) 
 

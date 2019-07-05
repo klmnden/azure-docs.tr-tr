@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/06/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
-ms.openlocfilehash: 41cb37eb9d96752d4732731d2a36d9bc892cbaa5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c3743c62dcbdccc2a119cfec570df96c622390c7
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159807"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540324"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Hızlı Başlangıç: Azure Depolama'da bir kuyruk oluşturmak için .NET kullanma
 
@@ -38,7 +38,7 @@ Ardından, işletim sisteminiz için .NET Core 2.0’ı indirip yükleyin. Windo
 - [Linux için .NET Core](https://www.microsoft.com/net/download/linux) yükleyin
 - İsteğe bağlı olarak [Visual Studio Code](https://www.visualstudio.com/) ve [C# uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068) yükleyin
 
-### <a name="macos"></a>macOS
+### <a name="macos"></a>Mac OS
 
 - [macOS için .NET Core](https://www.microsoft.com/net/download/macos) yükleyin.
 - İsteğe bağlı olarak [Mac için Visual Studio](https://www.visualstudio.com/vs/visual-studio-mac/) yükleyin
@@ -79,7 +79,7 @@ export storageconnectionstring=<yourconnectionstring>
 
 Ortam değişkenini ekledikten sonra değişiklikleri uygulamak için konsol pencerenizden `source ~/.bashrc` çalıştırın.
 
-### <a name="macos"></a>macOS
+### <a name="macos"></a>Mac OS
 
 .bash_profile dosyanızı düzenleyin ve ortam değişkenini ekleyin:
 
@@ -111,7 +111,7 @@ Uygulama dizininize gidip `dotnet run` komutuyla uygulamayı çalıştırın.
 dotnet run
 ```
 
-### <a name="macos"></a>macOS
+### <a name="macos"></a>Mac OS
 
 Uygulama dizininize gidip `dotnet run` komutuyla uygulamayı çalıştırın.
 
@@ -187,9 +187,9 @@ Console.WriteLine();
 
 Ardından, örnek bir ileti sırası geri ekler. 
 
-Bir ileti, UTF-8 kodlamalı bir XML isteği eklenebilir ve boyutu 64 KB'ye kadar olabilir bir biçimde olmalıdır. İkili verileri bir ileti içeren sonra Microsoft önerir, Base64 kodlama ileti.
+Bir ileti, UTF-8 kodlamalı bir XML isteği eklenebilir ve boyutu 64 KB'ye kadar olabilir bir biçimde olmalıdır. Bir ileti ikili veri içeriyorsa, öneririz, Base64 kodlama ileti.
 
-Varsayılan olarak, en fazla süre için bir ileti yaşam 7 gün olarak ayarlanır. Yanı sıra ileti dolmaz belirtmek için -1--yaşam süresi, pozitif bir sayı ileti için belirtebilirsiniz.
+Varsayılan olarak, en fazla süre için bir ileti yaşam 7 gün olarak ayarlanır. İletinin yaşam süresi pozitif bir sayı olarak belirtebilirsiniz.
 
 ```csharp
 // Create a message and add it to the queue. Set expiration time to 14 days.
@@ -199,6 +199,12 @@ Console.WriteLine("Added message '{0}' to queue '{1}'", message.Id, queue.Name);
 Console.WriteLine("Message insertion time: {0}", message.InsertionTime.ToString());
 Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToString());
 Console.WriteLine();
+```
+
+Dolmayan iletiye eklemek için `Timespan.FromSeconds(-1)` , çağrıda [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
+
+```csharp
+await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
 ```
 
 ### <a name="peek-a-message-from-the-queue"></a>Sıradan bir iletiye Gözat

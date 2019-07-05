@@ -9,12 +9,12 @@ ms.date: 11/26/2018
 ms.topic: reference
 ms.service: service-fabric-mesh
 manager: subramar
-ms.openlocfilehash: 08e842f5b91bd0ca5f8e8b2a7866f3f9a689ac28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27651d19e276571cf49a0aa1a199ef35c87c3ba4
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811621"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537686"
 ---
 # <a name="maven-plugin-for-service-fabric-mesh"></a>Service Fabric kafes için maven eklentisi
 
@@ -38,6 +38,9 @@ ms.locfileid: "60811621"
 
 ### `azure-sfmesh:addgateway`
 - Oluşturur bir `gateway` sağlanan ağ geçidi adla YAML `appresources` klasörü 
+
+#### `azure-sfmesh:addvolume`
+- Oluşturur bir `volume` YAML içinde sağlanan birim adı ile `appresources` klasör.
 
 ### `azure-sfmesh:addsecret`
 - Oluşturur bir `secret` YAML içinde sağlanan gizli dizi adı ile `appresources` klasörü 
@@ -96,7 +99,7 @@ mvn azure-sfmesh:init -DapplicationName=helloworldserver
 Ağ kaynak yaml oluşturmak için aşağıdaki komutu çalıştırın. 
 
 ```cmd
-mvn azure-sfmesh:addnetwork -DnetworkName=helloworldservicenetwork -DnetworkAddressPrefix=10.0.0.4/22
+mvn azure-sfmesh:addnetwork -DnetworkName=helloworldservicenetwork -DnetworkAddressPrefix=10.0.0.0/22
 ```
 
 - Bir ağ YAML klasöründe oluşturur `servicefabric->appresources` adlı `network_helloworldservicenetwork`

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 3ea89e9f6a6bb8a4c377c70bbe1b5540d3b74d44
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: face3719f32ccb44e7479150e94417496141f90b
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341242"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509566"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Etkinlik performansı ve ayarlama Kılavuzu kopyalayın
 > [!div class="op_single_selector" title1="Azure Data Factory, kullanmakta olduğunuz sürümünü seçin:"]
@@ -86,6 +86,7 @@ Bir kopyalama etkinliği çalıştırma güçlendirmek için en az DIUs iki olur
 | Kopyalama senaryosu | Hizmet tarafından belirlenen varsayılan DIUs |
 |:--- |:--- |
 | Dosya tabanlı depoları arasında veri kopyalama | 4 ile sayısı ve dosyaların boyutuna bağlı olarak 32 arasında |
+| Azure SQL veritabanı veya Azure Cosmos DB veri kopyalama |Havuz Azure SQL veritabanı'nın veya Cosmos DB'nin Katmanı (Dtu/RU sayısı) bağlı olarak 16 ile 4 arasında |
 | Tüm diğer kopyalama senaryolarında | 4 |
 
 Bu varsayılanı geçersiz kılmak için bir değer belirtin. **dataIntegrationUnits** özelliğini aşağıdaki gibi. *İzin verilen değerler* için **dataIntegrationUnits** en fazla 256 özelliğidir. *DIUs gerçek sayısını* eşit veya daha az, veri modelini bağlı olarak yapılandırılmış bir değeri, kopyalama işleminin çalışma zamanında kullanır. Özel kopyalama kaynağı ve havuz için daha fazla birimi yapılandırırken alabilirsiniz performans kazancı düzeyi hakkında bilgi için bkz [Performans başvurusu](#performance-reference).
@@ -131,11 +132,11 @@ Kullanabileceğiniz **parallelCopies** kopyalama etkinliği, kullanmak istediği
 | Kopyalama senaryosu | Hizmet tarafından belirlenen varsayılan paralel kopya sayısı |
 | --- | --- |
 | Dosya tabanlı depoları arasında veri kopyalama |Dosyaları iki bulut veri deposu ya da şirket içinde barındırılan tümleştirme çalışma zamanı makinenin fiziksel yapılandırması arasında veri kopyalamak için kullanılan DIUs sayısı ve boyutuna bağlıdır. |
-| Herhangi bir kaynak veri deposundan Azure tablo depolama alanına veri kopyalama |4 |
+| Tüm kaynak deposundan Azure tablo depolama alanına veri kopyalama |4 |
 | Tüm diğer kopyalama senaryolarında |1 |
 
 > [!TIP]
-> Dosya tabanlı depoları arasında veri kopyalama, varsayılan davranışı, genellikle en iyi aktarım hızı sağlar. Otomatik olarak belirlenen varsayılan davranışıdır.
+> Dosya tabanlı depoları arasında veri kopyalama, varsayılan davranışı, genellikle en iyi aktarım hızı sağlar. Varsayılan davranış, kaynak dosya deseni temel alınarak otomatik olarak belirlenir.
 
 Verilerinizi barındıran makinelerin yükünü denetlemek için depolar veya kopyalama performansı ayarlamak için varsayılan değeri geçersiz kılabilir ve için bir değer belirtin **parallelCopies** özelliği. Büyük veya 1'e eşit bir tamsayı değeri olmalıdır. Çalışma zamanında, en iyi performans için ayarladığınız değerine eşit veya daha az olan bir değer kopyalama etkinliği kullanır.
 
@@ -162,9 +163,9 @@ Verilerinizi barındıran makinelerin yükünü denetlemek için depolar veya ko
 **Dikkat edilecek noktalar:**
 
 * Dosya tabanlı depoları arasında veri kopyalama **parallelCopies** dosya düzeyinde paralellik belirler. Tek bir dosyada Öbekleme altında otomatik olarak ve şeffaf bir şekilde gerçekleşir. En uygun öbek paralel veri yükleme belirtilen kaynak veri deposu türü için boyut ve dikgen kullanmak için tasarlanmış **parallelCopies**. Gerçek veri taşıma Hizmeti'nde kopyalama işleminin çalışma zamanında kullandığı paralel kopya sayısı sahip olduğunuz dosyaların sayısı, en fazla ' dir. Kopyalama davranışını ise **mergeFile**, kopyalama etkinliği dosya düzeyinde paralellik yararlanamaz.
-* İçin bir değer belirtirseniz **parallelCopies** özelliği, kaynak üzerindeki yük artışı göz önünde bulundurun ve havuz veri deposu. Kopyalama etkinliği tarafından Örneğin, karma kopyalama için yetkilendirilirler de şirket içinde barındırılan tümleştirme çalışma zamanı yük artışı göz önünde bulundurun. Bu yük artışı özellikle birden çok etkinlikler veya aynı veri deposuna karşı çalışan aynı etkinliklerden eş zamanlı çalıştırma olduğunda gerçekleşir. Veri deposu ya da şirket içinde barındırılan tümleştirme çalışma zamanı yük ile doludur fark ederseniz, azaltma **parallelCopies** yükle hafifletmek için değer.
-* Dosya tabanlı depoları için dosya tabanlı olmayan depolarından verileri kopyaladığınızda, veri taşıma Hizmeti'nde yok sayar **parallelCopies** özelliği. Paralellik belirtilmiş olsa bile, bu durumda uygulanmaz.
+* (Dışında Oracle veritabanı etkin veri bölümleme ile kaynak olarak) dosya tabanlı olmayan depolarından veri kopyaladığınızda, dosya tabanlı depoları için veri taşıma Hizmeti'nde yok sayar **parallelCopies** özelliği. Paralellik belirtilmiş olsa bile, bu durumda uygulanmaz.
 * **ParallelCopies** özelliktir dikgen **dataIntegrationUnits**. Önceki tüm veri tümleştirme birimlerinizde sayılır.
+* İçin bir değer belirtirseniz **parallelCopies** özelliği, kaynak üzerindeki yük artışı göz önünde bulundurun ve havuz veri deposu. Kopyalama etkinliği tarafından Örneğin, karma kopyalama için yetkilendirilirler de şirket içinde barındırılan tümleştirme çalışma zamanı yük artışı göz önünde bulundurun. Bu yük artışı özellikle birden çok etkinlikler veya aynı veri deposuna karşı çalışan aynı etkinliklerden eş zamanlı çalıştırma olduğunda gerçekleşir. Veri deposu ya da şirket içinde barındırılan tümleştirme çalışma zamanı yük ile doludur fark ederseniz, azaltma **parallelCopies** yükle hafifletmek için değer.
 
 ## <a name="staged-copy"></a>Hazırlanmış kopya
 
@@ -182,7 +183,7 @@ Hazırlama özelliğini etkinleştirdiğinizde, ilk veriler kaynak veri deposund
 
 Hazırlama deposu kullanarak veri taşıma etkinleştirdiğinizde, veri kaynağından veri taşımadan önce sıkıştırılmasının verileri için bir arada depolamak veya hazırlama veri depolamak ve ardından bir geçiş veya hazırlama dat veri taşımadan önce eklenmişti isteyip istemediğinizi belirtebilirsiniz Havuz veri deposu için bir depo.
 
-Şu anda, hazırlama deposu kullanarak iki şirket içi veri depoları arasında veri kopyalanamıyor.
+Şu anda farklı şirket içinde barındırılan IRS, ile ne hazırlanmış kopya olmadan üzerinden bağlanan iki veri depoları arasında veri kopyalanamıyor. Bu senaryo için iki açıkça zincirleme kopyalama etkinliği, hazırlama kaynağından sonra havuz hazırlama alanından kopyalamak için yapılandırabilirsiniz.
 
 ### <a name="configuration"></a>Yapılandırma
 

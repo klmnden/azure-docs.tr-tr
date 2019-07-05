@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b9562a1686c4de4f4e2ef57a7d91bbf18dce63ef
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7e40af9b2362ee52a1d00f29cdc112d3c2b9a842
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447589"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565845"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>Temel bir soru-cevap Oluşturucu bilgi nedir?
 
@@ -40,7 +40,7 @@ Meta veri alanları, anahtar-değer çiftleri virgül ile ayrılmış oluşur **
 
 ## <a name="how-qna-maker-processes-a-user-query-to-select-the-best-answer"></a>Soru-cevap Oluşturucu en iyi cevabı seçmek için bir kullanıcı sorgu nasıl işler?
 
-Eğitilen ve [yayımlanan](/quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) soru-cevap Oluşturucu Bilgi Bankası bir bot veya başka bir istemci uygulama bir kullanıcı sorgusu alır [GenerateAnswer API](/how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api). Kullanıcı sorgusu alındığında Aşağıdaki diyagramda işlemi gösterilmektedir.
+Eğitilen ve [yayımlanan](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) soru-cevap Oluşturucu Bilgi Bankası bir bot veya başka bir istemci uygulama bir kullanıcı sorgusu alır [GenerateAnswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). Kullanıcı sorgusu alındığında Aşağıdaki diyagramda işlemi gösterilmektedir.
 
 ![Kullanıcı sorgusu için sıralama işlemi](../media/qnamaker-concepts-knowledgebase/rank-user-query-first-with-azure-search-then-with-qna-maker.png)
 
@@ -48,7 +48,7 @@ Eğitilen ve [yayımlanan](/quickstarts/create-publish-knowledge-base.md#publish
 
 |Adım|Amaç|
 |--|--|
-|1|İstemci uygulama için kullanıcı sorgusu gönderir [GenerateAnswer API](/how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api).|
+|1|İstemci uygulama için kullanıcı sorgusu gönderir [GenerateAnswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
 |2|Soru-cevap Oluşturucu, dil algılama ve spellers Sözcük ayırıcılar sahip kullanıcı sorgusu ön işleme.|
 |3|Kullanıcı sorgusu için en iyi arama sonuçları değiştirmek için bu ön işleme alınır.|
 |4|Bu değiştirilen sorguyu Azure Search dizini için gönderilen alma `top` sonuç sayısı. Doğru yanıtı bu sonuçları değilse, değeri artırmak `top` biraz. Genel olarak 10 değerini `top` %90 sorguların çalışır.|

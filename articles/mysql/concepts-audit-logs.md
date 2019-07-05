@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: a82afe6f5299609fd6dd57a54f04f49fad5d2268
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.date: 06/26/2019
+ms.openlocfilehash: 86750cea5e7f0d4726f3e0e9a03795ef2a602d8b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357635"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443854"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda denetim günlükleri
 
@@ -55,7 +55,7 @@ Aşağıdaki bölümlerde, çıktı tarafından MySQL denetim günlüklerini Ola
 |---|---|
 | `TenantId` | Kiracı Kimliğiniz |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Günlük UTC olarak kaydedildiği zaman damgası |
+| `TimeGenerated [UTC]` | Günlük UTC olarak kaydedildiği zaman damgası |
 | `Type` | Günlük türü. Her zaman `AzureDiagnostics` |
 | `SubscriptionId` | Sunucunun ait olduğu aboneliğin GUID |
 | `ResourceGroup` | Sunucunun ait olduğu kaynak grubu adı |
@@ -65,13 +65,14 @@ Aşağıdaki bölümlerde, çıktı tarafından MySQL denetim günlüklerini Ola
 | `Resource` | Sunucusunun adı |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `connection_log` |
-| `event_subclass` | `CONNECT`, `DISCONNECT`, `CHANGE USER` (yalnızca MySQL 5.7 için kullanılabilir) |
-| `connection_id` | MySQL tarafından oluşturulan benzersiz bağlantı kimliği |
-| `host` | Boş |
-| `ip` | Mysql'e bağlanma istemcinin IP adresi |
-| `user` | Sorguyu yürüten kullanıcının adı |
-| `db` | Bağlı veritabanının adı |
+| `LogicalServerName_s` | Sunucusunun adı |
+| `event_class_s` | `connection_log` |
+| `event_subclass_s` | `CONNECT`, `DISCONNECT`, `CHANGE USER` (yalnızca MySQL 5.7 için kullanılabilir) |
+| `connection_id_d` | MySQL tarafından oluşturulan benzersiz bağlantı kimliği |
+| `host_s` | Boş |
+| `ip_s` | Mysql'e bağlanma istemcinin IP adresi |
+| `user_s` | Sorguyu yürüten kullanıcının adı |
+| `db_s` | Bağlı veritabanının adı |
 | `\_ResourceId` | Kaynak URI'si |
 
 ### <a name="general"></a>Genel
@@ -82,7 +83,7 @@ Aşağıdaki şema genel, DML_SELECT, DML_NONSELECT, DML, DDL, DCL ve yönetici 
 |---|---|
 | `TenantId` | Kiracı Kimliğiniz |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Günlük UTC olarak kaydedildiği zaman damgası |
+| `TimeGenerated [UTC]` | Günlük UTC olarak kaydedildiği zaman damgası |
 | `Type` | Günlük türü. Her zaman `AzureDiagnostics` |
 | `SubscriptionId` | Sunucunun ait olduğu aboneliğin GUID |
 | `ResourceGroup` | Sunucunun ait olduğu kaynak grubu adı |
@@ -92,15 +93,16 @@ Aşağıdaki şema genel, DML_SELECT, DML_NONSELECT, DML, DDL, DCL ve yönetici 
 | `Resource` | Sunucusunun adı |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `general_log` |
-| `event_subclass` | `LOG`, `ERROR`, `RESULT` (yalnızca MySQL 5.6 için kullanılabilir) |
+| `LogicalServerName_s` | Sunucusunun adı |
+| `event_class_s` | `general_log` |
+| `event_subclass_s` | `LOG`, `ERROR`, `RESULT` (yalnızca MySQL 5.6 için kullanılabilir) |
 | `event_time` | Sorgu başlangıç saniye içinde UNIX zaman damgası |
-| `error_code` | Sorgu başarısız olursa hata kodu. `0` hiçbir hata anlamına gelir |
-| `thread_id` | Sorgu yürütülen iş parçacığının kimliği |
-| `host` | Boş |
-| `ip` | Mysql'e bağlanma istemcinin IP adresi |
-| `user` | Sorguyu yürüten kullanıcının adı |
-| `sql_text` | Tam sorgu metni |
+| `error_code_d` | Sorgu başarısız olursa hata kodu. `0` hiçbir hata anlamına gelir |
+| `thread_id_d` | Sorgu yürütülen iş parçacığının kimliği |
+| `host_s` | Boş |
+| `ip_s` | Mysql'e bağlanma istemcinin IP adresi |
+| `user_s` | Sorguyu yürüten kullanıcının adı |
+| `sql_text_s` | Tam sorgu metni |
 | `\_ResourceId` | Kaynak URI'si |
 
 ### <a name="table-access"></a>Tablo erişim
@@ -109,7 +111,7 @@ Aşağıdaki şema genel, DML_SELECT, DML_NONSELECT, DML, DDL, DCL ve yönetici 
 |---|---|
 | `TenantId` | Kiracı Kimliğiniz |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Günlük UTC olarak kaydedildiği zaman damgası |
+| `TimeGenerated [UTC]` | Günlük UTC olarak kaydedildiği zaman damgası |
 | `Type` | Günlük türü. Her zaman `AzureDiagnostics` |
 | `SubscriptionId` | Sunucunun ait olduğu aboneliğin GUID |
 | `ResourceGroup` | Sunucunun ait olduğu kaynak grubu adı |
@@ -119,12 +121,13 @@ Aşağıdaki şema genel, DML_SELECT, DML_NONSELECT, DML, DDL, DCL ve yönetici 
 | `Resource` | Sunucusunun adı |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `table_access_log` |
-| `event_subclass` | `READ`, `INSERT`, `UPDATE`, veya `DELETE` |
-| `connection_id` | MySQL tarafından oluşturulan benzersiz bağlantı kimliği |
-| `db` | Erişilen veritabanının adı |
-| `table` | Erişilen tablosunun adı |
-| `sql_text` | Tam sorgu metni |
+| `LogicalServerName_s` | Sunucusunun adı |
+| `event_class_s` | `table_access_log` |
+| `event_subclass_s` | `READ`, `INSERT`, `UPDATE`, veya `DELETE` |
+| `connection_id_d` | MySQL tarafından oluşturulan benzersiz bağlantı kimliği |
+| `db_s` | Erişilen veritabanının adı |
+| `table_s` | Erişilen tablosunun adı |
+| `sql_text_s` | Tam sorgu metni |
 | `\_ResourceId` | Kaynak URI'si |
 
 ## <a name="next-steps"></a>Sonraki adımlar

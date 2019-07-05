@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 737da27fd8da292b6c1f8997d4bd300bbec8740e
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62120747"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565522"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure işlevleri Geliştirici Kılavuzu
 Azure işlevleri'nde belirli işlevleri birkaç temel teknik kavramlar ve bileşenler, dil veya kullandığınız bağlama bağımsız olarak paylaşın. Belirtilen dil veya bağlama için belirli ayrıntıları öğrenme moduna kullanmaya başlamadan önce bunların tümüne uygulanan bu genel bakışta aracılığıyla okuduğunuzdan emin olun.
@@ -107,5 +107,5 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 * [Azure işlevleri Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md)
 * [Azure İşlevleri’ni yerel olarak kodlama ve test etme](./functions-develop-local.md)
 * [Azure İşlevleri için En İyi Uygulamalar](functions-best-practices.md)
-* [Azure işlevleri C# Geliştirici Başvurusu](functions-reference-csharp.md)
+* [Azure işlevleri C# Geliştirici Başvurusu](functions-dotnet-class-library.md)
 * [Azure işlevleri NodeJS Geliştirici Başvurusu](functions-reference-node.md)

@@ -197,7 +197,7 @@
         - name: MLflow ile denemeleri izleme
           displayName: 'log, monitor, metrics'
           href: how-to-use-mlflow.md
-        - name: Denemeleri TensorBoard ile görselleştirme
+        - name: TensorBoard ile çalıştırmaları görselleştirme
           displayName: 'log, monitor, metrics'
           href: how-to-monitor-tensorboard.md
     - name: Makine öğrenimini otomatikleştirme

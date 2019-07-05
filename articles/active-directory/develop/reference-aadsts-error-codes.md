@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10ac2f4ac83240acf644fc1529c9c14f5e9631a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d6ed5c80d5c3241a9a328a2427ed8b920790635
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111296"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482478"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Kimlik doğrulaması ve yetkilendirme hata kodları
 
@@ -215,6 +215,7 @@ Azure Active Directory (Azure AD) güvenlik belirteci Hizmeti'nden (STS) döndü
 | AADSTS90093 | GraphUserUnauthorized - grafik bir istek için Yasak hata kodu döndürdü. |
 | AADSTS90094 | AdminConsentRequired - yönetici izni gereklidir. |
 | AADSTS90100 | InvalidRequestParameter - parametresi boş veya geçersiz. |
+| AADSTS901002 | AADSTS901002: 'Resource' istek parametresi desteklenmiyor. |
 | AADSTS90101 | InvalidEmailAddress - sağlanan veriler geçerli bir eposta adresi değil. E-posta adresi biçiminde olmalıdır `someone@example.com`. |
 | AADSTS90102 | InvalidUriParameter - değeri geçerli bir mutlak URI olmalıdır. |
 | AADSTS90107 | InvalidXml - istek geçerli değil. Verilerinizi geçersiz karakterler olmadığından emin olun.|

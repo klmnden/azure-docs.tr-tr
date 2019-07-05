@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: reference
-ms.date: 12/19/2018
+ms.date: 07/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1f9c30f1c914f6c8d42967e014d967ba0d5b85cc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a958c33e173c881a3ad09a49fe9f71ddb0c9df56
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66142309"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508951"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Azure Analysis Services PowerShell ile yönetme
 
 Bu makalede, Azure Analysis Services sunucusu ve veritabanı yönetim görevlerini gerçekleştirmek için kullanılan PowerShell cmdlet'lerini açıklanır. 
 
-Oluşturma veya sunucu silme, askıya alma veya sürdürme sunucu işlemleri veya hizmet düzeyi (katman) değiştirme gibi sunucu yönetimi görevleri, Azure Resource Manager (kaynak) cmdlet'leri ve Analysis Services (sunucu) cmdlet'lerini kullanın. Veritabanını yönetme ile ilgili diğer görevler, ekleme veya Rol üyeleri, işleme veya dahil edilen SQL Server Analysis Services ile aynı SqlServer modülündeki cmdlet'ler bölümleme gibi.
+Oluşturma veya sunucu silme, askıya alma veya sürdürme sunucu işlemleri veya hizmet düzeyi (katman) değiştirme gibi sunucu kaynak yönetimi görevlerinde Azure Analysis Services cmdlet'lerini kullanın. Veritabanını yönetme ile ilgili diğer görevler, ekleme veya Rol üyeleri, işleme veya dahil edilen SQL Server Analysis Services ile aynı SqlServer modülündeki cmdlet'ler bölümleme gibi.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -29,40 +29,22 @@ Oluşturma veya sunucu silme, askıya alma veya sürdürme sunucu işlemleri vey
 
 Azure PowerShell cmdlet'lerini kullanarak sunucu işlemleri için hesabınızı veya Zamanlayıcı çalıştıran hesabı da kaynak sahibi rolüne ait olmalıdır [Azure rol tabanlı Access Control (RBAC)](../role-based-access-control/overview.md). 
 
-## <a name="resource-management-operations"></a>Kaynak yönetimi işlemleri 
+## <a name="resource-and-server-operations"></a>Kaynak ve sunucu işlemleri 
 
-Modül - [Az.AnalysisServices](/powershell/module/az.analysisservices)
-
-|Cmdlet|Açıklama| 
-|------------|-----------------| 
-|[Get-AzAnalysisServicesServer](/powershell/module/az.analysisservices/get-azanalysisservicesserver)|Sunucu örneğinin ayrıntılarını alır.|  
-|[New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver)|Bir sunucu örneği oluşturur.|   
-|[Yeni AzAnalysisServicesFirewallConfig](/powershell/module/az.analysisservices/new-azanalysisservicesfirewallconfig)|Yeni bir Analysis Services güvenlik duvarı yapılandırması oluşturur.|   
-|[Yeni AzAnalysisServicesFirewallRule](/powershell/module/az.analysisservices/new-azanalysisservicesfirewallrule)|Yeni bir Analysis Services güvenlik duvarı kuralı oluşturur.|   
-|[Remove-AzAnalysisServicesServer](/powershell/module/az.analysisservices/remove-azanalysisservicesserver)|Bir sunucu örneğini kaldırır.|  
-|[Resume-AzAnalysisServicesServer](/powershell/module/az.analysisservices/resume-azanalysisservicesserver)|Bir sunucu örneğini sürdürür.|  
-|[Suspend-AzAnalysisServicesServer](/powershell/module/az.analysisservices/suspend-azanalysisservicesserver)|Bir sunucu örneği askıya alır.| 
-|[Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver)|Bir sunucu örneği değiştirir.|   
-|[Test-AzAnalysisServicesServer](/powershell/module/az.analysisservices/test-azanalysisservicesserver)|Sunucu örneğinin varlığını test eder.| 
-
-## <a name="server-management-operations"></a>Sunucu Yönetimi işlemleri
-
-Modül - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azure.AnalysisServices)
-
-|Cmdlet|Açıklama| 
-|------------|-----------------| 
-|[Add-AzAnalysisServicesAccount](/powershell/module/az.analysisservices/add-AzAnalysisServicesaccount)|Azure Analysis Services sunucu cmdlet'i istekleri için kullanılacak bir yetkili hesabı ekler.| 
-|[Dışarı aktarma AzAnalysisServicesInstance](/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|Analysis Services sunucusu şu anda oturum açmış ortam AzAnalysisServicesAccount Ekle komutunda belirtilen örneğinden günlüğünü dışarı aktarır|  
-|[Yeniden başlatma AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Analysis Services sunucu örneği şu anda oturum açmış ortamında yeniden başlatılır; Add-AzAnalysisServicesAccount komutunda belirtilen.|  
-|[Eşitleme AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Belirtilen bir Analysis Services sunucusu şu anda oturum açmış ortam AzAnalysisServicesAccount Ekle komutunda belirtilen konumdaki tüm sorgu genişleme örnekleri için belirtilen örneği veritabanında eşitler|  
+Modül - yükleme [Az.AnalysisServices](https://www.powershellgallery.com/packages/Az.AnalysisServices)   
+Belgeleri - [Az.AnalysisServices başvurusu](/powershell/module/az.analysisservices)
 
 ## <a name="database-operations"></a>Veritabanı işlemleri
 
-Azure Analysis Services veritabanı işlemleri kullanmak aynı [SqlServer modülündeki](https://www.powershellgallery.com/packages/SqlServer) olarak SQL Server Analysis Services. Ancak, tüm cmdlet'leri, Azure Analysis Services için desteklenir. Daha fazla bilgi için bkz. [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell).
+Azure Analysis Services veritabanı işlemleri aynı SqlServer modülündeki SQL Server Analysis Services'i kullanın. Ancak, tüm cmdlet'leri, Azure Analysis Services için desteklenir. 
 
 SqlServer modülündeki bir Tablosal Model betik dili (TMSL) sorgu veya betik kabul eden genel amaçlı Invoke-ASCmd cmdlet yanı sıra görev özgü veritabanı yönetimi cmdlet'leri sağlar. Aşağıdaki SqlServer modülündeki cmdlet'ler, Azure Analysis Services için desteklenir.
 
-  
+Modül - yükleme [SqlServer](https://www.powershellgallery.com/packages/SqlServer)   
+Belgeleri - [SqlServer başvurusu](/powershell/module/sqlserver)
+
+### <a name="supported-cmdlets"></a>Desteklenen cmdlet'leri
+
 |Cmdlet|Açıklama|
 |------------|-----------------| 
 |[RoleMember ekleyin](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Üye veritabanı rolüne ekleyin.| 
@@ -78,6 +60,7 @@ SqlServer modülündeki bir Tablosal Model betik dili (TMSL) sorgu veya betik ka
 
 ## <a name="related-information"></a>İlgili bilgiler
 
+* [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell)      
 * [SQL Server PowerShell modülünü indirin](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
 * [SSMS'yi indirin](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
 * [PowerShell galerisinde SqlServer modülündeki](https://www.powershellgallery.com/packages/SqlServer)    

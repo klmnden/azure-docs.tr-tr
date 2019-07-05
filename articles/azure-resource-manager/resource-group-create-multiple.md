@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 07/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 99fd4215de4dd118558acc008fcfa6490ea0093d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22317372a7d954286ebcb0b59aea293c746b2a58
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66807373"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508180"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Kaynak, özelliği veya Azure Resource Manager şablonlarında değişken yineleme
 
@@ -50,6 +50,8 @@ Belirtmeniz gerekiyorsa olup kaynağın dağıtıldığı tüm bkz [koşul öğe
 Yineleme sayısını belirtmek için sayısı özelliği için bir değer sağlayın. 800 sayısını aşamaz.
 
 Sayısı negatif bir sayı olamaz. REST API sürümü bir şablonla dağıtırsanız **2019-05-10** veya daha sonra sayısı sıfır olarak ayarlayabilirsiniz. REST API sürümlerinde sayısı için sıfır desteklemez. Şu anda, Azure CLI veya PowerShell desteklemez sıfır sayısı, ancak bu destek, gelecek sürümlerin birinde eklenecektir.
+
+Dikkatli kullanarak [modu dağıtımını tamamla](deployment-modes.md) kopya. Tam bir kaynak grubu moduna ile yeniden kopyalama döngüsü çözdükten sonra şablonda belirtilmeyen tüm kaynakları silinir.
 
 Sınırları sayısı için bir kaynak, değişken veya özellik ile kullanılıp aynıdır.
 

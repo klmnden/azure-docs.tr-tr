@@ -1,27 +1,24 @@
 ---
-title: Kullandıkça Öde aboneliğine Azure ayırmaları kullanımını anlama | Microsoft Docs
-description: Azure ayırma için Kullandıkça Öde aboneliğinizi nasıl uygulanacağını anlamak için kullanım okumayı öğrenin.
-services: billing
-documentationcenter: ''
-author: manish-shukla01
-manager: manshuk
-editor: ''
+title: Kullandıkça Öde tarifesine göre ile tek bir aboneliği Azure ayırma kullanımı
+description: Azure ayırma için tek tek aboneliğinizi Kullandıkça Öde tarifesine göre nasıl uygulanacağını anlamak için kullanım okumayı öğrenin.
+author: bandersmsft
+manager: yashr
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11f05c3de50f2f82173b6666d304887fbc2038cc
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370381"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490375"
 ---
-# <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Kullandıkça Öde aboneliğinizi Azure ayırma kullanımını anlama
+# <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Tek tek aboneliğinizin Kullandıkça Öde tarifesine göre aboneliğiyle Azure ayırma kullanımını anlama
 
 Reservationıd gelen kullanın [ayırma sayfası](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) ve kullanım dosyasından [Azure hesap portalını](https://account.azure.com) ayırma kullanımınızı değerlendirilecek.
 
@@ -62,7 +59,7 @@ Filtre **ek bilgi** ve yazın, **rezervasyon kimliği**. Aşağıdaki ekran gör
 4. **Ölçüm kimliği** ayırma için ölçüm kimliği. Bu ölçüm maliyeti 0 TL'dir. Bu ölçüm kimliği için ayırma indirimi niteleyen herhangi bir VM için görünür.
 5. Standard_DS1_v2 bir vCPU olan VM ve VM Azure karma avantajı olmadan dağıtılır. Bu nedenle, bu ölçüm, Windows yazılım başka bir ücret kapsar. D serisi 1 çekirdek VM karşılık gelen bir ölçüm bulmak için bkz: [Azure ayrılmış VM örnekleri Windows yazılım maliyetleri](billing-reserved-instance-windows-software-costs.md). Azure hibrit avantajı varsa, bu ek ücret uygulanmaz.
 
-## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Kapasite kullanımı SQL veritabanı ve Cosmos DB için ayrılmış
+## <a name="usage-for-sql-database--cosmos-db-reservations"></a>SQL veritabanı ve Cosmos DB ayırmalar için kullanım
 
 Aşağıdaki bölümlerde, kullanım raporu açıklamak için örnek olarak Azure SQL veritabanı kullanın. Azure Cosmos DB için de kullanımını almak için aynı adımları kullanabilirsiniz.
 

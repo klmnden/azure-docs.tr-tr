@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ebb67ff295a934b4e125e298018c27a095adc590
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 959d96a9bc1dd9f28e62d904248cd1f18d73c27d
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153876"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67563922"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-in-the-azure-portal"></a>Azure blob ve kuyruk verilere RBAC ile Azure portalında erişim izni ver
 
@@ -42,6 +42,11 @@ Bir rol ataması için uygun kapsam belirledikten sonra Azure portalında bu kay
 
 Aşağıdaki bölümlerde daha ayrıntılı bir şekilde bu adımların her biri açıklanmaktadır.
 
+> [!NOTE]
+> Bir Azure depolama hesabınızın sahibi olarak, otomatik olarak veri erişim izni atanmaz. Siz açıkça kendiniz bir RBAC rolü için Azure depolama atamanız gerekir. Aboneliğiniz, kaynak grubu, depolama hesabı veya bir kapsayıcı veya kuyruk düzeyinde atayabilirsiniz.
+> 
+> Depolama hesabınızda etkin bir hiyerarşik ad alanı varsa bir kapsayıcı veya sıra kapsamı belirlenmiş bir role atayamazsınız.
+
 ### <a name="assign-a-built-in-rbac-role"></a>Yerleşik bir RBAC rolü atayın
 
 Bir rol bir güvenlik sorumlusu atamadan önce verdiğiniz izinleri kapsamını göz önünde bulundurun emin olun. Gözden geçirme [kaynak kapsamını belirle](#determine-resource-scope) bölümü uygun kapsam karar verin.
@@ -65,11 +70,6 @@ Burada gösterilen yordam, bir kapsayıcı için kapsamlı bir rolü atar, ancak
     ![Ekran gösteren bir role atanmış kullanıcıların listesi](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
 
 Depolama hesabı, kaynak grubu veya abonelik kapsamında bir rol atamak için benzer adımları izleyebilirsiniz.
-
-> [!NOTE]
-> Bir Azure depolama hesabınızın sahibi olarak, otomatik olarak veri erişim izni atanmaz. Siz açıkça kendiniz bir RBAC rolü için Azure depolama atamanız gerekir. Aboneliğiniz, kaynak grubu, depolama hesabı veya bir kapsayıcı veya kuyruk düzeyinde atayabilirsiniz.
-> 
-> Depolama hesabınızda etkin bir hiyerarşik ad alanı varsa bir kapsayıcı veya sıra kapsamı belirlenmiş bir role atayamazsınız.
 
 ### <a name="assign-the-reader-role-for-portal-access"></a>Portal erişimi için okuyucu rolü atama
 

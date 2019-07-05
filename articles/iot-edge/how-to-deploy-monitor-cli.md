@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 55b18246861e452a4ac170094ee902bd6954fe89
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 39edbc77215d3a4f6477beae3be9d7d47cbba4f0
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190417"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540914"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Dağıtma ve izleme uygun ölçekte Azure CLI kullanarak IOT Edge modülleri
 
-Oluşturma bir **IOT Edge otomatik dağıtım** tek seferde birçok cihaz için devam eden dağıtımları yönetmek için Azure komut satırı arabirimi kullanarak. IOT Edge için otomatik dağıtımlar parçası olan [otomatik cihaz Yönetimi](/iot-hub/iot-hub-automatic-device-management.md) IOT hub'ı özelliğidir. Birden çok cihaz için birden çok modül dağıtma, sistem modüllerinin izlemek ve gerektiğinde değişiklik olanak sağlayan dinamik işlemler dağıtımlarıdır. 
+Oluşturma bir **IOT Edge otomatik dağıtım** tek seferde birçok cihaz için devam eden dağıtımları yönetmek için Azure komut satırı arabirimi kullanarak. IOT Edge için otomatik dağıtımlar parçası olan [otomatik cihaz Yönetimi](/azure/iot-hub/iot-hub-automatic-device-management) IOT hub'ı özelliğidir. Birden çok cihaz için birden çok modül dağıtma, sistem modüllerinin izlemek ve gerektiğinde değişiklik olanak sağlayan dinamik işlemler dağıtımlarıdır. 
 
 Daha fazla bilgi için [otomatik dağıtımlar tek tek cihazlarda veya uygun ölçekte IOT Edge anlamak](module-deployment-monitoring.md).
 

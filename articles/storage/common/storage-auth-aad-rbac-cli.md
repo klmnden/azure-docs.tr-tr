@@ -5,20 +5,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 06/26/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: dc2beda1ae017b5e81fddf08d0c7e88c785bcdf5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e29b8e23927ef2ff70416d1adc76e2b2b3f2d8a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153888"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443708"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Azure CLI kullanarak RBAC ile Azure blob ve kuyruk verilere erişim izni ver
 
-Azure Active Directory (Azure AD) ile güvenli kaynaklara erişim hakları yetkilendirir [rol tabanlı erişim denetimi (RBAC)](../../role-based-access-control/overview.md). Azure depolama, bir dizi ortak blob veya sıra verilerinize erişmek için kullanılan izin kümelerini kapsayacak yerleşik RBAC rolleri tanımlar. 
+Azure Active Directory (Azure AD) ile güvenli kaynaklara erişim hakları yetkilendirir [rol tabanlı erişim denetimi (RBAC)](../../role-based-access-control/overview.md). Azure depolama, bir dizi ortak blob veya sıra verilerinize erişmek için kullanılan izin kümelerini kapsayacak yerleşik RBAC rolleri tanımlar.
 
 Bir RBAC rolü için bir Azure AD güvenlik sorumlusu atandığında, Azure verir, bir güvenlik sorumlusu için bu kaynaklara erişin. Abonelik, kaynak grubu, depolama hesabı veya bir kapsayıcının veya kuyruk düzeyi için erişimi sınırlayabilirsiniz. Bir Azure AD güvenlik sorumlusu olabilir bir kullanıcı, Grup, bir uygulama hizmet sorumlusu veya [yönetilen Azure kaynakları için kimliği](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -52,9 +52,9 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## <a name="assign-an-rbac-role-to-a-user"></a>Bir kullanıcıya bir RBAC rolü atayın
+## <a name="assign-an-rbac-role-to-a-security-principal"></a>Bir güvenlik sorumlusu için bir RBAC rolü atayın
 
-Bir kullanıcıya bir RBAC rolü atamak için kullanın [az rol ataması oluşturma](/cli/azure/role/assignment#az-role-assignment-create) komutu. Komut biçimi atama kapsamına göre değişebilir. Aşağıdaki örnekler, çeşitli kapsamları sırasında bir kullanıcıya rol atamak gösterilmektedir.
+Bir RBAC rolü için bir güvenlik sorumlusu atama [az rol ataması oluşturma](/cli/azure/role/assignment#az-role-assignment-create) komutu. Komut biçimi atama kapsamına göre değişebilir. Aşağıdaki örnekler, çeşitli kapsamları sırasında bir kullanıcıya rol atamak gösterilmektedir, ancak aynı komutu tüm güvenlik sorumlusu rol atamak için kullanabilirsiniz.
 
 ### <a name="container-scope"></a>Kapsayıcı kapsamı
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 04/01/2019
+ms.date: 07/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e54c18eb405ffa36260e9980705784130bc0ca4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aae5b87e49b6d64e4c9ee854b65821d65969e66b
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61023773"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536817"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Hızlı Başlangıç: Sunucu oluşturma - Portal
 
@@ -37,7 +37,7 @@ Bu hızlı başlangıçta, portalı kullanarak Azure aboneliğinizde bir Analysi
 
 2. **Analysis Services** sayfasında gerekli alanları doldurduktan sonra **Oluştur**'a basın.
    
-   * **Sunucu adı**: Sunucu başvurmak için kullanılan benzersiz bir ad yazın.
+   * **Sunucu adı**: Sunucu başvurmak için kullanılan benzersiz bir ad yazın. Sunucu adı, bir küçük harf karakter ile başlamalı ve 3 ila 128 küçük harf karakterler ve numaralar arasında içerir. Boşluk ve özel karakterlere izin verilmez.
    * **Abonelik**: Bu sunucu ile ilişkili aboneliği seçin.
    * **Kaynak grubu**: Yeni bir kaynak grubu oluşturun veya zaten seçin. Kaynak grupları, bir Azure kaynağı koleksiyonunu yönetmenize yardımcı olmak üzere tasarlanmıştır. Daha fazla bilgi edinmek için bkz. [kaynak grupları](../azure-resource-manager/resource-group-overview.md).
    * **Konum**: Bu Azure veri merkezi konumu sunucu barındırır. En büyük kullanıcı tabanınıza en yakın konumu seçin.

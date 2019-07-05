@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 55db909f240756200d758fe89aabb217fb380d16
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 4fd862c2442d2637d799a1f690d5f0a091c80562
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329809"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449203"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream analytics'te sorgu paralelleştirmesinden
 Bu makalede, Azure Stream Analytics'te paralelleştirme yararlanmak işlemini göstermektedir. Giriş bölümlerini yapılandırma ve analytics Sorgu tanımını ayarlayarak Stream Analytics işlerini ölçeklendirmeyi öğrenin.
 Bir önkoşul olarak açıklandığı akış birimi kavramı hakkında bilgi sahibi olmasını isteyebilirsiniz [anlayın ve akış birimi Ayarla](stream-analytics-streaming-unit-consumption.md).
 
 ## <a name="what-are-the-parts-of-a-stream-analytics-job"></a>Bir Stream Analytics işi bölümlerini nelerdir?
-Stream Analytics iş tanımı girişleri, sorgu ve çıkış içerir. Burada işi veri akışından okur girişlerdir. Veri giriş akışını dönüştürmek için kullanılan sorgu ve iş için iş sonuçlarını göndereceği yeri çıkış alınır.  
+Stream Analytics iş tanımı girişleri, sorgu ve çıkış içerir. Burada işi veri akışından okur girişlerdir. Veri giriş akışını dönüştürmek için kullanılan sorgu ve iş için iş sonuçlarını göndereceği yeri çıkış alınır.
 
 Bir iş akış verileri için en az bir giriş kaynağı gerektirir. Veri akışı giriş kaynağı, bir Azure olay hub'ı veya Azure blob depolama alanında depolanabilir. Daha fazla bilgi için [Azure Stream analytics'e giriş](stream-analytics-introduction.md) ve [Azure Stream Analytics'i kullanmaya başlama](stream-analytics-real-time-fraud-detection.md).
 
@@ -248,11 +248,65 @@ Bu sorgu için 24 SUs ölçeklendirilebilir.
 > 
 > 
 
+## <a name="achieving-higher-throughputs-at-scale"></a>Uygun ölçekte, yüksek aktarım hızı elde edin
 
+Bir [utandırıcı derecede paralel](#embarrassingly-parallel-jobs) iş gerekli ancak uygun ölçekte daha yüksek bir aktarım hızı sürdürmek yeterli değil. Her depolama sistemi ve ilgili Stream Analytics çıktısını olası yazma en iyi performans sağlamak nasıl farklılıklara sahiptir. Gibi doğru yapılandırmaları kullanarak çözülebilir bazı zorluklar herhangi ölçekli senaryosuyla vardır. Bu bölümde, birkaç ortak çıkış yapılandırmaları açıklar ve saniye başına 1 K, 5 K ve 10 bin olay alımı ücretlerine dayanıklılık geçtikten için örnekleri sağlar.
 
+Aşağıdaki gözlemlere, durum bilgisi olmayan (doğrudan geçiş) sorgusu, temel bir olay hub'ı, Azure SQL DB veya Cosmos DB yazan bir JavaScript UDF ile bir Stream Analytics işi kullanın.
 
+#### <a name="event-hub"></a>Olay Hub'ı
+
+|Alma oranı (olay / saniye) | Akış Birimleri | Çıkış kaynakları  |
+|--------|---------|---------|
+| 1K     |    1    |  2 İŞLEME BİRİMİ   |
+| 5K     |    6    |  6 İŞLEME BİRİMİ   |
+| 10.000    |    12   |  10 İŞLEME BİRİMİ  |
+
+[Olay hub'ı](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) birimleri (SU) ve aktarım hızı, en verimli hale getirir ve etkili bir yolla çözümlemek ve Stream Analytics dışında veri akışı için akış açısından çözüm doğrusal olarak ölçeklendirir. İşleri, kabaca 200 MB/sn veya 19 trilyon olayları günde en fazla işleme için çeviren 192 SU kadar ölçeklendirilebilir.
+
+#### <a name="azure-sql"></a>Azure SQL
+|Alma oranı (olay / saniye) | Akış Birimleri | Çıkış kaynakları  |
+|---------|------|-------|
+|    1K   |   3  |  S3   |
+|    5K   |   18 |  P4   |
+|    10.000  |   36 |  P6   |
+
+[Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) paralel olarak yazmayı destekler, bölümleme çağrılan devralır, ancak değil varsayılan olarak etkindir. Ancak, tam olarak paralel sorgu yanı sıra, etkinleştirme devral bölümleme, daha yüksek aktarım hızı elde etmek yeterli olmayabilir. SQL yazma aktarım hızı, SQL Azure veritabanı yapılandırması ve tablo şemanızı üzerinde önemli ölçüde bağlıdır. [SQL çıkış performansı](./stream-analytics-sql-output-perf.md) makale yazma aktarım hızınızı en üst düzeye çıkarabilirsiniz parametreleri hakkında ayrıntılı bilgilere sahiptir. Belirtilen [Azure SQL veritabanı için Azure Stream Analytics çıkış](./stream-analytics-sql-output-perf.md#azure-stream-analytics) makalesi, bu çözüm 8 bölüm ötesinde tam olarak paralel bir işlem hattı olarak doğrusal olarak ölçeklendirilemez ve SQL çıktı önce yeniden bölümlenmesi gerekebilir (bkz [ İÇİNE](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). Premium SKU'ları ek günlük yedeklerinin her birkaç'olmuyor yükünden yanı sıra yüksek g/ç oranları sürdürmek için gereken dakika.
+
+#### <a name="cosmos-db"></a>Cosmos DB
+|Alma oranı (olay / saniye) | Akış Birimleri | Çıkış kaynakları  |
+|-------|-------|---------|
+|  1K   |  3    | 20K RU  |
+|  5K   |  24   | 60K RU  |
+|  10.000  |  48   | 120K RU |
+
+[Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) Stream Analytics'ten alınan çıkış altında yerel tümleştirmesini kullanacak şekilde güncelleştirildi [uyumluluk düzeyi 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). Uyumluluk düzeyi 1.2, önemli ölçüde daha yüksek aktarım hızı sağlar ve yeni projeler için varsayılan uyumluluk düzeyi 1.1 ile karşılaştırıldığında RU kullanımını azaltır. Çözüm üzerinde /deviceId bölümlenmiş CosmosDB kapsayıcıları kullanır ve çözümün geri kalanı aynı şekilde yapılandırılır.
+
+Tüm [ölçek azure örnekleri akış](https://github.com/Azure-Samples/streaming-at-scale) iletilir ve test istemcilerinin giriş olarak benzetimi yük tarafından bir olay Hub'ı kullanın. Her giriş olayı işleme hızları (1 MB/sn, 5 MB/s ve 10 MB/sn) için yapılandırılmış alımı ücretlerine bir kolayca çeviren bir 1 KB JSON belgesidir. Olaylar, en fazla 1 K cihazlar için (kısaltılmış içinde) aşağıdaki JSON verilerini göndermeden bir IOT cihazının simülasyonunu gerçekleştirme:
+
+```
+{
+    "eventId": "b81d241f-5187-40b0-ab2a-940faf9757c0",
+    "complexData": {
+        "moreData0": 51.3068118685458,
+        "moreData22": 45.34076957651598
+    },
+    "value": 49.02278128887753,
+    "deviceId": "contoso://device-id-1554",
+    "type": "CO2",
+    "createdAt": "2019-05-16T17:16:40.000003Z"
+}
+```
+
+> [!NOTE]
+> Yapılandırmalar çözümde kullanılan çeşitli bileşenler nedeniyle değiştirilebilir. Daha doğru bir tahmin için örnekleri kendi senaryonuza uyacak şekilde özelleştirin.
+
+### <a name="identifying-bottlenecks"></a>Performans sorunlarını tanımlama
+
+Ölçümleri bölmesinde Azure Stream Analytics işinizi işlem hattınızı performans sorunlarını tanımlamak için kullanın. Gözden geçirme **giriş/çıkış olaylarını** için aktarım hızı ve ["Eşik gecikmesi"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) veya **biriktirme listesine alınan olaylar** iş giriş oranı ile tutmaktan olmadığını görmek için. Olay hub'ı ölçümler için aranacak **istekler daraltıldı** ve eşik birimleri uygun şekilde ayarlayın. Cosmos DB ölçümleri için gözden geçirin **bölüm anahtar aralığı başına tüketilen RU/sn en fazla** , bölüm anahtar aralığı emin olmak için aktarım hızı altında aynı şekilde kullanılır. Azure SQL DB için izleme **günlük GÇ** ve **CPU**.
 
 ## <a name="get-help"></a>Yardım alın
+
 Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Sonraki adımlar
