@@ -12,12 +12,12 @@ ms.date: 10/22/2018
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd84b44c89c856036640757b7760d7c10bd36173
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4951984d05e75b0271cf6592c77c54ad13678994
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824839"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476547"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>Son kullanıcılar Azure Active Directory'de bir uygulamaya onay şekilde yapılandırın
 Kullanıcılar uygulama izinleri onay şekilde yapılandırmayı öğrenin. Yönetici onayı vererek kullanıcı deneyimini kolaylaştırabilirsiniz. Bu makalede, kullanıcı onayı yapılandırabileceğiniz farklı yollar sunar. Azure Active Directory (Azure AD) kiracınız içindeki tüm son kullanıcılar için yöntemleri uygulayın. 
@@ -38,9 +38,10 @@ Kurumsal uygulama için yönetici onayı vermek için:
 2. Tıklayın **tüm hizmetleri** sol gezinti menüsünün üstünde. **Azure Active Directory uzantısını** açılır.
 3. Filtre Arama kutusuna **"Azure Active Directory"** seçip **Azure Active Directory** öğesi.
 4. Gezinti menüden **kurumsal uygulamalar**.
-5. Tıklayın **verme yönetici onayı**. Uygulamayı yönetmek oturum açmanız istenir.
-6. Uygulama için yönetici onayı vermek için izinleri olan bir hesapla oturum açın. 
-7. Uygulama izni vermiş olursunuz.
+5. Onay için uygulamayı seçin.
+6. Seçin **izinleri** ve ardından **yönetici onayı vermek**. Uygulamayı yönetmek oturum açmanız istenir.
+7. Uygulama için yönetici onayı vermek için izinleri olan bir hesapla oturum açın. 
+8. Uygulama izni vermiş olursunuz.
 
 Bu seçenek, yalnızca uygulama ise çalışır: 
 
@@ -54,8 +55,8 @@ Bir uygulama kaydı sırasında yönetici onayı vermek için:
 1. [Azure portalında](https://portal.azure.com) genel yönetici olarak oturum açın.
 2. Gidin **uygulama kayıtları** dikey penceresi.
 3. Uygulama onayı için seçin.
-4. Seçin **gerekli izinler**.
-5. Tıklayın **izinler** dikey penceresinin üstünde.
+4. Seçin **API izinleri**.
+5. Tıklayın **yönetici onayı vermek**.
 
 
 ## <a name="grant-admin-consent-through-a-url-request"></a>Bir URL isteği aracılığıyla yönetici izni verme

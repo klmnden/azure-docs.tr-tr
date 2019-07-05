@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04838c1dbc9a524d04998f4d6c851037e43c9d90
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: f770539e2f60a960a52a877dd4eaa79c60a1af4a
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545783"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482665"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Hızlı Başlangıç: Web API'leri kullanıma sunmak için uygulama yapılandırma
 
@@ -52,7 +52,7 @@ Uygulamayı yapılandırmadan önce, aşağıdaki adımları izleyin:
 
 ## <a name="expose-a-new-scope-through-the-ui"></a>Kullanıcı arabirimi aracılığıyla yeni bir kapsamı kullanıma sunma
 
-[![Kullanıcı arabirimini kullanarak API’yi kullanıma sunma](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+[![Kullanıcı arabirimini kullanarak bir API'yi kullanıma sunmak nasıl gösterir](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
 
 Kullanıcı arabirimi aracılığıyla yeni bir kapsamı kullanıma sunmak için:
 

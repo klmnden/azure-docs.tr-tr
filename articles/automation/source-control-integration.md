@@ -4,17 +4,17 @@ description: Bu makalede, Azure automation'da GitHub ile kaynak denetimi tümle�
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ce41ae73a0c55a2b5c27cbdce4d4c16853acf59e
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 1ae61af2ad857068950e2b2cdb6f058a33f57186
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273197"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477578"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Otomasyonu’nda kaynak denetimi tümleştirmesi
 

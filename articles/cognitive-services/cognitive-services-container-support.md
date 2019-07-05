@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/11/2019
 ms.author: dapine
-ms.openlocfilehash: 8ebc3d9f3339e2f703a1f374363b72b86f63d903
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 263a67f885615941624befcb52c408158e680062
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204030"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566104"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure Bilişsel hizmetler kapsayıcı desteği
 
@@ -107,7 +107,7 @@ Kapsayıcılara sunucu ve bellek ayırma gereksinimleri dahil olmak üzere kendi
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hakkında bilgi edinin [kapsayıcı tarifleri](/containers/container-reuse-recipe.md) Bilişsel hizmetler ile kullanabilirsiniz.
+Hakkında bilgi edinin [kapsayıcı tarifleri](/azure/cognitive-services/containers/container-reuse-recipe) Bilişsel hizmetler ile kullanabilirsiniz.
 
 Yükleme ve Azure Bilişsel hizmetler, kapsayıcılar tarafından sağlanan işlevselliği keşfedin:
 

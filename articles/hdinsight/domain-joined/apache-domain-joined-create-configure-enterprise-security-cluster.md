@@ -8,18 +8,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/09/2019
-ms.openlocfilehash: 7457c06f9f151cb310704a985c79572c7b770859
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e9cb9a902cf60fbd3b297a72a7dfa836ee18c835
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166222"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484593"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Oluşturma ve Azure HDInsight Kurumsal güvenlik paketi kümeleri yapılandırma
 
 Azure HDInsight Kurumsal güvenlik paketi azure'da Apache Hadoop kümeleriniz için Active Directory tabanlı kimlik doğrulaması, çoklu kullanıcı desteği ve rol tabanlı erişim denetimi erişmenizi sağlar. ESP HDInsight kümeleri, hassas verileri güvenli bir şekilde işlemek için katı Kurumsal güvenlik ilkeleri için kullanan kuruluşlar, etkinleştirin.
 
-Bu kılavuzun amacı doğru şekilde yapılandırıldığından, kullanıcılar oturum açabilir bir ESP için şirket için gerekli kaynakları HDInsight küme etkin. Bu makalede, Kurumsal güvenlik paketi etkin bir Azure HDInsight kümesi oluşturmak için gereken adımlarda size yol gösterir. & Active Directory etki alanı Hizmetleri (DNS) etkinleştirilmiş bir Windows Iaas VM oluşturma adımları verilmektedir. Bu sunucu bir ardılı olarak hareket edecek, **gerçek** şirket içi ortamınızdaki ve Kurulum ve yapılandırma adımları böylece daha sonra kendi ortamınızda yineleyebilirsiniz devam etmenize olanak tanır. Bu kılavuz ayrıca Azure Active Directory ile parola karma eşitlemesi kullanarak bir karma kimlik ortamı oluşturmanıza yardımcı olur.
+Bu kılavuzun amacı bir ESP için şirket içi kullanıcılar oturum açabilir şekilde gerekli kaynakları doğru şekilde yapılandırmak için HDInsight kümesi etkindir. Bu makalede, Kurumsal güvenlik paketi etkin bir Azure HDInsight kümesi oluşturmak için gereken adımlarda size yol gösterir. & Active Directory etki alanı Hizmetleri (DNS) etkinleştirilmiş bir Windows Iaas VM oluşturma adımları verilmektedir. Bu sunucu bir ardılı olarak hareket edecek, **gerçek** şirket içi ortamınızdaki ve Kurulum ve yapılandırma adımları böylece daha sonra kendi ortamınızda yineleyebilirsiniz devam etmenize olanak tanır. Bu kılavuz ayrıca Azure Active Directory ile parola karma eşitlemesi kullanarak bir karma kimlik ortamı oluşturmanıza yardımcı olur.
 
 Bu kılavuzu tamamlamak üzere tasarlanmıştır [HDInsight içinde kullanım Kurumsal güvenlik paketi](apache-domain-joined-architecture.md)
 
@@ -208,7 +208,7 @@ Daha fazla bilgi için [etkinleştirme Azure Active Directory etki alanı Azure 
 1. Azure Portal’da oturum açın.
 1. Tıklayın **kaynak oluşturma**, girin **etki alanı Hizmetleri** seçip **Azure AD Domain Services**.
 1. Üzerinde **Temelleri** ekran aşağıdaki adımları tamamlayın:
-    1. Altında **dizin adı** Azure Active Directory'ı Bu öğretici için oluşturduğunuz seçin **HDIFabrikam**.
+    1. Altında **dizin adı** Azure Active Directory'ı bu makale boyunca oluşturduğunuz seçin **HDIFabrikam**.
     1. Girin bir **DNS etki alanı adı** , **HDIFabrikam.com**.
     1. Aboneliğinizi seçin.
     1. Kaynak grubu belirtin **HDIFabrikam CentralUS** ve **konumu** , **Orta ABD**.
@@ -219,7 +219,7 @@ Daha fazla bilgi için [etkinleştirme Azure Active Directory etki alanı Azure 
 
     ![Ağ seçin](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image086.png)
 
-1. Üzerinde **yönetici grubuna** ekran, adlı bir grubu bir bildirim görmeniz **AAD DC Administrators** bu Grup yönetmek için zaten oluşturuldu. İsteğe bağlı olarak, bu grubun üyeliğini değiştirebilirsiniz, ancak bu öğreticideki adımları için gerekli değildir. **Tamam**'ı tıklatın.
+1. Üzerinde **yönetici grubuna** ekran, adlı bir grubu bir bildirim görmeniz **AAD DC Administrators** bu Grup yönetmek için zaten oluşturuldu. İsteğe bağlı olarak, bu grubun üyeliğini değiştirebilirsiniz, ancak bu makalede bir adım için gerekli değildir. **Tamam**'ı tıklatın.
 
     ![Yönetici grubu görünümü](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image088.png)
 

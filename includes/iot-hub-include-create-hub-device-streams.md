@@ -1,19 +1,19 @@
 ---
 title: içerme dosyasını (cihaz akışları Önizleme)
 description: içerme dosyasını (cihaz akışları Önizleme)
-author: rezas
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
 ms.date: 03/14/2019
-ms.author: rezas
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 93c71fa8b0c39cc16d2a8e24472e8d68717a6c32
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: a02c16a75bbdf4827ce6a6c5f50751caf9c5aab8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733291"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446020"
 ---
 Bu bölümde, IOT hub'ı kullanarak oluşturmak açıklar [Azure portalında](https://portal.azure.com).
 

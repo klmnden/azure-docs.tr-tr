@@ -1,28 +1,22 @@
 ---
 title: Etkinleştirme Kurumsal durumda Dolaşım Azure Active Directory'de | Microsoft Docs
-description: Windows cihazlarında Kurumsal durumda Dolaşım ayarları hakkında sık sorulan sorular. Kurumsal durumda dolaşım, kullanıcılar Windows cihazlarını arasında birleşik bir deneyim sağlar ve yeni bir cihaz yapılandırmak için gereken süreyi azaltır.
+description: Windows cihazlarında Kurumsal durumda Dolaşım ayarları hakkında sık sorulan sorular.
 services: active-directory
-keywords: Kurumsal durumda dolaşım, Microsoft Bulutu, Kurumsal durumda Dolaşım etkinleştirme
-documentationcenter: ''
-author: tanning
-manager: daveba
-editor: curtand
-ms.subservice: devices
-ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
+ms.subservice: devices
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88e825ebc08b4bfbd65f81b7b2480ead9be314b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45c1fc6340df6a5400864b2e1222a2c65e586232
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954939"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482027"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Azure Active Directory'de Kurumsal Durumda Dolaşımı etkinleştirme
 Kurumsal durumda dolaşım, tüm kuruluşa bir Azure AD Premium veya Enterprise Mobility + Security (EMS) lisansı ile kullanılabilir. Azure AD aboneliğiniz alma hakkında daha fazla bilgi için bkz. [Azure AD'ye ürün sayfası](https://azure.microsoft.com/services/active-directory).
@@ -32,9 +26,7 @@ Kurumsal durumda Dolaşım etkinleştirdiğinizde, kuruluşunuz Azure Informatio
 ## <a name="to-enable-enterprise-state-roaming"></a>Kurumsal durumda Dolaşım etkinleştirmek için
 
 1. Oturum [Azure AD yönetim merkezini](https://aad.portal.azure.com/).
-
 1. Seçin **Azure Active Directory** &gt; **cihazları** &gt; **Kurumsal durumda Dolaşım**.
-
 1. Seçin **kullanıcılar eşitleme ayarları ve uygulama verilerini cihazlarda**. Daha fazla bilgi için [cihaz ayarlarının nasıl yapılandırılacağı](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
   
    ![Etiketli Kullanıcılar Cihaz ayarı görüntüsü cihazlarda ayarları ve uygulama verilerini eşitleyebilir](./media/enterprise-state-roaming-enable/device-settings.png)
@@ -44,12 +36,12 @@ Windows 10 cihaz Kurumsal durumda Dolaşım hizmetini kullanmak üzere bir Azure
 ## <a name="data-storage"></a>Veri depolama
 Bir veya daha fazla veri Kurumsal durumda Dolaşım barındırılan [Azure bölgeleri](https://azure.microsoft.com/regions/) en iyi ülke/bölge değeri Azure Active Directory örneğinde ayarlanmış Hizala. Kurumsal durumda Dolaşım veriler üzerinde üç ana coğrafi bölgeler göre bölümlenir: Kuzey Amerika, EMEA ve APAC. Kiracının verileri Kurumsal durumda Dolaşım coğrafi bölge ile yerel olarak bulunur ve bölgeler arasında çoğaltılmaz.  Örneğin:
 
-Ülke/bölge değeri | kendi veri barındırılan
----------------------|-------------------------
-Bir listelenen Fransa veya Zambiya gibi EMEA ülke/bölge | Bir veya daha fazla Avrupa içinde Azure bölgeleri 
-ABD veya Kanada gibi Kuzey Amerika bir ülke/bölge | bir veya daha fazla ABD içindeki Azure bölgeler
-Bir listelenen Avustralya veya Yeni Zelanda'da gibi APAC ülke/bölge | bir veya daha fazla Azure bölgeleri içinde Asya
-Güney Amerika ve Antarktika bölgeler | ABD içindeki bir veya daha fazla Azure bölgeleri
+| Ülke/bölge değeri | kendi veri barındırılan |
+| -------------------- | ------------------------ |
+| Bir listelenen Fransa veya Zambiya gibi EMEA ülke/bölge | Bir veya daha fazla Avrupa içinde Azure bölgeleri |
+| ABD veya Kanada gibi Kuzey Amerika bir ülke/bölge | bir veya daha fazla ABD içindeki Azure bölgeler |
+| Bir listelenen Avustralya veya Yeni Zelanda'da gibi APAC ülke/bölge | bir veya daha fazla Azure bölgeleri içinde Asya |
+| Güney Amerika ve Antarktika bölgeler | ABD içindeki bir veya daha fazla Azure bölgeleri |
 
 Ülke/bölge değeri, Azure AD dizin oluşturma işleminin bir parçası olarak ayarlanır ve daha sonra değiştirilemez. Bir bileti, veri depolama konumu ile ilgili daha fazla ayrıntı gerekiyorsa, [Azure Destek](https://azure.microsoft.com/support/options/).
 
@@ -57,11 +49,8 @@ Güney Amerika ve Antarktika bölgeler | ABD içindeki bir veya daha fazla Azure
 Kullanıcı başına cihaz eşitleme Durum raporunda görüntülemek için aşağıdaki adımları izleyin.
 
 1. Oturum [Azure AD yönetim merkezini](https://aad.portal.azure.com/).
-
 1. Seçin **Azure Active Directory** &gt; **kullanıcılar** &gt; **tüm kullanıcılar**.
-
 1. Kullanıcıyı seçin ve ardından **cihazları**.
-
 1. Altında **Göster**seçin **ayarları ve uygulama verilerini eşitleyen cihazlar** eşitleme durumunu göstermek için.
   
    ![cihaz eşitleme verilerini ayarın görüntüsü](./media/enterprise-state-roaming-enable/sync-status.png)

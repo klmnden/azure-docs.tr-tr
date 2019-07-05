@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f645b7077ef43dc7eb4d70261b6b601b5e4af1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9d2e8b4ae1a01cd299d910c4e88655885c7d00dc
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288484"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476378"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>Onaylayın veya reddedin PIM Azure kaynak rolleri için istekleri
 
@@ -38,15 +38,15 @@ Onayınızı bekleyen bir Azure Kaynak rolü istek olduğunda, bir temsilci onay
 
 1. Tıklayın **istekleri onaylama**.
 
-    ![Azure kaynakları - istekleri Onayla](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
+    ![Gözden geçirme isteği gösteren Azure kaynaklarını sayfasının istekleri - Onayla](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
 
     İçinde **rol etkinleştirmesi için istekler** bölümünde onayınızı bekleyen isteklerinin bir listesini görürsünüz.
 
 ## <a name="approve-requests"></a>İstekleri onaylama
 
-1. Bulup onaylamak istediğiniz istekte tıklayın. Bir onay bölmesi görünür.
+1. Bulup onaylamak istediğiniz istekte tıklayın. Bir onaylama veya reddetme bölmesi görünür.
 
-    ![İstekleri bölmesinde Onayla](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![İstekleri onaylama - onaylama veya reddetme ayrıntıları ve gerekçe kutusu içeren bölme](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. İçinde **gerekçe** bir neden yazın.
 
@@ -54,13 +54,13 @@ Onayınızı bekleyen bir Azure Kaynak rolü istek olduğunda, bir temsilci onay
 
     Onayınızı ile bir bildirim görüntülenir.
 
-    ![Bildirimi onaylayın](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
+    ![İstek Onaylandı gösteren bildirimi onaylayın](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
 
 ## <a name="deny-requests"></a>İstekleri Reddet
 
-1. Bulun ve reddetmek istediğiniz isteği'ni tıklatın. Bir onay bölmesi görünür.
+1. Bulun ve reddetmek istediğiniz isteği'ni tıklatın. Bir onaylama veya reddetme bölmesi görünür.
 
-    ![İstekleri bölmesinde Onayla](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![İstekleri onaylama - onaylama veya reddetme ayrıntıları ve gerekçe kutusu içeren bölme](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. İçinde **gerekçe** bir neden yazın.
 

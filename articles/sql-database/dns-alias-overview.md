@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi, ayolubek, jrasnick
 manager: craigg
-ms.date: 06/19/2019
-ms.openlocfilehash: d15e629343e015af5f83e1d185c6a46fc48fa3c4
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 06/26/2019
+ms.openlocfilehash: bb38f73308fb1eb67be310120cb589cb9412e737
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275203"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461818"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL veritabanı için DNS diğer adı
 
@@ -30,6 +30,7 @@ Aşağıdaki durumlarda bir DNS diğer adı için yaygın kullanımları şunlar
 - Bir Azure SQL sunucusunun adını hatırlamak bir kolayca oluşturun.
 - İlk geliştirme sırasında test SQL veritabanı sunucusu için diğer adınızı başvurabilir. Uygulamayı Canlı çıktığında, üretim sunucusuna başvurmak için diğer ad değiştirebilirsiniz. Üretim testinden geçişi, veritabanı sunucusuna çeşitli istemciler yapılandırmaları değişiklik gerektirmez.
 - Başka bir SQL veritabanı sunucusuna, uygulamanızda yalnızca veritabanı taşınır varsayalım. Burada, diğer birkaç istemcisi yapılandırmalarını değiştirmek zorunda kalmadan değiştirebilirsiniz.
+- Bölgesel bir kesinti sırasında farklı bir sunucu ve bölge, veritabanını kurtarmak için coğrafi geri yükleme kullanın. Böylece var olan istemci uygulaması için yeniden bağlanamadı yeni sunucuya işaret edecek şekilde var olan diğer adınızı değiştirebilirsiniz. 
 
 ## <a name="domain-name-system-dns-of-the-internet"></a>İnternet etki alanı adı sistemi (DNS)
 

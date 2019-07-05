@@ -9,37 +9,31 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: ec0425ff2188ecf1816d5f5841394c8e32f301d2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4f3d31fa25ea5781bc3af7297719b77723597e17
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67188168"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444638"
 ---
 ## <a name="publish-the-project-to-azure"></a>Projeyi Azure'da yayımlama
 
 Visual Studio Code, işlevler projenizi doğrudan Azure’da dağıtmanıza olanak sağlar. Süreç kapsamında, Azure abonelik bir işlev uygulaması ve ilgili kaynakları oluşturursunuz. İşlev uygulaması, işlevlerinize ilişkin bir yürütme bağlamı sağlar. Proje, Azure aboneliğinizdeki yeni işlev uygulamasında paketlenir ve dağıtılır.
 
-Bu makalede, yeni bir işlev uygulaması oluşturduğunuz varsayılır. 
+Varsayılan olarak, Visual Studio tüm işlev uygulamanızı oluşturmak için gereken Azure kaynakları oluşturur. Bu kaynakların adlarını seçtiğiniz işlev uygulamasının adı temel alır. Oluşturulan kaynakların tam denetim gerekiyorsa, bunun yerine yapabilecekleriniz [Gelişmiş seçenekleri kullanarak yayımlama](../articles/azure-functions/functions-develop-vs-code.md#enabled-publishing-with-advanced-create-options).
+
+Bu bölümde, Azure'da yeni bir işlev uygulaması oluşturduğunuzu varsayar.
 
 > [!IMPORTANT]
 > Varolan bir işlev uygulamasına yayımladığınızda Azure’daki uygulamanın içeriğinin üzerine yazılır.
 
-1. İçinde **Azure: İşlevleri** alan, işlev uygulaması simgesine Dağıt'ı seçin.
-
-    ![İşlev uygulaması ayarları](./media/functions-publish-project-vscode/function-app-publish-project.png)
+1. Visual Studio Code'da komut paletini açın için F1 tuşuna basın. Arayın ve seçin komut Paleti'nde `Azure Functions: Deploy to function app...`.
 
 1. Değil oturum açma, siz istenirse **Azure'da oturum aç**. Ayrıca **ücretsiz bir Azure hesabı oluşturun**. Tarayıcıdan sonra başarılı oturum açma, Visual Studio Code için geri dönün. 
 
 1. Birden fazla aboneliğiniz varsa **bir abonelik seçin** seçin işlev uygulaması için **+ oluştur yeni işlev uygulamanızı Azure'a**.
 
 1. İşlev uygulamanızı tanımlayan bir genelde benzersiz olan bir ad yazın ve Enter tuşuna basın. İşlev uygulaması adına ilişkin geçerli karakterler `a-z`, `0-9` ve `-` işaretidir.
-
-1. **+ Yeni Kaynak Grubu Oluştur**’u seçin, `myResourceGroup` gibi bir kaynak grubu adı yazın ve Enter tuşuna basın. Ayrıca var olan bir kaynak grubunu kullanabilirsiniz.
-
-1. Seçin **+ oluştur yeni depolama hesabı**, yeni depolama hesabı genel olarak benzersiz bir ad, Enter tuşuna basın ve işlev uygulaması tarafından kullanılan tür. Depolama hesabı adları 3 ile 24 karakter arasında olmalı ve yalnızca sayıyla küçük harf içermelidir. Var olan bir hesabı da kullanabilirsiniz.
-
-1. Ayrıca, kendinize veya işlevlerinizin erişeceği diğer hizmetlere yakın bir [bölgede](https://azure.microsoft.com/regions/) yer alan bir konum seçin.
 
     Aşağıdaki Azure kaynakları, Enter tuşuna bastığınızda, aboneliğinizde oluşturulur:
 

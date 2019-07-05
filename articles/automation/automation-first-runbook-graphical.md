@@ -5,17 +5,17 @@ keywords: runbook, runbook şablonu, runbook otomasyonu, azure runbook
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/13/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: be811d0dc2ce2eca0b20ca12165eaf0799bd6b5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 043a39fbcb908e4c277e5eba9972a2a17ca23813
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61078097"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478677"
 ---
 # <a name="my-first-graphical-runbook"></a>İlk grafik runbook uygulamam
 
@@ -165,7 +165,7 @@ Runbook’umuz şu anda **Start-AzureRmVM** cmdlet’inde belirttiğiniz kaynak 
 
 1. Tıklayarak grafik düzenleyicisini açın **Düzenle** üzerinde **MyFirstRunbook-Graphical** bölmesi.
 1. Seçin **giriş ve çıkış** ardından **Girişi Ekle** Runbook giriş parametresi bölmesini açmak için.
-1. **Ad** için *VMName* belirtin. **Tür** *dizesini* koruyun ancak, **Zorunlu**’yu *Evet* olarak değiştirin. **Tamam** düğmesine tıklayın.
+1. **Ad** için *VMName* belirtin. **Tür** *dizesini* koruyun ancak, **Zorunlu**’yu *Evet* olarak değiştirin. **Tamam**'ı tıklatın.
 1. *ResourceGroupName* adlı ikinci bir zorunlu giriş parametresi oluşturun ve ardından **Giriş ve Çıkış** bölmesini kapatmak için **Tamam**’a tıklayın.<br> ![Runbook Giriş Parametreleri](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
 1. **Start-AzureRmVM** etkinliğini seçin ve ardından **Parametreler**’e tıklayın.
 1. **Ad** için **Veri kaynağı**’nı, **Runbook girişi** olarak değiştirin ve ardından **VMName**’i seçin.
@@ -188,7 +188,7 @@ Hala başlatılmamışsa, yalnızca sanal makineyi başlatmayı deneyecek şekil
 1. **Get-AzureRmVM** için kümeleri görüntülemek üzere **Get-AzureRmVM**’yi ve ardından **Parametre kümesi**’ni seçin. **GetVirtualMachineInResourceGroupNameParamSet** parametre kümesini seçin. **ResourceGroupName** ve **Ad**’ın yanında ünlem işareti vardır. Bu, bunların gerekli parametreler olduğunu gösterir. Ayrıca, her ikisinin de dize değerleri beklediğini unutmayın.
 1. **Ad** için **Veri kaynağı** altında, **Runbook girişi**’ni ve ardından **VMName**’i seçin. **Tamam**’a tıklayın.
 1. **ResourceGroupName** için **Veri kaynağı** altında, **Runbook girişi**’ni ve ardından **ResourceGroupName**’i seçin. **Tamam**'ı tıklatın.
-1. **Durum** için **Veri kaynağı** altında, **Sabit değer**’i seçin ve ardından **True** öğesine tıklayın. **Tamam**'ı tıklatın.
+1. **Durum** için **Veri kaynağı** altında, **Sabit değer**’i seçin ve ardından **True** öğesine tıklayın. **Tamam** düğmesine tıklayın.
 1. **Abonelik Kimliği Belirt**’ten **Get-AzureRmVM**’ye bir bağlantı oluşturun.
 1. Kitaplık denetiminde, **Runbook Denetimi**’ni genişletin ve tuvale **Kod** ekleyin.  
 1. **Get-AzureRmVM**’den **Kod**’a bir bağlantı oluşturun.  

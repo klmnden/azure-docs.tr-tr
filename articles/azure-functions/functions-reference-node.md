@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: a021ed2be3a94add7500a98d71a962bb580078e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a7c186f7c5fb46078eaa5729e79fdcc256ecc6d
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729475"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460209"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 
@@ -52,7 +52,7 @@ FunctionsProject
 
 Proje kök dizininde yok paylaşılan [host.json](functions-host-json.md) işlev uygulamasını yapılandırmak için kullanılan dosya. Her işlev, kendi kod dosyası (.js) ve bağlama yapılandırma dosyası (function.json) ile bir klasörü vardır. Adını `function.json`ait üst dizinidir her zaman, işlevin adı.
 
-Gerekli bağlama uzantıları [sürüm 2.x](functions-versions.md) işlevleri çalışma zamanı içinde tanımlanmıştır `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Azure portalında işlevleri geliştirirken, bu kayıt sizin yerinize yapılır.
+Gerekli bağlama uzantıları [sürüm 2.x](functions-versions.md) işlevleri çalışma zamanı içinde tanımlanmıştır `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](./functions-bindings-register.md#extension-bundles). Azure portalında işlevleri geliştirirken, bu kayıt sizin yerinize yapılır.
 
 ## <a name="exporting-a-function"></a>Bir işlevi dışa aktarma
 
@@ -60,7 +60,7 @@ JavaScript işlevleri dışa, aracılığıyla [ `module.exports` ](https://node
 
 Varsayılan olarak, İşlevler çalışma zamanı işlevinizde arar `index.js`burada `index.js` kendi ilişkili olarak aynı üst dizine paylaşır `function.json`. Varsayılan durumda, yalnızca dışarı aktarma, dosyadan veya adlandırılmış dışarı aktarma, dışarı aktarılan işlevin olmalıdır `run` veya `index`. Dosya konumunu yapılandırmanız ve işlevinizin adını dışarı aktarma hakkında bilgi edinin: [işlevinizin giriş noktası yapılandırma](functions-reference-node.md#configure-function-entry-point) aşağıda.
 
-Dışarı aktarılan işlevinizi yürütülmesine sayıda bağımsız değişken geçirildi. Her zaman, gereken ilk bağımsız değişken olduğu bir `context` nesne. İşlevinizi zaman uyumlu ise (Promise döndürmeyen), geçmesi gereken `context` nesnesini çağırmak kadar `context.done` doğru kullanımı için gereklidir.
+Dışarı aktarılan işlevinizi yürütülmesine sayıda bağımsız değişken geçirildi. Her zaman, gereken ilk bağımsız değişken olduğu bir `context` nesne. İşlevinizi zaman uyumlu ise (Promise döndürün değil), geçmesi gereken `context` nesnesini çağırmak kadar `context.done` doğru kullanımı için gereklidir.
 
 ```javascript
 // You should include context, other arguments are optional
@@ -136,7 +136,7 @@ Giriş, Azure işlevleri'nde iki kategoriye ayrılmıştır: Tetikleyici girişi
    };
    ```
 
-### <a name="outputs"></a>Çıkışlar
+### <a name="outputs"></a>outputs
 Çıkış (bağlamalarını `direction === "out"`) çeşitli yollarla bir işlevde tarafından yazılabilir. Tüm durumlarda `name` tanımlandığı gibi bağlama özelliğini *function.json* işlevinizde yazılan nesne üyesinin adı karşılık gelir. 
 
 Veri (Bu yöntemleri birleştirmek yok) aşağıdaki yollardan biriyle bir çıkış bağlamaları atayabilirsiniz:
@@ -399,7 +399,7 @@ HTTP tetikleyicileri ile çalışırken, çeşitli yollarla HTTP istek ve yanıt
     ```
 + ** _[Yalnızca yanıtı]_  Çağırarak `context.res.send(body?: any)`.** Bir HTTP yanıtı girişi ile oluşturulan `body` yanıt gövdesi olarak. `context.done()` örtük olarak çağrılır.
 
-+ ** _[Yalnızca yanıtı]_  Çağırarak `context.done()`.** Özel bir HTTP bağlaması için geçirilen yanıtı döndürür `context.done()` yöntemi. Aşağıdaki HTTP çıktı bağlamasını tanımlar bir `$return` çıkış parametresi:
++ ** _[Yalnızca yanıtı]_  Çağırarak `context.done()`.** Özel bir HTTP bağlaması türü geçirilir yanıt verir `context.done()` yöntemi. Aşağıdaki HTTP çıktı bağlamasını tanımlar bir `$return` çıkış parametresi:
 
     ```json
     {
@@ -421,7 +421,7 @@ Aşağıdaki tabloda her önemli işlevler çalışma zamanı sürümü tarafın
 | İşlevler sürümü | Node.js sürümü | 
 |---|---|
 | 1.x | 6.11.2 (çalışma zamanı tarafından kilitlendi) |
-| 2.x  | _Etkin LTS_ ve tek sayılı _geçerli_ Node.js sürümleri (8.11.1 ve önerilen 10.14.1). Sürüm WEBSITE_NODE_DEFAULT_VERSION ayarlamak [uygulama ayarı](functions-how-to-use-azure-function-app-settings.md#settings).|
+| 2.x  | _Etkin LTS_ ve _bakım LTS_ Node.js sürümleri (8.11.1 ve önerilen 10.14.1). Sürüm WEBSITE_NODE_DEFAULT_VERSION ayarlamak [uygulama ayarı](functions-how-to-use-azure-function-app-settings.md#settings).|
 
 Çalışma zamanı kullanarak yukarıdaki uygulama ayarını denetleyerek veya yazdırma geçerli sürümü gördüğünüz `process.version` herhangi bir işlevden.
 
@@ -453,7 +453,7 @@ module.exports = function(context) {
 
 
 ### <a name="using-kudu"></a>Kudu kullanarak
-1. `https://<function_app_name>.scm.azurewebsites.net` kısmına gidin.
+1. [https://linkedinselectedusermigration.azurewebsites.net/](`https://<function_app_name>.scm.azurewebsites.net`) kısmına gidin.
 
 2. Tıklayın **konsol hata ayıklama** > **CMD**.
 
@@ -576,7 +576,7 @@ Yerel olarak geliştirme ve bir TypeScript projesi dağıtma biçimini, gelişti
 
 [Visual Studio Code için Azure işlevleri](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) uzantısı TypeScript kullanarak işlevlerinizi geliştirmenize olanak tanır. Temel araçları, Azure işlevleri uzantının bir gereksinimdir.
 
-Visual Studio Code'da bir TypeScript işlev uygulaması oluşturmak için yalnızca seçtiğiniz `TypeScript` ne zaman bir işlev uygulaması oluşturma ve dili seçmeniz istenir.
+Visual Studio Code'da bir TypeScript işlev uygulaması oluşturmak için seçin `TypeScript` bir işlev uygulaması oluşturduğunuzda, dil olarak.
 
 Bastığınızda **F5** (func.exe) ana bilgisayar başlatılmadan önce uygulamayı çalıştırmak için yerel olarak transpilation gerçekleştirilir. 
 
@@ -584,7 +584,7 @@ Azure kullanarak işlev uygulamanızı dağıtırken **işlev uygulaması Dağı
 
 ### <a name="azure-functions-core-tools"></a>Azure işlevleri temel araçları
 
-Core Araçları'nı kullanarak bir TypeScript işlevi uygulaması projesi oluşturmak için işlev uygulamanızı oluştururken typescript dil seçeneğini belirtmeniz gerekir. Bu aşağıdaki yollardan biriyle yapabilirsiniz:
+Core Araçları'nı kullanarak bir TypeScript işlevi uygulaması projesi oluşturmak için işlev uygulamanızı oluştururken TypeScript dil seçeneğini belirtmeniz gerekir. Bu aşağıdaki yollardan biriyle yapabilirsiniz:
 
 - Çalıştırma `func init` komutu, select `node` dil yığını, ve ardından `typescript`.
 
@@ -614,6 +614,55 @@ Geliştirme Azure işlevleri'nde sunucusuz barındırma modeli, soğuk başladı
 ### <a name="connection-limits"></a>Bağlantı sınırları
 
 Azure işlevleri uygulamada bir hizmete özgü istemcisini kullandığınızda, yeni bir istemci her işlev Çağırma ile oluşturmayın. Bunun yerine, tek bir statik istemci genel kapsamda oluşturun. Daha fazla bilgi için [Azure işlevleri'nde bağlantıları yönetme](manage-connections.md).
+
+### <a name="use-async-and-await"></a>Kullanım `async` ve `await`
+
+Azure işlevleri JavaScript dilinde yazılırken kullanılarak kod yazmanız gerekir `async` ve `await` anahtar sözcükleri. Kod kullanarak yazma `async` ve `await` geri çağırmaları yerine veya `.then` ve `.catch` ile gösterir iki yaygın sorunlar yardımcı kaçının:
+ - Yakalanmayan Özel durumları atma, [Node.js işlemi](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly)büyük olasılıkla etkileyen diğer işlevleri yürütülmesi.
+ - Eksik context.log değil düzgün erdirdi zaman uyumsuz çağrıları nedeniyle, günlükleri gibi beklenmeyen davranışları.
+
+Zaman uyumsuz yöntem aşağıdaki örnekte `fs.readFile` ile bir hata ilk geri çağırma işlevi, ikinci parametresi olarak çağrılır. Bu kod hem yukarıda açıklanan sorunların neden olur. Açıkça doğru kapsamda yakalanmamış özel bir durum, tüm işlemi (sorun #1) kilitlendi. Çağırma `context.done()` geri arama kapsamı dışında dosyayı okumadan önce işlev çağrısını sonlandırabiliriz işlevi anlamına gelir (#2 sorunu). Bu örnekte, çağırma `context.done()` eksik çok erken sonuçları günlük girdilerinin başlayarak `Data from file:`.
+
+```javascript
+// NOT RECOMMENDED PATTERN
+const fs = require('fs');
+
+module.exports = function (context) {
+    fs.readFile('./hello.txt', (err, data) => {
+        if (err) {
+            context.log.error('ERROR', err);
+            // BUG #1: This will result in an uncaught exception that crashes the entire process
+            throw err;
+        }
+        context.log(`Data from file: ${data}`);
+        // context.done() should be called here
+    });
+    // BUG #2: Data is not guaranteed to be read before the Azure Function's invocation ends
+    context.done();
+}
+```
+
+Kullanarak `async` ve `await` anahtar sözcükler, hem de bu hataları önlemek yardımcı olur. Node.js yardımcı işlevini kullanmalısınız [ `util.promisify` ](https://nodejs.org/api/util.html#util_util_promisify_original) hata ilk geri çağırma-stili işlevler beklenebilir işlevlerini etkinleştirmek için.
+
+Aşağıdaki örnekte, işlevi yürütme sırasında karşılaşılan işlenmeyen özel durumlar, yalnızca bir özel durum tek çağırma başarısız. `await` Anahtar sözcüğü anlamına gelir, bu adımlar aşağıdaki `readFileAsync` yalnızca Şundan sonra Yürüt `readFile` tamamlandı. İle `async` ve `await`, çağrı gerekmez `context.done()` geri çağırma.
+
+```javascript
+// Recommended pattern
+const fs = require('fs');
+const util = require('util');
+const readFileAsync = util.promisify(fs.readFile);
+
+module.exports = async function (context) {
+    try {
+        const data = await readFileAsync('./hello.txt');
+    } catch (err) {
+        context.log.error('ERROR', err);
+        // This rethrown exception will be handled by the Functions Runtime and will only fail the individual invocation
+        throw err;
+    }
+    context.log(`Data from file: ${data}`);
+}
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

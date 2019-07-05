@@ -10,12 +10,12 @@ ms.author: minxia
 author: mx-iao
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e1f587785b06f10bab42a425b0910d4f25fddf9f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a13afe56e007e2371b3193003ee95266b0750569
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165551"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543785"
 ---
 # <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>Eğitim ve uygun ölçekte TensorFlow modeller Azure Machine Learning hizmeti ile kaydetme
 
@@ -23,7 +23,7 @@ Bu makalede eğitme ve Azure Machine Learning hizmetini kullanarak bir TensorFlo
 
 TensorFlow derin sinir ağı (DNN) oluşturmak için yaygın olarak kullanılan bir açık kaynak hesaplama çerçevesidir. Azure Machine Learning hizmeti ile açık kaynaklı eğitim işleri elastik bulut bilgi işlem kaynaklarını kullanarak hızlı bir şekilde ölçeklendirebilirsiniz. Ayrıca izleyebilirsiniz eğitim çalıştırmaları, sürüm modelleri, modelleri ve daha fazlasını dağıtın.
 
-Azure Machine Learning hizmeti, sıfırdan TensorFlow modelden geliştiriyor ister mevcut bir model buluta getirdiğiniz, üretime hazır modelleri oluşturmanıza yardımcı olabilir.
+Sıfırdan TensorFlow modelden geliştirirken ya da sizin getirdiğiniz bir [varolan modeli](how-to-deploy-existing-model.md) buluta, Azure Machine Learning hizmeti üretime hazır modelleri oluşturmanıza yardımcı olabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -290,7 +290,7 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, eğitim ve Azure Machine Learning hizmetinde bir TensorFlow modelin kayıtlı. Model dağıtımı makalemizi açın devam model dağıtma hakkında bilgi edinin.
+Bu makalede, eğitim ve TensorFlow modeli kayıtlı. GPU model dağıtım makalemizi açın devam model GPU özellikli bir kümeye dağıtmayı öğrenin.
 
-> [!div class="nextstepaction"]
-> [Nasıl ve nerede modelleri dağıtma](how-to-deploy-and-where.md)
+[Çıkarım gpu'larla for dağıtma](how-to-deploy-inferencing-gpus.md)
+[Tensorboard ile izleme](how-to-monitor-tensorboard.md)

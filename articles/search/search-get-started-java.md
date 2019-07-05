@@ -1,6 +1,6 @@
 ---
-title: Azure Search'te Java - Azure Search ile çalışmaya başlama
-description: Azure'da programlama diliniz olarak Java'yı kullanarak barındırılan bulut arama hizmeti uygulaması derleme.
+title: "Java hızlı başlangıç: Kullanarak Azure Search REST API'lerini - Azure Search dizinlerini sorgulamanız oluşturma ve yükleme"
+description: Dizin oluşturma, veri yükleme ve Java ve Azure Search REST API'lerini kullanarak sorguları çalıştırma açıklanmaktadır.
 services: search
 author: jj09
 manager: jlembicz
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018
-ms.openlocfilehash: d16f20e3c2dfa3d670006e44f0072a3871d41c3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 83f41f248d99ce55daef40e168e5f7b175e08107
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61289884"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450094"
 ---
-# <a name="get-started-with-azure-search-in-java"></a>Java'da Azure Search kullanmaya başlama
+# <a name="quickstart-create-an-azure-search-index-in-java"></a>Hızlı Başlangıç: Java'da Azure Search dizini oluşturma
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
@@ -25,7 +25,7 @@ ms.locfileid: "61289884"
 
 Arama deneyimi için Azure Search kullanan özel bir Java arama uygulaması derlemeyi öğrenin. Bu öğretici, bu alıştırmada kullanılan nesneleri ve işlemleri oluşturmak için [Azure Search Hizmeti REST API'si](https://msdn.microsoft.com/library/dn798935.aspx)'ni kullanır.
 
-Bu örneği çalıştırmak için, [Azure Portal](https://portal.azure.com)'da oturum açabileceğiniz bir Azure Search hizmetine sahip olmanız gerekir. Adım adım yönergeler için bkz. [Portalda Azure Search hizmeti oluşturma](search-create-service-portal.md).
+Bu örneği çalıştırmak için, [Azure portalında](https://portal.azure.com) oturum açabileceğiniz bir Azure Search hizmetine sahip olmanız gerekir. Adım adım yönergeler için bkz. [Portalda Azure Search hizmeti oluşturma](search-create-service-portal.md).
 
 Bu örneği derlemek ve test etmek için aşağıdaki yazılımı kullandık:
 
@@ -36,7 +36,7 @@ Bu örneği derlemek ve test etmek için aşağıdaki yazılımı kullandık:
 ## <a name="about-the-data"></a>Veriler hakkında
 Bu örnek uygulama, [Birleşik Devletler Jeoloji Hizmetleri (USGS)](https://geonames.usgs.gov/domestic/download_data.htm)'nin, veri kümesi boyutunu küçültmek için Rhode Island eyaletinde filtrelenen verilerini kullanır. Akarsular, göller ve zirveler gibi jeolojik özelliklerin yanı sıra, hastaneler ve okullar gibi önemli binaları döndüren bir arama uygulaması derlemek için bu verileri kullanacağız.
 
-Bu uygulamada **SearchServlet.java** programı, filtrelenmiş USGS veri kümesini ortak bir Azure SQL Veritabanı'den alan bir [Oluşturucu](https://msdn.microsoft.com/library/azure/dn798918.aspx) yapısı kullanarak dizini derler ve yükler. Çevrimiçi veri kaynağına yönelik önceden tanımlanmış kimlik bilgileri ve bağlantı bilgileri program kodu içinde sağlanır. Veri erişimi açısından ek yapılandırma gerekli değildir.
+Bu uygulamada **SearchServlet.java** programı kullanarak derler ve dizin yükler bir [dizin oluşturucu](https://msdn.microsoft.com/library/azure/dn798918.aspx) filtrelenmiş USGS veri kümesini bir Azure SQL database'den,. Çevrimiçi veri kaynağına yönelik önceden tanımlanmış kimlik bilgileri ve bağlantı bilgileri program kodu içinde sağlanır. Veri erişimi açısından ek yapılandırma gerekli değildir.
 
 > [!NOTE]
 > Ücretsiz fiyatlandırma katmanının 10.000 belge limiti altında kalmak için, bu veri kümesi üzerinde filtre uyguladık. Standart katmanı kullanırsanız bu limit uygulanmaz ve daha büyük bir veri kümesini kullanmak için bu kodu değiştirebilirsiniz. Her fiyatlandırma katmanının kapasitesi hakkında ayrıntılı bilgi için bkz: [Limitler ve kısıtlamalar](search-limits-quotas-capacity.md).
@@ -51,15 +51,15 @@ Aşağıdaki listede, bu örnek ile ilgili dosyalar açıklanmaktadır.
 * SearchServiceClient.java: HTTP isteklerini işler
 * SearchServiceHelper.java: Statik yöntemler sağlayan bir yardımcı sınıfı
 * Document.Java: Veri modeli sağlar
-* Config.Properties: Ayarlar arama URL'si ve api anahtarını hizmet
+* Config.Properties: Arama hizmeti URL'si ayarlar ve `api-key`
 * pom.xml: Maven bağımlılığı
 
 <a id="sub-2"></a>
 
-## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Azure Search hizmetinizin hizmet adını ve api anahtarını bulma
-Azure Search'e yönelik tüm REST API çağrıları, hizmet URL'si ve api anahtarı sağlamanızı gerektirir. 
+## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Hizmet adını bulun ve `api-key` Azure Search hizmetinizin
+Azure Search'e tüm REST API çağrıları, hizmet URL'si sağlamanızı gerektirir ve bir `api-key`. 
 
-1. [Azure Portal](https://portal.azure.com)'da oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Atlama çubuğunda, aboneliğiniz için sağlanan tüm Azure Search hizmetlerini listelemek için **Search hizmeti**'ne tıklayın.
 3. Kullanmak istediğiniz hizmeti seçin.
 4. Hizmet panosunda, yönetici anahtarlarına erişim için anahtar simgesi ile birlikte önemli bilgiler için kutucuklar görürsünüz.
@@ -84,10 +84,10 @@ Sonraki tüm dosya değişiklikleri ve çalıştırma deyimleri bu klasördeki d
 3. **Son**'a tıklayın.
 4. Dosyaları görüntülemek ve düzenlemek için **Proje Gezgini**'ni kullanın. Zaten açık değilse **Pencere** > **Görünümü Göster** > **Proje Gezgini**'ne tıklayın veya açmak için kısayolu kullanın.
 
-## <a name="configure-the-service-url-and-api-key"></a>Hizmet URL'sini ve api anahtarını yapılandırma
-1. **Proje Gezgini**'nde, sunucu adını ve api anahtarını içeren yapılandırma ayarlarını düzenlemek için **config.properties**'e çift tıklayın.
-2. Bu makalenin, [Azure Portal](https://portal.azure.com)'da hizmet URL'sini ve api anahtarını bulduğunuz önceki adımlarına bakarak, şimdi **config.properties**'e gireceğiniz değerleri alabilirsiniz.
-3. **config.properties**'de, "Api Anahtarı"nı hizmetinizin api anahtarı ile değiştirin. Ardından, hizmet adı (URL ilk bileşeni https://servicename.search.windows.net) değiştirir "hizmet adı" aynı dosyada.
+## <a name="configure-the-service-url-and-api-key"></a>Hizmet URL'si yapılandırın ve `api-key`
+1. İçinde **Proje Gezgini**, çift **config.properties** sunucu adını içeren yapılandırma ayarlarını düzenlemek için ve `api-key`.
+2. Hizmet URL'si bulunduğu daha önce bu makalede anlatılan adımları bakın ve `api-key` içinde [Azure portalında](https://portal.azure.com), artık gireceğiniz değerleri almak için **config.properties**.
+3. İçinde **config.properties**, "API anahtarı" yerine `api-key` hizmetiniz için. Ardından, hizmet adı (URL ilk bileşeni https://servicename.search.windows.net) değiştirir "hizmet adı" aynı dosyada.
    
     ![][5]
 

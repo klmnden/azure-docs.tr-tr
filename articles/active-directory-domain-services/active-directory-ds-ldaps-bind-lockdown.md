@@ -3,7 +3,7 @@ title: Güvenli LDAP (LDAPS) kullanarak bir Azure AD Domain Services yönetilen 
 description: Güvenli LDAP (LDAPS) kullanarak bir Azure AD Domain Services yönetilen etki bağlama
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 6871374a-0300-4275-9a45-a39a52c65ae4
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: 47c9553b4191fe6dbae8d92d75dfae83f191a063
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/28/2019
+ms.author: iainfou
+ms.openlocfilehash: df0b3d27eec478280a33be831a2431eccdf05a74
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234864"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483379"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Güvenli LDAP (LDAPS) kullanarak bir Azure AD Domain Services yönetilen etki bağlama
 
@@ -35,6 +35,11 @@ Bağlama ve üzerinden LDAP arama yapmak için Uzak Sunucu Yönetim Araçları P
 
 Ardından, yönetilen etki alanına bağlayın. Tıklayın **bağlantı** tıklatıp **Bağla...**  menüsünde. 'AAD DC Administrators' grubuna ait olan bir kullanıcı hesabının kimlik bilgilerini sağlayın.
 
+> [!IMPORTANT]
+> Azure AD Domain Services örneğinizin NTLM parola karması eşitleme devre dışı, kullanıcıların (ve hizmet hesapları) LDAP basit bağlamaları gerçekleştirilemiyor.  NTLM parola karması eşitleme devre dışı bırakma hakkında daha fazla bilgi için okuma [Azure AD DOmain Services yönetilen etki alanınıza güvenli](secure-your-domain.md).
+>
+>
+
 Seçin **görünümü**ve ardından **ağaç** menüsünde. Temel DN alanı boş bırakın ve Tamam'ı tıklatın. Arama, kapsayıcıya sağ tıklayın ve arama seçmek istediğiniz kapsayıcıya gidin.
 
 > [!TIP]
@@ -43,7 +48,7 @@ Seçin **görünümü**ve ardından **ağaç** menüsünde. Temel DN alanı boş
 >
 >
 
-Daha fazla bilgi - [LDAP sorgu temelleri](https://technet.microsoft.com/library/aa996205.aspx)
+Daha fazla bilgi - [LDAP sorgu temelleri](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter)
 
 
 ## <a name="task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet"></a>6\. Görev: İnternet üzerinden yönetilen etki alanınıza güvenli LDAP erişimi kilitleme
@@ -66,7 +71,7 @@ Yönetilen etki alanınıza internet üzerinden LDAPS erişimi etkinleştirdiği
 ## <a name="related-content"></a>İlgili içerik
 * [Azure AD etki alanı Hizmetleri - başlangıç kılavuzu](create-instance.md)
 * [Bir Azure AD Domain Services etki alanını yönetin](manage-domain.md)
-* [LDAP sorgu temelleri](https://technet.microsoft.com/library/aa996205.aspx)
+* [LDAP sorgu temelleri](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter)
 * [Azure AD etki alanı Hizmetleri için Grup İlkesi yönetme](manage-group-policy.md)
 * [Ağ güvenlik grupları](../virtual-network/security-overview.md)
 * [Ağ güvenlik grubu oluşturma](../virtual-network/tutorial-filter-network-traffic.md)

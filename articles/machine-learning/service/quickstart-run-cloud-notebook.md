@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: f47735a6e41ae14cb439e10803b82c0dbd3e64d7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 68f24d4d019af873a0ca45792a3cbcc3dd3c3c3f
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67115027"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476035"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için bir bulut tabanlı bir not defteri sunucusu kullan
 
@@ -74,9 +74,12 @@ Sanal makinenizin çalışmaya başladıktan sonra kullanın **not defteri Vm'le
 
 1. Jupyter not defteri sayfasında üst foldername sizin kullanıcı adınızdır.  Bu klasörü seçin.
 
+    > [!TIP]
+    > Bu klasörde bulunan [depolama kapsayıcısı](concept-workspace.md#resources) çalışma alanınızdaki yerine VM kendisini not defteri.  Not defterini VM silebilir ve tüm iş hala devam.  Yeni bir not defteri VM daha sonra oluşturduğunuzda, bu klasöre yüklenir.
+
 1. Bir sürüm numarası, örneğin örnekleri foldername içerir **örnekleri 1.0.33.1**.  Örnekleri klasörü seçin.
 
-1. Seçin **hızlı** dizüstü bilgisayar.
+1. Seçin **hızlı** klasör.
 
 ## <a name="run-the-notebook"></a>Not defterini çalıştırma
 
@@ -115,11 +118,11 @@ Pi tahminleri ve çalışma alanınıza Hata günlüklerini bir not defteri çal
 
 1. Tıklayın **Azure portalı bağlantısını** çalışma alanınızda çalıştırma hakkında bilgi görüntülemek için.  Bu bağlantı, Azure portalında çalışma alanınızı açar.
 
-1. Çizimler gördüğünüz günlüğe kaydedilen değerler otomatik olarak çalışma alanında oluşturulur. Aynı ad parametresine sahip birden fazla değeri günlüğe kaydettiğinizde otomatik olarak bir çizim oluşturulur.
+1. Çizimler gördüğünüz günlüğe kaydedilen değerler otomatik olarak çalışma alanında oluşturulur. Aynı ad parametresine sahip birden fazla değeri günlüğe kaydettiğinizde otomatik olarak bir çizim oluşturulur. Örnek aşağıda verilmiştir:
 
    ![Geçmişi görüntüleme](./media/quickstart-run-cloud-notebook/web-results.png)
 
-Yaklaşık PI koda rastgele değerler kullandığından, çizimleri farklı değerler gösterilir.  
+Yaklaşık PI koda rastgele değerler kullandığından, çizimleri farklı görünebilir.  
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -154,7 +157,9 @@ Bu hızlı başlangıçta, bu görevleri tamamlandı:
 * Not Defteri çalıştırma.
 * Oturum hata değerlerini çalışma alanınızda görüntüleyin.  Bu örnek, çalışma alanının betikte oluşturulan bilgileri izlemenize nasıl yardımcı olduğunu gösterir. 
 
-Jupyter not defteri Web sayfasında, diğer not defterlerinde Azure Machine Learning hizmeti hakkında daha fazla bilgi edinmek için örnekler klasörüne göz atın.
+Jupyter Not Defteri sayfasındaki içinde **Hızlı Başlangıç** klasör, açık ve çalışma **02.deploy web service.ipynb** Not bir web hizmeti dağıtma hakkında bilgi edinin.
+
+Ayrıca Jupyter not defteri Web sayfasında, diğer not defterlerinde Azure Machine Learning hizmeti hakkında daha fazla bilgi edinmek için örnekler klasörüne göz atın.
 
 Ayrıntılı iş akışı deneyimi için eğitmek ve model dağıtma için Machine Learning öğreticileri izleyin:  
 

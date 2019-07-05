@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/21/2019
+ms.openlocfilehash: 6824a7151a0c007d6fe4ba021f274886a3cf0dcb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791961"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447816"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL veritabanı ölçümleri ve tanılama günlükleri
 
-Bu konu başlığında, günlüğün tanılama telemetrisi, Azure SQL veritabanı için Azure portalı, PowerShell, Azure CLI, Azure İzleyici REST API ve Azure Resource Manager şablonu aracılığıyla nasıl yapılandırılacağını öğreneceksiniz. Bu tanılama, kaynak kullanımı ve sorgu yürütme istatistikleri ölçmek için kullanılabilir. 
+Bu konu başlığında, günlüğün tanılama telemetrisi, Azure SQL veritabanı için Azure portalı, PowerShell, Azure CLI, Azure İzleyici REST API ve Azure Resource Manager şablonu aracılığıyla nasıl yapılandırılacağını öğreneceksiniz. Bu tanılama, kaynak kullanımı ve sorgu yürütme istatistikleri ölçmek için kullanılabilir.
 
 Tek veritabanları ve elastik havuza alınmış veritabanlarını bir yönetilen örnek uygulamasındaki performans izlemeyi kolaylaştırmak için ölçümleri ve tanılama günlüklerini akışla örnek veritabanları. Bir veritabanının kaynak kullanımını, çalışanları ve oturumları ve aşağıdaki Azure kaynakları birine bağlantı aktarmaya yapılandırabilirsiniz:
 
@@ -119,7 +119,7 @@ Bir elastik havuz kaynak için tanılama telemetrisi akışını etkinleştirmek
 1. Ayrıca, sonraki bölümde açıklanan adımları uygulayarak izlemek istediğiniz elastik havuz içindeki her bir veritabanı için tanılama telemetrisi akışını yapılandırın.
 
 > [!IMPORTANT]
-> Elastik havuzlar için tanılama telemetrisi yapılandırmaya ek olarak, ayrıca tanılama telemetrisi her veritabanı için elastik havuzda yapılandırmak aşağıda belirtildiği gibi gerekir. 
+> Elastik havuzlar için tanılama telemetrisi yapılandırmaya ek olarak, ayrıca tanılama telemetrisi her veritabanı için elastik havuzda yapılandırmak aşağıda belirtildiği gibi gerekir.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>Tek veritabanı veya elastik havuzdaki veritabanı için tanılama telemetrisi akışını yapılandırın
 
@@ -181,7 +181,7 @@ Yönetilen örnek kaynak için tanılama telemetrisi akışını etkinleştirmek
 1. Ayrıca, sonraki bölümde açıklanan adımları izleyerek izlemek istediğiniz yönetilen örnek içindeki her bir örnek veritabanı için tanılama telemetrisi akışını yapılandırın.
 
 > [!IMPORTANT]
-> Yönetilen örnek için tanılama telemetrisi yapılandırmaya ek olarak, ayrıca her bir örnek veritabanı için tanılama telemetrisi yapılandırmak aşağıda belirtildiği gibi gerekir. 
+> Yönetilen örnek için tanılama telemetrisi yapılandırmaya ek olarak, ayrıca her bir örnek veritabanı için tanılama telemetrisi yapılandırmak aşağıda belirtildiği gibi gerekir.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>Tanılama telemetrisi örneğin veritabanlarına akış yapılandırma
 
@@ -261,6 +261,7 @@ Birden çok abonelik desteklemek için PowerShell betiğini kullanın. [kaynak �
     PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/<RG_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>"
     PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
     ```
+
    Değiştirin \<Subıd\> abonelik kimliği ile \<RG_NAME\> kaynak grubu adı ile ve \<WS_NAME\> çalışma alanı adı ile.
 
 ### <a name="azure-cli"></a>Azure CLI
@@ -397,10 +398,6 @@ Elastik havuz verileri depolamak için blob adı şuna benzer:
 insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ elasticPools/{elastic_pool_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-### <a name="download-metrics-and-logs-from-storage"></a>Ölçüm ve günlükleri Depolama'dan indirme
-
-Bilgi edinmek için nasıl [depolamadan ölçümleri ve tanılama günlüklerini indirin](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
-
 ## <a name="data-retention-policy-and-pricing"></a>Veri bekletme ilkesi ve fiyatlandırma
 
 Olay hub'ları veya bir depolama hesabı seçerseniz, bekletme ilkesi belirtebilirsiniz. Bu ilke, seçilen zaman süresinden daha eski olan verileri siler. Log Analytics belirtirseniz, bekletme ilkesi seçili fiyatlandırma katmanına bağlıdır. Bu durumda, veri alımı, sağlanan ücretsiz birimleri her ay ücretsiz çeşitli veritabanları izlemeyi etkinleştirebilirsiniz. Herhangi bir tanılama telemetrisi ücretsiz birimleri aşan tüketiminin ücrete neden olabilir. Etkin veritabanları daha ağır iş yükleri ile boştaki veritabanlarının daha fazla veri alma dikkat edin. Daha fazla bilgi için [Log analytics fiyatlandırma](https://azure.microsoft.com/pricing/details/monitor/).
@@ -443,7 +440,7 @@ Tüm günlükler için kullanılabilen telemetri ayrıntıları aşağıdaki tab
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
 |Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Kategori|Kategori adı. Her zaman: ResourceUsageStats |
+|Category|Kategori adı. Her zaman: ResourceUsageStats |
 |Resource|Kaynağın adı |
 |ResourceType|Kaynak türünün adı. Her zaman: MANAGEDINSTANCES |
 |SubscriptionId|Veritabanı için abonelik GUID'si |
@@ -468,7 +465,7 @@ Tüm günlükler için kullanılabilen telemetri ayrıntıları aşağıdaki tab
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
 |Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Kategori|Kategori adı. Her zaman: QueryStoreRuntimeStatistics |
+|Category|Kategori adı. Her zaman: QueryStoreRuntimeStatistics |
 |OperationName|İşlemin adı. Her zaman: QueryStoreRuntimeStatisticsEvent |
 |Resource|Kaynağın adı |
 |ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
@@ -519,7 +516,7 @@ Daha fazla bilgi edinin [Query Store çalışma zamanı istatistik verileri](htt
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
 |Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Kategori|Kategori adı. Her zaman: QueryStoreWaitStatistics |
+|Category|Kategori adı. Her zaman: QueryStoreWaitStatistics |
 |OperationName|İşlemin adı. Her zaman: QueryStoreWaitStatisticsEvent |
 |Resource|Kaynağın adı |
 |ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
@@ -557,7 +554,7 @@ Daha fazla bilgi edinin [Query Store bekleme istatistikleri veri](https://docs.m
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
 |Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQ |
-|Kategori|Kategori adı. Her zaman: Hatalar |
+|Category|Kategori adı. Her zaman: Hatalar |
 |OperationName|İşlemin adı. Her zaman: ErrorEvent |
 |Resource|Kaynağın adı |
 |ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
@@ -586,7 +583,7 @@ Daha fazla bilgi edinin [SQL Server hata iletileri](https://msdn.microsoft.com/l
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
 |Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Kategori|Kategori adı. Her zaman: DatabaseWaitStatistics |
+|Category|Kategori adı. Her zaman: DatabaseWaitStatistics |
 |OperationName|İşlemin adı. Her zaman: DatabaseWaitStatisticsEvent |
 |Resource|Kaynağın adı |
 |ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
@@ -615,7 +612,7 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
 |Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Kategori|Kategori adı. Her zaman: Zaman Aşımları |
+|Category|Kategori adı. Her zaman: Zaman Aşımları |
 |OperationName|İşlemin adı. Her zaman: TimeoutEvent |
 |Resource|Kaynağın adı |
 |ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
@@ -638,7 +635,7 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
 |Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Kategori|Kategori adı. Her zaman: blokları |
+|Category|Kategori adı. Her zaman: blokları |
 |OperationName|İşlemin adı. Her zaman: BlockEvent |
 |Resource|Kaynağın adı |
 |ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
@@ -662,7 +659,7 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 |TimeGenerated [UTC] |Günlüğe kaydedildiği zaman damgası |
 |Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Kategori|Kategori adı. Her zaman: Kilitlenmeler |
+|Category|Kategori adı. Her zaman: Kilitlenmeler |
 |OperationName|İşlemin adı. Her zaman: DeadlockEvent |
 |Resource|Kaynağın adı |
 |ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
@@ -683,7 +680,7 @@ Daha fazla bilgi edinin [bekleme istatistikleri veritabanı](https://docs.micros
 |TimeGenerated [UTC]|Günlüğe kaydedildiği zaman damgası |
 |Tür|Her zaman: AzureDiagnostics |
 |ResourceProvider|Kaynak sağlayıcı adı. Her zaman: MICROSOFT.SQL |
-|Kategori|Kategori adı. Her zaman: AutomaticTuning |
+|Category|Kategori adı. Her zaman: AutomaticTuning |
 |Resource|Kaynağın adı |
 |ResourceType|Kaynak türünün adı. Her zaman: SUNUCULARI/VERİTABANLARI |
 |SubscriptionId|Veritabanı için abonelik GUID'si |
@@ -719,5 +716,3 @@ Event Hubs hakkında bilgi edinmek için:
 
 - [Azure Event Hubs nedir?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Event Hubs kullanmaya başlayın](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-
-Azure depolama hakkında daha fazla bilgi edinmek için [depolamadan ölçümleri ve tanılama günlükleri indirmek nasıl](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

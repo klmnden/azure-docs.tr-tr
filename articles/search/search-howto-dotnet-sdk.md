@@ -7,20 +7,16 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 06/19/2019
 ms.author: brjohnst
-ms.openlocfilehash: d0921761b565d9e61374bf340f812af4d43f192a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f0af40d442747181636b50612f7d2162ead6a86
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66426748"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450007"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Bir .NET uygulamasından Azure Search kullanma
-
-> [!Important]
-> Bu içerik yine de tamamlanmamıştır. Azure Search .NET SDK, sürüm 9.0, NuGet üzerinde kullanılabilir. Bu geçiş kılavuzunda en yeni sürüme yükseltme açıklayan güncelleştirmeyi çalışıyoruz. Bizi izlemeye devam edin.
->
 
 Bu makale ile çalışmaya başlamanızı sağlayacak bir kılavuz niteliğindedir [Azure Search .NET SDK'sı](https://aka.ms/search-sdk). .NET SDK'sı, Azure Search kullanarak uygulamanızda bir zengin arama deneyimi uygulamak için kullanabilirsiniz.
 
@@ -40,21 +36,21 @@ Sınıflar gibi çeşitli istemci kitaplıkları tanımlamak `Index`, `Field`, v
 * [Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
 * [Microsoft.Azure.Search.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
 
-Geçerli Azure Search .NET SDK'sı sürümü genel kullanıma sunulmuştur. Bir sonraki sürümünde birleştirmek öğrenmek bize geri bildirim sağlamak istiyorsanız, bizim [geri bildirim sayfası](https://feedback.azure.com/forums/263029-azure-search/).
+SDK'ın gelecekteki bir güncelleştirmesi geribildirim sağlamak istiyorsanız, bkz. bizim [geri bildirim sayfası](https://feedback.azure.com/forums/263029-azure-search/) veya bir sorun oluşturun [GitHub](https://github.com/azure/azure-sdk-for-net/issues) ve "Azure Search" sorun başlığında bahsedebilirsiniz.
 
-.NET SDK'sı sürümünü destekleyen `2017-11-11` , [Azure Search REST API'sine](https://docs.microsoft.com/rest/api/searchservice/). Bu sürüm, artık dizin oluşturucular için artımlı iyileştirme yanı sıra, eş anlamlılar için destek içerir. 
+.NET SDK'sı sürümünü destekleyen `2019-05-06` , [Azure Search REST API'sine](https://docs.microsoft.com/rest/api/searchservice/). Bu sürümü için destek içerir [karmaşık türler](search-howto-complex-data-types.md), [bilişsel arama](cognitive-search-concept-intro.md), [otomatik tamamlama](https://docs.microsoft.com/rest/api/searchservice/autocomplete), ve [modu ayrıştırılırken JsonLines](search-howto-index-json-blobs.md) olduğunda Azure Bloblarını dizine ekleme. 
 
 Bu SDK'sı tarafından desteklenmeyen [yönetim işlemlerini](https://docs.microsoft.com/rest/api/searchmanagement/) oluşturma ve arama hizmetleri ölçeklendirme ve API anahtarlarını yönetme gibi. Bir .NET uygulamasından arama kaynaklarınızı yönetmek ihtiyacınız varsa, kullanabileceğiniz [Azure Search .NET Yönetim SDK'sı](https://aka.ms/search-mgmt-sdk).
 
 ## <a name="upgrading-to-the-latest-version-of-the-sdk"></a>SDK'sının en son sürüme yükseltme
-Zaten Azure Search .NET SDK'sı daha eski bir sürümünü kullanıyorsanız ve genel kullanıma sunulan yeni sürüme yükseltmek istiyorsanız [bu makalede](search-dotnet-sdk-migration-version-5.md) açıklar nasıl.
+Zaten Azure Search .NET SDK'sı daha eski bir sürümünü kullanıyorsanız ve en son sürüme yükseltmek istiyorsanız genel kullanıma sunulan sürümü [bu makalede](search-dotnet-sdk-migration-version-9.md) açıklar nasıl.
 
 ## <a name="requirements-for-the-sdk"></a>SDK'sı gereksinimleri
 1. Visual Studio 2017 veya üstü.
 2. Kendi Azure Search hizmeti. SDK'yı kullanmak için hizmetinizin API anahtarlarını bir veya daha fazla ve adı gerekir. [Portalda hizmet oluşturma](search-create-service-portal.md) Bu adımlarda yardımcı olur.
 3. Azure Search .NET SDK'sını indirin [NuGet paketini](https://www.nuget.org/packages/Microsoft.Azure.Search) "NuGet paketlerini Yönet" Visual Studio kullanarak. Paket adı için yalnızca arama `Microsoft.Azure.Search` üzerinde NuGet.org (veya biri diğer işlevlerinin bir alt kümesini yalnızca gerekiyorsa Yukarıdaki adları paketi).
 
-Azure Search .NET SDK'sı, .NET Framework 4.5.2'yi hedefleyen uygulamalar destekler ve üzeri, .NET Core yanı sıra.
+Azure Search .NET SDK'sı, .NET Framework 4.5.2'yi hedefleyen uygulamalar destekler ve daha iyi olarak .NET Core 2.0 ve üzeri.
 
 ## <a name="core-scenarios"></a>Temel senaryoları
 Arama uygulamanız yapmanız gerekir birkaç şey vardır. Bu öğreticide, bu temel senaryolar şu konulara değineceğiz:
@@ -77,13 +73,15 @@ static void Main(string[] args)
 
     SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
 
+    string indexName = configuration["SearchIndexName"];
+
     Console.WriteLine("{0}", "Deleting index...\n");
-    DeleteHotelsIndexIfExists(serviceClient);
+    DeleteIndexIfExists(indexName, serviceClient);
 
     Console.WriteLine("{0}", "Creating index...\n");
-    CreateHotelsIndex(serviceClient);
+    CreateIndex(indexName, serviceClient);
 
-    ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
+    ISearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
 
     Console.WriteLine("{0}", "Uploading documents...\n");
     UploadDocuments(indexClient);
@@ -124,20 +122,20 @@ Sonraki birkaç satırı "hotels" zaten varsa önce silinmesi, adlı bir dizin o
 
 ```csharp
 Console.WriteLine("{0}", "Deleting index...\n");
-DeleteHotelsIndexIfExists(serviceClient);
+DeleteIndexIfExists(indexName, serviceClient);
 
 Console.WriteLine("{0}", "Creating index...\n");
-CreateHotelsIndex(serviceClient);
+CreateIndex(indexName, serviceClient);
 ```
 
 Sonra dizininin doldurulması gerekir. Dizinini doldurmak için ihtiyacımız bir `SearchIndexClient`. Bir almanın iki yolu vardır: Bu oluşturmak ya da çağırma `Indexes.GetClient` üzerinde `SearchServiceClient`. İkinci kolaylık sağlamak için kullanırız.
 
 ```csharp
-ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
+ISearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
 ```
 
 > [!NOTE]
-> Genel bir arama uygulamasında, dizin yönetimi ve popülasyon, arama sorgularından ayrı bir bileşen tarafından işlenir. `Indexes.GetClient`, başka bir `SearchCredentials` sağlamanızı gerektirmediğinden, dizini doldurmak için uygundur. Yeni `SearchIndexClient` için `SearchServiceClient` oluşturmak üzere kullandığınız yönetici anahtarını geçirerek bunu yapar. Ancak uygulamanızın sorguları yürüten bölümünde, bir yönetici anahtarı yerine sorgu anahtarında geçirebilmeniz için doğrudan `SearchIndexClient` oluşturmak daha iyi olur. Bu, en az ayrıcalık ilkesini ile tutarlıdır ve uygulamanızı daha güvenli hale getirmenize yardımcı olur. Yönetici anahtarları ve sorgu anahtarları hakkında daha fazla bilgi bulabilirsiniz [burada](https://docs.microsoft.com/rest/api/searchservice/#authentication-and-authorization).
+> Tipik arama uygulamasında, dizin yönetimi ve popülasyon arama sorgularından ayrı bir bileşen tarafından işlenebilir. `Indexes.GetClient` sağlama ek derdinden kurtarır olduğundan dizini doldurmak için uygun olan `SearchCredentials`. Yeni `SearchIndexClient` için `SearchServiceClient` oluşturmak üzere kullandığınız yönetici anahtarını geçirerek bunu yapar. Ancak uygulamanızın sorguları yürüten bölümünde, oluşturmak daha iyidir `SearchIndexClient` doğrudan yalnızca bir yönetici anahtarı yerine veri okumanıza izin verir sorgu anahtarında geçirebilmeniz. Bu, en az ayrıcalık ilkesini ile tutarlıdır ve uygulamanızı daha güvenli hale getirmenize yardımcı olur. Yönetici anahtarları ve sorgu anahtarları hakkında daha fazla bilgi bulabilirsiniz [burada](https://docs.microsoft.com/rest/api/searchservice/#authentication-and-authorization).
 > 
 > 
 
@@ -151,7 +149,7 @@ UploadDocuments(indexClient);
 Son olarak, biz birkaç arama sorguları yürütmek ve sonuçları görüntüler. Bu süre kullandığımız farklı bir `SearchIndexClient`:
 
 ```csharp
-ISearchIndexClient indexClientForQueries = CreateSearchIndexClient(configuration);
+ISearchIndexClient indexClientForQueries = CreateSearchIndexClient(indexName, configuration);
 
 RunQueries(indexClientForQueries);
 ```
@@ -159,47 +157,60 @@ RunQueries(indexClientForQueries);
 Biz yakından sürer `RunQueries` yöntemi daha sonra. Yeni kodu `SearchIndexClient`:
 
 ```csharp
-private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
+private static SearchIndexClient CreateSearchIndexClient(string indexName, IConfigurationRoot configuration)
 {
     string searchServiceName = configuration["SearchServiceName"];
     string queryApiKey = configuration["SearchServiceQueryApiKey"];
 
-    SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels", new SearchCredentials(queryApiKey));
+    SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, indexName, new SearchCredentials(queryApiKey));
     return indexClient;
 }
 ```
 
 Şu dizine yazma erişimi gerekmediği sorgu anahtarını kullanırız. Bu bilgileri girebilirsiniz `appsettings.json` dosya [örnek uygulama](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
 
-Bu uygulama geçerli bir hizmet adı ve API anahtarları ile çalıştırırsanız, çıkış şu örnekteki gibi görünmelidir:
+Bu uygulama geçerli bir hizmet adı ve API anahtarları ile çalıştırırsanız, çıkış şu örnekteki gibi görünmelidir: (Bazı konsol çıktısı değiştirilmiştir "..." ile gösterim amacıyla.)
 
     Deleting index...
-    
+
     Creating index...
-    
+
     Uploading documents...
-    
+
     Waiting for documents to be indexed...
-    
-    Search the entire index for the term 'budget' and return only the hotelName field:
-    
-    Name: Roach Motel
-    
-    Apply a filter to the index to find hotels cheaper than $150 per night, and return the hotelId and description:
-    
-    ID: 2   Description: Cheapest hotel in town
-    ID: 3   Description: Close to town hall and the river
-    
+
+    Search the entire index for the term 'motel' and return only the HotelName field:
+
+    Name: Secret Point Motel
+
+    Name: Twin Dome Motel
+
+
+    Apply a filter to the index to find hotels with a room cheaper than $100 per night, and return the hotelId and description:
+
+    HotelId: 1
+    Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Times Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.
+
+    HotelId: 2
+    Description: The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.
+
+
     Search the entire index, order by a specific field (lastRenovationDate) in descending order, take the top two results, and show only hotelName and lastRenovationDate:
-    
-    Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
-    Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
-    
-    Search the entire index for the term 'motel':
-    
-    ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
-    
-    Complete.  Press any key to end application...
+
+    Name: Triple Landscape Hotel
+    Last renovated on: 9/20/2015 12:00:00 AM +00:00
+
+    Name: Twin Dome Motel
+    Last renovated on: 2/18/1979 12:00:00 AM +00:00
+
+
+    Search the hotel names for the term 'hotel':
+
+    HotelId: 3
+    Name: Triple Landscape Hotel
+    ...
+
+    Complete.  Press any key to end application... 
 
 Uygulamanın tam kaynak kodu, bu makalenin sonunda sağlanır.
 
@@ -209,11 +220,11 @@ Ardından, biz çağıran yöntemlerin her biri daha yakından bakalım sürer `
 Oluşturduktan sonra bir `SearchServiceClient`, `Main` zaten varsa, "hotels" dizini siler. Silme işlemi, aşağıdaki yöntemi tarafından gerçekleştirilir:
 
 ```csharp
-private static void DeleteHotelsIndexIfExists(SearchServiceClient serviceClient)
+private static void DeleteIndexIfExists(string indexName, SearchServiceClient serviceClient)
 {
-    if (serviceClient.Indexes.Exists("hotels"))
+    if (serviceClient.Indexes.Exists(indexName))
     {
-        serviceClient.Indexes.Delete("hotels");
+        serviceClient.Indexes.Delete(indexName);
     }
 }
 ```
@@ -228,14 +239,14 @@ Bu yöntemde belirtilen `SearchServiceClient` dizin varsa ve bu durumda denetlem
 Ardından, `Main` bu yöntemi çağırarak yeni bir "hotels" dizini oluşturur:
 
 ```csharp
-private static void CreateHotelsIndex(SearchServiceClient serviceClient)
+private static void CreateIndex(string indexName, SearchServiceClient serviceClient)
 {
     var definition = new Index()
     {
-        Name = "hotels",
+        Name = indexName,
         Fields = FieldBuilder.BuildForType<Hotel>()
     };
-
+    
     serviceClient.Indexes.Create(definition);
 }
 ```
@@ -250,7 +261,7 @@ Bu yöntem yeni bir oluşturur `Index` nesne listesini `Field` yeni bir dizin ş
 Alanlara ek olarak (Bu parametreleri kısaltma örnekten atlanır) dizine da Puanlama profilleri, öneri araçlarını veya CORS seçenekleri ekleyebilirsiniz. Dizin nesne ve onun bağlı bölümlerinde hakkında daha fazla bilgi bulabilirsiniz [SDK başvurusu](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index), yanı [Azure Search REST API'si başvurusunda](https://docs.microsoft.com/rest/api/searchservice/).
 
 ### <a name="populating-the-index"></a>Dizini doldurma
-Sonraki adım `Main` yeni oluşturulan dizinini doldurmak için. Bu dizin oluşturma işlemi aşağıdaki yönteminde gerçekleştirilir:
+Sonraki adım `Main` yeni oluşturulan dizin doldurur. Bu dizin oluşturma işlemi aşağıdaki yönteminde gerçekleştirilir: (Bazı kod yerine "..." gösterim amacıyla.  Tam veri doldurma kod için tam örnek çözümü bakın.)
 
 ```csharp
 private static void UploadDocuments(ISearchIndexClient indexClient)
@@ -258,40 +269,90 @@ private static void UploadDocuments(ISearchIndexClient indexClient)
     var hotels = new Hotel[]
     {
         new Hotel()
-        { 
-            HotelId = "1", 
-            BaseRate = 199.0, 
-            Description = "Best hotel in town",
-            DescriptionFr = "Meilleur hôtel en ville",
-            HotelName = "Fancy Stay",
-            Category = "Luxury", 
-            Tags = new[] { "pool", "view", "wifi", "concierge" },
-            ParkingIncluded = false, 
-            SmokingAllowed = false,
-            LastRenovationDate = new DateTimeOffset(2010, 6, 27, 0, 0, 0, TimeSpan.Zero), 
-            Rating = 5, 
-            Location = GeographyPoint.Create(47.678581, -122.131577)
+        {
+            HotelId = "1",
+            HotelName = "Secret Point Motel",
+            ...
+            Address = new Address()
+            {
+                StreetAddress = "677 5th Ave",
+                ...
+            },
+            Rooms = new Room[]
+            {
+                new Room()
+                {
+                    Description = "Budget Room, 1 Queen Bed (Cityside)",
+                    ...
+                },
+                new Room()
+                {
+                    Description = "Budget Room, 1 King Bed (Mountain View)",
+                    ...
+                },
+                new Room()
+                {
+                    Description = "Deluxe Room, 2 Double Beds (City View)",
+                    ...
+                }
+            }
         },
         new Hotel()
-        { 
-            HotelId = "2", 
-            BaseRate = 79.99,
-            Description = "Cheapest hotel in town",
-            DescriptionFr = "Hôtel le moins cher en ville",
-            HotelName = "Roach Motel",
-            Category = "Budget",
-            Tags = new[] { "motel", "budget" },
-            ParkingIncluded = true,
-            SmokingAllowed = true,
-            LastRenovationDate = new DateTimeOffset(1982, 4, 28, 0, 0, 0, TimeSpan.Zero),
-            Rating = 1,
-            Location = GeographyPoint.Create(49.678581, -122.131577)
+        {
+            HotelId = "2",
+            HotelName = "Twin Dome Motel",
+            ...
+            {
+                StreetAddress = "140 University Town Center Dr",
+                ...
+            },
+            Rooms = new Room[]
+            {
+                new Room()
+                {
+                    Description = "Suite, 2 Double Beds (Mountain View)",
+                    ...
+                },
+                new Room()
+                {
+                    Description = "Standard Room, 1 Queen Bed (City View)",
+                    ...
+                },
+                new Room()
+                {
+                    Description = "Budget Room, 1 King Bed (Waterfront View)",
+                    ...
+                }
+            }
         },
-        new Hotel() 
-        { 
-            HotelId = "3", 
-            BaseRate = 129.99,
-            Description = "Close to town hall and the river"
+        new Hotel()
+        {
+            HotelId = "3",
+            HotelName = "Triple Landscape Hotel",
+            ...
+            Address = new Address()
+            {
+                StreetAddress = "3393 Peachtree Rd",
+                ...
+            },
+            Rooms = new Room[]
+            {
+                new Room()
+                {
+                    Description = "Standard Room, 2 Queen Beds (Amenities)",
+                    ...
+                },
+                new Room ()
+                {
+                    Description = "Standard Room, 2 Double Beds (Waterfront View)",
+                    ...
+                },
+                new Room()
+                {
+                    Description = "Deluxe Room, 2 Double Beds (Cityside)",
+                    ...
+                }
+            }
         }
     };
 
@@ -316,7 +377,7 @@ private static void UploadDocuments(ISearchIndexClient indexClient)
 }
 ```
 
-Bu yöntem, dört bölümden oluşur. İlk bir dizi oluşturur `Hotel` dizine yüklenecek giriş verilerimizi işlevi görecek nesneleri. Kolaylık olması için sabit kodlanmış bu verilerdir. Kendi uygulama verilerinizi büyük olasılıkla bir SQL veritabanı gibi bir dış veri kaynağından gelir.
+Bu yöntem, dört bölümden oluşur. İlk 3 bir dizi oluşturur `Hotel` her 3 nesneleri `Room` dizine yüklenecek giriş verilerimizi işlevi görecek nesneleri. Kolaylık olması için sabit kodlanmış bu verilerdir. Kendi uygulama verilerinizi büyük olasılıkla bir SQL veritabanı gibi bir dış veri kaynağından gelir.
 
 İkinci bölümü oluşturur bir `IndexBatch` belgeleri içeren. Belirttiğiniz zaman, oluşturun, bu durumda çağırarak toplu uygulamak istediğiniz işlemi `IndexBatch.Upload`. Batch, Azure Search dizinine göre karşıya yüklendikten `Documents.Index` yöntemi.
 
@@ -346,29 +407,23 @@ using Microsoft.Azure.Search.Models;
 using Microsoft.Spatial;
 using Newtonsoft.Json;
 
-// The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
-// It ensures that Pascal-case property names in the model class are mapped to camel-case
-// field names in the index.
-[SerializePropertyNamesAsCamelCase]
 public partial class Hotel
 {
     [System.ComponentModel.DataAnnotations.Key]
     [IsFilterable]
     public string HotelId { get; set; }
 
-    [IsFilterable, IsSortable, IsFacetable]
-    public double? BaseRate { get; set; }
+    [IsSearchable, IsSortable]
+    public string HotelName { get; set; }
 
     [IsSearchable]
+    [Analyzer(AnalyzerName.AsString.EnLucene)]
     public string Description { get; set; }
 
     [IsSearchable]
     [Analyzer(AnalyzerName.AsString.FrLucene)]
-    [JsonProperty("description_fr")]
+    [JsonProperty("Description_fr")]
     public string DescriptionFr { get; set; }
-
-    [IsSearchable, IsFilterable, IsSortable]
-    public string HotelName { get; set; }
 
     [IsSearchable, IsFilterable, IsSortable, IsFacetable]
     public string Category { get; set; }
@@ -376,35 +431,129 @@ public partial class Hotel
     [IsSearchable, IsFilterable, IsFacetable]
     public string[] Tags { get; set; }
 
-    [IsFilterable, IsFacetable]
+    [IsFilterable, IsSortable, IsFacetable]
     public bool? ParkingIncluded { get; set; }
 
-    [IsFilterable, IsFacetable]
-    public bool? SmokingAllowed { get; set; }
+    // SmokingAllowed reflects whether any room in the hotel allows smoking.
+    // The JsonIgnore attribute indicates that a field should not be created 
+    // in the index for this property and it will only be used by code in the client.
+    [JsonIgnore]
+    public bool? SmokingAllowed => (Rooms != null) ? Array.Exists(Rooms, element => element.SmokingAllowed == true) : (bool?)null;
 
     [IsFilterable, IsSortable, IsFacetable]
     public DateTimeOffset? LastRenovationDate { get; set; }
 
     [IsFilterable, IsSortable, IsFacetable]
-    public int? Rating { get; set; }
+    public double? Rating { get; set; }
+
+    public Address Address { get; set; }
 
     [IsFilterable, IsSortable]
     public GeographyPoint Location { get; set; }
+
+    public Room[] Rooms { get; set; }
 }
 ```
 
-Fark edilecek ilk şey her ortak özelliği olan `Hotel` dizin tanımını, ancak çok önemli bir fark bir alana karşılık gelir: Her alanın adı küçük harfle ("ortası büyük harf"), sırasında her bir genel özelliğinin adını başlar `Hotel` büyük harfle ("Pascal harf") başlar. Bu senaryoda, hedef şemanın uygulama geliştiricisinin denetimi dışında olduğu veri bağlamayı gerçekleştiren .NET uygulamalarında yaygındır. Özellik adlarını ortası büyük harf yaparak .NET adlandırma yönergelerini bozmanın yerine, `[SerializePropertyNamesAsCamelCase]` özniteliğiyle SDK'nın özellik adlarını otomatik olarak ortası büyük harfle eşlenmesini söyleyebilirsiniz.
+Fark edilecek ilk şey her bir genel özelliğinin adı olan `Hotel` sınıfı dizin tanımında aynı ada sahip bir alan eşleştirme. Küçük harfle ("ortası büyük harf") başlatmak için her bir alan isterseniz SDK'sı ile otomatik olarak ortası büyük özellik adlarını eşleştirmek için söyleyebilirsiniz `[SerializePropertyNamesAsCamelCase]` sınıfı özniteliği. Bu senaryoda, hedef şemanın uygulama geliştiricisinin denetimi dışında "Pascal harf adlandırma kuralları. NET'te" ihlal gerek kalmadan olduğu veri bağlamayı gerçekleştiren .NET uygulamalarında yaygındır.
 
 > [!NOTE]
 > Azure Search .NET SDK'sı, özel model nesnelerinizi JSON'a ve JSON'dan seri hale getirmek ve seri durumdan çıkarmak için [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) kitaplığını kullanır. Gerekirse bu seri hale getirmeyi özelleştirebilirsiniz. Daha fazla bilgi için [JSON.NET ile özel serileştirme](#JsonDotNet).
 > 
 > 
 
-Fark etmeye ikinci şey her ortak özelliği süslemek öznitelikleri olan (gibi `IsFilterable`, `IsSearchable`, `Key`, ve `Analyzer`). Bu öznitelikler doğrudan eşleme [Azure Search dizini karşılık gelen özniteliklerini](https://docs.microsoft.com/rest/api/searchservice/create-index#request). `FieldBuilder` Sınıfı dizini için alan tanımları oluşturmak için bu özellikleri kullanır.
+Her bir özellik düzenlenmiş özniteliklerle gibi ikinci bir şey fark etmeye olan `IsFilterable`, `IsSearchable`, `Key`, ve `Analyzer`. Bu öznitelikler doğrudan eşleme [karşılık gelen alan öznitelikleri Azure Search dizini](https://docs.microsoft.com/rest/api/searchservice/create-index#request). `FieldBuilder` Sınıfı dizini için alan tanımları oluşturmak için bu özellikleri kullanır.
 
-Üçüncü önemli şey hakkında `Hotel` sınıftır genel özelliklerin veri türleri. Bu özelliklerin .NET türleri dizin tanımında eşdeğer alan türleriyle eşlenir. Örneğin, `Category` dize özelliği `Edm.String` türündeki `category` alanına eşlenir. `bool?` ve `Edm.Boolean`, `DateTimeOffset?` ve `Edm.DateTimeOffset`, vb. arasında benzer türde eşlemeler bulunur. Tür eşlemesine yönelik belirli kurallar, [Azure Search .NET SDK başvurusundaki](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get) `Documents.Get` yönteminde belirtilmiştir. `FieldBuilder` Sınıfı bu eşlemenin sizin için üstlenir ancak yine de serileştirme sorunları gidermek gerektiği durumlarda anlamak yararlı olabilir.
+Üçüncü önemli şey hakkında `Hotel` sınıftır genel özelliklerin veri türleri. Bu özelliklerin .NET türleri, dizin tanımında eşdeğer alan türleriyle eşlenir. Örneğin, `Category` dize özelliği `Edm.String` türündeki `category` alanına eşlenir. Arasında benzer türde eşlemeler bulunur `bool?`, `Edm.Boolean`, `DateTimeOffset?`, ve `Edm.DateTimeOffset` ve benzeri. Tür eşlemesine yönelik belirli kurallar, [Azure Search .NET SDK başvurusundaki](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get) `Documents.Get` yönteminde belirtilmiştir. `FieldBuilder` Sınıfı bu eşlemenin sizin için üstlenir ancak yine de serileştirme sorunları gidermek gerektiği durumlarda anlamak yararlı olabilir.
 
-Kendi sınıflarınızı belge olarak kullanabilme iki yönde de işe yarar; Ayrıca, arama sonuçlarını almak ve biz sonraki bölümde göreceğiniz gibi tercih ettiğiniz bir tür için otomatik olarak seri durumdan SDK'sına sahip.
+Fark etmeye ortaya çıktı `SmokingAllowed` özelliği?
+
+```csharp
+[JsonIgnore]
+public bool? SmokingAllowed => (Rooms != null) ? Array.Exists(Rooms, element => element.SmokingAllowed == true) : (bool?)null;
+```
+
+`JsonIgnore` Özniteliği bu özellikte söyler `FieldBuilder` , bir alan olarak dizine serileştirilecek değil.  Bu, uygulamanızda Yardımcıları kullanabileceğiniz istemci tarafı hesaplanan özellikleri oluşturmak için harika bir yoludur.  Bu durumda, `SmokingAllowed` özelliği yansıtır herhangi gerekmediğini `Room` içinde `Rooms` koleksiyon İçilmez sağlar.  Tüm bunlar false ise, tüm otel İçilmez izin vermiyor gösterir.
+
+Bazı özellikler gibi `Address` ve `Rooms` .NET sınıfları örnekleridir.  Bu özellikler daha karmaşık veri yapılarını temsil eder ve sonuç olarak, alanlarla gerektiren bir [karmaşık veri türü](https://docs.microsoft.com/azure/search/search-howto-complex-data-types) dizinde.
+
+`Address` Özelliğini temsil eder, birden fazla değer bir dizi `Address` sınıfı, aşağıda tanımlanmıştır:
+
+```csharp
+using System;
+using Microsoft.Azure.Search;
+using Microsoft.Azure.Search.Models;
+using Newtonsoft.Json;
+
+namespace AzureSearch.SDKHowTo
+{
+    public partial class Address
+    {
+        [IsSearchable]
+        public string StreetAddress { get; set; }
+
+        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+        public string City { get; set; }
+
+        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+        public string StateProvince { get; set; }
+
+        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+        public string PostalCode { get; set; }
+
+        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+        public string Country { get; set; }
+    }
+}
+```
+
+Bu sınıf, Amerika Birleşik Devletleri ve Kanada'da adreslerini tanımlamak için kullanılan standart değerleri içerir. Bu gibi türleri mantıksal alanları dizine gruplamak için kullanabilirsiniz.
+
+`Rooms` Özelliğini temsil eden bir dizi `Room` nesneler:
+
+```csharp
+using System;
+using Microsoft.Azure.Search;
+using Microsoft.Azure.Search.Models;
+using Newtonsoft.Json;
+
+namespace AzureSearch.SDKHowTo
+{
+    public partial class Room
+    {
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
+        public string Description { get; set; }
+
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.FrMicrosoft)]
+        [JsonProperty("Description_fr")]
+        public string DescriptionFr { get; set; }
+
+        [IsSearchable, IsFilterable, IsFacetable]
+        public string Type { get; set; }
+
+        [IsFilterable, IsFacetable]
+        public double? BaseRate { get; set; }
+
+        [IsSearchable, IsFilterable, IsFacetable]
+        public string BedOptions { get; set; }
+
+        [IsFilterable, IsFacetable]
+        public int SleepsCount { get; set; }
+
+        [IsFilterable, IsFacetable]
+        public bool? SmokingAllowed { get; set; }
+
+        [IsSearchable, IsFilterable, IsFacetable]
+        public string[] Tags { get; set; }
+    }
+}
+```
+
+Veri modelinizde .NET ve karşılık gelen dizin şeması, son kullanıcıya vermek istediğiniz arama deneyimini destekleyecek şekilde tasarlanmalıdır. .NET, IE belge dizinde her bir üst düzey nesnenin, kullanıcı arabiriminde göstermek bir arama sonucunun karşılık gelir. Örneğin, bir otel arama uygulamasında, otel özelliklerini veya belirli bir oda özelliklerini otel adına göre aramak son kullanıcılarınızın isteyebilirsiniz. Biz bazı sorgu örnekleri biraz daha sonra değineceğiz.
+
+Kendi sınıflarınızı belge dizinde ile etkileşim kurmak için kullanma yeteneğini bu her iki yönde de çalışır; Ayrıca, arama sonuçlarını almak ve biz sonraki bölümde göreceğiniz gibi tercih ettiğiniz bir tür için otomatik olarak seri durumdan SDK'sına sahip.
 
 > [!NOTE]
 > Azure Search .NET SDK'sı, alan adlarını alan değerlerine bir anahtar/değer eşlemesi olan `Document` sınıfını kullanarak dinamik tür belirtilmiş belgeleri de destekler. Bu durum, tasarım sırasında dizin şemasını bilmediğiniz veya belirli model sınıflarına bağlamanın kullanışlı olmayacağı senaryolarda kullanışlıdır. SDK'da belgelerle ilgili tüm yöntemler, `Document` sınıfıyla çalışan aşırı yüklerin yanı sıra genel türde bir parametre alan kesin tür belirtilmiş aşırı yüklere de sahiptir. Örnek kodda yalnızca ikinci durum Bu öğreticide kullanılır. [ `Document` Sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.document) devraldığı `Dictionary<string, object>`.
@@ -441,26 +590,26 @@ private static void RunQueries(ISearchIndexClient indexClient)
     SearchParameters parameters;
     DocumentSearchResult<Hotel> results;
 
-    Console.WriteLine("Search the entire index for the term 'budget' and return only the hotelName field:\n");
+    Console.WriteLine("Search the entire index for the term 'motel' and return only the HotelName field:\n");
 
     parameters =
         new SearchParameters()
         {
-            Select = new[] { "hotelName" }
+            Select = new[] { "HotelName" }
         };
 
-    results = indexClient.Documents.Search<Hotel>("budget", parameters);
+    results = indexClient.Documents.Search<Hotel>("motel", parameters);
 
     WriteDocuments(results);
 
-    Console.Write("Apply a filter to the index to find hotels cheaper than $150 per night, ");
+    Console.Write("Apply a filter to the index to find hotels with a room cheaper than $100 per night, ");
     Console.WriteLine("and return the hotelId and description:\n");
 
     parameters =
         new SearchParameters()
         {
-            Filter = "baseRate lt 150",
-            Select = new[] { "hotelId", "description" }
+            Filter = "Rooms/any(r: r/BaseRate lt 100)",
+            Select = new[] { "HotelId", "Description" }
         };
 
     results = indexClient.Documents.Search<Hotel>("*", parameters);
@@ -474,8 +623,8 @@ private static void RunQueries(ISearchIndexClient indexClient)
     parameters =
         new SearchParameters()
         {
-            OrderBy = new[] { "lastRenovationDate desc" },
-            Select = new[] { "hotelName", "lastRenovationDate" },
+            OrderBy = new[] { "LastRenovationDate desc" },
+            Select = new[] { "HotelName", "LastRenovationDate" },
             Top = 2
         };
 
@@ -483,10 +632,10 @@ private static void RunQueries(ISearchIndexClient indexClient)
 
     WriteDocuments(results);
 
-    Console.WriteLine("Search the entire index for the term 'motel':\n");
+    Console.WriteLine("Search the entire index for the term 'hotel':\n");
 
     parameters = new SearchParameters();
-    results = indexClient.Documents.Search<Hotel>("motel", parameters);
+    results = indexClient.Documents.Search<Hotel>("hotel", parameters);
 
     WriteDocuments(results);
 }
@@ -521,26 +670,28 @@ Sırayla her bir sorgu daha yakın bir göz atalım. İlk sorgu yürütmek için
 parameters =
     new SearchParameters()
     {
-        Select = new[] { "hotelName" }
+        Select = new[] { "HotelName" }
     };
 
-results = indexClient.Documents.Search<Hotel>("budget", parameters);
+results = indexClient.Documents.Search<Hotel>("motel", parameters);
 
 WriteDocuments(results);
 ```
 
-Bu durumda, biz "budget" sözcüğü eşleşen Oteller için arama yapıyorsanız ve yalnızca otel adlarını belirtildiği gibi geri almak istiyoruz `Select` parametresi. Sonuçları şunlardır:
+Bu durumda, tüm dizinde "motel" sözcüğü için aranabilir alanların herhangi birinde aradığınız ve yalnızca belirtildiği gibi otel adlarını almak istiyoruz `Select` parametresi. Sonuçları şunlardır:
 
-    Name: Roach Motel
+    Name: Secret Point Motel
 
-Ardından, küçüktür $150 gecelik fiyatı ile Oteller bulmak ve yalnızca otel kimlik ve açıklama dönüş istiyoruz:
+    Name: Twin Dome Motel
+
+Sonraki sorgu biraz daha ilginçtir.  Biz, gecelik bir oranda $100'den küçük bir oda ve yalnızca otel kimlik ve açıklama dönüş herhangi Oteller bulmak istiyorsanız:
 
 ```csharp
 parameters =
     new SearchParameters()
     {
-        Filter = "baseRate lt 150",
-        Select = new[] { "hotelId", "description" }
+        Filter = "Rooms/any(r: r/BaseRate lt 100)",
+        Select = new[] { "HotelId", "Description" }
     };
 
 results = indexClient.Documents.Search<Hotel>("*", parameters);
@@ -548,12 +699,15 @@ results = indexClient.Documents.Search<Hotel>("*", parameters);
 WriteDocuments(results);
 ```
 
-Bu sorgu kullanan bir OData `$filter` ifade `baseRate lt 150`, dizin belgelerde filtrelemek için. Azure Search'ü destekleyen OData sözdizimi hakkında daha fazla bilgi bulabilirsiniz [burada](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search).
+Bu sorgu kullanan bir OData `$filter` ifade `Rooms/any(r: r/BaseRate lt 100)`, dizin belgelerde filtrelemek için. Bu kullanır [herhangi bir işleç](https://docs.microsoft.com/azure/search/search-query-odata-collection-operators) uygulamak için ' BaseRate lt 100' odaları koleksiyondaki her öğe için. Azure Search'ü destekleyen OData sözdizimi hakkında daha fazla bilgi bulabilirsiniz [burada](https://docs.microsoft.com/azure/search/query-odata-filter-orderby-syntax).
 
 Sorgu sonuçlarını şunlardır:
 
-    ID: 2   Description: Cheapest hotel in town
-    ID: 3   Description: Close to town hall and the river
+    HotelId: 1
+    Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York...
+
+    HotelId: 2
+    Description: The hotel is situated in a nineteenth century plaza, which has been expanded and renovated to...
 
 Ardından, en son renovated üst iki Oteller bulmak ve son Yenileme tarihi ve Otel adını göstermek istiyoruz. Kod aşağıdaki gibidir: 
 
@@ -561,8 +715,8 @@ Ardından, en son renovated üst iki Oteller bulmak ve son Yenileme tarihi ve Ot
 parameters =
     new SearchParameters()
     {
-        OrderBy = new[] { "lastRenovationDate desc" },
-        Select = new[] { "hotelName", "lastRenovationDate" },
+        OrderBy = new[] { "LastRenovationDate desc" },
+        Select = new[] { "HotelName", "LastRenovationDate" },
         Top = 2
     };
 
@@ -578,18 +732,23 @@ Sonuçları şunlardır:
     Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
     Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
 
-Son olarak, "motel" sözcüğü eşleşen tüm Oteller bulmak istiyoruz:
+Son olarak, "otel" sözcüğü eşleşen tüm hotels adlarını bulmak istiyoruz:
 
 ```csharp
-parameters = new SearchParameters();
-results = indexClient.Documents.Search<Hotel>("motel", parameters);
+parameters = new SearchParameters()
+{
+    SearchFields = new[] { "HotelName" }
+};
+results = indexClient.Documents.Search<Hotel>("hotel", parameters);
 
 WriteDocuments(results);
 ```
 
 Ve işte biz belirtmediğiniz olduğundan tüm alanlar içeren sonuçları `Select` özelliği:
 
-    ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
+    HotelId: 3
+    Name: Triple Landscape Hotel
+    ...
 
 Bu adım öğretici tamamlanmış, ancak burada durabilir yok. ** Sonraki adımlar, Azure arama hakkında daha fazla bilgi için ek kaynaklar sağlayın.
 

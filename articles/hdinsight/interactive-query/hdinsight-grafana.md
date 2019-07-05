@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 42429f0e8e541d0481f991761ead63e4751fcc3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be804ac1aea76daf5f17e62dd97b8b57b8fdf1fb
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719731"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67458817"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Azure HDInsight, erişim Grafana
 
@@ -46,7 +46,7 @@ Bu bölümde, bir Azure Resource Manager şablonu kullanarak HDInsight içinde b
     |---------|---------|
     |**Abonelik**     |  Azure aboneliğinizi seçin. |
     |**Kaynak grubu**     | Bir kaynak grubu oluşturun veya mevcut bir kaynak grubunu seçin.  Kaynak grubu, Azure bileşenleri için bir kapsayıcıdır.  Bu durumda, kaynak grubu HDInsight kümesini ve bağımlı Azure Depolama hesabını içermektedir. |
-    |**Konum**     | Kümenizi oluşturmak istediğiniz bir Azure konumunu seçin.  Daha iyi performans için kendinize yakın bir konum seçin. |
+    |**Location**     | Kümenizi oluşturmak istediğiniz bir Azure konumunu seçin.  Daha iyi performans için kendinize yakın bir konum seçin. |
     |**Küme Türü**     | **hadoop**’u seçin. |
     |**Küme Adı**     | Apache Hadoop kümesi için bir ad girin. HDInsight’taki tüm kümeler aynı DNS ad alanını paylaştığından, bu adın benzersiz olması gerekir. Ad, harf, rakam ve kısa çizgilerin dahil olduğu en fazla 59 karakterden oluşabilir. Adın ilk ve son karakterleri, kısa çizgi olamaz. |
     |**Küme oturum açma adı ve parolası**     | Varsayılan oturum açma adı **admin**’dir. Parola en az 10 karakter uzunluğunda olmalıdır ve en az bir rakam, bir büyük harf, bir küçük harf, bir alfasayısal olmayan karakter (' " ` karakterleri hariç\) içermelidir. "Pass@word1" gibi genel parolalar **sağlamadığınızdan** emin olun.|
@@ -66,7 +66,7 @@ Bu bölümde, bir Azure Resource Manager şablonu kullanarak HDInsight içinde b
     
 
 > [!NOTE]  
-> Diğer küme oluşturma yöntemleri ve bu öğreticide kullanılan özellikler hakkında bilgi edinmek için bkz. [HDInsight kümeleri oluşturma](../hdinsight-hadoop-provision-linux-clusters.md). 
+> Diğer küme oluşturma yöntemleri ve bu makalede kullanılan özellikler hakkında bilgi edinmek bkz [oluşturma HDInsight kümeleri](../hdinsight-hadoop-provision-linux-clusters.md). 
 
 ## <a name="access-the-grafana-dashboard"></a>Grafana panosuna erişim
 
@@ -108,7 +108,7 @@ Makaleyi tamamladıktan sonra kümeyi silmek isteyebilirsiniz. HDInsight ile, ve
 Bu makalede, Resource Manager şablonu kullanarak Linux tabanlı HDInsight kümesi oluşturma ve temel Apache Hive sorguları gerçekleştirmeyi öğrendiniz. Sonraki makalede, HDInsight üzerinde Hadoop kullanarak ayıklama, dönüştürme ve yükleme (ETL) işlemi gerçekleştirmeyi öğreneceksiniz.
 
 > [!div class="nextstepaction"]
->[Ayıklama, dönüştürme ve HDInsight üzerinde Apache Hive kullanarak verileri yükleme](../hdinsight-analyze-flight-delay-data-linux.md)
+>[Ayıklama, dönüştürme ve yükleme verilerini kullanarak HDInsight üzerinde etkileşimli sorgu](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 
 Kendi verilerinizle çalışmaya başlamaya hazırsanız ve HDInsight’ın verileri nasıl depoladı veya verileri HDInsight’a alma hakkında daha fazla bilgi edinmek istiyorsanız, aşağıdaki makalelere bakın:
 

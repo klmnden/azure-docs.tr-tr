@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: twhitney
-ms.openlocfilehash: a9887e923358b5658a365b5cfc88759eca2501e0
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: b753d643b4651cd6665b5b85dcb8b7c5f0b3583d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303565"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444138"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Önizleme - Azure CLI kullanarak bir Azure Kubernetes Service (AKS) kümesine bir Windows Server kapsayıcı oluşturma
 
@@ -41,15 +41,16 @@ Windows Server kapsayıcıları çalıştırmak üzere, küme oluşturduktan son
 > * [Azure desteği SSS][aks-faq]
 
 ### <a name="install-aks-preview-cli-extension"></a>Aks önizlemesini CLI uzantısını yükleme
-    
-Birden çok düğüm havuzları oluşturma ve yönetme için CLI komutları kullanılabilir *aks önizlemesini* CLI uzantısı. Yükleme *aks önizlemesini* uzantısını Azure CLI kullanarak [az uzantısı ekleme][az-extension-add] aşağıdaki örnekte gösterildiği gibi komut:
+
+Windows Server kapsayıcıları için ihtiyacınız *aks önizlemesini* CLI 0.4.1 uzantı sürümü veya üzeri. Yükleme *aks önizlemesini* uzantısını Azure CLI kullanarak [az uzantısı ekleme][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] komut::
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-> [!NOTE]
-> Daha önce yüklediyseniz *aks önizlemesini* uzantısını kullanarak güncelleştirmeleri yükle kullanılabilen `az extension update --name aks-preview` komutu.
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### <a name="register-windows-preview-feature"></a>Windows önizleme özelliği Kaydet
 
@@ -222,10 +223,10 @@ spec:
         resources:
           limits:
             cpu: 1
-            memory: 800m
+            memory: 800M
           requests:
             cpu: .1
-            memory: 300m
+            memory: 300M
         ports:
           - containerPort: 80
   selector:
@@ -338,3 +339,5 @@ AKS hakkında daha fazla bilgi ve dağıtım örneği için tam kod açıklamas�
 [use-advanced-networking]: configure-advanced-networking.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update

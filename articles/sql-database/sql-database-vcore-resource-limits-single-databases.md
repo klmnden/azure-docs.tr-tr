@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: ca29bfdb381c5cab0625a320679331c82f63c887
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c89aa3b4ecf0c07cfbb579cdc18fac6e822bc047
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118062"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536229"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Sanal çekirdek tabanlı satın alma modeli kullanarak tek veritabanı kaynak sınırları
 
@@ -34,6 +34,9 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 > Bkz. yönergeler ve önemli noktalar ölçekleme için [tek bir veritabanının ölçeğini](sql-database-single-database-scale.md).
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Genel amaçlı hizmet katmanı: Depolama boyutlarına ve işlem boyutları
+
+> [!IMPORTANT]
+> Yeni 4. nesil veritabanları, AustraliaEast bölgesinde artık desteklenmemektedir.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Genel amaçlı hizmet katmanı: 4. nesil işlem platformu (1. bölüm)
 
@@ -157,6 +160,9 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 
 ## <a name="business-critical-service-tier-for-provisioned-compute-tier"></a>Sağlanan işlem katmanı için iş kritik hizmet katmanı
 
+> [!IMPORTANT]
+> Yeni 4. nesil veritabanları, AustraliaEast bölgesinde artık desteklenmemektedir.
+
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>İş kritik hizmet katmanı: 4. nesil işlem platformu (1. bölüm)
 
 |İşlem boyutu|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
@@ -268,7 +274,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Maksimum günlük boyutu (TB)|1 |1\. |1\. |1\. |1\. |1\. |1\. |1 |
 |TempDB boyutu (GB)|64|128|256|384|384|384|384|384|
 |Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
-|Hedef IOPS (64 KB)|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|
+|Hedef IOPS (64 KB)| [Not 1](#note-1) |[Not 1](#note-1)|[Not 1](#note-1) |[Not 1](#note-1) |[Not 1](#note-1) |[Not 1](#note-1) |[Not 1](#note-1) | [Not 1](#note-1) |
 |GÇ gecikmesi (yaklaşık)|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|Belirlenecek|
 |Maks. eş zamanlı çalışan (istek)|200|400|800|1600|2400|3200|4000|8000|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -278,7 +284,11 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Yedekleme depolama alanı dahil |7|7|7|7|7|7|7|7|
 |||
 
-## <a name="next-steps"></a>Sonraki adımlar
+### <a name="note-1"></a>Not 1
+
+Hiper ölçekli birden çok düzeyde önbelleğe alma ile çok katmanlı bir mimari var. Etkili IOPS, iş yüküne bağlıdır.
+
+### <a name="next-steps"></a>Sonraki adımlar
 
 - Tek veritabanının DTU kaynak limitleri için bkz. [DTU tabanlı satın alma modeli kullanarak tek veritabanı kaynak sınırları](sql-database-dtu-resource-limits-single-databases.md)
 - Elastik havuzlar için sanal çekirdek kaynak limitleri için bkz. [sanal çekirdek tabanlı satın alma modeli kullanarak elastik havuzlar için kaynak sınırları](sql-database-vcore-resource-limits-elastic-pools.md)

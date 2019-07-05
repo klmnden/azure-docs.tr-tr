@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 8827feaf1d541edc7c0b54d8af951ddab79c5aaa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a60e41d3195c0f7d88fd3ba14336d693d2f528e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808626"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446674"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Oracle uygulama çözümlerini Microsoft Azure'da ve Oracle bulut altyapısı (Önizleme) ile tümleştirme
 
@@ -74,5 +74,7 @@ Kimlik, Oracle ile Microsoft arasındaki iş ortaklığı temel yapı taşları 
 Şu anda, bu tümleştirme, Azure Active Directory olan bir merkezi konumda yönetmenize olanak sağlar. Azure AD dizinindeki herhangi bir değişiklik karşılık gelen bir Oracle dizin ile senkrondur ve çoklu oturum açma için Bulutlar arası Oracle çözümleri için kullanılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
+Kullanmaya başlama bir [Bulutlar arası ağ](configure-azure-oci-networking.md) OCI ile Azure arasındaki. 
 
 Daha fazla bilgi ve teknik incelemeler OCI hakkında bkz [Oracle bulut](https://docs.cloud.oracle.com/iaas/Content/home.htm) belgeleri.

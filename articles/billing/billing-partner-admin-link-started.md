@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6bf61e2afd96e3923938ac4f815d34ae08f7c618
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97866a1f1299c028cdc8f86245308ae4a8b5db88
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64694220"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502688"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure hesaplarınızdan bir iş ortağı kimliği Bağla
 
-Bir iş ortağı olarak, müşterilerle yaşadığımız arasında etkisi izleyebilirsiniz. Bir müşterinin kaynaklarını yönetmek için kullanılan hesaplara, iş ortağı Kimliğinizi bağlayabilirsiniz.
+Microsoft iş ortakları, iş ve görev hedefleri Microsoft ürünlerini kullanan müşterilere yardımcı hizmetler elde sağlar. Yönetme müşteri adına hareket ederken, yapılandırma ve destekleyici Azure Hizmetleri, iş ortağı kullanıcılar müşterinin ortamına erişim gerekir. İş ortağı yönetim bağlantıyı kullanarak, iş ortakları, hizmet sunumu için kullanılan kimlik bilgileri ile kendi iş ortağı ağ Kimliğini ilişkilendirebilirsiniz.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -141,11 +141,11 @@ Bağlantı kullanıcı hesabı düzeyinde ilişkili değil. Yalnızca düzenleme
 
 **Şirketim birden fazla varsa, hangi MPN kimliği kullanmam gerekir?**
 
-Sanal organization(v-org) MPN kimliği dışındaki tüm geçerli MPN kimliği kullanabilirsiniz. Çoğu iş ortakları, burada müşteri tabanlı veya hizmetlerine gönderilen coğrafyadaki MPN kimliği kullanmayı seçin.
+İş ortağı konumu hesaplarını ve ilişkili MPN kimliği için iş ortağı kimliğini bağlama kullanılmalıdır  Daha fazla bilgi edinin [iş ortağı hesapları](https://docs.microsoft.com/partner-center/account-structure)
 
 **Bağlantılı iş ortağı kimliği için raporlama etkileyen gelir nerede bulabilirim?**
 
-Adresindeki etkileyen gelir raporlama bulabilirsiniz [My öngörüleri Panosu](https://partner.microsoft.com/membership/reports/myinsights). İş ortağı yönetim bağlantı iş ortağı ilişkilendirme türü olarak seçmeniz gerekir.
+Bulut ürün performansını raporlama, iş ortakları iş ortağı Merkezi'nde kullanımına [My öngörüleri Panosu](https://partner.microsoft.com/membership/reports/myinsights). İş ortağı yönetim bağlantı iş ortağı ilişkilendirme türü olarak seçmeniz gerekir.
 
 **Müşterim raporlarında neden göremiyorum?**
 

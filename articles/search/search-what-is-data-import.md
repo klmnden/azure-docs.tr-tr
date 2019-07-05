@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 83ca0c11ab0065929d939b7345cbd15869740bb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b56a31a58937ddbea08ff22c3d1c0c71942f47f1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024352"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445391"
 ---
 # <a name="data-import-overview---azure-search"></a>Genel Bakış - Azure Search'te verileri aktarma
 
@@ -36,7 +36,7 @@ Dizin bir tek veya birden çok belge yüklemek için şu API'leri kullanabilirsi
 
 Şu an portal aracılığıyla veri gönderme için hiçbir araç desteği yoktur.
 
-Her yönteme giriş için bkz [hızlı başlangıç: PowerShell ve REST API kullanarak Azure Search dizini oluşturma](search-create-index-rest-api.md) veya [hızlı başlangıç: Azure Search dizini oluşturma C# ](search-import-data-dotnet.md).
+Her yönteme giriş için bkz [hızlı başlangıç: PowerShell kullanarak Azure Search dizini oluşturma](search-create-index-rest-api.md) veya [ C# hızlı başlangıç: .NET SDK kullanarak Azure Search dizini oluşturma](search-get-started-dotnet.md).
 
 <a name="indexing-actions"></a>
 
@@ -44,9 +44,9 @@ Her yönteme giriş için bkz [hızlı başlangıç: PowerShell ve REST API kull
 
 Belgenin tam, mevcut belge içeriği ile birleştirilmiş veya silinen yüklenmelidir olup olmadığını belirten bir belge başına temelinde dizin oluşturma eyleminin türü denetleyebilirsiniz.
 
-REST API'SİNDE HTTP POST istekleri Azure Search dizininizin uç nokta URL'sine JSON istek gövdeleri ile sorun. "Value" dizisindeki her bir JSON nesnesi, belgenin anahtarını içerir ve bir dizin oluşturma eyleminin ekler, güncelleştirmeleri veya belge içeriğini siler belirtir. Kod örneği için bkz: [yük belgeleri](search-create-index-rest-api.md#load-documents).
+REST API'SİNDE HTTP POST istekleri Azure Search dizininizin uç nokta URL'sine JSON istek gövdeleri ile sorun. "Value" dizisindeki her bir JSON nesnesi, belgenin anahtarını içerir ve bir dizin oluşturma eyleminin ekler, güncelleştirir veya belge içeriğini siler belirtir. Kod örneği için bkz: [yük belgeleri](search-get-started-dotnet.md#load-documents).
 
-Yedekleme verilerinizi .NET SDK paketini bir `IndexBatch` nesne. Bir `IndexBatch` koleksiyonunu yalıtır `IndexAction` nesneleri, her biri içeren belge ve Azure Search, ilgili belge üzerinde gerçekleştirilecek eylem söyleyen bir özellik. Kod örneği için bkz: [oluşturmak IndexBatch](search-import-data-dotnet.md#construct-indexbatch).
+Yedekleme verilerinizi .NET SDK paketini bir `IndexBatch` nesne. Bir `IndexBatch` koleksiyonunu yalıtır `IndexAction` nesneleri, her biri içeren belge ve Azure Search, ilgili belge üzerinde gerçekleştirilecek eylem söyleyen bir özellik. Kod örneği için bkz: [ C# hızlı](search-get-started-dotnet.md).
 
 
 | @search.action | Açıklama | Her bir belge için gerekli alanlar | Notlar |

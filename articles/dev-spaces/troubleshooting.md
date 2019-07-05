@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s '
-ms.openlocfilehash: e0379bbc7f26ea30f65c5eac73633ca0371aa283
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 651ae9d9f9a622724e1ee606219ba940995aa555
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331301"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441755"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
@@ -423,3 +423,19 @@ Azure geliştirme alanları untainted bir düğümünde bulamadığından AKS k�
 
 ### <a name="try"></a>Deneme
 [Taint yapılandırmanızı güncelleştirme](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) tolerations belirtmeden pod'ları zamanlama için en az bir Linux emin olmak için AKS kümenizde düğümü sağlar. Ayrıca, en az bir zamanlama sağlar Linux düğümü pod tolerations belirtmeden içinde olduğundan emin olun. *hazır* durumu. Düğümünüzü ulaşmak için bir uzun sürüyor durumunda *hazır* durum düğümünüzü yeniden başlatmayı deneyebilirsiniz.
+
+## <a name="error-azure-dev-spaces-cli-not-installed-properly-when-running-az-aks-use-dev-spaces"></a>"Azure geliştirme alanları düzgün yüklenmemiş CLI" hata çalıştırırken `az aks use-dev-spaces`
+
+### <a name="reason"></a>Reason
+Azure geliştirme alanları CLI için bir güncelleştirme yükleme yolu değiştirildi. Azure CLI 2.0.63'den önceki bir sürümünü kullanıyorsanız, bu hatayı görebilirsiniz. Azure CLI sürümünüzü görüntülemek için kullanın `az --version`.
+
+```bash
+$ az --version
+azure-cli                         2.0.60 *
+...
+```
+
+Çalıştırılırken hata iletisi rağmen `az aks use-dev-spaces` 2.0.63 önce Azure CLI sürümü ile yükleme başarılı olmaz. Kullanmaya devam edebilirsiniz `azds` herhangi bir sorun olmadan.
+
+### <a name="try"></a>Deneme
+Yüklemesini güncelleştirme [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 2.0.63 veya üzeri. Bunu çalışırken aldığınız hata iletisi çözmek `az aks use-dev-spaces`. Alternatif olarak, Azure CLI ve Azure Dev alanları CLI geçerli sürümünüzü kullanmaya devam edebilirsiniz.

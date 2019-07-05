@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/19/2019
-ms.openlocfilehash: efa4cc070f47174634c8dc67b37f10bc3d112d08
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.date: 06/26/2019
+ms.openlocfilehash: 412ce3c5245f3f22bfb03740a0451670dc6a90a7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293200"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448118"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>PostgreSQL - tek bir sunucu için Azure veritabanı'nda PostgreSQL uzantıları
 PostgreSQL Uzantıları'nı kullanarak veritabanını genişletmek olanağı sağlar. Birden çok ilişkili SQL nesneleri birlikte yüklenen ya da tek bir komutla veritabanından kaldırıldı tek bir pakette paketleme için uzantılar sağlar. Yerleşik özellikler gibi veritabanında yüklenen sonra uzantıları çalışabilir. PostgreSQL uzantıları hakkında daha fazla bilgi için bkz. [paketleme ilgili nesneleri uzantı](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -48,7 +48,7 @@ Aşağıdaki tablolar, şu anda PostgreSQL için Azure veritabanı tarafından d
 > | [PG\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Bölümlenmiş tablolar zaman ya da kimliği tarafından yönetir. |
 > | [PG\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Alfasayısal metin trigram eşleşmesi temeline göre benzerlik belirlemek için İşlevler ve işleçler sağlar. |
 > | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | Çapraz dahil olmak üzere tüm tablolar işleme işlevleri sağlar. |
-> | [uuid ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Evrensel benzersiz tanımlayıcı (UUID) oluşturur. |
+> | [uuid ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Evrensel benzersiz tanımlayıcı (UUID) oluşturur. (Aşağıda bir not üzerinde bu uzantı için bakın). |
 > | [orafce](https://github.com/orafce/orafce) | İşlevler ve paketleri ticari veritabanlarından benzetilmiş bir alt kümesini sağlar. |
 
 ### <a name="full-text-search-extensions"></a>Tam metin arama uzantıları
@@ -118,6 +118,10 @@ Sorgu yürütme bilgilerini pg_stat_statements sağlar ve sunucu performansı ü
 dblink ve postgres_fdw bir PostgreSQL sunucudan diğerine ya da aynı sunucuda başka bir veritabanına bağlanmanızı sağlar. Alıcı sunucu gönderen sunucu, güvenlik duvarı üzerinden gelen bağlantılara izin ver gerekir. Bu uzantı, PostgreSQL sunucuları için Azure veritabanı arasında bağlantı kurmak için kullanırken bu "ON Azure hizmetlerine erişime izin ver" ayarı yapılabilir. Bu, ayrıca aynı sunucuya geri dönmeye uzantıları kullanmak istiyorsanız gereklidir. "Azure hizmetlerine erişime izin ver" ayarı, bağlantı güvenliği altında Postgres server için Azure portal sayfasında bulunabilir. "İzin ver Azure hizmetlerine erişime izin" üzerinde beyaz tüm Azure IP'lere kapatma.
 
 Şu anda, PostgreSQL için Azure veritabanı'ndan giden bağlantılar, diğer PostgreSQL sunucuları için Azure veritabanı bağlantılar dışında desteklenmez.
+
+## <a name="uuid"></a>uuid
+Kullanmayı planlıyorsanız `uuid_generate_v4()` UUID ossp uzantısından ile karşılaştırma göz önünde bulundurun `gen_random_uuid()` performans avantajı için pgcrypto uzantı.
+
 
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB PostgreSQL için bir uzantısı olarak paketlenmiş bir zaman serisi veritabanıdır. TimescaleDB zaman odaklı analitik İşlevler, iyileştirmelerini sağlar ve zaman serisi iş yükleri için Postgres ölçeklendirir.

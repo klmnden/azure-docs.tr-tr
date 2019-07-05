@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: fd377d731b9e916414c7d1a568c7267e73d6bf33
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 00c536120ed9507d5ecc6fe930429d12514945b3
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137229"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483828"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight’ta Apache Storm nedir?
 
@@ -44,7 +44,7 @@ HDInsight üzerinde Storm aşağıdaki özellikleri sunar:
 
 Gerçek zamanlı analiz çözümleri için Apache Storm kullanan şirketlerin listesi için bkz. [Apache Storm Kullanan Şirketler](https://storm.apache.org/documentation/Powered-By.html).
 
-Storm kullanmaya başlamak için bkz: [HDInsight üzerinde Apache Storm ile çalışmaya başlama](apache-storm-tutorial-get-started-linux.md).
+Storm kullanmaya başlamak için bkz: [oluşturma ve bir Azure HDInsight Apache Storm topolojisinde İzleyici](apache-storm-quickstart.md).
 
 ## <a name="how-does-apache-storm-work"></a>Apache Storm nasıl çalışır
 
@@ -68,7 +68,7 @@ Apache Storm kümeleri için varsayılan yapılandırma yalnızca bir Nimbus dü
 
 ## <a name="ease-of-creation"></a>Oluşturma kolaylığı
 
-HDInsight üzerinde dakikalar için yeni bir Storm kümesi oluşturabilirsiniz. Storm kümesi oluşturma hakkında daha fazla bilgi için bkz. [HDInsight’ta Storm kullanmaya başlama](apache-storm-tutorial-get-started-linux.md).
+HDInsight üzerinde dakikalar için yeni bir Storm kümesi oluşturabilirsiniz. Bir Storm kümesi oluşturma hakkında daha fazla bilgi için bkz. [Apache Hadoop kümeleri oluşturma Azure portalını kullanarak](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="ease-of-use"></a>Kullanım kolaylığı
 
@@ -176,5 +176,5 @@ Günlüğün nasıl yapılandırılacağını gösteren örnek bir topoloji içi
 
 HDInsight üzerinde Apache Storm ile gerçek zamanlı analiz çözümleri hakkında daha fazla bilgi edinin:
 
-* [HDInsight üzerinde Apache Storm ile çalışmaya başlama](apache-storm-tutorial-get-started-linux.md)
+* [Oluşturma ve bir Azure HDInsight Apache Storm topolojisinde izleme](apache-storm-quickstart.md)
 * [HDInsight üzerinde Apache Storm için örnek topolojiler](apache-storm-example-topology.md)

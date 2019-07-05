@@ -6,17 +6,23 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 12/05/2018
-ms.openlocfilehash: 135f8f1c9c352f9d2307a8bf9ad1bec892aac179
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 6/30/2019
+ms.openlocfilehash: 0f148a97b25afb9135223ff92afb898d4734c586
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399923"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537796"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Grafana Azure veri Gezgini'nde verileri görselleştirin
 
 Grafana, sorgu ve veri görselleştirme, ardından oluşturup görselleştirmelerinizi üzerinde temel panoları paylaşma sağlayan bir analiz platformudur. Grafana sağlayan bir Azure Veri Gezgini *eklentisi*, bağlanma ve verileri Azure Veri Gezgini görselleştirmenizi sağlar. Bu makalede, Azure Veri Gezgini, Grafana için veri kaynağı olarak ayarlayın ve ardından örnek Küme verilerini görselleştirmek öğrenin.
+
+Aşağıdaki videoda kullanarak Grafana'nın Azure Veri Gezgini eklentisini kullanma, Azure Veri Gezgini, Grafana için veri kaynağı olarak ayarlayın ve ardından verileri görselleştirmek bilgi edinebilirsiniz. 
+
+> [!VIDEO https://www.youtube.com/embed/fSR_qCIFZSA]
+
+Alternatif olarak [veri kaynağını yapılandırma](#configure-the-data-source) ve [verileri görselleştirme](#visualize-data) aşağıdaki makalede ayrıntılı.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

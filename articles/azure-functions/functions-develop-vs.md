@@ -10,16 +10,16 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: c6104a977a02211dcab17a5f232991d0d9cbb852
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ed3b42c61456f110925e34473dbb326dafc1b80
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050743"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447726"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio kullanarak Azure işlevleri geliştirme  
 
-Azure işlevleri araçları Visual Studio 2019 için'olan geliştirme, test ve dağıtmanıza olanak sağlayan Visual Studio için uzantı C# Azure işlevleri. Bu deneyim, Azure işlevleri ile ilk ise, daha fazla bilgi edinebilirsiniz [Azure işlevleri giriş](functions-overview.md).
+Azure işlevleri araçları, geliştirme, test ve dağıtmanıza olanak sağlayan Visual Studio için uzantı olan C# Azure işlevleri. Bu deneyim, Azure işlevleri ile ilk ise, daha fazla bilgi edinebilirsiniz [Azure işlevleri giriş](functions-overview.md).
 
 Azure işlevleri araçları aşağıdaki avantajları sağlar: 
 
@@ -42,13 +42,11 @@ Azure işlevleri araçları Azure geliştirme iş yükü dahil [Visual Studio 20
 
 Visual Studio güncel olduğunu ve kullandığınız emin [en son sürüm](#check-your-tools-version) Azure işlevleri araçları.
 
-### <a name="other-requirements"></a>Diğer gereksinimler
+### <a name="azure-resources"></a>Azure kaynakları
 
-Oluşturma ve dağıtma işlevleri için de gerekir:
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* Etkin bir Azure aboneliği. Azure aboneliğiniz yoksa, [ücretsiz hesaplar](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) kullanılabilir.
-
-* Azure Depolama hesabı. Bir depolama hesabı oluşturmak için bkz: [depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md).
+Bir Azure depolama hesabı gibi gereken diğer kaynaklar, yayımlama işlemi sırasında aboneliğinizdeki oluşturulur.
 
 ### <a name="check-your-tools-version"></a>Araçlar sürümünüzü kontrol edin
 
@@ -80,12 +78,20 @@ Proje şablonu, bir C# projesi oluşturur, yükler `Microsoft.NET.Sdk.Functions`
 
 * **host.json**: İşlevleri konak yapılandırmanıza olanak sağlar. Bu ayarlar hem de yerel olarak ve azure'da çalışırken geçerlidir. Daha fazla bilgi için [host.json başvurusu](functions-host-json.md).
 
-* **Local.Settings.JSON**: İşlevleri yerel olarak çalıştırırken kullanılan ayarları tutar. Bu ayarlar, Azure tarafından kullanılmaz, tarafından kullanılan [Azure işlevleri çekirdek Araçları](functions-run-local.md). Bu dosya, işlevleriniz tarafından gerekli ortam değişkenleri uygulama ayarlarını belirtmek için kullanın. Yeni bir öğe ekleme **değerleri** projenizdeki işlevleri bağlamaları gerektirdiği her bağlantı için bir dizi. Daha fazla bilgi için [yerel ayarları dosyası](functions-run-local.md#local-settings-file) Azure işlevleri çekirdek araçları makaledeki.
+* **Local.Settings.JSON**: İşlevleri yerel olarak çalıştırırken kullanılan ayarları tutar. Bu ayarlar, Azure'da çalıştırırken kullanılmaz. Daha fazla bilgi için [yerel ayarları dosyası](#local-settings-file).
 
     >[!IMPORTANT]
     >Local.settings.json dosyasında parolaları içerdiğinden, gerekir dışarıda Bu, proje kaynak denetimi. **Çıkış dizinine Kopyala** bu dosyayı her zaman olmalıdır ayarı **yeniyse Kopyala**. 
 
 Daha fazla bilgi için [işlevleri sınıf kitaplığı projesi](functions-dotnet-class-library.md#functions-class-library-project).
+
+[!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
+
+Proje yayımladığınızda local.settings.json ayarları otomatik olarak karşıya yüklenmemiş. Projenizi yayımlamak sonra bu ayarları ayrıca azure'daki işlev uygulamanızın bulunduğundan emin olmak için bunları yüklemeniz gerekir. Daha fazla bilgi için bkz. [işlev uygulaması ayarları](#function-app-settings).
+
+Değerler **ConnectionStrings** hiçbir zaman yayımlanır.
+
+İşlev uygulaması ayarları değerleri, ortam değişkenleri olarak kodunuzda da okunabilir. Daha fazla bilgi için [ortam değişkenlerini](functions-dotnet-class-library.md#environment-variables).
 
 ## <a name="configure-the-project-for-local-development"></a>Yerel geliştirme için proje yapılandırma
 
@@ -133,8 +139,9 @@ Depolama hesabı bağlantı dizesi ayarlamak için:
         }
     }
     ```
+
     Bağlama özgü öznitelik giriş noktası yöntemi için sağlanan her bağlama parametresi uygulanır. Öznitelik parametre olarak bağlama bilgilerini alır. Önceki örnekte, ilk parametresinin bir **QueueTrigger** kuyruk ile tetiklenen işlev belirten özniteliği uygulandı,. Kuyruk adı ve bağlantı dizesi ayarı adı için parametre olarak geçirilen **QueueTrigger** özniteliği. Daha fazla bilgi için [Azure işlevleri için Azure kuyruk depolama bağlamaları](functions-bindings-storage-queue.md#trigger---c-example).
-    
+
 Daha fazla işlev, işlev uygulaması projenizi eklemek için yukarıdaki yordamı kullanabilirsiniz. Projedeki her işlevin farklı bir tetikleyici olabilir ancak bir işlev tam olarak bir tetikleyici olmalıdır. Daha fazla bilgi için [Azure işlevleri Tetikleyicileri ve bağlamaları kavramları](functions-triggers-bindings.md).
 
 ## <a name="add-bindings"></a>Bağlama Ekle
@@ -183,11 +190,14 @@ Azure işlevleri çekirdek araçları kullanma hakkında daha fazla bilgi edinme
 
 ## <a name="publish-to-azure"></a>Azure'a Yayımlama
 
+Visual Studio'dan yayımlama sırasında iki dağıtım yöntemlerinden birini kullanılır:
+
+* [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy): paketler ve Windows uygulamaları herhangi bir IIS sunucusuna dağıtır.
+* [Çalışma alanından-etkin paket dağıtma zip](functions-deployment-technologies.md#zip-deploy): Azure işlevleri dağıtımlar için önerilen.
+
+Azure'da bir işlev uygulaması projenizi yayımlamak için aşağıdaki adımları kullanın.
+
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
-
-### <a name="deployment-technology"></a>Dağıtım teknolojisi
-
-Visual Studio'dan yayımlama sırasında iki teknolojilerden birine dağıtım gerçekleştirmek için kullanılır: [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy) ve [Zip (önerilen) dağıtımı ile çalışma alanından-etkin paket](functions-deployment-technologies.md#zip-deploy).
 
 ## <a name="function-app-settings"></a>İşlev uygulaması ayarları
 

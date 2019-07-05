@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: f63b705f7967eeddaf522941d6db9be5d9f2719d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93734045cd06f279f37d7725aa573a59c4ec0be9
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245009"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465710"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Azure portalını kullanarak bir paylaşılan görüntü Galerisi oluşturma
 
@@ -53,6 +53,9 @@ Bu makalede, üzerinden geçmeden değiştirdiğinizde kaynak grubu ve VM adlar�
 ## <a name="create-vms-from-an-image"></a>Bir görüntüden VM oluşturma
 
 Görüntü sürümü tamamlandıktan sonra bir veya daha fazla yeni VM'ler oluşturabilirsiniz. 
+
+> [!IMPORTANT]
+> Portal, başka bir azure kiracısı bir görüntüden bir VM dağıtmak için kullanamazsınız. Kiracılar arasında paylaşılan bir görüntüden VM oluşturma için kullanmanız gerekir [Azure CLI](../linux/shared-images.md#create-a-vm) veya [Powershell](shared-images.md#create-vms-from-an-image).
 
 Bu örnek adlı bir VM oluşturur *Myımage*, *myResourceGroup* içinde *Doğu ABD* veri merkezi.
 

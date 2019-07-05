@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: 0c40d0985b0d6c967a55b1954a1cb54feeb15361
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0ae47a7898e380a25618a8d6ae6a1e0251fe466c
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149395"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514580"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Hızlı Başlangıç: Karşıya yükleme, indirme ve Python ile blobları Listele
 
@@ -54,11 +54,13 @@ Bu örnek, *Belgeler* klasöründe bir sınama dosyası oluşturur. Örnek progr
 
 İlk olarak `pip install` komutunu çalıştırarak bağımlılıkları yükleyin:
 
+```python
     pip install azure-storage-blob
+```
 
 Ardından örneği çalıştırın. Aşağıdaki çıkışa benzer iletiler görürsünüz:
   
-```
+```output
 Temp file = C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
 
 Uploading to Blob storage as blobQuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt

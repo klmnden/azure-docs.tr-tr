@@ -1,34 +1,30 @@
 ---
-title: Bir Microsoft Müşteri sözleşmesi - Azure, fiyat koşullarını anlama | Microsoft Docs
-description: Okuma ve Azure aboneliğiniz için fatura ve kullanım anlama hakkında bilgi edinin
-services: ''
-documentationcenter: ''
-author: jureid
+title: Bir Microsoft Müşteri sözleşmesi - Azure, fiyat koşullarını anlama
+description: Okuma ve bir Microsoft Müşteri sözleşmesi kullanımınızı ve faturanızı anlama hakkında bilgi edinin.
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
-ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: eb6184e10d38cdcfad7070663e36f6610d009cdb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4d83228fbec395d604e5ce3f988d2a6157f21eed
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371368"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490659"
 ---
-# <a name="understand-the-terms-in-your-price-sheet-for-a-microsoft-customer-agreement"></a>Bir Microsoft Müşteri sözleşmesi, fiyat koşullarını anlama
+# <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>Microsoft Müşteri sözleşmesi fiyat bağlamında
 
-Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi için geçerlidir. [Microsoft Müşteri sözleşmesi erişimi olup olmadığını denetlemek](#check-access-to-a-microsoft-customer-agreement).
+Bu makale, Azure faturalandırma hesabınız için bir Microsoft Müşteri sözleşmesi için geçerlidir. [Microsoft Müşteri sözleşmesi erişimi olup olmadığını denetlemek](#check-access-to-a-microsoft-customer-agreement).
 
 Fatura Profil sahibi, katkıda bulunan, okuyucu veya fatura Yöneticisi olması durumunda kuruluşunuzun fiyat Azure portalından indirebilirsiniz. Bkz: [görüntüleyin ve indirme, kuruluşunuzun fiyatlandırma](billing-ea-pricing.md).
 
-## <a name="detailed-terms-and-descriptions-in-your-microsoft-customer-agreement-price-sheet"></a>Ayrıntılı hüküm ve Microsoft Müşteri sözleşmesi fiyat açıklamaları
+## <a name="terms-and-descriptions-in-your-price-sheet"></a>Hüküm ve açıklamaları, fiyat listesi
 
 Aşağıdaki bölümde, Microsoft Müşteri sözleşmesi fiyat listesinde gösterilen bir önemli koşullar açıklanmaktadır.
 

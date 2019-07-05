@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 05/30/2019
+ms.date: 06/27/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 59be8e0585f0bedcafc868ee42f5113509c9c4ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79118fb053c7064fa29730680feb0434f45f031a
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417783"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491688"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Azure'a çoğaltma VMware hakkında sık sorulan sorular
 
@@ -85,6 +85,10 @@ Dağıtım planlayıcısı aracı için ayrıntılı tahmini maliyetleri çalı�
 ### <a name="is-there-any-difference-in-cost-between-replicating-to-storage-or-directly-to-managed-disks"></a>Depolama veya doğrudan yönetilen diskler çoğaltma arasında bir fark maliyet var mı?
 
 Yönetilen diskler, biraz daha farklı depolama hesaplarından ücretlendirilir. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/managed-disks/) yönetilen disk fiyatları hakkında.
+
+### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>Maliyet herhangi bir farklılığa genel amaçlı v2 depolama hesabına çoğaltırken var mı?
+
+Azure Site Recovery işlemleri yoğun olduğundan GPv2 depolama hesaplarında gerçekleştirilen işlem maliyeti artış genellikle görürsünüz. [Daha fazla bilgi edinin](../storage/common/storage-account-upgrade.md#pricing-and-billing) değişiklik tahmin etmek için.
 
 ## <a name="mobility-service"></a>Mobility hizmeti
 
@@ -293,7 +297,7 @@ Kurtarma Hizmetleri Kasası'nda seçin **Configuration Servers** içinde **Site 
 
 ### <a name="how-do-i-update-the-process-server-to-version-924-or-later-for-accurate-health-information"></a>Nasıl işlem sunucusu 9.24 veya daha sonra doğru sistem durumu bilgileri için sürüm güncelleştirebilirim?
 
-İle başlayarak [sürüm 9,24](service-updates-how-to.md#links-to-currently-supported-update-rollups), işlem sunucusunun sistem durumunu göstermek için daha fazla uyarı eklenmiştir. [9.24 veya sonraki bir sürümü için Site Recovery bileşenlerini güncelleştirin] (service-updates-how-to.md#links-to-currently-supported-update-rollups), böylece tüm uyarıları üretilir.
+İle başlayarak [sürüm 9,24](service-updates-how-to.md#links-to-currently-supported-update-rollups), işlem sunucusunun sistem durumunu göstermek için daha fazla uyarı eklenmiştir. [9.24 veya sonraki bir sürümü için Site Recovery bileşenlerini güncelleştirin](service-updates-how-to.md#links-to-currently-supported-update-rollups) böylece tüm uyarıları üretilir.
 
 ## <a name="failover-and-failback"></a>Yük devretme ve yeniden çalışma
 

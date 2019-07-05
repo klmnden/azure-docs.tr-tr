@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/10/2018
+ms.date: 06/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 49f07b4aaadfd45e9743bde58dc715230e5bc983
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e54a69b6c2b48e50c089f8b6b7458cf91133dd85
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074057"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443295"
 ---
 # <a name="copy-data-from-sap-table-using-azure-data-factory"></a>Azure Data Factory kullanarak SAP tablodan veri kopyalama
 
@@ -206,16 +206,16 @@ SAP tablodan veri kopyalamak için aşağıdaki özellikleri desteklenir.
 
 | Özellik                         | Açıklama                                                  | Gerekli |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
-| türü                             | Type özelliği ayarlanmalıdır **SapTableSource**.       | Evet      |
+| türü                             | Type özelliği ayarlanmalıdır **SapTableSource**.         | Evet      |
 | Satır sayısı                         | Alınacak satırların sayısı.                              | Hayır       |
 | rfcTableFields                   | SAP tablosundan kopyalamak için alanları. Örneğin, `column0, column1`. | Hayır       |
 | rfcTableOptions                  | SAP tablosundaki satırları filtre seçenekleri. Örneğin, `COLUMN0 EQ 'SOMEVALUE'`. Daha fazla açıklaması bu tablonun altındaki bakın. | Hayır       |
-| customRfcReadTableFunctionModule | SAP tablosundan verileri okumak için kullanılan özel RFC işlev modülü. | Hayır       |
+| customRfcReadTableFunctionModule | SAP tablosundan verileri okumak için kullanılan özel RFC işlev modülü.<br>ADF için döndürülen ve özel RFC işlev modülü SAP sisteminizden veriler nasıl alınır tanımlamak için kullanabilirsiniz. While, özel bir işlev modülü uygulanan benzer arabirimi (içeri aktarma, dışarı aktarma, tabloları) olarak/SAPDS /, ADF tarafından kullanılan varsayılan olarak RFC_READ_TABLE2 benzer olmalıdır unutmayın. | Hayır       |
 | partitionOption                  | SAP tablosundan okumak için bölüm mekanizması. Desteklenen Seçenekler şunlardır: <br/>- **Yok**<br/>- **PartitionOnInt** (normal tamsayı veya sıfır doldurma soldaki 0000012345 gibi değerlerle tamsayı)<br/>- **PartitionOnCalendarYear** ("YYYY" biçiminde 4 basamak)<br/>- **PartitionOnCalendarMonth** (6 basamaklı biçimi "YYYYMM")<br/>- **PartitionOnCalendarDate** (8 basamak biçiminde "YYYYMMDD") | Hayır       |
-| partitionColumnName              | Verileri bölümlemek için sütun adı. | Hayır       |
+| partitionColumnName              | Verileri bölümlemek için sütun adı.                | Hayır       |
 | partitionUpperBound              | Belirtilen sütunun en yüksek değeri `partitionColumnName` kullanılacak devam etmeden bölümleme için. | Hayır       |
 | partitionLowerBound              | Belirtilen sütunun en düşük değeri `partitionColumnName` kullanılacak devam etmeden bölümleme için. | Hayır       |
-| maxPartitionsNumber              | Verileri bölmek için bölümleri maksimum sayısı. | Hayır       |
+| maxPartitionsNumber              | Verileri bölmek için bölümleri maksimum sayısı.     | Hayır       |
 
 >[!TIP]
 >- Yüksek hacimli verilerin çeşitli milyarlarca satır gibi SAP tablonuzun olması durumunda kullanmanız `partitionOption` ve `partitionSetting` veri küçük bölümlere ayırmak için bu durumda veriler bölümleri ve her veri bölümü tarafından okunur SAP sunucunuzdan tek tek aracılığıyla alınır RFC çağrısı.<br/>

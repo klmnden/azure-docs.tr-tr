@@ -4,12 +4,12 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: cf39baf34096691144181332566cf567ebc02310
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 088cd5447b1f96dbf172b5918c29e4f3293289a6
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67188898"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67534737"
 ---
 1. İşlem Sunucusu çalıştıran makineye Uzak Masaüstü bağlantısı kurun. 
 2. Azure Site kurtarma işlemi sunucu yapılandırma aracını başlatmak için cspsconfigtool.exe'yi çalıştırın.
@@ -19,8 +19,14 @@ ms.locfileid: "67188898"
 3. İçinde **yapılandırma sunucusu FQDN veya IP**, işlem sunucusunu kaydetmek kullanılacak yapılandırma sunucusunun IP adresi veya adı belirtin.
 4. İçinde **yapılandırma sunucusu bağlantı noktası**, 443 belirtildiğinden emin olun. Bu yapılandırma sunucusunun istekleri dinlediği bağlantı noktasıdır.
 5. İçinde **bağlantı parolası**, yapılandırma sunucusunu ayarladıktan ayarlandığında belirttiğiniz parolayı belirtin. Parolayı bulmak için:
-    -  Yapılandırma sunucusunda Site Recovery yükleme klasörüne gidin * *\home\svssystems\bin\** . 
-    - Bu komutu çalıştırın: **genpassphrase.exe.n**. Bu, daha sonra Not Parola konumunu gösterir.
+    -  Yapılandırma sunucusunda Site Recovery yükleme klasörüne gidin * *\home\svssystems\bin\** :
+    ```
+    cd %ProgramData%\ASR\home\svsystems\bin
+    ```
+    - Çalıştırma aşağıdaki komutu geçerli parolayı yazdırmak için:
+    ```
+    genpassphrase.exe -n
+    ```
 
 6. İçinde **veri aktarımı bağlantı noktası**, özel bir bağlantı noktası belirtmediyseniz, varsayılan değeri bırakın.
 

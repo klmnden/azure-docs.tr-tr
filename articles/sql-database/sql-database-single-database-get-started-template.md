@@ -11,13 +11,13 @@ author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/09/2019
-ms.openlocfilehash: 8d060ce60194e47814308bfd67bd14db996650b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/28/2019
+ms.openlocfilehash: 4ef0f9ff6f8620109f2ef6f6bd5f549281b4de54
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709051"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67472154"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Hızlı Başlangıç: Azure Resource Manager şablonu kullanarak Azure SQL veritabanı tek veritabanı oluşturma
 
@@ -29,142 +29,31 @@ Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free
 
 Bir dizi işlem, bellek, GÇ ve depolama kaynakları iki birini kullanarak tek bir veritabanı olan [satın alma modeli](sql-database-purchase-models.md). Tek bir veritabanı oluşturduğunuzda, aynı zamanda tanımlamış bir [SQL veritabanı sunucusu](sql-database-servers.md) yönetip içine yerleştirdiğiniz [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) belirli bir bölgede.
 
-Aşağıdaki JSON dosyası bu makalede kullanılan şablonudur. Şablon, bir Azure depolama hesabında depolanır. Daha fazla Azure SQL veritabanı şablonu örnekleri bulunabilir [burada](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
+Aşağıdaki JSON dosyası bu makalede kullanılan şablonudur. Şablon içinde depolanan [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/SQLServerAndDatabase/azuredeploy.json). Daha fazla Azure SQL veritabanı şablonu örnekleri bulunabilir [Azure hızlı başlangıç şablonları](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "serverName": {
-      "type": "string",
-      "defaultValue": "[concat('server-', uniqueString(resourceGroup().id, deployment().name))]",
-      "metadata": {
-        "description": "Name for the SQL server"
-      }
-    },
-    "shouldDeployDb": {
-      "type": "string",
-      "allowedValues": [
-        "Yes",
-        "No"
-      ],
-      "defaultValue": "Yes",
-      "metadata": {
-        "description": "Whether an Azure SQL Database should be deployed under the server"
-      }
-    },
-    "databaseName": {
-      "type": "string",
-      "defaultValue": "[concat('db-', uniqueString(resourceGroup().id, deployment().name), '-1')]",
-      "metadata": {
-        "description": "Name for the SQL database under the SQL server"
-      }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location for server and optional DB"
-      }
-    },
-    "emailAddresses": {
-      "type": "array",
-      "defaultValue": [
-        "user1@example.com",
-        "user2@example.com"
-      ],
-      "metadata": {
-        "description": "Email addresses for receiving alerts"
-      }
-    },
-    "adminUser": {
-      "type": "string",
-      "metadata": {
-        "description": "Username for admin"
-      }
-    },
-    "adminPassword": {
-      "type": "securestring",
-      "metadata": {
-        "description": "Password for admin"
-      }
-    }
-  },
-  "variables": {
-    "databaseServerName": "[toLower(parameters('serverName'))]",
-    "databaseName": "[parameters('databaseName')]",
-    "shouldDeployDb": "[parameters('shouldDeployDb')]",
-    "databaseServerLocation": "[parameters('location')]",
-    "databaseServerAdminLogin": "[parameters('adminUser')]",
-    "databaseServerAdminLoginPassword": "[parameters('adminPassword')]",
-    "emailAddresses": "[parameters('emailAddresses')]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Sql/servers",
-      "name": "[variables('databaseServerName')]",
-      "location": "[variables('databaseServerLocation')]",
-      "apiVersion": "2015-05-01-preview",
-      "properties": {
-        "administratorLogin": "[variables('databaseServerAdminLogin')]",
-        "administratorLoginPassword": "[variables('databaseServerAdminLoginPassword')]",
-        "version": "12.0"
-      },
-      "tags": {
-        "DisplayName": "[variables('databaseServerName')]"
-      },
-      "resources": [
-        {
-          "type": "securityAlertPolicies",
-          "name": "DefaultSecurityAlert",
-          "apiVersion": "2017-03-01-preview",
-          "dependsOn": [
-            "[variables('databaseServerName')]"
-          ],
-          "properties": {
-            "state": "Enabled",
-            "emailAddresses": "[variables('emailAddresses')]",
-            "emailAccountAdmins": true
-          }
-        }
-      ]
-    },
-    {
-      "condition": "[equals(variables('shouldDeployDb'), 'Yes')]",
-      "type": "Microsoft.Sql/servers/databases",
-      "name": "[concat(string(variables('databaseServerName')), '/', string(variables('databaseName')))]",
-      "location": "[variables('databaseServerLocation')]",
-      "apiVersion": "2017-10-01-preview",
-      "dependsOn": [
-        "[concat('Microsoft.Sql/servers/', variables('databaseServerName'))]"
-      ],
-      "properties": {},
-      "tags": {
-        "DisplayName": "[variables('databaseServerName')]"
-      }
-    }
-  ]
-}
-```
+[!code-json[create-azure-sql-database-server-and-database](~/resourcemanager-templates/SQLServerAndDatabase/azuredeploy.json)]
 
-1. Aşağıdaki görüntüyü seçerek Azure'da oturum açıp bir şablon açın.
+1. Seçin **deneyin** Azure Cloud Shell'i açmak için aşağıdaki PowerShell kod bloğunun.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatesql%2Fazuredeploy.json"><img src="./media/sql-database-single-database-get-started-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+    ```azurepowershell-interactive
+    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
+    $location = Read-Host -Prompt "Enter an Azure location (i.e. centralus)"
+    $adminUser = Read-Host -Prompt "Enter the SQL server administrator username"
+    $adminPassword = Read-Host -Prompt "Enter the SQl server administrator password" -AsSecureString
 
-2. Aşağıdaki değerleri seçin veya girin.  
+    $resourceGroupName = "${projectName}rg"
 
-    ![Resource Manager şablonu, azure sql veritabanı oluşturma](./media/sql-database-single-database-get-started-template/create-azure-sql-database-resource-manager-template.png)
 
-    Belirtilmediyse, varsayılan değerleri kullanın.
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "D:\GitHub\azure-docs-json-samples\SQLServerAndDatabase\azuredeploy.json" -projectName $projectName -adminUser $adminUser -adminPassword $adminPassword
 
-    * **Abonelik**: Bir Azure aboneliği seçin.
-    * **Kaynak grubu**: seçin **Yeni Oluştur**, kaynak grubu için benzersiz bir ad girin ve ardından **Tamam**. 
-    * **Konum**: Bir konum seçin.  Örneğin, **Orta ABD**.
-    * **Yönetici kullanıcı**: bir SQL veritabanı sunucusu yönetici kullanıcı adı belirtin.
-    * **Yönetici parolası**: bir yönetici parolasını belirtin. 
-    * **Yukarıdaki hüküm ve koşulları durumu için kabul ediyorum**: Seçin.
-3. **Satın al**'ı seçin.
+    Read-Host -Prompt "Press [ENTER] to continue ..."
+    ```
+
+1. Seçin **kopyalama** PowerShell Betiği panoya kopyalanmak için.
+1. Kabuk bölmesinde sağ tıklayın ve ardından **Yapıştır**.
+
+    Veritabanı sunucusu ve veritabanı oluşturmak için birkaç dakika sürer.
 
 ## <a name="query-the-database"></a>Veritabanını sorgulama
 
@@ -174,17 +63,15 @@ Veritabanını sorgulamak için bkz. [veritabanını sorgulama](./sql-database-s
 
 Bu kaynak grubu, veritabanı sunucusu ve tek veritabanı için gitmek isterseniz tutmak [sonraki adımlar](#next-steps). Sonraki adımlar bağlanın ve farklı yöntemler kullanarak veritabanını sorgulama işlemini göstermektedir.
 
-Azure CLI veya Azure Powershell kullanarak kaynak grubunu silmek için:
-
-```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName 
-```
+Azure Powershell ile kaynak grubunu silmek için:
 
 ```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName 
+$projectName = Read-Host -Prompt "Enter the same project name"
+$resourceGroupName = "${projectName}rg"
+
+Remove-AzResourceGroup -Name $resourceGroupName
+
+Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

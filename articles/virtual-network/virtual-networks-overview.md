@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 0d6762c8f3034923ddc0fe7dcf0cc2df34bd3629
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 22c1e3050915fc697a62862620ef492ef22f80b8
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332114"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542829"
 ---
 # <a name="what-is-azure-virtual-network"></a>Azure Sanal Ağı nedir?
 
@@ -27,7 +27,7 @@ Azure sanal ağı (VNet), azure'daki özel ağınızın temel yapı taşıdır. 
 ## <a name="vnet-concepts"></a>Sanal ağ kavramları
 
 - **Adres alanı:** Sanal ağ oluştururken, genel ve özel (RFC 1918) adresleri kullanarak özel bir özel IP adres alanı belirtmeniz gerekir. Azure, bir sanal ağdaki kaynaklara, atadığınız adres alanından özel bir IP adresi atar. Örneğin, bir VNet adres alanı ile bir VM dağıtırsanız, 10.0.0.0/16, sanal Makinenin 10.0.0.4 gibi özel bir IP atanır.
-- **Alt ağlar:** Alt ağlar, sanal ağ bir veya daha fazla alt ağlara segmentlere ayırın ve her alt ağ sanal ağın adres alanının bir bölümü ayırın sağlar. Ardından, belirli bir alt ağdaki Azure kaynaklarını da dağıtabilirsiniz. Gibi geleneksel bir ağa, alt ağlar, VNet adres alanınızı kuruluşunuzun iç ağ için uygun olan parçalara bölmek olanak tanır. Bu da adresi ayırma verimliliği artırır. Ağ güvenlik grupları kullanarak alt ağlar içindeki kaynakların güvenliğini sağlayabilirsiniz. Daha fazla bilgi için [güvenlik grupları](/security-overview.md).
+- **Alt ağlar:** Alt ağlar, sanal ağ bir veya daha fazla alt ağlara segmentlere ayırın ve her alt ağ sanal ağın adres alanının bir bölümü ayırın sağlar. Ardından, belirli bir alt ağdaki Azure kaynaklarını da dağıtabilirsiniz. Gibi geleneksel bir ağa, alt ağlar, VNet adres alanınızı kuruluşunuzun iç ağ için uygun olan parçalara bölmek olanak tanır. Bu da adresi ayırma verimliliği artırır. Ağ güvenlik grupları kullanarak alt ağlar içindeki kaynakların güvenliğini sağlayabilirsiniz. Daha fazla bilgi için [güvenlik grupları](security-overview.md).
 - **Bölgeleri**: Sanal ağ, tek bir bölge/konum kapsamlıdır; Ancak, farklı bölgelerdeki birden fazla sanal ağ sanal ağ eşlemesi kullanarak birbirine bağlanabilir.
 - **Abonelik:** Sanal ağ aboneliği kapsamlıdır. Her Azure [aboneliğinde](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) ve Azure [bölgesinde](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region) birden çok sanal ağ uygulayabilirsiniz.
 

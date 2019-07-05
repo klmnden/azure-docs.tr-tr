@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78e83f4a1aea04bbaea12181419de6c5c06034f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d47c742e4f6d2ba8a96e9897f43231e509e8aa63
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249455"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476077"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Temel bir grup oluşturma ve Azure Active Directory'yi kullanarak üye ekleme
 Azure Active Directory (Azure AD) portalını kullanarak temel bir grup oluşturabilirsiniz. Bu makalenin amaçları doğrultusunda, kaynak sahibi (yönetici) tarafından tek bir kaynağa temel bir grup eklenir ve bu grup, o kaynağa erişmesi gereken belirli üyeleri (çalışanlar) içerir. Dinamik üyelikler ve kural oluşturma da dahil olmak üzere daha karmaşık senaryolar için bkz. [Azure Active Directory kullanıcı yönetimi belgeleri](../users-groups-roles/index.yml).
@@ -43,7 +43,7 @@ Temel bir grup oluşturabilir ve aynı anda üyelerinizi ekleyebilirsiniz.
         
        - **Office 365**. Üyelerin paylaşılan posta kutusuna, takvime, takvime, dosyalara, SharePoint sitesine vb.’ye erişmesini sağlayarak işbirliği fırsatları sunar. Bu seçenek, kuruluşunuzun dışındaki kişilerin de gruba erişmesini sağlar. Office 365 Grupları hakkında daha fazla bilgi için bkz. [Office 365 Grupları hakkında bilgi edinin](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
-   - **Grup adı (gerekli).** Grup için unutmayacağınız ve mantıklı olan bir ad ekler.
+   - **Grup adı (gerekli).** Grup için unutmayacağınız ve mantıklı olan bir ad ekler. Bir denetimi adı zaten başka bir grubu için kullanılıp kullanılmadığını belirlemek için gerçekleştirilir. Ad zaten kullanılıyorsa, yinelenen adlandırma, önlemek için grubunuzun adını değiştirmek için istenir.
 
    - **Grup açıklaması.** Grubunuza isteğe bağlı bir açıklama ekler.
 

@@ -3,16 +3,16 @@ title: Azure IOT Hub için cihaz yapılandırma en iyi yöntemler | Microsoft Do
 description: IOT cihazlarını uygun ölçekte yapılandırmak için en iyi uygulamalar hakkında bilgi edinin
 author: chrisgre
 ms.author: chrisgre
-ms.date: 06/24/2018
+ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: c97395981ea3af90c7b0c590cb049fccc7392304
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33e77d63b958df292ee9b4ac8ded41f3693cb6bc
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734839"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485805"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Bir IOT çözüm içinde cihaz yapılandırması için en iyi uygulamalar
 
@@ -64,9 +64,11 @@ Azure'da tabanlı sistemler oluşturmaya IOT çözüm geliştiriciler için en i
 
 * **Cihaz ikizi etiketleri kullanarak cihazları düzenleyin:** Çözüm, kalite halkaları ya da diğer cihazları kanarya gibi çeşitli dağıtım stratejilerini göre kümesini tanımlamak işleç izin vermelidir. Çözümünüz içinde cihaz ikizi etiketleri kullanarak cihaz kuruluş uygulanabilir ve [sorguları](iot-hub-devguide-query-language.md). Cihaz kuruluş için yapılandırma sunulmasını güvenli bir şekilde ve doğru bir şekilde izin vermek gereklidir.
 
-* **Uygulama [otomatik cihaz yapılandırmaları](iot-hub-auto-device-config.md):** Otomatik cihaz yapılandırmaları dağıtma ve cihaz ikizlerini aracılığıyla IOT cihazlarının daha büyük kümeleri için izleme yapılandırmasını değiştirir. Otomatik cihaz yapılandırmaları cihaz ikizlerini kümesi hedef **hedef koşulu** bir sorgudur ikizi etiketleri cihazda veya bildirilen özellikler. **Hedef içerik** içinde hedeflenen cihaz ikizlerini ayarlanan istenen özellikleri kümesidir. İçerik hedef, IOT donanım üreticisi/entegratörü tarafından tanımlanan cihaz ikizi yapısı ile hizalamanız gerekir.
+* **Uygulama [otomatik cihaz yapılandırmaları](iot-hub-auto-device-config.md):** Otomatik cihaz yapılandırmaları dağıtma ve cihaz ikizlerini aracılığıyla IOT cihazlarının daha büyük kümeleri için izleme yapılandırmasını değiştirir.
 
-   **Ölçümleri** cihaz çifti sorguları bildirilen özellikler ve aynı zamanda IOT donanım üreticisi/entegratörü tarafından tanımlanan cihaz ikizi yapısı ile hizalamanız gerekir. Otomatik cihaz yapılandırmaları yararı, IOT hub'ı hiçbir zaman aşan bir hızda cihaz ikizi işlemleri de [sınırları](iot-hub-devguide-quotas-throttling.md) cihaz ikizi okumaları ve güncelleştirmeler için.
+   Otomatik cihaz yapılandırmaları cihaz ikizlerini kümesi hedef **hedef koşulu** bir sorgudur ikizi etiketleri cihazda veya bildirilen özellikler. **Hedef içerik** içinde hedeflenen cihaz ikizlerini ayarlanan istenen özellikleri kümesidir. İçerik hedef, IOT donanım üreticisi/entegratörü tarafından tanımlanan cihaz ikizi yapısı ile hizalamanız gerekir. **Ölçümleri** cihaz çifti sorguları bildirilen özellikler ve aynı zamanda IOT donanım üreticisi/entegratörü tarafından tanımlanan cihaz ikizi yapısı ile hizalamanız gerekir.
+
+   Otomatik cihaz yapılandırmaları, kısa süre içinde yapılandırma oluşturulduktan sonra ilk kez ve ardından beş dakikalık aralıklarla çalıştırın. Bunlar cihaz ikizi işlemleri hiçbir zaman aşan bir hızda IOT Hub'ından fayda [sınırları](iot-hub-devguide-quotas-throttling.md) cihaz ikizi okumaları ve güncelleştirmeler için.
 
 * **Kullanım [cihaz sağlama hizmeti](../iot-dps/how-to-manage-enrollments.md):** Çözüm geliştiricilerin kullanması gereken cihaz sağlama hizmeti yeni cihazları için cihaz ikizi etiketler atama tarafından otomatik olarak yapılandırılacak şekilde **otomatik cihaz yapılandırmaları** ikizlerini etiketi içeren, hedeflenen. 
 

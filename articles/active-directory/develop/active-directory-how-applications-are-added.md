@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b784cafce08634f1026a908e8ccdaaed41b62a42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1b92b174d48c710a763857951d66d00956fa0f9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111625"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483080"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Uygulamaları Azure AD'ye neden ve nasıl eklenir
 
@@ -79,8 +79,10 @@ Uygulama nesneleri gibi hizmet sorumluları dahil olmak üzere birden çok yolla
 * Program aracılığıyla Azure AD Graph API'si veya PowerShell aracılığıyla
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>Nasıl uygulama nesneleri ve hizmet sorumluları birbiriyle ilgili?
+
 Uygulamanın kendi ana dizini (uygulama giriş dizini dahil) nerede çalıştığını dizinlerin her bir veya daha fazla hizmet sorumluları tarafından başvurulan bir uygulama nesnesi vardır.
-![Birbirine ve Azure AD örneğinde uygulama nesneleri ve hizmet sorumluları nasıl etkileşime gösteren diyagram.][apps_service_principals_directory]
+
+![Uygulama nesneleri ve hizmet sorumluları arasındaki ilişki gösterilmektedir.][apps_service_principals_directory]
 
 Önceki diyagramda iki dizin dahili olarak Microsoft'un (sol tarafta, uygulamaları yayımlamak için kullandığı gösterilmiştir):
 
@@ -96,6 +98,7 @@ Kendiniz eklediğiniz uygulama (olarak temsil edilen **uygulama (sizin)** diyagr
 * Azure AD uygulama proxy'si kullanılarak yayımlanmış uygulamalar
 
 ### <a name="notes-and-exceptions"></a>Notlar ve özel durumlar
+
 * Tüm hizmet sorumlularını uygulama nesneye geri gelin. Azure AD başlangıçta oluşturulduğunda uygulamalar için sağlanan hizmetleri daha sınırlıydı ve hizmet sorumlusu uygulama kimliği oluşturmak için yeterli. Özgün hizmet sorumlusu için Windows Server Active Directory hizmet hesabı şeklinde yakın. Bu nedenle, bir uygulama nesnesi oluşturmadan, Azure AD PowerShell kullanarak gibi farklı yollarla, hizmet sorumlularının oluşturmak yine de mümkündür. Azure AD Graph API, hizmet sorumlusu oluşturma önce bir uygulama nesnesi gerektirir.
 * Tüm yukarıda açıklanan bilgileri şu anda sunulmuştur programlı olarak. Yalnızca kullanıcı Arabiriminde kullanılabilen şunlardır:
   * Talep dönüştürme kuralları
@@ -105,6 +108,7 @@ Kendiniz eklediğiniz uygulama (olarak temsil edilen **uygulama (sizin)** diyagr
   * [Hizmet sorumlusu](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Neden Azure AD ile uygulamaları tümleştirme?
+
 Uygulamaları Azure AD'ye bir veya daha fazlası dahil olmak üzere sağladığı hizmetler için eklenir:
 
 * Uygulama kimlik doğrulaması ve yetkilendirme
@@ -116,6 +120,7 @@ Uygulamaları Azure AD'ye bir veya daha fazlası dahil olmak üzere sağladığ�
 * Uygulama yayımlama ve proxy - özel bir ağ üzerinden bir uygulama İnternet'e yayımlama
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Uygulamaları Azure AD'ye Örneğim ekleme izni kimler?
+
 Yalnızca genel Yöneticiler (uygulamalar uygulama galerisinden ekleme ve uygulama proxy'si kullanmak için bir uygulama yapılandırma gibi) varsayılan olarak dizininizdeki tüm kullanıcılara yapabileceğiniz bazı görevleri uygulamayı kaydetmek için haklara sahip olduğunuzda, nesneleri Bunlar, geliştirme ve hangi uygulamaların bunlar paylaşımı/erişim izni aracılığıyla kuruluş verilerine verin takdirine bağlı olarak. Bir kişi bir uygulamada oturum ve izin vermek için ilk kullanıcı dizininizdeki ise, kiracınızda bir hizmet sorumlusu oluşturur; Aksi takdirde, mevcut hizmet sorumlusu üzerinde izin verme bilgileri depolanır.
 
 Kaydolun ve uygulamaları kaybolabileceğini başlangıçta ses ilgili için onay ancak aşağıdakileri göz önünde bulundurun izin vererek:
@@ -132,10 +137,11 @@ Dizininizdeki kullanıcılar uygulamaları kaydetme ve yönetici onayı olmadan 
 
 * Kullanıcılar uygulamalara kendi adınıza verme konusunda çekince engellemek için:
   1. Azure portalında Git [kullanıcı ayarları](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) kurumsal uygulamalar bölümünde.
-  2. Değişiklik **kullanıcılar uygulamalara kendileri adına şirket verilerine erişme izni verebilir** için **Hayır**. 
+  2. Değişiklik **kullanıcılar uygulamalara kendileri adına şirket verilerine erişme izni verebilir** için **Hayır**.
      
      > [!NOTE]
-     > Kullanıcı onayı devre dışı dönüştürmeye karar verirseniz, bir yönetici bir kullanıcı kullanmak için gereken tüm yeni uygulama onayı gerekli olacaktır.    
+     > Kullanıcı onayı devre dışı dönüştürmeye karar verirseniz, bir yönetici bir kullanıcı kullanmak için gereken tüm yeni uygulama onayı gerekli olacaktır.
+
 * Kullanıcıların kendi uygulamalarını kaydetmesini engellemek için:
   1. Azure portalında Git [kullanıcı ayarları](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) bölümü altında Azure Active Directory
   2. Değişiklik **kullanıcılar uygulamaları kaydedebilir** için **Hayır**.
@@ -145,4 +151,3 @@ Dizininizdeki kullanıcılar uygulamaları kaydetme ve yönetici onayı olmadan 
 
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
-

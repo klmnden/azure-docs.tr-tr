@@ -15,12 +15,12 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aee8ac3c2638ede559f8a1f9c51f2d6e62604998
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9903bb82a82291febf571829fb9874ba66d2eab2
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65602255"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476373"
 ---
 # <a name="complete-an-access-review-of-azure-resource-roles-in-pim"></a>Azure kaynak rolleri pım'de erişim değerlendirmesi tamamlama
 Ayrıcalıklı rol yöneticileri, ayrıcalıklı erişim sonra gözden geçirebileceğiniz bir [erişim gözden geçirmesi çalışmaya](pim-resource-roles-start-access-review.md). Azure Active Directory (Azure AD) Privileged Identity Management (PIM) otomatik olarak kullanıcıların erişimini gözden geçirmek için kullanıcıların ister bir e-posta gönderir. Bir kullanıcı bir e-posta almazsa, bunları yönergeleri gönderebilirsiniz [erişim gözden geçirmesi gerçekleştirme](pim-resource-roles-perform-access-review.md).
@@ -33,13 +33,14 @@ Erişim gözden geçirmesi dönemi bittikten sonra veya tüm kullanıcılar, ken
 2. Kaynağınızı seçin.
 
 3. Seçin **erişim gözden geçirmeleriyle** Pano bölümü.
-![Erişim gözden geçirmeleri](media/pim-resource-roles-complete-access-review/rbac-access-review-home-list.png)
+
+    ![Azure kaynakları - listesini gösteren rolü, sahibi, başlangıç tarihi, bitiş tarihi ve durumu erişim gözden geçirmeleri](media/pim-resource-roles-complete-access-review/rbac-access-review-home-list.png)
 
 4. Yönetmek istediğiniz erişim gözden geçirmesi seçin.
 
 Erişim gözden geçirmesi ayrıntıları dikey penceresinde, gözden geçirme yönetmek için birkaç seçenek vardır. Seçenekleri aşağıdaki gibidir:
 
-![Bir gözden geçirme yönetimi seçenekleri](media/pim-resource-roles-complete-access-review/rbac-access-review-menu.png)
+![Bir gözden geçirme - yönetmek için seçenekleri durdurma, sıfırlama, silme Uygula](media/pim-resource-roles-complete-access-review/rbac-access-review-menu.png)
 
 ### <a name="stop"></a>Durdur
 Tüm erişim gözden geçirmeleri bir bitiş tarihi vardır, ancak kullanabileceğiniz **Durdur** düğmesini erken tamamlayın. Bu süreye göre gözden geçirmelerini tamamlamadınız tüm kullanıcılar gözden durdurduktan sonra bitirmek mümkün olmayacaktır. Durdurulmuş sonra bir gözden geçirme yeniden başlatılamıyor.
@@ -54,12 +55,14 @@ Erişim gözden geçirmesi tamamlandığında, kullanın **Uygula** gözden geç
 İncelemede daha ilgileniyor olmayan değilse silebilirsiniz. **Sil** düğmesini gözden PIM uygulamadan kaldırır.
 
 ## <a name="results"></a>Sonuçlar
-Üzerinde **sonuçları** sekmesinde görüntüleyin ve sonuçlarını gözden geçirme listesini indirin. 
-![Sonuçları sekmesi](media/pim-resource-roles-complete-access-review/rbac-access-review-results.png)
+Üzerinde **sonuçları** sayfasında görüntüleyin ve sonuçlarını gözden geçirme listesini indirin. 
+
+![Sonuçlar sayfası listeleme kullanıcılar, sonucu, neden, gözden geçiren tarafından uygulanan ve sonucu Uygula](media/pim-resource-roles-complete-access-review/rbac-access-review-results.png)
 
 ## <a name="reviewers"></a>Gözden geçirenler
 Görüntüleyebilir ve mevcut erişim gözden geçirmeniz için gözden geçirenleri ekleyin. Geçirmeyi tamamlamak için gözden geçirenler hatırlatın.
-![Gözden geçirenler ekleme](media/pim-resource-roles-complete-access-review/rbac-access-review-reviewers.png)
+
+![Gözden geçirenler listesi adı ve kullanıcı asıl adı sayfası](media/pim-resource-roles-complete-access-review/rbac-access-review-reviewers.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

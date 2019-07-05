@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: a5218498b19fe99f810f2dfca8e044c6f9398a94
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 5788f6e699833c606b1bdeaf63a9aac13da2a0e9
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341157"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67513284"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Hızlı Başlangıç: Python API'si ile ilk Batch işinizi çalıştırma
 
@@ -43,7 +43,7 @@ Bu hızlı başlangıç, Azure Batch Python API üzerinde derlenmiş bir uygulam
 
 GitHub’dan [örnek uygulamayı indirin veya kopyalayın](https://github.com/Azure-Samples/batch-python-quickstart). Örnek uygulama deposunu bir Git istemcisi ile kopyalamak için aşağıdaki komutu kullanın:
 
-```
+```bash
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git
 ```
 
@@ -69,7 +69,7 @@ _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB
 
 Batch iş akışını çalışır durumda görmek için betiği çalıştırın:
 
-```
+```bash
 python python_quickstart_client.py
 ```
 
@@ -77,7 +77,7 @@ Betiği çalıştırdıktan sonra, uygulamanın her bir parçasının ne işe ya
 
 Örnek uygulamayı çalıştırdığınızda, konsol çıktısı aşağıdakine benzer. Yürütme sırasında, havuzun işlem düğümleri başlatıldığı sırada `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` konumunda bir duraklama yaşarsınız. Görevler, ilk işlem düğümünü çalışır çalışmaz çalışmak üzere kuyruğa alınır. Batch hesabınızdaki havuz, işlem düğümleri, iş ve görevleri izlemek için [Azure portalında](https://portal.azure.com) Batch hesabınıza gidin.
 
-```
+```output
 Sample start: 11/26/2018 4:02:54 PM
 
 Container [input] created.
@@ -92,7 +92,7 @@ Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
 
 Görevleri tamamladıktan sonra her görev için aşağıdakine benzer bir çıktı görürsünüz:
 
-```
+```output
 Printing task output...
 Task: Task0
 Node: tvm-2850684224_3-20171205t000401z

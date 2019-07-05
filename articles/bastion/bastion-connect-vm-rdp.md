@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: c8a4b09a27325f31e548d1b345b2932c6ab6315c
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 376b7042a513dd50647dc8f88bf1de70f65bb21c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191895"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478414"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion-preview"></a>Azure savunma (Önizleme) kullanarak bir Windows sanal makinesine bağlanma
 
@@ -34,7 +34,7 @@ Bir bağlantı kurmak için aşağıdaki roller gereklidir:
 
 ## <a name="rdp"></a>RDP kullanarak bağlan
 
-1. İçinde [Azure portalında](https://aka.ms/BastionHost) savunma Önizleme, bağlanmak istediğiniz sanal makineye gidin ve ardından **Connect**. VM ile RDP bağlantısı kullanılırken, bir Windows sanal makine olması gerekir.
+1. Kullanım [bu bağlantıyı](https://aka.ms/BastionHost) için savunma Azure Önizleme portalı sayfasını açın. Bağlanmak istediğiniz sanal makineye gidin, ardından tıklatın **Connect**. VM ile RDP bağlantısı kullanılırken, bir Windows sanal makine olması gerekir.
 
     ![VM'ye bağlanın](./media/bastion-connect-vm-rdp/connect.png)
 

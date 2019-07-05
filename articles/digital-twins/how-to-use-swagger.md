@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/29/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: c402b82b91b02f8d9619c851d09c689fd103c9fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b8c2b50e00c8e9727b09a454504d214a3060fe4
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116445"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502697"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure dijital İkizlerini Swagger başvuru belgeleri
 
@@ -92,14 +92,12 @@ Listelenen her endpoint, geliştirme ve test doğrulamak için yanıt gövdesi v
 
 ## <a name="swagger-oauth-20-authorization"></a>Swagger OAuth 2.0 yetkilendirme
 
-OAuth 2.0 tarafından korunan istekleri etkileşimli olarak test etme hakkında daha fazla bilgi için bkz. [resmi belgelerine](https://swagger.io/docs/specification/authentication/oauth2/).
-
 > [!NOTE]
-> Azure dijital İkizlerini kaynak oluşturan kullanıcı asıl alan Yönetici rolü atama olacaktır ve diğer kullanıcılar için ek rol atamaları oluşturmak mümkün olacaktır.
+> * Azure dijital İkizlerini kaynak oluşturan kullanıcı asıl alan Yönetici rolü atama olacaktır ve diğer kullanıcılar için ek rol atamaları oluşturmak mümkün olacaktır. API'leri çağırmak için bu kullanıcıları ve rollerini yetkilendirilebilir.
 
-1. Bağlantısındaki [Bu hızlı başlangıçta](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) türünde bir Azure AD uygulaması oluşturmak için ***Web uygulaması / API***. Veya mevcut bir uygulama kaydı yeniden kullanabilirsiniz.
+1. Bağlantısındaki [Bu hızlı başlangıçta](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) veya [ile Azure Active Directory eski Azure dijital İkizlerini uygulamanızı kaydetmeniz](./how-to-use-legacy-aad.md) oluşturmak ve bir Azure AD uygulaması yapılandırmak için. Alternatif olarak, var olan bir uygulama kaydı yeniden kullanabilirsiniz.
 
-2. Aşağıdaki yanıt URL'si için uygulama kaydı ekleyin:
+1. Aşağıdaki yanıt URL'si için uygulama kaydı ekleyin:
 
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
@@ -108,29 +106,23 @@ OAuth 2.0 tarafından korunan istekleri etkileşimli olarak test etme hakkında 
     |---------|---------|---------|
     | YOUR_SWAGGER_URL | Yönetim REST API'si belgeleri URL'nizi portalda bulunamadı  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
-3. Uygulamanızın Azure dijital İkizlerini erişmek izinler verir. Altında **gerekli izinler**, girin `Azure Digital Twins` seçip **Temsilcili izinler**. Ardından **izinler**.
-
-    ![Azure AD uygulama kayıtları API ekleme](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
-
-4. OAuth 2.0 örtük akışını izin vermek için uygulama bildirimini yapılandırın. Seçin **bildirim** uygulamanız için uygulama bildirimini açın. Ayarlama *oauth2AllowImplicitFlow* için `true`.
-
-    ![Azure AD örtük akış](../../includes/media/digital-twins-permissions/aad-app-allow-implicit-flow.png)
-
-5. Azure AD uygulamanızın Kimliğini kopyalayın.
+1. Azure AD uygulamanızın Kimliğini kopyalayın.
 
 Azure Active Directory kaydı tamamladıktan sonra:
 
-6. Seçin **Authorize** swagger sayfanızda düğmesi.
+1. Seçin **Authorize** swagger sayfanızda düğmesi.
 
     [![Düğme seçin Swagger Yetkilendir](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
-7. Uygulama Kimliği yapıştırın **client_id** alan.
+1. Uygulama Kimliği yapıştırın **client_id** alan.
 
     [![Swagger client_id alan](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
 
-8. Ardından kalıcı aşağıdaki başarısı için yönlendirilirsiniz.
+1. Ardından kalıcı aşağıdaki başarısı için yönlendirilirsiniz.
 
-    [![Swagger kalıcı yeniden yönlendirme](media/how-to-use-swagger/swagger_auth_redirect.PNG)](media/how-to-use-swagger/swagger_auth_redirect.PNG#lightbox)
+    [![Swagger kalıcı yeniden yönlendirme](media/how-to-use-swagger/swagger_auth_redirect.png)](media/how-to-use-swagger/swagger_auth_redirect.png#lightbox)
+
+OAuth 2.0 tarafından korunan istekleri etkileşimli olarak test etme hakkında daha fazla bilgi için bkz. [resmi belgelerine](https://swagger.io/docs/specification/authentication/oauth2/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

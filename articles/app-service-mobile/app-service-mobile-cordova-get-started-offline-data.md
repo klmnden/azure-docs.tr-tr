@@ -2,7 +2,7 @@
 title: Azure mobil uygulaması (Cordova) için çevrimdışı eşitlemeyi etkinleştirme | Microsoft Docs
 description: App Service Mobile Apps Cordova uygulamanızı çevrimdışı verileri önbellek ve eşitleme için kullanmayı öğrenin
 documentationcenter: cordova
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 services: app-service\mobile
@@ -12,18 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-cordova-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: crdun
-ms.openlocfilehash: 44c54b570a38eb1a3b9ca773893599d1d497dfa2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 04c8e7b2b60a60f17c49862d5c17793c16456032
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62111001"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443516"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Cordova mobil uygulamanız için çevrimdışı eşitlemeyi etkinleştirme
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
+> [!NOTE]
+> Visual Studio App Center, mobil uygulama geliştirme merkezi hizmetlerinde yeni ve tümleşik yatırım yapıyor. Geliştiriciler **derleme**, **Test** ve **Dağıt** hizmetlerinin sürekli tümleştirme ve teslim işlem hattı ayarlayın. Uygulama dağıtıldığında, geliştiriciler kendi uygulamasını kullanarak kullanımı ve durumu izleyebilirsiniz **Analytics** ve **tanılama** kullanarak kullanıcılarla etkileşim kurun ve hizmetlerini **anında iletme** hizmeti. Geliştiriciler de yararlanabilir **Auth** , kullanıcıların kimliğini doğrulamak ve **veri** kalıcı hale getirmek ve uygulama verilerini bulutta eşitleme hizmeti. Kullanıma [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-get-started-offline-data) bugün.
+>
+
+## <a name="overview"></a>Genel Bakış
 Bu öğretici Azure Mobile Apps, çevrimdışı eşitleme özelliği için Cordova tanıtır. Çevrimdışı eşitleme son kullanıcıların bir mobil uygulama ile etkileşim sağlar&mdash;görüntüleme, ekleme veya verileri değiştirme&mdash;hiçbir ağ bağlantısı olduğunda bile. Değişiklikler, yerel bir veritabanında depolanır.  Cihaz yeniden çevrimiçi olduğunda, bu değişiklikleri uzak hizmeti ile eşitlenir.
 
 Bu öğretici, Mobile Apps için öğreticiyi tamamladığınızda, oluşturduğunuz Cordova hızlı çözüm üzerinde dayanır [Apache Cordova Hızlı Başlangıç]. Bu öğreticide, Azure Mobile Apps çevrimdışı özellikleri eklemek için hızlı başlangıç çözüm güncelleştirin.  Biz de çevrimdışı özgü kod uygulamasında vurgulayın.

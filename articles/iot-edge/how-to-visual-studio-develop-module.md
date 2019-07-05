@@ -5,18 +5,18 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 05/27/2019
+ms.date: 07/01/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4014827366afc492d73757a0ac5e1acb64262c51
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 953a549a44d224f9d196c6d6842bdcae04cca975
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66474773"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485905"
 ---
-# <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge-preview"></a>Geliştirme ve modülleri, Azure IOT Edge (Önizleme) için hata ayıklama için Visual Studio 2019 kullanın
+# <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Geliştirme ve modülleri, Azure IOT Edge için hata ayıklama için Visual Studio 2019 kullanın
 
 İçin Azure IOT Edge modülleri, iş mantığınızı kapatabilirsiniz. Bu makalede, Visual Studio 2019 ana aracı olarak geliştirme ve hata ayıklama modülleri nasıl kullanacağınızı gösterir.
 
@@ -40,10 +40,10 @@ Bu makalede ana geliştirme aracı olarak Visual Studio 2019 kullandığından, 
 
 Visual Studio 2019 hazır olduktan sonra aşağıdaki araçları ve bileşenleri de gerekir:
 
-- İndirme ve yükleme [Azure IOT Edge Araçları (Önizleme)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) Visual Studio 2019 bir IOT Edge projesi oluşturmak için Visual Studio Market.
+- İndirme ve yükleme [Azure IOT Edge araçlarını](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) Visual Studio 2019 bir IOT Edge projesi oluşturmak için Visual Studio Market.
 
 > [!TIP]
-> Visual Studio 2017'yi kullanıyorsanız, plrease yükleyip [Azure IOT Edge Araçları (Önizleme)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) VS 2017 Visual Studio Market
+> Visual Studio 2017'yi kullanıyorsanız, plrease yükleyip [Azure IOT Edge araçlarını](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) VS 2017 Visual Studio Market
 
 - İndirme ve yükleme [Docker Community Edition](https://docs.docker.com/install/) geliştirme makinenizde derlemek ve çalıştırmak, modül görüntüleri için. Linux kapsayıcı modu veya Windows kapsayıcı modu çalıştırmak için Docker CE kümesi gerekir.
 

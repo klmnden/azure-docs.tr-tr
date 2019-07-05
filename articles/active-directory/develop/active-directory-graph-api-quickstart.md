@@ -19,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05b3d749eb3e2bc767889831b4c1ff01833a3f39
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a2ae83b655bfe607b1061168649ec74f02ab4064
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544677"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483171"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Nasıl yapılır: Azure AD Graph API’sini kullanma
 
@@ -65,7 +65,7 @@ Azure AD Graph API'si için Azure AD Graph Gezgini, uygulamanızı oluştururken
 
 Aşağıdaki anlık görüntüde gördüğünüz Azure AD Graph Explorer'a gidin, oturum açın ve girin olsaydı çıktıdır `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6` oturum açmış kullanıcının dizindeki tüm kullanıcıları görüntülemek için:
 
-![Azure AD grafik api'si Gezgini](./media/active-directory-graph-api-quickstart/graph_explorer.png)
+![Örnek çıktıda Azure AD grafik APİ'si Gezgini](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
 **Azure AD Graph Gezgini yük**: Aracı'nı yüklemek için gidin [ https://graphexplorer.azurewebsites.net/ ](https://graphexplorer.azurewebsites.net/). Tıklayın **oturum açma** ve kiracınızda Azure AD Graph Gezgini çalıştırmak için Azure AD hesabı kimlik bilgileri ile oturum açın. Azure AD Graph Gezgini karşı kendi kiracınızı çalıştırırsanız, siz veya yöneticiniz oturum açma sırasında onayı gerekir. Bir Office 365 aboneliğiniz varsa, otomatik olarak bir Azure AD kiracısına sahip. Office 365'te oturum açmak için kullandığınız kimlik bilgileri, aslında, Azure AD hesapları ve Azure AD Graph Gezgini ile bu kimlik bilgilerini kullanabilirsiniz.
 

@@ -1,19 +1,19 @@
 ---
 title: Azure dijital İkizlerini ortak sorgu kalıpları | Microsoft Docs
 description: Azure dijital İkizlerini yönetim API'leri sorgulama ortak desenler öğrenin.
-author: dsk-2015
+author: kingdomofends
 manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 1/7/2019
-ms.author: dkshir
-ms.openlocfilehash: ff8638042fa10c939ff9c5fa7af99a660fcdc753
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: v-adgera
+ms.openlocfilehash: 57abb005f70661d23ea90eaf801b8e5407340bb7
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60924745"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462045"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Azure dijital İkizlerini API'leri için ortak görevler sorgulama
 

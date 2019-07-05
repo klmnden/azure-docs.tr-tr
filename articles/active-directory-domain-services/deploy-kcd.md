@@ -3,7 +3,7 @@ title: 'Azure Active Directory etki alanı Hizmetleri: Kısıtlı kerberos temsi
 description: Azure Active Directory Domain Services yönetilen etki alanlarında kerberos kısıtlanmış temsili etkinleştir
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: mstephen
-ms.openlocfilehash: 287aea990664cf01caf83e1871acf69e48210226
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: f4252fcd70ff5aa9c2056b72add7c79283ce7fcf
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246172"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67473445"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Yönetilen bir etki alanında Kerberos Kısıtlı temsilci (KCD) yapılandırma
 Birçok uygulama, kullanıcı bağlamında kaynaklara erişmek gerekir. Active Directory, bu kullanım örneği tanıyan Kerberos temsilcisi seçme adlı bir mekanizmayı destekler. Ayrıca, böylece yalnızca belirli kaynaklara kullanıcı bağlamında erişilebilir temsilci kısıtlayabilirsiniz. Azure AD Domain Services yönetilen etki alanlarını geleneksel Active Directory etki alanlarından farklı olduğundan, daha güvenli bir şekilde kilitlendiğini.

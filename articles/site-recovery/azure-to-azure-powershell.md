@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: c585b300a65091bee3320a21b7bce7ba94d269ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 766b004217d6679dcba00c581ade4fe911b5f8b9
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258795"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491859"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Azure PowerShell kullanarak Azure sanal makineler için olağanüstü durum kurtarmayı ayarlama
 
@@ -600,6 +600,14 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 ```
 
 Yeniden koruma tamamlandıktan sonra Yük devretme ters yönde (Doğu ABD Batı ABD) ve kaynak bölgeye yeniden başlatabilirsiniz.
+
+## <a name="disable-replication"></a>Çoğaltmayı devre dışı bırakma
+
+Remove-ASRReplicationProtectedItem cmdlet'ini kullanarak çoğaltmayı devre dışı bırakabilirsiniz.
+
+```azurepowershell
+Remove-ASRReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Görünüm [Azure Site Recovery PowerShell başvurusu](https://docs.microsoft.com/powershell/module/az.RecoveryServices) kurtarma planları oluşturma ve PowerShell üzerinden kurtarma planı yük devretme testi gibi diğer görevleri nasıl gerçekleştirebileceğiniz öğrenin.

@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 462a99ffab8038f34b1ffd038ce5c8e8ec9a8565
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a6a5b0e3957141b9ea17a378a7cbeff33a0124e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024437"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485193"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Azure Search'te bir temel dizin oluşturma
 
@@ -36,7 +36,7 @@ En doğru dizin tasarımı ulaşan, genellikle birden fazla yineleme ile elde ed
   
    Tıkladığınızda **Oluştur**, tüm dizininizi destekleyen fiziksel yapıları arama hizmetiniz oluşturulur.
 
-3. Dizin şeması kullanarak indirin [alma dizin REST API](https://docs.microsoft.com/rest/api/searchservice/get-index) ve bir web testi gibi araç [Postman](search-fiddler.md). Artık bir JSON temsili portalda oluşturulan bir dizin var. 
+3. Dizin şeması kullanarak indirin [alma dizin REST API](https://docs.microsoft.com/rest/api/searchservice/get-index) ve bir web testi gibi araç [Postman](search-get-started-postman.md). Artık bir JSON temsili portalda oluşturulan bir dizin var. 
 
    Bu noktada kod tabanlı bir yaklaşımda geçiyorsunuz. Önceden oluşturulmuş bir dizin düzenleyemediğiniz portalı yineleme için uygun değil. Ancak, kalan görevlerin Postman ve REST kullanabilirsiniz.
 
@@ -48,7 +48,7 @@ En doğru dizin tasarımı ulaşan, genellikle birden fazla yineleme ile elde ed
 
 Fiziksel yapılar, hizmette oluşturulduğundan [bırakarak ve dizinleri yeniden](search-howto-reindex.md) varolan alan tanımına kullanacağıyla ilgili önemli değişiklikler yaptığınızda gereklidir. Başka bir deyişle, geliştirme sırasında üzerinde sık sık yeniden planlamalısınız. Git, daha hızlı hale getirmek için verilerinizin bir alt kümesi ile çalışma oluşturur göz önünde bulundurabilirsiniz. 
 
-Portal bir yaklaşım yerine kod yinelemeli tasarım için önerilir. Dizin tanımı için portalda güveniyorsanız, her yeniden dizin tanımını doldurmanız gerekir. Alternatif olarak, gibi araçları [Postman ve REST API'si](search-fiddler.md) geliştirme projelerini hala erken bir aşamada olduğunda, kavram kanıtı test etmek için yararlıdır. Bir dizin tanımını istek gövdesine artımlı değişiklikler yapmak ve sonra güncelleştirilmiş bir şemayı kullanarak bir dizini yeniden oluşturmak için hizmetinize istek gönderin.
+Portal bir yaklaşım yerine kod yinelemeli tasarım için önerilir. Dizin tanımı için portalda güveniyorsanız, her yeniden dizin tanımını doldurmanız gerekir. Alternatif olarak, gibi araçları [Postman ve REST API'si](search-get-started-postman.md) geliştirme projelerini hala erken bir aşamada olduğunda, kavram kanıtı test etmek için yararlıdır. Bir dizin tanımını istek gövdesine artımlı değişiklikler yapmak ve sonra güncelleştirilmiş bir şemayı kullanarak bir dizini yeniden oluşturmak için hizmetinize istek gönderin.
 
 ## <a name="components-of-an-index"></a>Bir dizinin bileşenleri
 
@@ -160,16 +160,22 @@ Schematically, Azure Search dizini aşağıdaki öğelerden oluşur.
 Azure Search'ün [desteklediği veri türleri hakkında burada](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) daha ayrıntılı bilgiler edinebilirsiniz.
 
 ### <a name="index-attributes"></a>Dizin öznitelikleri
+
+Dizininizde yalnızca bir alanın olmalıdır belirlenmiş olarak bir **anahtar** her belgenin benzersiz olarak tanımlayan alan.
+
+Diğer öznitelikler, bir uygulamada bir alanın nasıl kullanıldığını belirler. Örneğin, **aranabilir** özniteliği bir tam metin aramasına dahil edilmesi gereken her alanı atanır. 
+
+Bir dizin oluşturmak için kullandığınız API'leri, değişen davranışa sahip. İçin [REST API'leri](https://docs.microsoft.com/rest/api/searchservice/Create-Index), özelliklerin çoğu, varsayılan olarak etkin olan (örneğin, **aranabilir** ve **alınabilir** dize alanları için true) ve genellikle yalnızca bunları verilirse gerekir bunları kapatmak istiyor. .NET SDK için bunun tersi de geçerlidir. Açıkça ayarlamayın herhangi bir özellik hakkında özellikle etkinleştirmediğiniz sürece karşılık gelen arama davranışını devre dışı bırakmak için varsayılandır.
+
 | Öznitelik | Açıklama |
 | --- | --- |
-| *Anahtar* |Her bir belgenin belge araması için kullanılan benzersiz kimliğini sağlayan bir dize. Tüm dizinlerin bir anahtarı olması gerekir. Yalnızca bir alan anahtar olabilir ve bunun türü Edm.String olarak ayarlanmalıdır. |
-| *Alınabilir* |Bir arama sonucunda bir alanın döndürülüp döndürülemeyeceğini belirtir. |
-| *Filtrelenebilir* |Alanın filtre sorgularında kullanılmasını sağlar. |
-| *Sıralanabilir* |Bu alanı kullanarak bir sorgunun arama sonuçlarını sıralamasını sağlar. |
-| *Modellenebilir* |Kullanıcının bağımsız filtrelemesi için [modellenmiş bir gezinmede](search-faceted-navigation.md) bir alanın kullanılmasını sağlar. Genellikle birden çok belgeyi bir araya gruplamak için kullanabileceğiniz yinelemeli değerler içeren alanlar (örneğin, tek bir marka veya hizmet kategorisine denk gelen birden çok belge) model olarak en iyi şekilde işler. |
-| *Aranabilir* |Alanı tam metin aranabilir şeklinde işaretler. |
+| `key` |Her bir belgenin belge araması için kullanılan benzersiz kimliğini sağlayan bir dize. Tüm dizinlerin bir anahtarı olması gerekir. Yalnızca bir alan anahtar olabilir ve bunun türü Edm.String olarak ayarlanmalıdır. |
+| `retrievable` |Bir arama sonucunda bir alanın döndürülüp döndürülemeyeceğini belirtir. |
+| `filterable` |Alanın filtre sorgularında kullanılmasını sağlar. |
+| `Sortable` |Bu alanı kullanarak bir sorgunun arama sonuçlarını sıralamasını sağlar. |
+| `facetable` |Kullanıcının bağımsız filtrelemesi için [modellenmiş bir gezinmede](search-faceted-navigation.md) bir alanın kullanılmasını sağlar. Genellikle birden çok belgeyi bir araya gruplamak için kullanabileceğiniz yinelemeli değerler içeren alanlar (örneğin, tek bir marka veya hizmet kategorisine denk gelen birden çok belge) model olarak en iyi şekilde işler. |
+| `searchable` |Alanı tam metin aranabilir şeklinde işaretler. |
 
-Azure Search'ün [dizin öznitelikleri hakkında burada](https://docs.microsoft.com/rest/api/searchservice/Create-Index) daha ayrıntılı bilgiler edinebilirsiniz.
 
 ## <a name="storage-implications"></a>Depolama etkileri
 

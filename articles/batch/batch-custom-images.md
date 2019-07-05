@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 886dea0e53519870aaa27dea721a9eb78515cf86
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80cba5e1b5e38e31dea2272cc4e33b4a95940e41
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706316"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565605"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Sanal makine havuzu oluşturmak için özel görüntü kullanma 
 
@@ -49,7 +49,7 @@ Azure'da bir Azure VM'nin işletim sistemi ve veri disklerinin anlık görüntü
 
 ### <a name="prepare-a-vm"></a>Bir VM hazırlama
 
-Görüntü için yeni bir VM oluşturuyorsanız, Batch tarafından yönetilen bir görüntü için temel görüntü olarak desteklenen bir birinci taraf Azure Market görüntüsü kullanın. Yalnızca birinci taraf görüntülerini temel görüntü olarak kullanılabilir. Azure Batch tarafından desteklenen Azure Market görüntü başvuruları, tam bir listesini almak için bkz: [listesi düğüm Aracısı SKU'ları](/rest/api/batchservice/account/listnodeagentskus) işlemi.
+Görüntü için yeni bir VM oluşturuyorsanız, Batch tarafından yönetilen bir görüntü için temel görüntü olarak desteklenen bir birinci taraf Azure Market görüntüsü kullanın. Yalnızca birinci taraf görüntülerini temel görüntü olarak kullanılabilir. Azure Batch tarafından desteklenen Azure Market görüntü başvuruları, tam bir listesini almak için bkz: [listesi düğüm Aracısı SKU'ları](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) işlemi.
 
 > [!NOTE]
 > Ek lisans ve satın alma koşulları, temel görüntü olarak içeren bir üçüncü taraf görüntüyü kullanamazsınız. Yönergeler için bu Market görüntüleri hakkında daha fazla bilgi için bkz [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms

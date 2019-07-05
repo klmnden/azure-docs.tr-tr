@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: e44beed592e013a089011c2a774b7300f2b3f854
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25c50d400a68cdbfb9110a9e8e9d66477ad4710a
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66133769"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67513353"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Azure CLI kullanarak iç yeniden yönlendirmeyi ile bir uygulama ağ geçidi oluşturma
 
@@ -213,11 +213,11 @@ az network public-ip show \
 
 ## <a name="test-the-application-gateway"></a>Uygulama ağ geçidini test etme
 
-Tarayıcınızın adres çubuğuna, etki alanı adınızı girin. Örneğin http://www.contoso.com.
+Tarayıcınızın adres çubuğuna, etki alanı adınızı girin. Http gibi:\//www.contoso.com.
 
 ![Uygulama ağ geçidinde contoso test etme](./media/redirect-internal-site-cli/application-gateway-nginxtest.png)
 
-Diğer etki alanınıza, adresi değiştirin; örneğin http://www.contoso.org ve trafiği www için dinleyici için yeniden yönlendirilen görmelisiniz\. contoso.com.
+Diğer etki alanınıza, örneğin http adresini değiştirme:\//www.contoso.org görmelisiniz trafiği www için dinleyici için yeniden yönlendirilen\.contoso.com.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

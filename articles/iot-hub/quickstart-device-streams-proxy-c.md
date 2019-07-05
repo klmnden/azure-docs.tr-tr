@@ -1,21 +1,20 @@
 ---
 title: Azure IOT Hub cihaz akışları C Hızlı Başlangıç için SSH ve RDP (Önizleme) | Microsoft Docs
 description: Bu hızlı başlangıçta, IOT Hub üzerinde SSH ve RDP senaryoları etkinleştirmek için bir proxy görevi gören bir örnek C uygulama cihaz akışları çalıştırın.
-author: rezasherafat
-manager: briz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
-ms.author: rezas
-ms.openlocfilehash: e21d7381831553f8d82b00d9ed3be0b03f13bca9
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.author: robinsh
+ms.openlocfilehash: b958711c498f0826f2a48d92d4892eb43ec8d18a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735132"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446072"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Hızlı Başlangıç: SSH ve RDP C Ara sunucu uygulamasını (Önizleme) kullanarak bir IOT Hub cihaz akış üzerinden etkinleştirme
 

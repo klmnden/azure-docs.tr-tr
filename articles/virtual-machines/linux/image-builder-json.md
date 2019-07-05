@@ -7,12 +7,12 @@ ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: cf8264cbad3c5c88c58cff3b95cb5c68adf0686c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a577a2a2a3b21cb027ba699450631a627f4f7a39
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65538287"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501882"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Önizleme: Azure Görüntü Oluşturucu şablonu oluşturma 
 
@@ -55,7 +55,7 @@ Bu temel şablonu biçimi şu şekildedir:
 
 Özel görüntü oluşturulacağı bölgeyi konumdur. Görüntü Oluşturucusu önizlemesi, aşağıdaki bölgelerde desteklenir:
 
-- Doğu ABD
+- East US
 - Doğu ABD 2
 - Batı Orta ABD
 - Batı ABD
@@ -331,6 +331,8 @@ Bu dizinler Windows ve Linux yolları tarafından desteklenir, ancak bazı farkl
  
  
 Dosyayı indirin ve belirtilen dizine yerleştirin çalışılırken bir hata varsa Özelleştir adımı başarısız olur ve bu içinde customization.log olacaktır.
+
+>> Unutmayın! Dosya Özelleştirici yalnızca < 20 MB küçük dosya yüklemeleri için uygundur. Bir betik veya satır içi komut dosyaları gibi indirmek için bir kod kullanın Linux büyük dosya indirme kullanımı için `wget` veya `curl`, Windows, `Invoke-WebRequest`.
 
 Dosya Özelleştirici dosyaları Azure Storage'dan indirilebilir kullanarak [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0672f25b30bfb34a6ee99b0f4710d01cf0871300
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 6506a93914cfbc10f37980c4b916a93aa9aad75d
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150336"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67564413"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Dosyaları dağıtımı planlama
 
@@ -83,29 +83,24 @@ Standart dosya paylaşımları, sabit disk sürücülerinin (HDD'ler) tarafında
 Standart dosya paylaşımlarının boyutu 5 TiB kadar bir GA teklifi olarak kullanılabilir. En çok 100 TiB 5 TiB büyük tüm paylaşımları büyük dosya paylaşımları, şu anda Önizleme teklifi olarak mevcut olsa da.
 
 > [!IMPORTANT]
-> - (Var olan depolama hesapları genişletilemiyor) yeni bir genel amaçlı depolama hesabı oluşturmanızı gerektirir.
-> - Yalnızca LRS ile kullanılabilir.
-> - Üç bölgelerde kullanılabilir: Batı ABD 2, Batı Avrupa ve Güneydoğu Asya bölgeleri.
-> - LRS, GRS hesabı dönüştürme için bir abonelik daha büyük dosya paylaşımları önizlemesi için kabul edildikten sonra oluşturulan tüm yeni depolama hesapları hakkında mümkün olmayacaktır.
+> Bkz: [büyük dosya paylaşımları (standart katman) sağlamak](#onboard-to-larger-file-shares-standard-tier) adımları ekleme yanı sıra kapsamı ve önizleme kısıtlamaları bölümü.
 
-Bu daha büyük bir dosya paylaşımı boyutları Önizleme ekleneceği isterseniz bu Gönderme [form](https://aka.ms/azurefilesatscalesurvey). 
+### <a name="premium-file-shares"></a>Premium dosya paylaşımları
 
-### <a name="premium-file-shares-preview"></a>Premium dosya paylaşımları (Önizleme)
-
-Premium dosya paylaşımları (Önizleme), katı hal diskleri (SSD'ler) tarafından desteklenir. Premium dosya paylaşımları, tutarlı, yüksek performanslı ve düşük gecikme süreli, yoğun g/ç iş yükleri için çoğu g/ç işlemleri için Tek haneli milisaniye içinde sağlayın. Bu çok çeşitli veritabanları, web sitesi barındırma, geliştirme ortamları, vb. gibi iş yükleri için uygun sağlar. Premium dosya paylaşımları, yalnızca sağlanan faturalama modelinde kullanılabilir. Premium dosya paylaşımları, standart dosya paylaşımlarından ayrı bir dağıtım modeli kullanın.
+Premium dosya paylaşımları, katı hal sürücüleri (SSD) tarafından desteklenir. Premium dosya paylaşımları, tutarlı, yüksek performanslı ve düşük gecikme süreli, yoğun g/ç iş yükleri için çoğu g/ç işlemleri için Tek haneli milisaniye içinde sağlayın. Bu çok çeşitli veritabanları, web sitesi barındırma ve geliştirme ortamları gibi iş yükleri için uygun sağlar. Premium dosya paylaşımları, yalnızca sağlanan faturalama modelinde kullanılabilir. Premium dosya paylaşımları, standart dosya paylaşımlarından ayrı bir dağıtım modeli kullanın.
 
 Azure Backup, premium dosya paylaşımları için kullanılabilir ve Azure Kubernetes hizmeti premium dosya paylaşımları 1.13 sürümü ve üzerini destekler.
 
 Premium dosya paylaşımı oluşturma konusunda bilgi almak istiyorsanız, konu üzerinde makalemizi bakın: [Bir premium Azure dosya depolama hesabının nasıl oluşturulacağını](storage-how-to-create-premium-fileshare.md).
 
-Şu anda, standart dosya paylaşımı ve premium dosya paylaşımı arasında doğrudan dönüştürülemiyor. Her iki katmana geçmek istiyorsanız, bu katmanda yeni bir dosya paylaşımı oluşturma ve el ile verilerin, özgün paylaşımından oluşturduğunuz yeni paylaşıma kopyalayın. AzCopy gibi desteklenen Azure dosyaları kopyalama araçlardan herhangi birini kullanarak bunu yapabilirsiniz.
+Şu anda, standart dosya paylaşımı ve premium dosya paylaşımı arasında doğrudan dönüştürülemiyor. Her iki katmana geçmek istiyorsanız, bu katmanda yeni bir dosya paylaşımı oluşturma ve el ile verilerin, özgün paylaşımından oluşturduğunuz yeni paylaşıma kopyalayın. Robocopy veya AzCopy gibi desteklenen Azure dosyaları kopyalama araçlardan herhangi birini kullanarak bunu yapabilirsiniz.
 
 > [!IMPORTANT]
-> Premium dosya paylaşımları hala Önizleme aşamasındadır, yalnızca LRS ile kullanılabilir ve depolama hesapları sunan birçok bölgede kullanılabilir. Premium dosya paylaşımları Bölgenizde kullanılabilir olup olmadığını öğrenmek için bkz: [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/?products=storage) Azure sayfası.
+> Premium dosya paylaşımları, yalnızca LRS ile kullanılabilir ve depolama hesapları sunan birçok bölgede kullanılabilir. Premium dosya paylaşımları Bölgenizde kullanılabilir olup olmadığını öğrenmek için bkz: [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/?products=storage) Azure sayfası.
 
 ### <a name="provisioned-shares"></a>Sağlanan paylaşımlar
 
-Premium dosya paylaşımları (Önizleme), bir sabit GiB/IOPS/işleme oranını göre sağlanır. Bir IOPS ve Paylaşım başına maksimum sınırlara kadar 0,1 MiB/sn aktarım hızı, sağlanan her GiB için paylaşım verilir. Sağlama izin verilen en düşük, en düşük IOPS/aktarım hızı ile 100 GiB ' dir.
+Premium dosya paylaşımları, temel bir sabit GiB/IOPS/işleme oranını sağlanır. Bir IOPS ve Paylaşım başına maksimum sınırlara kadar 0,1 MiB/sn aktarım hızı, sağlanan her GiB için paylaşım verilir. Sağlama izin verilen en düşük, en düşük IOPS/aktarım hızı ile 100 GiB ' dir.
 
 En iyi çaba ilkesine göre tüm paylaşımlar üç IOPS sağlanan depolama GiB başına en fazla 60 dakika veya daha uzun paylaşımın boyutuna bağlı olarak veri bloğu. Yeni paylaşımlar üzerinde sağlanan kapasitesine göre tam veri bloğu kredi ile başlayın.
 
@@ -137,6 +132,9 @@ Aşağıdaki tabloda, sağlanan paylaşım boyutları için bu formül, bazı ö
 |51,200      | 51,200  | En fazla 100.000 | 3,132 | 2,088   |
 |102,400     | 100,000 | En fazla 100.000 | 6,204 | 4,136   |
 
+> [!NOTE]
+> Dosya paylaşımlarını performans makine ağ sınırları, kullanılabilir ağ bant genişliği, g/ç boyutu, diğer faktörlerden arasında bir paralellik tabidir. En yüksek performansı ölçeği elde etmek için birden çok VM arasında yükü dağıtabilir. Lütfen [sorun giderme kılavuzu](storage-troubleshooting-files-performance.md) bazı genel performans sorunlarını ve geçici çözümler.
+
 ### <a name="bursting"></a>Genişletme
 
 Premium dosya paylaşımlarını bir faktör üç kadar kendi IOPS veri bloğu. Genişletme, otomatik olarak ve kredi sisteme göre çalışır. En iyi çaba ilkesine ve yığma sınırı üzerinde çalışır Patlaması garantisi değil, dosya paylaşımları veri bloğu *kadar* sınırı.
@@ -158,9 +156,9 @@ Yeni dosya paylaşımları başlangıcı tam krediler kendi veri bloğu demet sa
 
 ## <a name="file-share-redundancy"></a>Dosya Paylaşımı yedeklilik
 
-Azure dosyaları standart paylaşımlarını destekleyen üç veri yedekliliği seçenekleri: yerel olarak yedekli depolama (LRS), bölgesel olarak yedekli depolama (ZRS) ve coğrafi olarak yedekli depolama (GRS).
+Standart Azure dosya paylaşımları desteği üç veri yedekliliği seçenekleri: yerel olarak yedekli depolama (LRS), bölgesel olarak yedekli depolama (ZRS) ve coğrafi olarak yedekli depolama (GRS).
 
-Azure dosyaları premium yalnızca destekler yerel olarak yedekli depolama (LRS) paylaşır.
+Azure dosyaları premium paylaşımları yalnızca yerel olarak yedekli depolama (LRS) destekler.
 
 Aşağıdaki bölümlerde farklı yedekliliği seçenekleri arasındaki farklar açıklanmaktadır:
 
@@ -192,6 +190,48 @@ Hangi çoğaltma seçeneği kullanmak için karar verirken, aşağıdaki noktala
 * Bölgesel olarak yedekli depolama (ZRS), yüksek oranda kullanılabilirlik ile zaman uyumlu çoğaltma sağlar ve bazı senaryolar için GRS daha iyi bir seçim olabilir. ZRS hakkında daha fazla bilgi için bkz. [ZRS](../common/storage-redundancy-zrs.md).
 * Zaman uyumsuz çoğaltma, ikincil bölgeye çoğaltılır, birincil bölgeye yazılır veri andan itibaren bir gecikme içerir. Birincil bölgeden verilerin kurtarılamaması durumunda bölgesel bir olağanüstü durum yaşandığında ikincil bölgeye henüz çoğaltılan henüz değişiklikler kaybolabilir.
 * GRS ile Microsoft ikincil bölgeye yük devretme başlatır sürece çoğaltma okuma veya yazma erişimi için kullanılabilir değildir. Bir yük devretme durumunda okuma ve yük devretme sonrasında bu verilere yazma erişimi tamamlandı. Daha fazla bilgi için lütfen bkz [olağanüstü durum kurtarma Kılavuzu](../common/storage-disaster-recovery-guidance.md).
+
+## <a name="onboard-to-larger-file-shares-standard-tier"></a>Ekleme büyük dosya paylaşımları (standart katman)
+
+Bu bölüm, yalnızca standart dosya paylaşımları için de geçerlidir. Tüm premium dosya paylaşımları ile 100 tib'a kadar bir GA teklifi olarak kullanılabilir.
+
+### <a name="restrictions"></a>Kısıtlamalar
+
+- (Var olan depolama hesapları genişletilemiyor) yeni bir genel amaçlı depolama hesabı oluşturmanızı gerektirir.
+- LRS, GRS hesabı dönüştürme için bir abonelik daha büyük dosya paylaşımları önizlemesi için kabul edildikten sonra oluşturulan tüm yeni depolama hesapları hakkında mümkün olmayacaktır.
+
+### <a name="regional-availability"></a>Bölgesel kullanılabilirlik
+
+Standart dosya paylaşımları 5 TiB kadar tüm bölgelerde kullanılabilir. Belirli bölgelerde 100 TiB sınırı ile kullanılabilir, aşağıdaki tabloda bu bölgeler listelenir:
+
+|Bölge  |Desteklenen yedeklilik  |Var olan depolama hesaplarını destekler  |
+|---------|---------|---------|
+|Güneydoğu Asya     |LRS|Hayır         |
+|Batı Avrupa     |LRS|Hayır         |
+|Batı ABD 2     |LRS, ZRS|Hayır         |
+
+
+### <a name="steps-to-onboard"></a>Adımları eklemek için
+
+Aboneliğinize daha büyük dosya paylaşımları önizlemesi kaydetmek için aşağıdaki PowerShell komutlarını çalıştırın:
+
+```powershell
+Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
+Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
+```
+Her iki komutu çalıştırdıktan sonra aboneliğiniz otomatik olarak onaylanır.
+
+Kayıt durumunuzu doğrulamak için aşağıdaki komutu çalıştırabilirsiniz:
+
+```powershell
+Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
+```
+
+Durumunuzu güncelleştirmek 15 dakika kadar sürebilir **kayıtlı**. Durumunuzu olduğunda **kayıtlı**, kullanılmakta olan olmalıdır.
+
+### <a name="use-larger-file-shares"></a>Büyük dosya paylaşımları kullanın
+
+Büyük dosya paylaşımları'ı kullanmaya başlamak için yeni bir genel amaçlı v2 depolama hesabı ve yeni bir dosya paylaşımı oluşturun.
 
 ## <a name="data-growth-pattern"></a>Veri büyümesi deseni
 

@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 68599a539b3d79b759142d2178aa753f895ea37f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1e7b91e0808b9e23e653acd43b95f24a46c7d27
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052944"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503202"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Azure IOT Central uygulamanızda cihaz kümelerini kullanma
 
 Bu makalede, nasıl bir operatör olarak, cihazı kullanmak için Azure IOT Central uygulamanızda ayarlar açıklanır.
 
-Bunların tümü bazı belirtilen ölçütlerle eşleşen çünkü birlikte gruplanır cihazların listesini cihaz kümesidir. Cihaz yönetme, görselleştirin ve cihazları daha küçük, mantıksal gruplar halinde gruplayarak cihazları uygun ölçekte çözümleme Yardım ayarlar. Örneğin, Seattle teknisyen sorumlu olduğu tüm cihazları bulmak Seattle teknisyen etkinleştirmek için tüm klima cihazların bir listesini oluşturun. Bu makalede oluşturma ve cihaz kümeleri yapılandırma gösterilmektedir.
+Bir cihaz kümesi, çünkü bunlar bazı belirtilen ölçütlerle eşleşen birlikte gruplanır cihazlar listesidir. Cihaz yönetme, görselleştirin ve cihazları daha küçük, mantıksal gruplar halinde gruplayarak cihazları uygun ölçekte çözümleme Yardım ayarlar. Örneğin, Seattle'da bir teknisyen için sorumlu oldukları cihazları bulmayı etkinleştirmek için tüm klima cihazlarını listelemek için ayarlanmış bir cihazı oluşturabilirsiniz. Bu makalede oluşturma ve cihaz kümeleri yapılandırma gösterilmektedir.
 
 ## <a name="create-a-device-set"></a>Bir cihaz kümesi oluşturma
 
@@ -44,7 +44,7 @@ Bir cihaz kümesi oluşturmak için:
 
 ## <a name="configure-the-dashboard-for-your-device-set"></a>Pano, cihaz kümesi için yapılandırın
 
-Cihaz kümenizi oluşturduktan sonra yapılandırabileceğiniz kendi **Pano**. **Pano** nereye yerleştirmeniz resimleri ve bağlantıları giriş sayfasıdır. Cihaz kümesindeki aygıtlar listesinde Kılavuzlar de ekleyebilirsiniz.
+Cihaz kümenizi oluşturduktan sonra yapılandırabileceğiniz kendi **Pano**. **Pano** resimleri ve bağlantıları nereye giriş sayfasıdır. Cihaz kümesindeki aygıtlar listesinde Kılavuzlar de ekleyebilirsiniz.
 
 1. Seçin **cihaz kümeleri** sol gezinti menüsünde.
 
@@ -85,19 +85,20 @@ Cihaz kümenizi oluşturduktan sonra yapılandırabileceğiniz kendi **Pano**. *
   
     1. **Done** (Bitti) öğesini seçin.
 
-### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Pano ayarlar konum eşleme Cihazınızı yapılandırma
+Azure IOT Central kutucukları kullanma hakkında daha fazla bilgi için bkz. [Pano kutucukları kullanacak](howto-use-tiles.md).
 
-Bir haritada cihazlarınızı konumunu görselleştirmek için bir konum eşlemesi ayarlar ekleyebilirsiniz.
+### <a name="configure-a-location-map-in-your-device-sets-dashboard"></a>Konum eşleme cihaz kümeleri Panonuzda yapılandırın
 
-Cihaz için bir konum eşleme cihaz şablonunuzda yapılandırılan konum özelliği olmalıdır Pano ayarlar eklemek için bkz: [Azure haritalar tarafından desteklenen bir konum özelliği oluşturma](howto-set-up-template.md).
+Cihazları cihaz kümenizdeki konumunu görselleştirmek için bir harita ekleyebilirsiniz.
 
-1. Cihaz ayarlayın, panoda kitaplıktan harita seçin.
-2. Bir başlık verin ve location özelliği, cihaz özelliği bir parçası olarak daha önce yapılandırdığınız seçin.
-3. Kaydet ve cihaz kümesinde cihazlarınızı konumunu görüntüleme kutucuğuna harita görürsünüz.
-4. Şimdi Pano cihazın ayarlar bir işleç görünümleri işleci yapılandırdığınız tüm kutucukları görebildiğinden, bir bakışta tüm cihazları konumu görselleştirmek için eşleme konumu dahil olmak üzere!
+Pano cihazınıza bir harita ayarlar eklemek için bir konum ölçüm veya konum özelliği cihaz şablonunuzda yapılandırmış olmanız gerekir. Daha fazla bilgi için bkz. [konumu ölçüm oluşturmak](howto-set-up-template.md) veya [Location özelliği oluşturma](howto-set-up-template.md).
 
-> [!NOTE]
-> Harita, istenen boyuta yeniden boyutlandırabilirsiniz. Haritada PIN'i seçerek, cihaz bilgilerini, adını ve konumunu görüntüler. Cihaz özellik sayfasına gitmek için açılan seçebilirsiniz.
+1. Cihazınızda **Pano**seçin **harita** kitaplığından.
+2. Başlık eklemek ve konum ölçüm ve daha önce yapılandırdığınız özelliği seçin.
+3. Seçin **Kaydet** ve harita kutucuğunu son bilinen konumları cihazların cihaz kümenizdeki görüntüler.
+4. İşleci, operatörün cihaz kümeleri panoyu görüntülediğinde konum eşleme dahil olmak üzere yapılandırmış olduğunuz tüm kutucukları görür.
+
+Harita kutucuğunu panoya yeniden boyutlandırabilirsiniz. Harita üzerinde bir PIN'i seçerek, cihaz bilgilerini, adını ve konumunu görüntüler. Cihaz özellik sayfasına gitmek için açılan seçin.
 
 ## <a name="configure-the-list-for-your-device-set"></a>Listenin, cihaz kümesi için yapılandırın
 

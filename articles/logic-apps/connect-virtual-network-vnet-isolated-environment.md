@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.openlocfilehash: bd1f06c93a75673f86f0c52f78cad8a60f7a1a1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b48257cc8e10deb1ec922806f62a6c435069f66f
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65961458"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467089"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Azure sanal ağlarına Azure Logic Apps'ten tümleştirme hizmeti ortamı (ISE) kullanarak bağlanma
 
@@ -64,7 +64,7 @@ Tümleştirme service ortamları hakkında daha fazla bilgi için bkz: [Azure Lo
 
 Bir sanal ağ ile tümleştirme hizmeti ortamı (ISE) kullandığınızda, engellenen bir veya daha fazla bağlantı noktaları ortak bir kurulum sorunu yaşıyor. Hedef sistem, işe arasında bağlantılar oluşturmak için kullandığınız bağlayıcılar da kendi bağlantı noktası gereksinimleri olabilir. FTP Bağlayıcısı'nı kullanarak bir FTP sistemiyle iletişim kurmak, örneğin, üzerinde kullandığınız bağlantı noktası komutları göndermek için bağlantı noktası 21 gibi FTP sistemin kullanılabilir emin olun.
 
-ISE burada dağıttığınız sanal ağın alt ağlar arasında trafiği denetlemek için ayarlayabileceğiniz [ağ güvenlik grupları](../virtual-network/security-overview.md) tarafından [alt ağlar arasında ağ trafiğini filtreleme](../virtual-network/tutorial-filter-network-traffic.md). Ancak, işe belirli bağlantı noktaları sanal ağda ağ güvenlik gruplarının kullanıldığı açık olması gerekir. Bu şekilde, işe erişilebilir kalır ve böylece, ISE'ye erişiminizi kaybetmeyin doğru bir şekilde çalışabilir. Aksi takdirde, gerekli tüm bağlantı noktaları kullanılabilir durumda değilse, işe çalışmayı durduruyor.
+İŞE nerede dağıttığınız sanal ağın alt ağlar arasında trafiği denetlemek için isteğe bağlı olarak ayarlayabileceğiniz [ağ güvenlik grupları (Nsg'ler)](../virtual-network/security-overview.md) sanal ağınızda [altağlararasındaağtrafiğinifiltreleme](../virtual-network/tutorial-filter-network-traffic.md). Bu rota seçerseniz, Nsg'ler kullanan sanal ağ aşağıdaki tabloda açıklandığı gibi işe belirli bağlantı noktalarını açar emin olun. Sanal ağınızda bulunan mevcut Nsg veya güvenlik duvarı varsa, bu bağlantı noktalarını açmanız emin olun. Bu şekilde, işe erişilebilir kalır ve böylece, ISE'ye erişiminizi kaybetmeyin doğru bir şekilde çalışabilir. Aksi takdirde, gerekli tüm bağlantı noktaları kullanılabilir durumda değilse, işe çalışmayı durduruyor.
 
 Bu tablo, işe kullanır ve bu bağlantı noktalarının kullanıldığı, sanal ağ bağlantı noktaları açıklar. [Resource Manager hizmet etiketleri](../virtual-network/security-overview.md#service-tags) güvenlik kuralı oluştururken karmaşıklığını en aza indirmenize yardımcı IP adresi ön eki grubunu temsil eder.
 
@@ -117,7 +117,7 @@ Arama kutusuna filtreniz olarak "tümleştirme hizmeti ortamı" girin.
    | **Abonelik** | Evet | <*Azure-subscription-name*> | Ortamınız için kullanılacak Azure aboneliği |
    | **Kaynak grubu** | Evet | <*Azure kaynak grubu adı*> | Ortamınızı oluşturmak için istediğiniz Azure kaynak grubu |
    | **Tümleştirme hizmeti ortamı adı** | Evet | <*ortam adı*> | Ortamınızı verilecek ad |
-   | **Konum** | Evet | <*Azure veri merkezi bölgesi*> | Azure veri merkezi bölgesini ortamınızı dağıtılacağı yeri |
+   | **Location** | Evet | <*Azure veri merkezi bölgesi*> | Azure veri merkezi bölgesini ortamınızı dağıtılacağı yeri |
    | **Ek kapasite** | Evet | 0 ile 10 | Bu işe kaynak için kullanılacak ek işleme birimi sayısı. Oluşturulduktan sonra Kapasite eklemek için bkz [ekleme ISE kapasite](#add-capacity). |
    | **Sanal ağ** | Evet | <*Azure sanal-ağ-adı*> | Mantıksal uygulamalar bu ortamda, sanal ağınızın erişebilmesi için ortamınızı eklemesine istediğiniz Azure sanal ağı. Bir ağ yoksa [öncelikle bir Azure sanal ağı oluşturma](../virtual-network/quick-create-portal.md). <p>**Önemli**: Yapabilecekleriniz *yalnızca* , işe oluşturduğunuzda bu ekleme gerçekleştirin. |
    | **Alt ağlar** | Evet | <*alt ağ kaynak listesi*> | Bir işe dört gerektirir *boş* ortamınızda kaynakları oluşturmak için alt ağlar. Her alt ağ oluşturmak için [bu tablonun altındaki adımları](#create-subnet).  |

@@ -5,14 +5,14 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 06/25/2019
 ms.author: vinagara
-ms.openlocfilehash: f25321fa5a13ed5a39a62a4115bb0bc10306d36f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8183c7070b5d42e1c7a96fc0d64974658b2ec7d0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244952"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448918"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Etkinlik günlüğü Uyarıları yönetme  
 
@@ -24,16 +24,17 @@ Bu uyarılar Azure kaynakları için bir Azure Resource Manager şablonu kullan�
 > [!IMPORTANT]
 > Hizmet durumu bildirimi ile ilgili uyarılar, etkinlik günlüğü uyarısı oluşturma arabirimi üzerinden oluşturulamaz. Daha fazla hakkında oluşturma ve hizmet durumu bildirimlerini kullanarak bilgi edinmek için [hizmet durumu bildirimlerini etkinlik günlük uyarılarını alırsınız](alerts-activity-log-service-notifications.md).
 
+Uyarı kuralları oluştururken aşağıdakilerden emin olun:
+
+- Uyarının oluşturulduğu özelliği abonelik kapsamdaki abonelikten farklı değil.
+- Ölçüt düzeyi/status olmalıdır/çağıran / kaynak grubu / kaynak kimliği / kaynak türü / olay kategorisi uyarı yapılandırılır.
+- "Herhangi" koşulu veya uyarı yapılandırmasında JSON iç içe geçmiş koşullar yoktur (temel olarak, yalnızca bir tümü, başka hiçbir tümü/herhangi kullanılabilir).
+- Kategori "Yönetici" olduğunda olmadığı. Yukarıdaki ölçütlerden en az bir uyarıyı belirtmeniz gerekir. Etkinlik günlüğünde her bir olay oluşturulduğunda etkinleştiren bir uyarı oluşturabilirsiniz.
+
+
 ## <a name="azure-portal"></a>Azure portal
 
-> [!NOTE]
-> 
->  Uyarı kuralları oluştururken aşağıdakilerden emin olun:
-> 
-> - Uyarının oluşturulduğu özelliği abonelik kapsamdaki abonelikten farklı değil.
-> - Ölçüt düzeyi/status olmalıdır/çağıran / kaynak grubu / kaynak kimliği / kaynak türü / olay kategorisi uyarı yapılandırılır.
-> - "Herhangi" koşulu veya uyarı yapılandırmasında JSON iç içe geçmiş koşullar yoktur (temel olarak, yalnızca bir tümü, başka hiçbir tümü/herhangi kullanılabilir).
-> - Kategori "Yönetici" olduğunda olmadığı. Yukarıdaki ölçütlerden en az bir uyarıyı belirtmeniz gerekir. Etkinlik günlüğünde her bir olay oluşturulduğunda etkinleştiren bir uyarı oluşturabilirsiniz.
+Azure portalını kullanarak, kullanıcı oluşturma & etkinlik günlük uyarı kuralı değiştirin. Ve belirli olaylar için sorunsuz uyarı oluşturma ilgi emin olmak için Azure etkinlik günlüğü - tümleşik bir deneyim.
 
 ### <a name="create-with-azure-portal"></a>Azure portalı ile oluşturma
 
@@ -220,11 +221,11 @@ Burada sampleActivityLogAlert.parameters.json uyarı kuralı oluşturmak için g
 
 Etkinlik günlüğü uyarıları adanmış PowerShell cmdlet'leri kullanılabilir:
 
-- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert?view=azps-1.3.0) : Yeni bir oluşturur veya mevcut bir etkinlik günlüğü uyarısını güncelleştirin.
-- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert?view=azps-1.3.0) : Bir veya daha fazla etkinlik günlük uyarı kaynakları alır.
-- [Etkinleştir-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert?view=azps-1.3.0) : Mevcut bir etkinlik günlüğü uyarısını sağlar ve kendi etiketleri ayarlar.
-- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert?view=azps-1.3.0) : Mevcut bir etkinlik günlüğü uyarısını devre dışı bırakır ve kendi etiketleri ayarlar.
-- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert?view=azps-1.3.0) : Bir etkinlik günlüğü uyarısı kaldırır.
+- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert) : Yeni bir oluşturur veya mevcut bir etkinlik günlüğü uyarısını güncelleştirin.
+- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert) : Bir veya daha fazla etkinlik günlük uyarı kaynakları alır.
+- [Etkinleştir-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert) : Mevcut bir etkinlik günlüğü uyarısını sağlar ve kendi etiketleri ayarlar.
+- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert) : Mevcut bir etkinlik günlüğü uyarısını devre dışı bırakır ve kendi etiketleri ayarlar.
+- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert) : Bir etkinlik günlüğü uyarısı kaldırır.
 
 ## <a name="cli"></a>CLI
 

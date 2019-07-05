@@ -1,8 +1,6 @@
 ---
-title: Microsoft Müşteri sözleşmesi - Azure Kurumsal Anlaşma görevleri tamamlamak | Microsoft Docs
+title: Microsoft Müşteri sözleşmesi - Azure Kurumsal Anlaşma görevleri gerçekleştirin
 description: Kurumsal Anlaşma fatura hesabınıza yeni görevleri tamamlamanızı öğrenin.
-services: ''
-documentationcenter: ''
 author: amberbhargava
 manager: amberb
 editor: banders
@@ -12,20 +10,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/24/2018
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 9b76fa935263904957c87cd062c84d0607771369
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9404908b7c486801480474c5a2c9ff7688e1de48
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371346"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490703"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için fatura hesabınıza Kurumsal Anlaşma görevleri gerçekleştirin
 
 Kuruluşunuzun bir Kurumsal Anlaşma kaydınıza yenilemek için Microsoft Müşteri sözleşmesi oturum açtığını, yeni bir faturalama hesabı sözleşme oluşturulur. Yeni hesabınızda faturalandırmayı Kurumsal anlaşmanızı farklı şekilde düzenlenmiştir. Bu makalede, Kurumsal anlaşmanızı gerçekleştirilen görevleri gerçekleştirmek için yeni bir faturalama hesabı nasıl kullanabileceğiniz açıklanır.
 
-## <a name="how-billing-is-organized-in-the-new-account"></a>Yeni hesap Faturalaması nasıl düzenlenir
+## <a name="billing-organization-in-the-new-account"></a>Yeni hesap kuruluşta faturalama
 
 Aşağıdaki diyagramda, faturalandırma yeni faturalama hesabınızda nasıl düzenlendiği açıklanmaktadır.
 
@@ -33,16 +31,16 @@ Aşağıdaki diyagramda, faturalandırma yeni faturalama hesabınızda nasıl d�
 
 | Kurumsal Anlaşma   | Microsoft Müşteri Sözleşmesi    |
 |------------------------|--------------------------------------------------------|
-| Kayıt            | Kuruluşunuzda, Kurumsal Anlaşma kaydınıza benzer faturalandırmayı yönetmek için bir faturalandırma profili kullanın. Kurumsal Yöneticiler fatura profilinin sahipleri haline gelir. Fatura profilleri hakkında daha fazla bilgi için bkz: [fatura profillerini anlayabilir](billing-mca-overview.md#understand-billing-profiles).
-| Departman            | Maliyetlerinizi, Kurumsal Anlaşma kaydınıza departmanlara benzer düzenlemek için bir fatura bölümü kullanın. Fatura bölümler bölüm haline gelir ve departman yöneticilerinin sahipleri ilgili fatura bölümlerin olur. Fatura bölümleri hakkında daha fazla bilgi için bkz: [anlayın fatura bölümleri](billing-mca-overview.md#understand-invoice-sections). |
+| Kayıt            | Kuruluşunuzda, Kurumsal Anlaşma kaydınıza benzer faturalandırmayı yönetmek için bir faturalandırma profili kullanın. Kurumsal Yöneticiler fatura profilinin sahipleri haline gelir. Fatura profilleri hakkında daha fazla bilgi için bkz: [fatura profillerini anlayabilir](billing-mca-overview.md#billing-profiles).
+| Departman            | Maliyetlerinizi, Kurumsal Anlaşma kaydınıza departmanlara benzer düzenlemek için bir fatura bölümü kullanın. Fatura bölümler bölüm haline gelir ve departman yöneticilerinin sahipleri ilgili fatura bölümlerin olur. Fatura bölümleri hakkında daha fazla bilgi için bkz: [anlayın fatura bölümleri](billing-mca-overview.md#invoice-sections). |
 | Hesap               | Kurumsal anlaşmanızı oluşturulan hesapları yeni faturalandırma hesabında desteklenmiyor. Hesap aboneliklerini departmanı için ilgili fatura bölümüne ait. Hesap sahipleri oluşturabilir ve fatura bölümlerinin aboneliklerini yönetin. |
 
-## <a name="changes-for-enterprise-administrators-in-the-new-billing-account"></a>Değişiklikleri yeni fatura hesabındaki kurumsal yöneticiler için
+## <a name="changes-for-enterprise-administrators"></a>Kuruluş Yöneticileri için değişiklikler
 
 Kuruluş Yöneticileri, bir Microsoft Müşteri sözleşmesi yenilenmiş Kurumsal Anlaşma aşağıdaki değişiklikler uygulanır.
 
-- Kaydınız için bir faturalandırma profili oluşturulur. Kurumsal Anlaşma kaydınıza gibi kuruluşunuz için faturalandırmayı yönetmek için faturalandırma profili kullanacaksınız. Fatura profilleri hakkında daha fazla bilgi için [fatura profillerini anlayabilir](billing-mca-overview.md#understand-billing-profiles).
-- Bir fatura bölümü, Kurumsal Anlaşma kaydınıza her bir departman için oluşturulur. Fatura aşağıdaki bölümlerde, bölümlerinizden yönetmek için kullanacaksınız. Ek bölümler ayarlanacak yeni fatura bölümleri oluşturabilirsiniz. Fatura bölümleri hakkında daha fazla bilgi için bkz: [fatura bölümleri anlamak](billing-mca-overview.md#understand-invoice-sections).
+- Kaydınız için bir faturalandırma profili oluşturulur. Kurumsal Anlaşma kaydınıza gibi kuruluşunuz için faturalandırmayı yönetmek için faturalandırma profili kullanacaksınız. Fatura profilleri hakkında daha fazla bilgi için [fatura profillerini anlayabilir](billing-mca-overview.md#billing-profiles).
+- Bir fatura bölümü, Kurumsal Anlaşma kaydınıza her bir departman için oluşturulur. Fatura aşağıdaki bölümlerde, bölümlerinizden yönetmek için kullanacaksınız. Ek bölümler ayarlanacak yeni fatura bölümleri oluşturabilirsiniz. Fatura bölümleri hakkında daha fazla bilgi için bkz: [fatura bölümleri anlamak](billing-mca-overview.md#invoice-sections).
 - Azure aboneliği Oluşturucu rolü, diğer Kurumsal Anlaşma kaydı oluşturulan hesapları gibi Azure aboneliği oluşturma izni vermek için fatura bölümleri kullanacaksınız.
 - Kullanacağınız [Azure portalında](https://portal.azure.com) Azure EA portal yerine kuruluşunuz için faturalandırmayı yönetmek için.
 
@@ -76,7 +74,7 @@ Bir aylık Fatura Fatura hesabınıza her fatura profilinde oluşturulur. Her bi
 
 Azure kullanım ve Ücret csv dosyalarını indirme öğrenmek için bkz. [Microsoft Müşteri sözleşmenizi kullanımı indir](billing-download-azure-daily-usage.md#download-usage-for-your-microsoft-customer-agreement).
 
-Fiyat listesini indirme hakkında bilgi edineceksiniz için bkz: [indirmek için Microsoft Müşteri sözleşmenizi fiyatlandırma](billing-ea-pricing.md#view-and-download-pricing-for-your-microsoft-customer-agreement).
+Fiyat listesini indirme hakkında bilgi edineceksiniz için bkz: [indirmek için Microsoft Müşteri sözleşmenizi fiyatlandırma](billing-ea-pricing.md#microsoft-customer-agreement-pricing).
 
 Vergi belgelerini indirmek öğrenmek için bkz: [vergi belgeleri görüntülemek için Microsoft Müşteri sözleşmenizi](billing-mca-download-tax-document.md#view-and-download-tax-documents).
 
@@ -92,13 +90,13 @@ Kurumsal Anlaşma kaydınıza departmanlara gibi ihtiyaçlarınıza göre maliye
 
 ### <a name="create-a-new-account"></a>Yeni hesap oluşturun
 
-Kullanıcılar, Kurumsal Anlaşma kaydı oluşturulan hesapları gibi Azure aboneliği oluşturmak üzere izin vermeniz fatura bölümlerde Azure aboneliği Oluşturucu rolü atayın. Daha fazla bilgi için [diğerlerinin Azure abonelikleri oluşturabilmesi için izinler verebilirsiniz](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions).
+Kullanıcılar, Kurumsal Anlaşma kaydı oluşturulan hesapları gibi Azure aboneliği oluşturmak üzere izin vermeniz fatura bölümlerde Azure aboneliği Oluşturucu rolü atayın. Daha fazla bilgi için [diğerlerinin Azure abonelikleri oluşturabilmesi için izinler verebilirsiniz](billing-mca-create-subscription.md#give-others-permission).
 
-## <a name="changes-for-department-administrators-in-the-new-billing-account"></a>Departman yöneticilerinin yeni fatura hesabındaki değişiklikleri
+## <a name="changes-for-department-administrators"></a>Bölüm Yöneticiler için değişiklikler
 
 Bir Microsoft Müşteri sözleşmesi yenilenmiş olan Kurumsal Anlaşma departman yöneticilerinin aşağıdaki değişiklikler uygulanır.
 
-- Bir fatura bölümü, Kurumsal Anlaşma kaydınıza her bir departman için oluşturulur. Fatura bölümü rapordan, departmanları yönetmek için kullanacaksınız. Fatura bölümleri hakkında daha fazla bilgi için bkz: [fatura bölümleri anlamak](billing-mca-overview.md#understand-invoice-sections).
+- Bir fatura bölümü, Kurumsal Anlaşma kaydınıza her bir departman için oluşturulur. Fatura bölümü rapordan, departmanları yönetmek için kullanacaksınız. Fatura bölümleri hakkında daha fazla bilgi için bkz: [fatura bölümleri anlamak](billing-mca-overview.md#invoice-sections).
 - Diğer Kurumsal Anlaşma kaydı oluşturulan hesapları gibi Azure aboneliği oluşturma izni vermek için fatura bölümünde Azure abonelik Oluşturucu rolü kullanacaksınız.
 - Azure EA portal yerine kuruluşunuz için faturalandırmayı yönetmek için Azure portalını kullanacaksınız.
 
@@ -118,7 +116,7 @@ Sağlayın, fatura bölümüne erişmek öğrenmek için bkz: [Azure portalında
 
 ### <a name="create-a-new-account-in-your-department"></a>Departmanınız içinde yeni bir hesap oluşturun
 
-Kullanıcılar departmanınız için oluşturulan fatura bölümünde Azure abonelik Oluşturucu rolü atayın. Daha fazla bilgi için [diğerlerinin Azure abonelikleri oluşturabilmesi için izinler verebilirsiniz](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions).
+Kullanıcılar departmanınız için oluşturulan fatura bölümünde Azure abonelik Oluşturucu rolü atayın. Daha fazla bilgi için [diğerlerinin Azure abonelikleri oluşturabilmesi için izinler verebilirsiniz](billing-mca-create-subscription.md#give-others-permission).
 
 ### <a name="view-charges-for-accounts-in-your-departments"></a>Bölümlerinizden hesapları için ücretleri görüntüle
 
@@ -126,7 +124,7 @@ Kurumsal Anlaşma kaydınıza oluşturulan hesapları yeni faturalandırma hesab
 
 Kuruluşunuzda bir hesaba ait abonelikleri için toplam maliyet görüntülemek için her abonelik için bir maliyet merkezi ayarlamanız gerekir. Ardından Azure kullanım ve Ücret dosya abonelik maliyet merkezi tarafından filtre uygulamak için kullanabilirsiniz.
 
-## <a name="changes-for-account-owners-in-the-new-billing-account"></a>Yeni Fatura hesabındaki hesap sahipleri için değişiklikler
+## <a name="changes-for-account-owners"></a>Hesap sahipleri için değişiklikler
 
 Hesap sahipleri, Kurumsal Anlaşma Azure abonelikleri yeni fatura hesap oluşturma izni alın. Mevcut Azure aboneliklerinizi departmanınız için oluşturulan fatura bölümüne ait. Hesabınız bir bölüme ait değilse, aboneliklerinizin varsayılan fatura bölümü adlı bir fatura bölümüne ait.
 

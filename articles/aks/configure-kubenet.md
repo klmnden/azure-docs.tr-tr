@@ -5,15 +5,15 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 06/26/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: f57c1af4c497b51f5289559737fad5ce4cf2e85b
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 269dd670ed82234b77e06c389ae1c9a5c294010c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67358040"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441963"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Kubernetes kendi IP adresi aralıklarını Azure Kubernetes Service (AKS) ile ağ kullanma
 
@@ -48,7 +48,7 @@ Azure, en fazla 400 yolların bir UDR'de destekler, böylece bir AKS kümesi 400
 
 Bir güvenlik ihlali kullanan bir AKS kümesi oluşturabileceğiniz *kubernetes* ve var olan bir sanal ağ alt ağına bağlayın. Bu yaklaşım, çok sayıda IP adresleri Önden, kümede çalışabilecek olası pod'ların tüm ayırmak zorunda kalmadan tanımlanan IP adreslerini almak düğümleri sağlar.
 
-İle *kubernetes*, bir çok daha küçük IP adresi aralığı kullanın ve büyük kümeleri ve uygulama taleplerini destekleyebilir. Örneğin, hatta ile bir */27* IP adresi aralığı, 20-25 düğümlü bir küme ölçeklendirme veya yükseltmek için yeterli alan ile çalıştırılabilir. Bu küme boyutu en fazla destekleyecektir *2.200 2750* pod'ların (ile 110 pod'ların düğüm başına varsayılan en fazla). Pod'ları ile yapılandırabileceğiniz düğüm başına en fazla sayısını *kubernetes* AKS 250'dir.
+İle *kubernetes*, bir çok daha küçük IP adresi aralığı kullanın ve büyük kümeleri ve uygulama taleplerini destekleyebilir. Örneğin, hatta ile bir */27* IP adresi aralığı, 20-25 düğümlü bir küme ölçeklendirme veya yükseltmek için yeterli alan ile çalıştırılabilir. Bu küme boyutu en fazla destekleyecektir *2.200 2750* pod'ların (ile 110 pod'ların düğüm başına varsayılan en fazla). Pod'ları ile yapılandırabileceğiniz düğüm başına en fazla sayısını *kubernetes* 110 AKS ise.
 
 Aşağıdaki temel hesaplamaları ağ modellerini farkı Karşılaştır:
 

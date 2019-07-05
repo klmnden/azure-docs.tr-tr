@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 8eb297c555d2d7f95419b2a9aa11a26cf5c7230f
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 89d25c9c0a45b740bfb60a71f6d85bfbf4a4686a
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137465"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67459863"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Hızlı Başlangıç: Azure Resource Manager şablonu kullanarak HDInsight Apache Hadoop kümesi oluşturma
 
@@ -81,4 +81,4 @@ Hızlı başlangıcı tamamladıktan sonra kümeyi silmek isteyebilirsiniz. HDIn
 Bu hızlı başlangıçta, bir Resource Manager şablonu kullanarak HDInsight Apache Hadoop kümesi oluşturma işlemini öğrendiniz. Sonraki makalede, HDInsight üzerinde Hadoop kullanarak ayıklama, dönüştürme ve yükleme (ETL) işlemi gerçekleştirmeyi öğreneceksiniz.
 
 > [!div class="nextstepaction"]
->[Ayıklama, dönüştürme ve HDInsight üzerinde Apache Hive kullanarak verileri yükleme](../hdinsight-analyze-flight-delay-data-linux.md)
+>[Ayıklama, dönüştürme ve yükleme verilerini kullanarak HDInsight üzerinde etkileşimli sorgu](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
-ms.date: 04/16/2019
-ms.openlocfilehash: c09dd990bb377672cb34ebd73a5aa9e59bbc067f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/26/2019
+ms.openlocfilehash: b03f546b992bd9de6092dc0da8ef72aa69aa1da2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070380"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447781"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Gelişmiş veri güvenliği, sanal ağlarla ve neredeyse % 100 uyumluluk SQL veritabanını kullan
 
@@ -81,6 +81,9 @@ Sanal çekirdek modeli içinde donanım Nesilleri arasında seçim yapabilirsini
 - **5. nesil** mantıksal CPU'lar Intel E5-2673 v4 dayalı (Broadwell) 2.3 GHz işlemcileri, hızlı NVMe SSD, hiper iş parçacıklı mantıksal çekirdek ve 4 ve 80 çekirdeğine boyutları işlem.
 
 İçinde donanım Nesilleri arasındaki fark hakkında daha fazla bilgi [yönetilen örnek kaynak sınırları](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
+
+> [!IMPORTANT]
+> Yeni 4. nesil veritabanları, AustraliaEast bölgesinde artık desteklenmemektedir.
 
 ## <a name="managed-instance-service-tiers"></a>Yönetilen örnek hizmet katmanları
 

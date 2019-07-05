@@ -12,15 +12,15 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 07/01/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 033e0865f23034b94e3133e0ba5890eca4e746ea
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1848891a0a37235c9769b3cee18262239e19df5a
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080885"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502655"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Bir Azure Batch havuzunda işlem düğümleri için VM boyutu seçme
 
@@ -51,8 +51,8 @@ Tüm tanıtım veya listede Önizleme VM boyutları için destek garanti değild
 | [Bellek için iyileştirilmiş boyutları](../virtual-machines/linux/sizes-memory.md) | None | Kullanılamaz |
 | Fsv2-serisi | Tüm boyutlar | Tüm |
 | H Serisi | Tüm boyutlar | Tüm |
-| Hb serisi | Tüm boyutlar | Kullanıcı aboneliği modu |
-| Hc serisi | Tüm boyutlar | Kullanıcı aboneliği modu |
+| HB serisi<sup>2</sup> | Tüm boyutlar | Tüm |
+| HC serisi<sup>2</sup> | Tüm boyutlar | Tüm |
 | Ls serisi | Tüm boyutlar | Tüm |
 | Lsv2 serisi | None | Kullanılamaz |
 | M serisi | İşler için standart_m64ms (düşük öncelikli yalnızca), işler için standart_m128s (yalnızca düşük öncelikli) | Tüm |  

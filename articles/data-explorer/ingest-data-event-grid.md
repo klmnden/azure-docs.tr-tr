@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 7d9c21b46f760055846194f52f1594f25b1ee989
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5854a8974a4d2a9dbc1aa690dc2340fd806f4219
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494740"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490126"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Event Grid Bildirimlere abone olarak, Azure veri Gezgini'ne BLOB'ları alma
 
@@ -112,10 +112,10 @@ Böylece test tabloya blob kapsayıcısına akan veriler akışla event grid iç
      **Ayar** | **Önerilen değer** | **Alan açıklaması**
     |---|---|---|
     | Tablo | *TestTable* | **TestDatabase** içinde oluşturduğunuz tablo. |
-    | Veri biçimi | *JSON* | Avro, CSV, JSON, çok SATIRLI JSON, PSV, SOH, SCSV, TSV ve TXT desteklenen biçimler:. |
+    | Veri biçimi | *JSON* | Avro, CSV, JSON, çok SATIRLI JSON, PSV, SOH, SCSV, TSV ve TXT desteklenen biçimler:. Desteklenen bir sıkıştırma seçenekleri: Zip ve GZip |
     | Sütun eşleme | *TestMapping* | **TestDatabase** içinde oluşturduğunuz ve gelen JSON verilerini **TestTable** tablosunun sütun adları ve veri türleriyle eşleyen eşleme.|
     | | |
-
+    
 ## <a name="generate-sample-data"></a>Örnek veri oluşturma
 
 Azure Veri Gezgini ile depolama hesabı bağlı, örnek veri oluşturma ve blob depolama alanına yükleyin.

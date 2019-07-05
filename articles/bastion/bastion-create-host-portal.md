@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/25/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5fbd64d2f001a0fbe91de2d954889816a1819479
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4a52383e6ab24c6ae1e2be0b67293d65dfa04466
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339446"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477873"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>Bir Azure Burcu ana bilgisayarı (Önizleme) oluşturma
 
@@ -33,15 +33,11 @@ Aşağıdaki Azure genel bölgeler ile sınırlı genel önizleme:
 
 [!INCLUDE [available regions](../../includes/bastion-regions-include.md)]
 
-Bu önizlemeye katılmak için kaydetmeniz gerekir. Önizlemeye kaydolmak için aşağıdaki adımları kullanın:
-
-[!INCLUDE [register](../../includes/bastion-preview-register-include.md)]
-
 ## <a name="createhost"></a>Kale ana bilgisayarı oluşturma
 
 Bu bölümde, Azure portalından yeni Azure savunma kaynak oluşturmanıza yardımcı olur.
 
-1. İçinde giriş sayfasından [ Azure portalı - preview](https://aka.ms/BastionHost), tıklayın **+ kaynak Oluştur**. Bu önizleme, normal Azure portalın değil için portala erişmek için sağlanan bağlantıyı kullandığınızdan emin olun.
+1. İçinde giriş sayfasından [Azure portalı - savunma Önizleme](https://aka.ms/BastionHost), tıklayın **+ kaynak Oluştur**. Bu önizleme, normal Azure portalın değil için portala erişmek için sağlanan bağlantıyı kullandığınızdan emin olun.
 
 1. Üzerinde **yeni** sayfasında *markette Ara* alanına **savunma**, ardından **Enter** arama sonuçlarını almak için.
 
@@ -72,7 +68,7 @@ Bu bölümde, Azure portalından yeni Azure savunma kaynak oluşturmanıza yard�
 
 Varolan bir VM'yi kullanarak portalda oluşturduğunuz Burcu ana bilgisayarı, çeşitli ayarlar otomatik olarak, sanal makine ve/veya sanal ağ için karşılık gelen varsayılan olarak atar.
 
-1. İçinde [Önizleme portalı](https://aka.ms/BastionHost), sanal makinenize gidin ve ardından tıklayın **Connect**.
+1. İçinde [Azure portalı - savunma Önizleme](https://aka.ms/BastionHost), sanal makinenize gidin ve ardından tıklayın **Connect**.
 
     ![VM'ye bağlanın](./media/bastion-create-host-portal/vmsettings.png)
 

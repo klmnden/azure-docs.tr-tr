@@ -9,16 +9,28 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2368d097cc0bfe82d0b869c3c8eb48760cc41616
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 5f41263113568cf9f3771119135be8db37119181
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275116"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442952"
 ---
 # <a name="what-is-azure-maps"></a>Azure Haritalar nedir?
 
-Azure haritalar, doğru web ve mobil uygulamalara coğrafi bağlam kullanılabilir en yeni eşleme verileri tarafından underpinned, Jeo-uzamsal hizmetler koleksiyonudur. Azure haritalar, işleme için REST API'lerini oluşur **haritalar** birden çok stilleri ve uydu tanımayı **arama** adresler, yerler ve ilgi; dünyanın dört bir yanındaki noktaları için **Yönlendirme** noktadan noktaya, multipoint, multipoint iyileştirme, isochrone, ticari araç, trafiği etkileyen ve yönlendirme; sektör lideri trafik akışını ve olaylar; görüntüleme Matrisi **Mobility** hizmetleri genel geçiş, bisiklet paylaşımı, scooter paylaşımı ve araba isteyen nakliye ve gerçek zamanlı verileri alternatif modları yararlanarak; aracılığıyla kullanıcı konumunu kurma yolları planlamak için bilgi paylaşımı **Coğrafi konum**; ve konuma dönüştürme **saat dilimlerini**, yanı, zamanı bir konumda getiriliyor. Ayrıca, Azure haritalar hizmetleri sunar **bölge sınırlaması**, harita **veri** barındırma konum bilgilerini Azure; depolama - ve **uzamsal Operations** konum Jeo-uzamsal analiz aracılığıyla gösterimi. Azure haritalar Hizmetleri doğrudan REST API veya ya da aracılığıyla kullanılabilir bizim sağlam **Web SDK'sı** veya **Android SDK'sı**. Bu araçlar, geliştiricilerin hızlı bir şekilde geliştirin ve konum bilgilerini Azure bulutunun içinden Azure çözümlerinden tümleştirin ölçek çözümleri sağlar. Kaydolmak için ücretsiz [Azure haritalar hesabı](https://azure.microsoft.com/services/azure-maps/) bugüne, başlangıç geliştirme!
+Azure haritalar, doğru web ve mobil uygulamalara coğrafik bağlam sağlamak amacıyla yeni eşleme verileri kullanan Jeo-uzamsal hizmetler koleksiyonudur. Azure haritalar sağlar:
+
+* Birden çok stilleri ve uydu tanımayı eşlemeleri oluşturma için REST API'leri.
+* Adresler, yerler ve dünyanın dört bir yanındaki ilgi noktası arar.
+* Yönlendirme noktadan noktaya, multipoint, multipoint iyileştirme, isochrone, ticari araç, trafiği etkiler ve matris yönlendirme; trafik akışını ve olayları görüntüleme.
+* Mobility hizmetlerini'için genel geçiş ve taşıma (bisiklet paylaşımı, scooter paylaşımı ve araba paylaşımı gibi) alternatif modları isteme ve planlama yolların gerçek zamanlı olarak. 
+* Coğrafi konum aracılığıyla kullanıcı konumunu oluşturma ve konum saat dilimlerine dönüştürmenizi. 
+* Bölge sınırlaması ve eşleme ile veri depolama alanı, konum bilgilerini Azure üzerinde barındırılan hizmetler. 
+* Konum zekası Jeo-uzamsal analiz aracılığıyla. 
+
+REST API'lerine ek olarak, Azure haritalar Hizmetleri, Web SDK'sı veya Android SDK'sı kullanılabilir. Bu araçlar, geliştiricilerin hızlı bir şekilde geliştirin ve konum bilgilerini Azure çözümleriyle tümleştirme çözümleri yardımcı olur. 
+
+Ücretsiz kaydolabilirsiniz [Azure haritalar hesabı](https://azure.microsoft.com/services/azure-maps/) ve geliştirmeye başlayın.
 
 Aşağıdaki videoda Azure Haritalar ayrıntılı olarak açıklanır:
 
@@ -26,19 +38,19 @@ Aşağıdaki videoda Azure Haritalar ayrıntılı olarak açıklanır:
 
 <iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
-## <a name="map-controls"></a>Harita Denetimleri
+## <a name="map-controls"></a>Eşleme denetimleri
 
 ### <a name="web-sdk"></a>Web SDK
 
-Azure haritalar Web SDK'sı kendi içerik ve tanımayı görüntülenmek üzere web veya mobil uygulamalarınızla etkileşimli Eşlemleriyle özelleştirmenizi sağlar. Bu denetimde büyük veri kümelerini yüksek performansla oluşturmanızı sağlayan WebGL bileşeni kullanılmaktadır. JavaScript veya TypeScript SDK'sı ile geliştirin.
+Azure haritalar Web SDK'sı kendi içerik ve tanımayı görüntülenmek üzere web veya mobil uygulamalarınızla etkileşimli Eşlemleriyle özelleştirmenizi sağlar. Yüksek performanslı, büyük veri kümelerini işleyebilir WebGL, kullandığından bu denetimi yapar. SDK'sı ile JavaScript veya TypeScript kullanarak geliştirin.
 
-![Azure haritalar Web SDK'sı](media/about-azure-maps/Introduction_WebMapControl.png)
+![Örnek eşleme popülasyonun değiştirme](media/about-azure-maps/Introduction_WebMapControl.png)
 
 ### <a name="android-sdk"></a>Android SDK
 
-Azure haritalar Android SDK'sı, güçlü mobil eşleme uygulamaları oluşturmanızı sağlar. 
+Azure haritalar Android SDK'sı mobil eşleme uygulamaları oluşturmak için kullanın. 
 
-![Azure haritalar Android SDK'sı](media/about-azure-maps/AndroidSDK.png)
+![Bir mobil cihazda harita örnekleri](media/about-azure-maps/AndroidSDK.png)
 
 ## <a name="services-in-azure-maps"></a>Azure Haritalar'ın içindeki hizmetler
 
@@ -46,46 +58,68 @@ Azure haritalar, Azure uygulamalarınız coğrafik bağlam sağlamak aşağıdak
 
 ### <a name="data-service"></a>Data Service
 
-Veri haritalar için bir zorunluluktur ve Azure haritalar hizmetine yakın müşteri verileri getirme gecikme süresini azaltın, verimlilik ve uygulamalarınızda güçlü ve yeni senaryolara ışık oluştur. Veri Hizmeti yüklemenize olanak sağlar ve için Jeo-uzamsal verileri depola kayma işlemlerini veya görüntü oluşturma kullanmak için gecikme süresini azaltın, verimlilik ve uygulamalarınızın içinde yeni senaryoları etkinleştirmek. Bu hizmet hakkında ayrıntılı bilgi için ziyaret [veri hizmeti API'lerini](https://docs.microsoft.com/rest/api/maps/data) sayfası.
+Veri eşlemeleri için bir zorunluluktur. Karşıya yükleme ve uzamsal işlemleri veya görüntü oluşturma ile kullanmak için Jeo-uzamsal verileri depolamak için veri hizmetini kullanın.  Azure haritalar hizmetine yakın müşteri verileri getirme gecikme süresini azaltın, verimlilik ve yeni senaryolar uygulamalarınızda oluşturun. Bu hizmet hakkında ayrıntılı bilgi için bkz. [veri hizmeti API'si belgeleri](https://docs.microsoft.com/rest/api/maps/data).
 
 ### <a name="mobility-service"></a>Mobility hizmeti
 
-Azure haritalar Mobility hizmetlerini durdurur dahil olmak üzere genel geçiş hizmetleri gerçek zamanlı konum zekası sağlamak, rota bilgilerini ve seyahat süresi tahminleri. Genel aktarım durdurur paylaşılan bisiklet/scooters/otomobiller nesne ayrıntıları ile aktarım sırasında nesne kümesi döndüren belirli bir konuma etrafında gibi belirli nesne türleri için aranacak hizmet sağlar. Service, geliştiricilerin de istek aktarım sırasında satır ayrıntıları temel bilgileri ve satır geometri durdurur, zamanlanmış bir listesini ve gerçek zamanlı aktarım varış ve hizmet uyarıları gibi ek ayrıntılar sağlar. Kullanıcılar ayrıca kaç tane kullanılabilir paylaşılan bisiklet yerleştirme istasyonları bilgi isteyerek en yakın dock'ta bırakılır isteyebilir. Mobility hizmetinin gelecekteki kullanılabilirlik düzeyine yakıt gibi ayrıntıları döndüren kullanılabilir araba paylaşımı aracından arama özelliğini de vardır.
-Azure haritalar Mobility hizmeti, gerçek zamanlı seyahat planlama, en iyi olası rota seçenekleri döndüren ve seyahat modlarında yürüyen, Bisiklete ve genel aktarım (şehir) metro alanı içinde kullanılabilir dahil olmak üzere, çeşitli sağlama sağlar. Ayrıca, geliştiricilerin ek bilgilerle geçiş rehberi ayrıntıları yolu ve ayrıntılı rehberi zamanlamaları gibi geometri isteyebilir.
+Azure haritalar Mobility hizmeti, gerçek zamanlı seyahat planlama sağlar. Bu en iyi olası rota seçenekleri döndürür ve birçok farklı seyahat modlarında sağlar. Metro (şehir) alanları için bu modlardan walking Bisiklete ve genel aktarım içerebilir. Geliştiriciler, geçiş rehberi ayrıntıları satır geometri, durdurur, zamanlanmış bir listesi ve gerçek zamanlı varış ve hizmet uyarılarını gibi isteyebilir.
 
-Çeşitli özelliklerini ve hizmeti hakkında daha fazla bilgi için bkz. bizim [API belgeleri](https://docs.microsoft.com/rest/api/maps/mobility)
+Hizmet, bir konuma paylaşılan bisiklet, scooters veya arabalar gibi belirli nesne türlerini arar de sağlar. Kullanıcılar, kaç tane kullanılabilir paylaşılan bisiklet en yakın dock'ta bırakılır isteyebilir. Kullanılabilir bir araba paylaşımı taşıtlardan aramak ve gelecekteki kullanılabilirlik ve geçerli yakıt düzeyi gibi ayrıntıları bulabilirsiniz.
+
+Hizmet hakkında daha fazla bilgi için bkz: [Mobility API belgeleri](https://docs.microsoft.com/rest/api/maps/mobility).
 
 ### <a name="render-service"></a>İşleme hizmeti
 
-İşleme hizmeti, geliştiricilerin harita verileri kullanan web ve mobil platform uygulamaları oluşturması amacıyla tasarlanmıştır. Hizmet, 19 yakınlaştırma düzeyine sahip yüksek kaliteli hücresel grafik görüntüler veya tamamen özelleştirilebilir vektör biçiminde harita görüntüleri kullanır.
+İşleme hizmeti, geliştiricilerin web ve mobil uygulamaları oluşturma yardımcı olur. Hizmet, 19 yakınlaştırma düzeyine sahip yüksek kaliteli hücresel grafik görüntüler veya tamamen özelleştirilebilir vektör biçiminde harita görüntüleri kullanır.
 
-![Azure Maps Map.png](media/about-azure-maps/Introduction_Map.png)
+![Bir harita işleme hizmeti örneği](media/about-azure-maps/Introduction_Map.png)
 
-İşleme hizmeti şimdi geliştiricilerin uydu görüntülemeyle çalışmasına olanak tanıyan önizleme API'leri sunar. Diğer ayrıntılar için [Azure Haritalar İşleme API'leri](https://docs.microsoft.com/rest/api/maps/render) konusunu okuyun.
+İşleme hizmeti şimdi geliştiricilerin uydu görüntülemeyle çalışmasına olanak tanıyan önizleme API'leri sunar. Daha fazla bilgi edinmek için [Render API'si belgeleri](https://docs.microsoft.com/rest/api/maps/render).
 
 ### <a name="route-service"></a>Yönlendirme hizmeti
 
 Yönlendirme hizmeti, birden çok taşıma moduna yönelik gerçek dünya altyapısı ve yol tarifleri için sağlam geometri hesaplamaları içerir. Hizmet, geliştiricilerin araba, kamyon, bisiklet veya yürüyüş gibi çeşitli seyahat modları arasında yol tariflerini hesaplamasını sağlar. Hizmet ayrıca trafik koşulları, ağırlık kısıtlamaları veya tehlikeli madde taşıma gibi girdileri de dikkate alabilir.
 
-![Azure Maps Route.png](media/about-azure-maps/Introduction_Route.png)
+![Örnek eşleme yönlendirme hizmeti](media/about-azure-maps/Introduction_Route.png)
 
-Yönlendirme hizmeti şimdi birden çok yol isteğini toplu işleme, bir dizi başlangıç noktasıyla varış noktası arasındaki seyahat süresi ve mesafe matrisleri ve zamanınıza veya benzin gereksinimlerinize göre seyahat edebileceğiniz yolları veya mesafeleri bulma gibi gelişmiş özelliklerin önizlemesini sunar. Yönlendirme özelliklerinin ayrıntıları için, [Azure Haritalar Yönlendirme API'leri](https://docs.microsoft.com/rest/api/maps/route) konusunu okuyun.
+Yönlendirme hizmeti gibi gelişmiş özelliklerin önizlemesini sunar: 
+
+* Birden çok yol istekleri toplu işlenmesi.
+* Matrisler, zaman ve uzaklık hedefler ve kaynaklar kümesi arasında seyahat.
+* Bulma yollar veya zaman ya da yakıt gereksinimlerine göre kullanıcıların ilerleyebilir uzaklıkları gösterir. 
+
+Yönlendirme özellikleri hakkında daha fazla bilgi için okuma [rota API belgeleri](https://docs.microsoft.com/rest/api/maps/route).
 
 ### <a name="search-service"></a>Arama hizmeti
 
-Arama hizmeti, geliştiricilerin ad veya kategori veya diğer coğrafi bilgileri kullanarak adres, yer veya işletme aramasını sağlayacak şekilde tasarlanmıştır. Arama Hizmeti adresleri ve caddeleri enlemlere ve boylamlara göre [tersine coğrafi koda dönüştürebilir](https://en.wikipedia.org/wiki/Reverse_geocoding).
+Arama hizmeti geliştiricilerin arama adresler, yerler, ad veya kategori tarafından işletme listeleme için yardımcı olur ve diğer coğrafi bilgileri. Arama hizmeti [tersine coğrafi](https://en.wikipedia.org/wiki/Reverse_geocoding) adresleri ve caddeleri latitudes ve longitudes tabanlı.
 
-![Azure Maps Search.png](media/about-azure-maps/Introduction_Search.png)
+![Bir haritadaki bir arama örneği](media/about-azure-maps/Introduction_Search.png)
 
-Arama hizmeti, ayrıca yol boyunca arama, daha geniş bir alanda arama, bir grup arama isteğini toplu işleme ve bir konum noktası yerine daha geniş bir alan için arama yapma gibi gelişmiş özellikler de sağlar. Toplu arama ve alan arama API'leri şu anda önizleme aşamasındadır. Arama özellikleri hakkındaki diğer ayrıntıları için, [Azure Haritalar Arama API'leri](https://docs.microsoft.com/rest/api/maps/search) sayfasını okuyun.
+Arama hizmeti gibi gelişmiş özellikler de sağlar:
 
-### <a name="spatial-operations"></a>Uzamsal İşlemler
+* Yol boyunca arayın.
+* Daha geniş bir alanı içinde arayın.
+* Bir grup arama istekleri toplu olarak.
+* Bir konumu nokta yerine daha büyük alan arayın. 
 
-Azure haritalar uzamsal işlemleri konum bilgilerini almak ve müşterilerimizin gerçek zamanlı analiz ve Tahmine dayalı modelleme olayların etkinleştirme devam eden olayların zaman ve alanı,'olmuyor bilgilendirmeye yardımcı olmak için hareket halindeyken çözümleyin. Azure haritalar, konum zekası en yakın noktası ve harika daire uzaklık arabellek gibi hizmetleri de dahil olmak üzere ortak Jeo-uzamsal matematiksel hesaplamalar kitaplığı ile yerel olarak geliştirmek müşterilere hizmet sağlar. Çeşitli özelliklerini ve hizmet hakkında daha fazla bilgi edinmek için müşterilerimize [API belgeleri](https://docs.microsoft.com/rest/api/maps/spatial).
+Toplu arama ve alan arama API'leri şu anda önizleme aşamasındadır. Arama özellikleri hakkında daha fazla ayrıntı için okuma [arama API'si belgeleri](https://docs.microsoft.com/rest/api/maps/search).
+
+### <a name="spatial-operations-service"></a>Uzamsal Operations hizmeti
+
+Azure haritalar, uzamsal Operations hizmet konum bilgileri alır ve süre ve alanı gerçekleşen Süren etkinlikler müşteriye yardımcı olmak için hareket halindeyken analiz eder. Ancak, gerçek zamanlı analiz ve Tahmine dayalı modelleme olayları etkinleştirir. 
+
+Hizmet, müşterilerin kendi konum zekası en yakın noktası, harika daire uzaklık ve arabellek gibi ortak Jeo-uzamsal matematiksel hesaplamalar kitaplığı ile geliştirmek sağlar. Çeşitli özelliklerini ve hizmet hakkında daha fazla bilgi edinmek için [uzamsal Operations API'si belgeleri](https://docs.microsoft.com/rest/api/maps/spatial).
 
 ### <a name="time-zone-service"></a>Saat Dilimi hizmeti
 
-Saat Dilimi hizmeti, güncel, geçmiş ve gelecek saat dilimi bilgilerini enlem-boylam çifti veya [IANA ID](https://www.iana.org/) kullanarak sorgulamanızı sağlar. Saat Dilimi Hizmeti ayrıca Microsoft Windows saat dilimi kimliklerini IANA saat dilimlerine dönüştürmenizi, UTC ile saat dilimi farkını öğrenmenizi ve belirli bir saat dilimindeki güncel saati almanızı sağlar. Saat Dilimi Hizmetine gönderilen bir sorguya verilen tipik JSON yanıtı aşağıdaki örnek gibi olacaktır:
+Saat dilimi hizmeti güncel, geçmiş ve gelecek saat dilimi bilgileri sorgulamak için ya da enlem/boylam çiftleri kullanarak sağlar veya bir [IANA ID](https://www.iana.org/). Saat dilimi Hizmeti ayrıca sağlar:
+
+* Microsoft Windows Saat dilimi kimliklerini IANA saat dilimlerine dönüştürmenizi.
+* Bir saat dilimi uzaklığı UTC'ye getiriliyor.
+* Geçerli saati bir saat diliminde alınıyor. 
+
+Saat dilimi hizmeti için tipik JSON yanıtı bir sorgu için aşağıdaki örneğe benzer şekilde görünür:
 
 ```JSON
 {
@@ -105,40 +139,40 @@ Saat Dilimi hizmeti, güncel, geçmiş ve gelecek saat dilimi bilgilerini enlem-
 }
 ```
 
-Bu hizmetle ilgili ayrıntılar için [Azure Haritalar Saat Dilimi API'leri](https://docs.microsoft.com/rest/api/maps/timezone) sayfasını ziyaret edin.
+Bu hizmet hakkında daha fazla bilgi için okuma [saat dilimi API belgeleri](https://docs.microsoft.com/rest/api/maps/timezone).
 
 ### <a name="traffic-service"></a>Trafik hizmeti
 
-Trafik hizmeti, geliştiricilerin trafik verilerine ihtiyaç duyan web ve mobil platform uygulamaları geliştirmeleri için tasarlanmış bir web hizmeti paketidir. Hizmet, iki tür veri sağlar:
+Trafik hizmeti geliştiricilerin web ve akış bilgisi gerektiren mobil uygulamalar oluşturmak için kullanabileceğiniz web hizmetleri paketidir. Hizmet, iki tür veri sağlar:
 
-* Trafik akışı: Ağ üzerindeki tüm ana yollar için gerçek zamanlı hız ve seyahat süresi bilgileri.
-* Trafik olayları - trafik sıkışıklıklarının ve olaylarının yol ağı hakkında güncel bir görünüm.
+* Trafik akışı: Gerçek zamanlı, yüksek hız ve seyahat planlarını ağdaki tüm anahtar yollar için gözlemledik.
+* Trafik olayları: Trafik sıkışıklıklarının ve olaylarının yol ağı, güncel bir görünüm.
 
-![Azure Haritalar Trafiği](media/about-azure-maps/Introduction_Traffic.png)
+![Akış bilgileri ile bir harita örneği](media/about-azure-maps/Introduction_Traffic.png)
 
-Diğer ayrıntılar için [Azure Haritalar Trafik API'leri](https://docs.microsoft.com/rest/api/maps/traffic) sayfasını ziyaret edin.
+Daha fazla bilgi için [trafiği API belgeleri](https://docs.microsoft.com/rest/api/maps/traffic).
 
-### <a name="ip-to-location"></a>IP Aracılığıyla Konum
+### <a name="ip-to-location-service"></a>Konum hizmeti için IP
 
-IP Aracılığıyla Konum hizmeti, belirli bir IP adresi için alınan iki harfli ülke kodunun önizlemesini görüntülemenize olanak sağlar. Bu hizmet, coğrafi konuma göre uyarlanmış uygulama içeriğini destekleyerek kullanıcı deneyimini uyarlamanıza ve geliştirmenize yardımcı olabilir.
+Bir IP adresi için alınan iki harfli ülke kodu önizlemek için konum hizmeti IP kullanın. Bu hizmet, uyarlama ve özelleştirilmiş uygulama içerik coğrafi konum temelinde sağlayarak kullanıcı deneyimini geliştirmenize yardımcı olabilir.
 
-IP Aracılığıyla Konum için REST API'lerini kullanma hakkında bilgi almak için [Azure Haritalar Coğrafi Konum API'leri](https://docs.microsoft.com/rest/api/maps/geolocation) sayfasına bakın.
+Konum hizmeti IP için REST API'leri hakkında daha fazla ayrıntı için okuma [Azure haritalar coğrafi konum API belgeleri](https://docs.microsoft.com/rest/api/maps/geolocation).
 
 ## <a name="programming-model"></a>Programlama modeli
 
-Azure Haritalar mobil kullanım için oluşturulmuştur ve platformlar arası uygulamaları destekleyebilir. Dilden bağımsız bir programlama modeli kullanır ve [REST API'ler](https://docs.microsoft.com/rest/api/maps/) üzerinde JSON çıkışını destekler.
+Azure haritalar hareketlilik için oluşturulmuştur ve platformlar arası uygulamalar geliştirmenize yardımcı olabilir. Dil belirsiz olduğundan ve üzerinden JSON çıkışını destekleyen bir programlama modeli kullanan [REST API'leri](https://docs.microsoft.com/rest/api/maps/).
 
 Azure Haritalar ayrıca hem web hem de mobil platform uygulamalarının hızlı ve kolay bir şekilde geliştirilmesi için basit bir programlama modeliyle kullanışlı bir [JavaScript harita denetimi](https://docs.microsoft.com/javascript/api/azure-maps-control) sunar.
 
 ## <a name="usage"></a>Kullanım
 
-Haritalar hizmetlerine erişmek için [Azure portalına](https://portal.azure.com) gidip Azure Haritalar hesabı oluşturulması gerekir.
+Azure haritalar hizmetlerine erişimi olan sağlasa da, gidip [Azure portalında](https://portal.azure.com) ve bir Azure haritalar hesabı oluşturuluyor.
 
-Azure Haritalar anahtar tabanlı bir kimlik doğrulama düzeni kullanır. Hesabınızda önceden oluşturulmuş iki anahtar mevcuttur. Bu anahtarlardan birini kullanıp Azure Haritalar hizmetine istekte bulunarak bu konum özelliklerini uygulamanızla tümleştirmeye başlayabilirsiniz.
+Azure Haritalar anahtar tabanlı bir kimlik doğrulama düzeni kullanır. Hesabınız, sizin için önceden oluşturulmuş iki anahtar ile birlikte gelir. Bu anahtarlardan birini kullanıp Azure Haritalar hizmetine istekte bulunarak bu konum özelliklerini uygulamanızla tümleştirmeye başlayabilirsiniz.
 
 ## <a name="supported-regions"></a>Desteklenen bölgeler
 
-Azure haritalar API'si şu anda aşağıdaki alt bölgeler dışındaki tüm ülkelerde/bölgelerde kullanılabilir:
+Azure haritalar API bunlar dışında tüm ülkeler/bölgeler şu anda kullanılabilir:
 
 * Arjantin
 * Çin
@@ -147,11 +181,11 @@ Azure haritalar API'si şu anda aşağıdaki alt bölgeler dışındaki tüm ül
 * Pakistan
 * Güney Kore
 
-Geçerli IP adresinizi konumunu desteklenmeyen ülkeler/bölgeler yukarıdaki birinde olmadığını doğrulayın.
+Geçerli IP adresinizi konumunu desteklenmeyen ülkeler/bölgelerden birinde olmadığını doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure haritalar kullanan örnek uygulamayı deneyin:
+Azure haritalar'ı gösteren bir örnek uygulama deneyin:
 
 > [!div class="nextstepaction"]
 > [Hızlı Başlangıç: Bir web uygulaması oluşturma](quick-demo-map-app.md)

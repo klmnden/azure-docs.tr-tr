@@ -5,22 +5,34 @@ author: ajlam
 ms.author: andrela
 ms.service: MySQL
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 1243ae8ae20d08ea643661606639abedbc56ab9c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: fe6dce58714f8221625d13af1f8458662a19eaf6
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078787"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461750"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda sorgu performansı İçgörüleri
 
 **İçin geçerlidir:**  MySQL 5.7 için Azure veritabanı
 
 > [!NOTE]
-> Sorgu performansı İçgörüleri Önizleme aşamasındadır. Azure portalındaki sorgu performansı İçgörüleri için desteği kullanıma sunulacaktır ve henüz bölgenizde kullanılamıyor olabilir.
+> Sorgu performansı İçgörüleri Önizleme aşamasındadır.
 
 Sorgu performansı İçgörüleri, uzun süre çalışan sorgular nedir, zaman içinde nasıl değiştiğini ve hangi bekler, bunları etkileşimimiz hızlıca tanımlamanıza yardımcı olur.
+
+## <a name="common-scenarios"></a>Genel senaryolar
+
+### <a name="long-running-queries"></a>Uzun süren sorgular
+
+- Uzun çalışan sorguları geçmişte tanımlayan X saat
+- Kaynaklarını bekleyen ilk N sorguları tanımlama
+ 
+### <a name="wait-statistics"></a>İstatistikleri bekleyin
+
+- Bir sorgu için bekleme yapısı anlama
+- Kaynak bekler ve kaynak çekişmesi mevcut olduğu için eğilimleri anlama
 
 ## <a name="permissions"></a>İzinler
 
@@ -36,11 +48,20 @@ Azure portaldaki [Sorgu Performansı İçgörüleri](concepts-query-performance-
 
 MySQL için Azure veritabanı sunucunuza portal sayfasında, seçin **sorgu performansı İçgörüleri** altında **akıllı performans** menü çubuğu bölümü.
 
-![Uzun süre çalışan sorguların sorgu performansı İçgörüleri](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
+### <a name="long-running-queries"></a>Uzun süren sorgular
 
  **Uzun süre çalışan sorguların** 15 dakikalık aralıklarla toplu yürütme başına ortalama süreye göre ilk 5 sorguları sekme gösterir. Daha fazla sorgu seçerek görüntüleyebilirsiniz **numarası, sorguları** açılır. Bunu yaptığınızda, grafik renkleri belirli bir Sorgu Kimliği için değişebilir.
 
 Belirli bir zaman penceresine daraltmak için grafikte tıklayıp sürükleyebilirsiniz. Alternatif olarak, yakınlaştırma ve simgeler uzaklaştırma küçük veya büyük süre sırasıyla görüntülemek için kullanın.
+
+![Uzun süre çalışan sorguların sorgu performansı İçgörüleri](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
+
+### <a name="wait-statistics"></a>İstatistikleri bekleyin
+
+> [!NOTE]
+> Bekleme istatistikleri sorgu performansı sorunlarını gidermek için yöneliktir. Yalnızca sorun giderme amacıyla açık olması önerilir.
+
+Bekleme istatistikleri, belirli bir sorgu yürütme sırasında gerçekleşen bekleme olayları bir görünümünü sağlar. Bekleme olay türleri hakkında daha fazla bilgi [MySQL altyapısı belgeleri](https://go.microsoft.com/fwlink/?linkid=2098206).
 
 Seçin **bekleme istatistikleri** bekler sunucudaki karşılık gelen görsel öğeleri görüntülemek için sekmesinde.
 

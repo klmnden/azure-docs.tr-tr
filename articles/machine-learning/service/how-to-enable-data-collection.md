@@ -11,19 +11,19 @@ ms.author: marthalc
 author: marthalc
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: df2f0731aff6c90ef83b26041a9d383ce14974c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f596fb3a066017f0236de5b79586891dd21efb11
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024240"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443989"
 ---
 # <a name="collect-data-for-models-in-production"></a>Üretimde modelleri için veri toplama
 
 Bu makalede, giriş model verileri, dağıttınız Azure Machine Learning hizmetlerinden Azure Kubernetes kümesi (AKS) ile bir Azure Blob depolama alanına toplamak nasıl öğrenebilirsiniz. 
 
 Etkinleştirildikten sonra bu verileri, Topla, yardımcı olur:
-* Üretim veri modelinizi girdikçe veri drifts izleme
+* [İzleme verileri drifts](how-to-monitor-data-drift.md) üretim veri modelinizi girdikçe
 
 * Daha iyi kararlar üzerinde ne zaman yeniden eğitme veya modelinizi iyileştirin
 

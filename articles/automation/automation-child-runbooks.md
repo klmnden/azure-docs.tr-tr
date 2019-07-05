@@ -4,17 +4,17 @@ description: Başka bir runbook'tan Azure Automation'da bir runbook başlatma ve
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 01/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 84f17b76f03c01d0b1441a50b9bcbddc1dfe2ef3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64d9246284be58c8378ab102db25ab7e5220c9eb
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61081587"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477959"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure automation'da alt runbook'lar
 
@@ -116,7 +116,7 @@ Aşağıdaki tabloda bir runbook'tan başka bir runbook çağırmanın iki yönt
 |:--- |:--- |:--- |
 | İş |Alt runbook'lar üst runbook'la aynı işte çalışır. |Alt runbook için ayrı bir iş oluşturulur. |
 | Yürütme |Üst runbook devam etmeden önce alt runbook'un tamamlanmasını bekler. |Üst runbook alt runbook başlatıldıktan hemen devam *veya* üst runbook alt işi tamamlamak bekler. |
-| Çıktı |Üst runbook doğrudan alt runbook'tan çıkış alabilir. |Üst runbook alt runbook işinden çıkış almak gerekir *veya* üst runbook alt runbook'tan çıkış doğrudan alabilirsiniz. |
+| Output |Üst runbook doğrudan alt runbook'tan çıkış alabilir. |Üst runbook alt runbook işinden çıkış almak gerekir *veya* üst runbook alt runbook'tan çıkış doğrudan alabilirsiniz. |
 | Parametreler |Alt runbook parametre değerleri ayrı ayrı belirtilir ve herhangi bir veri türünü kullanabilir. |Alt runbook parametreleri için değerler tek bir karma tablosunda birleştirilmesi gerekir. Yalnızca bu hashtable basit dahil, dizi ve nesne JSON serileştirmesi kullanan veri türleri. |
 | Otomasyon Hesabı |Üst runbook, alt runbook yalnızca aynı Otomasyon hesabında kullanabilirsiniz. |Üst runbook alt runbook'tan bir bağlantınız herhangi bir Otomasyon hesabı aynı Azure aboneliği ve farklı bir aboneliği kullanabilirsiniz. |
 | Yayımlama |Üst runbook yayımlanmadan önce alt runbook yayımlanmalıdır. |Önce üst runbook başlatıldığında her alt runbook yayımlanmalıdır. |

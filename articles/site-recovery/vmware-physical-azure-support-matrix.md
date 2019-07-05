@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 06/27/2019
 ms.author: raynew
-ms.openlocfilehash: 3ff6a1a52048e805f9236349d4fc8d45a14b78ea
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 5dc98048099264942552862498b5137b4954c200
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341447"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491639"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için destek matrisi
 
@@ -186,8 +186,8 @@ Konuk/sunucu iSCSI | Hayır
 Konuk/sunucu SMB 3.0 | Hayır
 Konuk/sunucu RDM | Evet<br/><br/> Fiziksel sunucular için yok
 Konuk/sunucu disk > 1 TB | Evet<br/><br/>4\.095 GB'a kadar<br/><br/> Disk 1024 MB değerinden daha büyük olmalıdır.
-Konuk/sunucu disk ile 4 K mantıksal ve 4 k fiziksel kesim boyutu | Evet
-Konuk/sunucu disk ile 4K mantıksal ve fiziksel kesim boyutu 512 bayt | Evet
+Konuk/sunucu disk ile 4 K mantıksal ve 4 k fiziksel kesim boyutu | Hayır
+Konuk/sunucu disk ile 4K mantıksal ve fiziksel kesim boyutu 512 bayt | Hayır
 Bölüştürülmüş bir disk ile Konuk/sunucusu birimi > 4 TB <br/><br/>Mantıksal birim yönetimi (LVM)| Evet
 Konuk/sunucu - depolama alanları | Hayır
 Konuk/sunucu sık erişimli Ekle/Kaldır disk | Hayır
@@ -218,7 +218,7 @@ Bekleyen şifreleme (SSE)| Evet
 Premium depolama | Evet
 İçeri/dışarı aktarma hizmeti | Hayır
 Sanal ağlar için Azure depolama güvenlik duvarları | Evet.<br/> Hedef depolama/önbellek depolama hesabı (çoğaltma verilerini depolamak için kullanılan) üzerinde yapılandırılmış.
-Genel amaçlı v2 depolama hesaplarının (sık erişimli ve seyrek erişimli Katmanlar) | Hayır
+Genel amaçlı v2 depolama hesaplarının (sık erişimli ve seyrek erişimli Katmanlar) | Evet (maliyetleri V2 V1 kıyasla önemli ölçüde daha yüksek işlem)
 
 ## <a name="azure-compute"></a>Azure işlem
 
@@ -286,7 +286,7 @@ Depolama, ağ, Azure Vm'lerinin içinde ve abonelikler arasında taşıyın. | H
 
 ## <a name="obtain-latest-components"></a>En yeni bileşenleri alın
 
-**Ad** | **Açıklama** | **Ayrıntılar**
+**Name** | **Açıklama** | **Ayrıntılar**
 --- | --- | ---
 Yapılandırma sunucusu | Yüklü şirket içi.<br/> Şirket içi VMware sunucularını veya fiziksel makineler ve Azure arasındaki iletişimleri koordine eder. | - [Hakkında bilgi edinin](vmware-physical-azure-config-process-server-overview.md) yapılandırma sunucusu.<br/> - [Hakkında bilgi edinin](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) en son sürüme yükseltme.<br/> - [Hakkında bilgi edinin](vmware-azure-deploy-configuration-server.md) yapılandırma sunucusunu ayarlama. 
 İşlem sunucusu | Varsayılan olarak yapılandırma sunucusuna yüklenir.<br/> Çoğaltma verilerini alıp, önbelleğe alma, sıkıştırma ve şifreleme ile iyileştirir ve Azure'a gönderir.<br/> Dağıtımınız büyüdükçe, daha büyük çoğaltma trafiği hacimlerini idare etmek ek işlem sunucuları ekleyebilirsiniz. | - [Hakkında bilgi edinin](vmware-physical-azure-config-process-server-overview.md) işlem sunucusu.<br/> - [Hakkında bilgi edinin](vmware-azure-manage-process-server.md#upgrade-a-process-server) en son sürüme yükseltme.<br/> - [Hakkında bilgi edinin](vmware-physical-large-deployment.md#set-up-a-process-server) genişleme işlem sunucuları kurma.

@@ -3,7 +3,7 @@ title: Xamarin.Forms ile Mobile Apps’i kullanmaya başlama
 description: Xamarin.Forms geliştirme için Azure Mobile Apps kullanmaya başlamak için bu öğreticiyi izleyin.
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
 ms.service: app-service-mobile
@@ -11,19 +11,24 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.author: crdun
-ms.openlocfilehash: b47e498754bad6917efca5b7f19f8ebce9cf0330
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: bca0f0de7de321060635459c4435525f650c7467
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062214"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446315"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Azure ile Xamarin.Forms uygulaması oluşturma
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
+> [!NOTE]
+> Visual Studio App Center, mobil uygulama geliştirme merkezi hizmetlerinde yeni ve tümleşik yatırım yapıyor. Geliştiriciler **derleme**, **Test** ve **Dağıt** hizmetlerinin sürekli tümleştirme ve teslim işlem hattı ayarlayın. Uygulama dağıtıldığında, geliştiriciler kendi uygulamasını kullanarak kullanımı ve durumu izleyebilirsiniz **Analytics** ve **tanılama** kullanarak kullanıcılarla etkileşim kurun ve hizmetlerini **anında iletme** hizmeti. Geliştiriciler de yararlanabilir **Auth** , kullanıcıların kimliğini doğrulamak ve **veri** kalıcı hale getirmek ve uygulama verilerini bulutta eşitleme hizmeti. Kullanıma [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started) bugün.
+>
+
+## <a name="overview"></a>Genel Bakış
 Bu öğreticide, bir Xamarin.Forms mobil uygulamasına bulut tabanlı bir arka uç hizmetini Azure Uygulama Hizmeti’nin Mobile Apps özelliğini kullanarak nasıl ekleyeceğiniz gösterilir. Yeni bir Mobil Uygulama arka ucu ve uygulama verilerini Azure’da depolayan basit bir yapılacaklar listesi Xamarin.Forms uygulaması oluşturacaksınız.
 
 Bu öğreticiyi tamamlamak Xamarin.Forms uygulamalarına ilişkin tüm Mobile Apps öğreticileri için ön koşuldur.
@@ -34,7 +39,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Etkin bir Azure hesabı. Bir hesabınız yoksa, Azure deneme sürümünü kaydolabilir ve deneme süresi bittikten sonra dahi kullanmaya devam edebileceğiniz 10 ücretsiz mobil uygulama edinebilirsiniz. Daha fazla bilgi için bkz. [Azure Ücretsiz Denemesi](https://azure.microsoft.com/pricing/free-trial/).
 
-* Mac için Visual Studio veya Visual Studio 2017 veya sonraki sürümlerde, Xamarin için Visual Studio Araçları Yönergeler için bkz. [Xamarin yükleme sayfası][Install Xamarin].
+* Mac için Visual Studio veya Visual Studio 2017 veya sonraki sürümlerde, Xamarin için Visual Studio Araçları Bkz: [Xamarin yükleme sayfası][Install Xamarin] yönergeler için.
 
 * (isteğe bağlı) iOS uygulaması oluşturmak için, Xcode 9.0 veya üzerine sahip bir Mac gereklidir. Mac için Visual Studio (Mac ağda kullanılabilir olduğu sürece) daha sonra kullanılabilir veya Visual Studio 2017 veya iOS uygulamaları geliştirmek için kullanılabilir.
 
@@ -46,7 +51,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 ## <a name="run-the-xamarinforms-solution"></a>Xamarin.Forms çözümü çalıştırın
 
-Çözümü açmak için Xamarin için Visual Studio Araçları gereklidir, bkz. [Xamarin yükleme yönergeleri][Install Xamarin]. Araçlar zaten yüklendiyse, çözümü indirip açmak için aşağıdaki adımları izleyin:
+Çözümü açmak için gerekli Xamarin için Visual Studio Araçları görmek [Xamarin yükleme yönergeleri][Install Xamarin]. Araçlar zaten yüklendiyse, çözümü indirip açmak için aşağıdaki adımları izleyin:
 
 ### <a name="visual-studio-windows-and-mac"></a>Visual Studio (Windows veya Mac)
 

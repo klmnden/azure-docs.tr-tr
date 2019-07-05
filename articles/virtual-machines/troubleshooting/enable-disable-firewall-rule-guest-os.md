@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: ed3d89bc15f960947a48ac4364bd14f3fdf50cc2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7a547efb7af69c58f8e04615d24dd7c230f0c8b0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505582"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444642"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Etkinleştirmek veya bir Azure VM konuk işletim sisteminde bir güvenlik duvarı kuralı devre dışı bırak
 
@@ -99,7 +99,7 @@ Sanal makine çevrimiçi olduğundan ve aynı sanal ağdaki başka bir VM üzeri
 
 1.  Sorun giderme sanal Kayıt Defteri Düzenleyicisi'ni (regedit.exe) başlatın ve ardından **dosya** > **bağlanmak ağ kayıt defteri**.
 
-2.  Açık *hedef makine*\SYSTEM dallandırma ve ardından aşağıdaki değerleri belirtin:
+2.  Açık *hedef makine*\SYSTEM dallandırma ve ardından aşağıdaki değerleri belirtin:
 
     * Bir kuralı etkinleştirmek için aşağıdaki kayıt defteri değerini açın:
     
@@ -123,26 +123,26 @@ Sanal makine çevrimiçi olduğundan ve aynı sanal ağdaki başka bir VM üzeri
 
 Herhangi bir yöntemle VM erişemiyorsanız, özel betik uzantısı kullanarak başarısız olur ve sistem diski aracılığıyla doğrudan çevrimdışı modda çalışmak gerekir.
 
-Bu adımları gerçekleştirmeden önce sistem diski etkilenen sanal makinenin anlık görüntüsünü yedekleyin. Daha fazla bilgi için [bir diskin anlık görüntüsünü alma](../windows/snapshot-copy-managed-disk.md).
+Bu adımları gerçekleştirmeden önce sistem diski etkilenen sanal makinenin anlık görüntüsünü yedekleyin. Daha fazla bilgi için [bir diskin anlık görüntüsünü alma](../windows/snapshot-copy-managed-disk.md).
 
 1.  [Bir kurtarma VM'si sistem diski](troubleshoot-recovery-disks-portal-windows.md).
 
 2.  Kurtarma VM'sini bir Uzak Masaüstü Bağlantısı'nı başlatın.
 
-3.  Disk olarak işaretlenmiş olduğundan emin olun **çevrimiçi** Disk Yönetimi Konsolu'nda. Sürücü harfi not eklenmiş sistem diskine atanır.
+3.  Disk olarak işaretlenmiş olduğundan emin olun **çevrimiçi** Disk Yönetimi Konsolu'nda. Sürücü harfi not eklenmiş sistem diskine atanır.
 
 4.  Herhangi bir değişiklik yapmadan önce tüm değişiklikleri geri alma gerekli olması durumunda \windows\system32\config klasörüne bir kopyasını oluşturun.
 
 5.  Kayıt Defteri Düzenleyicisi'ni (regedit.exe) sorun giderme sanal makinede başlatın.
 
-6.  Vurgulama **HKEY_LOCAL_MACHINE** anahtar ve ardından **dosya** > **yığını** menüsünde.
+6.  Vurgulama **HKEY_LOCAL_MACHINE** anahtar ve ardından **dosya** > **yığını** menüsünde.
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
 7.  Bulun ve ardından \windows\system32\config\SYSTEM dosyasını açın. 
 
     > [!Note]
-    > İçin bir ad istenir. Girin **BROKENSYSTEM**ve ardından **HKEY_LOCAL_MACHINE**. Şimdi adlı ek bir anahtar göreceksiniz **BROKENSYSTEM**. Bu sorun giderme için Biz bu sorun yığınlarını olarak bağlama **BROKENSYSTEM**.
+    > İçin bir ad istenir. Girin **BROKENSYSTEM**ve ardından **HKEY_LOCAL_MACHINE**. Şimdi adlı ek bir anahtar göreceksiniz **BROKENSYSTEM**. Bu sorun giderme için Biz bu sorun yığınlarını olarak bağlama **BROKENSYSTEM**.
 
 8.  BROKENSYSTEM dalda aşağıdaki değişiklikleri yapın:
 
@@ -164,7 +164,7 @@ Bu adımları gerçekleştirmeden önce sistem diski etkilenen sanal makinenin a
         
         **v2.22 | Eylem = izin | Etkin = FALSE | Dizini içinde = | Protokol 6 = | Profile = Domain | Profili özel = | Profil ortak = | LPort 3389 = | App=%SystemRoot%\System32\svchost.exe| SVC termservice = | Adı =\@FirewallAPI.dll,-28775 | Desc =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
 
-9.  Vurgulama **BROKENSYSTEM**ve ardından **dosya** > **yığın** menüsünde.
+9.  Vurgulama **BROKENSYSTEM**ve ardından **dosya** > **yığın** menüsünde.
 
 10. [VM yeniden oluşturma ve sistem diskini](troubleshoot-recovery-disks-portal-windows.md).
 

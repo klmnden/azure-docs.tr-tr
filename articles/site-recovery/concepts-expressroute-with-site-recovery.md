@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/18/2019
+ms.date: 6/27/2019
 ms.author: mayg
-ms.openlocfilehash: bf4cce8a224db81b8db7fae6a69b8b578bb3d47a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35fa26112a6026ab05bd59b38621de7ee802c715
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772316"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491905"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure Site Recovery ile Azure ExpressRoute
 
@@ -25,20 +25,15 @@ Bu makalede, nasıl Azure ExpressRoute Azure Site Recovery ile olağanüstü dur
 
 Bir ExpressRoute bağlantı hattı, şirket içi altyapınızı ve bağlantı sağlayıcı üzerinden Microsoft bulut hizmetleri arasında mantıksal bağlantıyı temsil eder. Birden çok ExpressRoute bağlantı hattına sipariş edebilirsiniz. Her bağlantı hattı aynı veya farklı bölgelerde olabilir ve farklı bağlantı sağlayıcıları aracılığıyla şirket içinde bağlanabilir. ExpressRoute bağlantı hatları hakkında daha fazla bilgi [burada](../expressroute/expressroute-circuit-peerings.md).
 
-## <a name="expressroute-routing-domains"></a>ExpressRoute yönlendirme etki alanları
-
-Bir ExpressRoute bağlantı hattı kendisiyle ilişkilendirilmiş birden fazla Yönlendirme etki alanları şunlardır:
--   [Azure özel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#privatepeering) - Azure işlem Hizmetleri, yani sanal makineler (Iaas) ve bir sanal ağda dağıtılan bulut hizmetlerini (PaaS) üzerinden özel eşleme etki alanına bağlanabilir. Özel Eşleme etki Microsoft Azure'a çekirdek ağınızı güvenilir bir uzantısı olarak kabul edilir.
--   [Azure ortak eşleme](../expressroute/expressroute-circuit-peerings.md#publicpeering) -Azure depolama, SQL veritabanları ve Web siteleri gibi hizmetleri genel IP adreslerinde sunulur. Özel VIP'ler genel eşleme Yönlendirme etki alanı aracılığıyla, bulut hizmetleri de dahil olmak üzere genel IP adreslerinde barındırılan hizmetler bağlanabilirsiniz. Genel eşdüzey hizmet sağlama için yeni oluşturma kullanım dışıdır ve Microsoft Peering Azure PaaS Hizmetleri için bunun yerine kullanılmalıdır.
--   [Microsoft eşlemesi](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) -Microsoft çevrimiçi hizmetlerine (Office 365, Dynamics 365 ve Azure PaaS Hizmetleri) olduğundan Microsoft eşlemesi aracılığıyla. Microsoft eşlemesi, Azure PaaS hizmetlerine bağlanmak için önerilen Yönlendirme etki alanı adıdır.
-
-Daha fazla bilgi edinin ve ExpressRoute Yönlendirme etki alanları karşılaştırın [burada](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
+ExpressRoute devresi, kendisiyle ilişkili birden fazla Yönlendirme etki alanları vardır. Daha fazla bilgi edinin ve ExpressRoute Yönlendirme etki alanları karşılaştırın [burada](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 
 ## <a name="on-premises-to-azure-replication-with-expressroute"></a>Şirket içi ExpressRoute ile Azure'a çoğaltma
 
 Azure Site kurtarma sağlayan olağanüstü durum kurtarma ve azure'a geçiş için şirket içi [Hyper-V sanal makinelerini](hyper-v-azure-architecture.md), [VMware sanal makinelerini](vmware-azure-architecture.md), ve [fiziksel sunucuları](physical-azure-architecture.md). Tüm şirket içi Azure senaryoları için çoğaltma verileri gönderilen ve bir Azure depolama hesabında depolanır. Çoğaltma sırasında herhangi bir sanal makine ücreti ödeme yapmayın. Azure'a yük devretme çalıştırdığınızda, Site Recovery, Azure Iaas sanal makineleri otomatik olarak oluşturur.
 
-Site Recovery, genel bir uç nokta bir Azure depolama hesabına veri çoğaltır. Site Recovery çoğaltması için ExpressRoute kullanmak için kullanabileceği [genel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#publicpeering) (yeni oluşturma işlemleri için kullanım dışı) veya [Microsoft eşlemesi](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Microsoft eşlemesi, çoğaltma için önerilen Yönlendirme etki alanıdır. Emin [ağ gereksinimleri](vmware-azure-configuration-server-requirements.md#network-requirements) çoğaltma için de karşılandığından. Sanal makine ya da sunucuları için bir Azure sanal ağı yük devretme sonra erişebilirsiniz kullanarak [özel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#privatepeering). Çoğaltma özel eşdüzey hizmet sağlama üzerinden desteklenmiyor.
+Site Recovery veri genel bir uç nokta bir Azure depolama hesabı veya çoğaltma yönetilen Disk hedef Azure bölgesi çoğaltır. Site Recovery çoğaltma trafiği için ExpressRoute kullanmak için kullanabileceği [Microsoft eşlemesi](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) veya varolan [genel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#publicpeering) (yeni oluşturma işlemleri için kullanım dışı). Microsoft eşlemesi, çoğaltma için önerilen Yönlendirme etki alanıdır. Özel eşdüzey hizmet sağlama üzerinden yineleme desteklenmiyor unutmayın.
+
+Emin [ağ gereksinimleri](vmware-azure-configuration-server-requirements.md#network-requirements) için yapılandırma sunucusunu da karşılandığından. Belirli URL'lere bağlantısı yapılandırma sunucusu tarafından Site Recovery çoğaltma düzenleme için gereklidir. ExpressRoute için bağlantı kullanılamaz. 
 
 Şirket içi proxy kullanın ve çoğaltma trafiği için Expressroute'u kullanmak istiyorsanız durumunda, Proxy atlama listesi yapılandırma sunucusu ve işlem sunucusu yapılandırmanız gerekir. Aşağıdaki adımları izleyin:
 
@@ -48,6 +43,8 @@ Site Recovery, genel bir uç nokta bir Azure depolama hesabına veri çoğaltır
 - Atlama listesi içinde Azure depolama URL'si ekleme *. blob.core.windows.net
 
 Bu proxy üzerinden iletişime geçebilirsiniz ancak çoğaltma trafiği yalnızca ExpressRoute aracılığıyla akar garanti eder.
+
+Sanal makine ya da sunucuları için bir Azure sanal ağı yük devretme sonra erişebilirsiniz kullanarak [özel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#privatepeering). 
 
 Birleşik senaryo, aşağıdaki diyagramda gösterilmiştir: ![Şirket içi-Azure'a ExpressRoute ile](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
 

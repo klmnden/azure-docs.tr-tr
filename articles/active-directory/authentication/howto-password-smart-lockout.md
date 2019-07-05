@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 150ecbdfcc21ee7ec0bf54fd5b824bc93e0c76ce
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60358149"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483315"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory akıllı kilitleme
 
@@ -41,7 +41,9 @@ Akıllı kilitleme, saldırganlar tarafından kilitli şirket içi Active Direct
 Kullanırken [geçişli kimlik doğrulaması](../hybrid/how-to-connect-pta.md), emin olmanız gerekir:
 
 * Azure AD kilitleme eşiği **daha az** Active Directory hesap kilitleme eşik değerinden. Böylece Active Directory hesap kilitleme eşiği en az iki veya üç kez Azure AD kilitleme eşik değerinden daha uzun değerleri ayarlayın. 
-* Azure AD kilitleme süresi **saniye** olduğu **uzun** Active Directory süreden sonra hesap kilitleme sayacını sıfırla daha **dakika**.
+* Azure AD kilitleme süresi, Active Directory süreden sonra hesap kilitleme sayacını sıfırla daha uzun olarak ayarlanmalıdır. Azure AD süresi saniye olarak ayarlanır, AD süresi dakika cinsinden ayarlanır unutmayın. 
+
+Örneğin, Azure AD sayacı AD yüksek olmasını istiyorsanız, Azure AD AD (60 saniye) 1 dakika olarak ayarlanır, şirket içi sırasında 120 saniye (2 dakika) olacaktır.
 
 > [!IMPORTANT]
 > Şu anda bunlar akıllı kilitleme özelliğini tarafından kilitlenmiş, bir yönetici kullanıcıların bulut hesapları kilidi açılamıyor. Yönetici, kilitleme süresi dolmak üzere beklemeniz gerekir.

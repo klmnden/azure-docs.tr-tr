@@ -4,19 +4,19 @@ description: Azure işlevleri'nde Azure tablo depolama bağlamaları kullanma ha
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Azure işlevleri, İşlevler, olay işleme dinamik işlem, sunucusuz mimari
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 0c9cd513f4d5842d14077bb7470ebd18c7a46340
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 002ea00364056f0780146b79936a6bc04e289973
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64511864"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480071"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure tablo depolama bağlamaları
 
@@ -532,7 +532,7 @@ Tablo depolama giriş bağlamasına aşağıdaki senaryoları destekler:
 
   Ayarlama `filter` ve `take` özellikleri. Ayarlamamanız `partitionKey` veya `rowKey`. Giriş tablosu varlık (veya varlıklar) kullanarak erişmek `context.bindings.<name>`. Seri durumdan çıkarılmış nesne sahip `RowKey` ve `PartitionKey` özellikleri.
 
-## <a name="output"></a>Çıktı
+## <a name="output"></a>Output
 
 Bir Azure tablo depolama çıkış bir Azure depolama hesabındaki bir tabloda varlıklar yazılacak bağlaması kullanın.
 

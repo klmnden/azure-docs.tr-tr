@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: blobs
-ms.openlocfilehash: 4f6776a5f15cf391f3a65aceb6e9e783d87a2078
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0fb3551b14a2239f26c54f639b90400277fab25
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148925"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501938"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Azure depolama hesabınız için bir özel etki alanı adı yapılandırma
 
@@ -34,10 +34,10 @@ Adlı bir depolama hesabında bulunan blob veriler için birkaç örnek URL'ler 
 
 | Kaynak türü | Varsayılan URL | Özel etki alanı URL'si |
 | --- | --- | --- |
-| Depolama hesabı | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
-| Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
-| Kök kapsayıcı | http://mystorageaccount.blob.core.windows.net/myblob veya http://mystorageaccount.blob.core.windows.net/ $root/myblob| http://www.contoso.com/myblob veya http://www.contoso.com/ $root/myblob |
-| Web |  http://mystorageaccount. [zone].web.core.windows.net/$web/[indexdoc] veya http://mystorageaccount. [ Zone].Web.Core.Windows.NET/[indexdoc] veya http://mystorageaccount. [ Zone].Web.Core.Windows.NET/$Web veya http://mystorageaccount. [ Zone].Web.Core.Windows.NET/ | http://www.contoso.com/ $web veya http://www.contoso.com/ veya http://www.contoso.com/ $web / [indexdoc] veya http://www.contoso.com/ [indexdoc] |
+| Depolama hesabı | http:\//mystorageaccount.blob.core.windows.net | http:\//www.contoso.com |
+| Blob |http:\//mystorageaccount.blob.core.windows.net/mycontainer/myblob | http:\//www.contoso.com/mycontainer/myblob |
+| Kök kapsayıcı | http:\//mystorageaccount.blob.core.windows.net/myblob veya http:\//mystorageaccount.blob.core.windows.net/$root/myblob | http:\//www.contoso.com/myblob veya http:\//www.contoso.com/$ kök/myblob |
+| Web |  http:\//mystorageaccount. [ Zone].Web.Core.Windows.NET/$Web/[indexdoc] ya da http:\//mystorageaccount. [ Zone].Web.Core.Windows.NET/[indexdoc] ya da http:\//mystorageaccount. [ Zone].Web.Core.Windows.NET/$Web veya http:\//mystorageaccount. [ Zone].Web.Core.Windows.NET/ | http:\//www.contoso.com/$ web veya http:\//www.contoso.com/ veya http:\//www.contoso.com/$ web / [indexdoc] ya da http:\//www.contoso.com/ [indexdoc] |
 
 > [!NOTE]  
 > Aşağıdaki bölümlerde gösterildiği gibi tüm örnekler blob Hizmeti uç noktası için web hizmeti uç noktası için de geçerlidir.

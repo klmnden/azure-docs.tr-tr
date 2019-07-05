@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 61f24b3c13a53b23538327cd1458a54756b7caa5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7961656e0f295b3e1a9264d839da94de25a224a8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65466365"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550308"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Windows sanal makineleri hakkında sık sorulan sorular
 Bu makalede Azure Resource Manager dağıtım modeli kullanılarak oluşturulan Windows sanal makineleri hakkında bazı yaygın sorular ele alınmıştır. Bu konuda Linux sürümü için bkz: [Linux sanal makineleri hakkında sık sorulan soruya](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -31,7 +31,7 @@ Tüm aboneler bir Azure sanal makinesinde sunucu yazılımı çalıştırabilir.
 MSDN Azure avantajı aboneleri ve MSDN Geliştirme ve Test Kullandıkça Öde aboneleri geliştirme ve test görevleri belirli bir Windows 7, Windows 8.1 ve Windows 10 sürümleri kullanılabilir. Yönerge ve kısıtlamalar dahil olmak üzere ayrıntılı bilgi edinmek için bkz. [MSDN aboneleri için Windows İstemci görüntüleri](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/). 
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Bir sanal makineyle birlikte ne kadar depolama alanı kullanabilirim?
-Her veri diski 4 TB'a kadar (4.095 GB) olabilir. Kullanabileceğiniz veri diski sayısı, sanal makinenin boyutuna bağlıdır. Ayrıntılar için bkz. [Virtual Machines boyutları](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Her veri diski 32.767 GiB kadar olabilir. Kullanabileceğiniz veri diski sayısı, sanal makinenin boyutuna bağlıdır. Ayrıntılar için bkz. [Virtual Machines boyutları](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Azure yönetilen diskler önerilen disk depolama kullanmak için Azure sanal makineler ile veri kalıcı depolama için tekliflerdir. Her bir Sanal Makine ile birden fazla Yönetilen Disk kullanabilirsiniz. Yönetilen diskler teklif iki tür dayanıklı depolama seçeneği Premium ve standart yönetilen diskler. Fiyatlandırma bilgileri için bkz: [yönetilen diskler fiyatlandırma](https://azure.microsoft.com/pricing/details/managed-disks).
 

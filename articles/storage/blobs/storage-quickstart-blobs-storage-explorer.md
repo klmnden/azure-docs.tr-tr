@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/15/2018
 ms.author: tamram
-ms.openlocfilehash: 3424b46dff8f2904f41d0e8c1acf96788c51773f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 929ba7e28bca608359e76f9eeb130c61ba3235a0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391999"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435798"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Hızlı Başlangıç: Nesne depolamada blob oluşturma için Azure Depolama Gezgini'ni kullanma
 
@@ -47,7 +47,7 @@ Bağlantı kurulduğunda Azure Depolama Gezgini yüklenir ve **Gezgin** sekmesi 
 
 Bloblar her zaman bir kapsayıcıya yüklenir. Bu, blob gruplarını bilgisayarınızdaki dosyaları klasörler halinde düzenlediğiniz gibi düzenleyebilmenizi sağlar.
 
-Kapsayıcı oluşturmak için önceki adımda oluşturduğunuz depolama hesabını genişletin. **Blob Kapsayıcıları**'nı ve ardından **Blob Kapsayıcısı Oluştur**'u seçin. Blob kapsayıcınızın adını girin. Blob kapsayıcılarını adlandırmayla ilgili kural ve kısıtlamaların listesi için [Kapsayıcı oluşturma ve ayarlama izinleri](storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) bölümüne bakın. Girişleri tamamladığınızda blob kapsayıcısını oluşturmak için **Enter**'a basın. Blob kapsayıcısı başarıyla oluşturulduktan sonra, seçili depolama hesabının **Blob Kapsayıcıları** klasörü altında gösterilir.
+Kapsayıcı oluşturmak için önceki adımda oluşturduğunuz depolama hesabını genişletin. **Blob Kapsayıcıları**'nı ve ardından **Blob Kapsayıcısı Oluştur**'u seçin. Blob kapsayıcınızın adını girin. Bkz: [bir kapsayıcı oluşturma](storage-quickstart-blobs-dotnet.md#create-a-container) blob kapsayıcılarını adlandırmayla ilgili kural ve kısıtlamaların listesi için bölümü. Girişleri tamamladığınızda blob kapsayıcısını oluşturmak için **Enter**'a basın. Blob kapsayıcısı başarıyla oluşturulduktan sonra, seçili depolama hesabının **Blob Kapsayıcıları** klasörü altında gösterilir.
 
 ## <a name="upload-blobs-to-the-container"></a>Blobları kapsayıcıya yükleme
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
-ms.openlocfilehash: e4571a8918b7877b728b54129e47ffcf4af9b46a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f5390162ce56a0e77ef41740d7e88f3546c5530
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979636"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444724"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Etkin Directory Role-Based erişim denetimi (Önizleme)
 
@@ -33,12 +33,12 @@ SAS kuralları ve anahtarlar ya da hizmet veri yolu için belirli diğer herhang
 
 Azure sağlayan yerleşik RBAC rolleri için erişimi bir Service Bus ad alanı yetkilendirme aşağıda:
 
-* [Hizmet veri yolu veri sahibi (Önizleme)](../role-based-access-control/built-in-roles.md#service-bus-data-owner): Service Bus ad alanı ve varlıkları (kuyruklar, konular, abonelikler ve filtreleri) veri erişim sağlar.
+* [Azure Service Bus veri sahibi (Önizleme)](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner-preview): Service Bus ad alanı ve varlıkları (kuyruklar, konular, abonelikler ve filtreleri) veri erişim sağlar.
 
 >[!IMPORTANT]
 > Biz daha önce desteklenen yönetilen kimliğe ekleme **"Sahip"** veya **"Katılımcı"** rol.
 >
-> Ancak, veri ayrıcalıklarına erişim **"Sahip"** ve **"Katılımcı"** rolü artık kullanılacaktır. Kullandıysanız **"Sahip"** veya **"Katılımcı"** rolünü ve ardından bu gerekecektir yazılımınız için **"Hizmet veri yolu veri sahibi"** rol.
+> Ancak, veri ayrıcalıklarına erişim **"Sahip"** ve **"Katılımcı"** rolü artık kullanılacaktır. Kullandıysanız **"Sahip"** veya **"Katılımcı"** rolünü ve ardından bu gerekecektir yazılımınız için **"Azure hizmet veri yolu veri sahibi (Önizleme)"** rol.
 
 ## <a name="use-service-bus-with-an-azure-ad-domain-user-account"></a>Service Bus ile bir Azure AD etki alanı kullanıcı hesabı kullanın.
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: b2407200b995ad956f233248f6cdd58488b583d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a535510ce56147f708f1cd8219cf898e6e0df36b
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64688801"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483783"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Örnek Apache Storm topolojilerini ve HDInsight üzerinde Apache Storm bileşenleri
 
@@ -41,10 +41,10 @@ Bir liste oluşturulur ve ile kullanmak için Microsoft tarafından yönetilen �
 
 ### <a name="next-steps"></a>Sonraki Adımlar
 
-* [HDInsight üzerinde Apache Storm kullanmaya başlama][2b8c3488]
+* [Oluşturma ve bir Azure HDInsight Apache Storm topolojisinde izleme](./apache-storm-quickstart.md)
 * [HDInsight üzerinde Apache Storm ile Apache Storm topolojilerini dağıtma ve yönetme hakkında bilgi edinin][6eb0d3b8]
 
-[2b8c3488]:apache-storm-tutorial-get-started-linux.md "HDInsight kümesinde bir Apache Storm oluşturmak ve örnek topolojiler dağıtmak için Storm panosunu kullanma hakkında bilgi edinin."
+
 [6eb0d3b8]:apache-storm-deploy-monitor-topology-linux.md "Visual Studio için web tabanlı Apache Storm panosunu ve Storm kullanıcı arabirimini veya HDInsight Araçları'nı kullanarak topolojileri dağıtma ve yönetme hakkında bilgi edinin."
 [16fce2d1]:apache-storm-develop-csharp-visual-studio-topology.md "Visual Studio için HDInsight Araçları'nı kullanarak C# Storm topolojileri oluşturmayı öğrenin."
 [5797064f]:apache-storm-develop-java-topology.md "Storm topolojileri temel wordcount topolojisini oluşturarak Maven kullanarak Java'da oluşturmayı öğrenin."

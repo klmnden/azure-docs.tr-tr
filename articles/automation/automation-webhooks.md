@@ -4,17 +4,17 @@ description: HTTP çağrısı Azure Automation'da bir runbook başlatmak bir ist
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 153bb0304102906f7be64ae55dd0e0f6bb8d7146
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e0e0cdfd5bdda125ed38173df56e0fb7a84f71a
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61305041"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477935"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Bir Web kancası ile bir Azure Otomasyonu runbook'u başlatma
 
@@ -30,10 +30,10 @@ Bir runbook başlatma diğer yöntemleri için Web kancaları karşılaştırabi
 
 Aşağıdaki tabloda, bir Web kancası için yapılandırmanız gereken özellikleri tanımlar.
 
-| Özellik | Açıklama |
+| Özellik | Description |
 |:--- |:--- |
 | Ad |Bu istemciye kullanıma bu yana bir Web kancası için istediğiniz herhangi bir ad sağlayabilirsiniz. Yalnızca sizin için Azure Otomasyonu'nda runbook tanımlamak için kullanılır. <br> En iyi uygulama, Web kancası kullanan istemcisiyle ilgili bir ad vermesi gerekir. |
-| URL'si |Web kancası URL'si, Web kancası'na bağlı bir runbook başlatmak için bir HTTP POST ile bir istemci çağrıları benzersiz adresidir. Web kancasını oluşturduğunuzda otomatik olarak oluşturulur. Özel bir URL belirtemezsiniz. <br> <br> URL, başka bir kimlik doğrulaması ile üçüncü taraf sistemleri tarafından çağrılacak runbook izin veren bir güvenlik belirteci içeriyor. Bu nedenle, bir parola gibi düşünülmelidir. Güvenlik nedeniyle, Web kancası oluşturulduğunda Azure portalında yalnızca URL'yi görüntüleyebilirsiniz. Gelecekte kullanım için güvenli bir konumda URL'yi not alın. |
+| URL |Web kancası URL'si, Web kancası'na bağlı bir runbook başlatmak için bir HTTP POST ile bir istemci çağrıları benzersiz adresidir. Web kancasını oluşturduğunuzda otomatik olarak oluşturulur. Özel bir URL belirtemezsiniz. <br> <br> URL, başka bir kimlik doğrulaması ile üçüncü taraf sistemleri tarafından çağrılacak runbook izin veren bir güvenlik belirteci içeriyor. Bu nedenle, bir parola gibi düşünülmelidir. Güvenlik nedeniyle, Web kancası oluşturulduğunda Azure portalında yalnızca URL'yi görüntüleyebilirsiniz. Gelecekte kullanım için güvenli bir konumda URL'yi not alın. |
 | Sona erme tarihi |Bir sertifikanın gibi her Web kancası aynı zamanda artık kullanılabilir bir sona erme tarihi vardır. Bu süre sonu tarihi, Web kancasının süresi dolmuş değil sürece Web kancası oluşturulduktan sonra değiştirilebilir. |
 | Enabled |Bir Web kancası, oluşturulduğunda varsayılan olarak etkindir. Devre dışı olarak ayarlarsanız, hiçbir istemci bunu kullanabilirsiniz. Ayarlayabileceğiniz **etkin** özelliği, Web kancası veya dilediğiniz zaman bir kez oluşturduğunuzda oluşturulur. |
 

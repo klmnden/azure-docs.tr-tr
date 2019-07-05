@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 419c533aabd67637efa64777387c491dd890596e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6940be7f64aa9ae16258fa936d197e2715235ab
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024631"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485404"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search'te hizmet sınırları
 En fazla depolama, iş yüklerini ve dizinleri, belgeler, miktarlarını sınırlar ve bağımlı nesneler bağımsız olarak, [Azure Search sağlama](search-create-service-portal.md) adresindeki **ücretsiz**, **temel**,  **Standart**, veya **depolama için iyileştirilmiş** fiyatlandırma katmanları.
@@ -29,7 +29,7 @@ En fazla depolama, iş yüklerini ve dizinleri, belgeler, miktarlarını sınır
 + **Depolama için optimize edilmiş** daha fazla toplam depolama, depolama bant genişliği ve daha bellek ayrılmış makinelerde çalışır **standart**. Depolama için optimize edilmiş iki düzey gelir: L1 ve L2
 
 > [!NOTE]
-> Depolama için iyileştirilmiş hizmet katmanları şu an geri bildirim toplamak amacıyla test ve deneme amaçları için indirimli fiyatlandırma önizleme olarak kullanılabilir. Bu katmanları genel olarak kullanılabilir olduğunda son fiyatlandırma daha sonra duyurulacaktır. Biz, üretim uygulamaları için bu katmanları kullanan karşı önerin.
+> 1 Temmuz'dan itibaren tüm katmanları depolama için iyileştirilmiş katmanı da dahil olmak üzere genel olarak kullanılabilir. Tüm fiyatlandırmalar bulunabilir [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/search/) sayfası.
 
   S3 yüksek yoğunluklu (S3 HD) belirli iş yükleri için tasarlandı: [çok kiracılı](search-modeling-multitenant-saas-applications.md) ve büyük miktarlarda küçük dizinleri (bir milyon dizin başına belge, hizmet başına üç bin dizin). Bu katman sağlamaz [dizin oluşturucu özelliği](search-indexer-overview.md). S3 HD üzerinde dizin kaynaktan veri göndermek için API çağrıları kullanarak anında iletme yaklaşım, veri alımı yararlanarak gerekir. 
 
@@ -110,7 +110,7 @@ Bakiye ve bir bütün olarak hizmete kararlılık sağlamak için çalışan mak
 | En fazla dizin oluşturucu |3 |5 veya 15|50 |200 |200 |Yok |10 |10 |
 | En fazla veri kaynağı |3 |5 veya 15 |50 |200 |200 |Yok |10 |10 |
 | En fazla becerilerini <sup>4</sup> |3 |5 veya 15 |50 |200 |200 |Yok |10 |10 |
-| Çağrı başına en fazla dizin yükleme |10\.000 belge |En fazla belge yalnızca sınırlıdır |En fazla belge yalnızca sınırlıdır |En fazla belge yalnızca sınırlıdır |En fazla belge yalnızca sınırlıdır |Yok |Sınırsız |Sınırsız |
+| Çağrı başına en fazla dizin yükleme |10.000 belge |En fazla belge yalnızca sınırlıdır |En fazla belge yalnızca sınırlıdır |En fazla belge yalnızca sınırlıdır |En fazla belge yalnızca sınırlıdır |Yok |Sınırsız |Sınırsız |
 | En az bir zamanlama | 5 dakika |5 dakika |5 dakika |5 dakika |5 dakika |5 dakika |5 dakika | 5 dakika |
 | En fazla çalışma süresi <sup>5</sup> | 1-3 dakika |24 saat |24 saat |24 saat |24 saat |Yok  |24 saat |24 saat |
 | Bilişsel arama becerilerini veya blob dizini oluşturmanın görüntü Analizi ile çalışan en fazla <sup>5</sup> | 3-10 dakika |2 saat |2 saat |2 saat |2 saat |Yok  |2 saat |2 saat |

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: d1c10e056de1bc61b5365550bf2543d2cdf61229
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 002e2e06201688638df98e16c45282187f593a3a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62106839"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444252"
 ---
 # <a name="opc-twin-architecture"></a>OPC İkizi mimarisi
 
@@ -35,6 +35,6 @@ Aşağıdaki diyagramlarda OPC İkizi mimarisi gösterilmektedir.
 
    ![OPC İkizi nasıl çalışır?](media/overview-opc-twin-architecture/opc-twin3.png)
 
-1. İkiz hizmet REST arabirimi, OPC yayımcı olarak izlenen öğeleri ve abonelikler oluşturmak için de kullanılabilir. OPC Publisher, IOT Hub'ına OPC UA server sistemlerden gönderilecek telemetri sağlar. OPC Publisher hakkında daha fazla bilgi için bkz: [OPC yayımcı](https://github.com/Azure/iot-edge-opc-publisher) github deposu.
+1. İkiz hizmet REST arabirimi, OPC yayımcı olarak izlenen öğeleri ve abonelikler oluşturmak için de kullanılabilir. OPC Publisher, IOT Hub'ına OPC UA server sistemlerden gönderilecek telemetri sağlar. OPC Publisher hakkında daha fazla bilgi için bkz: [OPC yayımcı nedir](overview-opc-publisher.md).
 
    ![OPC İkizi nasıl çalışır?](media/overview-opc-twin-architecture/opc-twin4.png)

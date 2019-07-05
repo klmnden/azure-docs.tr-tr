@@ -3,17 +3,17 @@ title: Kabuk betikleri, Azure'da bir Linux VM çalıştırma
 description: Bu konu başlığı altında komut dosyalarını çalıştır komutunu kullanarak bir Azure Linux sanal makine içinde çalıştırma işlemi açıklanır
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: fe0547c1ddb89b8d9ab3e876e83bbdea17a58743
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abf0f69ea70bae4102806214f0ef0fcfc25aad3a
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64570587"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477038"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Kabuk betikleri Linux VM'nize ile Çalıştır komutunu çalıştırın.
 
@@ -71,7 +71,7 @@ Komut seçilir bitince **çalıştırma** betiği çalıştırmak için. Betik �
 
 Bu tabloda, Linux Vm'leri için kullanılabilir komutların listesini gösterir. **RunShellScript** komutu istediğiniz herhangi bir özel betik çalıştırmak için kullanılabilir.
 
-|**Ad**|**Açıklama**|
+|**Name**|**Açıklama**|
 |---|---|
 |**RunShellScript**|Bir Linux Kabuk betiği çalıştırır.|
 |**ifconfig**| Tüm ağ arabirimlerinin yapılandırmasını alın.|

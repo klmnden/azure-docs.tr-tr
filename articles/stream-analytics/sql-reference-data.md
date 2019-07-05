@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics işi (Önizleme) için bir SQL veritabanı başvuru verilerini kullanma
+title: Başvuru verilerini bir SQL veritabanı için Azure Stream Analytics işi kullanın.
 description: Bu makalede, Azure portalında ve Visual Studio'da Azure Stream Analytics işi için başvuru veri girişi SQL veritabanı kullanmayı açıklar.
 services: stream-analytics
 author: mamccrea
@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f0e62c27885e2f6d5097194e1b9d869e167c4a4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae1954b99e268e8bc44c4ba29bbc79d7734fda6e
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304981"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461746"
 ---
-# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Azure Stream Analytics işi (Önizleme) için bir SQL veritabanı başvuru verilerini kullanma
+# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Başvuru verilerini bir SQL veritabanı için Azure Stream Analytics işi kullanın.
 
 Azure Stream Analytics, Azure SQL veritabanı kaynağı başvuru verileri için giriş olarak destekler. SQL veritabanı, Stream Analytics işiniz için Visual Studio ve Azure portalında Stream Analytics araçları ile başvuru veri kullanabilirsiniz. Bu makalede, iki yöntem de bunu nasıl yapacağınızı gösterir.
 
