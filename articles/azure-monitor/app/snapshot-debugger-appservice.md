@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: brahmnes
-ms.openlocfilehash: 7ff93dffe2dd82bdbba204b4235a297b337438f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf06c7c21d30fb107baee0d43b33b221c7da2773
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60784099"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439886"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Azure App Service'te .NET uygulamaları için Snapshot Debugger'ı etkinleştir
 
@@ -29,6 +29,8 @@ Bir uygulama için Snapshot Debugger'ı etkinleştirmek için aşağıdaki yöne
 * [Azure Service Fabric Hizmetleri](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure sanal makineler ve sanal makine ölçek kümeleri](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Şirket içi sanal veya fiziksel makineler](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+
+.NET Core önizleme sürümünü kullanıyorsanız, lütfen yönergelerini izleyin [diğer ortamlar için Snapshot Debugger'ı etkinleştirme](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) ilk içerecek şekilde [Microsoft.applicationınsights.snapshotcollectya da](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet ile uygulama paketini ve ardından aşağıdaki yönergeleri tamamlayın. 
 
 Application Insights Snapshot Debugger uygulama hizmetleri çalışma zamanı bir parçası olarak önceden yüklenmiş, ancak get anlık görüntüleri için App Service uygulamanızı açın duruma getirmeniz gerekir. Kaynak kodunda Application Insights SDK'sı dahil olsa bile bir uygulamayı dağıttıktan sonra snapshot debugger'ı etkinleştirmek için aşağıdaki adımları izleyin.
 
@@ -52,7 +54,9 @@ Snapshot Debugger, uygulama özel durumlarını tanılama kolaylaştırmak için
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Visual Studio'da Application Insights ile çalışma](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
+- Bir özel durum tetikleyebileceğiniz uygulama trafiği oluşturur. Ardından, Application Insights örneğine gönderilmek için anlık görüntüleri 10-15 dakika bekleyin.
+- Bkz: [anlık görüntüleri](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) Azure portalında.
+- Snapshot Debugger sorunlarını giderme konusunda yardım için bkz: [Snapshot Debugger sorun giderme](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
 
 [Enablement UI]: ./media/snapshot-debugger/enablement-ui.png
 [snapshot-debugger-app-setting]:./media/snapshot-debugger/snapshot-debugger-app-setting.png

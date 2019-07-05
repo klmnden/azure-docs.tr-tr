@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 06/28/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: f6061710fb15d4183bd42a82c4bd269a69fc9be2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 40ecdb3f83dba741d1430a912a3f17500a36da6e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964448"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484356"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Bir ExpressRoute bağlantı hattı için eşlemesi oluşturma ve değiştirme
 
@@ -55,9 +55,17 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı 
 
 ### <a name="to-create-microsoft-peering"></a>Microsoft eşlemesi oluşturmak için
 
-1. ExpressRoute bağlantı hattını yapılandırın. Daha ileriye devam etmeden önce bağlantı sağlayıcı tarafından bağlantı hattının tam olarak sağlandığından emin olun. Bağlantı sağlayıcınız yönetilen Katman 3 Hizmetleri sunuyorsa, bağlantı sağlayıcınızdan sizin için eşlemeyi Microsoft etkinleştirmek isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izleyin gerekmez. Bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra yönetmez, ancak sonraki adımlara devam edin.
+1. ExpressRoute bağlantı hattını yapılandırın. Denetleme **sağlayıcısı durumu** bağlantı hattının tam olarak bağlantı sağlayıcı tarafından daha ileriye devam etmeden önce sağlandığından emin olmak için.
 
-   ![Microsoft eşlemesi listesi](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+   Bağlantı sağlayıcınız yönetilen Katman 3 Hizmetleri sunuyorsa, bağlantı sağlayıcınızdan sizin için eşlemeyi Microsoft etkinleştirmek isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izleyin gerekmez. Bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra yönetmez, ancak bu adımlarla devam edin.
+
+   **Bağlantı hattı - sağlayıcısı durumu: Sağlanmadı**
+
+    [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png "Sağlayıcı Durumu: Sağlanmadı")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
+
+   **Bağlantı hattı - sağlayıcısı durumu: sağlanan**
+
+   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png "Sağlayıcı Durumu sağlanan =")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
 2. Bağlantı hattı için Microsoft eşlemesini yapılandırın. Devam etmeden önce aşağıdaki bilgilere sahip olduğunuzdan emin olun.
 
    * Birincil bağlantı için bir /30 alt ağı. Bu size ait ve bir RIR / IRR içinde kayıtlı bir geçerli ortak IPv4 ön eki olmalıdır. Microsoft, yönlendirici için ikinci kalmayacak IP kullandığından bu alt ağından yönlendiriciniz için ilk kullanılabilir IP adresi atar.
@@ -70,42 +78,35 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı 
    * **İsteğe bağlı -** kullanmayı seçerseniz bir MD5 karma değeri.
 3. Aşağıdaki örnekte gösterildiği gibi yapılandırmak için istediğiniz eşlemeyi seçebilirsiniz. Microsoft eşleme satırını seçin.
 
-   ![Microsoft eşleme satırını seçin](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft1.png)
-4. Microsoft eşlemesini yapılandırın. Aşağıdaki resimde bir yapılandırma örneği gösterilmektedir:
+   [![Microsoft eşleme satırını seçin](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m.png "Microsoft eşleme satırını seçin")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m-lightbox.png#lightbox)
+4. Microsoft eşlemesini yapılandırın. **Kaydet** tüm parametreleri belirledikten sonra yapılandırma. Aşağıdaki resimde örnek bir yapılandırma gösterilmektedir:
 
-   ![Microsoft eşlemesini yapılandırın](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft2.png)
-5. Tüm parametreleri belirledikten sonra yapılandırmayı kaydedin.
+   ![Microsoft eşlemesini yapılandırın](./media/expressroute-howto-routing-portal-resource-manager/configuration-m.png)
 
-   Bağlantı hattınız 'gerekli bir doğrulama' alır, (görüntüde gösterildiği gibi) durumunda, kavram kanıtı destek ekibimize ön eklerin sahipliğine ilişkin göstermek için bir destek bileti açmanız gerekir.
+   Bağlantı hattınız 'gerekli bir doğrulama' alır, durumunu, kavram kanıtı destek ekibimize ön eklerin sahipliğine ilişkin göstermek için bir destek bileti açmak gerekir. Aşağıdaki örnekte gösterildiği gibi doğrudan portalından bir destek bileti açabilirsiniz:
 
-   ![Microsoft eşleme yapılandırmasını Kaydet](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft5.png)
+   ![Doğrulama gerekiyor - destek bileti](./media/expressroute-howto-routing-portal-resource-manager/ticket-portal-m.png)
 
-   Aşağıdaki örnekte gösterildiği gibi doğrudan portalından bir destek bileti açabilirsiniz:
+5. Yapılandırma başarıyla kabul edildikten sonra aşağıdaki görüntüye benzer bir şey görürsünüz:
 
-   ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft6.png)
-
-
-1. Yapılandırma başarıyla kabul edildikten sonra aşağıdaki görüntüye benzer bir şey görürsünüz:
-
-   ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
+   ![Eşleme durumu: Yapılandırılmış](./media/expressroute-howto-routing-portal-resource-manager/configured-m.png "eşdüzey hizmet sağlama durumu: Yapılandırılmış")]
 
 ### <a name="getmsft"></a>Microsoft eşleme ayrıntılarını görüntülemek için
 
-Microsoft eşlemesi'ı seçerek eşleme özelliklerini görüntüleyebilirsiniz.
+Microsoft eşleme için satırı seçerek eşleme özelliklerini görüntüleyebilirsiniz.
 
-![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft3.png)
-
+[![Microsoft eşleme özelliklerini görüntüleme](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m.png "özelliklerini görüntüleme")](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m-lightbox.png#lightbox)
 ### <a name="updatemsft"></a>Microsoft eşleme yapılandırmasını güncelleştirmek için
 
-Eşleme için satırı seçebilir ve eşleme özelliklerini değiştirebilirsiniz.
+Değiştirin, ardından eşleme özelliklerini değiştirebilirsiniz ve değişikliklerinizi kaydetmek istediğiniz eşleme için satırı seçebilirsiniz.
 
-![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
+![Eşleme satırını seçin](./media/expressroute-howto-routing-portal-resource-manager/update-peering-m.png)
 
 ### <a name="deletemsft"></a>Microsoft eşlemesini silmek için
 
-Aşağıdaki görüntüde gösterilen silme simgesini seçerek eşleme yapılandırmanızı kaldırabilirsiniz:
+Aşağıdaki görüntüde gösterildiği gibi Sil simgesini tıklayarak eşleme yapılandırmanızı kaldırabilirsiniz:
 
-![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft4.png)
+![Eşlemeyi Sil](./media/expressroute-howto-routing-portal-resource-manager/delete-peering-m.png)
 
 ## <a name="private"></a>Azure özel eşdüzey hizmet sağlama
 
@@ -113,9 +114,18 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı 
 
 ### <a name="to-create-azure-private-peering"></a>Azure özel eşlemesi oluşturmak için
 
-1. ExpressRoute bağlantı hattını yapılandırın. Devam etmeden önce bağlantı sağlayıcı tarafından bağlantı hattının tam olarak sağlandığından emin olun. Bağlantı sağlayıcınız yönetilen Katman 3 Hizmetleri sunuyorsa, bağlantı sağlayıcınızdan Azure özel, eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izleyin gerekmez. Bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra yönetmez, ancak sonraki adımlara devam edin.
+1. ExpressRoute bağlantı hattını yapılandırın. Devam etmeden önce bağlantı sağlayıcı tarafından bağlantı hattının tam olarak sağlandığından emin olun. 
 
-   ![list](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+   Bağlantı sağlayıcınız yönetilen Katman 3 Hizmetleri sunuyorsa, bağlantı sağlayıcınızdan Azure özel, eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izleyin gerekmez. Bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra yönetmez, ancak sonraki adımlara devam edin.
+
+   **Bağlantı hattı - sağlayıcısı durumu: Sağlanmadı**
+
+   [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p.png "Sağlayıcı Durumu sağlanmadı =")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p-lightbox.png#lightbox)
+
+   **Bağlantı hattı - sağlayıcısı durumu: sağlanan**
+
+   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p.png "Sağlayıcı Durumu = sağlandı")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p-lightbox.png#lightbox)
+
 2. Bağlantı hattı için Azure özel eşlemesini yapılandırın. Sonraki adımlara devam etmeden önce aşağıdaki öğelerin bulunduğundan emin olun:
 
    * Birincil bağlantı için bir /30 alt ağı. Alt ağ, sanal ağlar için ayrılmış herhangi bir adres alanının parçası olmamalıdır. Microsoft, yönlendirici için ikinci kalmayacak IP kullandığından bu alt ağından yönlendiriciniz için ilk kullanılabilir IP adresi atar.
@@ -123,27 +133,27 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı 
    * Bu eşlemenin kurulacağı geçerli bir VLAN kimliği. Bağlantı hattındaki başka bir eşlemenin aynı VLAN kimliğini kullanmadığından emin olun. Birincil ve ikincil bağlantı için aynı VLAN kimliğini kullanmanız gerekir
    * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz. Kullanabileceğiniz özel eşleme için AS bu 65515 numarasından 65520, dışında aralığında numarası.
    * **İsteğe bağlı -** kullanmayı seçerseniz bir MD5 karma değeri.
-3. Aşağıdaki örnekte gösterildiği gibi Azure Private eşleme satırını seçin:
+3. Aşağıdaki örnekte gösterildiği gibi Azure private eşleme satırını seçin:
 
-   ![özel](./media/expressroute-howto-routing-portal-resource-manager/rprivate1.png)
-4. Özel eşleme oluşturun. Aşağıdaki resimde bir yapılandırma örneği gösterilmektedir:
+   [![Özel eşleme satırını seçin](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p.png "private eşleme satırını seçin")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p-lightbox.png#lightbox)
+4. Özel eşleme oluşturun. **Kaydet** tüm parametreleri belirledikten sonra yapılandırma.
 
-   ![Özel eşleme oluşturun](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
-5. Tüm parametreleri belirledikten sonra yapılandırmayı kaydedin. Yapılandırma başarıyla kabul edildikten sonra aşağıdaki örneğe benzer bir şey görürsünüz:
+   ![Özel eşleme oluşturun](./media/expressroute-howto-routing-portal-resource-manager/configuration-p.png)
+5. Yapılandırma başarıyla kabul edildikten sonra aşağıdaki örneğe benzer bir şey görürsünüz:
 
-   ![Özel eşleme Kaydet](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
+   ![Özel eşleme kaydedildi](./media/expressroute-howto-routing-portal-resource-manager/save-p.png)
 
 ### <a name="getprivate"></a>Azure özel eşleme ayrıntılarını görüntülemek için
 
 Eşlemeyi seçerek Azure özel eşleme özelliklerini görüntüleyebilirsiniz.
 
-![Özel eşleme görüntüleme](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
+[![Özel eşleme özelliklerini görüntüleme](./media/expressroute-howto-routing-portal-resource-manager/view-p.png "özel eşleme özelliklerini görüntüleme")](./media/expressroute-howto-routing-portal-resource-manager/view-p-lightbox.png#lightbox)
 
 ### <a name="updateprivate"></a>Azure özel eşleme yapılandırmasını güncelleştirmek için
 
-Eşleme için satırı seçebilir ve eşleme özelliklerini değiştirebilirsiniz.
+Eşleme için satırı seçebilir ve eşleme özelliklerini değiştirebilirsiniz. Güncelleştirdikten sonra yaptığınız değişiklikleri kaydedin.
 
-![Özel eşleme güncelleştir](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
+![Özel eşleme güncelleştir](./media/expressroute-howto-routing-portal-resource-manager/update-peering-p.png)
 
 ### <a name="deleteprivate"></a>Azure özel eşlemeyi silmek için
 
@@ -154,7 +164,7 @@ Aşağıdaki görüntüde gösterilen silme simgesini seçerek eşleme yapıland
 > 
 > 
 
-![Özel eşleme Sil](./media/expressroute-howto-routing-portal-resource-manager/rprivate4.png)
+![Özel eşleme Sil](./media/expressroute-howto-routing-portal-resource-manager/delete-p.png)
 
 ## <a name="public"></a>Azure genel eşdüzey hizmet sağlama
 
@@ -164,45 +174,17 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı 
 > Azure genel eşdüzey hizmet sağlama, yeni bağlantı hatları için kullanım dışı bırakılmıştır. Daha fazla bilgi için [ExpressRoute eşdüzey hizmet sağlaması](expressroute-circuit-peerings.md).
 >
 
-### <a name="to-create-azure-public-peering"></a>Azure ortak eşlemesi oluşturmak için
-
-1. ExpressRoute bağlantı hattını yapılandırın. Daha ileriye devam etmeden önce bağlantı sağlayıcı tarafından bağlantı hattının tam olarak sağlandığından emin olun. Bağlantı sağlayıcınız yönetilen Katman 3 Hizmetleri sunuyorsa, bağlantı sağlayıcınızdan Azure genel, eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra yönetmez, ancak sonraki adımları kullanarak yapılandırmanız devam edin.
-
-   ![Ortak eşleme listesi](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
-2. Bağlantı hattı için Azure ortak eşlemesini yapılandırın. Sonraki adımlara devam etmeden önce aşağıdaki öğelerin bulunduğundan emin olun:
-
-   * Birincil bağlantı için bir /30 alt ağı. Bu geçerli bir ortak IPv4 öneki olmalıdır. Microsoft, yönlendirici için ikinci kalmayacak IP kullandığından bu alt ağından yönlendiriciniz için ilk kullanılabilir IP adresi atar. 
-   * İkincil bağlantı için bir /30 alt ağı. Bu geçerli bir ortak IPv4 öneki olmalıdır. Microsoft, yönlendirici için ikinci kalmayacak IP kullandığından bu alt ağından yönlendiriciniz için ilk kullanılabilir IP adresi atar.
-   * Bu eşlemenin kurulacağı geçerli bir VLAN kimliği. Bağlantı hattındaki başka bir eşlemenin aynı VLAN kimliğini kullanmadığından emin olun. Birincil ve ikincil bağlantı için aynı VLAN kimliğini kullanmanız gerekir
-   * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz.
-   * **İsteğe bağlı -** kullanmayı seçerseniz bir MD5 karma değeri.
-3. Aşağıdaki görüntüde gösterildiği gibi Azure public eşleme satırını seçin:
-
-   ![Genel eşleme satırını seçin](./media/expressroute-howto-routing-portal-resource-manager/rpublic1.png)
-4. Ortak eşlemeyi yapılandırın. Aşağıdaki resimde bir yapılandırma örneği gösterilmektedir:
-
-   ![Ortak eşlemeyi yapılandırın](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
-5. Tüm parametreleri belirledikten sonra yapılandırmayı kaydedin. Yapılandırma başarıyla kabul edildikten sonra aşağıdaki örneğe benzer bir şey görürsünüz:
-
-   ![Ortak eşleme yapılandırmasını Kaydet](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
-
 ### <a name="getpublic"></a>Azure ortak eşleme ayrıntılarını görüntülemek için
 
-Eşlemeyi seçerek Azure ortak eşleme özelliklerini görüntüleyebilirsiniz.
-
-![Ortak eşleme özelliklerini görüntüleme](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
+Eşlemeyi seçerek Azure ortak eşleme özelliklerini görüntüleyin.
 
 ### <a name="updatepublic"></a>Azure ortak eşleme yapılandırmasını güncelleştirmek için
 
-Eşleme için satırı seçebilir ve eşleme özelliklerini değiştirebilirsiniz.
-
-![Genel eşleme satırını seçin](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
+Eşleme için satırı seçin, sonra eşleme özelliklerini değiştirebilirsiniz.
 
 ### <a name="deletepublic"></a>Azure ortak eşlemesini silmek için
 
-Aşağıdaki örnekte gösterildiği gibi Sil simgesini seçerek eşleme yapılandırmanızı kaldırabilirsiniz:
-
-![Ortak eşleme Sil](./media/expressroute-howto-routing-portal-resource-manager/rpublic4.png)
+Sil simgesini seçerek eşleme yapılandırmanızı kaldırın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

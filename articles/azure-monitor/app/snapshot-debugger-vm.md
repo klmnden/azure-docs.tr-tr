@@ -12,16 +12,18 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: brahmnes
-ms.openlocfilehash: ac937ddb1bcaed6813a0de4d631f820eff01e26f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c6ff8696775c0631a173bc44f7d8c67174ad19e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60783509"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444499"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Azure Service Fabric, bulut hizmeti ve sanal makineler .NET uygulamaları için Snapshot Debugger'ı etkinleştir
 
-Azure App Service'te uygulama çalıştığında, ASP.NET veya ASP.NET core, aşağıdaki yönergeleri de kullanılabilir. Özelleştirilmiş bir anlık görüntü hata ayıklayıcı yapılandırma uygulamanızın gerektirdiği sürece için önerilir [Snapshot Debugger Application ınsights'ı portal sayfası aracılığıyla etkinleştirme](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Uygulamanızı Azure Service Fabric, bulut hizmeti, sanal makineleri çalıştırır, ya da şirket içi makineleri aşağıdaki yönergeler kullanılmalıdır. 
+Azure App Service'te uygulama çalıştığında, ASP.NET veya ASP.NET core, yüksek oranda önerilir [Snapshot Debugger Application ınsights'ı portal sayfası aracılığıyla etkinleştirme](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Ancak, uygulamanız, özelleştirilmiş bir anlık görüntü hata ayıklayıcı yapılandırma veya bir önizleme sürümü, .NET core'da gerektiriyorsa, ardından bu yönerge izlenmesi gereken ***ayrıca*** yönergelerine [aracılığıyla etkinleştirme Application ınsights'ı portal sayfası](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
+
+Uygulamanızı Azure Service Fabric, bulut hizmeti, sanal makineleri çalıştırır, ya da şirket içi makineleri aşağıdaki yönergeler kullanılmalıdır. 
     
 ## <a name="configure-snapshot-collection-for-aspnet-applications"></a>ASP.NET uygulamaları için anlık görüntü koleksiyonunu yapılandırma
 
@@ -66,7 +68,7 @@ Azure App Service'te uygulama çalıştığında, ASP.NET veya ASP.NET core, aş
 4. Application ınsights'ı raporlanan özel durumların anlık görüntülerini toplanır. Bazı durumlarda (örneğin, eski sürümleri .NET platformu) için gereksinim duyabileceğiniz [özel durum koleksiyonunu yapılandırma](../../azure-monitor/app/asp-net-exceptions.md#exceptions) portalında anlık görüntülerle özel durumları görmek için.
 
 
-## <a name="configure-snapshot-collection-for-aspnet-core-20-applications"></a>ASP.NET Core 2.0 uygulamaları için anlık görüntü koleksiyonunu yapılandırma
+## <a name="configure-snapshot-collection-for-applications-using-aspnet-core-20-or-above"></a>Anlık görüntü koleksiyonunu veya üzeri için ASP.NET Core 2.0 kullanarak uygulamaları yapılandırma
 
 1. [ASP.NET Core web uygulamanızı Application Insights'ı etkinleştirme](../../azure-monitor/app/asp-net-core.md), henüz yapmadınız.
 
@@ -76,52 +78,70 @@ Azure App Service'te uygulama çalıştığında, ASP.NET veya ASP.NET core, aş
 2. Dahil [Microsoft.applicationınsights.snapshotcollectya da](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanıza NuGet paketi.
 
 3. Uygulamanızın değiştirme `Startup` eklemek ve anlık görüntü toplayıcının telemetri işlemci yapılandırmak için sınıf.
+    1. Varsa [Microsoft.applicationınsights.snapshotcollectya da](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet Paket sürümü 1.3.5 veya yukarıdaki kullanılır ve ardından aşağıdaki using deyimlerini `Startup.cs`.
 
-    Aşağıdaki using deyimlerini `Startup.cs`
+       ```csharp
+            using Microsoft.ApplicationInsights.SnapshotCollector;
+       ```
 
-   ```csharp
-   using Microsoft.ApplicationInsights.SnapshotCollector;
-   using Microsoft.Extensions.Options;
-   using Microsoft.ApplicationInsights.AspNetCore;
-   using Microsoft.ApplicationInsights.Extensibility;
-   ```
+       Createservicereplicalisteners() yöntemin sonuna aşağıdakini ekleyin `Startup` sınıfını `Startup.cs`.
 
-   Aşağıdaki `SnapshotCollectorTelemetryProcessorFactory` sınıfının `Startup` sınıfı.
+       ```csharp
+            services.AddSnapshotCollector((configuration) =>
+            {
+                IConfigurationSection section = Configuration.GetSection(nameof(SnapshotCollectorConfiguration));
+                if (section.Value != null)
+                {
+                    section.Bind(configuration);
+                }
+            });
 
-   ```csharp
-   class Startup
-   {
-       private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
+       ```
+    2. Varsa [Microsoft.applicationınsights.snapshotcollectya da](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet Paket sürümü 1.3.4 veya aşağıda kullanılır ve ardından aşağıdaki using deyimlerini `Startup.cs`.
+
+       ```csharp
+       using Microsoft.ApplicationInsights.SnapshotCollector;
+       using Microsoft.Extensions.Options;
+       using Microsoft.ApplicationInsights.AspNetCore;
+       using Microsoft.ApplicationInsights.Extensibility;
+       ```
+    
+       Aşağıdaki `SnapshotCollectorTelemetryProcessorFactory` sınıfının `Startup` sınıfı.
+    
+       ```csharp
+       class Startup
        {
-           private readonly IServiceProvider _serviceProvider;
-
-           public SnapshotCollectorTelemetryProcessorFactory(IServiceProvider serviceProvider) =>
-               _serviceProvider = serviceProvider;
-
-           public ITelemetryProcessor Create(ITelemetryProcessor next)
+           private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
            {
-               var snapshotConfigurationOptions = _serviceProvider.GetService<IOptions<SnapshotCollectorConfiguration>>();
-               return new SnapshotCollectorTelemetryProcessor(next, configuration: snapshotConfigurationOptions.Value);
+               private readonly IServiceProvider _serviceProvider;
+    
+               public SnapshotCollectorTelemetryProcessorFactory(IServiceProvider serviceProvider) =>
+                   _serviceProvider = serviceProvider;
+    
+               public ITelemetryProcessor Create(ITelemetryProcessor next)
+               {
+                   var snapshotConfigurationOptions = _serviceProvider.GetService<IOptions<SnapshotCollectorConfiguration>>();
+                   return new SnapshotCollectorTelemetryProcessor(next, configuration: snapshotConfigurationOptions.Value);
+               }
+           }
+           ...
+        ```
+        Ekleme `SnapshotCollectorConfiguration` ve `SnapshotCollectorTelemetryProcessorFactory` başlangıç ardışık düzenine Hizmetleri:
+    
+        ```csharp
+           // This method gets called by the runtime. Use this method to add services to the container.
+           public void ConfigureServices(IServiceCollection services)
+           {
+               // Configure SnapshotCollector from application settings
+               services.Configure<SnapshotCollectorConfiguration>(Configuration.GetSection(nameof(SnapshotCollectorConfiguration)));
+    
+               // Add SnapshotCollector telemetry processor.
+               services.AddSingleton<ITelemetryProcessorFactory>(sp => new SnapshotCollectorTelemetryProcessorFactory(sp));
+    
+               // TODO: Add other services your application needs here.
            }
        }
-       ...
-    ```
-    Ekleme `SnapshotCollectorConfiguration` ve `SnapshotCollectorTelemetryProcessorFactory` başlangıç ardışık düzenine Hizmetleri:
-
-    ```csharp
-       // This method gets called by the runtime. Use this method to add services to the container.
-       public void ConfigureServices(IServiceCollection services)
-       {
-           // Configure SnapshotCollector from application settings
-           services.Configure<SnapshotCollectorConfiguration>(Configuration.GetSection(nameof(SnapshotCollectorConfiguration)));
-
-           // Add SnapshotCollector telemetry processor.
-           services.AddSingleton<ITelemetryProcessorFactory>(sp => new SnapshotCollectorTelemetryProcessorFactory(sp));
-
-           // TODO: Add other services your application needs here.
-       }
-   }
-   ```
+       ```
 
 4. Gerekirse, anlık görüntü hata ayıklayıcı yapılandırma için appsettings.json SnapshotCollectorConfiguration bölüm ekleyerek özelleştirilmiş. Tüm anlık görüntü hata ayıklayıcı yapılandırma ayarlarında isteğe bağlıdır. Bir yapılandırma için varsayılan yapılandırma eşdeğer gösteren bir örnek aşağıda verilmiştir:
 
@@ -172,5 +192,5 @@ Azure App Service'te uygulama çalıştığında, ASP.NET veya ASP.NET core, aş
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Bir özel durum tetikleyebileceğiniz uygulama trafiği oluşturur. Ardından, Application Insights örneğine gönderilmek için anlık görüntüleri 10-15 dakika bekleyin.
-- Bkz: [anlık görüntüleri](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json) Azure portalında.
-- Profiler sorunlarını giderme konusunda yardım için bkz: [Snapshot Debugger sorun giderme](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
+- Bkz: [anlık görüntüleri](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) Azure portalında.
+- Snapshot Debugger sorunlarını giderme konusunda yardım için bkz: [Snapshot Debugger sorun giderme](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).

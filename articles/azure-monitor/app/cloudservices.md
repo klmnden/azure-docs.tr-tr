@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: eb7cbb80be12498242363eb8141a468e08cba73a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64995ad0560efd06bfa0084c948527e8a01e1890
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66478319"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443330"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application ınsights'ı Azure bulut Hizmetleri
-[Application Insights] [ start] izleyebilirsiniz [Azure cloud hizmeti uygulamaları](https://azure.microsoft.com/services/cloud-services/) kullanılabilirlik, performans, hatalar ve kullanım verileri Application Insights SDK'ları ile birleştirerek[Azure tanılama](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) , bulut hizmetlerinden veri. Uygulamanızın gerçek hayattaki performansı ve etkinliğine ilişkin aldığınız geri bildirimlerden yararlanarak her geliştirme yaşam döngüsünde tasarımın yönü konusunda bilinçli kararlar alabilirsiniz.
+[Application Insights][start] izleyebilirsiniz [Azure cloud hizmeti uygulamaları](https://azure.microsoft.com/services/cloud-services/) kullanılabilirlik, performans, hatalar ve kullanım verileri Application Insights SDK'ları ile birleştirerek [Azure tanılama](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics), bulut hizmetlerinden veri. Uygulamanızın gerçek hayattaki performansı ve etkinliğine ilişkin aldığınız geri bildirimlerden yararlanarak her geliştirme yaşam döngüsünde tasarımın yönü konusunda bilinçli kararlar alabilirsiniz.
 
 ![Genel Bakış Panosu](./media/cloudservices/overview-graphs.png)
 
@@ -80,7 +80,7 @@ Uygun kaynaklara telemetri göndermek için farklı bir izleme anahtarı, derlem
 
 Her rol için ayrı bir kaynak oluşturmaya karar verdiyseniz ve belki de her derleme yapılandırması için ayrı bir kümesi, bunların tümünü Application Insights portalında oluşturmak en kolayıdır. Kaynakları çok oluşturmak istiyorsanız [sürecini otomatikleştirin](../../azure-monitor/app/powershell.md).
 
-1. İçinde [Azure portalında][portal]seçin **yeni** > **Geliştirici Hizmetleri**  >   **Application Insights**.  
+1. İçinde [Azure portalında][portal]seçin **yeni** > **Geliştirici Hizmetleri** > **Application Insights**.  
 
     ![Application Insights bölmesi](./media/cloudservices/01-new.png)
 
@@ -136,7 +136,38 @@ Visual Studio’da her bulut uygulaması projesi için Application Insights SDK�
 1. Ayarlama *Applicationınsights.config* her zaman çıkış dizinine kopyalanacak dosya.  
     Bir ileti *.config* dosya izleme anahtarını oraya sorar. Ancak, bulut uygulamaları için ondan ayarlamak iyidir *.cscfg* dosya. Bu yaklaşım, rol portalda doğru tanımlanmasını sağlar.
 
-#### <a name="run-and-publish-the-app"></a>Uygulamayı çalıştırma ve yayımlama
+## <a name="set-up-status-monitor-to-collect-full-sql-queries-optional"></a>Tam SQL sorguları (isteğe bağlı) toplamak için Durum İzleyicisi'ni ayarlayın
+
+Bu adım, yalnızca .NET Framework üzerinde tam SQL sorguları yakalamak istiyorsanız gereklidir. 
+
+1. İçinde `\*.csdef` Ekle dosya [başlangıç görevi](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) benzer şekilde her bir rol için 
+
+    ```xml
+    <Startup>
+      <Task commandLine="AppInsightsAgent\InstallAgent.bat" executionContext="elevated" taskType="simple">
+        <Environment>
+          <Variable name="ApplicationInsightsAgent.DownloadLink" value="http://go.microsoft.com/fwlink/?LinkID=522371" />
+          <Variable name="RoleEnvironment.IsEmulated">
+            <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+          </Variable>
+        </Environment>
+      </Task>
+    </Startup>
+    ```
+    
+2. İndirme [InstallAgent.bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) ve [InstallAgent.ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), bunları put `AppInsightsAgent` her rol proje klasörü. Visual Studio dosya özellikleri aracılığıyla çıktı dizinine kopyalayın veya derleme betiklerini emin olun.
+
+3. Tüm çalışan rollerinde, ortam değişkenleri ekleyin: 
+
+    ```xml
+      <Environment>
+        <Variable name="COR_ENABLE_PROFILING" value="1" />
+        <Variable name="COR_PROFILER" value="{324F817A-7420-4E6D-B3C1-143FBED6D855}" />
+        <Variable name="MicrosoftInstrumentationEngine_Host" value="{CA487940-57D2-10BF-11B2-A3AD5A13CBC0}" />
+      </Environment>
+    ```
+    
+## <a name="run-and-publish-the-app"></a>Uygulamayı çalıştırma ve yayımlama
 
 1. Uygulamanızı çalıştırın ve Azure'da oturum açın. 
 
@@ -146,10 +177,10 @@ Visual Studio’da her bulut uygulaması projesi için Application Insights SDK�
 1. Daha fazla telemetri ekleyin (sonraki bölümlere bakın) ve sonra canlı tanılama ve kullanım geri bildirimi almak için uygulamanızı yayımlayın. 
 
 Veri yok ise, aşağıdakileri yapın:
-1. Olayları tek tek görmek için [arama] [ diagnostic] Döşe.
+1. Olayları tek tek görmek için [arama][diagnostic] Döşe.
 1. Uygulamasında çeşitli sayfaları birkaç telemetri oluşturması şekilde açın.
 1. Birkaç saniye bekleyin ve ardından **Yenile**.  
-    Daha fazla bilgi için [sorun giderme][qna].
+    Daha fazla bilgi için bkz. [Sorun giderme][qna].
 
 ## <a name="view-azure-diagnostics-events"></a>Azure tanılama olaylarını görüntüle
 Bulabilirsiniz [Azure tanılama](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) bilgi aşağıdaki konumlarda Application ınsights'ta:

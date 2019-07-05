@@ -4,18 +4,18 @@ description: Modüller IOT Edge cihazına dağıtmak için Azure portalını kul
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/19/2019
+ms.date: 06/25/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9d7729dce5419c5813de3c4dfce55c40098f5988
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8337c8672eb886d79b38b2a38a74037f88604497
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595236"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448556"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Azure portalından Azure IOT Edge modüllerini dağıtmak
 
@@ -43,7 +43,7 @@ Azure portalı, JSON belgesini el ile oluşturmak yerine dağıtım bildirimini 
 
 ### <a name="add-modules"></a>Modül Ekle
 
-1. İçinde **kayıt defteri ayarları** Bölümü sayfasının, modül görüntüleri içeren herhangi bir özel kapsayıcı kayıt defterleri erişmek için kimlik bilgilerini sağlayın.
+1. İçinde **kapsayıcı kayıt defteri ayarları** Bölümü sayfasının, modül görüntüleri içeren herhangi bir özel kapsayıcı kayıt defterleri erişmek için kimlik bilgilerini sağlayın.
 
 1. İçinde **dağıtım modülleri** sayfasında bölümünü **Ekle**.
 

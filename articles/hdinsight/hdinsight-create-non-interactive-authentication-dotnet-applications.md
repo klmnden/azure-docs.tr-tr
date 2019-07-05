@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8b96c38d5bb24a267ad0203083e485d1780f28c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9eb83c0c42bb1ba3de1aa81ab3d5f339f4d40233
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241474"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433673"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Etkileşimli olmayan kimlik doğrulaması .NET HDInsight uygulaması oluşturma
 Microsoft .NET Azure HDInsight uygulamanızın (etkileşimli olmayan) bir uygulamanın kendi kimlik altında ya da uygulamanızın (etkileşimli) oturum açmış kullanıcının kimliği altında çalıştırabilirsiniz. Bu makalede, etkileşimli olmayan kimlik doğrulaması Azure'a bağlanmak ve HDInsight'ı yönetmek için .NET uygulaması oluşturma işlemini gösterir. Etkileşimli bir uygulama örneği için bkz. [Azure HDInsight Bağlan](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -28,13 +28,13 @@ Etkileşimli olmayan .NET uygulamanızdan şunlar gerekir:
 * Bir HDInsight kümesi. Bkz: [çalışmaya başlama Öğreticisi](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Rol atamak için Azure AD uygulaması
-Azure AD uygulamanız atama bir [rol](../role-based-access-control/built-in-roles.md)eylemleri gerçekleştirmek için izinler vermek için. Abonelik, kaynak grubu veya kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha düşük düzeyde kapsam için izinler devralınmıştır. (Örneğin, bir kaynak grubu için okuyucu rolüne uygulamaya ekleme uygulama kaynak grubunu ve tüm kaynakları da okuyabilirsiniz anlamına gelir.) Bu öğreticide kaynak grubu düzeyinde kapsamı ayarlayın. Daha fazla bilgi için [Azure abonelik kaynaklarınıza erişimi yönetmek için rol atamalarını kullanma](../role-based-access-control/role-assignments-portal.md).
+Azure AD uygulamanız atama bir [rol](../role-based-access-control/built-in-roles.md)eylemleri gerçekleştirmek için izinler vermek için. Abonelik, kaynak grubu veya kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha düşük düzeyde kapsam için izinler devralınmıştır. (Örneğin, bir kaynak grubu için okuyucu rolüne uygulamaya ekleme uygulama kaynak grubunu ve tüm kaynakları da okuyabilirsiniz anlamına gelir.) Bu makalede, kaynak grubu düzeyinde kapsamı ayarlayın. Daha fazla bilgi için [Azure abonelik kaynaklarınıza erişimi yönetmek için rol atamalarını kullanma](../role-based-access-control/role-assignments-portal.md).
 
 **Azure AD uygulamasına sahip rolü eklemek için**
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Soldaki menüden **Kaynak grupları**'nı seçin.
-3. Daha sonra Bu öğreticide, Hive sorgu çalıştıracaksınız HDInsight kümesi içeren kaynak grubunu seçin. Çok sayıda kaynak grupları varsa, istediğinizi bulmak için filtre kullanabilirsiniz.
+3. Bu makalenin sonraki bölümlerinde, Hive sorgu çalıştıracaksınız HDInsight kümesi içeren kaynak grubunu seçin. Çok sayıda kaynak grupları varsa, istediğinizi bulmak için filtre kullanabilirsiniz.
 4. Kaynak grubu menüsünde **erişim denetimi (IAM)** .
 5. Seçin **rol atamaları** geçerli rol atamaları görmek için sekmesinde.
 6. Sayfanın üst kısmında seçin **rol ataması Ekle**.

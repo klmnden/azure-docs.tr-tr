@@ -1,19 +1,18 @@
 ---
 title: Azure IOT hub'ı MQTT desteği anlama | Microsoft Docs
 description: Geliştirici Kılavuzu - ve MQTT protokolünü kullanarak bir IOT Hub cihaz'e yönelik uç noktasına bağlanan cihazlar için destek. Yerleşik MQTT desteği Azure IOT cihaz SDK'ları hakkında bilgi içerir.
-author: rezasherafat
-manager: ''
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
-ms.author: rezas
-ms.openlocfilehash: 1a0b6cf8ce272733c259283fdec9c215ac2b0fd8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: robinsh
+ms.openlocfilehash: 238627f5cb57a614d5f82f0eeba1ea6b4e32f458
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61442571"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445488"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Ve MQTT protokolünü kullanarak IOT hub ile iletişim
 

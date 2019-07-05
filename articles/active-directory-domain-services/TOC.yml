@@ -37,10 +37,12 @@
       items:
         - name: Senaryolar
           href: scenarios.md
-        - name: Sanal ağ seçme
+        - name: Sanal ağ planlama
           href: network-considerations.md
     - name: Azure AD DS'yi yönetme
       items:
+        - name: Güvenlik denetim olaylarını etkinleştirme (Önizleme)
+          href: security-audit-events.md
         - name: Yönetilen bir etki alanının sistem durumunu denetleme
           href: check-health.md
         - name: 'Azure AD’den, yönetilen bir etki alanına kapsamlı eşitleme yapılandırma'
