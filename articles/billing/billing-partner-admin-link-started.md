@@ -18,7 +18,7 @@ ms.contentlocale: tr-TR
 ms.lasthandoff: 07/02/2019
 ms.locfileid: "67502688"
 ---
-# <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure hesaplarınızdan bir iş ortağı kimliği Bağla
+# <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure hesaplarınıza bir iş ortağı kimliği bağlama
 
 Microsoft iş ortakları, iş ve görev hedefleri Microsoft ürünlerini kullanan müşterilere yardımcı hizmetler elde sağlar. Yönetme müşteri adına hareket ederken, yapılandırma ve destekleyici Azure Hizmetleri, iş ortağı kullanıcılar müşterinin ortamına erişim gerekir. İş ortağı yönetim bağlantıyı kullanarak, iş ortakları, hizmet sunumu için kullanılan kimlik bilgileri ile kendi iş ortağı ağ Kimliğini ilişkilendirebilirsiniz.
 
