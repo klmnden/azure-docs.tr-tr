@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: dfa57b3f597ba1c01dc78421cc04074f7b6a858e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/24/2019
+ms.openlocfilehash: a2f44b52c6d34adb1bebf666ff8453b17f7778a5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063056"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448479"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Azure portalında denetim günlüklerine erişmek ve yapılandırma
 
@@ -40,7 +40,7 @@ Etkinleştirin ve denetim günlüğü yapılandırın.
 1. Güncelleştirme **audit_log_enabled** on parametresi.
     ![Denetim günlüklerini etkinleştirme](./media/howto-configure-audit-logs-portal/audit-log-enabled.png)
 
-1. Güncelleştirerek günlüğe kaydedilecek olayları seçin **audit_log_events** parametresi.
+1. Seçin [olay türleri](concepts-audit-logs.md#configure-audit-logging) güncelleştirerek günlüğe kaydedilecek **audit_log_events** parametresi.
     ![Denetim günlüğü olayları](./media/howto-configure-audit-logs-portal/audit-log-events.png)
 
 1. MySQL kullanıcıları güncelleştirerek günlüğünden hariç tutulacak ekleyin **audit_log_exclude_users** parametresi. MySQL kullanıcı adı sağlayarak kullanıcıları belirtin.

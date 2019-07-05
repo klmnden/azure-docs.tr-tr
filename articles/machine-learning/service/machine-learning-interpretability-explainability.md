@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
-ms.date: 05/30/2019
-ms.openlocfilehash: b2e3b22672351b7e34c9ccccb37f0303b53a770f
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.date: 06/21/2019
+ms.openlocfilehash: cba46a277dfce93d0080d8f04a26fd135407de15
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67292828"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536749"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile model interpretability
 
@@ -30,7 +30,7 @@ Geliştirme döngüsü eğitim aşamasında modeli tasarımcılar ve değerlendi
 
 Machine learning'de **özellikleri** bir hedef veri noktası tahmin etmek için kullanılan veri alanlardır. Örneğin, kredi riskini tahmin etmeniz yaş, hesabı boyut ve hesap yaşı veri alanlarında kullanılabilir. Bu durumda, yaş, hesabı boyut ve hesap geçerlilik süresi olan **özellikleri**. Özellik önem her veri alanı modeline ait tahminlerin nasıl etkilendiğini bildirir. Örneğin, hesabı boyut ve yaş tahmin doğruluğunu önemli ölçüde etkilemez ancak yaş tahmine yoğun olarak kullanılıyor olabilir. Bu işlem, böylece hissedarlar hangi veri noktalarını modelde en önemli içine görünürlük elde edilen tahminlere, açıklamak veri bilimcilerine sağlar.
 
-Bu araçları kullanarak makine öğrenimi modelleri açıklayabilir **genel olarak tüm veriler üzerinde**, veya **yerel olarak belirli veri noktalarında** kullanımı kolay ve ölçeklenebilir bir şekilde-ürünü teknolojilerini kullanarak.
+Bu araçları kullanarak makine öğrenimi modelleri açıklayabilir **genel olarak tüm veriler üzerinde**, veya **yerel olarak belirli bir veri noktasında** kullanımı kolay ve ölçeklenebilir bir şekilde-ürünü teknolojilerini kullanarak.
 
 İnterpretability sınıfları birden çok SDK paketleri kullanıma sunulur. Bilgi edinmek için nasıl [SDK paketleri yüklemek için Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
@@ -60,25 +60,31 @@ Explainers iki tür vardır: Doğrudan Explainers ve Meta Explainers SDK.
 
 __Explainers doğrudan__ tümleşik kitaplıklarından gelir. Bir ortak API ve çıkış biçimini açıklamak SDK explainers sarmalar. Bu explainers kullanarak doğrudan daha rahat kullanıyorsanız, doğrudan bunları ortak API ve çıkış biçimini kullanmak yerine çağırabilirsiniz. SDK'da bulunan doğrudan explainers bir listesi verilmiştir:
 
-* **Ağaç açıklama**: Polinom zaman hızlı şekil değer tahmin algoritması ağaçları ve grupları ağaçları belirli odaklanır Şekil'ın ağaç açıklama.
-* **Ayrıntılı açıklama**: "Bir bağlantıda şekil NIPS açıklanan DeepLIFT oluşturan bir yüksek hızlı yaklaştırma ayrıntılı öğrenme modelleri değerlerde şekil için algoritmasıdır. açıklama şekil, ayrıntılı açıklama dayalı TensorFlow modelleri ve Keras modelleri TensorFlow arka uç kullanarak desteklenir (de mevcuttur PyTorch için ön destekten) ".
-* **Çekirdek açıklama**: Şekil'ın çekirdek açıklama özel ağırlıklı yerel doğrusal regresyon şekil değerleri herhangi bir model için tahmin etmek için kullanır.
-* **Açıklama taklit**: Mimic açıklama fikrini Genel temsilci modeli temel alır. Genel temsilci modeli, bir siyah kutu modelinin Öngörüler olabildiğince doğru bir şekilde yaklaşık olarak belirlemenizi sağlayan eğitildi doğası gereği yorumlanabilen bir modelidir. Veri uzmanı siyah kutu modeli hakkında bir sonuca çizmek için temsilci modeli yorumlayabilir.
+* **Şekil ağaç açıklama**: Polinom zaman hızlı şekil değer tahmin algoritması ağaçları ve grupları ağaçları belirli odaklanır Şekil'ın ağaç açıklama.
+* **Şekil ayrıntılı açıklama**: "Bir bağlantıda şekil NIPS açıklanan DeepLIFT oluşturan bir yüksek hızlı yaklaştırma ayrıntılı öğrenme modelleri değerlerde şekil için algoritmasıdır. açıklama şekil, ayrıntılı açıklama dayalı TensorFlow modelleri ve Keras modelleri TensorFlow arka uç kullanarak desteklenir (de mevcuttur PyTorch için ön destekten) ".
+* **Şekil çekirdek açıklama**: Şekil'ın çekirdek açıklama özel ağırlıklı yerel doğrusal regresyon şekil değerleri herhangi bir model için tahmin etmek için kullanır.
+* **Açıklama taklit**: Mimic açıklama fikrini Genel temsilci modeli temel alır. Genel temsilci modeli, bir siyah kutu modelinin Öngörüler olabildiğince doğru bir şekilde yaklaşık olarak belirlemenizi sağlayan eğitildi doğası gereği yorumlanabilen bir modelidir. Veri uzmanı siyah kutu modeli hakkında bir sonuca çizmek için temsilci modeli yorumlayabilir. Vekil modelinizi olarak aşağıdaki yorumlanabilirinde modelleri birini kullanabilirsiniz: LightGBM (LinearExplainableModel), doğrusal regresyon (LinearExplainableModel), Stokastik explainable modeli (SGDExplainableModel) ve karar ağacı (DecisionTreeExplainableModel).
+
+
+* **PERMÜTASYON özellik önem açıklama**: PERMÜTASYON özelliği ise ilham almıştır sınıflandırma ve regresyon modellerini açıklamak için kullanılan bir teknik [Breiman'ın rastgele ormanları kağıt](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf) (10 bölümüne bakın). Yüksek bir düzeyde çalıştığını rastgele tüm veri kümesi için bir kerede veri bir özellik karıştırma ve ilgi ne kadar performans ölçümü azaltır hesaplama yoludur. Büyük değişiklik, daha da önemlisi, özelliğidir.
+
 * **KÜF açıklama** (`contrib`): KÜF açıklama üzerinde KÜF bağlı olarak, yerel vekil modeller oluşturmak için resim durumu yerel yorumlanabilirinde modeli belirsiz açıklamaları (sarı) algoritması kullanır. Genel temsilci modelleri, tek tek Öngörüler açıklamak için yerel vekil modelleri eğitme konusunda KÜF odaklanır.
 * **Metin açıklama HAN** (`contrib`): HAN metin açıklama hiyerarşik dikkat ağ modeli açıklamalar için belirli bir siyah kutu metin modeli metin verileri almak için kullanır. Size verilen Öğretmen modelinin tahmin edilen çıkış HAN vekil model eğitin. Genel metin topluluğunuza arasında daha fazla eğitim sonra açıklamaları doğruluğunu artırmak için yapabileceğiniz ayarlamalar adım belirli bir belge için ekledik. HAN çift yönlü RNN cümle ve word dikkat iki dikkat katmanlarla kullanır. DNN Öğretmen model üzerinde geliştirilen ve belirli bir belge üzerinde ince ayar sonra word importances dikkat katmanlardan ayıklayabilirsiniz. Zaman de eğitim daha kesin KÜF veya Şekil metni veri ancak daha yüksek maliyetli içinde koşullarını olmasını HAN bulduk. Eğitim süresini geliştirmeleri hala yavaş olmasına rağmen ağ Eldiven word Gömmeleri ile başlatma seçeneği kullanıcı vererek ancak gerçekleştirdik. Uzak bir Azure GPU VM HAN çalıştırarak eğitim süresini önemli ölçüde geliştirilebilir. 'Dikkat ağları hiyerarşik olarak sınıflandırma (Yang et al., 2016) için' HAN uygulamasını açıklanan ([https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf](https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf)).
+
 
 __Meta explainers__ otomatik olarak uygun bir doğrudan açıklama seçin ve verilen bir modeli ve veri kümelerine göre en iyi açıklama bilgisi oluştur. Meta explainers biz tümleşik geliştirilen veya tüm kitaplıkları (Şekil, açık yeşil, benzetme, vb.) yararlanın. SDK'da bulunan meta explainers şunlardır:
 
 * **Tablo açıklama**: Tablosal veri kümeleriyle birlikte kullanılır.
 * **Metin açıklama**: Metin veri kümeleri ile kullanılır.
+* **Görüntü açıklama**: Görüntü veri kümeleriyle birlikte kullanılır.
 
 Ayrıca çok meta seçme, doğrudan explainers, meta explainers temel alınan kitaplıkları üzerine ek özellikler geliştirmek ve hız ve ölçeklenebilirlik üzerinde doğrudan explainers geliştirin.
 
-Şu anda `TabularExplainer` doğrudan Explainers çağırmak için aşağıdaki mantığı kullanır:
+Şu anda `TabularExplainer` doğrudan şekil Explainers çağırmak için aşağıdaki mantığı kullanır:
 
-1. Ağaç tabanlı bir modeli ise, uygulama `TreeExplainer`, başka
-2. DNN modeli ise, uygulama `DeepExplainer`, başka
-3. Bir kara kutu modeli gör ve uygulama `KernelExplainer`
+1. Şekil ağaç tabanlı bir modeli ise, uygulama `TreeExplainer`, başka
+2. Şekil bir DNN modeli ise, uygulama `DeepExplainer`, başka
+3. Bir kara kutu modeli gör ve Şekil Uygula `KernelExplainer`
 
 Yerleşik zeka `TabularExplainer` ek olarak başka kitaplıklar SDK'sı ile tümleşiktir ve biz Artıları ve eksileri açıklama her biri hakkında bilgi edinin gibi daha karmaşık hale gelir.
 
@@ -87,15 +93,16 @@ Yerleşik zeka `TabularExplainer` ek olarak başka kitaplıklar SDK'sı ile tüm
 * **Özetleme başlatma kümesinin**. Açıklama hızını en önemli olduğu durumlarda başlatma veri kümesini özetleyin ve hem genel hem de yerel açıklama hızlandırır küçük bir temsili örnekleri kümesi oluşturur.
 * **Değerlendirme veri kümesi örnekleme**. Kullanıcı çok sayıda değerlendirme örnekleri geçirir, ancak uyumluluğunun değerlendirilebilmesi için bunların tümünün gerçekten gerekli değil, örnekleme parametresi Genel Açıklama hızlandırmak için true olarak ayarlanabilir.
 
-Aşağıdaki diyagramda iki doğrudan kümesi meta explainers arasındaki ilişkiyi gösterir.
+Aşağıdaki diyagramda, meta explainers ve doğrudan geçerli yapısını gösterir.
 
 [![Machine Learning Interpretability mimarisi](./media/machine-learning-interpretability-explainability/interpretability-architecture.png)](./media/machine-learning-interpretability-explainability/interpretability-architecture.png#lightbox)
+
 
 ### <a name="models-supported"></a>Desteklenen modeller
 
 Python'da veri kümelerinde eğitim görmüş olan herhangi bir model `numpy.array`, `pandas.DataFrame`, `iml.datatypes.DenseData`, veya `scipy.sparse.csr_matrix` biçim interpretability tarafından desteklenen `explain` SDK paketi.
 
-Açıklama işlevleri modelleri hem de işlem hatları girdi olarak kabul edin. Bir model sağlanırsa, modelin tahmin işlevi uygulamak zorundadır `predict` veya `predict_proba` Scikit kurala uyan. Bir işlem hattı (işlem hattı betiğin adı) sağladıysanız, çalışan işlem hattı betiğin tahmin döndüren açıklama işlevi varsayar.
+Açıklama işlevleri modelleri hem de işlem hatları girdi olarak kabul edin. Bir model sağlanırsa, modelin tahmin işlevi uygulamak zorundadır `predict` veya `predict_proba` Scikit kurala uyan. Bir işlem hattı (işlem hattı betiğin adı) sağladıysanız, çalışan işlem hattı betiğin tahmin döndüren açıklama işlevi varsayar. PyTorch, TensorFlow ve Keras derin öğrenme çerçeveleri geliştirilen modellerinin destekliyoruz.
 
 ### <a name="local-and-remote-compute-target"></a>Yerel ve uzak işlem hedefi
 
@@ -114,43 +121,81 @@ Açıklama işlevleri modelleri hem de işlem hatları girdi olarak kabul edin. 
     from sklearn.model_selection import train_test_split
     breast_cancer_data = load_breast_cancer()
     classes = breast_cancer_data.target_names.tolist()
-    # Split data into train and test
+    
+    # split data into train and test
     from sklearn.model_selection import train_test_split
-    x_train, x_test, y_train, y_test = train_test_split(breast_cancer_data.data, breast_cancer_data.target, test_size=0.2, random_state=0)
+    x_train, x_test, y_train, y_test = train_test_split(breast_cancer_data.data,            
+                                                        breast_cancer_data.target,  
+                                                        test_size=0.2,
+                                                        random_state=0)
     clf = svm.SVC(gamma=0.001, C=100., probability=True)
     model = clf.fit(x_train, y_train)
     ```
 
-2. Açıklama çağırın: Bir açıklama nesnesini başlatmak için model ve bazı eğitim verilerini Açıklama'nın oluşturucuya geçirilecek gerekir. Ayrıca isteğe bağlı olarak, özellik adları ve açıklamaları ve görselleştirmeler daha bilgilendirici yapmak için kullanılacak (sınıflandırma yapılması durumunda) çıktı sınıf adları da geçirebilirsiniz. Şöyle bir açıklama nesnesini kullanarak örneği oluşturmak [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py) ve [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py) yerel olarak. `TabularExplainer` altında üç explainers birini çağırma (`TreeExplainer`, `DeepExplainer`, veya `KernelExplainer`) ve kullanım durumunuz için en uygun olanına otomatik olarak seçme. Bununla birlikte, her biri kendi üç temel explainers doğrudan çağırabilir.
+2. Açıklama çağırın: Bir açıklama nesnesini başlatmak için model ve bazı eğitim verilerini Açıklama'nın oluşturucuya geçirilecek gerekir. Ayrıca isteğe bağlı olarak, özellik adları ve açıklamaları ve görselleştirmeler daha bilgilendirici yapmak için kullanılacak (sınıflandırma yapılması durumunda) çıktı sınıf adları da geçirebilirsiniz. Şöyle bir açıklama nesnesini kullanarak örneği oluşturmak [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), ve [PFIExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.permutation.permutation_importance.pfiexplainer?view=azure-ml-py) yerel olarak. `TabularExplainer` altında üç şekil explainers birini çağırma (`TreeExplainer`, `DeepExplainer`, veya `KernelExplainer`) ve kullanım durumunuz için en uygun olanına otomatik olarak seçme. Bununla birlikte, her biri kendi üç temel explainers doğrudan çağırabilir.
 
     ```python
     from azureml.explain.model.tabular_explainer import TabularExplainer
     # "features" and "classes" fields are optional
-    explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
+    explainer = TabularExplainer(model, 
+                                 x_train, 
+                                 features=breast_cancer_data.feature_names, 
+                                 classes=classes)
     ```
 
     or
 
     ```python
     from azureml.explain.model.mimic.mimic_explainer import MimicExplainer
+    
+    # you can use one of the following four interpretable models as a global surrogate to the black box model
     from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
+    from azureml.explain.model.mimic.models.linear_model import LinearExplainableModel
+    from azureml.explain.model.mimic.models.linear_model import SGDExplainableModel
+    from azureml.explain.model.mimic.models.tree_model import DecisionTreeExplainableModel
 
     # "features" and "classes" fields are optional
-    explainer = MimicExplainer(model, x_train, LGBMExplainableModel, features=breast_cancer_data.feature_names, classes=classes)
+    # augment_data is optional and if true, oversamples the initialization examples to improve surrogate model accuracy to fit original model.  Useful for high-dimensional data where the number of rows is less than the number of columns. 
+    # max_num_of_augmentations is optional and defines max number of times we can increase the input data size.
+    # LGBMExplainableModel can be replaced with LinearExplainableModel, SGDExplainableModel, or DecisionTreeExplainableModel
+    explainer = MimicExplainer(model, 
+                               x_train, 
+                               LGBMExplainableModel, 
+                               augment_data=True, 
+                               max_num_of_augmentations=10, 
+                               features=breast_cancer_data.feature_names, 
+                               classes=classes)
+    ```
+   or
+
+    ```python
+    from azureml.explain.model.permutation.permutation_importance import PFIExplainer 
+    
+    # "features" and "classes" fields are optional
+    explainer = PFIExplainer(model, 
+                             features=breast_cancer_data.feature_names, 
+                             classes=classes)
     ```
 
 3. Genel özellik önem değerleri alır.
 
     ```python
-    # You can use the training data or the test data here
+    # you can use the training data or the test data here
     global_explanation = explainer.explain_global(x_train)
-    # Sorted feature importance values and feature names
+    
+    # if you used the PFIExplainer in the previous step, use the next line of code instead
+    # global_explanation = explainer.explain_global(x_train, true_labels=y_test)
+
+    # sorted feature importance values and feature names
     sorted_global_importance_values = global_explanation.get_ranked_global_values()
     sorted_global_importance_names = global_explanation.get_ranked_global_names()
     dict(zip(sorted_global_importance_names, sorted_global_importance_values))
+
+    # alternatively, you can print out a dictionary that holds the top K feature names and values
+    global_explanation.get_feature_importance_dict()
     ```
 
-4. Yerel özellik önem değerleri: aşağıdaki işlev çağrıları tek tek bir örneği veya bir grup örnekleri açıklamak için kullanın.
+4. Önem derecesi değerlerini yerel özellik alma: aşağıdaki işlev çağrıları tek tek bir örneği veya bir grup örnekleri açıklamak için kullanın. Lütfen PFIExplainer yerel açıklamaları desteklemediğini unutmayın.
 
     ```python
     # explain the first data point in the test set
@@ -179,25 +224,30 @@ Azure Machine Learning hizmeti tarafından desteklenen çeşitli işlem hedefler
 1. Yerel Jupyter notebook (örneğin, run_explainer.py) içinde bir eğitim betiği oluşturun.
 
     ```python
+    from azureml.contrib.explain.model.explanation.explanation_client import ExplanationClient
+    from azureml.core.run import Run
+
     run = Run.get_context()
     client = ExplanationClient.from_run(run)
 
-    # Train your model here
+    # write code to get and split your data into train and test sets here
+    # write code to train your model here 
 
     # explain predictions on your local machine
     # "features" and "classes" fields are optional
-    explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
+    explainer = TabularExplainer(model, 
+                                x_train, 
+                                features=feature_names, 
+                                classes=classes)
+
     # explain overall model predictions (global explanation)
     global_explanation = explainer.explain_global(x_test)
-    # explain local data points (individual instances)
-    local_explanation = explainer.explain_local(x_test[0])
-    # upload global and local explanation objects to Run History
-    client.upload_model_explanation(run, local_explanation, top_k=2, comment='local explanation: top 2 features')
-    # Uploading global model explanation data for storage or visualization in webUX
-    # The explanation can then be downloaded on any compute
-    # Multiple explanations can be uploaded
+    
+    # uploading global model explanation data for storage or visualization in webUX
+    # the explanation can then be downloaded on any compute
+    # multiple explanations can be uploaded
     client.upload_model_explanation(global_explanation, comment='global explanation: all features')
-    # Or you can only upload the explanation object with the top k feature info
+    # or you can only upload the explanation object with the top k feature info
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
@@ -207,18 +257,14 @@ Azure Machine Learning hizmeti tarafından desteklenen çeşitli işlem hedefler
 
     ```python
     from azureml.contrib.explain.model.explanation.explanation_client import ExplanationClient
-    # Get model explanation data
+    
     client = ExplanationClient.from_run(run)
+    
+    # get model explanation data
     explanation = client.download_model_explanation()
-    local_importance_values = explanation.local_importance_values
-    expected_values = explanation.expected_values
-    # Or you can use the saved run.id to retrive the feature importance values
-    client = ExplanationClient.from_run_id(ws, experiment_name, run.id)
-    explanation = client.download_model_explanation()
-    local_importance_values = explanation.local_importance_values
-    expected_values = explanation.expected_values
-    # Get the top k (e.g., 4) most important features with their importance values
+    # or only get the top k (e.g., 4) most important features with their importance values
     explanation = client.download_model_explanation(top_k=4)
+    
     global_importance_values = explanation.get_ranked_global_values()
     global_importance_names = explanation.get_ranked_global_names()
     print('global importance values: {}'.format(global_importance_values))
@@ -249,8 +295,16 @@ Verilen veri noktası için yerel özelliği önem çizim yüklemek için yukar�
 |Çizim|Açıklama|
 |----|-----------|
 |Yerel önem derecesi|Genel olarak üst K (yapılandırılabilir K) önemli özellikleri gösterir. Bu grafik, belirli bir veri noktasına ait modelini yerel davranışını anlamak için kullanışlıdır.|
+|Perturbation keşfetme|Özellik değerleri seçilen veri noktası ve bu değişiklikleri tahmin değeri nasıl etkileyeceğini gözlemleyin değiştirmenize izin verir.|
+|Tek tek koşullu beklentisi (ICE)| Bir özellik değeri bir özellik değiştiğinde veri noktasının tahmin nasıl değiştiğini görmek için bir maksimum değer minimum değerden değiştirmenize izin verir.|
 
-[![Görsel öğe Pano yerel](./media/machine-learning-interpretability-explainability/local-charts.png)](./media/machine-learning-interpretability-explainability/local-charts.png#lightbox)
+[![Görsel öğe Pano yerel özellik önemi](./media/machine-learning-interpretability-explainability/local-charts.png)](./media/machine-learning-interpretability-explainability/local-charts.png#lightbox)
+
+
+[![Görsel öğe Pano özelliğini Perturbation](./media/machine-learning-interpretability-explainability/perturbation.gif)](./media/machine-learning-interpretability-explainability/perturbation.gif#lightbox)
+
+
+[![Görsel öğe Pano ICE çizer](./media/machine-learning-interpretability-explainability/ice-plot.png)](./media/machine-learning-interpretability-explainability/ice-plot.png#lightbox)
 
 Not Jupyter çekirdek başlatılmadan önce etkin görsel öğe Pano pencere öğesi uzantıları sahip olması gerekir.
 
@@ -281,8 +335,50 @@ ExplanationDashboard(global_explanation, model, x_test)
 
 İsteğe bağlı olarak, ham özellikler açısından açıklamaları dönüştürme (yerine önce mühendislik uygulanan özellikleri) almak için bir açıklama için özellik dönüşüm işlem hattı geçirebilirsiniz. Bu atlarsanız, açıklama, mühendislik uygulanan özellikler açısından açıklamalar sağlar.
 
-Bir açıklandığı gibi desteklenen dönüşümler biçiminin aynı [sklearn pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). Genel olarak, bunlar tek bir sütun üzerinde çalışır ve bu nedenle açıkça tek-çok sürece herhangi bir dönüştürme desteklenir.
+Bir açıklandığı gibi desteklenen dönüşümler biçiminin aynı [sklearn pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). Genel olarak, bunlar tek bir sütun üzerinde çalışır ve bu nedenle açıkça tek-çok sürece herhangi bir dönüştürme desteklenir. 
 
+Ya da biz Ham Özellikler açıklayabilir bir `sklearn.compose.ColumnTransformer` veya Ekrana sığdırılmış transformer tanımlama gruplarının listesi. Kullanan bir hücrede `sklearn.compose.ColumnTransformer`. 
+
+```python
+from sklearn.compose import ColumnTransformer
+
+numeric_transformer = Pipeline(steps=[
+    ('imputer', SimpleImputer(strategy='median')),
+    ('scaler', StandardScaler())])
+
+categorical_transformer = Pipeline(steps=[
+    ('imputer', SimpleImputer(strategy='constant', fill_value='missing')),
+    ('onehot', OneHotEncoder(handle_unknown='ignore'))])
+
+preprocessor = ColumnTransformer(
+    transformers=[
+        ('num', numeric_transformer, numeric_features),
+        ('cat', categorical_transformer, categorical_features)])
+
+# append classifier to preprocessing pipeline.
+# now we have a full prediction pipeline.
+clf = Pipeline(steps=[('preprocessor', preprocessor),
+                      ('classifier', LogisticRegression(solver='lbfgs'))])
+
+
+
+# append classifier to preprocessing pipeline.
+# now we have a full prediction pipeline.
+clf = Pipeline(steps=[('preprocessor', preprocessor),
+                      ('classifier', LogisticRegression(solver='lbfgs'))])
+
+
+# clf.steps[-1][1] returns the trained classification model
+# pass transformation as an input to create the explanation object
+# "features" and "classes" fields are optional
+tabular_explainer = TabularExplainer(clf.steps[-1][1], 
+                                    initialization_examples=x_train, 
+                                    features=dataset_feature_names, 
+                                    classes=dataset_classes, 
+                                    transformations=preprocessor) 
+```
+
+Ekrana sığdırılmış transformer tanımlama grubu listesi örneği çalıştırmak istemeniz durumunda, aşağıdaki kodu kullanın: 
 ```python
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
@@ -290,7 +386,7 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.linear_model import LogisticRegression
 from sklearn_pandas import DataFrameMapper
 
-# Assume that we have created two arrays, numerical and categorical, which holds the numerical and categorical feature names
+# assume that we have created two arrays, numerical and categorical, which holds the numerical and categorical feature names
 
 numeric_transformations = [([f], Pipeline(steps=[('imputer', SimpleImputer(strategy='median')), ('scaler', StandardScaler())])) for f in numerical]
 
@@ -298,60 +394,79 @@ categorical_transformations = [([f], OneHotEncoder(handle_unknown='ignore', spar
 
 transformations = numeric_transformations + categorical_transformations
 
-# Append model to preprocessing pipeline.
-# Now we have a full prediction pipeline.
+# append model to preprocessing pipeline.
+# now we have a full prediction pipeline.
 clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
                     ('classifier', LogisticRegression(solver='lbfgs'))])
 
 # clf.steps[-1][1] returns the trained classification model
-# Pass transformation as an input to create the explanation object
+# pass transformation as an input to create the explanation object
 # "features" and "classes" fields are optional
-tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x_train, features=dataset_feature_names, classes=dataset_classes, transformations=transformations)
+tabular_explainer = TabularExplainer(clf.steps[-1][1], 
+                                     initialization_examples=x_train, 
+                                     features=dataset_feature_names, 
+                                     classes=dataset_classes, 
+                                     transformations=transformations)
 ```
 
-## <a name="interpretability-in-inference"></a>Çıkarım içinde interpretability
+## <a name="interpretability-at-inferencing-time"></a>Çıkarım zaman interpretability
 
-Açıklama, özgün modeli ile birlikte dağıtılabilir ve zaman Puanlama yerel açıklama bilgilerini sağlamak için kullanılabilir. Puanlama açıklama dağıtma işlemi, bir model dağıtımına benzer ve aşağıdaki adımları içerir:
+Açıklama, özgün modeli ile birlikte dağıtılabilir ve zaman Puanlama yerel açıklama bilgilerini sağlamak için kullanılabilir. Ayrıca daha fazla yüksek performanslı zaman interpretability, çıkarım yapmak için daha basit Puanlama explainers sunuyoruz. Daha basit Puanlama açıklama dağıtma işlemi, bir model dağıtımına benzer ve aşağıdaki adımları içerir:
 
-1. Bir açıklama nesnesi oluşturun:
+
+
+
+1. Bir açıklama nesnesi oluşturun (örneğin, TabularExplainer kullanarak):
 
    ```python
    from azureml.contrib.explain.model.tabular_explainer import TabularExplainer
 
-   explainer = TabularExplainer(model, x_test)
+   explainer = TabularExplainer(model, 
+                                initialization_examples=x_train, 
+                                features=dataset_feature_names, 
+                                classes=dataset_classes, 
+                                transformations=transformations)
    ```
 
 1. Açıklama nesnesini kullanarak Puanlama bir açıklama oluşturun:
 
    ```python
-   scoring_explainer = explainer.create_scoring_explainer(x_test)
+   from azureml.contrib.explain.model.scoring.scoring_explainer import KernelScoringExplainer, save
 
-   # Pickle scoring explainer
-   scoring_explainer_path = scoring_explainer.save('scoring_explainer_deploy')
+   # create a lightweight explainer at scoring time
+   scoring_explainer = KernelScoringExplainer(explainer)
+
+   # pickle scoring explainer
+   # pickle scoring explainer locally
+   OUTPUT_DIR = 'my_directory'
+   save(scoring_explainer, directory=OUTPUT_DIR, exist_ok=True)
    ```
 
 1. Yapılandırma ve puanlama açıklama modelini kullanan bir görüntüyü kaydedin.
 
    ```python
-   # Register explainer model using the path from ScoringExplainer.save - could be done on remote compute
-   run.upload_file('breast_cancer_scoring_explainer.pkl', scoring_explainer_path)
-   model = run.register_model(model_name='breast_cancer_scoring_explainer', model_path='breast_cancer_scoring_explainer.pkl')
-   print(model.name, model.id, model.version, sep = '\t')
+   # register explainer model using the path from ScoringExplainer.save - could be done on remote compute
+   # scoring_explainer.pkl is the filename on disk, while my_scoring_explainer.pkl will be the filename in cloud storage
+   run.upload_file('my_scoring_explainer.pkl', os.path.join(OUTPUT_DIR, 'scoring_explainer.pkl'))
+   
+   scoring_explainer_model = run.register_model(model_name='my_scoring_explainer', 
+                                                model_path='my_scoring_explainer.pkl')
+   print(scoring_explainer_model.name, scoring_explainer_model.id, scoring_explainer_model.version, sep = '\t')
    ```
 
 1. [İsteğe bağlı] Buluttan Puanlama açıklama almak ve açıklamaları test edin
 
    ```python
-   from azureml.contrib.explain.model.scoring.scoring_explainer import ScoringExplainer
+   from azureml.contrib.explain.model.scoring.scoring_explainer import load
 
-   # Retrieve the scoring explainer model from cloud"
-   scoring_explainer_model = Model(ws, 'breast_cancer_scoring_explainer')
+   # retrieve the scoring explainer model from cloud"
+   scoring_explainer_model = Model(ws, 'my_scoring_explainer')
    scoring_explainer_model_path = scoring_explainer_model.download(target_dir=os.getcwd(), exist_ok=True)
 
-   # Load scoring explainer from disk
-   scoring_explainer = ScoringExplainer.load(scoring_explainer_model_path)
+   # load scoring explainer from disk
+   scoring_explainer = load(scoring_explainer_model_path)
 
-   # Test scoring explainer locally
+   # test scoring explainer locally
    preds = scoring_explainer.explain(x_test)
    print(preds)
    ```
@@ -364,6 +479,7 @@ Açıklama, özgün modeli ile birlikte dağıtılabilir ve zaman Puanlama yerel
         %%writefile score.py
         import json
         import numpy as np
+        import pandas as pd
         import os
         import pickle
         from sklearn.externals import joblib
@@ -375,22 +491,22 @@ Açıklama, özgün modeli ile birlikte dağıtılabilir ve zaman Puanlama yerel
             global original_model
             global scoring_model
 
-            # Retrieve the path to the model file using the model name
-            # Assume original model is named original_prediction_model
+            # retrieve the path to the model file using the model name
+            # assume original model is named original_prediction_model
             original_model_path = Model.get_model_path('original_prediction_model')
-            scoring_explainer_path = Model.get_model_path('breast_cancer_scoring_explainer')
+            scoring_explainer_path = Model.get_model_path('my_scoring_explainer')
 
             original_model = joblib.load(original_model_path)
             scoring_explainer = joblib.load(scoring_explainer_path)
 
         def run(raw_data):
-            # Get predictions and explanations for each data point
-            data = np.array(json.loads(raw_data)['data'])
-            # Make prediction
+            # get predictions and explanations for each data point
+            data = pd.read_json(raw_data)
+            # make prediction
             predictions = original_model.predict(data)
-            # Retrieve model explanations
+            # retrieve model explanations
             local_importance_values = scoring_explainer.explain(data)
-            # You can return any data type as long as it is JSON-serializable
+            # you can return any data type as long as it is JSON-serializable
             return {'predictions': predictions.tolist(), 'local_importance_values': local_importance_values}
         ```
 
@@ -401,9 +517,9 @@ Açıklama, özgün modeli ile birlikte dağıtılabilir ve zaman Puanlama yerel
 
         aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
                                                        memory_gb=1,
-                                                       tags={"data": "breastcancer",
+                                                       tags={"data": "NAME_OF_THE_DATASET",
                                                              "method" : "local_explanation"},
-                                                       description='Get local explanations for breast cancer data')
+                                                       description='Get local explanations for NAME_OF_THE_PROBLEM')
         ```
 
    1. Ortam bağımlılıkları olan bir dosya oluşturun
@@ -413,9 +529,14 @@ Açıklama, özgün modeli ile birlikte dağıtılabilir ve zaman Puanlama yerel
 
         # WARNING: to install this, g++ needs to be available on the Docker image and is not by default (look at the next cell)
 
+        azureml_pip_packages = ['azureml-defaults', 'azureml-contrib-explain-model', 'azureml-core', 'azureml-telemetry', 'azureml-explain-model']
+ 
 
-        myenv = CondaDependencies.create(pip_packages=["azureml-defaults", "azureml-explain-model", "azureml-contrib-explain-model"],
-                                        conda_packages=["scikit-learn"])
+        # specify CondaDependencies obj
+        myenv = CondaDependencies.create(conda_packages=['scikit-learn', 'pandas'],
+                                         pip_packages=['sklearn-pandas'] + azureml_pip_packages,
+                                         pin_sdk_version=False)
+
 
         with open("myenv.yml","w") as f:
             f.write(myenv.serialize_to_string())
@@ -437,13 +558,13 @@ Açıklama, özgün modeli ile birlikte dağıtılabilir ve zaman Puanlama yerel
         from azureml.core.webservice import Webservice
         from azureml.core.image import ContainerImage
 
-        # Use the custom scoring, docker, and conda files we created above
+        # use the custom scoring, docker, and conda files we created above
         image_config = ContainerImage.image_configuration(execution_script="score.py",
                                                         docker_file="dockerfile",
                                                         runtime="python",
                                                         conda_file="myenv.yml")
 
-        # Use configs and models generated above
+        # use configs and models generated above
         service = Webservice.deploy_from_model(workspace=ws,
                                             name='model-scoring-service',
                                             deployment_config=aciconfig,
@@ -458,10 +579,9 @@ Açıklama, özgün modeli ile birlikte dağıtılabilir ve zaman Puanlama yerel
     ```python
     import requests
 
-    # Create data to test service with
-    x_list = x_test.tolist()
+    # create data to test service with
     examples = x_list[:4]
-    input_data = "{\"data\": " + str(examples) + "}"
+    input_data = examples.to_json()
 
     headers = {'Content-Type':'application/json'}
 

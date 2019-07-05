@@ -7,12 +7,12 @@ ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: 854645af95d780053d94668921e41ac189bbbfb7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 345b10a0d66456d795a63e3aacd941ade0e0159c
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65159518"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467011"
 ---
 # <a name="preview-create-a-linux-vm-with-azure-image-builder"></a>Önizleme: Azure Görüntü Oluşturucu ile Linux VM oluşturma
 
@@ -21,6 +21,7 @@ Bu makalede, Azure görüntü oluşturucusu ve Azure CLI kullanarak özelleştir
 - Kabuk (ScriptUri) - indirmeleri ve çalışan bir [Kabuk betiği](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh).
 - Shell (satır içi) - belirli komutları çalıştırır. Bu örnekte, bir dizin oluşturma ve işletim sistemi güncelleştirme satır içi komutlar içerir.
 - Dosya - kopya bir [dosyasını github'dan](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) VM dizinine.
+
 
 Biz örnek .json şablon görüntüsünü yapılandırmak için kullanır. Kullandığımız .json dosyası aşağıda verilmiştir: [helloImageTemplateLinux.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json). 
 
@@ -57,7 +58,7 @@ az provider register -n Microsoft.VirtualMachineImages
 az provider register -n Microsoft.Storage
 ```
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="setup-example-variables"></a>Örnek değişkenleri ayarlama
 
 Bu bilgileri depolamak için bazı değişkenler oluşturacağız. böylece biz bazı bilgilere tekrar tekrar kullanacaklardır.
 
@@ -79,14 +80,17 @@ Abonelik kimliğiniz için bir değişken oluşturun Bu kullanarak elde edebilir
 subscriptionID=<Your subscription ID>
 ```
 
-Kaynak grubunu oluşturun.
+## <a name="create-the-resource-group"></a>Kaynak grubunu oluşturun.
+Bu, görüntü ve resim yapılandırma şablonu yapıt depolamak için kullanılır.
 
 ```azurecli-interactive
 az group create -n $imageResourceGroup -l $location
 ```
 
+## <a name="set-permissions-on-the-resource-group"></a>Kaynak grubu izinleri ayarlama
+Kaynak grubunda görüntüyü oluşturmak için Görüntü Oluşturucu 'katkıda bulunan' izin verin. Gerekli izinler olmadan, görüntü yapı başarısız olacaktır. 
 
-Bu kaynak grubunda kaynak oluşturmak üzere Görüntü Oluşturucu izin verin. `--assignee` Uygulama kayıt kimliği Görüntü Oluşturucu hizmeti için bir değerdir. 
+`--assignee` Uygulama kayıt kimliği Görüntü Oluşturucu hizmeti için bir değerdir. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -95,9 +99,9 @@ az role assignment create \
     --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 ```
 
-## <a name="download-the-json-example"></a>.Json örneği indirin
+## <a name="download-the-template-example"></a>Şablon örneği indirin
 
-Örnek .json dosyasını indirin ve oluşturduğunuz değişkenleri ile yapılandırın.
+Bir parametreli bir örnek görüntü yapılandırma Şablonu kullanabilmeniz için oluşturuldu. Örnek .json dosyasını indirin ve daha önce belirlediğiniz değişkenler ile yapılandırın.
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json -o helloImageTemplateLinux.json
@@ -109,7 +113,19 @@ sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateLinux.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateLinux.json
 ```
 
-## <a name="create-the-image"></a>Görüntü oluşturma
+Bu örnek .json gerektiği gibi değiştirebilirsiniz. Örneğin, değerini artırabilir `buildTimeoutInMinutes` uzun çalışan derlemeler için izin vermek için. Cloud Shell kullanarak dosyayı düzenleyebilirsiniz `vi`.
+
+```azurecli-interactive
+vi helloImageTemplateLinux.json
+```
+
+> [!NOTE]
+> Her zaman, kaynak görüntü için gereken [bir sürüm belirtin](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), kullanamazsınız `latest`.
+>
+> Burada görüntü dağıtılır kaynak grubu ekleyin veya değiştirirseniz emin olmanız gerekir [izinleri, kaynak grubu için ayarlanmış](#set-permissions-on-the-resource-group).
+
+
+## <a name="submit-the-image-configuration"></a>Görüntü yapılandırması gönderin
 Görüntü yapılandırma VM Görüntü Oluşturucu hizmete gönderme
 
 ```azurecli-interactive
@@ -121,7 +137,26 @@ az resource create \
     -n helloImageTemplateLinux01
 ```
 
+Başarıyla tamamlarsa, bu bir başarı iletisi dönün ve bir Görüntü Oluşturucu yapılandırma şablonu yapıt içinde $imageResourceGroup oluşturma. 'Gizli türleri Göster' etkinleştirirseniz, portaldaki kaynak grubunu görebilirsiniz.
+
+Ayrıca, arka planda Görüntü Oluşturucu, aboneliğinizdeki hazırlama bir kaynak grubu oluşturur. Görüntü oluşturucusu, görüntü derlemesi için hazırlama kaynak grubunu kullanır. Kaynak grubu adı şu biçimde olacaktır: `IT_<DestinationResourceGroup>_<TemplateName>`.
+
+> [!IMPORTANT]
+> Hazırlama kaynak grubu doğrudan silmeyin. Görüntü şablon yapıt silerseniz, otomatik olarak hazırlama kaynak grubunu siler. Daha fazla bilgi için [Temizleme](#clean-up) bu makalenin sonunda bölüm.
+
+Hizmet görüntüsü yapılandırma şablonu gönderim sırasında bir hata bildirirse, bkz. [sorun giderme](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) adımları. Derleme gönderme yeniden denemeden önce şablonu silmek gerekir. Şablonu silmek için:
+
+```azurecli-interactive
+az resource delete \
+    --resource-group $imageResourceGroup \
+    --resource-type Microsoft.VirtualMachineImages/imageTemplates \
+    -n helloImageTemplateLinux01
+```
+
+## <a name="start-the-image-build"></a>Görüntü derlemeyi Başlat
+
 Görüntü derlemeyi Başlat.
+
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -131,7 +166,9 @@ az resource invoke-action \
      --action Run 
 ```
 
-Yapı tamamlanana kadar bekleyin. Bu işlem yaklaşık 15 dakika sürebilir.
+Beklemek için bu örnek, yapı tamamlanana kadar 10-15 dakika sürebilir.
+
+Hatalarla karşılaşırsanız lütfen bunları inceleyin [sorun giderme](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting) adımları.
 
 
 ## <a name="create-the-vm"></a>Sanal makine oluşturma
@@ -179,14 +216,20 @@ Bu bir .json dosyası hakkında daha ayrıntılı bilgi için bkz: [Görüntü O
 
 ## <a name="clean-up"></a>Temizleme
 
-İşiniz bittiğinde kaynakları silin.
+İşiniz bittiğinde kaynakları silebilirsiniz.
+
+Görüntü Oluşturucusu şablonu silin.
 
 ```azurecli-interactive
 az resource delete \
     --resource-group $imageResourceGroup \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
     -n helloImageTemplateLinux01
+```
 
+Görüntü kaynak grubunu silin.
+
+```bash
 az group delete -n $imageResourceGroup
 ```
 

@@ -5,31 +5,23 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 03/23/2019
+ms.date: 07/01/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7b75e24e5d59206ee8330c3ca9eaf86eacbad13d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e878ca23b9187fe3175ad0af1b4f27e59e1deef6
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67188579"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509931"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Premium performans blok blob depolama
 
 Premium performans blok blob depolama hesabı, daha küçük, kilobayt aralığı, nesneleri kullanan uygulamalar için optimize edilmiştir. Yüksek işlem hızları ya da tutarlı düşük gecikme süreli depolama gerektiren uygulamalar için idealdir. Premium performans blok blobu depolama ile uygulamalarınızı ölçeklendirmek için tasarlanmıştır. Yüz binlerce saniye başına istek sayısı veya depolama kapasitesi petabaytlarca gerektiren uygulamaları dağıtmayı planlıyorsanız, Lütfen bir destek isteği göndererek bizimle [Azure portalında](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-### <a name="premium-performance-filestorage-preview"></a>Premium performans dosya deposundan (Önizleme)
+### <a name="premium-performance-filestorage"></a>Premium performans dosya deposundan
 
-Premium dosyalar adlı bir benzersiz depolama hesabı kullanmak **dosya (Önizleme) deposundan**. Bu hesap türü yüksek IOPS sahip iş yükleri, yüksek aktarım hızı ile tutarlı düşük gecikme süresi için tasarlanmıştır. Premium dosya depolama, sağlanan paylaşım boyutu ile ölçeklendirilir.
-
-|Alan  |Hedef  |
-|---------|---------|
-|En fazla sağlanan boyutunu     |100 TiB     |
-|Paylaşımlar   |Sınırsız  |
-|IOPS     |100,000    |
-|Giriş|4,136 MiB/sn     |
-|Çıkış|6,204 MiB/sn |
+[!INCLUDE [azure-storage-limits-filestorage](azure-storage-limits-filestorage.md)]
 
  Ölçek hedefleri için Premium dosya paylaşmak için bkz: [Premium dosyaları ölçeklendirme hedeflerini](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets) bölümü.
 

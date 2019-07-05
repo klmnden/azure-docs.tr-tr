@@ -2,7 +2,7 @@
 title: Mobile Apps ile Evrensel Windows Platformu (UWP) uygulamanız için çevrimdışı eşitlemeyi etkinleştirme | Microsoft Docs
 description: Çevrimdışı veri önbelleği ve eşitleme için Azure mobil uygulaması, Evrensel Windows Platformu (UWP) uygulamanızda kullanmayı öğrenin.
 documentationcenter: windows
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 services: app-service\mobile
@@ -12,17 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: 69ee9e7101a2b7337e1e42ff5ae09954fbfd50b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 4970a80b911a1efbc308d48ac4b8a50f774b4d04
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128058"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551926"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>Windows uygulamanız için çevrimdışı eşitlemeyi etkinleştirme
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+
+> [!NOTE]
+> Visual Studio App Center, mobil uygulama geliştirme merkezi hizmetlerinde yeni ve tümleşik yatırım yapıyor. Geliştiriciler **derleme**, **Test** ve **Dağıt** hizmetlerinin sürekli tümleştirme ve teslim işlem hattı ayarlayın. Uygulama dağıtıldığında, geliştiriciler kendi uygulamasını kullanarak kullanımı ve durumu izleyebilirsiniz **Analytics** ve **tanılama** kullanarak kullanıcılarla etkileşim kurun ve hizmetlerini **anında iletme** hizmeti. Geliştiriciler de yararlanabilir **Auth** , kullanıcıların kimliğini doğrulamak ve **veri** kalıcı hale getirmek ve uygulama verilerini bulutta eşitleme hizmeti. Kullanıma [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-offline-data) bugün.
+>
 
 ## <a name="overview"></a>Genel Bakış
 Bu öğreticide bir Azure mobil uygulaması arka ucunu kullanarak bir evrensel Windows Platformu (UWP) uygulamasına çevrimdışı destek eklemeyi gösterilmektedir. Çevrimdışı eşitleme son kullanıcıların görüntüleme, ekleme veya ağ bağlantısı olduğunda bile verileri - değiştirme ile mobil uygulama--etkileşime olanak tanır. Değişiklikler, yerel bir veritabanında depolanır. Cihaz yeniden çevrimiçi olduğunda, bu değişiklikleri uzak arka uç ile eşitlenir.
@@ -40,7 +44,7 @@ Bu öğretici aşağıdaki önkoşullar gereklidir:
 * [SQLite Evrensel Windows platformu geliştirme](https://marketplace.visualstudio.com/items?itemName=SQLiteDevelopmentTeam.SQLiteforUniversalWindowsPlatform) 
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>Çevrimdışı özelliklerini desteklemek üzere istemci uygulamasını güncelleştirme
-Azure mobil uygulama çevrimdışı özellikleri, bir çevrimdışı senaryoda olduğunuzda bir yerel veritabanıyla etkileşim kurmanıza imkan tanır. Uygulamanızda bu özellikleri kullanmak için başlatma bir [SyncContext] [ synccontext] yerel bir depo için. Ardından tablonuzun aracılığıyla başvuru [IMobileServiceSyncTable][IMobileServiceSyncTable] arabirimi. SQLite, cihazdaki yerel deposu olarak kullanılır.
+Azure mobil uygulama çevrimdışı özellikleri, bir çevrimdışı senaryoda olduğunuzda bir yerel veritabanıyla etkileşim kurmanıza imkan tanır. Uygulamanızda bu özellikleri kullanmak için başlatma bir [SyncContext][synccontext] to a local store. Then reference your table through the [IMobileServiceSyncTable][IMobileServiceSyncTable] arabirimi. SQLite, cihazdaki yerel deposu olarak kullanılır.
 
 1. Yükleme [Evrensel Windows platformu için SQLite çalışma zamanı](https://sqlite.org/2016/sqlite-uwp-3120200.vsix).
 2. Visual Studio'da açın, tamamlanan UWP uygulaması projesi için NuGet Paket Yöneticisi [bir Windows uygulaması oluşturma] öğretici.
@@ -78,10 +82,10 @@ Uygulama ilk kez çalıştırdığınızda `OnNavigatedTo` olay işleyicisi ça�
    `UpdateCheckedTodoItem` çağrıları `SyncAsync` mobil uygulama arka ucu ile Eşitleme tamamlandı her öğe için. `SyncAsync` hem İtme hem de çekme çağırır. Ancak, **istemci değişiklikler yaptı bir tabloda bir çekme execute olduğunda bir anında iletme her zaman otomatik olarak yürütülmeden**. Bu davranış, tüm tabloları ilişkileri yanı sıra Yerel Depodaki tutarlı kalmasını sağlar. Bu davranış beklenmeyen bir itme neden olabilir.  Bu davranışı hakkında daha fazla bilgi için bkz. [Azure Mobile Apps’te Çevrimdışı Veri Eşitleme].
 
 ## <a name="api-summary"></a>API özeti
-Mobil Hizmetleri çevrimdışı özellikleri desteklemek için kullandığımız [IMobileServiceSyncTable] arabirim ve başlatılmış [MobileServiceClient.SyncContext] [ synccontext] ile bir yerel bir SQLite veritabanıdır. Yerel depo işlemleri meydana gelirken uygulama hala bağlı çevrimdışı olduğunda normal CRUD işlemleri mobil uygulamalar için çalışır. Aşağıdaki yöntemlerden yerel depo sunucusu ile eşitlemek için kullanılır:
+Mobil Hizmetleri çevrimdışı özellikleri desteklemek için kullandığımız [IMobileServiceSyncTable] arabirim ve başlatılmış [MobileServiceClient.SyncContext][synccontext] ile yerel bir SQLite veritabanı. Yerel depo işlemleri meydana gelirken uygulama hala bağlı çevrimdışı olduğunda normal CRUD işlemleri mobil uygulamalar için çalışır. Aşağıdaki yöntemlerden yerel depo sunucusu ile eşitlemek için kullanılır:
 
 * **[PushAsync]**  bu yöntem bir üyesi olduğundan [IMobileServicesSyncContext], tüm tablolarda değişiklikler, arka uca itilir. Yalnızca yerel değişiklikleri kayıtları sunucuya gönderilir.
-* **[PullAsync]**  bir çekme başlattığınız bir [IMobileServiceSyncTable]. Tablodaki izlenen değişiklik olduğunda ilişkileri yanı sıra Yerel Depodaki tüm tabloları tutarlı kalmasını sağlamak için örtük bir anında iletme çalıştırın. *PushOtherTables* olup diğer bağlamında tabloları içinde örtük bir anında iletme itilir parametresi denetler. *Sorgu* parametre alan bir [IMobileServiceTableQuery<T> ] [ IMobileServiceTableQuery] veya döndürülen verileri filtrelemek için OData sorgu dizesi. *QueryId* parametresi Artımlı eşitleme tanımlamak için kullanılır. Daha fazla bilgi için [Azure Mobile apps'te çevrimdışı veri eşitleme](app-service-mobile-offline-data-sync.md#how-sync-works).
+* **[PullAsync]**  bir çekme başlattığınız bir [IMobileServiceSyncTable]. Tablodaki izlenen değişiklik olduğunda ilişkileri yanı sıra Yerel Depodaki tüm tabloları tutarlı kalmasını sağlamak için örtük bir anında iletme çalıştırın. *PushOtherTables* olup diğer bağlamında tabloları içinde örtük bir anında iletme itilir parametresi denetler. *Sorgu* parametre alan bir [IMobileServiceTableQuery\<T >][IMobileServiceTableQuery] veya döndürülen verileri filtrelemek için OData sorgu dizesi. *QueryId* parametresi Artımlı eşitleme tanımlamak için kullanılır. Daha fazla bilgi için [Azure Mobile apps'te çevrimdışı veri eşitleme](app-service-mobile-offline-data-sync.md#how-sync-works).
 * **[PurgeAsync]**  uygulamanıza düzenli aralıklarla yerel depodan eski verileri temizlemek için bu yöntemi çağırmanız gerekir. Kullanım *zorla* henüz eşitlenmemiş değişiklikleri temizlemek gerektiğinde parametresi.
 
 Bu kavramlar hakkında daha fazla bilgi için bkz. [Azure Mobile apps'te çevrimdışı veri eşitleme](app-service-mobile-offline-data-sync.md#how-sync-works).

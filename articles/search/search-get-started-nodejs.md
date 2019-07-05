@@ -1,6 +1,6 @@
 ---
-title: Azure Search'te Node.js - Azure Search ile çalışmaya başlama
-description: Programlama diliniz olarak Node.js kullanarak, Azure'da barındırılan bir bulut arama hizmeti üzerinde arama uygulaması derleme konusunu inceleyin.
+title: "Node.js hızlı başlangıç: Kullanarak Azure Search REST API'lerini - Azure Search dizinlerini sorgulamanız oluşturma ve yükleme"
+description: Dizin oluşturma, veri yükleme ve Node.js ve Azure Search REST API'lerini kullanarak sorguları çalıştırma açıklanmaktadır.
 author: jj09
 manager: jlembicz
 services: search
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 04/26/2017
 ms.author: jjed
 ms.custom: seodec2018
-ms.openlocfilehash: 1b37b3c52abd3750c3452a46bdf5b0c5954de4dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 44b7f1f49d6764418dcc0e72cb667e17a2b920c6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61289213"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450032"
 ---
-# <a name="get-started-with-azure-search-in-nodejs"></a>Node.js'de Azure Search kullanmaya başlama
+# <a name="quickstart-create-an-azure-search-index-in-nodejs"></a>Hızlı Başlangıç: Node.js'de Azure Search dizini oluşturma
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
@@ -32,7 +32,7 @@ Bu örneği çalıştırmak için, [Azure portalında](https://portal.azure.com)
 ## <a name="about-the-data"></a>Veriler hakkında
 Bu örnek uygulama, [Birleşik Devletler Jeoloji Hizmetleri (USGS)](https://geonames.usgs.gov/domestic/download_data.htm)'nin, veri kümesi boyutunu küçültmek için Rhode Island eyaletinde filtrelenen verilerini kullanır. Akarsular, göller ve zirveler gibi jeolojik özelliklerin yanı sıra, hastaneler ve okullar gibi önemli binaları döndüren bir arama uygulaması derlemek için bu verileri kullanacağız.
 
-Bu uygulamada **DataIndexer** programı, filtrelenmiş USGS veri kümesini ortak bir Azure SQL Veritabanı'den alan bir [Oluşturucu](https://msdn.microsoft.com/library/azure/dn798918.aspx) yapısı kullanarak dizini derler ve yükler. Veri kaynağına yönelik kimlik bilgileri ve bağlantı bilgileri program kodu içinde sağlanır. Ek yapılandırma gerekli değildir.
+Bu uygulamada **Dataındexer** programı kullanarak derler ve dizin yükler bir [dizin oluşturucu](https://msdn.microsoft.com/library/azure/dn798918.aspx) filtrelenmiş USGS veri kümesini bir Azure SQL database'den,. Veri kaynağına yönelik kimlik bilgileri ve bağlantı bilgileri program kodu içinde sağlanır. Ek yapılandırma gerekli değildir.
 
 > [!NOTE]
 > Ücretsiz fiyatlandırma katmanının 10.000 belge limiti altında kalmak için, bu veri kümesi üzerinde filtre uyguladık. Standart katmanı kullanırsanız bu limit uygulanmaz. Her fiyatlandırma katmanının kapasitesi hakkında ayrıntılı bilgi için bkz: [Search hizmet limitleri](search-limits-quotas-capacity.md).

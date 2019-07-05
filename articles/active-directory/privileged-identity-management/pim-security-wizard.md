@@ -14,12 +14,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6f978612cbbf0c326c3e66f25a0fbf4b749cc73
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aa4fd850ac2116dc7f353eea87845501fff020bb
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60286966"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476231"
 ---
 # <a name="azure-ad-roles-security-wizard-in-pim"></a>Azure AD PIM rolleri Güvenlik Sihirbazı
 
@@ -43,27 +43,27 @@ Sihirbazın ikinci adım, yöneticinin rol atamalarını değiştirme olanağı 
 
 1. Tıklayın **Azure AD rolleri** ve ardından **Sihirbazı**.
 
-    ![Azure AD rolleri - Sihirbazı](./media/pim-security-wizard/wizard-start.png)
+    ![Azure AD rolleri - Sihirbaz Sayfası Sihirbazı çalıştırmak için 3 adımları gösteren](./media/pim-security-wizard/wizard-start.png)
 
 1. Tıklayın **1 bulma ayrıcalıklı rolleri**.
 
 1. Kalıcı veya uygun kullanıcıları görmek için ayrıcalıklı rolleri listesini gözden geçirin.
 
-    ![Ayrıcalıklı roller kullanıcıları keşfedin](./media/pim-security-wizard/discover-privileged-roles-users.png)
+    ![Ayrıcalıklı roller - kalıcı ve uygun üyelerine gösteren rolü bölmesi keşfedin](./media/pim-security-wizard/discover-privileged-roles-users.png)
 
 1. Tıklayın **sonraki** uygun hale getirmek istediğiniz üyeleri seçin.
 
-    ![Üyeleri uygun hale getirme](./media/pim-security-wizard/convert-members-eligible.png)
+    ![Uygun rolleri için uygun hale getirmek istediğiniz üyeleri seçmek için Seçenekleri sayfası üyeleri Dönüştür](./media/pim-security-wizard/convert-members-eligible.png)
 
 1. Üyelerini seçtikten sonra tıklayın **sonraki**.
 
-    ![Değişiklikleri gözden geçirin](./media/pim-security-wizard/review-changes.png)
+    ![Dönüştürülecek kalıcı rol atamaları üyeleriyle gösteren değişiklikler sayfasını gözden geçirin](./media/pim-security-wizard/review-changes.png)
 
 1. Tıklayın **Tamam** kalıcı atamaları uygun hale getirme için.
 
     Dönüştürme tamamlandığında bir bildirim görürsünüz.
 
-    ![Bildirimler](./media/pim-security-wizard/notification-completion.png)
+    ![Dönüştürme durumunu gösteren bir bildirim](./media/pim-security-wizard/notification-completion.png)
 
 Diğer ayrıcalıklı rol atamaları için uygun dönüştürmek gerekirse Sihirbazı yeniden çalıştırabilirsiniz. PIM arabirimi yerine Sihirbazı'nı kullanmak istiyorsanız, bkz. [Azure AD PIM Rolleri Ata](pim-how-to-add-role-to-user.md).
 

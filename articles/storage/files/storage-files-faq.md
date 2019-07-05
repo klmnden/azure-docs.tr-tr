@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c32d9954b3c90a5f7e9c5475acdb141f7154cf76
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190061"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540352"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular (SSS)
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilen bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlarda eşzamanlı olarak bağlayabilir. Ayrıca verilerin kullanıldığı yakın, hızlı erişim için Azure dosya eşitleme'ı kullanarak Azure dosya paylaşımları Windows Server makinelerinde önbelleğe alabilir.
@@ -73,10 +73,10 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
 
 * <a id="tier-options"></a>
   **Hangi depolama katmanları Azure dosyalarında destekleniyor mu?**  
-    Şu anda Azure dosyaları, yalnızca standart depolama katmanını destekler. Biz, premium depolama ve seyrek erişimli depolama şu anda desteği için paylaşmak için zaman çizelgesi yok. 
+    Azure dosyaları, iki depolama katmanı destekler: premium ve standart. Standart dosya paylaşımları, genel amaç (GPv1 veya GPv2) depolama hesabı oluşturulur ve premium dosya paylaşımlarına dosya deposundan depolama hesaplarında oluşturulur. Nasıl oluşturulacağı hakkında daha fazla bilgi [standart dosya paylaşımları](storage-how-to-create-file-share.md) ve [premium dosya paylaşımları](storage-how-to-create-premium-fileshare.md). 
     
     > [!NOTE]
-    > Yalnızca blob depolama hesapları veya premium depolama hesaplarında Azure dosya paylaşımlarını oluşturulamıyor.
+    > Blob Depolama hesaplarını Azure dosya paylaşımlarını oluşturulamıyor veya *premium* genel amaçlı (GPv1 veya GPv2) depolama hesapları. Standart Azure dosya paylaşımları oluşturulan gereken *standart* genel amaçlı hesaplar yalnızca ve premium, Azure dosya paylaşımlarını yalnızca dosya deposundan depolama hesaplarında oluşturulması gerekir. *Premium* genel amaçlı (GPv1 ve GPv2) depolama hesapları yalnızca premium sayfa blobları için uyumludur. 
 
 * <a id="give-us-feedback"></a>
   **Gerçekten Azure dosyaları'na eklenen belirli bir özellik öğrenmek istiyorum. Ekleyebilir miyim?**  
@@ -356,8 +356,8 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
     Azure dosyaları için ölçeklenebilirlik ve performans hedefleri hakkında bilgi için bkz: [Azure dosyaları ölçeklenebilirlik ve performans hedefleri](storage-files-scale-targets.md).
 
 * <a id="need-larger-share"></a>
-**Azure dosyaları şu anda sunar daha büyük bir dosya paylaşımı ihtiyacım var. My Azure dosya paylaşımının boyutunu artırabilirim?**  
-    Hayır. Bir Azure dosya paylaşımı boyutu üst sınırı 5 TiB ' dir. Şu anda, biz ayarlayamaz sabit bir sınır budur. Paylaşım boyutu 100 TiB artırmak için bir çözüm üzerinde çalışıyoruz, ancak biz şu anda paylaşmak için zaman çizelgesi yok.
+**Hangi boyutları, Azure dosya paylaşımları için kullanılabilir mi?**  
+    Azure dosya paylaşımı boyutları (premium ve standart), en fazla 100 tib'a kadar ölçeklendirebilirsiniz. Premium dosya paylaşımları boyutu 100 TiB kadar bir GA teklifi olarak kullanılabilir. 5 TiB kadar standart dosya paylaşımları boyutları, 100 TiB kadar boyutları Önizleme sürümündedir ancak bir GA, teklifi olarak kullanılabilir. Bkz: [sağlamak büyük dosya paylaşımları (standart katman)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) bölüm büyük dosyasına ekleme yönergeleri için Planlama Kılavuzu'nun standart katmanda Önizleme paylaşır.
 
 * <a id="open-handles-quota"></a>
 **Kaç adet istemcinin aynı dosyayı aynı anda erişebilir miyim?**    

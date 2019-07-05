@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3dab2da2d54efe73b7b782800b190ea8aac2b5cd
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153259"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460679"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data factory'de veri taşımayı için güvenlik konuları
 > [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
@@ -119,7 +119,7 @@ Kimlik bilgileri, şirket içi veri depoları için her zaman şifrelenir ve dep
 
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>Şirket içinde barındırılan tümleştirme çalışma zamanı üzerinde bağlı hizmet şifrelerken kullanılan bağlantı noktaları
-Varsayılan olarak, makineye şirket içinde barındırılan tümleştirme çalışma zamanı ile güvenli iletişim için bağlantı noktası 8050 PowerShell kullanır. Gerekirse, bu bağlantı noktası değiştirilebilir.  
+Varsayılan olarak, makineye şirket içinde barındırılan tümleştirme çalışma zamanı ile güvenli iletişim için bağlantı noktası 8060 PowerShell kullanır. Gerekirse, bu bağlantı noktası değiştirilebilir.  
 
 ![Ağ geçidi için HTTPS bağlantı noktası](media/data-movement-security-considerations/https-port-for-gateway.png)
 
@@ -197,7 +197,7 @@ Evet. Diğer ayrıntıları [burada](https://azure.microsoft.com/blog/sharing-a-
 
 **Çalışmak şirket içinde barındırılan tümleştirme çalışma zamanı için bağlantı noktası gereksinimleri nelerdir?**
 
-Şirket içinde barındırılan tümleştirme çalışma zamanı, İnternet'e erişmek için HTTP tabanlı bağlantılar oluşturur. Şirket içinde barındırılan tümleştirme çalışma zamanı bu bağlantıyı kurmak 443 giden bağlantı noktaları açılmalıdır. Gelen istekler noktasının 8050 yalnızca makine düzeyinde (Kurumsal güvenlik duvarınız düzeyinde değil) için kimlik bilgileri Yöneticisi uygulamasını açın. Azure SQL veritabanı veya Azure SQL veri ambarı kaynak veya hedef kullanılıyorsa, 1433 numaralı bağlantı noktasını da açmanız gerekir. Daha fazla bilgi için [güvenlik duvarı yapılandırmaları ve IP adreslerini beyaz listeye ekleme](#firewall-configurations-and-whitelisting-ip-address-of-gateway) bölümü. 
+Şirket içinde barındırılan tümleştirme çalışma zamanı, İnternet'e erişmek için HTTP tabanlı bağlantılar oluşturur. Şirket içinde barındırılan tümleştirme çalışma zamanı bu bağlantıyı kurmak 443 giden bağlantı noktaları açılmalıdır. Gelen istekler noktasının 8060 yalnızca makine düzeyinde (Kurumsal güvenlik duvarınız düzeyinde değil) için kimlik bilgileri Yöneticisi uygulamasını açın. Azure SQL veritabanı veya Azure SQL veri ambarı kaynak veya hedef kullanılıyorsa, 1433 numaralı bağlantı noktasını da açmanız gerekir. Daha fazla bilgi için [güvenlik duvarı yapılandırmaları ve IP adreslerini beyaz listeye ekleme](#firewall-configurations-and-whitelisting-ip-address-of-gateway) bölümü. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 06/27/2019
 ms.author: mayg
-ms.openlocfilehash: 3221b2bd18b8b0756f280d88fffc6016d0498b8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c005dcee78e2a9338dc7a816e06d9a78a2f355b6
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924820"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491685"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware Vm'lerini ve fiziksel sunucular için çoğaltma sorunlarını giderme
 
@@ -77,6 +77,13 @@ Bir yukarıdaki olduğunu sağlama üzerinde hiçbir bağlantı, bant genişliğ
         - VSS hizmeti
         - Azure Site Recovery VSS sağlayıcısı
         - VDS hizmeti
+
+- SQL veya Exchange iş yükü çalıştırıyorsanız, bu uygulama yazıcılar Hata günlüklerini kontrol edin. Aşağıdaki makalelerde, sık rastlanan hataları ve bunların çözümü yakalanır.
+    -  [SQL Server veritabanının otomatik Kapat seçeneği TRUE olarak ayarlanır](https://support.microsoft.com/help/4504104)
+    - [SQL Server 2008 R2 denenemeyen hata özel durum atma](https://support.microsoft.com/help/4504103)
+    - [SQL Server 2016 ve 2017'deki bilinen sorun](https://support.microsoft.com/help/4493364)
+    - [Exchange sunucuları 2013 ve 2016 ile ilgili yaygın sorun](https://support.microsoft.com/help/4037535)
+
 
 ### <a name="source-machines-with-high-churn-error-78188"></a>Kaynak makine ile yüksek değişim sıklığı [Hata 78188]
 

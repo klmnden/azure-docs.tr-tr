@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 3efdf5c256a22529c9d19e9ae1dce5d2db9516a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b3a6a18d10b9d9f6ab6456ae2911e54f5c56a71
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827765"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544098"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 
@@ -138,7 +138,7 @@ Denetim günlükleri Olay Hub'ına yazma seçerseniz:
 
 Denetim günlükleri bir Azure depolama hesabına yazma seçerseniz, günlükleri görüntülemek için kullanabileceğiniz birkaç yöntem vardır:
 
-- Denetim günlükleri, Kurulum sırasında seçtiğiniz hesabında toplanır. Denetim günlükleri gibi bir araç kullanarak keşfedebilirsiniz [Azure Depolama Gezgini](https://storageexplorer.com/). Azure depolama alanında, Denetim günlükleri adlı bir kapsayıcı içinde blob dosyaları koleksiyonu olarak kaydedilir **sqldbauditlogs**. Depolama klasörü hiyerarşisi hakkında daha fazla ayrıntı için bkz: adlandırma kuralları ve günlük biçimi, [Blob denetim günlük biçimi başvurusu](https://go.microsoft.com/fwlink/?linkid=829599).
+- Denetim günlükleri, Kurulum sırasında seçtiğiniz hesabında toplanır. Denetim günlükleri gibi bir araç kullanarak keşfedebilirsiniz [Azure Depolama Gezgini](https://storageexplorer.com/). Azure depolama alanında, Denetim günlükleri adlı bir kapsayıcı içinde blob dosyaları koleksiyonu olarak kaydedilir **sqldbauditlogs**. Depolama klasörü hiyerarşisi hakkında daha fazla ayrıntı için bkz: adlandırma kuralları ve günlük biçimi, [SQL veritabanı denetim günlük biçimi](https://go.microsoft.com/fwlink/?linkid=829599).
 
 - Kullanım [Azure portalında](https://portal.azure.com).  İlgili veritabanı açın. Veritabanının üst kısmındaki **denetim** sayfasında **denetim günlüklerini görüntüle**.
 
@@ -233,10 +233,12 @@ Birincil veritabanında Denetimi etkinleştirdiğinizde, coğrafi olarak çoğal
 
 **PowerShell cmdlet'leri (WHERE yan tümcesi desteği, ek bir filtreleme dahil)** :
 
-- [Veritabanı Denetim İlkesi (Set-AzSqlDatabaseAuditing) güncelle](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
-- [Sunucu denetimi İlkesi (Set-AzSqlServerAuditing) güncelle](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
-- [Veritabanı Denetim İlkesi alın (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
-- [Denetim İlkesi (Get-AzSqlServerAuditing) Server'ı edinin](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
+- [Veritabanı Denetim İlkesi (Set-AzSqlDatabaseAudit) güncelle](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseaudit)
+- [Sunucu denetimi İlkesi (Set-AzSqlServerAudit) güncelle](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit)
+- [Veritabanı Denetim İlkesi (Get-AzSqlDatabaseAudit) alma](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseaudit)
+- [Denetim İlkesi (Get-AzSqlServerAudit) Server'ı edinin](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveraudit)
+- [Veritabanı Denetim İlkesi (Remove-AzSqlDatabaseAudit) Kaldır](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabaseaudit)
+- [Sunucu denetimi İlkesi (Remove-AzSqlServerAudit) Kaldır](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlserveraudit)
 
 Bir komut dosyası örneği için bkz [PowerShell kullanarak denetim ve tehdit algılamayı yapılandırma](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 

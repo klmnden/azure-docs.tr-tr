@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure SQL Data warehouse'a veri yükleme | Microsoft Docs"
-description: Öğreticide, genel bir Azure blobundan Azure SQL Veri Ambarı’na WideWorldImportersDW veri ambarını yüklemek için Azure portalı ve SQL Server Management Studio kullanılmaktadır.
+description: Öğreticide, Azure portalı ve genel Azure'dan Wideworldımportersdw veri ambarını yüklemek için SQL Server Management Studio'yu Azure SQL veri ambarı'na blob.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: load data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8bca6c1e56595e4a7d64f9f388c9daca0b166ac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4f52c2bd0040efef9e12a8feec0bfc779105ad4
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242916"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461858"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Öğretici: Azure SQL Data warehouse'a veri yükleme
 
@@ -38,9 +38,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 Bu öğreticiye başlamadan önce, [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)’nun (SSMS) en yeni sürümünü indirin ve yükleyin.
 
-## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
+## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 
-[Azure Portal](https://portal.azure.com/)’da oturum açın.
+[Azure Portal](https://portal.azure.com/) oturum açın.
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Boş bir SQL veri ambarı oluşturma
 
@@ -132,7 +132,7 @@ SQL Veri Ambarı hizmeti, dış uygulama ve araçların sunucuya ya da sunucu ü
 
 SQL sunucunuzun tam sunucu adını Azure portalından alabilirsiniz. Daha sonra sunucuya bağlanırken tam adı kullanacaksınız.
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
 3. Veritabanınızın Azure portal sayfasındaki **Temel Bilgiler** bölmesinde, **Sunucu adını** bulup kopyalayın. Bu örnekte, tam ad mynewserver-20171113.database.windows.net. 
 
@@ -158,7 +158,7 @@ Bu bölümde Azure SQL sunucunuzla bağlantı kurmak için [SQL Server Managemen
 
 4. **Bağlan**'a tıklayın. SSMS’te Nesne Gezgini penceresi açılır. 
 
-5. Nesne Gezgini’nde, **Veritabanları**’nı genişletin. Ardından **Sistem veritabanları**'nı ve **asıl** öğesini genişleterek asıl veritabanındaki nesneleri görüntüleyin.  Yeni veritabanınızdaki nesneleri görüntülemek için **mySampleDatabase**’i genişletin.
+5. Nesne Gezgini’nde, **Veritabanları**’nı genişletin. Ardından **Sistem veritabanları**'nı ve **asıl** öğesini genişleterek asıl veritabanındaki nesneleri görüntüleyin.  Genişletin **SampleDW** yeni veritabanınızdaki nesneleri görüntülemek için.
 
     ![veritabanı nesneleri](media/load-data-wideworldimportersdw/connected.png) 
 
@@ -217,7 +217,7 @@ Verileri yüklemenin ilk adımı LoaderRC60 olarak oturum açmaktır.
 
 Verileri yeni veri ambarınıza yükleme işlemine başlamaya hazırsınız. [Yüklemeye genel bakış](sql-data-warehouse-overview-load.md) bölümünde, verilerinizi Azure Blob depolama alanına alma veya doğrudan kaynağınızdan SQL Veri Ambarı’na yükleme konusunda ileride işinize yarayacak bilgiler edinebilirsiniz.
 
-Aşağıdaki SQL betiklerini çalıştırarak yüklemek istediğiniz veriler hakkındaki bilgileri belirtin. Bu bilgiler verilerin konumu, verilerdeki içeriğin biçimi ve verilerin tablo tanımıdır. Veriler, ortak Azure Blobu’nda bulunur.
+Aşağıdaki SQL betiklerini çalıştırarak yüklemek istediğiniz veriler hakkındaki bilgileri belirtin. Bu bilgiler verilerin konumu, verilerdeki içeriğin biçimi ve verilerin tablo tanımıdır. Verileri bir genel Azure Blobu'nda bulunur.
 
 1. Önceki bölümde veri ambarınızda LoaderRC60 olarak oturum açmıştınız. SSMS'de, LoaderRC60 bağlantınızın altında **SampleDW** seçeneğine sağ tıklayın ve **Yeni Sorgu**'yu seçin.  Yeni bir sorgu penceresi görüntülenir. 
 
@@ -231,7 +231,7 @@ Aşağıdaki SQL betiklerini çalıştırarak yüklemek istediğiniz veriler hak
     CREATE MASTER KEY;
     ```
 
-4. Aşağıdaki [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) deyimini çalıştırarak Azure blobunun konumunu tanımlayın. Bu, dış taksi verilerinin konumudur.  Sorgu penceresine eklediğiniz komutları çalıştırmak için, çalıştırmak istediğiniz komutları vurgulayın ve **Yürüt**'e tıklayın.
+4. Aşağıdaki [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) deyimini çalıştırarak Azure blobunun konumunu tanımlayın. Dış dünya çapında ımporters veri konumudur.  Sorgu penceresine eklediğiniz komutları çalıştırmak için, çalıştırmak istediğiniz komutları vurgulayın ve **Yürüt**'e tıklayın.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -540,13 +540,13 @@ Aşağıdaki SQL betiklerini çalıştırarak yüklemek istediğiniz veriler hak
     );
     ```
 
-8. Nesne Gezgini’nde, yeni oluşturduğunuz dış tabloların listesini görmek için SampleDW öğesini genişletin.
+8. Nesne Gezgini'nde, oluşturduğunuz dış tabloların listesini görmek için SampleDW öğesini genişletin.
 
     ![Dış tabloları görüntüleme](media/load-data-wideworldimportersdw/view-external-tables.png)
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>Verileri veri ambarınıza yükleme
 
-Bu bölümde, örnek verileri Azure Blobu’ndan SQL Veri Ambarı'na yüklemek için az önce tanımladığınız dış tablolar kullanılır.  
+Bu bölümde, örnek verileri Azure Blobu'ndan SQL veri ambarı'na yüklemek için tanımladığınız dış tablolar kullanılır.  
 
 > [!NOTE]
 > Bu öğretici verileri doğrudan son tabloya yükler. Üretim ortamında, genellikle CREATE TABLE AS SELECT kullanarak bir hazırlama tablosuna yüklersiniz. Veriler hazırlama tablosundayken tüm gerekli dönüştürmeleri yapabilirsiniz. Hazırlama tablosundaki verileri üretim tablosuna eklemek için, INSERT...SELECT deyimini kullanabilirsiniz. Daha fazla bilgi için kz. [Üretim tablosuna veri ekleme](guidance-for-loading-data.md#inserting-data-into-a-production-table).
@@ -554,7 +554,7 @@ Bu bölümde, örnek verileri Azure Blobu’ndan SQL Veri Ambarı'na yüklemek i
 
 Verileri Azure Depolama Blobu'ndan veri ambarınızdaki yeni tablolara yüklemek için, betikte [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL deyimi kullanılır. CTAS bir SELECT deyiminin sonuçlarına göre yeni tablo oluşturur. Yeni tablo, select deyiminin sonuçları ile aynı sütunlara ve veri türlerine sahiptir. SELECT deyimi bir dış tablodan seçim yaptığında, SQL Veri Ambarı verileri veri ambarındaki bir ilişkisel tabloya aktarır. 
 
-Bu betik, wwi.dimension_Date ve wwi.fact_Sales tablolarına veri yüklemez. Bu tablolar, boyutlandırılabilir satır sayısı içermesi için daha sonraki bir adımda oluşturulur.
+Bu betik, wwi.dimension_Date ve wwi.fact_Sale tablolarına veri yüklemez. Bu tablolar, boyutlandırılabilir satır sayısı içermesi için daha sonraki bir adımda oluşturulur.
 
 1. Aşağıdaki betiği çalıştırarak verileri veri ambarınızdaki yeni tablolara yükleyin.
 
@@ -750,7 +750,7 @@ Bu betik, wwi.dimension_Date ve wwi.fact_Sales tablolarına veri yüklemez. Bu t
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>Tarih ve Satış tablolarını oluşturmak için tablolar ve yordamlar oluşturma
 
-Bu bölümde, wwi.dimension_Date ve wwi.fact_Sales tabloları oluşturulur. Ayrıca wwi.dimension_Date ve wwi.fact_Sales tablolarında milyonlarca satır oluşturabilen saklı yordamlar da oluşturulur.
+Bu bölümde, wwi.dimension_Date ve wwi.fact_Sale tablolar oluşturur. Ayrıca wwi.dimension_Date ve wwi.fact_Sale tablolarında milyonlarca satır oluşturabilen saklı yordamlar oluşturur.
 
 1. dimension_Date ve fact_Sale tabloları oluşturun.  
 
@@ -893,7 +893,7 @@ Bu bölümde, wwi.dimension_Date ve wwi.fact_Sales tabloları oluşturulur. Ayr�
     DROP table #days;
     END;
     ```
-4. wwi.dimension_Date ve wwi.fact_Sales tablolarını dolduran bu yordamı oluşturun. wwi.dimension_Date tablosunu doldurmak için [wwi].[PopulateDateDimensionForYear] çağrısı yapar.
+4. Wwi.dimension_Date ve wwi.fact_Sale tablolarını dolduran bu yordamı oluşturun. wwi.dimension_Date tablosunu doldurmak için [wwi].[PopulateDateDimensionForYear] çağrısı yapar.
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -949,7 +949,7 @@ Bu bölümde, wwi.dimension_Date ve wwi.fact_Sales tabloları oluşturulur. Ayr�
     ```
 
 ## <a name="generate-millions-of-rows"></a>Milyonlarca satır oluşturma
-wwi.fact_Sales tablosunda milyonlarca satır ve wwi.dimension_Date tablosunda karşılık gelen verileri üretmek için oluşturduğunuz depolanan yordamları kullanın. 
+Milyonlarca satır wwi.fact_Sale tablo ve wwi.dimension_Date tablosunda karşılık gelen verileri üretmek için oluşturduğunuz depolanan yordamları kullanın. 
 
 
 1. [wwi].[seed_Sale] çekirdeğini daha fazla satırla oluşturmak için bu yordamı çalıştırın.
@@ -958,7 +958,7 @@ wwi.fact_Sales tablosunda milyonlarca satır ve wwi.dimension_Date tablosunda ka
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. wwi.fact_Sales tablosunu, 2000 yılındaki her gün için günde 100.000 satırla doldurmak için bu yordamı çalıştırın.
+2. Wwi.fact_Sale 2000 yılındaki her gün için günde 100.000 satırla doldurmak için bu yordamı çalıştırın.
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
@@ -1094,11 +1094,11 @@ Yüksek sorgu performansı elde etmek için ilk yükleme işleminden sonra her t
 
 Kaynakları istediğiniz gibi temizlemek için bu adımları izleyin.
 
-1. [Azure Portal](https://portal.azure.com)'da oturum açın ve veri ambarınıza tıklayın.
+1. [Azure portalında](https://portal.azure.com) oturum açıp veri ambarınıza tıklayın.
 
     ![Kaynakları temizleme](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Verileri depoda tutmak istiyorsanız, veri ambarını kullanmadığınız zamanlarda işlemi duraklatabilirsiniz. İşlemi duraklattığınızda yalnızca veri depolaması için ücretlendirilirsiniz ve verilerle çalışmaya hazır olduğunuzda işlemi sürdürebilirsiniz. İşlemi duraklatmak için, **Duraklat** düğmesine tıklayın. Veri ambarı duraklatıldığında, bir **Başlat** düğmesi görürsünüz.  İşlemi sürdürmek için **Başlat**’a tıklayın.
+2. Verileri depoda tutmak istiyorsanız, veri ambarını kullanmadığınız zamanlarda işlemi duraklatabilirsiniz. Göre işlem duraklatılıyor, veri depolama ücreti yalnızca olacak ve verilerle çalışmak her bir işlem devam edebilir. İşlemi duraklatmak için, **Duraklat** düğmesine tıklayın. Veri ambarı duraklatıldığında, bir **Başlat** düğmesi görürsünüz.  İşlemi sürdürmek için **Başlat**’a tıklayın.
 
 3. Gelecekteki ücretlendirmeleri kaldırmak istiyorsanız, veri ambarını silebilirsiniz. İşlem ve depolama için ücretlendirilmemek üzere veri ambarını kaldırmak için **Sil**’e tıklayın.
 

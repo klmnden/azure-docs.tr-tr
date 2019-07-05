@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: a92017c462ef62cbfb1aa6c2613a502d1cc5ffc6
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 5f60a2786a87f4bd9be1f4a9e2a7a222e097b2e1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340731"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448070"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>-Tek bir sunucu PostgreSQL için Azure veritabanı'nda fiyatlandırma katmanları
 
@@ -64,16 +64,16 @@ Biz depolama sınırları, genel amaçlı ve bellek için iyileştirilmiş Katma
 | Depolama türü | Azure Premium Depolama | Azure Premium Depolama |
 | Depolama boyutu | 16 TB'ye kadar 32 GB| 32-16 TB |
 | Depolama artırma boyutu | 1 GB | 1 GB |
-| IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>20.000 IOPS maks.| 3 IOPS/GB<br/>Min 100 IOPS<br/>20.000 IOPS maks. |
+| IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>20.000 IOPS maks. | 3 IOPS/GB<br/>Min 100 IOPS<br/>20.000 IOPS maks. |
 
 > [!IMPORTANT]
-> Büyük depolama şu anda aşağıdaki bölgelerde genel önizlemeye sunulmuştur: Doğu ABD, Doğu ABD 2, Orta ABD, Batı ABD, Kuzey Avrupa, Batı Avrupa, Güneydoğu Asya, Doğu, Kore Orta, Avustralya Doğu Japonya.
+> Büyük depolama şu anda aşağıdaki bölgelerde genel önizlemeye sunulmuştur: Doğu ABD, Doğu ABD 2, Orta ABD, Batı ABD, Kuzey Avrupa, Batı Avrupa, UK Güney, UK Batı, Güneydoğu Asya, Doğu Asya, Japonya Doğu, Japonya Batı, Kore Orta, Kore Güney, Avustralya Doğu, Avustralya Güney Doğu.
 >
->Büyük depolama önizlemesi şu anda desteklemez:
+> Büyük depolama önizlemesi şu anda desteklemez:
 >
 > * Sanal ağ hizmet uç noktaları üzerinden gelen bağlantılar
 > * Coğrafi olarak yedekli yedekleri
-> * Çapraz bölge çoğaltma
+> * Okuma amaçlı çoğaltmalar
 
 ### <a name="reaching-the-storage-limit"></a>Depolama sınırı ulaşma
 

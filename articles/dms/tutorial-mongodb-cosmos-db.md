@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/29/2019
-ms.openlocfilehash: c876c012c48298268f682b5ee428ec0f27979b84
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.date: 07/04/2019
+ms.openlocfilehash: 2ff5ebefbe379edda94dcf8ac066027398e2f3f4
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298952"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565539"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Öğretici: MongoDB için Azure Cosmos DB API için MongoDB geçişi DMS kullanarak çevrimdışı
 
@@ -65,7 +65,7 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 
 3. "migration" araması yapın ve **Microsoft.DataMigration** öğesinin sağ tarafındaki **Kaydet**'i seçin.
 
-    ![Kaynak sağlayıcısını kaydet](media/tutorial-mongodb-to-cosmosdb/portal-register-resource-provider.png)    
+    ![Kaynak sağlayıcısını kaydetme](media/tutorial-mongodb-to-cosmosdb/portal-register-resource-provider.png)    
 
 ## <a name="create-an-instance"></a>Örnek oluşturma
 
@@ -122,7 +122,7 @@ Hizmet oluşturulduktan sonra Azure portaldan bulun, açın ve yeni bir geçiş 
    * **Bağlantı dizesi modu**, MongoDB bağlantı dizesi kabul eden makalesinde açıklandığı şekilde [bağlantı dizesi URI biçimi](https://docs.mongodb.com/manual/reference/connection-string/).
    * **Verileri Azure depolama biriminden**, bir blob kapsayıcısı SAS URL'si kabul eder. Seçin **Blob BSON dökümleri içeren** blob kapsayıcısını MongoDB tarafından üretilen BSON dökümleri varsa [bsondump aracı](https://docs.mongodb.com/manual/reference/program/bsondump/)ve JSON dosyaları kapsayıcı içeriyorsa, XML'deki seçin.
 
-    Bu seçeneği belirlerseniz, depolama hesabı bağlantı dizesi şu biçimde göründüğünden emin olun:
+     Bu seçeneği belirlerseniz, depolama hesabı bağlantı dizesi şu biçimde göründüğünden emin olun:
 
      ```
      https://blobnameurl/container?SASKEY
@@ -133,6 +133,13 @@ Hizmet oluşturulduktan sonra Azure portaldan bulun, açın ve yeni bir geçiş 
      * BSON aktarımları için veri dosyalarının biçimi collection.bson içeren veritabanları sonra klasörleri içine yerleştirilir şekilde verileri blob kapsayıcısındaki bsondump biçiminde olmalıdır. Meta veri dosyaları (varsa) adı biçimini kullanarak *koleksiyon*. metadata.json.
 
      * JSON aktarımları için blob kapsayıcısında dosyalarını içeren veritabanları sonra adlı klasörlere yerleştirilmelidir. Veri dosyaları her veritabanı klasörü içinde yerleştirilmelidir bir alt klasör "veri" olarak adlandırılan ve aşağıdaki biçimi kullanarak adlı *koleksiyon*.json. Meta veri dosyaları (varsa) yerleştirilmelidir bir alt klasör "metadata" olarak adlandırılan ve aynı biçim kullanılarak adlı *koleksiyon*.json. Meta veri dosyaları, MongoDB bsondump araç tarafından üretilen gibi aynı biçimde olması gerekir.
+
+    > [!IMPORTANT]
+    > Mongo sunucuda otomatik olarak imzalanan bir sertifika kullanmak için önerilmez. Kullanılır, ancak lütfen kullanarak sunucunuza bağlanmak **bağlantı dize modunun** ve bağlantı dizenizi olduğundan emin olun ""
+    >
+    >```
+    >&sslVerifyCertificate=false
+    >```
 
    DNS ad çözümlemenin mümkün olmadığı durumlarda IP Adresini de kullanabilirsiniz.
 

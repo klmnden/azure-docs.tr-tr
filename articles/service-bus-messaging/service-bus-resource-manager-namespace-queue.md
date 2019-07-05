@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 2952c446e2d66505ebaec42eb82e37be02035483
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d7e4253d37d5b50fc8c3de1c8c31636e59b2b9c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62111501"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444780"
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Service Bus ad alanı ve bir Azure Resource Manager şablonu kullanarak kuyruk oluşturma
 
@@ -27,7 +27,7 @@ Bu makalede, Service Bus ad alanı ve bu ad alanı içinde bir kuyruk oluşturan
 
 Şablonları oluşturma hakkında daha fazla bilgi için lütfen bkz [Azure Resource Manager şablonları yazma][Authoring Azure Resource Manager templates].
 
-Tam şablon için bkz: [Service Bus ad alanı ve kuyruk şablon] [ Service Bus namespace and queue template] GitHub üzerinde.
+Tam şablon için bkz: [Service Bus ad alanı ve kuyruk şablon][Service Bus namespace and queue template] GitHub üzerinde.
 
 > [!NOTE]
 > Aşağıdaki Azure Resource Manager şablonları, yükleme ve dağıtım için kullanılabilir.
@@ -37,7 +37,7 @@ Tam şablon için bkz: [Service Bus ad alanı ve kuyruk şablon] [ Service Bus n
 > * [Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace.md)
 > * [Konusu, aboneliği ve kuralı ile bir Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> En yeni şablonları denetlemek için ziyaret [Azure hızlı başlangıç şablonları] [ Azure Quickstart Templates] galeri ve arama **Service Bus**.
+> En yeni şablonları denetlemek için ziyaret [Azure hızlı başlangıç şablonları][Azure Quickstart Templates] galeri ve arama **Service Bus**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -137,7 +137,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Oluşturulan ve dağıtılan kaynakları Azure Resource Manager kullanarak göre bu kaynakları Bu makaleler görüntüleyerek yönetmeyi öğrenin:
+Ad alanı/sıra için bir Yetkilendirme kuralının nasıl oluşturulacağını gösteren aşağıdaki konuya bakın: [Bir Service Bus yetkilendirme kuralı için ad alanı ve bir Azure Resource Manager şablonu kullanarak kuyruk oluşturma](service-bus-resource-manager-namespace-auth-rule.md)
+
+Bu makaleler görüntüleyerek bu kaynakları yönetmeyi öğrenin:
 
 * [Service Bus’ı PowerShell ile yönetme](service-bus-manage-with-ps.md)
 * [Service Bus Explorer ile Service Bus kaynaklarını yönetme](https://github.com/paolosalvatori/ServiceBusExplorer/releases)

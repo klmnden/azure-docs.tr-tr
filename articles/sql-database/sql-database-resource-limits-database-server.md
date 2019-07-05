@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 04/18/2019
-ms.openlocfilehash: 06e61d30f0d4e598c48f190572b8b4343f351043
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e4c0a6cd25587b33c06526b57e6acdbebb69c8b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65762780"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445639"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Azure SQL veritabanı sunucusu için SQL veritabanı kaynak limitleri
 
@@ -44,6 +44,9 @@ Bu makalede tek veritabanları ve elastik havuzlar yöneten SQL veritabanı sunu
 > Veritabanı sayısı SQL veritabanı sunucu başına sınıra yaklaştığında, aşağıdaki oluşabilir:
 > - Sorguları ana veritabanına karşı çalışır artan gecikme süresi'ı seçin.  Bu, kaynak kullanımı istatistikleri sys.resource_stats gibi görünümlerini içerir.
 > - Yönetim işlemlerini gecikme artırma ve sunucusundaki veritabanlarını içeren portal bakış açılarını işleme.
+
+### <a name="storage-size"></a>Depolama boyutu
+- Tek veritabanları için rources Lütfen ya da başvurmak [DTU tabanlı kaynak sınırları](sql-database-dtu-resource-limits-single-databases.md) veya [sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-single-databases.md) fiyatlandırma katmanı başına depolama boyutu sınırları.
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>Veritabanı kaynak limitleri ulaşıldığında ne olur
 

@@ -11,16 +11,16 @@ author: mx-iao
 ms.reviewer: peterlu
 ms.date: 06/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc80fcde8de3fb2d6dd6f59804f6019b76aa8727
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 8def58eb003fcc817c21151416744cf391b5f38f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295588"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443936"
 ---
 # <a name="train-and-register-pytorch-models-at-scale-with-azure-machine-learning-service"></a>Eğitim ve uygun ölçekte PyTorch modeller Azure Machine Learning hizmeti ile kaydetme
 
-Bu makalede eğitme ve Azure Machine Learning hizmetini kullanarak bir PyTorch modeli kaydetmeyi gösterilmektedir. Dayanır [öğretici PyTorch'ın aktarımlı](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) , derin sinir ağı (DNN) sınıflandırıcı karıncaların ve arı görüntüleri oluşturur.
+Bu makalede eğitme ve Azure Machine Learning hizmetini kullanarak bir PyTorch modeli kaydetmeyi gösterilmektedir. Dayanır [öğretici PyTorch'ın aktarımlı](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) , derin sinir ağı (DNN) sınıflandırıcı chickens ve turkeys görüntüleri oluşturur.
 
 [PyTorch](https://pytorch.org/) , derin sinir ağı (DNN) oluşturmak için yaygın olarak kullanılan bir açık kaynaklı bilgi işlem altyapısıdır. Azure Machine Learning hizmeti ile açık kaynaklı eğitim işleri elastik bulut bilgi işlem kaynaklarını kullanarak hızlı bir şekilde ölçeklendirebilirsiniz. Ayrıca izleyebilirsiniz eğitim çalıştırmaları, sürüm modelleri, modelleri ve daha fazlasını dağıtın.
 
@@ -75,19 +75,19 @@ ws = Workspace.from_config()
 
 ### <a name="create-an-experiment"></a>Deneme oluşturma
 
-Bir deney ve eğitim betiklerinizi tutmak için bir klasör oluşturun. Bu örnekte, "hymenoptera pytorch" adlı bir deneme oluşturun.
+Bir deney ve eğitim betiklerinizi tutmak için bir klasör oluşturun. Bu örnekte, "Kuşlar pytorch" adlı bir deneme oluşturun.
 
 ```Python
-project_folder = './pytorch-hymenoptera'
+project_folder = './pytorch-birds'
 os.makedirs(project_folder, exist_ok=True)
 
-experiment_name = 'pytorch-hymenoptera'
+experiment_name = 'pytorch-birds'
 experiment = Experiment(ws, name=experiment_name)
 ```
 
 ### <a name="get-the-data"></a>Verileri alma
 
-Veri kümesi, yaklaşık 120 eğitim görüntülerin her karıncaların ve arı, her sınıf için 75 doğrulama görüntülerle oluşur. Hymenoptera karıncaların ve arı içeren böcekler sırasıdır. İndirin ve eğitim betiğimizi bir parçası olarak dataset ayıklayın `pytorch_train.py`.
+Veri kümesi, yaklaşık 120 eğitim görüntülerin her turkeys ve chickens, her sınıf için 100 doğrulama görüntülerle oluşur. Biz indirir ve eğitim betiğimizi bir parçası olarak dataset ayıklamak `pytorch_train.py`. Bir alt kümesini görüntülerdir [açık görüntüleri v5 Dataset](https://storage.googleapis.com/openimages/web/index.html).
 
 ### <a name="prepare-training-scripts"></a>Eğitim betikleriniz hazırlama
 

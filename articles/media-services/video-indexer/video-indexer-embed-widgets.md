@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 06/30/2019
 ms.author: juliako
-ms.openlocfilehash: 6b5422e2eb67eb309c086c023df9f733940e5e44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 937dc6eefbbfc37aaeee0801f410f9f99cb0c787
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735084"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488681"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Video Indexer pencere öğeleri uygulamalarınıza ekleyin
 
@@ -32,6 +32,8 @@ Pencere öğesi temel URL, sürüm 2 ile başlayarak, hesabın bölgesine içeri
 |Ad|Tanım|Açıklama|
 |---|---|---|
 |widgets|Virgülle ayrılmış dizeler|İşlemek istediğiniz öngörüleri denetlemenize olanak sağlar. <br/>Örnek: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` yalnızca kişiler ve markalarla ilgili kullanıcı arabirimi içgörülerini işler<br/>Mevcut seçenekler: people (kişiler), keywords (anahtar sözcükler), annotations (ek açıklamalar), brands (markalar), sentiments (yaklaşımlar), transcript (transkript), search (arama).<br/>version=2’de URL aracılığıyla desteklenmez<br/><br/>**Not:** Pencere öğeleri URL parametre 2 sürümünde desteklenmiyor. |
+|Yerel ayar|Kısa dil kodu|Insights dil denetler. `en` varsayılan değerdir. Örneğin: `language=de`.|
+|sekme|Seçili varsayılan bir sekme|Varsayılan olarak işlenen ınsights sekmesini kontrol eder. `tab=timeline` ınsights zaman çizelgesi sekmesi seçili olarak işler.|
 
 ### <a name="player-widget"></a>Yürütücü pencere öğesi
 
@@ -39,12 +41,12 @@ Pencere öğesi temel URL, sürüm 2 ile başlayarak, hesabın bölgesine içeri
 
 |Ad|Tanım|Açıklama|
 |---|---|---|
-|t|Başlangıçtan itibaren saniye sayısı|Yürütücünün dosyayı zamanda belirtilen noktadan itibaren yürütmeye başlamasını sağlar.<br/>Örnek: t=60|
-|captions|Dil kodu|Pencere öğesi yüklenirken açıklamalı alt yazıyı belirtilen dilde getirerek açıklamalı alt yazı menüsünde mevcut olmasını sağlar.<br/>Örnek: captions=en-US|
-|showCaptions|Bir boole değeri|Yürütücünün etkin olan açıklamalı alt yazıları yüklemesini sağlar.<br/>Örnek: showCaptions=true|
-|türü||Bir ses yürütücüsü dış görünümünü etkinleştirir (video bölümü kaldırılır).<br/>Örnek: type=audio|
-|autoplay|Bir boole değeri|Yürütücünün, yüklendiğinde videoyu oynatmaya başlatıp başlatmayacağını gösterir (varsayılan: true).<br/>Örnek: autoplay=false|
-|language|Dil kodu|Yürütücünün dilini denetler (varsayılan: en-US)<br/>Örnek: language=de-DE|
+|t|Saniye en başından itibaren|Yürütücünün dosyayı zamanda belirtilen noktadan itibaren yürütmeye başlamasını sağlar.<br/>Örnek: `t=60`.|
+|captions|Dil kodu|Pencere öğesi yüklenirken açıklamalı alt yazıyı belirtilen dilde getirerek açıklamalı alt yazı menüsünde mevcut olmasını sağlar.<br/>Örnek: `captions=en-US`.|
+|showCaptions|Bir boole değeri|Yürütücünün etkin olan açıklamalı alt yazıları yüklemesini sağlar.<br/>Örnek: `showCaptions=true`.|
+|türü||Bir ses yürütücüsü dış görünümünü etkinleştirir (video bölümü kaldırılır).<br/>Örnek: `type=audio`.|
+|autoplay|Bir boole değeri|Yürütücünün, yüklendiğinde videoyu oynatmaya başlatıp başlatmayacağını gösterir (varsayılan: true).<br/>Örnek: `autoplay=false`.|
+|language|Dil kodu|Yürütücünün dilini denetler (varsayılan: en-US)<br/>Örnek: `language=de-DE`.|
 
 ## <a name="embedding-public-content"></a>Genel içerik ekleme
 

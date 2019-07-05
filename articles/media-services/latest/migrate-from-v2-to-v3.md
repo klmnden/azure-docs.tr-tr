@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: b9293dc8be4fb50a657093090b0e6d76de5b5d31
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: b85b06552dcd0fc419302882f05814adbd454f46
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303530"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542555"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2'den v3 taşımak için Geçiş Kılavuzu
 
@@ -60,6 +60,7 @@ Bugün üzerine geliştirilen bir video hizmeti varsa [eski Media Services v2 AP
 * Media Services v3 ile varlıkları oluşturulan için yalnızca destekler [Azure depolama sunucu tarafı depolama şifrelemesi](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
     * V3 API'ler olan v2 API'leri ile oluşturulan varlıklar ile kullanabileceğiniz [depolama şifrelemesi](../previous/media-services-rest-storage-encryption.md) (AES 256), Media Services tarafından sağlanan.
     * Eski AES 256 ile yeni varlıklar oluşturulamıyor [depolama şifrelemesi](../previous/media-services-rest-storage-encryption.md) v3 API'lerini kullanarak.
+* V2'den görmek için v3 varlığın özelliklerinde farklı [nasıl harita özellikleri](assets-concept.md#map-v3-asset-properties-to-v2).
 * V3 SDK'ları, depolama kullanmak istiyorsanız ve sürüm oluşturma sorunları önler SDK sürümü üzerinde daha fazla denetim verir depolama SDK artık birbirinden ayrılmıştır. 
 * V3 API'leri, tüm kodlama hızları bit / saniye cinsindendir. Bu, Media Encoder Standard hazır ayarları v2 farklıdır. Örneğin, v2'de hızı (kbps) 128 belirtilebilir, ancak v3 sürümünde bu 128000 (bit/saniye) olacaktır. 
 * Varlıkları AssetFiles AccessPolicies ve IngestManifests v3 sürümünde yok.

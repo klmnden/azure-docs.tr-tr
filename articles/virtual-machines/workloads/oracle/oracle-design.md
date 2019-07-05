@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 1f808161087dff614ef83aacc606501bce96d3eb
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 039b1628571b786a4997c08f96cc9aa0f347c7f7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155130"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446693"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Azure’da Oracle veritabanı tasarlama ve dağıtma
 
@@ -147,7 +147,7 @@ Ağ bant genişliği gereksinimlerinize göre aralarından seçim yapabileceğin
 - Sanal makineler ile kullanmak [hızlandırılmış ağ](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) daha iyi ağ performansı için.
 - Belirli Linux distrubutions düşünün etkinleştirme [TRIM/UNMAP Destek](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
 - Yükleme [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) ayrı bir sanal makine üzerinde.
-- Büyük sayfaları linux üzerinde varsayılan olarak etkin değildir. Büyük sayfaları etkinleştirmeyi düşünün ve ayarlama `use_large_pages = ONLY ` Oracle DB üzerinde. Bu, performansı artırmaya yardımcı olabilir. Daha fazla bilgi bulunabilir [burada](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
+- Büyük sayfaları linux üzerinde varsayılan olarak etkin değildir. Büyük sayfaları etkinleştirmeyi düşünün ve ayarlama `use_large_pages = ONLY` Oracle DB üzerinde. Bu, performansı artırmaya yardımcı olabilir. Daha fazla bilgi bulunabilir [burada](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 
 ### <a name="disk-types-and-configurations"></a>Disk türleri ve yapılandırmaları
 

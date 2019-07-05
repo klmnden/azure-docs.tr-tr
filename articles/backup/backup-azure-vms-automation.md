@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 4df65819256e6a81a07927d463d130fbfdf9317a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85e7b40778305395bb0f4a9403b4aeafc4607654
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255004"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565692"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Yedekleme ve PowerShell ile Azure Vm'lerini geri yükleme
 
@@ -447,7 +447,7 @@ $restorejob
 >
 >
 
-Ek bir parametre sağlayın **TargetResourceGroupName** için yönetilen diskleri geri yükleneceği RG belirtmek için. 
+Ek bir parametre sağlayın **TargetResourceGroupName** için yönetilen diskleri geri yükleneceği RG belirtmek için.
 
 > [!NOTE]
 > Kullanılacak önemle tavsiye edilir **TargetResourceGroupName** önemli performans geliştirmeleri sonuçları olduğundan geri yükleme parametresi yönetilen diskler. Ayrıca, Azure Powershell Az modülünden 1.0 veya sonraki sürümleri, bu parametre yönetilen disklere sahip bir geri yükleme durumunda zorunludur
@@ -483,6 +483,15 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob
 ```
 
 Diskleri geri yükledikten sonra VM oluşturmak için sonraki bölüme gidin.
+
+## <a name="replace-disks-in-azure-vm"></a>Azure VM'deki diskler değiştirin
+
+Gerçekleştirmek diskleri ve yapılandırma bilgilerini değiştirmek için aşağıdaki adımları:
+
+- 1\. adım: [Diskleri geri yükle](backup-azure-vms-automation.md#restore-the-disks)
+- 2\. adım: [PowerShell kullanarak veri diski çıkarma](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell)
+- 3\. adım: [PowerShell ile Windows VM'ye veri diski ekleme](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps)
+
 
 ## <a name="create-a-vm-from-restored-disks"></a>Geri yüklenen diskten VM oluşturma
 
@@ -718,6 +727,7 @@ Aşağıdaki bölümde "VMConfig" dosyasını kullanarak bir VM oluşturmak içi
       ```powershell  
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
+
 
 ## <a name="restore-files-from-an-azure-vm-backup"></a>Dosyaları bir Azure sanal makine yedeklemesini geri yükleme
 

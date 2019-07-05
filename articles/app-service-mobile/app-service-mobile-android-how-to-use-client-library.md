@@ -3,7 +3,7 @@ title: Android için Azure Mobile Apps SDK'sını kullanma | Microsoft Docs
 description: Android için Azure Mobile Apps SDK'sını kullanma
 services: app-service\mobile
 documentationcenter: android
-author: conceptdev
+author: elamalani
 manager: crdun
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.service: app-service-mobile
@@ -11,16 +11,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 03/07/2019
-ms.author: crdun
-ms.openlocfilehash: 45b5ac0c9b3535e5cc5efdc6827d694b41e0b8dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 6a6db136926a7f9d631c717f5cab6c025d97fb48
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60859401"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443537"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Android için Azure Mobile Apps SDK'sını kullanma
+
+> [!NOTE]
+> Visual Studio App Center, mobil uygulama geliştirme merkezi hizmetlerinde yeni ve tümleşik yatırım yapıyor. Geliştiriciler **derleme**, **Test** ve **Dağıt** hizmetlerinin sürekli tümleştirme ve teslim işlem hattı ayarlayın. Uygulama dağıtıldığında, geliştiriciler kendi uygulamasını kullanarak kullanımı ve durumu izleyebilirsiniz **Analytics** ve **tanılama** kullanarak kullanıcılarla etkileşim kurun ve hizmetlerini **anında iletme** hizmeti. Geliştiriciler de yararlanabilir **Auth** , kullanıcıların kimliğini doğrulamak ve **veri** kalıcı hale getirmek ve uygulama verilerini bulutta eşitleme hizmeti. Kullanıma [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-android-how-to-use-client-library) bugün.
+>
 
 Bu kılavuzu gibi yaygın senaryoları uygulamak için Android istemci SDK'sı mobil uygulamalar için kullanmayı gösterir:
 
@@ -29,11 +33,11 @@ Bu kılavuzu gibi yaygın senaryoları uygulamak için Android istemci SDK'sı m
 * Hataları işleme.
 * İstemci özelleştirme.
 
-Bu kılavuz, istemci tarafı Android SDK üzerinde odaklanır.  Mobile Apps için sunucu tarafı SDK'lar hakkında daha fazla bilgi edinmek için [.NET arka uç SDK'sı ile çalışma] [ 10] veya [Node.js arka uç SDK'yı nasıl kullanabileceğinizi][11].
+Bu kılavuz, istemci tarafı Android SDK üzerinde odaklanır.  Mobile Apps için sunucu tarafı SDK'lar hakkında daha fazla bilgi edinmek için [.NET arka uç SDK'sı ile çalışma][10] or [How to use the Node.js backend SDK][11].
 
 ## <a name="reference-documentation"></a>Başvuru belgeleri
 
-Bulabilirsiniz [Javadocs API Başvurusu] [ 12] github'da Android istemci kitaplığı.
+Bulabilirsiniz [Javadocs API Başvurusu][12] github'da Android istemci kitaplığı.
 
 ## <a name="supported-platforms"></a>Desteklenen platformlar
 
@@ -45,7 +49,7 @@ Tamamlamak [Mobile Apps Hızlı Başlangıç](app-service-mobile-android-get-sta
 
 Hızlı Başlangıç öğreticisini tamamlamak değil karar verirseniz, aşağıdaki görevleri tamamlayın:
 
-* [bir mobil uygulama arka ucu oluşturma] [ 13] Android uygulamanızı kullanmak için.
+* [bir mobil uygulama arka ucu oluşturma][13] Android uygulamanızı kullanmak için.
 * Android Studio'da [güncelleştirme Gradle derleme dosyaları](#gradle-build).
 * [İnternet iznini etkinleştirme](#enable-internet).
 
@@ -197,17 +201,17 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Mobile Apps arka ucunuzu ek tablolar oluşturmayı öğrenmek için bkz: [nasıl yapılır: Bir tablo denetleyicisi tanımlamak] [ 15] (.NET arka ucu) veya [dinamik şemayı kullanarak tablolar tanımlama] [ 16] (Node.js arka ucu).
+Mobile Apps arka ucunuzu ek tablolar oluşturmayı öğrenmek için bkz: [nasıl yapılır: Bir tablo denetleyicisi tanımlamak][15] (.NET backend) or [Define Tables using a Dynamic Schema][16] (Node.js arka ucu).
 
 Bir Azure Mobile Apps arka uç tablosu, biri dört istemciler için kullanılabilir beş özel alanlar tanımlar:
 
-* `String id`: Kayıt için genel olarak benzersiz kimliği.  En iyi uygulama, dize gösterimi kimliği olun bir [UUID] [ 17] nesne.
+* `String id`: Kayıt için genel olarak benzersiz kimliği.  En iyi uygulama, dize gösterimi kimliği olun bir [UUID][17] nesne.
 * `DateTimeOffset updatedAt`: Son güncelleştirme tarih/saat.  UpdatedAt alan, sunucu tarafından ayarlanır ve hiçbir zaman istemci kodunuz tarafından ayarlanması gerekir.
 * `DateTimeOffset createdAt`: Nesne oluşturulduğu tarih.  CreatedAt alan, sunucu tarafından ayarlanır ve hiçbir zaman istemci kodunuz tarafından ayarlanması gerekir.
 * `byte[] version`: Normalde bir dize olarak temsil edilen, sürüm sunucu tarafından ayarlanır.
 * `boolean deleted`: Kayıt silindi ancak henüz temizleneceği değil olduğunu gösterir.  Kullanmayın `deleted` sınıfınıza özelliği olarak.
 
-`id` alanı gereklidir.  `updatedAt` Alan ve `version` çevrimdışı eşitleme için kullanılan alan (Artımlı eşitleme ve Çakışma çözümlemesi için sırasıyla).  `createdAt` Alanı bir başvuru alan olup, istemci tarafından kullanılmaz.  Adları "arasında hat" özellik adlarının ve ayarlanabilir değildir.  Ancak, nesnenizin kullanarak "arasında hat" adları arasında bir eşleme oluşturabilirsiniz [gson] [ 3] kitaplığı.  Örneğin:
+`id` alanı gereklidir.  `updatedAt` Alan ve `version` çevrimdışı eşitleme için kullanılan alan (Artımlı eşitleme ve Çakışma çözümlemesi için sırasıyla).  `createdAt` Alanı bir başvuru alan olup, istemci tarafından kullanılmaz.  Adları "arasında hat" özellik adlarının ve ayarlanabilir değildir.  Ancak, nesnenizin kullanarak "arasında hat" adları arasında bir eşleme oluşturabilirsiniz [gson][3] kitaplığı.  Örneğin:
 
 ```java
 package com.example.zumoappname;
@@ -267,7 +271,7 @@ public class ToDoItem
 
 ### <a name="create-a-table-reference"></a>Bir tablo başvurusu
 
-Bir tablo erişmek için öncelikle oluşturma bir [MobileServiceTable] [ 8] çağırarak **getTable** metodunda [MobileServiceClient] [9].  Bu yöntemin iki aşırı yüklemesi vardır:
+Bir tablo erişmek için öncelikle oluşturma bir [MobileServiceTable][8] çağırarak **getTable** metodunda [MobileServiceClient][9].  Bu yöntemin iki aşırı yüklemesi vardır:
 
 ```java
 public class MobileServiceClient {
@@ -310,7 +314,7 @@ List<MyDataTable> results = mDataTable
     .get()              // Converts the async into a sync result
 ```
 
-Yukarıdaki örnekte (en fazla sayfa boyutu sunucu tarafından ayarını kadar) tüm sonuçları döndürür.  `.execute()` Yöntemi, arka uçta sorguyu yürütür.  Sorgu dönüştürülür bir [OData v3] [ 19] Mobile Apps arka uca iletimden önce sorgu.  İstek alındığında, Mobile Apps arka uç SQL Azure örneğinde yürütmeden önce bir SQL deyimi sorgu dönüştürür.  Ağ etkinliği biraz zaman alır. bu yana `.execute()` yöntemi döndürür bir [ `ListenableFuture<E>` ] [ 18].
+Yukarıdaki örnekte (en fazla sayfa boyutu sunucu tarafından ayarını kadar) tüm sonuçları döndürür.  `.execute()` Yöntemi, arka uçta sorguyu yürütür.  Sorgu dönüştürülür bir [OData v3][19] Mobile Apps arka uca iletimden önce sorgu.  İstek alındığında, Mobile Apps arka uç SQL Azure örneğinde yürütmeden önce bir SQL deyimi sorgu dönüştürür.  Ağ etkinliği biraz zaman alır. bu yana `.execute()` yöntemi döndürür bir [ `ListenableFuture<E>` ][18].
 
 ### <a name="filtering"></a>Döndürülen verileri filtreleme
 
@@ -697,7 +701,7 @@ mJsonToDoTable = mClient.getTable("ToDoItem");
 Örneğini oluşturduktan sonra **MobileServiceJsonTable**, neredeyse aynı API ile yazılan programlama modeli kullanılabilir olarak sahiptir. Bazı durumlarda, yöntemleri yerine belirtilmiş bir parametre türü belirsiz bir parametre alır.
 
 ### <a name="json_insert"></a>Yazılmamış bir tabloya Ekle
-Aşağıdaki kod nasıl ekleme yapılacağını gösterir. İlk adım oluşturmaktır bir [JsonObject][1], parçası olduğu [gson] [ 3] kitaplığı.
+Aşağıdaki kod nasıl ekleme yapılacağını gösterir. İlk adım oluşturmaktır bir [JsonObject][1] , which is part of the [gson][3] kitaplığı.
 
 ```java
 JsonObject jsonItem = new JsonObject();
@@ -1081,7 +1085,7 @@ Değiştirin `onSuccess()` başarılı bir oturum açma kullanmak istediğiniz, 
 
 Kullanıcıların uygulamanızla Azure Active Directory'yi kullanarak oturum açmak için Active Directory Authentication Library (ADAL) kullanabilirsiniz. Bir istemci akışı oturum açma kullanarak genellikle kullanılması tercih `loginAsync()` yöntemleri, daha doğal bir UX görünümünü sağlar ve için ek özelleştirme yapmanıza izin verir.
 
-1. AAD oturum açma için mobil uygulama arka ucunuzu izleyerek yapılandırın [App Service, Active Directory oturum açma için yapılandırma] [ 22] öğretici. Yerel istemci uygulaması kaydetme isteğe bağlı bir adım tamamladığınızdan emin olun.
+1. AAD oturum açma için mobil uygulama arka ucunuzu izleyerek yapılandırın [App Service, Active Directory oturum açma için yapılandırma][22] öğretici. Yerel istemci uygulaması kaydetme isteğe bağlı bir adım tamamladığınızdan emin olun.
 2. ADAL build.gradle dosyanıza aşağıdaki tanımları içerecek şekilde değiştirerek yükleyin:
 
     ```gradle
@@ -1276,7 +1280,7 @@ private class CustomHeaderFilter implements ServiceFilter {
 
 ### <a name="conversions"></a>Otomatik serileştirme yapılandırın
 
-Kullanarak her sütun için geçerli bir dönüştürme stratejisi belirtebilirsiniz [gson] [ 3] API. Android istemci Kitaplığı'nı kullanan [gson] [ 3] arka planda, Azure App Service'te veri gönderilmeden önce Java nesnelerini JSON verilerini seri hale getirmek için.  Aşağıdaki kod **setFieldNamingStrategy()** stratejisi ayarlamak için yöntemi. Bu örnekte, ilk karakter ("m"), siler ve ardından küçük her alan adı için bir sonraki karakteri. Örneğin, "id" içinde "Orta" etkinleştirmeniz  Gereksinimini azaltmak için bir dönüştürme stratejisi uygulamak `SerializedName()` çoğu alanlarda ek açıklamalar.
+Kullanarak her sütun için geçerli bir dönüştürme stratejisi belirtebilirsiniz [gson][3] API. Android istemci Kitaplığı'nı kullanan [gson][3] arka planda, Azure App Service'te veri gönderilmeden önce Java nesnelerini JSON verilerini seri hale getirmek için.  Aşağıdaki kod **setFieldNamingStrategy()** stratejisi ayarlamak için yöntemi. Bu örnekte, ilk karakter ("m"), siler ve ardından küçük her alan adı için bir sonraki karakteri. Örneğin, "id" içinde "Orta" etkinleştirmeniz  Gereksinimini azaltmak için bir dönüştürme stratejisi uygulamak `SerializedName()` çoğu alanlarda ek açıklamalar.
 
 ```java
 FieldNamingStrategy namingStrategy = new FieldNamingStrategy() {

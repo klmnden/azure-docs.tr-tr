@@ -3,15 +3,15 @@ title: Azure Site Recovery ile azure'a olağanüstü durum kurtarma için VMware
 description: Bu makalede, Azure Site Recovery kullanarak VMware Vm'lerini azure'a çoğaltma, olağanüstü durum kurtarma için etkinleştirmek açıklar.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 05/10/2019
+ms.date: 06/28/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: add0f8252bdae6857b28deeb7de4c1d09973e452
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f4e4afb4d94a7b2e2a6b246a371cf6234577463
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540784"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491724"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Azure'a VMware Vm'leri için çoğaltmayı etkinleştirme
 
@@ -37,11 +37,13 @@ VMware sanal makinelerini çoğaltma yapıyorsanız, bu bilgileri göz önünde 
 ## <a name="enable-replication"></a>Çoğaltmayı etkinleştirme
 
 Bu bölümdeki adımları izlemeden önce aşağıdaki bilgileri unutmayın:
-* Tüm yeni çoğaltmalar için yönetilen diskler için doğrudan Azure Site Recovery artık çoğaltır. İşlem sunucusu, hedef bölgedeki önbellek depolama hesabına çoğaltma günlükleri yazar. Bu günlükler, yönetilen çoğaltma disklerinde kurtarma noktaları oluşturmak için kullanılır.
+* Tüm yeni çoğaltmalar için yönetilen diskler için doğrudan Azure Site Recovery artık çoğaltır. İşlem sunucusu, hedef bölgedeki önbellek depolama hesabına çoğaltma günlükleri yazar. Bu günlükler asrseeddisk adlandırma kuralı olan yönetilen çoğaltma disklerinde kurtarma noktaları oluşturmak için kullanılır.
+* Yönetilen disklere çoğaltmak için Powershell desteği kullanılabilir [Az.RecoveryServices modülü sürüm 2.0.0 ve sonraki sürümler](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) 
 * Yük devretme sırasında seçtiğiniz kurtarma noktası, hedef tarafından yönetilen disk oluşturmak için kullanılır.
 * Hedef depolama hesaplarında çoğaltılmaya önceden yapılandırılmış sanal makineleri etkilenmez.
 * Yeni bir sanal makine için depolama hesaplarına çoğaltma, yalnızca bir temsili durum aktarımı (REST) API ve Powershell kullanılabilir. Depolama hesapları için çoğaltmak için Azure REST API sürümü 2016-08-10 veya 2018-01-10 kullanın.
 
+Lütfen çoğaltma etkinleştirmek için aşağıdaki adımları uygulayın:
 1. Git **2. adım: Uygulama çoğaltma** > **kaynak**. Çoğaltmayı ilk kez etkinleştirdikten sonra seçin **+ Çoğalt** ek sanal makineler için çoğaltma işlemini etkinleştirmek istiyorsanız kasada.
 2. İçinde **kaynak** sayfası > **kaynak**, yapılandırma sunucusunu seçin.
 3. İçin **makine türü**seçin **sanal makineler** veya **fiziksel makineler**.

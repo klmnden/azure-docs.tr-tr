@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: e80fb136220330ddc53d513b22ebcfa19a35117b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2aafa195fa463a405e2132cd41fada8d6903961
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66252809"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450076"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub iletilerini oluşturma ve okuma
 
@@ -55,7 +55,7 @@ Aşağıdaki tabloda, IOT Hub iletilerini Sistem özelliklerinde kümesini liste
 | sıra numarası |Her bulut buluttan cihaza iletiye IOT Hub tarafından atanmış bir sayı (benzersiz cihaz kuyruk). | C2D iletileri için Hayır '; Evet, aksi takdirde. |
 | - |Belirtilen bir hedef [bulut-cihaz](iot-hub-devguide-c2d-guidance.md) iletileri. | C2D iletileri için Hayır '; Evet, aksi takdirde. |
 | süre sonu mutlak |Tarih ve saat ileti sonu. | Evet |
-| iothub-enqueuedtime |Tarih ve saat [bulut-cihaz](iot-hub-devguide-c2d-guidance.md) ileti, IOT Hub tarafından alındı. | C2D iletileri için Hayır '; Evet, aksi takdirde. |
+| iothub-enqueuedtime |Tarih ve saat [CİHAZDAN buluta](iot-hub-devguide-d2c-guidance.md) ileti, IOT Hub tarafından alındı. | D2C iletileri için Hayır '; Evet, aksi takdirde. |
 | Bağıntı Kimliği |Genellikle istek, istek-yanıt desenleri MessageID içeren bir yanıt iletisi bir dize özelliği. | Evet |
 | Kullanıcı Kimliği |İletileri kaynağını belirtmek için kullanılan bir kimliği. İletileri IOT Hub tarafından oluşturulduğunda ayarlanır `{iot hub name}`. | Hayır |
 | iothub-ack |Geri bildirim iletisi Oluşturucusu. Bu özellik bulut-cihaz iletilerini cihaz tarafından sonucunda iletinin Tüketim geri bildirim iletileri oluşturmak için IOT hub'ı istemek için kullanılır. Olası değerler: **hiçbiri** (varsayılan): hiçbir geri bildirim iletisi oluşturulur, **pozitif**: ileti tamamlanmışsa, bir geri bildirim iletisi **negatif**: alma bir iletinin süresi (veya en yüksek teslimat sayısı ulaşıldı varsa) ve cihaz tarafından tamamlanmasını olmadan geri bildirim iletisi veya **tam**: pozitif ve negatif. <!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | Evet |

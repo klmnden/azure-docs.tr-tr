@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: ab239d0546508d74874c6b6be03f6afc06b08fa7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c02daef31b29e9a95ddfdedea497604ad0777aa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563427"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442631"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Azure Sanal Makineler’de SQL Server için Yedekleme ve Geri Yükleme
 
@@ -35,7 +35,7 @@ Aşağıdaki tabloda Azure Vm'lerinde çalışan SQL Server için çeşitli yede
 | Stratejisi | SQL sürümleri | Açıklama |
 |---|---|---|
 | [Otomatik Yedekleme](#automated) | 2014<br/> 2016<br/> 2017 | Otomatik yedekleme, SQL Server VM üzerindeki tüm veritabanları için normal yedeklemelerinin zamanlamasını olanak tanır. Yedeklemeler, 30 gün boyunca Azure depolama alanında depolanır. Otomatik yedekleme v2, SQL Server 2016 ile başlayarak, el ile zamanlama ve tam sıklığını ve günlük yedekleri yapılandırma gibi ek seçenekleri sunar. |
-| [SQL VM'leri için Azure Backup](#azbackup) | 2012<br/> 2014<br/> 2016<br/> 2017 | Azure Backup, Azure Vm'lerinde çalışan SQL Server için kurumsal sınıf yedekleme özelliği sağlar. Bu hizmet ile birden çok sunucu ve binlerce veritabanının yedeklerini merkezi olarak yönetebilir. Veritabanları, portalında zaman içinde belirli bir noktaya geri yüklenebilir. Yedeklemeleri yıllarca saklayabilirsiniz bir özelleştirilebilir bekletme ilkesi sunar. Bu özellik şu anda genel Önizleme aşamasındadır. |
+| [SQL VM'leri için Azure Backup](#azbackup) | 2008<br/> 2012<br/> 2014<br/> 2016<br/> 2017 | Azure Backup, Azure Vm'lerinde çalışan SQL Server için kurumsal sınıf yedekleme özelliği sağlar. Bu hizmet ile birden çok sunucu ve binlerce veritabanının yedeklerini merkezi olarak yönetebilir. Veritabanları, portalında zaman içinde belirli bir noktaya geri yüklenebilir. Yedeklemeleri yıllarca saklayabilirsiniz bir özelleştirilebilir bekletme ilkesi sunar. |
 | [El ile yedekleme](#manual) | Tümü | SQL Server sürümüne bağlı olarak, el ile yedekleme ve bir Azure sanal makinesinde çalışan SQL Server'a geri yüklemek için çeşitli teknikler vardır. Bu senaryoda, veritabanlarınızı nasıl yedeklenir ve depolama konumu ve bu yedeklemeler yönetimini sorumludur. |
 
 Aşağıdaki bölümlerde her seçeneği daha ayrıntılı açıklanmaktadır. Bu makalenin son bölümü, bir özellik matrisi biçiminde bir özetini sağlar.

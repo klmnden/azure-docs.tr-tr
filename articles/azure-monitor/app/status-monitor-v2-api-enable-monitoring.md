@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: e87bfad11eee5b86d35e6b4f2846b094c467e0ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e0d5363e253e89b32b5eca14366504f0ace39043
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734180"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479635"
 ---
-# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v021-alpha"></a>Durum İzleyicisi'ni v2 API'si: Etkinleştir-ApplicationInsightsMonitoring (v0.2.1-alpha)
+# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v031-alpha"></a>Durum İzleyicisi'ni v2 API'si: Etkinleştir-ApplicationInsightsMonitoring (v0.3.1-alpha)
 
 Bu makalede bir üyesi olan bir cmdlet [Az.ApplicationMonitor PowerShell Modülü](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -68,9 +68,9 @@ Bu örnekte:
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap 
     @(@{MachineFilter='.*';AppFilter='WebAppExclude'},
-      @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'},
-      @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'},
-      @{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'})
+      @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'}},
+      @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'}},
+      @{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'}})
 
 ```
 
@@ -88,7 +88,7 @@ Birkaç bilgisayar için bir tek bir yükleme betiği ayarlayarak oluşturabilec
 > Uygulama kuralları kuralları sağlanan sırayla karşı eşleşir. Bu nedenle en belirgin kurallar ilk belirtmeniz gerekir ve son en genel kurallar.
 
 #### <a name="schema"></a>Şema
-`@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
+`@(@{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'}})`
 
 - **MachineFilter** gerekli bir C# regex bilgisayar veya VM adı.
     - '. *' tüm eşleşir
@@ -108,13 +108,19 @@ Birkaç bilgisayar için bir tek bir yükleme betiği ayarlayarak oluşturabilec
 ### <a name="-acceptlicense"></a>-AcceptLicense
 **İsteğe bağlı.** Gözetimsiz yüklemelerinde lisans ve gizlilik bildirimini kabul etmek için bu anahtarı kullanın.
 
+### <a name="-ignoresharedconfig"></a>-IgnoreSharedConfig
+Web sunucularının bir kümesi olduğunda kullanabilecek bir [paylaşılan yapılandırma](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
+HttpModule paylaşılan yapılandırmanın eklenen olamaz.
+Bu betik, ek yükleme adımlarını gerekli olduğunu iletisiyle başarısız olur.
+Bu denetim yok sayıp önkoşulları yüklemeye devam etmek için bu anahtarı kullanın. Daha fazla bilgi için [çakışma-ile-IIS-paylaşılan-yapılandırma](status-monitor-v2-troubleshoot.md#conflict-with-iis-shared-configuration)
+
 ### <a name="-verbose"></a>-Verbose
 **Ortak parametresi.** Ayrıntılı günlükleri görüntülemek için bu anahtarı kullanın.
 
 ### <a name="-whatif"></a>-WhatIf 
 **Ortak parametresi.** Test ve izleme gerçekten etkinleştirmeden giriş parametrelerinizi doğrulamak için bu anahtarı kullanın.
 
-## <a name="output"></a>Çıktı
+## <a name="output"></a>Output
 
 
 #### <a name="example-output-from-a-successful-enablement"></a>Başarılı bir etkinleştirme örnek çıktısı

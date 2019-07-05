@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 06/24/2019
 ms.author: orspodek
-ms.openlocfilehash: f501257903f3b7c621512f06d1c8c7109e22db1e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 438adcd70c1be308c2b5779de0442486b303cfdd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60394515"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449640"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Ya da Azure veri Gezgini'nde Azure Data Factory kullanarak veri kopyalama
 
@@ -140,6 +140,7 @@ Azure veri Gezgini'nde verileri kopyalamak için ayarlanmış **türü** için k
 | type | **Türü** kopyalama etkinliği kaynağı özelliği ayarlanmalıdır: **AzureDataExplorerSource** | Evet |
 | query | Verilen istek salt okunur bir [KQL biçimi](/azure/kusto/query/). Özel KQL sorgu referans olarak kullanın. | Evet |
 | queryTimeout | Sorgu isteği önceki bekleme süresi zaman aşımına uğradı. Varsayılan değer: 10 dakikalık (00: 10:00); izin verilen en yüksek değer olan 1 saat (01: 00:00). | Hayır |
+| noTruncation | Döndürülen sonuç kümesi kesecek şekilde görüntülenip görüntülenmeyeceğini gösterir. Varsayılan olarak, sonuç 500.000 kayıtları ya da 64 MB kesilir. Etkinlik için uygun bir davranış kesilmesi önemle tavsiye edilir. |Hayır |
 
 >[!NOTE]
 >Varsayılan olarak Azure Veri Gezgini kaynak 500.000 kayıtları ya da 64 MB boyut sınırı vardır. Kesmeden tüm kayıtları almak için belirtebileceğiniz `set notruncation;` sorgunuzun başında. Başvurmak [sorgu sınırları](https://docs.microsoft.com/azure/kusto/concepts/querylimits) hakkında daha fazla bilgi.

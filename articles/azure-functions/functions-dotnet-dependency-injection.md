@@ -4,19 +4,19 @@ description: Bağımlılık ekleme, kaydetme ve Hizmetleri içinde .NET işlevle
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Azure işlevleri, İşlevler, sunucusuz mimari
 ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/28/2019
 ms.author: jehollan, cshoe
-ms.openlocfilehash: 9f932bf92cb3871af7f0eb294ac15dec82cdc8ba
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 781bcdc158cb362b7c46e1ba9771b6a92ebc56a8
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274254"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479613"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure işlevleri'nde bağımlılık ekleme kullanın
 

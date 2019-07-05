@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: a063461d9da66d57a7bdc3311ae80dec7f2c98f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49e80c3fc8935064aceef8ef4e2bd3257c41e5e7
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65470237"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514188"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux üzerinde geliştirme ortamınızı hazırlama
 > [!div class="op_single_selector"]
@@ -87,8 +87,7 @@ SDK ve ilişkili çalışma zamanı paketini apt-get komut satırı aracıyla y�
 4. Yeni Gnu Privacy Guard (GnuPG, veya GPG) anahtarını APT anahtarlığınıza ekleyin.
 
     ```bash
-    sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+    curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
 5. Resmi Docker GPG anahtarını APT anahtarlığınıza ekleyin.
@@ -107,8 +106,8 @@ SDK ve ilişkili çalışma zamanı paketini apt-get komut satırı aracıyla y�
 7. Azul JDK anahtarını APT Anahtarlığınıza ekleyin ve onun deposunu ayarlayın.
 
     ```bash
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x219BD9C9
-    sudo apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
+    curl -fsSL https://repos.azul.com/azul-repo.key | sudo apt-key add -
+    sudo add-apt-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
     ```
 
 8. Paket listelerinizi yeni eklenen depolara göre yenileyin.
@@ -179,8 +178,8 @@ SDK yüklemesiyle birlikte gelen Service Fabric çalışma zamanı, aşağıdaki
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | Npm’de örtük | en son |
-RHEL | - | OpenJDK 1.8 | Npm’de örtük | en son |
+Ubuntu | 2.0.0 | AzulJDK 1.8 | Npm’de örtük | latest |
+RHEL | - | OpenJDK 1.8 | Npm’de örtük | latest |
 
 ## <a name="set-up-a-local-cluster"></a>Yerel küme oluşturma
 Yükleme tamamlandıktan sonra yerel bir küme başlatın.
@@ -216,7 +215,7 @@ Service Fabric, Yeoman şablon oluşturucuları kullanarak terminalden Service F
 1. Makinenize nodejs ve npm’yi yükleyin.
 
     ```bash
-    sudo apt-add-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
+    sudo add-apt-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
     sudo apt-get update
     sudo apt-get install nodejs
     ```

@@ -2,18 +2,18 @@
 title: Azure Site Recovery, Azure Disk şifrelemesi özellikli VM'ler için çoğaltma yapılandırma | Microsoft Docs
 description: Bu makalede Site Recovery kullanarak çoğaltma için Azure Disk şifrelemesi özellikli VM'ler bir Azure bölgesinden diğerine yapılandırma açıklanır.
 services: site-recovery
-author: sujayt
+author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 4943b730bb46ee00200d84faf95a7ccb069d3aa8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b2e9bf7fbe7d5940b517d97dcc15d21c30835001
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60791018"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449212"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Azure Disk şifrelemesi etkinleştirilmiş sanal makineleri başka bir Azure bölgesine çoğaltma
 
@@ -22,23 +22,23 @@ Bu makalede, Azure Disk şifrelemesi özellikli VM'ler bir Azure bölgesinden di
 >[!NOTE]
 >Azure Site Recovery şu anda yalnızca Azure Windows işletim sistemi çalıştıran ve olan Vm'leri destekler [Azure Active Directory (Azure AD) ile şifreleme etkin](https://aka.ms/ade-aad-app).
 
-## <a name="required-user-permissions"></a>Kullanıcı gerekli izinleri
+## <a id="required-user-permissions"></a> Kullanıcı gerekli izinleri
 Site Recovery hedef bölge ve kopyalama anahtarları bölgeye anahtar kasasını oluşturmak için gerekli izinlere sahip olmasını gerektirir.
 
 Disk şifrelemesi özellikli VM'ler Azure portalından çoğaltmayı etkinleştirmek için kullanıcı için şu izinler gereklidir:
 
 - Anahtar kasası izinleri
-    - Liste
+    - List
     - Create
     - Al
 
 -   Anahtar kasası gizli dizi izinleri
-    - Liste
+    - List
     - Create
     - Al
 
 - Anahtar kasası anahtar izinleri (yalnızca VM'lerin disk şifreleme anahtarlarını şifrelemek için anahtar şifreleme anahtarı kullanırsanız, gerekli)
-    - Liste
+    - List
     - Al
     - Create
     - Şifreleme
@@ -139,18 +139,25 @@ Kullanabileceğiniz [bir betik](#copy-disk-encryption-keys-to-the-dr-region-by-u
 
 ## <a id="trusted-root-certificates-error-code-151066"></a>Azure'dan Azure'a VM çoğaltma sırasında anahtar kasası izin sorunları giderme
 
-**1. neden:** Hedef bölgesi zaten oluşturulan ve Site Recovery oluşturmak izin vermek yerine gerekli izinlere sahip değil bir anahtar kasası seçmiş olabilirsiniz. Anahtar kasası olduğundan emin olun daha önce açıklanan şekilde izinleri gerektirir.
+Azure Site Recovery, Kaynak bölgesi Key vault üzerinde en az okuma izni ve gizli dizi okumak ve hedef bölge anahtar Kasası'na kopyalamak için hedef bölgede anahtar kasasındaki yazma izni gerektirir. 
+
+**1. neden:** "GET" iznine sahip değilsiniz **kaynak bölge anahtar kasası** anahtarları okumak için. </br>
+**Nasıl:** Abonelik Yöneticisi veya olmanıza bakılmaksızın, anahtar kasasında get izni olması önemlidir.
+
+1. Bu örnekte, "ContososourceKeyvault" olduğundan kaynak bölge anahtar Kasası'na gidin > **erişim ilkeleri** 
+2. Altında **sorumlu Seç** örneğin kullanıcı adınızı ekleyin: "dradmin@contoso.com"
+3. Altında **anahtar izinleri** GET seçin 
+4. Altında **gizli izni** GET seçin 
+5. Erişim ilkesini kaydedin
+
+**2. neden:** Gerekli izne sahip değilsiniz **hedef bölge anahtar kasası** anahtarları yazmak için. </br>
 
 *Örneğin*: Anahtar kasası olduğundan bir VM'yi çoğaltma çalıştığınızda *ContososourceKeyvault* kaynak bölge.
 Kaynak bölge key vault tüm izinlere sahip. Ancak, önceden oluşturulmuş anahtar kasası iznine sahip değil. ContosotargetKeyvault, seçtiğiniz koruma sırasında. Bir hata oluşur.
 
-**Nasıl:** Git **giriş** > **Keyvaults** > **ContososourceKeyvault** > **erişim ilkeleri** ve uygun izinleri ekleyin.
+Gerekli izni [hedef anahtar kasası](#required-user-permissions)
 
-**2. neden:** Önceden oluşturulmuş ve sahip olmayan bir anahtar kasası hedef bölgesi seçmiş olabilirsiniz izinlerine oluşturun Site Recovery izin vererek yerine şifresini çözme şifreleyin. Sahip olduğunuzdan emin olun şifresini çözme-izinleri de kaynak bölgeye anahtarı şifreleme şifreleyebilirsiniz.</br>
-
-*Örneğin*: Bir anahtar kasası olduğundan bir VM'yi çoğaltma çalıştığınızda *ContososourceKeyvault* kaynak bölge. Kaynak bölge key vault tüm gerekli izni var. Ancak, önceden oluşturduğunuz anahtar kasasının şifrelemek ve şifresini çözmek için gerekli izinlere sahip değil ContosotargetKeyvault, seçtiğiniz koruma sırasında. Bir hata oluşur.</br>
-
-**Nasıl:** Git **giriş** > **Keyvaults** > **ContososourceKeyvault** > **erişim ilkeleri**. İzinler altında ekleme **anahtar izinleri** > **şifreleme işlemleri**.
+**Nasıl:** Git **giriş** > **Keyvaults** > **ContosotargetKeyvault** > **erişim ilkeleri** ve uygun izinleri ekleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

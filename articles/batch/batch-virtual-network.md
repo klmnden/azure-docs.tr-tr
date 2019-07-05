@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 2583e7e218e765e0d7745978582e19a5a4fe17ce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ea048c6adbb4e00ae8543810f1dc571376038c62
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60550227"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436241"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Sanal ağ içinde bir Azure Batch havuzu oluşturma
 
@@ -56,7 +56,7 @@ Gereksinimleri, kuruluşunuzda (zorla) yeniden yönlendirme İnternet'e bağlı 
 
 Azure Batch havuzu işlem düğümleriniz zorlamalı tünel etkinse bir Vnet'te çalıştığından emin olmak için aşağıdakileri ekleyin [kullanıcı tanımlı yollar](../virtual-network/virtual-networks-udr-overview.md) bu alt ağ için:
 
-* Batch hizmetinin görevleri zamanlamak için işlem düğümleri havuzu ile iletişim kurması gerekiyor. Bu iletişimi etkinleştirmek için Batch hesabınızın bulunduğu bölgede Batch hizmeti tarafından kullanılan her bir IP adresi için kullanıcı tanımlı bir yol ekleyin. Batch hizmetinin IP adresleri listesini elde etmek için lütfen Azure Desteğine başvurun.
+* Batch hizmetinin görevleri zamanlamak için işlem düğümleri havuzu ile iletişim kurması gerekiyor. Bu iletişimi etkinleştirmek için Batch hesabınızın bulunduğu bölgede Batch hizmeti tarafından kullanılan her bir IP adresi için kullanıcı tanımlı bir yol ekleyin. Batch hizmetinin IP adresleri listesi elde etmek üzere öğrenmek için bkz: [hizmet etiketleri şirket içi](../virtual-network/security-overview.md#service-tags-in-on-premises)
 
 * Azure depolama, giden trafiği emin olun (özellikle biçimindeki URL'ler `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, ve `<account>.blob.core.windows.net`) şirket içi ağ aletiniz engellenmez.
 

@@ -3,7 +3,7 @@ title: App Service Mobile Apps yönetilen istemci kitaplığı ile çalışma | 
 description: Azure App Service Mobile Apps ile Windows ve Xamarin uygulamaları için .NET İstemci Kitaplığı'nı kullanmayı öğrenin.
 services: app-service\mobile
 documentationcenter: ''
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
@@ -12,20 +12,25 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/24/2018
-ms.author: crdun
-ms.openlocfilehash: 8f014f1cb40e1a629d1989f00805fc91015a3ae9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: af0a4af2bec29e68175d2e15203a02507f08bfeb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119316"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446350"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Azure Mobile Apps için yönetilen istemci kullanma
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
+> [!NOTE]
+> Visual Studio App Center, mobil uygulama geliştirme merkezi hizmetlerinde yeni ve tümleşik yatırım yapıyor. Geliştiriciler **derleme**, **Test** ve **Dağıt** hizmetlerinin sürekli tümleştirme ve teslim işlem hattı ayarlayın. Uygulama dağıtıldığında, geliştiriciler kendi uygulamasını kullanarak kullanımı ve durumu izleyebilirsiniz **Analytics** ve **tanılama** kullanarak kullanıcılarla etkileşim kurun ve hizmetlerini **anında iletme** hizmeti. Geliştiriciler de yararlanabilir **Auth** , kullanıcıların kimliğini doğrulamak ve **veri** kalıcı hale getirmek ve uygulama verilerini bulutta eşitleme hizmeti. Kullanıma [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-dotnet-how-to-use-client-library) bugün.
+>
+
 ## <a name="overview"></a>Genel Bakış
-Bu kılavuz, yaygın senaryoları için Azure App Service Mobile Apps Windows ve Xamarin uygulamaları için yönetilen istemci kitaplığı kullanarak nasıl gerçekleştireceğinizi gösterir. Mobile Apps yeniyseniz tamamlamadan önce dikkate almanız gereken [Azure Mobile Apps Hızlı Başlangıç] [ 1] öğretici. Bu kılavuzda, biz üzerindeki yönetilen istemci tarafı SDK odaklanın. Mobile Apps için sunucu tarafı SDK'lar hakkında daha fazla bilgi edinmek için belgelere bakın [.NET sunucu SDK'sı] [ 2] veya [Node.js sunucu SDK'sı] [ 3].
+Bu kılavuz, yaygın senaryoları için Azure App Service Mobile Apps Windows ve Xamarin uygulamaları için yönetilen istemci kitaplığı kullanarak nasıl gerçekleştireceğinizi gösterir. Mobile Apps yeniyseniz tamamlamadan önce dikkate almanız gereken [Azure Mobile Apps Hızlı Başlangıç][1] öğretici. Bu kılavuzda, biz üzerindeki yönetilen istemci tarafı SDK odaklanın. Mobile Apps için sunucu tarafı SDK'lar hakkında daha fazla bilgi edinmek için belgelere bakın [.NET sunucu SDK'sı][2] or the
+[Node.js Server SDK][3].
 
 ## <a name="reference-documentation"></a>Başvuru belgeleri
 İstemci için başvuru belgeleri SDK şuradan ulaşabilirsiniz: [Azure Mobile Apps .NET istemci başvurusu][4].
@@ -60,9 +65,10 @@ public class TodoItem
 }
 ```
 
-[JsonPropertyAttribute] [ 6] tanımlamak için kullanılan *PropertyName* istemci alanı ve tablo alanı eşleme.
+[JsonPropertyAttribute][6] tanımlamak için kullanılan *PropertyName* istemci alanı ve tablo alanı eşleme.
 
-Mobile Apps arka ucunuzu tabloları oluşturmaya ilişkin bilgi edinmek için [.NET sunucu SDK'sı konu] [ 7] veya [Node.js sunucu SDK'sı konu][8]. Hızlı Başlangıç adımlarını kullanarak Azure portalında mobil uygulama arka ucunuzu oluşturduysanız, ayrıca kullanabileceğiniz **kolay tablolar** ayarı [Azure portal].
+Mobile Apps arka ucunuzu tabloları oluşturmaya ilişkin bilgi edinmek için [.NET sunucu SDK'sı konu][7]
+or the [Node.js Server SDK topic][8]. Hızlı Başlangıç adımlarını kullanarak Azure portalında mobil uygulama arka ucunuzu oluşturduysanız, ayrıca kullanabileceğiniz **kolay tablolar** ayarı [Azure portal].
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>Nasıl yapılır: Yönetilen istemci SDK paketini yükleme
 Mobil uygulamaları için yönetilen istemci SDK paketini yüklemek için aşağıdaki yöntemlerden birini kullanın [NuGet][9]:
@@ -80,10 +86,11 @@ using Microsoft.WindowsAzure.MobileServices;
 > Android projenizde başvurulan tüm destek paketlerinin aynı sürüme sahip olması gerektiğini unutmayın. SDK'sını sahip `Xamarin.Android.Support.CustomTabs` projenize yeni kullanıyorsa, destek, paketler için Android platformu için bağımlılık doğrudan çakışmalarını önlemek için gerekli sürümü bu paketi yüklemeniz gerekir.
 
 ### <a name="symbolsource"></a>Nasıl Yapılır: Visual Studio'da hata ayıklama sembolleri ile çalışma
-Microsoft.Azure.Mobile ad alanı için simgeler kullanılabilir [SymbolSource][10].  Başvurmak [SymbolSource yönergeleri] [ 11] SymbolSource Visual Studio ile tümleştirmek için.
+Microsoft.Azure.Mobile ad alanı için simgeler kullanılabilir [SymbolSource][10] .  Refer to the
+[SymbolSource instructions][11] SymbolSource Visual Studio ile tümleştirmek için.
 
 ## <a name="create-client"></a>Mobile Apps istemci oluşturma
-Aşağıdaki kod oluşturur [MobileServiceClient] [ 12] Mobile App arka ucunuzu erişmek için kullanılan nesne.
+Aşağıdaki kod oluşturur [MobileServiceClient][12] Mobile App arka ucunuzu erişmek için kullanılan nesne.
 
 ```csharp
 var client = new MobileServiceClient("MOBILE_APP_URL");

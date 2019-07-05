@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: geg
-ms.openlocfilehash: 19b249a76a339ce870609fbcdceaf70bf79a6ea2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62e10f382882e70d488f9814cb00c2b86b8b9691
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65906499"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460228"
 ---
 # <a name="restore-azure-vms"></a>Azure VM'lerini geri yükleme
 
@@ -185,7 +185,7 @@ Bir sanal makine geri yüklendikten sonra dikkat edilecek noktalar vardır:
 
 - Yedekleme yapılandırması sırasında mevcut uzantılar yüklendi, ancak etkin değil. Bir sorun görürseniz, uzantıları yeniden yükleyin.
 - Yedeklenen VM'ye statik bir IP adresi varsa, geri yüklenen VM çakışmayı önlemek için dinamik IP adresi gerekir. Yapabilecekleriniz [geri yüklenen VM'ye statik bir IP adresi ekleyin](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
-- Geri yüklenen VM bir kullanılabilirlik yok ayarlayın. Kuruluş birimi, geri yükleme disk seçeneğini kullanabilirsiniz, [zadat skupinu dostupnosti](../virtual-machines/windows/tutorial-availability-sets.md) sağlanan şablon veya PowerShell kullanarak diskten bir VM oluşturduğunuzda.
+- Geri yüklenen VM bir kullanılabilirlik yok ayarlayın. Geri Yükleme disk seçeneği kullanmanız durumunda yapabilecekleriniz [zadat skupinu dostupnosti](../virtual-machines/windows/tutorial-availability-sets.md) sağlanan şablon veya PowerShell kullanarak diskten bir VM oluşturduğunuzda.
 - Bir cloud-init tabanlı Linux dağıtımı, Ubuntu gibi kullanıyorsanız, güvenlik nedeniyle geri yüklemeden sonra parolayı engellenir. Geri yüklenen VM'ye VMAccess uzantısını kullanın [parola sıfırlama](../virtual-machines/linux/reset-password.md). Geri yüklemeden sonra parola sıfırlama gerekmez, bu dağıtımlarında, SSH anahtarları kullanmanızı öneririz.
 
 

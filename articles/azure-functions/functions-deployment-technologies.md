@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 10976c9cf16dfab4c31d0d77c519dc3277204a51
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 118daf02ab59646f2926071763aa4d7e97846e04
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293054"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508225"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure işlevleri'nde dağıtım teknolojileri
 
@@ -50,16 +50,18 @@ Devam etmeden önce dağıtımları Azure işlevleri'nde nasıl çalıştığın
 Kendi Tetikleyicileri değiştirdiğinizde, İşlevler altyapı bu değişikliklerden haberdar olması gerekir. Bu eşitleme, birçok dağıtım teknolojileri için otomatik olarak gerçekleşir. Ancak, bazı durumlarda, Tetikleyiciler elle eşitlemelidir. Bir dış paket URL'si, yerel Git, bulut eşitleme veya FTP kullanarak, güncelleştirmeleri dağıtırken, Tetikleyiciler elle eşitlemek emin olmanız gerekir. Üç yoldan biriyle Tetikleyicileri eşitleyebilirsiniz:
 
 * Azure portalında işlev uygulamanızı yeniden başlatın
-* Bir HTTP POST isteği gönderin `https://www.{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` kullanarak [ana anahtarı](functions-bindings-http-webhook.md#authorization-keys).
+* Bir HTTP POST isteği gönderin `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` kullanarak [ana anahtarı](functions-bindings-http-webhook.md#authorization-keys).
 * Bir HTTP POST isteği gönderin `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Yer tutucuları, abonelik Kimliğiniz, kaynak grubu adı ve işlev uygulamanızın adı ile değiştirin.
 
 ## <a name="deployment-technology-details"></a>Dağıtım teknolojisi ayrıntıları  
+
+Bu aşağıdaki dağıtım yöntemleri, Azure işlevleri tarafından desteklenir.
 
 ### <a name="external-package-url"></a>Dış paket URL'si
 
 İşlevi uygulamanızı içeren bir uzaktan paket (.zip) dosya başvuru sağlar. Sağlanan URL'den dosya indirilir ve uygulamanın çalıştığı [çalışma alanından paket](run-functions-from-deployment-package.md) modu.
 
->__Nasıl kullanılacağını:__ Ekleme `WEBSITE_RUN_FROM_PACKAGE` uygulama ayarlarınızı için. Bu ayarın değerini adresa URL – çalıştırmak istediğiniz belirli paket dosyasının konumu olmalıdır. Ayarları ekleyebilirsiniz ya da [portalında](functions-how-to-use-azure-function-app-settings.md#settings) veya [Azure CLI kullanarak](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). Azure blob depolama kullanıyorsanız, özel bir kapsayıcı ile kullanmalısınız bir [paylaşılan erişim imzası (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) paketi işlevleri erişmenizi sağlayacak. Dilediğiniz zaman uygulama yeniden başlatılmadan başvurunuz uygulama ömrü boyunca geçerli olması gerektiği anlamına gelir içeriğin bir kopyasını getirir.
+>__Nasıl kullanılacağını:__ Ekleme `WEBSITE_RUN_FROM_PACKAGE` uygulama ayarlarınızı için. Bu ayarın değerini adresa URL – çalıştırmak istediğiniz belirli paket dosyasının konumu olmalıdır. Ayarları ekleyebilirsiniz ya da [portalında](functions-how-to-use-azure-function-app-settings.md#settings) veya [Azure CLI kullanarak](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). Azure blob depolama kullanıyorsanız, özel bir kapsayıcı ile kullanmalısınız bir [paylaşılan erişim imzası (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) paketi işlevleri erişmenizi sağlayacak. Dilediğiniz zaman uygulama yeniden başlatılmadan başvurunuz uygulama ömrü boyunca geçerli olması gerektiği anlamına gelir içeriğin bir kopyasını getirir.
 
 >__Ne zaman kullanılmalı:__ Bu, Azure işlevleri tüketim planı (Önizleme) Linux'ta çalışan için desteklenen tek dağıtım yöntemidir. Bir işlev uygulamasına başvuruyor paket dosyası güncelleştirilirken gerekir [Tetikleyicileri'el ile eşitleme](#trigger-syncing) Azure uygulamanızı değişmiş olduğunu söylemek için.
 
@@ -88,11 +90,11 @@ Azure işlevi uygulamanızı içeren bir zip dosyası göndermenize izin verir. 
 
 ### <a name="web-deploy-msdeploy"></a>Web dağıtımı (MSDeploy)
 
-Paketler ve Windows uygulamalarınızı Windows üzerinde çalışan Azure işlev uygulamalarınızı dahil olmak üzere, herhangi bir IIS sunucusuna dağıtır.
+Paketler ve Windows uygulamalarınızı Windows azure'da çalışan işlev uygulamalarınızı dahil olmak üzere, herhangi bir IIS sunucusuna dağıtır.
 
->__Nasıl kullanılacağını:__ Kullanım [Azure işlevleri için Visual Studio Araçları](functions-create-your-first-function-visual-studio.md), ve işaret `Run from package file (recommended)` onay kutusu.
+>__Nasıl kullanılacağını:__ Kullanım [Azure işlevleri için Visual Studio Araçları](functions-create-your-first-function-visual-studio.md), kaldırın `Run from package file (recommended)` kutusu.
 >
->Alternatif olarak, çağrı `MSDeploy.exe` indirdikten sonra doğrudan [Web dağıtma 3.6](https://www.iis.net/downloads/microsoft/web-deploy).
+> Ayrıca yükleyebilirsiniz [Web dağıtma 3.6](https://www.iis.net/downloads/microsoft/web-deploy) ve çağrı `MSDeploy.exe` doğrudan.
 
 >__Ne zaman kullanılmalı:__ Bu dağıtım teknolojisi desteklenmez ve herhangi bir sorun yok, ancak tercih edilen mekanizması şimdi [Zip dağıtımı etkin paket gelen çalıştırma ile](#zip-deploy). Daha fazla bilgi için ziyaret [Visual Studio geliştirme Kılavuzu](functions-develop-vs.md#publish-to-azure).
 

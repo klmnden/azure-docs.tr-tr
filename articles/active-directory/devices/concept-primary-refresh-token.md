@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6515f60fb67e52a7924afec2effd0c2001935e5d
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 5e195a93209875b9eabfaa2ad00772281922443c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190252"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476109"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Bir birincil yenileme belirteci nedir?
 
@@ -62,7 +62,7 @@ Bir Windows 10 cihazda iki senaryoda kullanıcı kimlik doğrulaması sırasınd
    * Aracılığıyla bir hesap ekleme **bu hesabın bu cihaz üzerinde her yerde kullanın** bir uygulamaya (örneğin, Outlook) oturum açtıktan sonra sor
    * Bir hesaptan ekleme **ayarları** > **hesapları** > **işe veya okula erişim** > **Bağlan**
 
-Bu senaryolarda, Azure AD WAM eklentisi PRT birincil yetkilisini olduğu Windows oturum açma, bu Azure AD hesabıyla oluyor değil.
+Azure AD kayıtlı cihaz senaryolarda, Azure AD WAM eklentisi PRT birincil yetkilisini olduğu Windows oturum açma, bu Azure AD hesabıyla oluyor değil.
 
 > [!NOTE]
 > 3\. taraf kimlik sağlayıcılar PRT verme Windows 10 cihazlarında etkinleştirmek için WS-Güven protokolünü destekleyen gerekir. Hibrit Azure AD'ye katılmış veya Azure AD kullanıcıları katılmış cihazlar için WS-Trust, PRT yayınlanamıyor olmadan

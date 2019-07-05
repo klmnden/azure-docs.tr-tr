@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 6f3140f412f9d36ca36cef440bd4e60f1a9197d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d74c40264e8ed535d250e938487885a848ba6b47
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702233"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484190"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Apache Hive ve Apache Pig, HDInsight ile kullanmak Python kullanıcı tanımlı işlevler (UDF)
 
@@ -161,9 +161,6 @@ Aşağıdaki komutların yerini `sshuser` gerçek kullanıcı farklı olması du
     ```
 
 ### <a name="upload-file-powershell"></a>(PowerShell) dosyasını karşıya yükleyin
-
-> [!IMPORTANT]  
-> Bu PowerShell betikleri çalışmaz [güvenli aktarım](../../storage/common/storage-require-secure-transfer.md) etkinleştirilir.  Kabuk komutları kullanabilir veya güvenli aktarım devre dışı bırakın.
 
 PowerShell uzaktan Hive sorguları çalıştırmak için de kullanılabilir. Çalışma dizininizin nerede olduğundan emin olun `hiveudf.py` bulunur.  Aşağıdaki PowerShell komut dosyası kullanan bir Hive sorgusu çalıştırmak amacıyla kullanmak `hiveudf.py` betiği:
 
@@ -433,9 +430,6 @@ Aşağıdaki komutların yerini `sshuser` gerçek kullanıcı farklı olması du
 
 
 ### <a name="upload-file-powershell"></a>(PowerShell) dosyasını karşıya yükleyin
-
-> [!IMPORTANT]  
-> Bu PowerShell betikleri çalışmaz [güvenli aktarım](../../storage/common/storage-require-secure-transfer.md) etkinleştirilir.  Kabuk komutları kullanabilir veya güvenli aktarım devre dışı bırakın.
 
 PowerShell uzaktan Hive sorguları çalıştırmak için de kullanılabilir. Çalışma dizininizin nerede olduğundan emin olun `pigudf.py` bulunur.  Aşağıdaki PowerShell komut dosyası kullanan bir Hive sorgusu çalıştırmak amacıyla kullanmak `pigudf.py` betiği:
 

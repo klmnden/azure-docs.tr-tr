@@ -7,12 +7,12 @@ ms.service: cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 3dcce64d86574a3e898531b2e2587b81d04f098d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7e75a6ffe28aa74ea2fad30bbe2728317712d86b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080777"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443484"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN Verizon Premium kural altyapısı özellikleri
 
@@ -456,7 +456,7 @@ Hangi önbellek ayarları izlenen şekilde nedeniyle, bu özellik aşağıdaki e
 - İstemci IP adresi
 - Tanımlama bilgisi parametresi
 - Tanımlama bilgisi parametre normal ifade
-- Ülke
+- Country
 - Cihaz
 - Microsoft Edge Cname
 - Etki alanı başvuran
@@ -588,7 +588,7 @@ Hangi önbellek ayarları izlenen şekilde nedeniyle, bu özellik aşağıdaki e
 - İstemci IP adresi
 - Tanımlama bilgisi parametresi
 - Tanımlama bilgisi parametre normal ifade
-- Ülke
+- Country
 - Cihaz
 - Edge Cname
 - Etki alanı başvuran
@@ -715,7 +715,7 @@ Hangi önbellek ayarları izlenen şekilde nedeniyle, bu özellik aşağıdaki e
 - İstemci IP adresi
 - Tanımlama bilgisi parametresi
 - Tanımlama bilgisi parametre normal ifade
-- Ülke
+- Country
 - Cihaz
 - Edge Cname
 - Etki alanı başvuran
@@ -799,7 +799,7 @@ Hangi önbellek ayarları izlenen şekilde nedeniyle, bu özellik aşağıdaki e
 - İstemci IP adresi
 - Tanımlama bilgisi parametresi
 - Tanımlama bilgisi parametre normal ifade
-- Ülke
+- Country
 - Cihaz
 - Edge Cname
 - Etki alanı başvuran
@@ -867,7 +867,7 @@ Hangi önbellek ayarları izlenen şekilde nedeniyle, bu özellik aşağıdaki e
 - İstemci IP adresi
 - Tanımlama bilgisi parametresi
 - Tanımlama bilgisi parametre normal ifade
-- Ülke
+- Country
 - Cihaz
 - Edge Cname
 - Etki alanı başvuran
@@ -1128,7 +1128,7 @@ Bu özellik, bir müşteri sağlar. istemci IP adresi bulmak için kaynak sunucu
 
 Belirtilen üst bilgi adı aşağıdaki adları hiçbirini eşleşmediğini emin olun:
 
-- Standart istek üst bilgi adları. Standart üst bilgi adları listesini bulunabilir [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+- Standart istek üst bilgi adları. Standart üst bilgi adları listesini bulunabilir [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Ayrılmış üst bilgi adları:
     - iletilen için
     - host

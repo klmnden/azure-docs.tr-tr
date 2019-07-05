@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d42c693fae6b538136d1e8c93094a0ea9e2077
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c6da92ccd50707e676a1f5d583fe22ae8b3d8b73
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288411"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476312"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>PIM'de Azure kaynak rol ayarlarını yapılandırma
 
@@ -38,19 +38,19 @@ Bir Azure Kaynak rolü ayarlarını açmak için şu adımları izleyin.
 
 1. Bir abonelik veya yönetim grubu gibi yönetmek istediğiniz kaynağa tıklayın.
 
-    ![Azure kaynaklarını yönetmek için listesi](./media/pim-resource-roles-configure-role-settings/resources-list.png)
+    ![Azure kaynaklarını sayfa yönetilebilir kaynakları listeleme](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
 1. Tıklayın **rol ayarları**.
 
-    ![Rol ayarları](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
+    ![Azure kaynağı rolleri listeleme rol Ayarları sayfası](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
 1. Ayarları yapılandırmak istediğiniz rolüne tıklayın.
 
-    ![Rol ayarı ayrıntıları](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+    ![Rol ayarı Ayrıntıları sayfasında birden fazla atama ve etkinleştirme ayarlarını listeleme](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
 1. Tıklayın **Düzenle** rol ayarlar bölmesini açın.
 
-    ![Rol ayarlarını Düzenle](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![Rol Ayarları sayfası atama ve etkinleştirme ayarlarını güncelleştirmek için Seçenekleri Düzenle](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
 
     Rol ayarı bölmesinde her rol için yapılandırabileceğiniz birkaç ayar vardır.
 
@@ -109,7 +109,7 @@ Bir rolü etkinleştirmek için onay gerektir istiyorsanız, aşağıdaki adıml
 
 1. Tıklayın **onaylayanları seçin** Seç üyelerinin veya grubun bir bölme açmak için.
 
-    ![Bir üye veya grup seçin](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
+    ![Onaylayanları seçin üyelerinin veya grubun bölmesi seçin](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
 1. En az bir üye veya grup seçin ve ardından **seçin**. Herhangi bir birleşimini üyeleri ve grupları ekleyebilirsiniz. En az bir onaylayan seçmeniz gerekir. Hiçbir varsayılan onaylayanlar vardır.
 

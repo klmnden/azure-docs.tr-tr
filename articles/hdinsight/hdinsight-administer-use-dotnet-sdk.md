@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 06e3178e344ee46f67cfd8a6feaf08d56d3c86e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abfbac552cc5cb4449a75c45d0c1ffdbcf6b770c
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64724137"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508113"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>.NET SDK kullanarak HDInsight Apache Hadoop kümelerini yönetme
 
@@ -257,10 +257,6 @@ Bkz: [HDInsight çalıştırma MapReduce örnekleri](hadoop/apache-hadoop-run-sa
 
 Bkz: [.NET SDK kullanarak Apache Hive sorgularını çalıştırma](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
-**Apache Pig işleri göndermek için**
-
-Bkz: [.NET SDK'sını kullanarak çalıştırma Apache Pig işleri](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
-
 **Apache Sqoop işleri göndermek için**
 
 Bkz: [HDInsight ile Apache Sqoop'u kullanma](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
@@ -271,7 +267,7 @@ Bkz: [tanımlamak ve HDInsight içinde bir iş akışı çalıştırmak için Ha
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Azure Blob depolama alanına veri yükleme
 
-Bkz. [HDInsight'a veri yükleme][hdinsight-upload-data].
+Bkz: [HDInsight için verileri karşıya yükleme][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 
@@ -279,8 +275,8 @@ Bkz. [HDInsight'a veri yükleme][hdinsight-upload-data].
 * [Azure portalını kullanarak HDInsight Apache Hadoop kümelerini yönetme](hdinsight-administer-use-portal-linux.md)
 * [Bir komut satırı arabirimi ile HDInsight'ı yönetme][hdinsight-admin-cli]
 * [HDInsight kümeleri oluşturma][hdinsight-provision]
-* [HDInsight'a veri yükleme][hdinsight-upload-data]
-* [Azure HDInsight'ı Kullanmaya Başlama][hdinsight-get-started]
+* [HDInsight için karşıya veri yükleme][hdinsight-upload-data]
+* [Azure HDInsight ile çalışmaya başlama][hdinsight-get-started]
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/

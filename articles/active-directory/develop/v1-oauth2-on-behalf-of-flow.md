@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc352c6867779fd8f4487acdb1d11c0fabe4b9f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51fd5c8f406ea54c7fc8e81c674e41b30d7ad406
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110983"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482425"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Hizmetten hizmete temsilci kullanım kullanıcı kimliği On-Behalf-Of akışı çağırır.
 
@@ -38,7 +38,7 @@ OAuth 2.0 On-Behalf-Of (OBO) akış, bir hizmeti veya web API'si, başka bir hiz
 
 OBO flow kullanan bir uygulamayı kullanıcının kimliği doğrulandıktan sonra başlar [OAuth 2.0 yetkilendirme kodu verme akışı](v1-protocols-oauth-code.md). Bu noktada, uygulamasını orta katman web API'sine (API A) kullanıcı talepleri ve API A. erişmek için bir onay içeren bir erişim belirteci (belirteç A) gönderir. Ardından, API bir aşağı akış web API'sine (API B) kimliği doğrulanmış bir isteği yapar.
 
-Bu adımlar, On-Behalf-Of akışı oluşturan: ![OAuth2.0 üzerinde-Behalf-Of akışı](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+Bu adımlar, On-Behalf-Of akışı oluşturan: ![On-Behalf-Of akışı OAuth2.0 adımları gösterir](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. İstemci uygulama bir API A A. belirteciyle istekte
 1. API bir Azure AD belirteç yayınında uç noktaya kimliğini doğrular ve API B'nin erişmek için bir belirteç istekleri

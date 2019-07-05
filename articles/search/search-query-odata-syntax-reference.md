@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: cccfb749af07d1deeeda6e94de9c2cd5ce5396f3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ebe41ba61ac5136900328db9c35acb8551dcd5b2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079671"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428650"
 ---
 # <a name="odata-expression-syntax-reference-for-azure-search"></a>Azure Search için OData ifadesi söz dizimi başvurusu
 
-Azure Search kullanan [OData ifadeleri](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) API boyunca parametre olarak. OData ifadeler için en yaygın olarak kullanılan `$orderby` ve `$filter` parametreleri. Bu ifadeler, birden çok yan tümceleri, İşlevler ve işleçler içeren karmaşık olabilir. Ancak, daha basit OData ifadeleri yolları birçok Azure Search REST API bölümlerinde kullanılan özellik ister. Örneğin, yol ifadelerini API'sindeki zaman listeleme alt alanlar gibi her yerde, karmaşık alanlarının alt alanlara başvurmak için kullanılan bir [öneri aracı](index-add-suggesters.md), [işlevi Puanlama](index-add-scoring-profiles.md), `$select` parametresi , hatta [fielded Search'te Lucene sorgu](query-lucene-syntax.md).
+Azure Search kullanan [OData ifadeleri](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) API boyunca parametre olarak. OData ifadeler için en yaygın olarak kullanılan `$orderby` ve `$filter` parametreleri. Bu ifadeler, birden çok yan tümceleri, İşlevler ve işleçler içeren karmaşık olabilir. Ancak, daha basit OData ifadeleri yolları birçok Azure Search REST API bölümlerinde kullanılan özellik ister. Örneğin, yol ifadelerini API'sindeki zaman listeleme alt alanlar gibi her yerde, karmaşık alanlarının alt alanlara başvurmak için kullanılan bir [öneri aracı](index-add-suggesters.md), [işlevi Puanlama](index-add-scoring-profiles.md), `$select` parametresi , hatta [fielded Search'te Lucene sorgu](query-lucene-syntax.md).
 
 Bu makalede, bu formları resmi dilbilgisi kullanarak OData ifadelerin açıklanır. Ayrıca bir [etkileşimli çizimin](#syntax-diagram) dilbilgisi görsel olarak keşfedin yardımcı olmak için.
 

@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/05/2019
-ms.openlocfilehash: bd0e8099be5422d561541aeb8911c9a1610befcb
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 29fdb200075a5b5843944a7a890cc2f8ad61f1ee
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272772"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543847"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-image"></a>Özel Docker görüntüsü kullanarak model dağıtma
 
@@ -55,14 +55,14 @@ Bu bölümdeki bilgiler, Docker görüntülerini depolamak için bir Azure Conta
 
     Görüntüleri kullanarak, depolanan __çalışma alanı için kapsayıcı kayıt defteri__, kayıt defterinde kimlik doğrulaması gerekmez. Kimlik doğrulaması, çalışma alanı tarafından işlenir.
 
-    > [!TIP]
-    > Çalışma alanınız için kapsayıcı kayıt defteri denenmesi veya çalışma alanını kullanarak model dağıtma ilk kez oluşturulur. Yeni bir çalışma alanı oluşturduğunuz ancak değil eğitilmiş ve bir model oluşturdunuz, hiçbir Azure Container Registry için çalışma alanı bulunur.
+    > [!WARNING]
+    > Çalışma alanınız için Azure Container Rzegistry olduğu __denenmesi veya model dağıtma ilk kez oluşturulan__ çalışma alanını kullanma. Yeni bir çalışma alanı oluşturduğunuz ancak değil eğitilmiş ve bir model oluşturdunuz, hiçbir Azure Container Registry için çalışma alanı bulunur.
 
     Çalışma alanınız için Azure Container Registry adı alma hakkında daha fazla bilgi için bkz: [Get kapsayıcı kayıt defteri adı](#getname) bu makalenin.
 
     Görüntüleri kullanarak, depolanan bir __tek başına kapsayıcı kayıt defteri__, en azından okuma erişimi bir hizmet sorumlusu yapılandırmanız gerekecektir. Ardından kayıt defterinden görüntüleri kullanan herkes için hizmet sorumlusu kimliği (kullanıcı adı) ve parola'ni sağlayın. Kapsayıcı kayıt defteri genel olarak erişilebilir yaptığınız varsa istisnadır.
 
-    Özel bir Azure Container Registry oluşturma hakkında daha fazla bilgi için bkz. [özel kapsayıcı kayıt defteri oluşturma](/azure/container-registry/container-registery-get-started-azure-cli).
+    Özel bir Azure Container Registry oluşturma hakkında daha fazla bilgi için bkz. [özel kapsayıcı kayıt defteri oluşturma](/azure/container-registry/container-registry-get-started-azure-cli).
 
     Azure Container Registry ile hizmet sorumlularını kullanma hakkında daha fazla bilgi için bkz: [hizmet sorumluları ile Azure Container Registry kimlik doğrulaması](/azure/container-registry/container-registry-auth-service-principal).
 
@@ -80,8 +80,8 @@ Bu bölümdeki bilgiler, Docker görüntülerini depolamak için bir Azure Conta
 
 Bu bölümde, Azure Machine Learning hizmeti çalışma alanınız için Azure Container Registry adı alma konusunda bilgi edinin.
 
-> [!TIP]
-> Çalışma alanınız için kapsayıcı kayıt defteri denenmesi veya çalışma alanını kullanarak model dağıtma ilk kez oluşturulur. Yeni bir çalışma alanı oluşturduğunuz ancak değil eğitilmiş ve bir model oluşturdunuz, hiçbir Azure Container Registry için çalışma alanı bulunur.
+> [!WARNING]
+> Çalışma alanınız için Azure kapsayıcı kayıt defteri __denenmesi veya model dağıtma ilk kez oluşturulan__ çalışma alanını kullanma. Yeni bir çalışma alanı oluşturduğunuz ancak değil eğitilmiş ve bir model oluşturdunuz, hiçbir Azure Container Registry için çalışma alanı bulunur.
 
 Zaten eğitim almış veya dağıtılan modeller Azure Machine Learning hizmetini kullanarak, çalışma alanınız için bir kapsayıcı kayıt defteri oluşturuldu. Bu kapsayıcı kayıt defteri adını bulmak için aşağıdaki adımları kullanın:
 
@@ -153,9 +153,9 @@ Bu bölümü gözden geçirme, Azure Container Registry'de özel bir Docker gör
     Run ID: cda was successful after 2m56s
     ```
 
-Bir Azure Container Registry ile görüntü derleme hakkında daha fazla bilgi için bkz. [oluşturup Azure Container kayıt defteri görevleri kullanarak bir kapsayıcı görüntüsünü çalıştırın](/docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli.md)
+Bir Azure Container Registry ile görüntü derleme hakkında daha fazla bilgi için bkz. [oluşturup Azure Container kayıt defteri görevleri kullanarak bir kapsayıcı görüntüsünü çalıştırın](https://docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli)
 
-Bir Azure Container Registry'ye mevcut görüntü karşıya daha fazla bilgi için bkz: [özel bir Docker kapsayıcı kayıt defterine ilk görüntünüzü itme](/azure/container-registry/container-registry-get-started-docker-cli.md).
+Bir Azure Container Registry'ye mevcut görüntü karşıya daha fazla bilgi için bkz: [özel bir Docker kapsayıcı kayıt defterine ilk görüntünüzü itme](/azure/container-registry/container-registry-get-started-docker-cli).
 
 ## <a name="use-a-custom-image"></a>Özel görüntü kullanma
 

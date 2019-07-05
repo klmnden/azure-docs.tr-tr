@@ -18,18 +18,18 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e6a5ecd704aabb4994337cb7b7df9e84677348d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d53ed0c9a8ae63c2cb0ced635c6f0a8e8a3222fd
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235290"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482737"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Nasıl yapılır: Çok kiracılı uygulama desenini kullanarak herhangi bir Azure Active Directory kullanıcısı ile oturum açın
 
 Çoğu kuruluş için bir hizmet (SaaS) uygulaması olarak bir yazılım teklifi sunuyorsanız, uygulamanızı herhangi bir Azure Active Directory (Azure AD) kiracısı oturum açma işlemleri kabul edecek şekilde yapılandırabilirsiniz. Bu yapılandırma olarak adlandırılır *, uygulamanın çok kiracılı yapmadan*. Tüm Azure AD kiracısında kullanıcı hesaplarına uygulamanızda kullandığınız onaylanıyor sonra uygulamanızı oturum açmak mümkün olacaktır.
 
-Kendi hesap sistemi sahip veya bu diğer diğer bulut sağlayıcılarına ait oturum açma türünü destekler var olan bir uygulamanız varsa, ekleyerek Azure AD oturum açma herhangi bir kiracıdaki basit bir işlemdir. Yalnızca uygulamanızı kaydetmeniz, OAuth2, Openıd Connect veya SAML ile oturum açma kod ekleyin ve put bir ["Sign in ile Microsoft" düğmesi] [ AAD-App-Branding] uygulamanızdaki.
+Kendi hesap sistemi sahip veya bu diğer diğer bulut sağlayıcılarına ait oturum açma türünü destekler var olan bir uygulamanız varsa, ekleyerek Azure AD oturum açma herhangi bir kiracıdaki basit bir işlemdir. Yalnızca uygulamanızı kaydetmeniz, OAuth2, Openıd Connect veya SAML ile oturum açma kod ekleyin ve put bir ["Sign in ile Microsoft" düğmesi][AAD-App-Branding] uygulamanızdaki.
 
 > [!NOTE]
 > Bu makalede, zaten Azure AD için tek kiracılı bir uygulama oluşturma ile ilgili bilgi sahibi olduğunuz kabul edilmektedir. Değilseniz, üzerinde hızlı başlangıçları biriyle başlayın [Geliştirici Kılavuzu giriş sayfası][AAD-Dev-Guide].
@@ -45,7 +45,7 @@ Her adım ayrıntılı olarak bakalım. Doğrudan atlayabilirsiniz [çok kiracı
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Aktualizovat registraci. çok kiracılı olması
 
-Varsayılan olarak, Azure AD web uygulaması/API'si kayıtları tek kiracılı olan. Kaydınızı bularak çok kiracılı yapabileceğiniz **desteklenen hesap türleri** açın **kimlik doğrulaması** uygulama kaydınızı bölmesinde [Azureportalı] [ AZURE-portal] ve ayarlamak **herhangi bir kuruluş dizini hesaplarında**.
+Varsayılan olarak, Azure AD web uygulaması/API'si kayıtları tek kiracılı olan. Kaydınızı bularak çok kiracılı yapabileceğiniz **desteklenen hesap türleri** açın **kimlik doğrulaması** uygulama kaydınızı bölmesinde [Azureportalı][AZURE-portal] ve ayarlamak **herhangi bir kuruluş dizini hesaplarında**.
 
 Çok kiracılı bir uygulama yapılabilmesi için önce Azure AD uygulama kimliği URI'si uygulamanın genel olarak benzersiz olması gerekir. Uygulama Kimliği URI'si, uygulamanın protokol iletileri içinde tanımlanması için kullanılan yollardan biridir. Tek kiracılı bir uygulamada Uygulama Kimliği URI'sinin kiracı içinde benzersiz olması yeterlidir. Azure AD'nin uygulamayı tüm kiracılar arasında bulabilmesi için çok kiracılı uygulamada bu değerin genel olarak benzersiz olması gerekir. Genel olarak benzersiz olma gereksinimi, Uygulama Kimliği URI'sinin Azure AD kiracısının doğrulanmış etki alanı ile eşleşen bir ana bilgisayar adına sahip olması şartıyla sağlanır.
 
@@ -106,7 +106,7 @@ Bir kullanıcı bir uygulamanın Azure AD'de oturum açmak, uygulama kullanıcı
 
 Çok kiracılı bir uygulama için ilk kayıt için uygulama geliştiricisi tarafından kullanılan Azure AD kiracısında yaşar. Farklı bir kiracıda bir kullanıcı uygulamaya ilk kez oturum açtığında, Azure AD uygulama tarafından istenen izinleri onay ister. Bunlar onay sonra uygulamanın bir gösterimi adı verilen bir *hizmet sorumlusu* kullanıcının kiracısında oluşturulur ve oturum açma devam edebilir. Bir temsilci, dizinde kullanıcının izni uygulama kayıtları da oluşturulur. Uygulamanın uygulama ve ServicePrincipal nesneleri ve birbirleriyle nasıl ilişki kuracağını hakkında daha fazla bilgi için bkz: [uygulama nesneleri ve hizmet sorumlusu nesneleri][AAD-App-SP-Objects].
 
-![Tek katmanlı uygulama için onayı][Consent-Single-Tier]
+![Tek katmanlı bir uygulamaya onay gösterir][Consent-Single-Tier]
 
 Bu onay deneyiminde, uygulama tarafından istenen izinleri tarafından etkilenir. Microsoft kimlik platformu iki izinler, yalnızca uygulama ve temsilci türünü destekler.
 
@@ -119,11 +119,11 @@ Diğer bir kiracı yönetici onayı gerektirirken bazı için normal bir kullan�
 
 Yalnızca uygulama izinleri, her zaman bir kiracı yönetici onayı gerektirir. Uygulamanızı bir salt uygulama izni isteklerini ve bir kullanıcı uygulamada oturum açmaya çalışırsa, kullanıcı onayı sağlayamadığı belirten bir hata iletisi görüntülenir.
 
-Belirli bir temsilci izinleri de bir kiracı yönetici onayı gerektirir. Örneğin, oturum açmış kullanıcı olarak Azure AD'ye geri yazma özelliğini bir kiracı yönetici onayı gerektirir. Normal bir kullanıcı, yönetici onayı gerektiren temsilci atanmış izin isteyen bir uygulamada oturum çalışırsa, yalnızca uygulama izinleri gibi uygulamanızın bir hata alır. Yönetici onayı yayımlanan kaynak ve kaynak için belgelerinde bulunabilir geliştiricisi tarafından belirlenir olup bir izni gerektirir. İzinleri belgelerine [Azure AD Graph API'si] [ AAD-Graph-Perm-Scopes] ve [Microsoft Graph API] [ MSFT-Graph-permission-scopes] yönetici izinleri gerektiren belirtin onay vermiş olursunuz.
+Belirli bir temsilci izinleri de bir kiracı yönetici onayı gerektirir. Örneğin, oturum açmış kullanıcı olarak Azure AD'ye geri yazma özelliğini bir kiracı yönetici onayı gerektirir. Normal bir kullanıcı, yönetici onayı gerektiren temsilci atanmış izin isteyen bir uygulamada oturum çalışırsa, yalnızca uygulama izinleri gibi uygulamanızın bir hata alır. Yönetici onayı yayımlanan kaynak ve kaynak için belgelerinde bulunabilir geliştiricisi tarafından belirlenir olup bir izni gerektirir. İzinleri belgelerine [Azure AD Graph API'si][AAD-Graph-Perm-Scopes] and [Microsoft Graph API][MSFT-Graph-permission-scopes] hangi izinlerin yönetici onayı gerektiren gösterir.
 
 Uygulamanız yönetici onayı gerektiren izinler kullanıyorsa, yönetim eylemi nerede başlatabilirsiniz bir düğme veya bağlantı gibi hareket sahip olması. Bu eylem ayrıca içeren her zamanki OAuth2/Openıd Connect yetkilendirme isteği için uygulamanızın gönderdiği isteği `prompt=admin_consent` sorgu dizesi parametresi. Yönetici onay verdi ve müşteri kiracısında hizmet sorumlusu oluşturulduktan sonra sonraki oturum açma istekleri gerekmeyen `prompt=admin_consent` parametresi. Yönetici istenen izinleri kabul edilebilir olduğuna karar olduğundan, başka hiçbir kullanıcı kiracıda o noktadan ilerideki onayı istenir.
 
-Kiracı Yöneticisi, uygulamalara izin vermesi normal kullanıcılar için devre dışı bırakabilirsiniz. Bu özellik devre dışı bırakılırsa, yönetici onayı her zaman kiracısında kullanılmak üzere uygulama için gerekli değildir. Devre dışı son kullanıcı onayı ile uygulamanızı test etmek istiyorsanız, yapılandırma anahtarı bulabilirsiniz [Azure portalında] [ AZURE-portal] içinde **[kullanıcı ayarları](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** bölümüne **kurumsal uygulamalar**.
+Kiracı Yöneticisi, uygulamalara izin vermesi normal kullanıcılar için devre dışı bırakabilirsiniz. Bu özellik devre dışı bırakılırsa, yönetici onayı her zaman kiracısında kullanılmak üzere uygulama için gerekli değildir. Devre dışı son kullanıcı onayı ile uygulamanızı test etmek istiyorsanız, yapılandırma anahtarı bulabilirsiniz [Azure portalında][AZURE-portal] içinde **[kullanıcı ayarları](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** bölümüne **Kurumsal uygulamalar**.
 
 `prompt=admin_consent` Parametresi yönetici onayı gerektirmeyen izinleri isteyen uygulamalar tarafından da kullanılabilir. Bu olduğunda kullanılacak bir örnek uygulama nerede Kiracı Yöneticisi "kaydolursa" bir deneyim gerekiyorsa bir saat ve başka kullanıcılar bu noktadan itibaren onayı istenir ' dir.
 
@@ -144,7 +144,7 @@ Mantıksal uygulamanızı iki veya daha fazla uygulama kayıtları, örneğin ay
 
 Bu örnek web API'si çağırma çok katmanlı bir yerel istemci gösterilmiştir [ilişkili içerik](#related-content) bu makalenin sonunda bölüm. Aşağıdaki diyagramda, tek bir kiracıda kayıtlı çok katmanlı bir uygulama için onay genel bir bakış sağlar.
 
-![Çok katmanlı bilinen istemci uygulamaları için onay][Consent-Multi-Tier-Known-Client]
+![Çok katmanlı bilinen istemci uygulamasına izin gösterir][Consent-Multi-Tier-Known-Client]
 
 #### <a name="multiple-tiers-in-multiple-tenants"></a>Birden fazla katmanda birden fazla Kiracı
 
@@ -159,13 +159,13 @@ Microsoft dışındaki bir kuruluş tarafından oluşturulan bir API ise, geliş
 
 Aşağıdaki diyagramda, farklı kiracıda kayıtlı çok katmanlı bir uygulama için onay genel bir bakış sağlar.
 
-![Çok katmanlı bir uygulama çok taraflı için onay][Consent-Multi-Tier-Multi-Party]
+![Çok taraflı çok katmanlı bir uygulama için onay gösterir][Consent-Multi-Tier-Multi-Party]
 
 ### <a name="revoking-consent"></a>Onayı iptal etme
 
 Kullanıcıların ve yöneticilerin onay uygulamanıza dilediğiniz zaman iptal edebilirsiniz:
 
-* Kullanıcılar, bunları kaldırarak tek tek uygulamalar için erişimi iptal et kendi [erişim paneli uygulamaları] [ AAD-Access-Panel] listesi.
+* Kullanıcılar, bunları kaldırarak tek tek uygulamalar için erişimi iptal et kendi [erişim paneli uygulamaları][AAD-Access-Panel] listesi.
 * Yöneticiler, bunları kaldırarak uygulamalara erişimi iptal et kullanarak [kurumsal uygulamalar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) bölümünü [Azure portalında][AZURE-portal].
 
 Yönetici uygulamaya bir kiracıdaki tüm kullanıcılar için bulursa, kullanıcılar tek tek erişimi iptal edemez. Yalnızca yönetici erişimi iptal edebilir ve yalnızca tüm uygulama için.

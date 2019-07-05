@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: normesta
-ms.openlocfilehash: 446b49cbf3fdf3d4cde37b2a7c4ac2d9f0a811b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: daf9199104047f714d568bd2796490b836243952
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061341"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443227"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2 ile'ilgili bilinen sorunlar
 
@@ -57,7 +57,6 @@ Aşağıdaki tablo, diğer tüm özellikler ve henüz desteklenen veya hiyerarş
 | **AzCopy** | Sürüme özgü desteği <br><br>Yalnızca en güncel AzCopy sürümünü kullanın ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). AzCopy v8.1 gibi AzCopy'nın önceki sürümlerinde desteklenmez.|
 | **Azure Blob Depolama yaşam döngüsü yönetimi ilkeleri** | Henüz desteklenmiyor |
 | **Azure Content Delivery Network'te (CDN)** | Henüz desteklenmiyor|
-| **Azure Event Grid** | Henüz desteklenmiyor |
 | **Azure arama** |Henüz desteklenmiyor|
 | **Azure Depolama Gezgini** | Sürüme özgü desteği <br><br>Yalnızca sürümünü kullanın `1.6.0` veya üzeri. <br>Sürüm `1.6.0` olarak kullanılabilir bir [ücretsiz](https://azure.microsoft.com/features/storage-explorer/).|
 | **BLOB kapsayıcısı ACL'leri** |Henüz desteklenmiyor|

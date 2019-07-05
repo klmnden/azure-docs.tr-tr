@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d485799547644ccb3c34a8841e8b20d8a45444bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ffe2cfc19a7ce94e47046839f6973793b73c118
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707364"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441408"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Kurumsal Güvenlik Paketi ile HDInsight içinde Apache Hive ilkelerini yapılandırma
 Apache Hive için Apache Ranger ilkelerini yapılandırmayı öğrenin. Bu makalede hivesampletable erişimini kısıtlamak için iki Ranger ilkesi oluşturacaksınız. hivesampletable, HDInsight kümelerine sahiptir. İlkeleri yapılandırdıktan sonra Excel ve ODBC sürücüsünü kullanarak HDInsight’taki Hive tablolarına bağlanabilirsiniz.
@@ -37,7 +37,7 @@ Apache Hive için Apache Ranger ilkelerini yapılandırmayı öğrenin. Bu makal
     Ranger şu an için yalnızca Yarn ve Hive ile birlikte çalışmaktadır.
 
 ## <a name="create-domain-users"></a>Etki alanı kullanıcılarını oluşturma
-Bkz: [HDInsight küme oluşturma ile ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp), hiveruser1 ve hiveuser2 kullanıcılarını oluşturma hakkında daha fazla bilgi için. Bu öğreticide iki kullanıcı hesaplarını kullandığınız.
+Bkz: [HDInsight küme oluşturma ile ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp), hiveruser1 ve hiveuser2 kullanıcılarını oluşturma hakkında daha fazla bilgi için. Bu makalede iki kullanıcı hesabını kullanırsınız.
 
 ## <a name="create-ranger-policies"></a>Ranger ilkelerini oluşturma
 Bu bölümde hivesampletable erişimi için iki Ranger ilkesi oluşturun. Farklı sütun kümelerine select izni vereceksiniz. Her iki kullanıcı kullanılarak oluşturulan [HDInsight küme oluşturma ile ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). Bir sonraki bölümde ise iki ilkeyi Excel'de test edeceksiniz.

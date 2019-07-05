@@ -4,17 +4,17 @@ description: Bu VM management çözüm başlar ve Azure Resource Manager sanal m
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d4e1ad106b928c41bd6940d7c3713b5fb34afe3a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39ba577580424bf8283d64198bb3068b82869c51
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389102"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476883"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Sırasında Azure Otomasyonu çözümde yoğun olmayan saatlerde Vm'leri başlatma/durdurma
 
@@ -140,7 +140,7 @@ Vm'leri başlatma/durdurma sırasında yoğun olmayan saatlerde çözüm Otomasy
    Burada, sizden istenir:
    - Belirtin **hedef ResourceGroup adları**. Bu değerler, bu çözüm tarafından yönetilecek Vm'leri içeren kaynak grubu adları. Birden fazla ad girin ve her (Bu değerler büyük küçük harfe duyarlı değildir) virgül kullanarak ayırın. Abonelikte yer alan tüm kaynak gruplarındaki sanal makineleri hedeflemek istiyorsanız, joker karakter kullanılması desteklenir. Bu değer depolanan **External_Start_ResourceGroupNames** ve **External_Stop_ResourceGroupNames** değişkenleri.
    - Belirtin **VM çıkarma listesini (dize)** . Bu değer, hedef kaynak grubu bir veya daha fazla sanal makinelerden adıdır. Birden fazla ad girin ve her (Bu değerler büyük küçük harfe duyarlı değildir) virgül kullanarak ayırın. Joker karakter kullanılması desteklenir. Bu değer depolanan **External_ExcludeVMNames** değişkeni.
-   - Seçin bir **zamanlama**. Bu, bir yinelenen tarih ve saat için başlatma ve durdurma hedef kaynak gruplarındaki VM'lerin değerdir. Varsayılan olarak, zamanlama, 30 dakika sonra için yapılandırılır. Başka bir bölge seçmeyi kullanılabilir değil. Çözüm yapılandırdıktan sonra belirli bir saat dilimi için zamanlama yapılandırmak için bkz [başlatma ve kapatma zamanlamasını değiştirme](#modify-the-startup-and-shutdown-schedules).
+   - Seçin bir **zamanlama**. Bir tarih ve saat zamanlamanızı için seçin. Yinelenen bir günlük zamanlama, seçtiğiniz saat ile başlayarak oluşturulur. Başka bir bölge seçmeyi kullanılabilir değil. Çözüm yapılandırdıktan sonra belirli bir saat dilimi için zamanlama yapılandırmak için bkz [başlatma ve kapatma zamanlamasını değiştirme](#modify-the-startup-and-shutdown-schedules).
    - Almaya **e-posta bildirimleri** bir eylem grubundan varsayılan değerini kabul **Evet** ve geçerli bir eposta adresi belirtin. Seçerseniz **Hayır** ancak daha sonraki bir tarihte karar e-posta bildirimleri almak istediğinizi, güncelleştirebilirsiniz [eylem grubu](../azure-monitor/platform/action-groups.md) virgülle ayrılmış geçerli e-posta adresi ile oluşturulur. Aşağıdaki uyarı kurallarını etkinleştirmeniz gerekir:
 
      - AutoStop_VM_Child

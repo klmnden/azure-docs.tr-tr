@@ -10,20 +10,18 @@ tags: azure-resource-manager
 ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 07/03/2019
 ms.author: cynthn
-ms.openlocfilehash: ede2092be4e4eaf201e15307a7d9934ea267ae37
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d67f9e9ad99ccd6267de9dbb9fd0c64adb41f0cb
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61481522"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565567"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Bir Windows VM için başka bir Azure abonelik veya kaynak grubunu Taşı
-Bu makalede, bir Windows sanal makinesi (VM), kaynak grubu veya abonelik arasında taşıma konusunda size yol gösterir. Abonelikler arasında taşıma, kişisel bir abonelikte ilk olarak bir VM oluşturduysanız, kullanışlı ve çalışmaya devam etmek için şirketinizin aboneliğine taşımak şimdi istiyorsunuz.
+Bu makalede, bir Windows sanal makinesi (VM), kaynak grubu veya abonelik arasında taşıma konusunda size yol gösterir. Abonelikler arasında taşıma, kişisel bir abonelikte ilk olarak bir VM oluşturduysanız, kullanışlı ve çalışmaya devam etmek için şirketinizin aboneliğine taşımak şimdi istiyorsunuz. Sanal Makineyi taşımak için başlangıç gerekmez ve taşıma işlemi sırasında çalışmaya devam etmelidir.
 
 > [!IMPORTANT]
 >Yeni kaynak kimliklerini taşımanın bir parçası oluşturulur. VM taşındıktan sonra araçları ve betikleri, yeni kaynak kimliğini kullanacak şekilde güncelleştirmeniz gerekir. 
@@ -37,7 +35,7 @@ Bu makalede, bir Windows sanal makinesi (VM), kaynak grubu veya abonelik arasın
 Bir sanal makineyi başka bir kaynak grubuna taşımak için ayrıca tüm bağımlı kaynakları taşıdığınızdan emin olmanız gerekir. Bu kaynakların her biri kaynak kimliği listesini almak için kullanın [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) cmdlet'i.
 
 ```azurepowershell-interactive
- Get-AzResource -ResourceGroupName <sourceResourceGroupName> | Format-table -Property ResourceId 
+ Get-AzResource -ResourceGroupName <sourceResourceGroupName> | Format-list -wrap -Property ResourceId 
 ```
 
 Önceki komutun çıktısındaki kaynak kimliklerinin virgülle ayrılmış bir listesi olarak kullanabileceğiniz [taşıma AzResource](https://docs.microsoft.com/powershell/module/az.resources/move-azresource) her kaynak hedef konuma taşımak için. 

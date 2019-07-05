@@ -8,19 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: ea2399572177cc10006a5d9ee715190fff4a347b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0df9e4b41ff89dd295fe644900b78640a083e985
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66471449"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514574"
 ---
 # <a name="about-recovery-plans"></a>Kurtarma planları hakkında
 
 Bu makalede kurtarma planlarında [Azure Site Recovery](site-recovery-overview.md).
 
-Kurtarma planında makineleri kurtarma gruplar halinde toplar. Bir planı siparişi, yönergeleri ve görevler için ekleyerek özelleştirebilirsiniz. Bir plan tanımlandıktan sonra üzerinde bir yük devretme çalıştırabilirsiniz.
-
+Kurtarma planında makineleri kurtarma gruplar halinde toplar. Bir planı siparişi, yönergeleri ve görevler için ekleyerek özelleştirebilirsiniz. Bir plan tanımlandıktan sonra üzerinde bir yük devretme çalıştırabilirsiniz.  Birden çok kurtarma planlarıyla, daha önce dağıtılmışsa, sonraki planları dağıtım/başlatma makinenin başka bir kurtarma planı atlanacak makineler başvurulabilir.
 
 
 ## <a name="why-use-a-recovery-plan"></a>Bir kurtarma planı neden kullanmalısınız?

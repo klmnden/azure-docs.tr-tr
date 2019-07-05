@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: a953af3d9cd5a6748b79465a59b4a4284e58714c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4aeda5612b2b3e9e2073a65320b238266c8bb33a
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070138"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537863"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>En fazla 100 TB için hiper ölçekli hizmet katmanı
 
@@ -38,7 +38,7 @@ Azure SQL veritabanı'nda hiper ölçekli hizmet katmanı sanal çekirdek tabanl
 Azure SQL veritabanı'nda hiper ölçekli Hizmet katmanını, aşağıdaki özellikleri sağlar:
 
 - Veritabanı boyutu en fazla 100 TB için destek
-- Neredeyse anında işlem GÇ etkilemeden boyutundan bağımsız olarak veritabanı yedeklemeleri (Azure Blob depolamada depolanan dosya anlık görüntüleri göre)   
+- Neredeyse anında işlem kaynakları üzerinde herhangi bir GÇ etkisi boyutundan bağımsız olarak veritabanı yedeklemeleri (Azure Blob depolamada depolanan dosya anlık görüntüleri göre)  
 - Veritabanını geri yükler (dosya anlık görüntülerine dayalı) dakika yerine saatler veya günler hızlı (değil veri işleminin boyutu)
 - Daha fazla günlük performans ve veri birimlerini bağımsız olarak daha hızlı hareket işleme süreleri nedeniyle yüksek genel performansı
 - Hızlı ölçeği genişletme - bir veya daha fazla salt okunur düğüm, okuma iş yükü boşaltma için ve kullanımına yönelik sık erişimli-yedek sağlayabilirsiniz
@@ -161,7 +161,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 - Çin Doğu 2
 - Çin Kuzey 2
 - Doğu Asya
-- Doğu ABD
+- East US
 - Doğu ABD 2
 - Fransa Orta
 - Japonya Doğu
@@ -225,7 +225,7 @@ Bunlar hiper ölçekli hizmet katmanına büyüyecek itibarıyla geçerli sını
 
 | Sorun | Açıklama |
 | :---- | :--------- |
-| Yedekleri Yönet bölmesinde bir mantıksal sunucu için hiper ölçekli veritabanları, SQL Server'dan filtrelenir göstermez  | Hiper ölçekli yedeklemeler yönetmek için ayrı bir yöntem vardır ve bu nedenle zaman yedek saklama ayarları noktasında ve uzun süreli saklama uygulanmaz / geçersiz kılınır. Buna göre hiper ölçekli veritabanlarını yedeklemeyi yönetme Bölmesi'nde görünmez. |
+| Yedekleri Yönet bölmesinde bir mantıksal sunucu için hiper ölçekli veritabanları, SQL Server'dan filtrelenir göstermez  | Hiper ölçekli yedeklemeler yönetmek için ayrı bir yöntem vardır ve bu nedenle uzun vadeli bekletme ve saat yedekleme bekletme ayarlarını noktasında uygulanmaz / geçersiz kılınır. Buna göre hiper ölçekli veritabanlarını yedeklemeyi yönetme Bölmesi'nde görünmez. |
 | Belirli bir noktaya geri yükleme | Bir veritabanı hiper ölçekli hizmet katmanına geçirildikten sonra bir-belirli bir noktaya geçişten önce geri yükleme desteklenmiyor.|
 | Geri yükleme, olmayan - hiper ölçekli DB Hypserscale ve tersi | Bir hiper ölçekli veritabanı olmayan hiper ölçekli bir veritabanına geri yükleyemezsiniz ya da bir hiper ölçekli olmayan veritabanı hiper ölçekli bir veritabanına geri yükleyebilirsiniz.|
 | Bir veritabanı dosyası etkin bir iş yükü nedeniyle geçiş sırasında artar ve dosya sınır başına 1 TB'ı aştığında, geçiş başarısız olur. | Risk azaltma işlemleri: <br> -Eğer Mümkünse, çalışan hiçbir güncelleştirme iş yükü olduğunda veritabanını geçirin.<br> -Geçiş işlemini yeniden deneyin, geçiş sırasında 1 TB sınır aşıldığında değil sürece başarılı olur.|

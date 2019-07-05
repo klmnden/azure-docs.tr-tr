@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: 572043598c71a400e154c5c2e9e6c2f1e9b4ab49
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 69548541d16db95f633400808f72aebaf59cff08
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191804"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477772"
 ---
 # <a name="connect-using-ssh-to-a-linux-virtual-machine-using-azure-bastion-preview"></a>Azure savunma (Önizleme) kullanarak bir Linux sanal makinesinde SSH kullanarak bağlanma
 
@@ -42,7 +42,7 @@ Bir bağlantı kurmak için aşağıdaki roller gereklidir:
 ## <a name="username"></a>Bağlan: Kullanıcı adı ve parola kullanarak
 
 
-1. İçinde [Azure portalında](https://aka.ms/BastionHost) savunma Önizleme, bağlanmak istediğiniz sanal makineye gidin ve ardından **Connect**. VM, bir SSH bağlantısı kullanılırken bir Linux sanal makinesi olmalıdır.
+1.  Kullanım [bu bağlantıyı](https://aka.ms/BastionHost) için savunma Azure Önizleme portalı sayfasını açın. Bağlanmak istediğiniz sanal makineye gidin, ardından tıklatın **Connect**. VM, bir SSH bağlantısı kullanılırken bir Linux sanal makinesi olmalıdır.
 1. Bağlan'a tıklayın, sonra üç sekme – RDP ve SSH güvenlikli olan bir kenar çubuğu görünür. Sanal ağ için savunma sağlanması halinde, savunma sekmesi varsayılan olarak etkindir. Sanal ağ için savunma sağlamadıysanız değilse [yapılandırma savunma](bastion-create-host-portal.md). Görmüyorsanız, **savunma** listelenen Önizleme portalı açtığınız değil. Portalı kullanarak açın [bu bağlantıyı](https://aka.ms/BastionHost).
 
       ![VM'ye bağlanın](./media/bastion-connect-vm-ssh/bastion.png)
@@ -52,7 +52,7 @@ Bir bağlantı kurmak için aşağıdaki roller gereklidir:
 
 ## <a name="privatekey"></a>Bağlan: El ile bir özel anahtarı girin
 
-1. İçinde [Azure portalında](https://aka.ms/BastionHost) savunma Önizleme, bağlanmak istediğiniz sanal makineye gidin ve ardından **Connect**. VM, bir SSH bağlantısı kullanılırken bir Linux sanal makinesi olmalıdır.
+1.  Kullanım [bu bağlantıyı](https://aka.ms/BastionHost) için savunma Azure Önizleme portalı sayfasını açın. Bağlanmak istediğiniz sanal makineye gidin, ardından tıklatın **Connect**. VM, bir SSH bağlantısı kullanılırken bir Linux sanal makinesi olmalıdır.
 1. Bağlan'a tıklayın, sonra üç sekme – RDP ve SSH güvenlikli olan bir kenar çubuğu görünür. Sanal ağ için savunma sağlanması halinde, savunma sekmesi varsayılan olarak etkindir. Sanal ağ için savunma sağlamadıysanız değilse [yapılandırma savunma](bastion-create-host-portal.md). Görmüyorsanız, **savunma** listelenen Önizleme portalı açtığınız değil. Portalı kullanarak açın [bu bağlantıyı](https://aka.ms/BastionHost).
 
       ![VM'ye bağlanın](./media/bastion-connect-vm-ssh/bastion.png)
@@ -63,7 +63,7 @@ Bir bağlantı kurmak için aşağıdaki roller gereklidir:
 
 ## <a name="ssh"></a>Bağlan: Bir özel anahtar dosyası kullanma
 
-1. İçinde [Azure portalında](https://aka.ms/BastionHost) savunma Önizleme, bağlanmak istediğiniz sanal makineye gidin ve ardından **Connect**. VM, bir SSH bağlantısı kullanılırken bir Linux sanal makinesi olmalıdır.
+1.  Kullanım [bu bağlantıyı](https://aka.ms/BastionHost) için savunma Azure Önizleme portalı sayfasını açın. Bağlanmak istediğiniz sanal makineye gidin, ardından tıklatın **Connect**. VM, bir SSH bağlantısı kullanılırken bir Linux sanal makinesi olmalıdır.
 
     ![VM'ye bağlanın](./media/bastion-connect-vm-ssh/connect.png)
 

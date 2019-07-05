@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 699707953ae06afa9cbf3cc7286f94917ba0efca
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991392"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490121"
 ---
 # <a name="understand-and-work-with-scopes"></a>Kapsamları anlama ve bunlarla çalışma
 
@@ -100,19 +100,19 @@ Azure Abonelikleri, kayıt hesapları altında iç içe geçirilmiştir. Fatural
 
 Belirli bir fatura hesap altında açıkça kalan yoktur çünkü faturalandırma kullanıcıları yönetim gruplarına erişiminiz yok. Erişim yönetim gruplarına açıkça verilmelidir. Yönetim, tüm iç içe aboneliklerden döküm maliyetleri gruplandırır. Ancak, yalnızca kullanım tabanlı satın alma işlemleri içerirler. Bunlar gibi ayırmaları ve üçüncü taraf Market teklifleri satın alma işlemleri içermez. Bu maliyetler görüntülemek için EA Faturalama hesabı kullanın.
 
-## <a name="individual-agreement-pay-as-you-go-scopes"></a>Tek tek anlaşma (Kullandıkça Öde) kapsamları
+## <a name="individual-agreement-scopes"></a>Tek tek anlaşma kapsamları
 
-Kullandıkça Öde (PAYG) Abonelikleri, ilgili türleri dahil olmak üzere ücretsiz deneme ister ve geliştirme/test teklifleri, açık bir faturalama hesabı kapsam yok. Bunun yerine, her abonelik hesap sahibi veya EA hesap sahibi gibi hesap yöneticisi vardır.
+Tek tek teklifleriyle oluşturulan azure abonelikleri geliştirme ve test teklifleri, açık bir faturalama hesabı kapsam yok ve daha ücretsiz deneme gibi Kullandıkça Öde ve ilgili türleri gibi. Bunun yerine, her abonelik hesap sahibi veya EA hesap sahibi gibi hesap yöneticisi vardır.
 
 - [**Fatura hesabı** ](../billing/billing-view-all-accounts.md) -tek bir hesap sahibi için bir veya daha fazla Azure aboneliği temsil eder. Birden çok kişi ya da toplam maliyeti görünümlere erişim için erişim verme şu anda desteklemiyor.
 
     Kaynak türü: Geçerli değil
 
-PAYG abonelik hesabı yöneticileri görüntülemek ve fatura ve ödemeleri, gibi fatura verilerini yönetmenize [Azure hesap Merkezi](https://account.azure.com/subscriptions). Ancak, bunlar maliyet verilerini görüntüleyemez veya Azure portalında kaynakları yönetin. Hesap Yöneticisi erişim vermek için daha önce bahsedilen maliyet yönetim rollerini kullanın.
+Bir bireysel Azure aboneliği hesap yöneticileri görüntülemek ve fatura ve ödemeleri, gibi fatura verilerini yönetmenize [Azure hesap Merkezi](https://account.azure.com/subscriptions). Ancak, bunlar maliyet verilerini görüntüleyemez veya Azure portalında kaynakları yönetin. Hesap Yöneticisi erişim vermek için daha önce bahsedilen maliyet yönetim rollerini kullanın.
 
-EA, Azure portalında faturalarını PAYG abonelik hesabı yöneticileri görebilirsiniz. Maliyet Yönetimi okuyucu ve maliyet Yönetimi katkıda bulunan rollerinin faturalar erişim sağlamıyorsa aklınızda bulundurun. Daha fazla bilgi için [PAYG faturalar için erişimi nasıl](../billing/billing-manage-access.md#give-access-to-billing).
+EA, bir bireysel Azure aboneliği hesap yöneticileri Azure portalında faturalarını görebilirsiniz. Maliyet Yönetimi okuyucu ve maliyet Yönetimi katkıda bulunan rollerinin faturalar erişim sağlamıyorsa aklınızda bulundurun. Daha fazla bilgi için [faturalar için erişimi nasıl](../billing/billing-manage-access.md##give-read-only-access-to-billing).
 
-## <a name="customer-agreement-scopes"></a>Müşteri sözleşmesi kapsamları
+## <a name="microsoft-customer-agreement-scopes"></a>Microsoft Müşteri sözleşmesi kapsamları
 
 Microsoft Müşteri sözleşmesi fatura hesapları aşağıdaki kapsamlar vardır:
 
@@ -148,7 +148,7 @@ Bulut çözümü sağlayıcısı (CSP) iş ortakları maliyet Yönetimi'nde bug�
 
 ## <a name="switch-between-scopes-in-cost-management"></a>Maliyet Yönetimi'nde kapsamları arasında geçiş yapma
 
-Azure portalında tüm maliyet Yönetimi görünümlerini içeren bir **kapsam** zehirli görünümü sol üst. Hızlı bir şekilde kapsamını değiştirmek için kullanın. Tıklayın **kapsam** zehirli Kapsam Seçici'yi açın. Bu, fatura hesapları, kök yönetim grubu ve kök yönetim grubu altında iç içe olmayan tüm abonelikleri gösterir. Bir kapsam seçin için arka plan vurgulayın ve ardından'ı **seçin** altındaki. Ayrıntıya bir Abonelikteki kaynak grupları gibi iç içe geçmiş kapsamlar için açma kapsam adı bağlantısına tıklayın. Tüm iç içe geçme düzeyi üst kapsamda seçmek için tıklatın **seçin &lt;kapsam&gt;**  üst kapsam Seçici.
+Azure portalında tüm maliyet Yönetimi görünümlerini içeren bir **kapsam** sol üst görünümün seçim zehirli. Hızlı bir şekilde kapsamını değiştirmek için kullanın. Tıklayın **kapsam** zehirli Kapsam Seçici'yi açın. Bu, fatura hesapları, kök yönetim grubu ve kök yönetim grubu altında iç içe olmayan tüm abonelikleri gösterir. Bir kapsam seçin için arka plan vurgulayın ve ardından'ı **seçin** altındaki. Ayrıntıya bir Abonelikteki kaynak grupları gibi iç içe geçmiş kapsamlar için açma kapsam adı bağlantısına tıklayın. Tüm iç içe geçme düzeyi üst kapsamda seçmek için tıklatın **seçin &lt;kapsam&gt;**  üst kapsam Seçici.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>Kaynak kimliği için bir kapsam tanımlama
 

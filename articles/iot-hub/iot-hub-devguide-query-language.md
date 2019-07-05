@@ -1,18 +1,18 @@
 ---
 title: Azure IOT Hub sorgu dili anlama | Microsoft Docs
 description: Geliştirici Kılavuzu - açıklama SQL benzeri IOT Hub'ın sorgu dili, IOT hub'dan cihaz/modül ikizler ve işler hakkında bilgi almak için kullanılır.
-author: rezasherafat
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
-ms.author: rezas
-ms.openlocfilehash: 4fbb731d9908e791a6fce2b087d9b734b98a25cb
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.author: robinsh
+ms.openlocfilehash: 03d2ca0b7d6b53215c5293f84c8b22a2dc0d8297
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137721"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450073"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Cihaz ve modül ikizleri, işler ve ileti yönlendirme için IOT Hub sorgu dili
 
@@ -328,8 +328,8 @@ SELECT <select_list>
 
 **< From_specification >'nden** yan tümcesi yalnızca üç değerden varsayabilirsiniz: **CİHAZLARDAN** için sorgu cihaz ikizlerini **devices.modules gelen** sorgu modül ikizlerini için veya **devices.jobs gelen** sorgu iş cihaz başına ayrıntıları.
 
-
 ## <a name="where-clause"></a>WHERE yan tümcesi
+
 **Burada < filter_condition >** yan tümcesi, isteğe bağlıdır. Bu JSON FROM koleksiyonda belge bir veya daha fazla koşul sonucu bir parçası olarak dahil edilecek karşılamalıdır belirtir. Herhangi bir JSON belgesi, "sonucu dahil edilmesi için true olarak" belirli koşullar değerlendirmelidir.
 
 İzin verilen koşullar bölümünde açıklanan [ifadeleri ve koşulları](iot-hub-devguide-query-language.md#expressions-and-conditions).
@@ -366,6 +366,7 @@ SELECT [TOP <max number>] <projection list>
 Şu anda farklı seçim tümceleri **seçin*** yalnızca cihaz ikizlerini üzerinde toplama sorguları desteklenir.
 
 ## <a name="group-by-clause"></a>GROUP BY yan tümcesi
+
 **< Group_specification > GROUP BY** yan tümcesi SELECT belirtilen projeksiyon önce ve WHERE yan tümcesinde belirtilen filtre sonra yürüten isteğe bağlı bir adımdır. Bu belgeler bir özniteliğin değerine göre gruplandırır. Bu gruplar, SELECT yan tümcesinde belirtilen toplanan değerler oluşturmak için kullanılır.
 
 GROUP BY kullanarak bir sorgu örneğidir:
@@ -393,9 +394,9 @@ GROUP BY yan tümcesi şu anda yalnızca cihaz ikizlerini sorgulanırken destekl
 > [!IMPORTANT]
 > Terim `group` sorgularda özel bir anahtar sözcük olarak kabul edilir. Kullandığınız durumda `group` örn, hataları önlemek için çift köşeli parantez ile çevreleyen, özellik adı olarak düşünün `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
 >
->
 
 ## <a name="expressions-and-conditions"></a>İfadeleri ve koşulları
+
 Yüksek bir düzeyde bir *ifade*:
 
 * (Örneğin, Boolean, sayı, dize, dizi veya nesne) bir JSON türde bir örnek olarak değerlendirilir.
@@ -443,6 +444,7 @@ Her simge ifadeleri söz diziminde temsil anlamak için aşağıdaki tabloya bak
 | string_literal |Dize değişmez değerleri, sıfır veya daha fazla Unicode karakter dizisi veya kaçış dizileri tarafından temsil edilen Unicode dizelerdir. Dize sabit değerlerinin tek tırnak işareti ya da çift tırnak işaretleri içine alınır. İzin verilen çıkar: `\'`, `\"`, `\\`, `\uXXXX` 4 onaltılık basamak tarafından tanımlanan Unicode karakter. |
 
 ### <a name="operators"></a>İşleçler
+
 Aşağıdaki işleçleri destekler:
 
 | Ailesi | İşleçler |
@@ -452,6 +454,7 @@ Aşağıdaki işleçleri destekler:
 | Karşılaştırma |=, !=, <, >, <=, >=, <> |
 
 ### <a name="functions"></a>İşlevler
+
 İkizler ve işler desteklenen tek sorgulanırken işlevi şu şekildedir:
 
 | İşlev | Açıklama |

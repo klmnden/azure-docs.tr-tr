@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 06/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 73384868deb8f0e33b233e363c42a12adbcbe402
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05faf77d22f77da87e7c22d47473e6debf0f77c8
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237555"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461037"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Azure zaman serisi öngörüleri önizlemesinde modelleme verileri
 
@@ -29,12 +29,12 @@ Güncelleştirme kullanma hakkında daha fazla bilgi edinmek için [Azure zaman 
 
 1. Zaman serisi modelleri Seçici Masası'na gidin ve seçin **türleri** menüsünde. Zaman serisi modelleri türlerinde odaklanmak için Panel'i Daralt.
 
-    [![Tek bir tür oluşturma](media/v2-update-how-to-tsm/portal_one.png)](media/v2-update-how-to-tsm/portal_one.png#lightbox)
+    [![Tek bir tür oluşturma](media/v2-update-how-to-tsm/portal-one.png)](media/v2-update-how-to-tsm/portal-one.png#lightbox)
 
 1. **Add (Ekle)** seçeneğini belirleyin.
 1. Giriş türlerini ilgilidir ve seçin tüm ayrıntıları **Oluştur**. Bu eylem, ortamda türleri oluşturur.
 
-    [![Bir türü Ekle](media/v2-update-how-to-tsm/portal_two.png)](media/v2-update-how-to-tsm/portal_two.png#lightbox)
+    [![Bir türü Ekle](media/v2-update-how-to-tsm/portal-two.png)](media/v2-update-how-to-tsm/portal-two.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-types"></a>Toplu karşıya yükleme, bir veya daha fazla türleri
 
@@ -42,21 +42,21 @@ Güncelleştirme kullanma hakkında daha fazla bilgi edinmek için [Azure zaman 
 1. Tür yükü içeren dosyayı seçin.
 1. **Karşıya Yükle**’yi seçin.
 
-    [![JSON karşıya yükleme](media/v2-update-how-to-tsm/portal_three.png)](media/v2-update-how-to-tsm/portal_three.png#lightbox)
+    [![JSON karşıya yükleme](media/v2-update-how-to-tsm/portal-three.png)](media/v2-update-how-to-tsm/portal-three.png#lightbox)
 
 ### <a name="edit-a-single-type"></a>Tek bir türünü Düzenle
 
 1. Türü seçip **Düzenle**. 
 1. Gerekli değişiklikleri yapın ve seçin **Kaydet**.
 
-    [![Türü Düzenle](media/v2-update-how-to-tsm/portal_four.png)](media/v2-update-how-to-tsm/portal_four.png#lightbox)
+    [![Türü Düzenle](media/v2-update-how-to-tsm/portal-four.png)](media/v2-update-how-to-tsm/portal-four.png#lightbox)
 
 ### <a name="delete-a-type"></a>Bir türünü Sil
 
 1. Türü seçip **Sil**.
 1. Hiçbir örnek türleri ile ilişkili ise bu silinir.
 
-    [![Bir türünü Sil](media/v2-update-how-to-tsm/portal_five.png)](media/v2-update-how-to-tsm/portal_five.png#lightbox)
+    [![Bir türünü Sil](media/v2-update-how-to-tsm/portal-five.png)](media/v2-update-how-to-tsm/portal-five.png#lightbox)
 
 ## <a name="hierarchies"></a>Hiyerarşiler
 
@@ -64,19 +64,19 @@ Güncelleştirme kullanma hakkında daha fazla bilgi edinmek için [Azure zaman 
 
 1. Zaman serisi modelleri Seçici Masası'na gidin ve seçin **hiyerarşileri** menüsünde. Zaman serisi modelleri Hiyerarşiler odaklanmak için Panel'i Daralt.
 
-    [![Hiyerarşileri seçin](media/v2-update-how-to-tsm/portal_six.png)](media/v2-update-how-to-tsm/portal_six.png#lightbox)
+    [![Hiyerarşileri seçin](media/v2-update-how-to-tsm/portal-six.png)](media/v2-update-how-to-tsm/portal-six.png#lightbox)
 
 1. **Add (Ekle)** seçeneğini belirleyin.
 
-    [![Bir hiyerarşi Ekle](media/v2-update-how-to-tsm/portal_seven.png)](media/v2-update-how-to-tsm/portal_seven.png#lightbox)
+    [![Bir hiyerarşi Ekle](media/v2-update-how-to-tsm/portal-seven.png)](media/v2-update-how-to-tsm/portal-seven.png#lightbox)
 
 1. Seçin **ekleme düzeyi** sağ bölmede.
 
-    [![Bir düzey Ekle](media/v2-update-how-to-tsm/portal_eight.png)](media/v2-update-how-to-tsm/portal_eight.png#lightbox)
+    [![Bir düzey Ekle](media/v2-update-how-to-tsm/portal-eight.png)](media/v2-update-how-to-tsm/portal-eight.png#lightbox)
 
 1. Hiyerarşi ayrıntılarını girin ve seçin **Oluştur**.
 
-    [![Bir düzey oluşturun](media/v2-update-how-to-tsm/portal_nine.png)](media/v2-update-how-to-tsm/portal_nine.png#lightbox)
+    [![Bir düzey oluşturun](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-hierarchies"></a>Toplu karşıya yükleme, bir veya daha fazla hiyerarşiler
 
@@ -84,21 +84,21 @@ Güncelleştirme kullanma hakkında daha fazla bilgi edinmek için [Azure zaman 
 1. Hiyerarşi yükü içeren dosyayı seçin.
 1. **Karşıya Yükle**’yi seçin.
 
-    [![Toplu karşıya yükleme hiyerarşiler](media/v2-update-how-to-tsm/portal_ten.png)](media/v2-update-how-to-tsm/portal_ten.png#lightbox)
+    [![Toplu karşıya yükleme hiyerarşiler](media/v2-update-how-to-tsm/portal-ten.png)](media/v2-update-how-to-tsm/portal-ten.png#lightbox)
 
 ### <a name="edit-a-single-hierarchy"></a>Tek bir hiyerarşiyi Düzenle
 
 1. Hiyerarşi seçip **Düzenle**.
 1. Gerekli değişiklikleri yapın ve seçin **Kaydet**.
 
-    [![Tek bir hiyerarşiyi Düzenle](media/v2-update-how-to-tsm/portal_eleven.png)](media/v2-update-how-to-tsm/portal_eleven.png#lightbox)
+    [![Tek bir hiyerarşiyi Düzenle](media/v2-update-how-to-tsm/portal-eleven.png)](media/v2-update-how-to-tsm/portal-eleven.png#lightbox)
 
 ### <a name="delete-a-hierarchy"></a>Bir hiyerarşiyi Sil
 
 1. Hiyerarşi seçip **Sil**. 
 1. Örnek hiyerarşi ile ilişkili ise bu silinir.
 
-    [![Bir hiyerarşiyi Sil](media/v2-update-how-to-tsm/portal_twelve.png)](media/v2-update-how-to-tsm/portal_twelve.png#lightbox)
+    [![Bir hiyerarşiyi Sil](media/v2-update-how-to-tsm/portal-twelve.png)](media/v2-update-how-to-tsm/portal-twelve.png#lightbox)
 
 ## <a name="instances"></a>Örnekler
 
@@ -106,11 +106,11 @@ Güncelleştirme kullanma hakkında daha fazla bilgi edinmek için [Azure zaman 
 
 1. Zaman serisi modelleri Seçici Masası'na gidin ve seçin **örnekleri** menüsünde. Zaman serisi modelleri örneklerinde odaklanmak için Panel'i Daralt.
 
-    [![Tek bir örneğini oluşturma](media/v2-update-how-to-tsm/portal_thirteen.png)](media/v2-update-how-to-tsm/portal_thirteen.png#lightbox)
+    [![Tek bir örneğini oluşturma](media/v2-update-how-to-tsm/portal-thirteen.png)](media/v2-update-how-to-tsm/portal-thirteen.png#lightbox)
 
 1. **Add (Ekle)** seçeneğini belirleyin.
 
-    [![Bir örnek ekler](media/v2-update-how-to-tsm/portal_fourteen.png)](media/v2-update-how-to-tsm/portal_fourteen.png#lightbox)
+    [![Bir örnek ekler](media/v2-update-how-to-tsm/portal-fourteen.png)](media/v2-update-how-to-tsm/portal-fourteen.png#lightbox)
 
 1. Örnek ayrıntıları girin, türü ve hiyerarşi ilişkisi seçip **Oluştur**.
 
@@ -119,7 +119,7 @@ Güncelleştirme kullanma hakkında daha fazla bilgi edinmek için [Azure zaman 
 1. Seçin **karşıya JSON**.
 1. Örnekleri yükü içeren dosyayı seçin.
 
-    [![Toplu karşıya yükleme, bir veya daha fazla örnek](media/v2-update-how-to-tsm/portal_fifteen.png)](media/v2-update-how-to-tsm/portal_fifteen.png#lightbox)
+    [![Toplu karşıya yükleme, bir veya daha fazla örnek](media/v2-update-how-to-tsm/portal-fifteen.png)](media/v2-update-how-to-tsm/portal-fifteen.png#lightbox)
 
 1. **Karşıya Yükle**’yi seçin.
 
@@ -128,7 +128,7 @@ Güncelleştirme kullanma hakkında daha fazla bilgi edinmek için [Azure zaman 
 1. Örnek seçip **Düzenle**. 
 1. Gerekli değişiklikleri yapın ve seçin **Kaydet**.
 
-    [![Tek bir örnek Düzenle](media/v2-update-how-to-tsm/portal_sixteen.png)](media/v2-update-how-to-tsm/portal_sixteen.png#lightbox)
+    [![Tek bir örnek Düzenle](media/v2-update-how-to-tsm/portal-sixteen.png)](media/v2-update-how-to-tsm/portal-sixteen.png#lightbox)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -14,12 +14,12 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7413fcf7992195753cba86a50b7d53a144b36023
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60440654"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476436"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD Privileged Identity Management (PIM) dağıtma
 
@@ -99,7 +99,7 @@ Aşağıdaki bölümde, projeye katılan tüm proje katılımcılarını belirle
 
 #### <a name="stakeholders-pim-for-azure-ad-roles"></a>Proje katılımcıları: PIM için Azure AD rolleri
 
-| Ad | Rol | Eylem |
+| Ad | Role | Eylem |
 | --- | --- | --- |
 | Ad ve e-posta | **Kimlik Mimarı ya da Azure genel yönetici**<br/>Bu değişiklik, kuruluşunuzdaki çekirdek Kimlik Yönetimi altyapısı ile nasıl hizalanacağını tanımlama sorumlu Kimlik Yönetimi ekibinin bir temsilcisi. | SO/R/I |
 | Ad ve e-posta | **Hizmet sahibi / satır Yöneticisi**<br/>Bir hizmet veya Hizmetleri grubunun BT sahipleri bir temsilcisinden. Yardımcı olmak için kendi team PIM alma ve kararların anahtar oldukları. | SO/R/I |
@@ -109,7 +109,7 @@ Aşağıdaki bölümde, projeye katılan tüm proje katılımcılarını belirle
 
 #### <a name="stakeholders-pim-for-azure-resource-roles"></a>Proje katılımcıları: PIM için Azure kaynak rolleri
 
-| Ad | Rol | Eylem |
+| Ad | Role | Eylem |
 | --- | --- | --- |
 | Ad ve e-posta | **Abonelik / kaynak sahibi**<br/>Her bir abonelik veya için PIM dağıtmak istediğiniz kaynak BT sahipleri bir temsilcisinden | SO/R/I |
 | Ad ve e-posta | **Güvenlik sahibi**<br/>Bir Temsilcisi güvenlik ekibinin planın kuruluşunuzun güvenlik gereksinimlerini karşıladığını oturum devre dışı. | SO/R |
@@ -143,7 +143,7 @@ Azure AD rolleri için en az ayrıcalık ilkesini uygulamak için aşağıdaki a
 
 1. Rol, kuruluşunuzda ayrıcalıklı var listesi. Kullanabileceğiniz [PIM Sihirbazı](pim-security-wizard.md#run-the-wizard) aşağıdaki gibi bir sayfaya almak için.
 
-    ![Ayrıcalıklı roller bulun](./media/pim-deployment-plan/discover-privileged-roles-users.png)
+    ![Ayrıcalıklı roller bölmesinde kimin ayrıcalıklı rolleri gösteren keşfedin](./media/pim-deployment-plan/discover-privileged-roles-users.png)
 
 1. Kuruluşunuzdaki tüm genel Yöneticiler için rolü neden bunlar gerektiğini öğrenin. Kişinin iş tarafından bir veya daha fazla ayrıntılı yönetici rolleri gerçekleştirilemiyorsa önceki belge okuma bağlı olarak, bunları genel yönetici rolünden kaldırmak ve gerekir atamaları uygun şekilde olun Azure Active Directory içinde (bir başvuru olarak: Microsoft şu anda yalnızca genel Yönetici rolüne sahip yaklaşık 10 yönetici yok. Daha fazla bilgi [Microsoft PIM kullanma](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access)).
 
@@ -151,7 +151,7 @@ Azure AD rolleri için en az ayrıcalık ilkesini uygulamak için aşağıdaki a
 
 3 ve 4 numaralı adımları otomatikleştirmek için PIM erişimi gözden geçirme işlevde kullanabilir. Yer alan adımları uygulayarak [PIM'de erişim gözden geçirmesi Azure AD rolleri için başlatmak](pim-how-to-start-security-review.md), bir veya daha fazla üyesi olan her bir Azure AD rol için erişim gözden geçirmesi ayarlayabilirsiniz.
 
-![Erişim gözden geçirmesi oluşturma](./media/pim-deployment-plan/create-access-review.png)
+![Bir Azure AD rolleri için erişim gözden geçirme bölmesinde oluşturma](./media/pim-deployment-plan/create-access-review.png)
 
 Gözden geçirenler ayarlamalısınız **üyeler (kendi)** . Bu bir e-posta rolün tüm üyeleri için erişim gerekip gerekmediğini doğrulamak için alın gönderir. Ayrıca açmanız **onayda nedeni gerekli kıl** Gelişmiş ayarlarda, böylece kullanıcılar durum neden ihtiyaç duydukları rolü. Bu bilgilere dayanarak, kullanıcıların gereksiz rollerini kaldırın ve genel yöneticiler söz konusu olduğunda daha ayrıntılı yönetici rolleri atamak mümkün olacaktır.
 
@@ -240,7 +240,7 @@ PIM çözümünüzü uygulamadan önce kuruluşunuzun kullandığı tüm ayrıca
 
 #### <a name="pim-settings-for-azure-ad-roles"></a>Azure AD rolleri için PIM ayarları
 
-| Rol | MFA gerektirme | Bildirim | Olay bileti | Onay iste | Onaylayan | Etkinleştirme süresi | Kalıcı yönetici |
+| Role | MFA gerektirme | Bildirim | Olay bileti | Onay iste | Onaylayan | Etkinleştirme süresi | Kalıcı yönetici |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Genel Yönetici | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Başka genel Yöneticiler | 1 Saat | Acil Durum erişim hesapları |
 | Exchange Yöneticisi | :heavy_check_mark: | :heavy_check_mark: | : x:. | : x:. | None | 2 saat | None |
@@ -248,7 +248,7 @@ PIM çözümünüzü uygulamadan önce kuruluşunuzun kullandığı tüm ayrıca
 
 #### <a name="pim-settings-for-azure-resource-roles"></a>Azure kaynak rolleri için PIM ayarları
 
-| Rol | MFA gerektirme | Bildirim | Onay iste | Onaylayan | Etkinleştirme süresi | Etkin yönetici | Etkin zaman aşımı | Uygun bir süre sonu |
+| Role | MFA gerektirme | Bildirim | Onay iste | Onaylayan | Etkinleştirme süresi | Etkin yönetici | Etkin zaman aşımı | Uygun bir süre sonu |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Önemli abonelik sahibi | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Diğer abonelik sahipleri | 1 Saat | None | yok | 3 ay |
 | Daha az kritik aboneliklerinin kullanıcı erişimi Yöneticisi | :heavy_check_mark: | :heavy_check_mark: | : x:. | None | 1 Saat | None | yok | 3 ay |
@@ -258,7 +258,7 @@ Aşağıdaki tabloda, ayarların her biri açıklanmaktadır.
 
 | Ayar | Açıklama |
 | --- | --- |
-| Rol | Ayarları için tanımladığınız rolün adı. |
+| Role | Ayarları için tanımladığınız rolün adı. |
 | MFA gerektirme | Olup uygun kullanıcı MFA rolünü etkinleştirmeden önce gerçekleştirmeniz gerekir.<br/><br/> :heavy_check_mark: **Microsoft öneriyor** özellikle rolleri Konuk kullanıcılar varsa, tüm yönetici rolleri için MFA zorlama. |
 | Bildirim | Uygun bir kullanıcı rolünü etkinleştirirken genel yönetici, true olarak ayarlanmış ayrıcalıklı Rol Yöneticisi ve kuruluşun Güvenlik Yöneticisi bir e-posta bildirimi alıp almayacağını.<br/><br/>**Not:** Bazı kuruluşların yönetici hesaplarında bu e-posta bildirimleri almak için bağlı bir e-posta adresi yoksa, Yöneticiler bu e-postaları alacak şekilde bir alternatif e-posta adresi ayarlayın tamamlamalıdır. |
 | Olay bileti | Olup uygun kullanıcı rolünü etkinleştirirken bir olay bileti numarası kaydetmek gerekir. Bu ayar, istenmeyen etkinleştirmeleri azaltmak için iç bir olay numarasına sahip her etkinleştirme tanımlamak bir kuruluş yardımcı olur.<br/><br/> :heavy_check_mark: **Microsoft öneriyor** PIM ile iç sisteminize bağlamak için olay bileti sayıların yararlanma. Bu bağlam etkinleştirmesi için gereken onaylayanlar için özellikle yararlıdır. |
@@ -318,7 +318,7 @@ Test kullanıcılarını tanımladığınıza göre PIM test kullanıcılarını
 
 Bu aşama, tüm yapılandırmaları için ayarlanmış olup olmadığını rolleri düzgün biçimde çalıştığından doğrulamak için kullanmanız gerekir. Testlerinizi belgelemek için aşağıdaki tabloyu kullanın. Bu aşama, etkilenen kullanıcılar ile iletişimi iyileştirmek için de kullanmalısınız.
 
-| Rol | Etkinleştirme sırasında beklenen bir davranış | Gerçek sonuçlar |
+| Role | Etkinleştirme sırasında beklenen bir davranış | Gerçek sonuçlar |
 | --- | --- | --- |
 | Genel Yönetici | (1) MFA gerektirme<br/>(2) onayı iste<br/>(3) onaylayana bildirim alır ve onaylayabilirsiniz<br/>(4) rolünü önceden belirlenmiş bir süre sonra süresi dolar. |  |
 | Aboneliğin sahibi *X* | (1) MFA gerektirme<br/>(2) uygun atamayı yapılandırılan süre sonra süresi dolar. |  |

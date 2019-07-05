@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9bb33e7d2bb80bcb19087dca6bc21bafc791af2a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: a745fefa5ceb0f81cf8d66e7af9e308c0ecb40b9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303906"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449862"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -183,6 +183,12 @@ Bulut katmanlaması etkin olmayan birimler için Windows Server yinelenen verile
 - Yinelenen verileri kaldırma tarafından Gecikmeli devam eden yinelenenleri kaldırma iyileştirme işlerinin için bulut katmanlaması tarih ilkesiyle [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) dosya zaten katmanlanmış varsa ayarlama. 
     - Örnek: MinimumFileAgeDays ayarını 7 gündür ve bulut katmanlaması tarih ilkesi 30 gün ise, tarih ilke dosyalar 37 gün sonra katmanı.
     - Not: Bir dosya, Azure dosya eşitleme tarafından katmanlı sonra yinelenenleri kaldırma iyileştirme işi dosyayı atlar.
+- Azure dosya eşitleme aracısının yüklü olduğu Windows Server 2012 R2 çalıştıran bir sunucuya Windows Server 2016 veya Windows Server 2019 yükseltilmiş ise, yinelenen verileri kaldırma ve bulut katmanlaması aynı birimde desteklemek için aşağıdaki adımların gerçekleştirilmesi gerekir:  
+    - Windows Server 2012 R2 için Azure dosya eşitleme aracısını kaldırın ve sunucuyu yeniden başlatın.
+    - Yeni sunucu işletim sistemi sürümü (Windows Server 2016 veya Windows Server 2019) için Azure dosya eşitleme Aracısı'nı indirin.
+    - Azure dosya eşitleme aracısını yükleyin ve sunucuyu yeniden başlatın.  
+    
+    Not: Azure dosya eşitleme yapılandırma ayarlarını sunucudaki aracı kaldırılıp yeniden korunur.
 
 ### <a name="distributed-file-system-dfs"></a>Dağıtılmış dosya sistemi (DFS)
 Azure dosya eşitleme DFS ad alanları (DFS-N) ve DFS Çoğaltma (DFS-R) ile birlikte çalışabilirliği destekler.
@@ -255,7 +261,7 @@ Azure dosya eşitleme yalnızca şu bölgelerde kullanılabilir:
 | Orta Hindistan | Pune |
 | Orta ABD | Iowa |
 | Doğu Asya | Hong Kong SAR |
-| Doğu ABD | Virginia |
+| East US | Virginia |
 | Doğu ABD 2 | Virginia |
 | Kore Orta| Seul |
 | Kore Güney| Busan |
@@ -296,7 +302,7 @@ Coğrafi olarak yedekli depolama ve Azure dosya eşitleme arasında yük devretm
 | Orta Hindistan       | Güney Hindistan        |
 | Orta ABD          | Doğu ABD 2          |
 | Doğu Asya           | Güneydoğu Asya     |
-| Doğu ABD             | Batı ABD            |
+| East US             | Batı ABD            |
 | Doğu ABD 2           | Orta ABD         |
 | Japonya Doğu          | Japonya Batı         |
 | Japonya Batı          | Japonya Doğu         |
@@ -314,7 +320,7 @@ Coğrafi olarak yedekli depolama ve Azure dosya eşitleme arasında yük devretm
 | ABD Devleti Virginia      | ABD Devleti Texas       |
 | Batı Avrupa         | Kuzey Avrupa       |
 | Batı Orta ABD     | Batı ABD 2          |
-| Batı ABD             | Doğu ABD            |
+| Batı ABD             | East US            |
 | Batı ABD 2           | Batı Orta ABD    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Azure Dosya Eşitleme aracısı güncelleştirme ilkesi

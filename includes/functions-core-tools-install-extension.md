@@ -2,48 +2,42 @@
 title: include dosyası
 description: include dosyası
 services: functions
-author: craigshoemaker
+author: ggailey777
 ms.service: functions
 ms.topic: include
-ms.date: 09/25/2018
-ms.author: cshoe
+ms.date: 05/25/2019
+ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: fc5b43dcdee394fea023124171fb42c1a18224dc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d62da82b4a4dd35532dd8776a9111689db469201
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67188137"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448383"
 ---
-Uzantı paketleri olun ayarı aracılığıyla kullanılabilen Azure işlevleri ekibi tarafından yayımlanan tüm bağlamaları *host.json* dosya. Yerel geliştirme için en son sürümüne sahip olun [Azure işlevleri çekirdek Araçları](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).
+## <a name="register-extensions"></a>Uzantılarını kaydetme
 
-Uzantı paketleri kullanmak için güncelleştirme *host.json* eklemek için şu girdiyi dosyaya `extensionBundle`:
+Bağlamaları hariç olmak üzere HTTP ve Zamanlayıcı Tetikleyicileri, İşlevler çalışma zamanı sürüm 2.x uzantı paketleri uygulanır. Sürüm 2.x Azure işlevleri çalışma zamanı, sahip, işlevlerde kullanılan bağlama türleri için uzantıları açıkça kaydedilecek. Bu HTTP bağlamaları ve uzantılar gerektirmeyen Zamanlayıcı Tetikleyicileri özel durumlardır.
 
-```json
-{
-    "version": "2.0",
-    "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[1.*, 2.0.0)"
-    }
-}
+Bağlama uzantıları'nı tek başına yüklemeyi seçebilirsiniz veya bir uzantı paketi başvurusu host.json proje dosyasına ekleyebilirsiniz. Uzantı paketleri birden çok bağlama türleri kullanırken paket uyumluluk sorunlarına sahip olma olasılığını kaldırır. Bağlama uzantılarını kaydetme için önerilen yaklaşımdır. Uzantı paketleri de .NET Core yükleme gereksinimini kaldırır 2.x SDK. 
+
+### <a name="extension-bundles"></a>Uzantı paketleri
+
+[!INCLUDE [Register extensions](functions-extension-bundles.md)]
+
+Daha fazla bilgi için bkz. [kaydetme Azure işlevleri bağlama uzantıları](../articles/azure-functions/functions-bindings-register.md#extension-bundles). Bağlamaları functions.json dosyaya eklemeden önce uzantı paketleri için host.json eklemeniz gerekir.
+
+### <a name="register-individual-extensions"></a>Tek tek uzantılarını kaydetme
+
+Bir paket halinde olmayan uzantıları yüklemeniz gerekiyorsa, özel bağlamalar için ayrı bir uzantı paketleri el ile kaydedebilirsiniz. 
+
+> [!NOTE]
+> El ile uzantıları kullanarak kaydetmek için `func extensions install`, .NET Core olmalıdır 2.x SDK'sı yüklü.
+
+Güncelleştirdikten sonra *function.json* dosyasını proje klasöründe aşağıdaki komutu çalıştırın, işlevinizi gereken tüm bağlamaları içerecek şekilde.
+
+```bash
+func extensions install
 ```
 
-- `id` Özelliği, Microsoft Azure işlevleri uzantı paketleri için ad alanı başvurur.
-- `version` Paket sürümü başvuruyor.
-
-Paket sürümleri artırma paketler paket değiştirir. Ana sürüm değişiklikleri yalnızca paketteki paketleri bir ana sürüm taşıdığınızda gerçekleşir. `version` Özelliği kullanan [sürüm aralıklarını belirtmek için aralığı gösterimi](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards). İşlevler çalışma zamanı, her zaman aralığı veya sürüm aralığı tarafından tanımlanan en fazla izin verilen sürüm seçer.
-
-Uzantı paketleri projenizde başvuru sonra tüm varsayılan bağlamaları işlevleriniz için kullanılabilir. Kullanılabilir bağlamaları [uzantı paketini](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) şunlardır:
-
-|Paket  |Version  |
-|---------|---------|
-|Microsoft.Azure.WebJobs.Extensions.CosmosDB|3.0.3|
-|Microsoft.Azure.WebJobs.Extensions.DurableTask|1.8.0|
-|Microsoft.Azure.WebJobs.Extensions.EventGrid|2.0.0|
-|Microsoft.Azure.WebJobs.Extensions.EventHubs|3.0.3|
-|Microsoft.Azure.WebJobs.Extensions.SendGrid|3.0.0|
-|Microsoft.Azure.WebJobs.Extensions.ServiceBus|3.0.3|
-|Microsoft.Azure.WebJobs.Extensions.SignalRService|1.0.0|
-|Microsoft.Azure.WebJobs.Extensions.Storage|3.0.4|
-|Microsoft.Azure.WebJobs.Extensions.Twilio|3.0.0|
+Komut okur *function.json* ihtiyacınız paketler görmek için bir dosya yükler ve uzantıları projesi oluşturur. Geçerli sürümde yeni bağlamalar ekler, ancak var olan bağlamaları güncelleştirmez. Kullanım `--force` yenilerini yüklerken mevcut bağlamaları en son sürüme güncelleştirmek için seçeneği.

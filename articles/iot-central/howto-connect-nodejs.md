@@ -3,17 +3,17 @@ title: Azure IOT Central için genel bir Node.js istemci uygulaması bağlayın 
 description: Bir cihaz geliştirici olarak, Azure IOT Central uygulamasına genel bir Node.js cihaz bağlanma.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/05/2019
+ms.date: 06/14/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 90e4a061e38fdd3a13a640363069fae3a18e0b49
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60888967"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444233"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IOT Central uygulamanızı (Node.js) genel istemci uygulamaya bağlama
 
@@ -68,6 +68,18 @@ Aşağıdaki olay eklemek **ölçümleri** sayfası:
 
 > [!NOTE]
 > Veri türü olay ölçümü dizedir.
+
+### <a name="location-measurements"></a>Konum ölçümleri
+
+Aşağıdaki konum ölçüm eklemek **ölçümleri** sayfası:
+
+| Görünen ad | Alan Adı  |
+| ------------ | ----------- |
+| Location     | location    |
+
+Veri türü iki kuyruğumuzu temizler konumu ölçüm boylam ve enlem noktalı sayıları ve yüksekliği için isteğe bağlı bir kayan nokta sayısı kayan.
+
+Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. İlgili cihaz kod özellik adları alan adları eşleşmiyorsa, uygulamada konumu görüntülenemiyor.
 
 ### <a name="device-properties"></a>Cihaz özellikleri
 
@@ -144,12 +156,14 @@ Aşağıdaki adımları uygulamaya eklenen gerçek cihaz uygulayan bir istemci u
     ```javascript
     var connectionString = '{your device connection string}';
     var targetTemperature = 0;
+    var locLong = -122.1215;
+    var locLat = 47.6740;
     var client = clientFromConnectionString(connectionString);
     ```
 
     Yer tutucu güncelleştirme `{your device connection string}` ile [cihaz bağlantı dizesini](tutorial-add-device.md#generate-connection-string). Bu örnekte, başlatma `targetTemperature` sıfır olarak cihazdaki geçerli okuma veya cihaz ikizinde arasında bir değer kullanabilirsiniz.
 
-1. Telemetri, durum ve olay ölçümler, Azure IOT Central uygulamasına göndermek için dosyasına aşağıdaki işlevi ekleyin:
+1. Telemetri, durumu, olay ve konum ölçümler, Azure IOT Central uygulamasına göndermek için dosyasına aşağıdaki işlevi ekleyin:
 
     ```javascript
     // Send device measurements.
@@ -158,12 +172,18 @@ Aşağıdaki adımları uygulamaya eklenen gerçek cihaz uygulayan bir istemci u
       var humidity = 70 + (Math.random() * 10);
       var pressure = 90 + (Math.random() * 5);
       var fanmode = 0;
+      var locationLong = locLong - (Math.random() / 100);
+      var locationLat = locLat - (Math.random() / 100);
       var data = JSON.stringify({
         temperature: temperature,
         humidity: humidity,
         pressure: pressure,
         fanmode: (temperature > 25) ? "1" : "0",
-        overheat: (temperature > 35) ? "ER123" : undefined });
+        overheat: (temperature > 35) ? "ER123" : undefined,
+        location: {
+            lon: locationLong,
+            lat: locationLat }
+        });
       var message = new Message(data);
       client.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
         (err ? `; error: ${err.toString()}` : '') +
@@ -320,6 +340,10 @@ Azure IOT Central, uygulamanızdaki bir operatör olarak, gerçek cihazınız i�
 * Telemetri görünümünde **ölçümleri** sayfası:
 
     ![Telemetri görüntüleme](media/howto-connect-nodejs/viewtelemetry.png)
+
+* Konumun görünümünde **ölçümleri** sayfası:
+
+    ![Görünüm konumu ölçümleri](media/howto-connect-nodejs/viewlocation.png)
 
 * Cihazınızın gönderen cihazın özellik değerlerini görüntülemek **özellikleri** sayfası. Cihaz bağlandığında cihaz özelliği kutucuk güncelleştirme:
 

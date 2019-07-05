@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ef72f1649c3f3e0af7fba53b2e8dbcee49d4b59
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c83a38b68fcc2e70b4e17bd62e11ac429dd32950
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734572"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471913"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Grupları bir erişim gözden geçirmesi oluşturma veya uygulamaları Azure ad erişim gözden geçirmeleri
 
@@ -43,7 +43,7 @@ Daha fazla bilgi için [hangi kullanıcıların lisansına sahip olması gerekir
 
 1. Tıklayın **yeni erişim gözden geçirmesi** yeni bir erişim gözden geçirmesi oluşturma.
 
-    ![Erişim gözden geçirmesi - denetimler](./media/create-access-review/access-reviews.png)
+    ![Kimlik Yönetimi bölmesinde erişim gözden geçirmeleri](./media/create-access-review/access-reviews.png)
 
 1. Erişim gözden geçirmesi adı. İsteğe bağlı olarak, gözden geçirme bir açıklama girin. Ad ve açıklama gözden geçirenlere gösterilmektedir.
 
@@ -91,7 +91,7 @@ Daha fazla bilgi için [hangi kullanıcıların lisansına sahip olması gerekir
 
 1. Bir gözden geçirme tamamlandıktan sonra ne olacağını belirlemek için Genişlet **tamamlama ayarlarını bağlı** bölümü.
 
-    ![Tamamlanma ayarları hakkında](./media/create-access-review/upon-completion-settings.png)
+    ![Erişim gözden geçirmesi - tamamlama ayarlarını bağlı oluştur](./media/create-access-review/upon-completion-settings.png)
 
 1. Erişimi reddedildi kullanıcılar için otomatik olarak Kaldır istiyorsanız **otomatik uygulama sonuçları kaynağa** için **etkinleştirme**. Gözden Geçirme tamamlandığında sonuçları el ile uygulamak istiyorsanız, anahtar kümesine **devre dışı**.
 
@@ -106,7 +106,7 @@ Daha fazla bilgi için [hangi kullanıcıların lisansına sahip olması gerekir
 
 1. Ek ayarları belirtmek için genişletin **Gelişmiş ayarlar** bölümü.
 
-    ![Gelişmiş ayarlar](./media/create-access-review/advanced-settings.png)
+    ![Erişim gözden geçirmesi - Gelişmiş ayarları oluştur](./media/create-access-review/advanced-settings.png)
 
 1. Ayarlama **önerileri göster** için **etkinleştirme** önerileri gözden geçirenler sistem göstermek için kullanıcının erişim bilgilerini temel.
 
@@ -122,7 +122,7 @@ Daha fazla bilgi için [hangi kullanıcıların lisansına sahip olması gerekir
 
 Erişim gözden geçirmesi ayarları belirttikten sonra tıklayın **Başlat**. Erişim gözden geçirmesi listenizi durumu göstergesi görünür.
 
-![Erişim incelemeleri listesi](./media/create-access-review/access-reviews-list.png)
+![Erişim gözden geçirmeleri listesini ve durumlarını](./media/create-access-review/access-reviews-list.png)
 
 İnceleme kısa bir süre içinde başladıktan sonra varsayılan olarak, Azure AD için gözden geçirenler bir e-posta gönderir. Erişim gözden geçirmesi tamamlanmalarını bekliyor gözden geçirenlere bildirmek e-posta gönderin, Azure AD almamayı tercih ederseniz unutmayın. Nasıl yapılır yönergeleri Göster [gruplar veya uygulamalar için erişim gözden geçirme](perform-access-review.md). Gözden geçirme kendi erişimini gözden geçirmek, konuklar için ise, bunları nasıl yapılır yönergeleri Göster [grupları ve uygulamaları için erişimi kendiniz için incele](review-your-access.md).
 

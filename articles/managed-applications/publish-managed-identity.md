@@ -8,12 +8,12 @@ ms.reviewer: ''
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
-ms.openlocfilehash: be141e208016784b689262394798012c2212ba5b
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 9fb5f7a4a62c2d323059f7c0b879482e93feef2f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312226"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434853"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>Azure yönetilen uygulamayla yönetilen kimlik
 
@@ -323,7 +323,22 @@ Yönetilen uygulama belirteci aracılığıyla artık erişilebilir `listTokens`
 
 ``` HTTP
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}/listTokens?api-version=2018-09-01-preview HTTP/1.1
+
+{
+    "authorizationAudience": "https://management.azure.com/",
+    "userAssignedIdentities": [
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userAssignedIdentityName}"
+    ]
+}
 ```
+
+İstek gövdesi parametreleri:
+
+Parametre | Gerekli | Açıklama
+---|---|---
+authorizationAudience | *Yok* | Hedef kaynak uygulama kimliği URI'si. Ayrıca `aud` verilen belirtecin (dinleyici) talep. Varsayılan değer "https://management.azure.com/"
+Userassignedıdentities | *Yok* | İçin bir belirteç almak için yönetilen kimlikleri kullanıcı tarafından atanan listesi. Belirtilmezse, `listTokens` için sistem tarafından atanan bir yönetilen kimlik belirteci döndürür.
+
 
 Örnek yanıt aşağıdaki gibi görünmelidir:
 
@@ -345,6 +360,18 @@ Content-Type: application/json
     ]
 }
 ```
+
+Yanıt belirteçleri altında bir dizi içerecek `value` özelliği:
+
+Parametre | Açıklama
+---|---
+access_token | İstenen erişim belirteci.
+expires_in | Erişim belirteci geçerli olacağı saniye sayısı.
+expires_on | Erişim belirtecinin süresi dolduğunda TimeSpan değeri. Bu dönem saniye sayısı temsil edilir.
+not_before | Erişim belirteci gerçekleştiğinde TimeSpan değeri. Bu dönem saniye sayısı temsil edilir.
+authorizationAudience | `aud` (Dinleyici) erişim belirteci için istek gönderildi. Bu ne sunulan aynıdır `listTokens` isteği.
+resourceId | Verilen belirtecin Azure kaynak kimliği. Yönetilen uygulama kimliği veya kullanıcı tarafından atanan kimlik kimliği budur.
+token_type | Belirtecin türü.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

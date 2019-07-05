@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 07/02/2019
 ms.author: raynew
-ms.openlocfilehash: ef522785d5074187871c25c54deae84b156d69b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e395b10d9a99fdb454f3f02c7027e7acff64b434
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743170"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508190"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM yedeklemesi için destek matrisi
 Kullanabileceğiniz [Azure Backup hizmeti](backup-overview.md) şirket içi makinelerin ve iş yükleri ve Azure sanal makineleri (VM) yedekleme. Bu makalede, Azure sanal makinelerini Azure Backup ile yedeklediğinizde destek ayarları ve sınırlamaları özetlenmektedir.
@@ -164,7 +164,7 @@ Veri diski boyutu | 4095 GB'a kadar tek bir disk olabilir.<br/><br/> En son sür
 Depolama türü | Standart HDD, SSD standart, premium SSD. <br/><br/> Standart SSD kasalarınızı Azure VM yedeklemesi (anında geri yükleme olarak bilinir) en son sürümüne yükseltme yaptıysanız desteklenir. [Daha fazla bilgi edinin](backup-instant-restore-capability.md).
 Yönetilen diskler | Destekleniyor.
 Şifrelenmiş diskler | Destekleniyor.<br/><br/> Azure VM'ler ile Azure Disk şifrelemesi etkin (ile veya Azure AD uygulamasını olmadan) yedeklenebilir.<br/><br/> Dosya/klasör düzeyinde şifrelenmiş Vm'leri geri alınamaz. Tüm VM kurtarmanız gerekir.<br/><br/> Azure Backup tarafından korunan VM'ler üzerinde şifrelemeyi etkinleştirebilirsiniz.
-Yazma Hızlandırıcısı etkinleştirilmiş disklerle | Desteklenmiyor.<br/><br/> Azure VM yedeklemesi en son sürümünü çalıştırıyorsanız, (olarak bilinen [anında geri yükleme](backup-instant-restore-capability.md)), yazma Hızlandırıcısı etkinleştirilmiş yedekten ile diskleri dışarıda tutabilirsiniz.
+Yazma Hızlandırıcısı etkinleştirilmiş disklerle | Desteklenmiyor.<br/><br/> Azure yedekleme, otomatik olarak yazma Hızlandırıcısı etkinleştirilmiş yedekleme sırasında disklerle dışlar. Bunlar yedeklenmez olduğundan, bu diskleri kurtarma-noktaları VM geri yükleme olanağınız olmayacaktır.
 Yinelenenleri kaldırılmış diskleri yedekleme | Desteklenmiyor.
 Korumalı bir VM'ye disk ekleme | Destekleniyor.
 Korumalı VM diski yeniden boyutlandırma | Destekleniyor.

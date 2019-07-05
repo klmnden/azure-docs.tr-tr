@@ -3,7 +3,7 @@ title: 'Azure Active Directory etki alanı Hizmetleri: Yönetim Kılavuzu | Micr
 description: Azure AD Domain Services yönetilen etki alanlarında bir kuruluş birimi (OU) oluşturun
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.author: mstephen
-ms.openlocfilehash: e7ff91a87377deed06fa4214cc1e5764e8b2da92
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: b2bdad25d676d65494fdd5b6a314f8c3381254de
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246277"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67473675"
 ---
 # <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Bir Azure AD Domain Services yönetilen etki alanında bir kuruluş birimi (OU) oluşturma
 Azure AD Domain Services yönetilen etki alanlarını 'AADDC Computers' ve 'AADDC Users' adlı, sırasıyla iki yerleşik kapsayıcılar içerir. 'AADDC Computers' kapsayıcısı, yönetilen etki alanına katılmış olan tüm bilgisayarlar için bilgisayar nesneleri içerir. 'AADDC Users' kapsayıcı kullanıcıları ve grupları Azure AD kiracısında içerir. Bazen, iş yüklerinin dağıtımı için yönetilen etki alanında hizmet hesaplarını oluşturmak gerekli olabilir. Bu amaç için yönetilen etki alanına özel kuruluş birimi (OU) oluşturun ve o OU içinde hizmet hesapları oluşturun. Bu makalede, yönetilen etki alanında OU oluşturma işlemini gösterir.

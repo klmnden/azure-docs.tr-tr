@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.openlocfilehash: 569ef6e9f91fdd728c5d230e2a6c46a7b01e5a62
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: af3c4482b1ce9e521d14a0e0c63de40625c25c73
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078826"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461787"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı performans önerileri
 
 **Şunlara uygulanır:** MySQL 5.7 için Azure veritabanı
 
 > [!NOTE]
-> Performans önerileri önizlemededir. Performans önerileri için destek Azure portalında kullanıma sunulacaktır ve henüz bölgenizde kullanılamıyor olabilir.
+> Performans önerileri önizlemededir.
 
 Performans önerileri özelliği, performansı artırmak için özelleştirilmiş öneri oluşturmak için veritabanlarınızı analiz eder. Öneriler üretmek için şema dahil olmak üzere çeşitli veritabanı özellikleri, analiz arar. Etkinleştirme [Query Store](concepts-query-store.md) performans önerileri özelliği tam olarak yararlanmak için sunucunuzdaki. Performans şema kapalı ise, Query Store üzerinde kapatma performance_schema ve performans şema Instruments özellik için gerekli bir alt kümesi sağlar. Herhangi bir performans önerisi uyguladıktan sonra bu değişikliklerin etkisini değerlendirmek için performans test etmeniz gerekir.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 00b94174debf915fac3ae5fb37f382c0dc46abfb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 157a421ce2cb4442597bfb0f75ae042a10a8ee03
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754993"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443737"
 ---
 # <a name="azure-storage-account-overview"></a>Azure depolama hesabına genel bakış
 
@@ -68,7 +68,7 @@ Blok blob depolama hesapları, genel amaçlı v2 ve blob depolama hesapları ile
 
 Şu anda blok blob depolama hesaplarında sık erişimli, seyrek erişimli veya arşiv erişim katmanları katmanlama desteklemez.
 
-### <a name="filestorage-preview-storage-accounts"></a>Dosya deposundan (Önizleme) depolama hesapları
+### <a name="filestorage-storage-accounts"></a>Dosya deposundan depolama hesapları
 
 Bir dosya deposundan depolama hesabı, premium dosya paylaşımları oluşturmak ve depolamak için kullanılan bir özel depolama hesabıdır. Dosya deposundan depolama hesaplarının IOPS Patlaması gibi ayrılmış Benzersiz performans özellikleri sunar. Bu özellikler hakkında daha fazla bilgi için bkz. [dosya paylaşımı performans katmanları](../files/storage-files-planning.md#file-share-performance-tiers) Planlama Kılavuzu dosyaları bölümü.
 
@@ -88,7 +88,7 @@ Genel amaçlı depolama hesapları ya da aşağıdaki performans katmanları yap
 
 Blok blob depolama hesapları, blok blobları depolamak için bir premium performans katmanı sağlamak ve ekleme blobları.
 
-Dosya deposundan (Önizleme) depolama hesaplarında Azure dosya paylaşımları için bir premium performans katmanı sağlar.
+Dosya deposundan depolama hesaplarında Azure dosya paylaşımları için bir premium performans katmanı sağlar.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Blok blobu veri erişim katmanları
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: d58b51f06c21c787e4aa720c803ab6533544d55c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9c2f8ce0dfb866826de549946bc3ee1acc2b677f
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60238474"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460254"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Azure Resource Manager dağıtım modelini kullanarak Windows için dosyaları geri yükleme
 
@@ -97,7 +97,7 @@ Bu adımlar aşağıdaki terimler:
 * *Örnek kasası* – kurtarma Hizmetleri kasası, hedef makine ve kaynak makine kayıtlı. <br/>
 
 > [!NOTE]
-> İşletim sisteminin önceki bir sürümünü çalıştıran bir hedef makine yedekleri geri yüklenemez. Örneğin, bir Windows 8 (veya sonrası) bilgisayarda Windows 7 bilgisayarda gerçekleştirilen bir yedekleme geri yüklenebilir. Bir Windows 8 bilgisayarında gerçekleştirilen bir yedekleme, Windows 7 bilgisayara yüklenemez.
+> İşletim sisteminin önceki bir sürümünü çalıştıran bir hedef makine yedekleri geri yüklenemez. Örneğin, bir Windows 7 (veya sonrası) bilgisayarda Windows 7 bilgisayarda gerçekleştirilen bir yedekleme geri yüklenebilir. Bir Windows 8 bilgisayarında gerçekleştirilen bir yedekleme, Windows 7 bilgisayara yüklenemez.
 >
 >
 

@@ -8,16 +8,16 @@ ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu-msft
-ms.openlocfilehash: 6b4e145a693aabbf1a00d732e2fd602e7c887a03
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e6284174089419cd201d094bcb1a8c7e865d2892
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956019"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484413"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Linux üzerinde App Service'te Azure Depolama'dan içerik sunma
 
-Bu kılavuzu kullanarak Linux üzerinde App Service'te statik içerik sunmak gösterilmektedir [Azure depolama](/azure/storage/common/storage-introduction). Güvenli içerik, içerik taşıma, birden fazla uygulama ve birden çok aktarma yöntemlere erişim avantajına sahip olur. 
+Bu kılavuzu kullanarak Linux üzerinde App Service'te statik içerik sunmak gösterilmektedir [Azure depolama](/azure/storage/common/storage-introduction). Güvenli içerik, içerik taşıma, birden fazla uygulama ve birden çok aktarma yöntemlere erişim avantajına sahip olur.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -28,6 +28,8 @@ Bu kılavuzu kullanarak Linux üzerinde App Service'te statik içerik sunmak gö
 
 > [!NOTE]
 > Azure depolama, varsayılan olmayan depolama ve ayrı olarak faturalandırılır, web uygulamasına dahil değildir.
+>
+> Getir kendi depolama altyapı sınırlamaları nedeniyle depolama güvenlik duvarı yapılandırması kullanımını desteklemez.
 >
 
 Azure oluşturma [Azure depolama hesabı](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli).

@@ -4,14 +4,14 @@ description: Kaynakları yeni kaynak grubuna veya aboneliğe taşıma için Azur
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 06/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: eb99bec74ae5444320b7098616d4bf2d81b90697
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 6cb2f49113a67a8dc6cea70ae58bd440f420a1d2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332023"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442784"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -49,6 +49,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * API Management
 * App Service uygulamaları (web uygulamaları) - bkz [App Service kısıtlamaları](#app-service-limitations)
 * App Service sertifikaları - bkz [App Service sertifikası sınırlamaları](#app-service-certificate-limitations)
+* App Service Etki Alanı
 * Otomasyon - runbook'ları, Otomasyon hesabı aynı kaynak grubunda bulunmalıdır.
 * Azure Active Directory B2C
 * Azure önbelleği için Redis - sanal ağ sayesinde, örnek Azure Cache Redis örneği için yapılandırılmışsa, farklı bir aboneliğe taşınamaz. Bkz: [sanal ağlar sınırlamaları](#virtual-networks-limitations).

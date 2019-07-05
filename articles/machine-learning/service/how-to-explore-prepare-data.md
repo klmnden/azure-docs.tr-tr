@@ -11,19 +11,19 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/23/2019
-ms.openlocfilehash: e29ef2616a43223ec582575ca6363f78b26e5f22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80137c7f1ecebab4d2da0c4b7ba0ca9292dad22e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753049"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443960"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Keşfedin ve veri kümesi sınıfı (Önizleme) ile verileri hazırlama
 
 Keşfedin ve azureml veri kümeleri pakette ile verileri hazırlama hakkında bilgi edinin [Azure Machine Learning SDK'sı](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). [Veri kümesi](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) sınıfı (Önizleme) keşfedin ve işlevleri gibi sağlayarak verilerinizi hazırlamanız olanak tanır: örnekleme, Özet istatistikleri ve akıllı dönüşümler. Dönüştürme adımı kaydedilir [veri kümesi tanımları](how-to-manage-dataset-definitions.md) farklı şemalar birden çok daha büyük dosyaları yüksek düzeyde ölçeklenebilir bir şekilde işleme yeteneğine sahip.
 
 > [!Important]
-> Bazı veri kümesi sınıfları (Önizleme) bağımlılıklara sahip [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) paket (GA). Dönüştürme işlevleri doğrudan GA'ed ile gerçekleştirilebilir ancak [Data Prep işlevleri](how-to-transform-data.md), yeni bir çözüm oluşturuyorsanız bu makalede açıklanan veri kümesi paket sarmalayıcıları öneririz. Azure Machine Learning veri kümeleri (Önizleme), yalnızca, verilerinizi dönüştürmenizi izin ver aynı zamanda [veri anlık görüntü](how-to-create-dataset-snapshots.md) ve depolamak [tutulan veri kümesi tanımları](how-to-manage-dataset-definitions.md). Veri kümeleri, yapay ZEKA çözümlerini veri kümelerini yönetmek için genişletilmiş işlevselliği sunan veri hazırlığı SDK ' nın sonraki sürümüdür.
+> Bazı veri kümesi sınıfları (Önizleme) bağımlılıklara sahip [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) paket (GA). Dönüştürme işlevleri doğrudan GA'ed ile gerçekleştirilebilir ancak [Data Prep işlevleri](how-to-transform-data.md), yeni bir çözüm oluşturuyorsanız bu makalede açıklanan veri kümesi paket sarmalayıcıları öneririz. Azure Machine Learning veri kümeleri (Önizleme), yalnızca, verilerinizi dönüştürmenizi izin ver aynı zamanda [veri anlık görüntü](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py) ve depolamak [tutulan veri kümesi tanımları](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py). Veri kümeleri, yapay ZEKA çözümlerini veri kümelerini yönetmek için genişletilmiş işlevselliği sunan veri hazırlığı SDK ' nın sonraki sürümüdür.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -63,7 +63,7 @@ top_n_sample_dataset = dataset.sample('top_n', {'n': 5})
 top_n_sample_dataset.to_pandas_dataframe()
 ```
 
-||Kimlik|Büyük/küçük harf numarası|Tarih|Engelle|IUCR|Birincil tür|...|
+||id|Büyük/küçük harf numarası|Tarih|Engelle|IUCR|Birincil tür|...|
 -|--|-----------|----|-----|----|------------|---
 0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|YANILTICI YÖNTEMİ|...
 1|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|HIRSIZLIĞI|...
@@ -80,7 +80,7 @@ simple_random_sample_dataset = dataset.sample('simple_random', {'probability':0.
 simple_random_sample_dataset.to_pandas_dataframe()
 ```
 
-||Kimlik|Büyük/küçük harf numarası|Tarih|Engelle|IUCR|Birincil tür|...|
+||id|Büyük/küçük harf numarası|Tarih|Engelle|IUCR|Birincil tür|...|
 -|--|-----------|----|-----|----|------------|---
 0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|HIRSIZLIĞI|...
 1|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO AVE|1154|YANILTICI YÖNTEMİ|...
@@ -103,7 +103,7 @@ sample_dataset = dataset.sample('stratified', {'columns': ['Primary Type'], 'fra
 sample_dataset.to_pandas_dataframe()
 ```
 
-||Kimlik|Büyük/küçük harf numarası|Tarih|Engelle|IUCR|Birincil tür|...|
+||id|Büyük/küçük harf numarası|Tarih|Engelle|IUCR|Birincil tür|...|
 -|--|-----------|----|-----|----|------------|---
 0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|HIRSIZLIĞI|...
 1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE KAYDET|890|HIRSIZLIĞI|...
@@ -119,7 +119,7 @@ dataset.get_profile()
 
 ||Tür|Min|Maks|Sayı|Eksik sayısı|Sayısı eksik|Eksik yüzde|Hata sayısı|Boş sayısı|% 0,1 Quantile|%1 Quantile|%5 Quantile|% 25 Quantile|% 50 Quantile|% 75 Quantile|% 95 Quantile|% 99 Quantile|% 99,9 Quantile|Ortalama|Standart Sapma|Varyans|Komutunu|Basıklık
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
-Kimlik|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e + 07|1.04992e + 07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
+id|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e + 07|1.04992e + 07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
 Büyük/küçük harf numarası|FieldType.STRING|HZ239907|HZ278872|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Tarih|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Engelle|FieldType.STRING|004XX S KILBOURN KAYDET|113XX S PRAIRIE KAYDET|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
@@ -162,7 +162,7 @@ ds_def = ds_def.keep_columns(['ID', 'Arrest', 'Latitude', 'Longitude'])
 ds_def.head(3)
 ```
 
-||Kimlik|Arrest| Enlem|Boylam|
+||id|Arrest| Enlem|Boylam|
 -|---------|-----|---------|----------|
 |0|10498554|False|41.692834|-87.604319|
 |1|10516598|False| 41.744107 |-87.664494|
@@ -215,7 +215,7 @@ ds_def.head(3)
 
 Çıktı aşağıdaki tabloda gösterildiği gibi eksik enlem ile imputed `MEAN` değerini `Arrest==False` grubu ve eksik boylam ile-87 imputed.
 
-||Kimlik|Arrest|Enlem|Boylam
+||id|Arrest|Enlem|Boylam
 -|---------|-----|---------|----------
 0|10498554|False|41.692834|-87.604319
 1|10516598|False|41.744107|-87.664494
@@ -228,7 +228,7 @@ dataset = dataset.update_definition(ds_def, 'Impute Missing')
 dataset.head(3)
 ```
 
-||Kimlik|Arrest|Enlem|Boylam
+||id|Arrest|Enlem|Boylam
 -|---------|-----|---------|----------
 0|10498554|False|41.692834|-87.604319
 1|10516598|False|41.744107|-87.664494
@@ -258,7 +258,7 @@ ds_def.get_profile()
 
 ||Tür|Min|Maks|Sayı|Eksik sayısı|Sayısı eksik|Eksik yüzde|Hata sayısı|Boş sayısı|% 0,1 Quantile|%1 Quantile|%5 Quantile|% 25 Quantile|% 50 Quantile|% 75 Quantile|% 95 Quantile|% 99 Quantile|% 99,9 Quantile|Ortalama|Standart Sapma|Varyans|Komutunu|Basıklık
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
-Kimlik|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e + 07|1.04992e + 07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
+id|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e + 07|1.04992e + 07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
 Arrest|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Enlem|FieldType.DECIMAL|41.6928|41.9032|10.0|0.0|10.0|0.0|0.0|0.0|41.6928|41.7185|41.6928|41.78|41.78|41.78|41.9032|41.9032|41.9032|41.78|0.0517107|0.002674|0.837593|1,05
 Boylam|FieldType.INTEGER|-87|-87|10.0|0.0|10.0|0.0|3,0|0.0|-87|-87|-87|-87|-87|-87|-87|-87|-87|-87|0|0|NaN|NaN
@@ -288,7 +288,7 @@ dataset = Dataset.auto_read_files('./data/crime.csv')
 dataset.head(3)
 ```
 
-||Kimlik|Büyük/küçük harf numarası|Tarih|Engelle|...|
+||id|Büyük/küçük harf numarası|Tarih|Engelle|...|
 -|---------|-----|---------|----|---
 0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|...
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|...
@@ -310,7 +310,7 @@ ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(3)
 
 Aşağıdaki tabloda, yeni bir sütun kayıtları belirtilen biçimde Date_Time_Range içerdiğine dikkat edin.
 
-||Kimlik|Tarih|Date_Time_Range
+||id|Tarih|Date_Time_Range
 -|--------|-----|----
 0|10498554|2016-04-04 23:56:00|2016-04-04 10 PM-12 AM'DEN
 1|10516598|2016-04-15 17:00:00|2016-04-15 4 PM - 18: 00
@@ -376,8 +376,6 @@ dataset = dataset.update_definition(ds_def, 'fuzzy grouping')
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-* [Veri kümesi tanımları yaşam döngüsünü yönetme](how-to-manage-dataset-definitions.md).
 
 * Otomatik makine öğrenimi bkz [öğretici](tutorial-auto-train-models.md) bir regresyon modeli örnek.
 

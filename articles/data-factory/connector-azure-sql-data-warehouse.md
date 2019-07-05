@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 68d2f126ee32f61d13d170712bf58581101036e8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 24ee419e5c6eb4b8c148c61c232d2ab7ab07c74b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206066"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449589"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure SQL veri ambarı veri kopyalayın 
 > [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
@@ -472,7 +472,10 @@ Gereksinimleri karşılanmadığı takdirde, Azure Data Factory ayarları denetl
 
 Veri kaynağınızı önceki bölümde ölçütleri karşılamayan, veri kopyalama işlemini bir geçici hazırlama Azure Blob Depolama örneği etkinleştirin. Azure Premium depolama olamaz. Bu durumda, Azure Data Factory otomatik olarak PolyBase veri biçim gereksinimlerini karşılamak için veriler üzerinde dönüştürmeler çalıştırır. Ardından verileri SQL Data Warehouse'a veri yüklemek için PolyBase kullanır. Son olarak, blob depolama alanından, geçici verileri temizler. Bkz: [kopyalama aşamalı](copy-activity-performance.md#staged-copy) hazırlama bir Azure Blob Depolama örneği aracılığıyla veri kopyalama hakkında ayrıntılar için.
 
-Bu özelliği kullanmak için oluşturun bir [Azure depolama bağlı hizmeti](connector-azure-blob-storage.md#linked-service-properties) geçici blob depolama ile Azure depolama hesabına başvuruyor. Ardından belirtin `enableStaging` ve `stagingSettings` özellikleri aşağıdaki kodda gösterildiği gibi kopyalama etkinliği için:
+Bu özelliği kullanmak için oluşturun bir [Azure Blob Depolama bağlı hizmeti](connector-azure-blob-storage.md#linked-service-properties) geçici blob depolama ile Azure depolama hesabına başvuruyor. Ardından belirtin `enableStaging` ve `stagingSettings` özellikleri aşağıdaki kodda gösterildiği gibi kopyalama etkinliği için.
+
+>[!IMPORTANT]
+>Hazırlama Azure depolama hesabınızda sanal ağ hizmet uç noktası ile yapılandırılmışsa, yönetilen bir kimlik doğrulama - kullanmalısınız başvurmak [Azure depolama ile sanal ağ hizmet uç noktaları kullanma etkileri](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Data Factory tarafından gerekli yapılandırmalarında öğrenin [Azure Blob - yönetilen bir kimlik doğrulama](connector-azure-blob-storage.md#managed-identity).
 
 ```json
 "activities":[

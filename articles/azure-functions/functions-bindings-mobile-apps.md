@@ -4,19 +4,19 @@ description: Azure işlevleri'nde Azure Mobile Apps bağlamaları kullanma hakk�
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Azure işlevleri, İşlevler, olay işleme dinamik işlem, sunucusuz mimari
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 5fd220f15f363c1987f1576009519e4b2feae6b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 965ec88b39336e71d2779da4b7cd31b9c26e28be
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61438134"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480373"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure işlevleri için Mobile Apps bağlamaları 
 
@@ -163,7 +163,7 @@ JavaScript işlevleri'nde kaydın içine geçirilen `context.bindings.<name>` ne
 
 İçinde C# ve F# İşlevler, giriş yaptığınız tüm değişiklikler işlevi başarıyla çıktığında kayıt (giriş parametresi) tablosuna otomatik olarak gönderilen. JavaScript işlevleri bir kayıtta değiştiremezsiniz.
 
-## <a name="output"></a>Çıktı
+## <a name="output"></a>Output
 
 Mobile Apps çıkış bir Mobile Apps tablosuna yeni bir kayıt yazmak için bağlaması kullanın.  
 

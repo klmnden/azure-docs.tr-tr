@@ -5,17 +5,17 @@ keywords: otomasyon rbac, rol tabanlı erişim denetimi, azure rbac
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b2bcdf3d74c6946b8c9f0dacaeabf28d9c76f94
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60738844"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477727"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure Automation’da Rol Tabanlı Erişim Denetimi
 
@@ -232,6 +232,7 @@ Aşağıdaki tabloda, onboarding sanal makineler için değişiklik izleme için
 |Ekleme durumu denetleyin - okuma VM      | Microsoft.Compute/virtualMachines/read         | Sanal makine         |
 |Ekleme durumu denetleyin - okuma hesabı      | Microsoft.Automation/automationAccounts/read  |  Otomasyon hesabı   |
 | VM ekleme çalışma denetle<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Abonelik         |
+| Log Analytics sağlayıcısını Kaydet |Microsoft.Insights/register/action | Abonelik|
 
 <sup>1</sup> VM portal deneyimiyle eklemek için bu izni gereklidir.
 
@@ -251,6 +252,7 @@ Aşağıdaki tabloda, onboarding sanal makineler için değişiklik izleme için
 |Oluşturma/kayıtlı aramayı düzenleyin     | Microsoft.OperationalInsights/workspaces/write        | Çalışma alanı        |
 |Kapsam yapılandırması Oluştur/Düzenle     | Microsoft.OperationalInsights/workspaces/write        | Çalışma alanı        |
 |Kapsam yapılandırmasına bağlantı çözümü      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Çözüm         |
+| Log Analytics sağlayıcısını Kaydet |Microsoft.Insights/register/action | Abonelik|
 |**Adım 2 - yerleşik birden çok VM**     |         |         |
 |VMOnboarding dikey penceresi - MMA oluşturma uzantısı     | Microsoft.Compute/virtualMachines/write           | Sanal makine        |
 |Oluşturma / kayıtlı aramayı düzenleyin     | Microsoft.OperationalInsights/workspaces/write           | Çalışma alanı        |

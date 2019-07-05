@@ -8,25 +8,26 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 6ad6f9414df17f9edff7565752ef3845e0d3c88e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c2bf19a2599d59b9ff2b3d189b26134f1528a878
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66116197"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448565"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure İlkesi etkilerini anlama
 
 Azure İlkesi her ilke tanımında, tek bir etkiye sahiptir. Bu etkiyi ilke kuralı eşleşecek şekilde değerlendirildiğinde ne olacağını belirler. Yeni bir kaynak, güncelleştirilmiş bir kaynak veya mevcut bir kaynak için olmaları durumunda etkileri farklı davranır.
 
-Şu anda bir ilke tanımında desteklenen altı etkileri vardır:
+Bu etkileri, ilke tanımında şu anda desteklenmektedir:
 
-- Ekle
-- Denetim
-- AuditIfNotExists
-- Reddet
-- Deployıfnotexists
-- Devre dışı
+- [Ekleme](#append)
+- [Denetim](#audit)
+- [AuditIfNotExists](#auditifnotexists)
+- [Reddet](#deny)
+- [Deployıfnotexists](#deployifnotexists)
+- [Devre dışı](#disabled)
+- [EnforceRegoPolicy](#enforceregopolicy) (Önizleme)
 
 ## <a name="order-of-evaluation"></a>Değerlendirme sırası
 
@@ -38,6 +39,8 @@ Azure ilkesi oluşturun veya Azure Resource Manager aracılığıyla kaynak gün
 - **Denetim** giden kaynak sağlayıcıya isteği önce değerlendirilir.
 
 Kaynak sağlayıcı bir başarı kodu döndürür sonra **AuditIfNotExists** ve **Deployıfnotexists** ek uyumluluk günlük kaydı veya eylem gerekli olup olmadığını belirlemek için değerlendirin.
+
+Şu anda hiç değerlendirme için herhangi bir sırada **EnforceRegoPolicy** efekt.
 
 ## <a name="disabled"></a>Devre dışı
 
@@ -332,6 +335,58 @@ Bir değerlendirme döngüsü sırasında kaynaklarla eşleşen ilke tanımları
                     }
                 }
             }
+        }
+    }
+}
+```
+
+## <a name="enforceregopolicy"></a>EnforceRegoPolicy
+
+Bir ilke tanımı ile kullanılan Bu etkiyi *modu* , `Microsoft.ContainerService.Data`. Erişim denetimi kuralları ile tanımlanan geçirmek için kullanılan [Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego) için [açık İlke Aracısı](https://www.openpolicyagent.org/) (d) üzerinde [Azure Kubernetes hizmeti](../../../aks/intro-kubernetes.md).
+
+> [!NOTE]
+> [Kubernetes için Azure İlkesi](rego-for-aks.md) genel Önizleme aşamasındadır ve yalnızca yerleşik ilke tanımları destekler.
+
+### <a name="enforceregopolicy-evaluation"></a>EnforceRegoPolicy değerlendirme
+
+Açık bir ilke aracısı giriş denetleyicisine gerçek zamanlı kümedeki herhangi bir yeni isteğinin değerlendirir.
+5 dakikada bir tam tarama küme tamamlanır ve Azure İlkesi Sonuçları rapor.
+
+### <a name="enforceregopolicy-properties"></a>EnforceRegoPolicy özellikleri
+
+**Ayrıntıları** Rego erişim denetimi kuralı açıklayın alt EnforceRegoPolicy etkisi özelliğine sahiptir.
+
+- **Policyıd** [gerekli]
+  - Benzersiz bir ad, Rego erişim denetimi kuralı bir parametre olarak geçirilir.
+- **İlke** [gerekli]
+  - Rego erişim denetimi kuralı URI'sini belirtir.
+- **policyParameters** [isteğe bağlı]
+  - Tüm parametreler ve rego ilkeyi geçirmek için değerleri tanımlar.
+
+### <a name="enforceregopolicy-example"></a>EnforceRegoPolicy örneği
+
+Örnek: Yalnızca belirtilen kapsayıcı görüntülerini AKS izin vermek için giriş denetimi kuralı rego.
+
+```json
+"if": {
+    "allOf": [
+        {
+            "field": "type",
+            "equals": "Microsoft.ContainerService/managedClusters"
+        },
+        {
+            "field": "location",
+            "equals": "westus2"
+        }
+    ]
+},
+"then": {
+    "effect": "EnforceRegoPolicy",
+    "details": {
+        "policyId": "ContainerAllowedImages",
+        "policy": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/KubernetesService/container-allowed-images/limited-preview/gatekeeperpolicy.rego",
+        "policyParameters": {
+            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]"
         }
     }
 }

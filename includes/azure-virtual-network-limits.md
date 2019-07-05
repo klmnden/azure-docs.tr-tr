@@ -5,15 +5,15 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 06/13/2019
+ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: bb13ecb2d9014dbf56823734ac28703df9755b4b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 3e66bf61caf786473d89eab9a6567bb05aff0d19
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277505"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67457582"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Ağ limitleri - Azure Resource Manager'ın aşağıdaki sınırlar geçerlidir yalnızca ağ aracılığıyla yönetilen kaynakları için **Azure Resource Manager** her Abonelikteki bölge başına. Bilgi edinmek için nasıl [, abonelik limitleri göre geçerli kaynak kullanımınızı görüntüleyin](../articles/networking/check-usage-against-limits.md).
 
@@ -75,7 +75,7 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 
 | Resource | Varsayılan limit | Üst sınır |
 | --- | --- | --- |
-| Sanal ağlar |50 |100 |
+| Sanal ağlar |100 |100 |
 | Yerel ağ siteleri |20 |Desteğe başvurun. |
 | Sanal ağ başına DNS sunucusu |20 |20 |
 | Sanal ağ başına özel IP adresleri |4,096 |4,096 |
@@ -84,8 +84,8 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 | NSG başına NSG kuralları |1000 |1000 |
 | Kullanıcı tanımlı yol tabloları |200 |200 |
 | Yol tablosu başına kullanıcı tanımlı yollar |400 |400 |
-| Genel IP adresleri (dinamik) |5 |Desteğe başvurun |
-| Ayrılmış genel IP adresleri |20 |Desteğe başvurun |
+| Genel IP adresleri (dinamik) |500 |500 |
+| Ayrılmış genel IP adresleri |500 |500 |
 | Dağıtım başına genel VIP |5 |Desteğe başvurun |
 | Dağıtım başına özel VIP (iç Yük Dengeleme) |1 |1 |
 | Uç nokta erişim denetim listeleri (ACL'ler) |50 |50 |

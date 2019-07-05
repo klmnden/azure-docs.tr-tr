@@ -1,8 +1,6 @@
 ---
-title: Bir Microsoft Müşteri sözleşmesi - Azure faturalandırma hesabınızı ayarlama | Microsoft Docs
+title: Bir Microsoft Müşteri sözleşmesi - Azure faturalandırma hesabınızı ayarlama
 description: Fatura hesabınızı bir Microsoft Müşteri sözleşmesi ayarlama konusunda bilgi edinin.
-services: ''
-documentationcenter: ''
 author: amberbhargava
 manager: amberb
 editor: banders
@@ -12,23 +10,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 284480ab8b9973c02f365dbf3ebfd3a103ef4b42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 947bfe85d94a5d11eeb54bd6b24c4c515af024d4
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64919162"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490687"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için fatura hesabınızı ayarlama
 
-Kurumsal Anlaşma kaydınıza süresi doldu veya süresi için kayıt yenilemek için bir Microsoft Müşteri sözleşmesi oturum olur. Yenileme, aşağıdaki adımları içerir:
+Kurumsal Anlaşma kaydınıza süresi doldu veya süresi için kayıt yenilemek için bir Microsoft Müşteri sözleşmesi oturum olur. Bu makale, mevcut fatura Kurulumdan sonra yapılan değişiklikleri açıklar ve yeni fatura hesabınıza ayarlama işleminde size yol gösterir. Yenileme, aşağıdaki adımları içerir:
 
 1. Yeni Microsoft Müşteri Sözleşmesi'ni kabul edin. Microsoft alan temsilcinizle ayrıntılarını anlamak ve yeni sözleşme kabul edecek şekilde çalışır.
 2. Yeni Microsoft Müşteri sözleşmesi için oluşturulan yeni Faturalama hesabı ayarlayın.
-
-Bu makale, mevcut fatura Kurulumdan sonra yapılan değişiklikleri açıklar ve yeni fatura hesabınıza ayarlama işleminde size yol gösterir.
 
 Fatura hesabı ayarlamak için Azure aboneliğinin faturalandırma yeni hesaba Kurumsal Anlaşma kaydınıza geçiş gerekir. Kurulum, aboneliklerinizdeki çalışan Azure Hizmetleri etkisi yoktur. Bununla birlikte, faturalandırma için aboneliklerinizi yöneteceksiniz şeklini değiştirir.
 
@@ -45,7 +41,7 @@ Kuruluma başlamadan önce şunları öneririz:
 - **Değişiklikler fatura hiyerarşinize anlama**
   - Yeni hesabı faturalama, Kurumsal Anlaşma kaydınıza farklı şekilde düzenlenmiştir. [Fatura hiyerarşinize yeni hesabı değişiklikleri anlamak](#understand-changes-to-your-billing-hierarchy).
 - **Değişiklikler, faturalama yöneticileri erişimi anlama**
-  - Kurumsal Anlaşma kaydınıza yöneticilerini yeni hesabın fatura kapsamlarda erişim elde edin. [Anlamak erişimleri değişiklikleri](#understand-changes-to-your-billing-administrators-access).
+  - Kurumsal Anlaşma kaydınıza yöneticilerini yeni hesabın fatura kapsamlarda erişim elde edin. [Anlamak erişimleri değişiklikleri](#changes-to-billing-administrator-access).
 - **Yeni hesap tarafından değiştirilir görünümü Kurumsal Anlaşma özellikleri**
   - Yeni hesap özellikleri yerine Kurumsal Anlaşma kaydınıza özelliklerini görüntüleyin.
 - **En sık sorulan soruların yanıtlarını görüntüle**
@@ -55,7 +51,7 @@ Kuruluma başlamadan önce şunları öneririz:
 
 Kurulumu tamamlamak için aşağıdaki erişim gerekir:
 
-- Microsoft Müşteri sözleşmesi imzalandığında oluşturduğunuz fatura profilinin sahibi. Fatura profilleri hakkında daha fazla bilgi için bkz: [fatura profillerini anlayabilir](billing-mca-overview.md#understand-billing-profiles).
+- Microsoft Müşteri sözleşmesi imzalandığında oluşturduğunuz fatura profilinin sahibi. Fatura profilleri hakkında daha fazla bilgi için bkz: [fatura profillerini anlayabilir](billing-mca-overview.md#billing-profiles).
 
 - Kuruluş Yöneticisi otomatik olarak yenilenir kayıt.
 
@@ -87,12 +83,12 @@ Yeni faturalandırma hesabınız faturalandırma için Gelişmiş faturalandırm
 
 ![Ea-mca-post-geçiş-hiyerarşi görüntüsü](./media/billing-mca-setup-account/mca-post-transition-hierarchy.png)
 
-1. Faturalama hesabı, Microsoft Müşteri sözleşmenizi için faturalandırmayı yönetmek için kullanın. Fatura hesabı hakkında daha fazla bilgi edinmek için [Faturalama hesabı anlamak](billing-mca-overview.md#understand-billing-account).
-2. Kuruluşunuzda, Kurumsal Anlaşma kaydınıza benzer faturalandırmayı yönetmek için faturalandırma profili kullanın. Kurumsal Yöneticiler fatura profilinin sahipleri haline gelir. Fatura profilleri hakkında daha fazla bilgi için bkz: [fatura profillerini anlayabilir](billing-mca-overview.md#understand-billing-profiles).
-3. Kurumsal Anlaşma kaydınıza departmanlara benzeyen, gereksinimlerinize göre maliyetlerinizi düzenlemek için bir fatura bölümü kullanın. Fatura bölümler bölüm haline gelir ve departman yöneticilerinin sahipleri ilgili fatura bölümlerin olur. Fatura bölümleri hakkında daha fazla bilgi için bkz: [fatura bölümleri anlamak](billing-mca-overview.md#understand-invoice-sections).
+1. Faturalama hesabı, Microsoft Müşteri sözleşmenizi için faturalandırmayı yönetmek için kullanın. Fatura hesabı hakkında daha fazla bilgi edinmek için [Faturalama hesabı anlamak](billing-mca-overview.md#your-billing-account).
+2. Kuruluşunuzda, Kurumsal Anlaşma kaydınıza benzer faturalandırmayı yönetmek için faturalandırma profili kullanın. Kurumsal Yöneticiler fatura profilinin sahipleri haline gelir. Fatura profilleri hakkında daha fazla bilgi için bkz: [fatura profillerini anlayabilir](billing-mca-overview.md#billing-profiles).
+3. Kurumsal Anlaşma kaydınıza departmanlara benzeyen, gereksinimlerinize göre maliyetlerinizi düzenlemek için bir fatura bölümü kullanın. Fatura bölümler bölüm haline gelir ve departman yöneticilerinin sahipleri ilgili fatura bölümlerin olur. Fatura bölümleri hakkında daha fazla bilgi için bkz: [fatura bölümleri anlamak](billing-mca-overview.md#invoice-sections).
 4. Kurumsal anlaşmanızı oluşturulan hesapları yeni faturalandırma hesabında desteklenmiyor. Hesap aboneliklerini departmanı için ilgili fatura bölümüne ait. Hesap sahipleri oluşturabilir ve fatura bölümlerinin aboneliklerini yönetin.
 
-## <a name="understand-changes-to-your-billing-administrators-access"></a>Değişiklikler, faturalama yöneticileri erişimi anlama
+## <a name="changes-to-billing-administrator-access"></a>Yönetici erişimi faturalandırma değişiklikleri
 
 Erişimleri bağlı olarak, Kurumsal Anlaşma kaydınıza üzerinde faturalama yöneticileri fatura kapsamlar yeni hesap erişim elde edin. Aşağıdaki tabloda Kurulum sırasında değişiklik erişim açıklanmaktadır:
 
@@ -110,7 +106,7 @@ Yeni hesabınıza yalnızca Microsoft Müşteri sözleşmesi imzalanırken seçi
 
 Kullanıcıları davet ederken, kiracınıza Konuk kullanıcı olarak eklenir ve fatura hesap erişin. Kullanıcıları davet etmek için Konuk erişimi Kiracı için açık olması gerekir. Daha fazla bilgi için [Konuk erişimi Azure Active Directory'de](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Konuk erişimine kapatılırsa, açmak kiracınızın genel yönetici ile iletişime geçin. <!-- Todo - How can they find their global administrator -->
 
-## <a name="view-features-replaced-by-the-new-billing-account"></a>Yerine yeni faturalandırma hesabıyla özelliklerini görüntüleyin
+## <a name="view-replaced-features"></a>Değiştirilen özelliklerini görüntüleyin
 
 Aşağıdaki Kurumsal anlaşmanın özellikleri varsayılan olarak, bir Microsoft Müşteri sözleşmesi fatura hesabındaki yeni özellikler ile değiştirilir.
 
@@ -197,7 +193,7 @@ Kurulumu tamamlamak için yeni bir faturalama hesabı ve Kurumsal Anlaşma kayd�
 
    ![Geçiş durumu gösteren ekran görüntüsü](./media/billing-mca-setup-account/ea-mca-set-up-status.png)
 
-## <a name="validate-the-billing-account-is-set-up-properly"></a>Faturalandırma doğrulamak hesabı ayarlandığından düzgün
+## <a name="validate-billing-account-set-up"></a>Fatura hesabı ayarlama doğrula
 
  Yeni Fatura hesabınıza düzgün ayarlandığından emin olmak için aşağıdakileri doğrulayın:
 

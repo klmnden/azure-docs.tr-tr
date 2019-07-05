@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: fcb9171d2285efab0f65e6ab424908bc42c0ea2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 01e7ca184f2be755f23cd402e0694ea282e3b85e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66391883"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441387"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Azure HDInsight, Apache Hadoop Excel'i Microsoft Hive ODBC sürücüsü ile bağlama
 
@@ -32,7 +32,7 @@ Bu makaleye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 * Office 2010 Professional Plus veya sonraki bir iş istasyonu veya Excel 2010 veya üzeri.
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>Microsoft Hive ODBC sürücüsünü yükleme
-İndirme ve yükleme [Microsoft Hive ODBC sürücüsünü](https://go.microsoft.com/fwlink/?LinkID=286698) burada kullanacağınız ODBC sürücüsü uygulama sürümüyle eşleşen sürümü.  Bu öğreticide, sürücü Office Excel için kullanılır.
+İndirme ve yükleme [Microsoft Hive ODBC sürücüsünü](https://go.microsoft.com/fwlink/?LinkID=286698) burada kullanacağınız ODBC sürücüsü uygulama sürümüyle eşleşen sürümü.  Bu makale için sürücü Office Excel için kullanılır.
 
 ## <a name="create-apache-hive-odbc-data-source"></a>Apache Hive ODBC veri kaynağı oluşturma
 Aşağıdaki adımlar bir Hive ODBC veri kaynağı oluşturma işlemini gösterir.

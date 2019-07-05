@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 85d6ed80da93f90e6dc0feaee7081ee3f36f1bf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f46a35d971c008b61d4899e30101ea562d3cefea
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242703"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483403"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Gerçek zamanlı analiz ve işleme teknolojisi azure'da akış seçin
 
@@ -44,7 +44,7 @@ Azure Stream Analytics, zengin bir giden kutusu deneyimi vardır. Hemen başka b
 
 ### <a name="you-need-to-input-from-or-output-to-kafka"></a>Gelen giriş veya çıkış kafka'ya gerekir
 
-Azure Stream Analytics Apache Kafka'ya giriş veya çıkış bağdaştırıcısı değil. İçinde giriş olayları veya Kafka'ya göndermeniz gerekir ve kendi Kafka kümesini çalıştırmak için bir gereksinim yoktur, Stream Analytics, Event hubs'a olay gönderenin değiştirmeksizin Event Hubs Kafka API'si kullanarak olay göndermeye kullanmaya devam edebilirsiniz. Kendi Kafka kümesi çalıştırmanız gerekiyorsa, Spark yapılandırılmış tam olarak desteklenir, akış, kullanabilirsiniz [Azure Databricks](../azure-databricks/index.yml), veya üzerinde Storm [Azure HDInsight](../hdinsight/storm/apache-storm-tutorial-get-started-linux.md).
+Azure Stream Analytics Apache Kafka'ya giriş veya çıkış bağdaştırıcısı değil. İçinde giriş olayları veya Kafka'ya göndermeniz gerekir ve kendi Kafka kümesini çalıştırmak için bir gereksinim yoktur, Stream Analytics, Event hubs'a olay gönderenin değiştirmeksizin Event Hubs Kafka API'si kullanarak olay göndermeye kullanmaya devam edebilirsiniz. Kendi Kafka kümesi çalıştırmanız gerekiyorsa, Spark yapılandırılmış tam olarak desteklenir, akış, kullanabilirsiniz [Azure Databricks](../azure-databricks/index.yml), veya üzerinde Storm [Azure HDInsight](../hdinsight/storm/apache-storm-overview.md).
 
 ### <a name="you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c"></a>UDF Uda'lar ve özel deserializers JavaScript dışındaki bir dilde yazmak istediğiniz veyaC#
 

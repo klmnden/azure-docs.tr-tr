@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/16/2019
+ms.date: 06/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 5a63053cc7fa1c1c86669ce2cea56b68f1a7b4b6
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: b92bc0a6c5d51ad26e069a363619edbdf0daa7c0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341496"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442879"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure kaynakları için yerleşik roller
 
@@ -54,11 +54,17 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 | [Otomasyon Runbook'u işleci](#automation-runbook-operator) | Runbook'un işlerini oluşturabilmek için Runbook özelliklerini okuyun. |
 | [Avere katkıda bulunan](#avere-contributor) | Oluşturabilir ve bir Avere vFXT kümesini yönetme. |
 | [Avere işleci](#avere-operator) | Kümeyi yönetmek için Avere vFXT küme tarafından kullanılan |
+| [Azure Event Hubs, veri sahibi (Önizleme)](#azure-event-hubs-data-owner-preview) | Azure Event Hubs kaynakları için tam erişim sağlar. |
+| [Azure olay hub'ları veri Alıcısı (Önizleme)](#azure-event-hubs-data-receiver-preview) | Sağlayan Azure Event Hubs kaynaklara erişim kazanır. |
+| [Azure olay hub'ları veri gönderen (Önizleme)](#azure-event-hubs-data-sender-preview) | Azure Event Hubs kaynakları gönderme erişim sağlar. |
 | [Azure Kubernetes hizmeti Küme Yöneticisi rolü](#azure-kubernetes-service-cluster-admin-role) | Küme Yöneticisi kimlik bilgileri eylem listeleyin. |
 | [Azure Kubernetes hizmeti küme kullanıcı rolü](#azure-kubernetes-service-cluster-user-role) | Küme kullanıcı kimlik bilgileri eylem listeleyin. |
 | [Azure haritalar verileri Okuyucu (Önizleme)](#azure-maps-data-reader-preview) | Harita Azure haritalar hesabı ilgili verileri okuma erişimi verir. |
+| [Azure Service Bus veri sahibi (Önizleme)](#azure-service-bus-data-owner-preview) | Azure Service Bus kaynakları için tam erişim sağlar. |
+| [Azure Service Bus veri alıcı (Önizleme)](#azure-service-bus-data-receiver-preview) | İzin veren Azure Service Bus kaynaklara erişim kazanır. |
+| [Azure Service Bus veri gönderen (Önizleme)](#azure-service-bus-data-sender-preview) | Azure Service Bus kaynakları gönderme erişim sağlar. |
 | [Azure Stack kayıt sahibi](#azure-stack-registration-owner) | Azure Stack kayıtlarını yönetmenize imkan sağlar. |
-| [Yedekleme Katılımcısı](#backup-contributor) | Yönetmenize olanak sağlar Yedekleme hizmetini ancak kasaları oluşturamaz veya diğerleri için erişim verin |
+| [Yedekleme Katılımcısı](#backup-contributor) | Yönetmenize olanak sağlar hizmeti yedekleme ancak kasaları oluşturamaz veya diğerleri için erişim verin |
 | [Yedekleme işletmeni](#backup-operator) | Kaldırılmasını yedekleme, kasa oluşturma ve başkalarına erişim verme dışındaki yedekleme hizmetlerini yönetmenize olanak tanır |
 | [Yedekleme okuyucusu](#backup-reader) | Yedekleme hizmetlerini görüntüleyebilir ancak değişiklik yapamaz |
 | [Faturalama okuyucusu](#billing-reader) | Faturalandırma verilerine okuma erişimi verir |
@@ -88,7 +94,6 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 | [DevTest Labs kullanıcısı](#devtest-labs-user) | Sağlar bağlantı, başlatma, yeniden başlatma ve kapatma Azure DevTest Labs'teki sanal makinelerinizde. |
 | [DNS bölgesi katkıda bulunanı](#dns-zone-contributor) | DNS bölgeleri ve Azure DNS kayıt kümelerini yönetmenize izin verir ancak bunlara kimlerin erişebildiğini denetlemenize izin vermez. |
 | [DocumentDB hesabı Katılımcısı](#documentdb-account-contributor) | Azure Cosmos DB hesapları yönetebilirsiniz. Azure Cosmos DB, eski adıyla DocumentDB bilinir. |
-| [Olay hub'ları veri sahibi](#event-hubs-data-owner) | Azure Event Hubs kaynakları için tam erişim sağlar. | 
 | [EventGrid EventSubscription katkıda bulunan](#eventgrid-eventsubscription-contributor) | EventGrid olay aboneliği işlemleri yönetmenizi sağlar. |
 | [EventGrid EventSubscription okuyucusu](#eventgrid-eventsubscription-reader) | Olay abonelikleri EventGrid okumanıza olanak tanır. |
 | [HDInsight küme işleci](#hdinsight-cluster-operator) | Okuma ve HDInsight küme yapılandırmaları değiştirmenizi sağlar. |
@@ -119,7 +124,6 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 | [Güvenlik Yöneticisi](#security-admin) | Güvenlik Merkezi'nde yalnızca: Güvenlik ilkelerini görüntüleyin, güvenlik durumlarını görüntülemek, güvenlik ilkeleri, uyarıları görüntüleme ve öneriler düzenleme, uyarıları ve öneriler Kapat |
 | [Güvenlik Yöneticisi'ni (eski)](#security-manager-legacy) | Bu eski bir roldür. Lütfen bunun yerine Güvenlik Yöneticisi kullanın |
 | [Güvenlik okuyucusu](#security-reader) | Güvenlik Merkezi'nde yalnızca: Öneriler ve uyarılar, güvenlik ilkeleri, güvenlik durumlarını görüntüleyebilir ancak değişiklik yapamaz görünüm görüntüleyebilirsiniz. |
-| [Hizmet veri yolu veri sahibi](#service-bus-data-owner) | Azure Service Bus kaynakları için tam erişim sağlar. |
 | [Site Recovery katkıda bulunanı](#site-recovery-contributor) | Kasa oluşturma ve rol atamasının dışında Site Recovery hizmetini yönetmenize olanak tanır |
 | [Site Recovery operatörü](#site-recovery-operator) | Yük devretme ve yeniden çalışma sağlar, ancak diğer Site Recovery yönetim işlemlerini gerçekleştirmenize |
 | [Site Recovery okuyucusu](#site-recovery-reader) | Sağlar, Site Recovery durumunu ancak diğer yönetim işlemlerini gerçekleştirmenize |
@@ -130,15 +134,15 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 | [SQL yönetilen örneği katkıda bulunan](#sql-managed-instance-contributor) | SQL yönetilen örneğini yönetmek ve gerekli sağlar, ağ, ancak kişilere erişim veremez. |
 | [SQL Güvenlik Yöneticisi](#sql-security-manager) | SQL sunucuları ve veritabanları, ancak onlara yönelik erişimi güvenlikle ilgili ilkelerini yönetmenizi sağlar. |
 | [SQL Server Katılımcısı](#sql-server-contributor) | SQL sunucularını ve veritabanlarını yönetebilir, ancak bunları ve bunların güvenlik erişemezler sağlar-ilgili ilkeler. |
-| [Depolama Hesabı Katılımcısı](#storage-account-contributor) | Depolama hesapları, ancak onlara yönelik erişimi yönetmenize olanak tanır. |
-| [Depolama hesabı anahtarı işleci hizmet rolü](#storage-account-key-operator-service-role) | Depolama hesabı anahtarı işleçlerine listelemek ve depolama hesaplarında anahtarları yeniden oluşturma izni verilir |
-| [Depolama Blob verileri katkıda bulunan](#storage-blob-data-contributor) | Sağlar, okuma, yazma ve Azure depolama blob kapsayıcılarına ve verilerine erişimi silme |
-| [Depolama Blob verileri sahibi](#storage-blob-data-owner) | Azure depolama blob kapsayıcılarına ve verilerine, POSIX erişim denetimi atama dahil olmak üzere tam erişim sağlar. |
-| [Depolama Blob verileri okuyucu](#storage-blob-data-reader) | Azure depolama blob kapsayıcılarına ve verilerine okuma erişimi verir |
-| [Depolama kuyruk verileri katkıda bulunan](#storage-queue-data-contributor) | Okuma, yazma ve Azure depolama kuyruklarına ve kuyruk iletilerine silme erişimi verir |
-| [Depolama kuyruk verileri ileti işlemci](#storage-queue-data-message-processor) | Sağlar göz atma, alma ve silme erişimi için Azure depolama kuyruğu iletileri |
-| [Depolama kuyruk verileri ileti gönderen](#storage-queue-data-message-sender) | Azure depolama kuyruğu iletileri göndermek için izin verir |
-| [Depolama kuyruk verileri okuyucu](#storage-queue-data-reader) | Azure depolama kuyruklarına ve kuyruk iletilerine okuma erişimi verir |
+| [Depolama Hesabı Katılımcısı](#storage-account-contributor) | Depolama hesaplarının yönetimini izin verir. Depolama hesabındaki verilere erişim sağlamaz. |
+| [Depolama hesabı anahtarı işleci hizmet rolü](#storage-account-key-operator-service-role) | Listeleme ve depolama hesabı erişim anahtarlarını yeniden izin verir. |
+| [Depolama Blob verileri katkıda bulunan](#storage-blob-data-contributor) | Okuma, yazma ve Azure depolama kapsayıcıları ve blobları silin. Verilen veri çalışması için gerekli eylemleri öğrenmek için bkz: [blob ve kuyruk veri işlemleri çağırmak için izinleri](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Depolama Blob verileri sahibi](#storage-blob-data-owner) | Azure depolama blob kapsayıcılarına ve verilerine, POSIX erişim denetimi atama dahil olmak üzere tam erişim sağlar. Verilen veri çalışması için gerekli eylemleri öğrenmek için bkz: [blob ve kuyruk veri işlemleri çağırmak için izinleri](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Depolama Blob verileri okuyucu](#storage-blob-data-reader) | Okuma ve Azure depolama kapsayıcıları ve blobları listeleyin. Verilen veri çalışması için gerekli eylemleri öğrenmek için bkz: [blob ve kuyruk veri işlemleri çağırmak için izinleri](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Depolama kuyruk verileri katkıda bulunan](#storage-queue-data-contributor) | Okuma, yazma ve Azure depolama kuyruklarına ve kuyruk iletilerine silin. Verilen veri çalışması için gerekli eylemleri öğrenmek için bkz: [blob ve kuyruk veri işlemleri çağırmak için izinleri](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Depolama kuyruk verileri ileti işlemci](#storage-queue-data-message-processor) | Özet alın ve bir Azure depolama kuyruğuna bir ileti Sil. Verilen veri çalışması için gerekli eylemleri öğrenmek için bkz: [blob ve kuyruk veri işlemleri çağırmak için izinleri](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Depolama kuyruk verileri ileti gönderen](#storage-queue-data-message-sender) | Bir Azure depolama kuyruğuna ileti ekleme. Verilen veri çalışması için gerekli eylemleri öğrenmek için bkz: [blob ve kuyruk veri işlemleri çağırmak için izinleri](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
+| [Depolama kuyruk verileri okuyucu](#storage-queue-data-reader) | Okuma ve Azure depolama kuyruklarına ve kuyruk iletilerine listeleyin. Verilen veri çalışması için gerekli eylemleri öğrenmek için bkz: [blob ve kuyruk veri işlemleri çağırmak için izinleri](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). |
 | [Destek isteği Katılımcısı](#support-request-contributor) | Destek isteklerini oluşturmak ve yönetmek sağlar |
 | [Traffic Manager katkıda bulunanı](#traffic-manager-contributor) | Traffic Manager profillerini yönetmenize izin verir ancak bunlara kimlerin erişebildiğini denetlemenize izin vermez. |
 | [Kullanıcı Erişimi Yöneticisi](#user-access-administrator) | Azure kaynaklarına kullanıcı erişimini yönetmenizi sağlar. |
@@ -548,6 +552,51 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **NotDataActions** |  |
 > | *Yok* |  |
 
+## <a name="azure-event-hubs-data-owner-preview"></a>Azure Event Hubs, veri sahibi (Önizleme)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Azure Event Hubs kaynakları için tam erişim sağlar. |
+> | **Kimlik** | f526a384-b230-433a-b45c-95f59c4a2dec |
+> | **Eylemler** |  |
+> | Microsoft.EventHub/* |  |
+> | **NotActions** |  |
+> | *Yok* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHub/* |  |
+> | **NotDataActions** |  |
+> | *Yok* |  |
+
+## <a name="azure-event-hubs-data-receiver-preview"></a>Azure olay hub'ları veri Alıcısı (Önizleme)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Sağlayan Azure Event Hubs kaynaklara erişim kazanır. |
+> | **Kimlik** | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
+> | **Eylemler** |  |
+> | Microsoft.EventHub/*/eventhubs/consumergroups/read |  |
+> | **NotActions** |  |
+> | *Yok* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHub/*/receive/action |  |
+> | **NotDataActions** |  |
+> | *Yok* |  |
+
+## <a name="azure-event-hubs-data-sender-preview"></a>Azure olay hub'ları veri gönderen (Önizleme)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Azure Event Hubs kaynakları gönderme erişim sağlar. |
+> | **Kimlik** | 2b629674-e913-4c01-ae53-ef4638d8f975 |
+> | **Eylemler** |  |
+> | Microsoft.EventHub/*/eventhubs/read |  |
+> | **NotActions** |  |
+> | *Yok* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHub/*/send/action |  |
+> | **NotDataActions** |  |
+> | *Yok* |  |
+
 ## <a name="azure-kubernetes-service-cluster-admin-role"></a>Azure Kubernetes hizmeti Küme Yöneticisi rolü
 > [!div class="mx-tableFixed"]
 > | | |
@@ -593,6 +642,55 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **NotDataActions** |  |
 > | *Yok* |  |
 
+## <a name="azure-service-bus-data-owner-preview"></a>Azure Service Bus veri sahibi (Önizleme)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Azure Service Bus kaynakları için tam erişim sağlar. |
+> | **Kimlik** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
+> | **Eylemler** |  |
+> | Microsoft.ServiceBus/* |  |
+> | **NotActions** |  |
+> | *Yok* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/* |  |
+> | **NotDataActions** |  |
+> | *Yok* |  |
+
+## <a name="azure-service-bus-data-receiver-preview"></a>Azure Service Bus veri alıcı (Önizleme)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | İzin veren Azure Service Bus kaynaklara erişim kazanır. |
+> | **Kimlik** | 4f6d3b9b-027b-4f4c-9142-0e5a2a2247e0 |
+> | **Eylemler** |  |
+> | Microsoft.ServiceBus/*/queues/read |  |
+> | Microsoft.ServiceBus/*/topics/read |  |
+> | Microsoft.ServiceBus/*/topics/subscriptions/read |  |
+> | **NotActions** |  |
+> | *Yok* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/*/receive/action |  |
+> | **NotDataActions** |  |
+> | *Yok* |  |
+
+## <a name="azure-service-bus-data-sender-preview"></a>Azure Service Bus veri gönderen (Önizleme)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Azure Service Bus kaynakları gönderme erişim sağlar. |
+> | **Kimlik** | 69a216fc-b8fb-44d8-bc22-1f3c2cd27a39 |
+> | **Eylemler** |  |
+> | Microsoft.ServiceBus/*/queues/read |  |
+> | Microsoft.ServiceBus/*/topics/read |  |
+> | Microsoft.ServiceBus/*/topics/subscriptions/read |  |
+> | **NotActions** |  |
+> | *Yok* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/*/send/action |  |
+> | **NotDataActions** |  |
+> | *Yok* |  |
+
 ## <a name="azure-stack-registration-owner"></a>Azure Stack kayıt sahibi
 > [!div class="mx-tableFixed"]
 > | | |
@@ -625,7 +723,6 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Kapsayıcı listesini yeniler |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Yedekleme işler oluşturma ve yönetme |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Dışarı aktarma işleri |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Oluşturma ve yedekleme yönetimi ile ilgili meta verileri yönetme |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Oluşturma ve yedekleme yönetim işlemlerinin sonuçlarını yönetme |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | Yedekleme ilkeleri oluşturma ve yönetme |
@@ -691,7 +788,6 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Kapsayıcı listesini yeniler |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Yedekleme işler oluşturma ve yönetme |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Dışarı aktarma işleri |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Oluşturma ve yedekleme yönetim işlemlerinin sonuçlarını yönetme |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | İlke İşleminin Sonuçlarını alın. |
@@ -758,7 +854,6 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | İş İşleminin Sonucunu döndürür. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/read | Tüm iş nesnelerini döndürür |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Dışarı aktarma işleri |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Kurtarma Hizmetleri Kasası için Yedekleme işleminin Sonucunu döndürür. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | İlke İşleminin Sonuçlarını alın. |
@@ -1409,22 +1504,6 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **NotDataActions** |  |
 > | *Yok* |  |
 
-## <a name="event-hubs-data-owner"></a>Olay hub'ları veri sahibi
-
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Açıklama** | Azure Event Hubs kaynakları için tam erişim sağlar. |
-> | **Kimlik** | f526a384-b230-433a-b45c-95f59c4a2dec |
-> | **Eylemler** |  |
-> | Microsoft.EventHubs/* | Event Hubs ad alanı için tam yönetim erişimi verir |
-> | **NotActions** |  |
-> | *Yok* |  |
-> | **DataActions** |  |
-> | Microsoft.EventHubs/* | Event Hubs ad alanı tam veri erişimi verir |
-> | **NotDataActions** |  |
-> | *Yok* |  |
-
 ## <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription katkıda bulunan
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1721,9 +1800,9 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | **Açıklama** | Oluşturun, okuyun, güncelleştirin ve kullanıcı tarafından atanan Kimliği Sil |
 > | **Kimlik** | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
 > | **Eylemler** |  |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/*/read |  |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/*/write |  |
-> | Microsoft.ManagedIdentity/userAssignedIdentities/*/delete |  |
+> | Microsoft.ManagedIdentity/userAssignedIdentities/read | Bir mevcut kullanıcı tarafından atanan kimliği alır |
+> | Microsoft.ManagedIdentity/userAssignedIdentities/write | Atanan kimliği yeni bir kullanıcı oluşturur veya mevcut bir kullanıcının atanan kimliği ile ilişkili etiketleri güncelleştirir |
+> | Microsoft.ManagedIdentity/userAssignedIdentities/delete | Atanan kimliği mevcut bir kullanıcıyı siler |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve yönetme Insights uyarı kuralları |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Alır veya kaynak gruplarını listeler. |
@@ -2073,22 +2152,6 @@ Aşağıdaki tabloda her yerleşik rol kısa bir açıklamasını sağlar. Rol a
 > | *Yok* |  |
 > | **DataActions** |  |
 > | *Yok* |  |
-> | **NotDataActions** |  |
-> | *Yok* |  |
-
-## <a name="service-bus-data-owner"></a>Hizmet veri yolu veri sahibi
-
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Açıklama** | Azure Service Bus kaynakları için tam erişim sağlar. |
-> | **Kimlik** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
-> | **Eylemler** |  |
-> | Microsoft.ServiceBus/* | Service Bus ad alanı için tam yönetim erişimi verir |
-> | **NotActions** |  |
-> | *Yok* |  |
-> | **DataActions** |  |
-> | Microsoft.ServiceBus/* | Service Bus ad alanı tam veri erişimi verir |
 > | **NotDataActions** |  |
 > | *Yok* |  |
 

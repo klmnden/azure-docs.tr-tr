@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 5022d765b5dfa4f1f973b7fb4370d5314bb887b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 461df93400380ac74fa87eebc81fa06f77d7bf76
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60542887"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551662"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Bir sanal makine veya VHD görüntüsü oluşturma
 
@@ -30,7 +30,9 @@ Azure'da kullanım için bir sanal makine (VM) birden çok kopyasını oluşturm
 
 Yedekleme veya hata ayıklama için var olan bir Linux sanal makinenizin bir kopya oluşturmak için veya bir şirket içi VM'den özelleştirilmiş bir Linux VHD'yi karşıya yüklemek için bkz: [karşıya yükleme ve özel disk görüntüsünden Linux VM oluşturma](upload-vhd.md).  
 
-Ayrıca **Packer** özel yapılandırmanızı oluşturmak için. Daha fazla bilgi için [Packer Azure'da Linux sanal makine görüntüleri oluşturmak için nasıl kullanılacağını](build-image-with-packer.md).
+Kullanabileceğiniz **Azure VM Görüntü Oluşturucu (genel Önizleme)** özel görüntü, herhangi bir aracı öğrenmeniz gerekmez oluşturmak için hizmet veya Kurulum yapı işlem hatları, yalnızca bir görüntü yapılandırma, sağlama ve görüntünün görüntü Oluşturucusu oluşturur. Daha fazla bilgi için [Azure VM Görüntü Oluşturucu ile çalışmaya başlama](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
+
+Ayrıca, kullanım **Packer** özel yapılandırmanızı oluşturmak için. Daha fazla bilgi için [Packer Azure'da Linux sanal makine görüntüleri oluşturmak için nasıl kullanılacağını](build-image-with-packer.md).
 
 Görüntüyü oluşturmadan önce aşağıdaki öğeler gerekir:
 

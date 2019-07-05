@@ -1,19 +1,17 @@
 ---
 title: Azure veri Kataloğu hakkında sık sorulan sorular
 description: Veri kaynağı bulma, açıklama ve yönetim özelliklerini de dahil olmak üzere, Azure veri Kataloğu hakkında sık sorulan sorular.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 7c5241b9df23bb0334a39f2c684fd1bdff40b4c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/01/2019
+ms.openlocfilehash: 6ab5c67129b16cde5ca74e72effdf56ec0a22711
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61004050"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508895"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Azure veri Kataloğu hakkında sık sorulan sorular
 Bu makalede, Azure veri Kataloğu hizmeti ile ilgili sık sorulan soruların yanıtlarını sağlar.
@@ -36,7 +34,7 @@ Veri Kataloğu dahil olmak üzere teknik ve teknik olmayan kullanıcılar için 
 Veri Kataloğu Hizmetleri şu veri merkezlerinde şu anda kullanılabilir:
 
 * Batı ABD
-* Doğu ABD
+* East US
 * Batı Avrupa
 * Kuzey Avrupa
 * Avustralya Doğu
@@ -103,9 +101,6 @@ Sorunları bildirmek için bilgi paylaşmak ve soru sorun, Git [Azure veri Katal
 
 ## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>Katalog, şunlarla ilgileniyorum başka bir veri kaynağı ile çalışır mı?
 Etkin bir şekilde daha fazla veri kaynakları veri Kataloğu'na ekleme üzerinde çalışıyoruz. Desteklenen belirli bir veri kaynağına bakın, bunu önerir (veya zaten önerilen değilse, desteği ses) giderek isterseniz [Azure geri bildirim forumları veri Kataloğu](https://feedback.azure.com/forums/906052-data-catalog).
-
-## <a name="how-is-azure-data-catalog-related-to-the-data-catalog-in-power-bi-for-office-365"></a>Azure veri Kataloğu Power bı'daki veri Kataloğu'na nasıl Office 365 için ilişkili mi?
-Azure veri Kataloğu Power bı'daki veri Kataloğu'nun evrim olarak düşünebilirsiniz. Spring 2017 itibarıyla Azure veri kataloğu için Excel paylaşımı ve Excel 2016'daki sorgular ve Power Query bulunmasını etkinleştirmek için kullanılır. Veri Kataloğu özellikleri Excel'de Power BI Pro lisansı olan kullanıcılar tarafından kullanılabilir.
 
 ## <a name="what-permissions-do-i-need-to-register-assets-with-data-catalog"></a>Varlıklar, veri Kataloğu'na kaydetmek hangi izinlerin gerekiyor?
 Veri Kataloğu kayıt aracı çalıştırmak için meta veriler kaynaktan okumanıza izin verir veri kaynağında izinleri gerekir. Bir önizleme de dahil etmek için Kaydedilmekte nesne verilerden okunacak olanak sağlayan izinleri olmalıdır.

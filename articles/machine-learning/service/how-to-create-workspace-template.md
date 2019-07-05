@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/16/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 2c5491bab9b45df11c2fe81aa933a1a34c49a41b
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4e0af3b395ec640fd037a1e76365408c10613340
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205931"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477007"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Azure Machine Learning hizmeti için bir çalışma alanı oluşturmak için bir Azure Resource Manager şablonu kullanma
 
@@ -103,6 +103,19 @@ az group deployment create \
 ```
 
 Daha fazla bilgi için [kaynakları Resource Manager şablonları ve Azure CLI ile dağıtma](../../azure-resource-manager/resource-group-template-deploy-cli.md) ve [SAS belirteci ve Azure CLI ile özel Resource Manager şablonu dağıtma](../../azure-resource-manager/resource-manager-cli-sas-token.md).
+
+## <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure anahtar kasası erişim ilkesi ve Azure Resource Manager şablonları
+
+Çalışma alanı ve ilişkili kaynakları (Azure anahtar kasası dahil), birden çok kez oluşturmak için bir Azure Resource Manager şablonu kullandığınızda. Örneğin, şablon bir sürekli tümleştirme ve dağıtım işlem hattı bir parçası olarak aynı parametrelere sahip birden çok kez kullanma.
+
+Şablonlar aracılığıyla çoğu kaynak oluşturma işlemleri bir kere etkili olur, ancak anahtar kasası erişim ilkeleri şablon kullanılan her zaman temizler. Key Vault kullandığı tüm mevcut bir çalışma alanı için erişim ilkeleri sonları erişimi temizleniyor. Örneğin, Azure not defterleri VM Stop/Create işlevlerini başarısız olabilir.  
+
+Bu sorunu önlemek için aşağıdaki yaklaşımlardan birini önerilir:
+
+*  Şablon, birden çok kez aynı parametreleri dağıtılmaz. Veya bunları yeniden oluşturmak için bu şablonu kullanmadan önce var olan kaynakları silin.
+  
+* Anahtar kasası erişim ilkelerini inceleyin ve sonra da şablonun accessPolicies özelliğini ayarlamak için bu ilkeleri kullanın.
+* Key Vault kaynağı zaten mevcut olup olmadığını denetleyin. Varsa, şablonu aracılığıyla yeniden oluşturmayın. Örneğin, zaten varsa, anahtar kasası kaynak oluşturma devre dışı bırakmanıza olanak tanıyan bir parametre ekleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

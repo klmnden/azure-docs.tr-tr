@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning hizmeti ile MLflow kullanma
+title: Azure Machine Learning hizmeti ile MLflow kullanın
 titleSuffix: Azure Machine Learning service
 description: Ölçümler ve yapıtları kullanarak Azure Machine Learning hizmetine MLflow kitaplığı oturum öğrenin
 services: machine-learning
@@ -11,21 +11,21 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: b64051a4ef7b6a816b03562fef0452cbe9ce949a
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: d0bc4620d0c55d6e94a3d99c39ab405dab2743e5
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144017"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461659"
 ---
-# <a name="how-to-use-mlflow-with-azure-machine-learning-service-preview"></a>Azure Machine Learning hizmeti (Önizleme) ile MLflow kullanma
+# <a name="use-mlflow-with-azure-machine-learning-service-preview"></a>Azure Machine Learning hizmeti (Önizleme) ile MLflow kullanın
 
 Bu makalede MLflow'ın URI izleme ve günlüğe kaydetme API'si, nasıl kullanılacağını gösterir. toplu olarak da bilinen MLflow izleme, izleme ve deneme ölçümleri ve yapıları oturum için Azure Machine Learning hizmeti ile kendi [Azure Machine Learning Hizmet çalışma](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace). Zaten MLflow izleme denemelerinizi için kullanıyorsanız, çalışma alanı eğitim ölçümleri ve modelleri depolamak için merkezi, güvenli ve ölçeklenebilir bir konum sağlar.
 
 [MLflow](https://www.mlflow.org) makine öğrenimi denemelerini yaşam döngüsünü yönetmeye yönelik bir açık kaynak kitaplığı. [MLFlow izleme](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) günlükleri ve ölçümleri çalıştırma eğitim izler MLflow bileşenidir ve model yapıtları denemelerinizi yerel olarak çalışan bir sanal makine veya uzak bir işlem kümesi.
 ![azure machine learning diyagramıyla mlflow](media/how-to-use-mlflow/mlflow-diagram.png)
 
-## <a name="compare-mlflow-and-azure-machine-learning-service-clients"></a>MLflow ve Azure Machine Learning hizmeti istemcileri karşılaştırın
+## <a name="compare-mlflow-and-azure-machine-learning-clients"></a>MLflow ve Azure Machine Learning istemcileri karşılaştırın
 
  Azure Machine Learning hizmetini ve ilgili işlevi yeteneklerini kullanabileceğiniz farklı istemciler aşağıdaki tabloda özetlenmiştir.
 

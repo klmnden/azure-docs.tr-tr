@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 05/23/2019
-ms.openlocfilehash: 98bd70d9f6eb70cb7848dfa74e19c78e55a34991
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/26/2019
+ms.openlocfilehash: 4e63e1e477ce82221e5121815b609326cc2c1112
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240348"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447177"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Sanal çekirdek tabanlı satın alma modeli sınırlarını kullanarak elastik havuzlar için kaynak sınırları
 
@@ -36,6 +36,9 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 > Kaynak elastik havuzlardaki veritabanlarını tek tek genellikle tek veritabanları aynı havuzları dışında aynı boyutu işlem limitlerdir. Örneğin, maks. eş zamanlı çalışan GP_Gen4_1 veritabanı için 200 çalışanları olur. Bu nedenle, GP_Gen4_1 havuzdaki bir veritabanı için en fazla eş zamanlı çalışan var. Ayrıca 200 çalışanları 210 olduğuna dikkat edin. eş zamanlı çalışan GP_Gen4_1 havuzundaki toplam sayısı.
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Genel amaçlı hizmet katmanı: Depolama boyutlarına ve işlem boyutları
+
+> [!IMPORTANT]
+> Yeni 4. nesil veritabanları, AustraliaEast bölgesinde artık desteklenmemektedir.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Genel amaçlı hizmet katmanı: 4. nesil işlem platformu (1. bölüm)
 
@@ -149,6 +152,9 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 \* En fazla eş zamanlı çalışan (istek) herhangi bir tek veritabanı için bkz. [tek veritabanı kaynak limitleri](sql-database-vcore-resource-limits-single-databases.md). Örneğin, elastik havuzun 5. nesil ve veritabanı başına en fazla kendi sanal çekirdek kullanıyorsa, maks. eş zamanlı çalışan sonra 200 2 ' dir.  Veritabanı başına en çok sanal çekirdek 0,5 ardından maks. eş zamanlı çalışan ise, 50 üzerinde 5. nesil olduğundan sanal çekirdek başına 100 eşzamanlı çalışan en fazla.  Diğer en çok sanal çekirdek ayarlarını daha az 1 sanal çekirdek olan veritabanı başına ya da daha az, en fazla eş zamanlı çalışan sayısı için benzer şekilde içerik yeniden ölçeklenir.
 
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>İş kritik hizmet katmanı: Depolama boyutlarına ve işlem boyutları
+
+> [!IMPORTANT]
+> Yeni 4. nesil veritabanları, AustraliaEast bölgesinde artık desteklenmemektedir.
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>İş kritik hizmet katmanı: 4. nesil işlem platformu (1. bölüm)
 

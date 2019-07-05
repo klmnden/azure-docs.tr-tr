@@ -14,12 +14,12 @@ ms.date: 04/27/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a0680ddf2c9e654455933bf09699ab81e8ab65d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e69bebfaeb28709b43ea74b7d33289426371a2bf
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65141655"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476443"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-pim"></a>PIM'de erişim gözden geçirmesi Azure AD rolleri oluşturma
 
@@ -41,7 +41,7 @@ Bu makalede, Azure AD rolleri ayrıcalıklı için bir veya daha fazla erişim g
 
 1. Yönet altında **erişim gözden geçirmeleriyle**.
 
-    ![Azure AD rolleri - erişim gözden geçirmeleri](./media/pim-how-to-start-security-review/access-reviews.png)
+    ![Azure AD rolleri - tüm incelemeleri durumunu gösteren listesini erişim gözden geçirmeleri](./media/pim-how-to-start-security-review/access-reviews.png)
 
 
 [!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
@@ -51,7 +51,7 @@ Bu makalede, Azure AD rolleri ayrıcalıklı için bir veya daha fazla erişim g
 
 Erişim gözden geçirmesi ayarları belirttikten sonra tıklayın **Başlat**. Erişim gözden geçirmesi listenizi durumu göstergesi görünür.
 
-![Erişim incelemeleri listesi](./media/pim-how-to-start-security-review/access-reviews-list.png)
+![Erişim gözden geçirmeleri kullanmaya başlama incelemeleri durumunu gösteren listesi](./media/pim-how-to-start-security-review/access-reviews-list.png)
 
 İnceleme kısa bir süre içinde başladıktan sonra varsayılan olarak, Azure AD için gözden geçirenler bir e-posta gönderir. Erişim gözden geçirmesi tamamlanmalarını bekliyor gözden geçirenlere bildirmek e-posta gönderin, Azure AD almamayı tercih ederseniz unutmayın. Nasıl yapılır yönergeleri Göster [Azure AD rolleri için erişim gözden geçirme](pim-how-to-perform-security-review.md).
 
@@ -59,7 +59,7 @@ Erişim gözden geçirmesi ayarları belirttikten sonra tıklayın **Başlat**. 
 
 Gözden geçirenler, üzerinde kendi incelemeler tamamlandı olarak ilerleme durumunu izleyebilir **genel bakış** erişim gözden geçirmesi sayfası. Erişim hakları dizine kadar değişen [gözden geçirme tamamlandığında](pim-how-to-complete-review.md).
 
-![Erişim gözden geçirmeleri ilerleme durumu](./media/pim-how-to-start-security-review/access-review-overview.png)
+![Erişim gözden geçirmeleri incelenmesi ayrıntılarını gösteren genel bakış sayfası](./media/pim-how-to-start-security-review/access-review-overview.png)
 
 Bu tek seferlik bir gözden geçirme ise, ardından yönetici erişim gözden geçirmesi durdurur veya erişim incelemesi süresi bittikten sonra adımları [rollerin Azure AD erişim gözden geçirmesi tamamlama](pim-how-to-complete-review.md) bakın ve sonuçları uygulamak için.  
 

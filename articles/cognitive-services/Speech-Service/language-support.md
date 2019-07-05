@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9b8e12220f220bd8183675d13e25bdcab02707fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3596f230ace2d19df28d0b43af45c74aaa87836
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65020851"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561309"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Konuşma Hizmetleri dil ve bölge desteği
 
@@ -24,7 +24,7 @@ Farklı diller için farklı bir konuşma hizmetleri işlevleri desteklenir. Aş
 
 ## <a name="speech-to-text"></a>Konuşmayı Metne Dönüştürme
 
-Microsoft konuşma tanıma API'si aşağıdaki dilleri desteklemektedir. Farklı düzeyde özelleştirme, her dil için kullanılabilir.
+Hem Microsoft konuşma tanıma SDK'sı hem de REST API (yerel) aşağıdaki dilleri destekler. Farklı düzeyde özelleştirme, her dil için kullanılabilir.
 
   Kod | Dil | [Akustik uyarlama](how-to-customize-acoustic-models.md) | [Dil uyarlama](how-to-customize-language-model.md) | [Söyleniş uyarlama](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------

@@ -10,14 +10,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/01/2019
 ms.author: bwren
-ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34c7ecbf235bed838af9ed2f848ca492916583f6
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357569"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514203"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365 Yönetim çözümüne (Önizleme)
 
@@ -25,7 +25,7 @@ ms.locfileid: "66357569"
 
 
 > [!NOTE]
-> Yükleme ve yapılandırma Office 365 çözüm için önerilen yöntem etkinleştirme [Office 365 Bağlayıcısı](../../sentinel/connect-office-365.md) içinde [Azure Gözcü](../../sentinel/overview.md) bu makaledeki adımları yerine. Gelişmiş Yapılandırma deneyimi ile Office 365 çözüm güncelleştirilmiş bir sürümünü budur. Azure AD günlüklerini bağlamak için Office 365 yönetim günlüklerinden daha zengin günlük verileri sağlayan [Azure Sentinel Azure AD bağlayıcısını](../../sentinel/connect-azure-active-directory.md) kullanın. 
+> Yükleme ve yapılandırma Office 365 çözüm için önerilen yöntem etkinleştirme [Office 365 Bağlayıcısı](../../sentinel/connect-office-365.md) içinde [Azure Gözcü](../../sentinel/overview.md) bu makaledeki adımları yerine. Gelişmiş Yapılandırma deneyimi ile Office 365 çözüm güncelleştirilmiş bir sürümünü budur. Azure AD günlükleri bağlanmak için kullanabilirsiniz [Azure Sentinel Azure AD Bağlayıcısı](../../sentinel/connect-azure-active-directory.md) veya [Azure AD'ye tanılama ayarlarını yapılandırma](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), Office 365 Yönetim günlük daha zengin günlük verilerini sağlar. 
 >
 > Olduğunda, [yerleşik Azure Gözcü](../../sentinel/quickstart-onboard.md), yüklü Office 365 çözüm istediğiniz Log Analytics çalışma alanını belirtin. Bağlayıcı etkinleştirdikten sonra çözüm çalışma alanında kullanılabilir olur ve tam olarak aynı yüklediğiniz herhangi diğer izleme çözümleri kullanılan.
 >
@@ -542,7 +542,7 @@ Aşağıdaki özellikler, tüm Office 365 kayıtlarına yaygındır.
 | Özellik | Description |
 |:--- |:--- |
 | Tür | *OfficeActivity* |
-| Clientıp | Etkinlik günlüğe kaydedildiğinde kullanılan cihazın IP adresi. IP adresi IPv4 veya IPv6 adresi biçiminde görüntülenir. |
+| ClientIP | Etkinlik günlüğe kaydedildiğinde kullanılan cihazın IP adresi. IP adresi IPv4 veya IPv6 adresi biçiminde görüntülenir. |
 | OfficeWorkload | Kayıt başvurduğu office 365 hizmeti.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | İşlem | Kullanıcı veya yönetici etkinliğinin adı.  |
 | OrganizationId | Kuruluşunuzun Office 365 kiracısı için GUID. Bu değer her zaman içinde gerçekleştiği Office 365 hizmet ne olursa olsun, kuruluşunuz için aynı olacaktır. |

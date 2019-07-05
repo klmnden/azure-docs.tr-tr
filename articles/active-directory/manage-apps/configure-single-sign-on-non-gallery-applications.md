@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e34e6257b4800387470cdc1b7d624bf3ebd1d3e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95b7cbcf4e485dc93d49b9559dcb7d0d4f597ebe
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65989214"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550349"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>Galeri dışı uygulamalar için çoklu oturum açma Microsoft kimlik platformu yapılandırın.
 
@@ -186,7 +186,7 @@ Uygulamanız için yeni bir kullanıcı veya grup atamak için:
 3. Seçin **kullanıcılar ve gruplar (\<numarası > Seçili)** . **Kullanıcılar ve gruplar** sayfası görüntülenirse, mevcut kullanıcıları ve grupları listesini gösteren.
 4. Kullanıcı veya Grup listesinden atamak istediğiniz bulmak için tür veya kaydırma.
 5. Her bir kullanıcı veya grubu ekleyin ve ardından istediğiniz seçin **seçin** düğmesi. **Kullanıcılar ve gruplar** sayfası kaybolur.
-6. İçinde **atamaları Ekle** sayfasında **atama**. **<application name> -Kullanıcılar ve gruplar** listesinde gösterilen ek kullanıcılar sayfası görüntülenir.
+6. İçinde **atamaları Ekle** sayfasında **atama**. **\<Uygulama adı >-Kullanıcılar ve gruplar** listesinde gösterilen ek kullanıcılar sayfası görüntülenir.
 
    ![Uygulama kullanıcıları ve grupları](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
 

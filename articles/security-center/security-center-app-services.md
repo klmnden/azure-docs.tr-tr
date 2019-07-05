@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
 ms.author: v-mohabe
-ms.openlocfilehash: b18267b1443b257a575bf2e1199b9f8fa8c419fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a6b5b6e247bd7c105286b86257a6ae11c1d1c60
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966830"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551854"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>App Service Azure Güvenlik Merkezi ile koruma
 Bu makalede izleme ve App Service üzerinde çalışan uygulamalarınızı korumak için Azure Güvenlik Merkezi'ni kullanmanıza yardımcı olur.
@@ -47,9 +47,8 @@ Güvenlik Merkezi yerel olarak App Service, dağıtım ve ekleme gereksinimini o
 ## <a name="enabling-monitoring-and-protection-of-app-service"></a>İzleme ve koruma App Service'ı etkinleştirme
 
 1. Azure'da Güvenlik Merkezi'ni seçin.
-2. Git **Güvenlik İlkesi** ve bir abonelik seçin.
-3. Abonelik satırının sonunda tıklayın **ayarlarını Düzenle**.
-4. Altında **fiyatlandırma katmanı**, **App Service'e** satır, geçiş planınıza **etkin**.
+2. Git **fiyatlandırma & ayarları** ve bir abonelik seçin.
+3. Altında **fiyatlandırma katmanı**, **App Service'e** satır, geçiş planınıza **etkin**.
 
 ![App service Aç/Kapat](./media/security-center-app-services/app-services-toggle.png)
 

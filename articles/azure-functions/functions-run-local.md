@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 6c0732b33608105009eda9bba2e4970e8e12e652
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dd6259173792585a83effd42c75ff9a7a7d572e4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050570"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448375"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -68,6 +68,9 @@ Aşağıdaki adımlar, Windows üzerinde temel araçları yüklemek için npm ku
     ```bash
     npm install -g azure-functions-core-tools
     ```
+
+   Bunu indirin ve temel araçları paketini yüklemek npm birkaç dakika sürebilir.
+
 1. Kullanmayı planlamıyorsanız [uzantı paketleri], yükleme [Windows için .NET Core 2.x SDK](https://www.microsoft.com/net/download/windows).
 
 #### <a name="brew"></a>Homebrew ile MacOS
@@ -82,6 +85,7 @@ Aşağıdaki adımları macOS üzerinde temel araçları yüklemek için Homebre
     brew tap azure/functions
     brew install azure-functions-core-tools
     ```
+
 1. Kullanmayı planlamıyorsanız [uzantı paketleri], yükleme [.NET Core 2.x SDK macOS için](https://www.microsoft.com/net/download/macos).
 
 
@@ -115,6 +119,7 @@ Aşağıdaki adımları kullanın [APT](https://wiki.debian.org/Apt) Ubuntu/Debi
     ```bash
     sudo apt-get install azure-functions-core-tools
     ```
+
 1. Kullanmayı planlamıyorsanız [uzantı paketleri], yükleme [.NET Core 2.x SDK'sı Linux](https://www.microsoft.com/net/download/linux).
 
 ## <a name="create-a-local-functions-project"></a>Bir yerel işlevler projesi oluşturma
@@ -163,53 +168,16 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 > [!IMPORTANT]
 > Varsayılan olarak, sürüm 2.x Core Araçları'nın işlevi .NET çalışma zamanı için uygulama projeleri oluşturur [C# sınıf projeleri](functions-dotnet-class-library.md) (.csproj). Visual Studio veya Visual Studio Code ile kullanılan bu C# projeleri, test sırasında ve Azure'a yayımlarken derlenir. Bunun yerine oluşturup olan aynı C# betiği (.csx) çalışmak istiyorsanız sürümünde oluşturulan dosyaları 1.x ve Portalı'nda eklemeniz gerekir `--csx` oluşturup işlevleri dağıttığınızda parametresi.
 
-## <a name="register-extensions"></a>Uzantılarını kaydetme
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
-Sürüm 2.x Azure işlevleri çalışma zamanı sahip işlev uygulamanızda kullandığınız bağlama uzantıları (bağlama türleri) açıkça kaydedilecek.
+[!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-[!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
-
-Daha fazla bilgi için [Azure işlevleri Tetikleyicileri ve bağlamaları kavramları](./functions-bindings-expressions-patterns.md).
-
-## <a name="local-settings-file"></a>Yerel ayarlar dosyası
-
-Uygulama ayarları, bağlantı dizeleri ve Azure işlevleri çekirdek araçları için ayarları dosyası local.settings.json depolar. Local.settings.json dosyasında ayarları, yalnızca yerel olarak çalıştırılırken işlevleri araçları tarafından kullanılır. Varsayılan olarak, projeyi Azure'da yayımlandığında bu ayarlar otomatik olarak geçirilmez. Kullanım `--publish-local-settings` geçiş [yayımladığınızda](#publish) bu ayarlar, Azure işlev uygulamasında eklenir emin olmak için. Değerler **ConnectionStrings** hiçbir zaman yayımlanır. Dosya aşağıdaki yapıya sahiptir:
-
-```json
-{
-  "IsEncrypted": false,
-  "Values": {
-    "FUNCTIONS_WORKER_RUNTIME": "<language worker>",
-    "AzureWebJobsStorage": "<connection-string>",
-    "AzureWebJobsDashboard": "<connection-string>",
-    "MyBindingConnection": "<binding-connection-string>"
-  },
-  "Host": {
-    "LocalHttpPort": 7071,
-    "CORS": "*",
-    "CORSCredentials": false
-  },
-  "ConnectionStrings": {
-    "SQLConnectionString": "<sqlclient-connection-string>"
-  }
-}
-```
-
-| Ayar      | Açıklama                            |
-| ------------ | -------------------------------------- |
-| **`IsEncrypted`** | Ayarlandığında `true`, tüm değerlerin bir yerel makine anahtarı kullanılarak şifrelenir. İle kullanılan `func settings` komutları. Varsayılan değer `false`. |
-| **`Values`** | Uygulama ayarları ve yerel olarak çalıştırırken kullanılan bağlantı dizeleri koleksiyonu. Bu değerler, azure'daki işlev uygulamanızın uygulama ayarlarında gibi karşılık [ `AzureWebJobsStorage` ]. Birçok tetikleyiciler ve bağlamalar gibi bir bağlantı dizesi uygulama ayarına başvuran bir özelliği olan `Connection` için [Blob Depolama tetikleyicisi](functions-bindings-storage-blob.md#trigger---configuration). Tür özellikleri için tanımlanan bir uygulama ayarı ihtiyacınız `Values` dizisi. <br/>[`AzureWebJobsStorage`] gerekli bir uygulama dışındaki HTTP tetikleyici ayarlanıyor. <br/>Sürüm 2.x çalışma zamanı işlevleri gerektirir [ `FUNCTIONS_WORKER_RUNTIME` ] ayarını projeniz için temel araçları tarafından oluşturulur. <br/> Olduğunda [Azure storage öykünücüsü](../storage/common/storage-use-emulator.md) ayarlayabileceğiniz yerel olarak yüklü [ `AzureWebJobsStorage` ] için `UseDevelopmentStorage=true` ve temel araçları öykünücüsü kullanır. Geliştirme sırasında kullanışlıdır ancak gerçek depolama bağlantısı dağıtımdan önce test etmeniz gerekir. |
-| **`Host`** | Bu bölümdeki ayarlarını yerel olarak çalıştırılırken işlevleri ana bilgisayar işlemi özelleştirin. |
-| **`LocalHttpPort`** | Yerel işlevler ana çalıştırırken kullanılan varsayılan bağlantı noktasını ayarlar (`func host start` ve `func run`). `--port` Komut satırı seçeneği bu değerin üzerine göre önceliklidir. |
-| **`CORS`** | İzin verilen çıkış noktaları tanımlar [çıkış noktaları arası kaynak paylaşımı (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Kaynakları, boşluk virgülle ayrılmış bir liste olarak sağlanır. Joker karakter değeri (\*) desteklenir, her türlü kaynağa gelen isteklere izin verir. |
-| **`CORSCredentials`** |  İzin vermek için true olarak ayarlanmış `withCredentials` istekleri |
-| **`ConnectionStrings`** | Bu koleksiyon, işlev bağlamaları tarafından kullanılan bağlantı dizeleri için kullanmayın. Bu koleksiyon yalnızca genellikle bağlantı dizeleri alma çerçeveleri tarafından kullanılan `ConnectionStrings` gibi bir yapılandırma bölümünü dosya [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Bağlantı dizelerini bu nesne, sağlayıcı türü ortamı eklenir [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Bu koleksiyondaki öğelerin diğer uygulama ayarları ile Azure'a yayımlanmaz. Bu değerleri açıkça eklemelidir `Connection strings` , işlev uygulaması ayarları koleksiyonu. Oluşturuyorsanız bir [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) işlev kodunuzu bağlantı dizesi değerindeki saklamalısınız **uygulama ayarları** , diğer bağlantılarla portalında. |
+Varsayılan olarak, projeyi Azure'da yayımlandığında bu ayarlar otomatik olarak geçirilmez. Kullanım `--publish-local-settings` geçiş [yayımladığınızda](#publish) bu ayarlar, Azure işlev uygulamasında eklenir emin olmak için. Değerler Not **ConnectionStrings** hiçbir zaman yayımlanır.
 
 İşlev uygulaması ayarları değerleri, ortam değişkenleri olarak kodunuzda da okunabilir. Daha fazla bilgi için bu dile özgü başvuru konularında ortam değişkenleri bölümüne bakın:
 
 * [C# önceden derlenmiş](functions-dotnet-class-library.md#environment-variables)
 * [C# betiği (.csx)](functions-reference-csharp.md#environment-variables)
-* [F#betik (.fsx)](functions-reference-fsharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -439,7 +407,7 @@ Aşağıdaki Yayımlama seçenekleri sürümleri, 1.x ve 2.x'i için geçerlidir
 
 | Seçenek     | Açıklama                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  Ayarları varsa üzerine yaz isteyen azure'a local.settings.json yayımlamak ayar zaten mevcut. Depolama öykünücüsü kullanıyorsanız, uygulama ayarının değiştirme bir [gerçek depolama bağlantısı](#get-your-storage-connection-strings). |
+| **`--publish-local-settings -i`** |  Ayarları varsa üzerine yaz isteyen azure'a local.settings.json yayımlamak ayar zaten mevcut. Depolama öykünücüsü kullanıyorsanız, önce uygulama ayarının değiştirmeniz bir [gerçek depolama bağlantısı](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Uygulama ayarların üzerine yazmak için istemi bastır olduğunda `--publish-local-settings -i` kullanılır.|
 
 Aşağıdaki Yayımlama seçenekleri yalnızca sürümünde desteklenen 2.x:
@@ -495,6 +463,6 @@ Bir hata veya özellik isteği için [açık bir GitHub sorunu](https://github.c
 [Azure işlevleri temel araçları]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
-['FUNCTIONS_WORKER_RUNTIME']: functions-app-settings.md#functions_worker_runtime
+[`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
-[Uzantı paketleri]: functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles
+[Uzantı paketleri]: functions-bindings-register.md#extension-bundles

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 717607de6d9d193a7373637d0d0fcd879b54fed0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73b832002d1c15505e8ae845ac2585548c8e080f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544877"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482153"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>İzinler ve onay Microsoft kimlik platformu uç noktası
 
@@ -89,7 +89,7 @@ Uygulama oturum açma kullanarak gerçekleştiriyorsa [Openıd Connect](active-d
 
 `email` Kapsamı ile kullanılabilir `openid` kapsamı ve diğerleri. Uygulama erişimi için kullanıcının birincil e-posta adresi biçiminde sağlar `email` talep. `email` Yalnızca bir e-posta adresi her zaman böyle değilse kullanıcı hesabıyla ilişkiliyse talep bir belirteç içine eklenir. Kullanılıyorsa `email` kapsamı, uygulamanız hazırlanmış bir durumu işlemek için `email` talep belirteci yok.
 
-### <a name="profile"></a>Profili
+### <a name="profile"></a>profile
 
 `profile` Kapsamı ile kullanılabilir `openid` kapsamı ve diğerleri. Kullanıcı hakkındaki bilgileri önemli miktarda uygulama erişim sağlar. Uygulamaya erişebildiğinizden bilgiler içerir, ancak kullanıcının verilen adı, Soyadı, tercih edilen kullanıcı adı ve nesne kimliği için sınırlı değildir Belirli bir kullanıcı için id_tokens parametresinde kullanılabilir profili talepleri tam bir listesi için bkz. [ `id_tokens` başvuru](id-tokens.md).
 
@@ -124,7 +124,7 @@ Kullanıcı kimlik bilgilerini girdikten sonra eşleşen bir kayıt için Micros
 > [!NOTE]
 > Şu anda `offline_access` (", verilen bu erişim için veri erişimi sürdürmek") ve `user.read` ("oturumunuzu açma ve profilinizi okuma") izinleri otomatik olarak dahil edilecek bir uygulamaya ilk onayı.  Bu izinler gerekli uygulama işlevselliği için - genellikle gerekli değildir `offline_access` yenileme belirteçlerini kritik için uygulama erişim sağlayan yerel için ve web apps sırada `user.read` erişimi verir `sub` istemci veya uygulama için doğru izin talep, Kullanıcı zaman ve erişim ilkel kullanıcı bilgilerini belirleyin.  
 
-![İş hesabı onayı](./media/v2-permissions-and-consent/work_account_consent.png)
+![İş hesabı onay gösteren örnek ekran görüntüsü](./media/v2-permissions-and-consent/work_account_consent.png)
 
 Kullanıcı bir izin isteği onayladığında, onay kaydedilir ve kullanıcı yeniden uygulamaya sonraki oturum açma işlemleri üzerinde onay gerekmez.
 

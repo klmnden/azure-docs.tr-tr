@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 06/20/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 70f03ee9f6d806733f70994cc152826d31f5c353
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 848d0eddb9870f7690989e5bfa01985883e4308e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295789"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508852"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Azure kullanılabilirlik alanları nedir?
 Kullanılabilirlik alanları, veri merkezi arızasına karşı uygulamalarınızı ve verilerinizi koruyan sunan bir yüksek kullanılabilirlik olur. Kullanılabilirlik, bir Azure bölgesi içinde benzersiz fiziksel konumlara bölgeleridir. Her bölge, soğutma ve ağ bağımsız güç ile donatılmış bir veya daha fazla veri merkezlerinden oluşur. Dayanıklılık sağlamak için üç ayrı bölge etkinleştirilmiş tüm bölgelerde en az yoktur. Bir bölge içinde kullanılabilirlik alanlarının fiziksel olarak ayrılması, uygulamaları ve verileri veri merkezi arızasına karşı korur. Bölgesel olarak yedekli Hizmetleri, uygulamaları ve verileri tek-noktaları-ın-arızasına karşı korumak için kullanılabilirlik alanları genelinde çoğaltın. Kullanılabilirlik alanları ile Azure, sektördeki en iyi % 99,99 VM çalışma SLA'sı sunar. [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) şartları, Azure’un tamamının kullanılabilirlik garantisini açıklamaktadır.
@@ -44,7 +44,7 @@ Azure Hizmetleri ve kullanılabilirlik alanlarını destekleyen bölgeleri birle
 
 |                                 |Kuzey ve Güney Amerika |              |           |           | Avrupa |              |          |              | Asya Pasifik |                 |
 |----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|
-|          |Orta ABD|Doğu ABD|Doğu ABD 2|Batı ABD 2|Fransa Orta|Kuzey Avrupa|Birleşik Krallık Güney|Batı Avrupa|Japonya Doğu|Güneydoğu Asya|
+|          |Orta ABD|East US|Doğu ABD 2|Batı ABD 2|Fransa Orta|Kuzey Avrupa|Birleşik Krallık Güney|Batı Avrupa|Japonya Doğu|Güneydoğu Asya|
 | **İşlem**                         |            |              |           |           |                |              |          |             |            |                |
 | Linux Sanal Makineleri          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | Windows Sanal Makineleri        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
@@ -62,7 +62,7 @@ Azure Hizmetleri ve kullanılabilirlik alanlarını destekleyen bölgeleri birle
 | **Veritabanları**                     |            |              |           |           |                |              |          |             |            |                |
 | SQL Veritabanı                    | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |            | &#10003;       |
 | Redis için Azure Önbelleği           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |
-| Azure Cosmos DB                    |    |    |   |  |       |     | &#10003; |     |            | &#10003;       |
+| Azure Cosmos DB                    | &#10003;   |  &#10003;  |  &#10003; |  |       |     | &#10003; |     |            | &#10003;       |
 | **Analizler**                       |            |              |           |           |                |              |          |             |            |                |
 | Event Hubs                      | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
 | **Tümleştirme**                     |            |              |           |           |                |              |          |             |            |                |

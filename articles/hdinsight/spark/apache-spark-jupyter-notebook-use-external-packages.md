@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6af25b95aa3a38c4a2e9f3bd8147604dccae0abb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02b5b7a3673b3df3ba27e7814851e3519e473633
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64715157"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448721"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>HDInsight üzerinde Apache Spark kümeleri Jupyter not defterlerinde ile dış paketleri kullanma
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ Aşağıdakilere sahip olmanız gerekir:
 
 1. Yukarıdaki kod parçacığında, Maven Central Repository dış paketi için maven koordinatları bekliyor. Bu kod parçacığı içinde `com.databricks:spark-csv_2.10:1.4.0` için maven koordinatı **spark csv** paket. Paket koordinatları oluşturmak nasıl aşağıda verilmiştir.
    
-    a. Paket Maven depoda bulun. Bu öğretici için kullandığımız [spark csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
+    a. Paket Maven depoda bulun. Bu makalede kullandığımız [spark csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
     b. Depodan değerlerini toplamak **GroupID**, **Artifactıd**, ve **sürüm**. Değerlerin Topladığınızdan kümenizi eşleştiğinden emin olun. Bu durumda, 2.10 Scala ve Spark 1.4.0 paket kullanıyoruz, ancak farklı sürümleri için uygun Scala veya Spark sürümü kümenizde seçmeniz gerekebilir. Kümenizde Scala sürümü çalıştırarak bulabilirsiniz `scala.util.Properties.versionString` Spark Jupyter çekirdek veya Spark Gönder. Kümenizde Spark sürümü çalıştırarak bulabilirsiniz `sc.version` Jupyter Not.
    

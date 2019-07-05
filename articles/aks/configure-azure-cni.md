@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 7fc634b064a2b5ac844e60341fedb94c14a62749
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e541834b31a762c65eabf07072d9b9f7333923e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061076"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441971"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) Azure CNI ağı yapılandırma
 
@@ -52,7 +52,7 @@ IP adresi planı bir AKS kümesi bir sanal oluşur için ağ, düğümler, pod'l
 | Adres aralığı / Azure kaynağı | Limitler ve boyutlandırma |
 | --------- | ------------- |
 | Sanal ağ | Azure sanal ağı /8 büyük olabilir, ancak 65.536 yapılandırılmış IP adresleri için sınırlıdır. |
-| Alt ağ | Düğümler, pod'ların ve kümenizde sağlanan tüm Kubernetes ile Azure kaynaklarını tutabilecek kadar büyük olmalıdır. Örneğin, bir iç Azure yük dengeleyici dağıtırsanız, Küme alt ağından değil genel IP'ler, ön uç IP'ler ayrılır. Alt ağ boyutunu da hesap yükseltme işlemleri veya gelecekteki ölçeklendirme gereksinimlerinizi almanız gerekir.<p />Hesaplamak için *minimum* yükseltme işlemleri için ek bir düğümüne dahil alt ağ boyutu: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Örneğin, 50 düğümlü bir küme: `(51) + (51  * 30 (default)) = 1,581` (/ 21 veya daha büyük)<p/>Örneğin, ek bir 10 düğümlerini ölçeklendirmek için sağlama da içeren bir 50 düğüm kümesi: `(61) + (61 * 30 (default)) = 1,891` (/ 21 veya daha büyük)<p>Kümenizi oluştururken pod'ların düğüm başına en fazla belirtmezseniz, pod'ların düğüm başına en fazla sayısını kümesine *30*. IP adresleri gerekli en düşük sayısı bu değere göre belirlenir. En düşük IP adresi gereksinimlerinize göre farklı bir maksimum değer hesaplamak olup [pod'ların düğüm başına en fazla sayısını yapılandırmak nasıl](#configure-maximum---new-clusters) kümenizi dağıttığınızda bu değeri ayarlamak için. |
+| Subnet | Düğümler, pod'ların ve kümenizde sağlanan tüm Kubernetes ile Azure kaynaklarını tutabilecek kadar büyük olmalıdır. Örneğin, bir iç Azure yük dengeleyici dağıtırsanız, Küme alt ağından değil genel IP'ler, ön uç IP'ler ayrılır. Alt ağ boyutunu da hesap yükseltme işlemleri veya gelecekteki ölçeklendirme gereksinimlerinizi almanız gerekir.<p />Hesaplamak için *minimum* yükseltme işlemleri için ek bir düğümüne dahil alt ağ boyutu: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Örneğin, 50 düğümlü bir küme: `(51) + (51  * 30 (default)) = 1,581` (/ 21 veya daha büyük)<p/>Örneğin, ek bir 10 düğümlerini ölçeklendirmek için sağlama da içeren bir 50 düğüm kümesi: `(61) + (61 * 30 (default)) = 1,891` (/ 21 veya daha büyük)<p>Kümenizi oluştururken pod'ların düğüm başına en fazla belirtmezseniz, pod'ların düğüm başına en fazla sayısını kümesine *30*. IP adresleri gerekli en düşük sayısı bu değere göre belirlenir. En düşük IP adresi gereksinimlerinize göre farklı bir maksimum değer hesaplamak olup [pod'ların düğüm başına en fazla sayısını yapılandırmak nasıl](#configure-maximum---new-clusters) kümenizi dağıttığınızda bu değeri ayarlamak için. |
 | Kubernetes hizmeti adres aralığı | Bu aralık herhangi bir ağ öğe tarafından kullanılan veya bu sanal ağa bağlı. Hizmeti adresi CIDR /12 küçük olmalıdır. |
 | Kubernetes DNS hizmeti IP adresi | Kubernetes içinde IP adresi (kube-dns) Küme hizmetini bulma tarafından kullanılan adres aralığı hizmeti. .1 gibi adres aralığındaki ilk IP adresini kullanmayın. İlk adres, alt ağ aralığında için kullanılan *kubernetes.default.svc.cluster.local* adresi. |
 | Docker köprü adresi | IP adresi (CIDR gösteriminde) Docker köprü düğümlerinde IP adresi kullanılır. Varsayılan değer 172.17.0.1/16. |
@@ -79,7 +79,7 @@ Pod'ların düğüm başına en fazla sayısını yapılandırabilirsiniz *küme
 > [!NOTE]
 > Yukarıdaki tabloda en küçük değerin kesinlikle AKS hizmeti tarafından zorlanır. Bir maxPods değer yapmak böylece küme başlamasını engelleyebilir olarak gösterilen en küçük ayarlanamaz.
 
-* **Azure CLI**: Belirtin `--max-pods` ile bir küme dağıtılırken bağımsız değişken [az aks oluşturma] [ az-aks-create] komutu. En yüksek değer 250'dir.
+* **Azure CLI**: Belirtin `--max-pods` ile bir küme dağıtılırken bağımsız değişken [az aks oluşturma][az-aks-create] komutu. En yüksek değer 250'dir.
 * **Resource Manager şablonu**: Belirtin `maxPods` özelliğinde [ManagedClusterAgentPoolProfile] bir Resource Manager şablonu ile bir küme dağıtılırken nesne. En yüksek değer 250'dir.
 * **Azure portalında**: Azure portalı ile bir küme dağıtılırken, pod'ların düğüm başına en fazla sayısını değiştiremezsiniz. Azure portalını kullanarak dağıttığınızda azure CNI ağ kümelerine düğüm başına 30 pod'ların sınırlıdır.
 
@@ -95,14 +95,14 @@ Bir AKS kümesi oluşturduğunuzda, aşağıdaki parametreleri için Azure CNI a
 
 **Alt ağ**: Kümeyi dağıtmak istediğiniz sanal ağ içindeki alt ağ. Kümenizin bir sanal ağdaki yeni bir alt ağ oluşturmak isteyip istemediğinizi seçin *Yeni Oluştur* ve adımları izleyerek *alt ağ oluşturma* bölümü. Karma bağlantı için adres aralığı ortamınızdaki diğer sanal ağlara ile çakışma olmaması gerekir.
 
-**Kubernetes hizmeti adres aralığı**: Kubernetes için iç atar sanal IP'ler kümesidir [Hizmetleri] [ services] kümenizdeki. Aşağıdaki gereksinimleri karşılayan herhangi bir özel adres aralığını kullanabilirsiniz:
+**Kubernetes hizmeti adres aralığı**: Kubernetes için iç atar sanal IP'ler kümesidir [Hizmetleri][services] kümenizdeki. Aşağıdaki gereksinimleri karşılayan herhangi bir özel adres aralığını kullanabilirsiniz:
 
 * Kümeniz sanal ağ IP adresi aralığında olmamalıdır.
 * Küme sanal ağ ile eşleri diğer sanal ağlara ile çakışmaması gerekir
 * Tüm şirket içi IP'leri ile çakışmaması gerekir
 * Aralıklar olmamalıdır `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, veya `192.0.2.0/24`
 
-Bunun yapılması hizmeti adres aralığı aynı sanal ağ içinde küme olarak belirtmek teknik olarak mümkün olsa da, bu nedenle önerilmez. Çakışan IP aralıkları kullanılıyorsa öngörülemeyen davranışlara neden olabilir. Daha fazla bilgi için [SSS](#frequently-asked-questions) bu makalenin. Kubernetes hizmetleri hakkında daha fazla bilgi için bkz. [Hizmetleri] [ services] Kubernetes belgelerinde.
+Bunun yapılması hizmeti adres aralığı aynı sanal ağ içinde küme olarak belirtmek teknik olarak mümkün olsa da, bu nedenle önerilmez. Çakışan IP aralıkları kullanılıyorsa öngörülemeyen davranışlara neden olabilir. Daha fazla bilgi için [SSS](#frequently-asked-questions) bu makalenin. Kubernetes hizmetleri hakkında daha fazla bilgi için bkz. [Hizmetleri][services] Kubernetes belgelerinde.
 
 **Kubernetes DNS hizmeti IP adresi**:  Küme DNS hizmeti IP adresi. İçinde bu adresi olmalıdır *Kubernetes hizmeti adres aralığı*. .1 gibi adres aralığındaki ilk IP adresini kullanmayın. İlk adres, alt ağ aralığında için kullanılan *kubernetes.default.svc.cluster.local* adresi.
 
@@ -123,7 +123,7 @@ $ az network vnet subnet list \
 /subscriptions/<guid>/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
 ```
 
-Kullanım [az aks oluşturma] [ az-aks-create] komutunu `--network-plugin azure` ile Gelişmiş Ağ bir küme oluşturmak için bağımsız değişken. Güncelleştirme `--vnet-subnet-id` önceki adımda toplanan alt ağ kimliği değeri:
+Kullanım [az aks oluşturma][az-aks-create] komutunu `--network-plugin azure` ile Gelişmiş Ağ bir küme oluşturmak için bağımsız değişken. Güncelleştirme `--vnet-subnet-id` önceki adımda toplanan alt ağ kimliği değeri:
 
 ```azurecli-interactive
 az aks create \
@@ -184,9 +184,9 @@ Aşağıdaki makalelerde AKS de ağ oluşturmayla ilgili daha fazla bilgi edinin
 
 ### <a name="aks-engine"></a>AKS altyapısı
 
-[Azure Kubernetes Service Engine (AKS altyapısı)] [ aks-engine] azure'da Kubernetes kümelerini dağıtmak için kullanabileceğiniz Azure Resource Manager şablonları oluşturan bir açık kaynak projesidir.
+[Azure Kubernetes Service Engine (AKS altyapısı)][aks-engine] azure'da Kubernetes kümelerini dağıtmak için kullanabileceğiniz Azure Resource Manager şablonları oluşturan bir açık kaynak projesidir.
 
-AKS altyapıyla oluşturulmuş Kubernetes kümeleri destekleyen hem de [kubernetes] [ kubenet] ve [Azure CNI] [ cni-networking] eklentiler. Bu nedenle, her iki ağ senaryoları AKS altyapısı tarafından desteklenir.
+AKS altyapıyla oluşturulmuş Kubernetes kümeleri destekleyen hem de [kubernetes][kubenet] and [Azure CNI][cni-networking] eklentiler. Bu nedenle, her iki ağ senaryoları AKS altyapısı tarafından desteklenir.
 
 <!-- IMAGES -->
 [advanced-networking-diagram-01]: ./media/networking-overview/advanced-networking-diagram-01.png
@@ -211,3 +211,4 @@ AKS altyapıyla oluşturulmuş Kubernetes kümeleri destekleyen hem de [kubernet
 [aks-ingress-internal]: ingress-internal-ip.md
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[network-comparisons]: concepts-network.md#compare-network-models

@@ -1,47 +1,42 @@
 ---
-title: Azure kredisi bakiyesi izlemek için Microsoft Müşteri Sözleşmesi | Microsoft Docs
-description: Azure kredisi bakiyesi denetlemek için Microsoft Müşteri sözleşmesi öğrenin.
-services: ''
-documentationcenter: ''
-author: amberbhargava
+title: Azure kredisi bakiyesi izlemek için bir Microsoft Müşteri Sözleşmesi
+description: Microsoft Müşteri sözleşmesi için Azure kredi bakiyesi denetleme hakkında bilgi edinin.
+author: bandersmsft
 manager: amberb
-editor: banders
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2019
-ms.author: amberb
-ms.openlocfilehash: 1e8c3e6863b9cd8f2f5ced18a57918c32c865e75
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/01/2019
+ms.author: banders
+ms.openlocfilehash: 352737b3ea61a51a39e066d4211c8f4ceae74184
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60372269"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490956"
 ---
-# <a name="track-azure-credit-balance-for-microsoft-customer-agreement"></a>Azure kredisi bakiyesi izlemek için Microsoft Müşteri Sözleşmesi
+# <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Microsoft Müşteri sözleşmesi Azure kredi bakiyesi izleyin
 
-Azure portalında Azure kredi bakiyesi için Microsoft Müşteri sözleşmesi kontrol edebilirsiniz. KREDİLERİ ürünleri için ödeme yapmayı KREDİLERİ kullanın.
+Azure portalında Azure kredi bakiyesi için Microsoft Müşteri sözleşmesi kontrol edebilirsiniz. KREDİLERİ ücret karşılığında Ödeme yapmalarını sağlayan KREDİLERİ kullanın.
 
-KREDİLERİ kapsamında olmayan ürünler kullandığınızda veya kredi bakiyeniz kullanımınızı aşıyor ücretlendirilir. Daha fazla bilgi için [Azure KREDİLERİ kapsamında olmayan ürünleri.](#products-that-arent-covered-by-azure-credits)
+KREDİLERİ kapsamında olmayan ürünler kullandığınızda veya kredi bakiyeniz kullanımınızı aşıyor ücretlendirilir. Daha fazla bilgi için bkz. [Azure KREDİLERİ kapsamında olmayan ürünler. () #products-that-aren't-covered-by-azure-credits).
 
 Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi için geçerlidir. [Microsoft Müşteri sözleşmesi erişimi olup olmadığını denetlemek](#check-access-to-a-microsoft-customer-agreement).
 
-## <a name="check-credit-balance-in-the-azure-portal"></a>Azure portalında onay kredi bakiyesi
+## <a name="check-your-credit-balance"></a>Kredi bakiyeniz denetleyin
 
 1. [Azure Portal]( https://portal.azure.com) oturum açın.
 
 2. Arama **maliyet Yönetimi + faturalandırma**.
 
-   ![Maliyet Yönetimi + faturalandırma Portalı'nda arama gösteren ekran görüntüsü](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
+    ![Maliyet Yönetimi + faturalandırma Portalı'nda arama gösteren ekran görüntüsü](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
-3. Faturalama profiline gidin. Erişiminize bağlı olarak, bir faturalama hesabı seçmeniz gerekebilir. Fatura hesap sayfasında **profilleri faturalama** ve ardından bir faturalandırma profili.
+3.  Seçin **Azure KREDİLERİ** sol taraftaki. Erişiminizi bağlı olarak, bir faturalama hesabı ya da fatura profili seçin ve ardından gerekebilir **Azure KREDİLERİ**.
 
-4. Seçin **Azure KREDİLERİ**.
-
-5. Azure KREDİLERİ sayfasında aşağıdaki bilgileri görüntüler:
+4. Azure KREDİLERİ sayfasında aşağıdaki bilgileri görüntüler:
 
    ![Kredi bakiyesi ve işlemleri için bir faturalandırma profili ekran görüntüsü](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-overview.png)
 
@@ -57,16 +52,18 @@ Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi iç
 
    ![Kredileriniz ekran için bir faturalandırma profili listeler](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-list.png)
 
-   | Terim                 | Tanım                           |
-   |----------------------|--------------------------------------------------------|
-   | source               | Kredi edinme kaynağı |
-   | Başlangıç tarihi           | Kredi satın aldığınız zaman tarihi |
-   | Sona erme tarihi      | Kredi süresinin dolduğu tarih |
-   | Bakiye              | Bakiye, son faturanızdan itibaren |
-   | Orijinal Tutar      | Özgün kredi miktarı |
-   | Durum               | Kredi geçerli durumu. Kullanılan, süresi doldu veya süresi doluyor durumu etkin olabilir |
+   | Terim | Tanım |
+   |---|---|
+   | Tahmini bakiyesi | Faturalandırılmamış kredi bakiyeniz geçerli uygun ücretlerden çıkardıktan sonra sahip olduğunuz Azure kredisi miktarı|
+   | Toplam tutar | Faturalandırılmamış kredi uygun ücretleri olduğunu düşünmeden önce sahip olduğunuz Azure kredisi miktarı. Yeni Azure KREDİLERİ aldığınız kredi bakiyesine, son faturanızdan zamanında eklenmesiyle hesaplanır|
+   | source | Kredi edinme kaynağı |
+   | Başlangıç tarihi | Kredi satın aldığınız zaman tarihi |
+   | Sona erme tarihi | Kredi süresinin dolduğu tarih |
+   | Bakiye | Bakiye, son faturanızdan itibaren |
+   | Orijinal Tutar | Özgün kredi miktarı |
+   | Durum | Kredi geçerli durumu. Kullanılan, süresi doldu veya süresi doluyor durumu etkin olabilir |
 
-## <a name="how-credits-are-used-in-microsoft-customer-agreement"></a>Krediler Microsoft Müşteri anlaşması'nda nasıl kullanılır
+## <a name="how-credits-are-used"></a>Krediler nasıl kullanılır
 
 Microsoft Müşteri sözleşmesi için bir faturalandırma hesabında, faturaları ve ödeme yöntemlerini yönetmek için fatura profillerini kullanın. Bir aylık fatura için fatura her profil oluşturulur ve fatura ödemek için ödeme yöntemleri kullanın.
 
@@ -78,7 +75,7 @@ Azure KREDİLERİ ödeme yöntemleri biridir. Promosyon alacak ve hizmet düzeyi
 
 - Canonical
 - Citrix XenApp Essentials
-- Citrix XenDesktop 
+- Citrix XenDesktop
 - Kayıtlı kullanıcı
 - Openlogic
 - Uzaktan erişim hakları XenApp Essentials kayıtlı kullanıcı
@@ -93,7 +90,7 @@ Azure KREDİLERİ ödeme yöntemleri biridir. Promosyon alacak ve hizmet düzeyi
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için erişim denetimi
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
+## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
 
 Yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.
 

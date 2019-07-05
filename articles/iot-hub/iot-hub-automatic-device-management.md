@@ -6,14 +6,14 @@ manager: bruz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/13/2018
+ms.date: 06/28/2019
 ms.author: chrisgre
-ms.openlocfilehash: 598bf82e375f472b2f723c3462ba7ba7b4d25fbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff4e236569cc728b7011ffa26554277f281397fd
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61333653"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485852"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>Azure portalını kullanarak ölçekte otomatik IOT cihaz Yönetimi
 
@@ -29,7 +29,9 @@ Otomatik cihaz Yönetimi works istediğiniz özelliklere sahip bir dizi cihaz ik
 
 * **Hedef içerik** veya hedeflenen cihaz ikizlerini güncelleştirilemiyor için istenen özellikleri tanımlar. İçerik değiştirilmesi için istenen özellikler kısmında bir yolu içerir.
 
-* **Ölçümleri** gibi çeşitli yapılandırma durumlarının Özet sayıları tanımlamak **başarı**, **sürüyor**, ve **hata**. Özel ölçümler olarak cihaz sorguları belirtilen çiftinin bildirilen özelliklerini.  Sistem, hedeflenen cihaz ikizlerini sayısı ve başarıyla güncelleştirildi ikizlerini sayısı gibi ikizi güncelleştirme durumunu ölçen varsayılan ölçümler ölçümleridir. 
+* **Ölçümleri** gibi çeşitli yapılandırma durumlarının Özet sayıları tanımlamak **başarı**, **sürüyor**, ve **hata**. Özel ölçümler olarak cihaz sorguları belirtilen çiftinin bildirilen özelliklerini.  Sistem, hedeflenen cihaz ikizlerini sayısı ve başarıyla güncelleştirildi ikizlerini sayısı gibi ikizi güncelleştirme durumunu ölçen varsayılan ölçümler ölçümleridir.
+
+Otomatik cihaz yapılandırmaları, kısa süre içinde yapılandırma oluşturulduktan sonra ilk kez ve ardından beş dakikalık aralıklarla çalıştırın. Ölçüm sorguları, otomatik cihaz yapılandırması her çalıştığında çalıştırın.
 
 ## <a name="implement-device-twins-to-configure-devices"></a>Cihazları yapılandırmak için cihaz ikizlerini uygulayın
 

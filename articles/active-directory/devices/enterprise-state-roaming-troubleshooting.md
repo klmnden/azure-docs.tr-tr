@@ -2,29 +2,21 @@
 title: Azure Active Directory'de Kurumsal durumda Dolaşım ayarları sorunlarını giderme | Microsoft Docs
 description: BT yöneticileri bazı soruların yanıtlarını ayarları ve uygulama verilerini eşitleme hakkında olabilir sağlar.
 services: active-directory
-keywords: Enterprise state Dolaşım ayarlarını windows bulut, Kurumsal durumda Dolaşım hakkında sık sorulan sorular
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: devices
+ms.topic: troubleshooting
+ms.date: 06/28/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: ''
-ms.subservice: devices
-ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
-ms.author: joflore
 ms.reviewer: tanning
-ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b74be0dda8e5c79987479393ad0d8ef5c3bdd16
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4cceae17b06e8b631dd530b0408008a8222bccbf
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110660"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481863"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Azure Active Directory'de Kurumsal durumda Dolaşım ayarları sorunlarını giderme
 
@@ -70,12 +62,11 @@ Bu bölüm, Kurumsal durumda Dolaşım için ilgili sorunları tanılayın ve so
 
 Kurumsal durumda dolaşım, cihazın Azure AD'ye kayıtlı olması gerekir. Kurumsal durumda Dolaşım için özel olmayan olsa da aşağıdaki yönergeleri izleyerek Windows 10 istemci kayıtlı onaylamak parmak izi, Azure AD ayarları URL'sini NGC durum olduğunu onaylayın ve yardımcı olabilir ve diğer bilgiler.
 
-1.  Uzantıda yükseltilmemiş komut istemini açın. Windows bunu yapmak için çalışma Başlatıcısı (Win + R) açın ve "cmd" yazın açın.
-2.  Komut istemi açıldıktan sonra yazın "*dsregcmd.exe/status*".
-3.  Beklenen Çıktı **AzureAdJoined** alan değeri olmalıdır. "Evet" **WamDefaultSet** alan değeri olmalıdır. "Evet" ve **WamDefaultGUID** alan değerinin bir GUID olmalıdır "(AzureAd)" ile sonunda.
+1. Uzantıda yükseltilmemiş komut istemini açın. Windows bunu yapmak için çalışma Başlatıcısı (Win + R) açın ve "cmd" yazın açın.
+1. Komut istemi açıldıktan sonra yazın "*dsregcmd.exe/status*".
+1. Beklenen Çıktı **AzureAdJoined** alan değeri olmalıdır. "Evet" **WamDefaultSet** alan değeri olmalıdır. "Evet" ve **WamDefaultGUID** alan değerinin bir GUID olmalıdır "(AzureAd)" ile sonunda.
 
 **Olası sorun**: **WamDefaultSet** ve **AzureAdJoined** hem "Hayır" alan değeri olması, cihaz etki alanına katılmış ve Azure AD ile kaydedilen ve cihaz eşitleme. Bu gösteriyor, cihaz ilkesinin uygulanması için beklemeniz gerekebilir veya Azure AD'ye bağlanma cihaz için kimlik doğrulaması başarısız oldu. Kullanıcı, uygulanacak ilke için birkaç saat beklemeniz gerekebilir. Diğer sorun giderme adımları kapatıp arka planda otomatik kaydı yeniden denemeden veya Görev Zamanlayıcı görevi başlatma içerebilir. Bazı durumlarda, çalışan "*dsregcmd.exe /leave*" Bu sorunla yeniden başlatarak ve kaydı yeniden denemeden bir yükseltilmiş komut istemi penceresinde yardımcı olabilir.
-
 
 **Olası sorun**: Alan için **SettingsUrl** boştur ve cihazı eşitleyebilir değil. Kurumsal durumda Dolaşım Azure Active Directory portalında etkinleştirilmeden önce kullanıcının son cihaza oturum açmış. Cihazı yeniden başlatın ve kullanıcı oturum açma bilgileriniz yok. İsteğe bağlı olarak, portalda, BT yöneticisi gitmek zorunda deneyin **Azure Active Directory** > **cihazları** > **Kurumsal durumda Dolaşım** devre dışı bırakıp yeniden etkinleştirin **kullanıcılar eşitleme ayarları ve uygulama verilerini cihazlarda**. Yeniden etkinleştirildikten sonra cihazı yeniden başlatın ve kullanıcı oturum açma bilgileriniz yok. Bu sorunu çözmezse **SettingsUrl** söz konusu olduğunda hatalı cihaz sertifika boş olabilir. Bu durumda, çalışan "*dsregcmd.exe /leave*" Bu sorunla yeniden başlatarak ve kaydı yeniden denemeden bir yükseltilmiş komut istemi penceresinde yardımcı olabilir.
 

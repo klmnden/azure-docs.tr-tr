@@ -2,28 +2,21 @@
 title: Azure Active Directory koşullu erişim erişim denetimleri nelerdir? | Microsoft Docs
 description: Erişimi Azure Active Directory koşullu erişim işlerinde nasıl denetimleri hakkında bilgi edinin.
 services: active-directory
-keywords: Koşullu erişim uygulamalara, Azure AD koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim ile koşullu erişim
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 06/15/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 206b5fef3e4e686bd237fe0f45cfb91dccd4626f
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: a5fc672898a56d8b3e1486b1d8d84cf532fa2b6d
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67136504"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509397"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim erişim denetimleri nelerdir?
 
@@ -34,7 +27,6 @@ ms.locfileid: "67136504"
 Koşullu erişim bağlamında
 
 - "**Bu durumda**" olarak adlandırılır **koşulları**
-
 - "**Bunu yapmak**" olarak adlandırılır **erişim denetimleri**
 
 Bir koşul deyimi, denetimleri ile koşullu erişim ilkesi temsil eder.
@@ -46,7 +38,6 @@ Kişi tarafından yerine getirilmesi gereken bir gereksinim ya da sistem oturum 
 Denetimlerin iki tür vardır:
 
 - **İzin verme denetimleri** - kapı erişimi
-
 - **Oturum denetimleri** - oturum içindeki erişimi kısıtlamak için
 
 Bu konuda, Azure AD koşullu erişim kullanılabilen çeşitli denetimleri açıklanmaktadır. 
@@ -65,7 +56,6 @@ Verme denetimleri sayesinde, erişimi tamamen engelleme veya istenen denetimleri
 Bu denetim, belirtilen bulut uygulamasına erişmek için çok faktörlü kimlik doğrulama isteyecek şekilde kullanabilirsiniz. Bu denetimi aşağıdaki multi-Factor Authentication sağlayıcılarını destekler:
 
 - Azure Multi-Factor Authentication
-
 - Active Directory Federasyon Hizmetleri (AD FS) ile birlikte bir şirket içi multi-Factor authentication sağlayıcısı.
 
 Multi-Factor authentication kullanarak, geçerli kullanıcının birincil kimlik bilgilerini erişim elde etmiştir yetkisiz bir kullanıcı tarafından erişilen kaynaklar korunmasına yardımcı olur.
@@ -76,9 +66,11 @@ Cihaz tabanlı koşullu erişim ilkelerini yapılandırabilirsiniz. Seçilen bul
 
 Cihazınızın uyumlu olarak işaretlenebilir önce Azure AD'ye kayıtlı olması gerekir. Bir cihazı kaydetmek için üç seçeneğiniz vardır: 
 
-- [Azure AD kayıtlı cihazları](../devices/overview.md#azure-ad-registered-devices)
-- [Azure AD'ye katılmış cihazları](../devices/overview.md#azure-ad-joined-devices)  
-- [Hibrit Azure AD'ye katılmış cihazlar](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- Azure AD kayıtlı cihazlar
+- Azure AD’ye katılmış cihazlar  
+- Hibrit Azure AD’ye katılmış cihazlar
+
+Bu üç seçenek makalesinde açıklanan [bir cihaz Kimliği nedir?](../devices/overview.md)
 
 Daha fazla bilgi için [yönetilen cihazlar için koşullu erişim ile bulut uygulaması erişimi zorunlu kılma](require-managed-devices.md).
 
@@ -106,16 +98,11 @@ Cihazınızı bir uygulama ilkesi korumalı işaretlenebilir önce Azure AD'ye k
 
 Korumalı istemci uygulamaları, desteklenen ilke listesi için bkz. [uygulama koruma İlkesi gereksinimi](technical-reference.md#app-protection-policy-requirement).
 
-
 ### <a name="terms-of-use"></a>Kullanım koşulları
 
 Bir kullanıcı bir kaynağa erişim izni verilmeden önce kullanım koşullarını kabul kiracınızdaki gerektirebilir. Yönetici olarak, yapılandırma ve kullanım koşullarını PDF'yi karşıya yükleyerek özelleştirin. Bir kullanıcı kalırsa bu denetimi bir uygulamaya erişim kapsamını yalnızca kullanım koşullarını kabul verilir.
 
-### <a name="custom-controls-preview"></a>Özel denetimler (Önizleme)
-
-Kullanıcılarınızın daha fazla Azure Active Directory dışında gereksinimlerini karşılamak için uyumlu bir hizmete yönlendirin koşullu erişimde özel denetimleri ekleyebilirsiniz. Bu, belirli harici çok faktörlü kimlik doğrulaması ve doğrulama sağlayıcıları, koşullu erişim gereksinimleri belirlemenize kullanmanıza olanak sağlar. Bu denetimi gerçekleştirmek için bir kullanıcının tarayıcı dış hizmete yönlendirilir, gerekli herhangi bir kimlik doğrulaması veya doğrulama etkinliklerini gerçekleştirir ve ardından Azure Active Directory'ye yönlendirilir. Kullanıcı başarıyla kimlik doğrulaması veya doğrulanan kullanıcı koşullu erişim akışı devam eder. 
-
-## <a name="custom-controls"></a>Özel denetimler
+## <a name="custom-controls-preview"></a>Özel denetimler (Önizleme)
 
 Özel denetimler, Azure Active Directory Premium P1 edition özellikleridir. Özel denetimleri kullanarak, kullanıcılarınızın daha fazla Azure Active Directory dışında gereksinimlerini karşılamak için uyumlu bir hizmete yönlendirilir. Bu denetimi gerçekleştirmek için bir kullanıcının tarayıcı dış hizmete yönlendirilir, gerekli herhangi bir kimlik doğrulaması veya doğrulama etkinliklerini gerçekleştirir ve ardından Azure Active Directory'ye yönlendirilir. Azure Active Directory yanıt doğrular ve kullanıcı başarıyla kimlik doğrulaması veya doğrulanan kullanıcı koşullu erişim akışı devam eder.
 
@@ -157,10 +144,8 @@ Tıklayarak **yeni özel denetim**, bir metin kutusu denetiminizin JSON verileri
 Özel denetim silmek için önce tüm koşullu erişim ilkesinde kullanılmadığından emin olmalısınız. Bir kez tamamlayın:
 
 1. Özel denetimleri listesine Git
-
-2. Tıklayın...  
-
-3. **Sil**’i seçin.
+1. Tıklayın...  
+1. **Sil**’i seçin.
 
 ### <a name="editing-custom-controls"></a>Özel denetimleri düzenleme
 
@@ -179,11 +164,9 @@ Bu denetim, seçili bulut uygulamaları için cihaz bilgilerini geçirmek Azure 
 Daha fazla bilgi için bkz:
 
 - [SharePoint Online ile sınırlı erişimini etkinleştirme](https://aka.ms/spolimitedaccessdocs)
-
 - [Exchange Online ile sınırlı erişimini etkinleştirme](https://aka.ms/owalimitedaccess)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Koşullu erişim ilkesi yapılandırmak için bkz. nasıl bilmek istiyorsanız [gerektiren MFA belirli uygulamalar için Azure Active Directory koşullu erişim ile](app-based-mfa.md).
-
 - Ortamınız için koşullu erişim ilkelerini yapılandırmaya hazırsanız bkz [Azure Active Directory'de koşullu erişim için en iyi uygulamalar](best-practices.md).

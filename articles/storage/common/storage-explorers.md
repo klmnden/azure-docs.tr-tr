@@ -9,12 +9,12 @@ ms.date: 09/06/2017
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: d7debbc760e103046ce9bb1a8bdf25a954d9891c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d80bc71c01d0f1c887d9161edee5516d6b0925b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65138566"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443694"
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage İstemci Araçları
 Azure Depolama'nın kullanıcıların sık görünüm/bir Azure depolama istemci aracı kullanarak verileri ile etkileşemeyebilirsiniz istiyorsunuz. Aşağıdaki tablolarda, biz bunu olanak tanıyan bir dizi listeleyin. Ya da numaralandırma ve/veya veri soyutlama erişim olanağı sağlar, size her bir bloğunda bir "X" yerleştirin. Tablo ayrıca araçları olup olmadığını boş olmadığını gösterir. "Deneme" ücretsiz deneme sürümü yoktur, ancak tam ürün ücretsiz değil gösterir. "E/H", farklı bir sürümünü satın alınabilir olduğu sürece bir sürümünü ücretsiz olarak kullanılabilir olduğunu gösterir.
@@ -178,7 +178,7 @@ Biz aşağıdaki üçüncü taraf araçları tarafından istenen kalite ve işle
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://clumsyleaf.com">Ürünü olan: AzureXplorer, CloudXplorer, TableXplorer</a></td>
+    <td><a href="https://clumsyleaf.com">Ürünü olan: AzureXplorer, CloudXplorer, TableXplorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>

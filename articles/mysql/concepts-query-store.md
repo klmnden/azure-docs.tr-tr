@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 5cd88eeb2016a90a95f0e54a334eb3c88cb75744
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: a24bba0786201f4ea1d1be431107f7bfe26a2a8f
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078748"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461714"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Query Store performansla MySQL için Azure veritabanı izleme
 
 **İçin geçerlidir:**  MySQL 5.7 için Azure veritabanı
 
 > [!NOTE]
-> Query Store Önizleme aşamasındadır. Query Store desteği Azure portalında kullanıma sunulacaktır ve henüz bölgenizde kullanılamıyor olabilir.
+> Query Store Önizleme aşamasındadır.
 
 MySQL için Azure veritabanı için Query Store özelliği zaman içinde sorgu performansını izlemek için bir yol sağlar. Query Store performans sorunlarını giderme hızlı bir şekilde yardımcı olarak basitleştirir, uzun süre çalışan ve en yoğun kaynak sorgularını bulun. Query Store geçmişini sorgular ve çalışma zamanı İstatistikleri otomatik olarak yakalar ve bunları gözden geçirmeniz için saklar. Veritabanı kullanım modellerini görebilmeniz için veri zaman pencereleri tarafından ayırır. Tüm kullanıcılar, veritabanları ve sorgular için veriler depolanır **mysql** MySQL örneği için Azure veritabanı'nda veritabanı şeması.
 
@@ -29,10 +29,6 @@ Sorgu deposu aşağıdaki gibi senaryolarda, bir süre içinde kullanılabilir:
 - Gerileyen sorgu algılama
 - Sayısını belirleyen bir sorgu belirli bir zaman penceresinde yürütüldü
 - Bir sorgu ortalama yürütme süresi büyük deltaları görmek için zaman pencereleri arasında karşılaştırma
-- Uzun çalışan sorguları geçmişte tanımlayan X saat
-- Kaynaklarını bekleyen ilk N sorguları tanımlama
-- Bir sorgu için bekleme yapısı anlama
-- Kaynak bekler ve kaynak çekişmesi mevcut olduğu için eğilimleri anlama
 
 ## <a name="enabling-query-store"></a>Query Store etkinleştirme
 
@@ -120,7 +116,7 @@ Sorgular, değişmez değerler ve sabitleri kaldırdıktan sonra kendi yapı bak
 
 Bu görünüm Query Store tüm verileri döndürür. Her ayrı bir veritabanı kimliği, kullanıcı kimliği ve sorgu kimliği için bir satır var.
 
-| **Ad** | **Veri türü** | **IS_NULLABLE** | **Açıklama** |
+| **Name** | **Veri türü** | **IS_NULLABLE** | **Açıklama** |
 |---|---|---|---|
 | `schema_name`| varchar(64) | NO | Şema adı |
 | `query_id`| bigint(20) | NO| Aynı sorgu farklı Şeması'nda, yeni bir kimliği çalıştırırsa, belirli bir sorgu için oluşturulan benzersiz bir kimlik oluşturulur |
@@ -153,7 +149,7 @@ Bu görünüm Query Store tüm verileri döndürür. Her ayrı bir veritabanı k
 
 Bu görünüm, Query Store olayları verileri döndürür bekleyin. Her farklı veritabanı kimliği, kullanıcı kimliği, sorgu kimliği ve olay için bir satır var.
 
-| **Ad**| **Veri türü** | **IS_NULLABLE** | **Açıklama** |
+| **Name**| **Veri türü** | **IS_NULLABLE** | **Açıklama** |
 |---|---|---|---|
 | `interval_start` | timestamp | NO| Başlangıç aralığı (15 dakikalık artırma)|
 | `interval_end` | timestamp | NO| Bitiş aralığı (15 dakikalık artırma)|
@@ -167,7 +163,7 @@ Bu görünüm, Query Store olayları verileri döndürür bekleyin. Her farklı 
 
 ### <a name="functions"></a>İşlevler
 
-| **Ad**| **Açıklama** |
+| **Name**| **Açıklama** |
 |---|---|
 | `mysql.az_purge_querystore_data(TIMESTAMP)` | Belirli bir zaman damgasını önce tüm sorgu deposu verileri temizler |
 | `mysql.az_procedure_purge_querystore_event(TIMESTAMP)` | Belirli bir zaman damgasını önce olay verilerini temizler tüm bekleyin |

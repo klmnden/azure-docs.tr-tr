@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: eeab0311519d7e3410ddb625c1801101ad63ad18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a54892c1d6e05e27e349e519d41ebd937ff64c7
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61400123"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509211"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Azure Data Factory kullanarak bir OData kaynaktan veri kopyalama
 
@@ -233,7 +233,7 @@ OData veri kopyalamak için ayarlanmış **kaynak** türü için kopyalama etkin
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** kopyalama etkinliği kaynak özelliği ayarlanmalıdır **RelationalSource**. | Evet |
-| query | Verileri filtreleme için OData sorgu seçenekleri. Örnek: `"?$select=Name,Description&$top=5"`.<br/><br/>**Not**: OData Bağlayıcısı verileri birleşik URL'den kopyalar: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Daha fazla bilgi için [OData URL'si bileşenleri](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Hayır |
+| query | Verileri filtreleme için OData sorgu seçenekleri. Örnek: `"$select=Name,Description&$top=5"`.<br/><br/>**Not**: OData Bağlayıcısı verileri birleşik URL'den kopyalar: `[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`. Daha fazla bilgi için [OData URL'si bileşenleri](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Hayır |
 
 **Örnek**
 
@@ -257,7 +257,7 @@ OData veri kopyalamak için ayarlanmış **kaynak** türü için kopyalama etkin
         "typeProperties": {
             "source": {
                 "type": "RelationalSource",
-                "query": "?$select=Name,Description&$top=5"
+                "query": "$select=Name,Description&$top=5"
             },
             "sink": {
                 "type": "<sink type>"

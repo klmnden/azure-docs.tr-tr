@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/30/2019
+ms.openlocfilehash: 882f44683bbdc7f4eb49ff4912ca7a33187afbf8
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60758679"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537898"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Küme değişen talepleri karşılamak için genişleme yönetme
 
@@ -76,10 +76,10 @@ Aşağıdaki grafikte, sonraki birkaç adım akışı gösterilmektedir. Daha ay
 
 Bir ölçek genişletme işlemi, Azure Veri Gezgini kümeniz şimdi yapılandırdınız. Bir ölçeklendirme işlemi için başka bir kural ekleyin. Bu yapılandırma, dinamik olarak belirttiğiniz ölçümlere göre kümenizi ölçeklendirme sağlar.
 
-Ayrıca [küme ölçeği artırma yönetme](manage-cluster-scale-up.md) bir küme uygun boyutlandırması için.
-
 Küme ölçeklendirme sorunlarla ilgili yardıma ihtiyacınız varsa [bir destek isteği açın](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) Azure portalında.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure Veri Gezgini performansını, sistem durumu ve kullanım ölçümleri ile izleme](using-metrics.md)
+* [Azure Veri Gezgini performansını, sistem durumu ve kullanım ölçümleri ile izleme](using-metrics.md)
+
+* [Küme ölçeği artırma yönetme](manage-cluster-scale-up.md) bir küme uygun boyutlandırması için.

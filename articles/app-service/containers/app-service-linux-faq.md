@@ -4,7 +4,7 @@ description: SSS Linux'ta Azure App Service.
 keywords: Azure app service, web uygulaması, SSS, linux, oss, kapsayıcılar, çok kapsayıcılı multicontainer için web app
 services: app-service
 documentationCenter: ''
-author: yili
+author: msangapu-msft
 manager: stefsch
 editor: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: yili
+ms.author: msangapu-msft
 ms.custom: seodec18
-ms.openlocfilehash: dbf63ff47b11c2e75966b4a4b91fb1b00b40d216
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d465a93a23b7f0098471e0074240dfcbe9658736
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65594270"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448431"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service Linux SSS hakkında
 
@@ -119,10 +119,7 @@ Evet, Git dağıtımı sırasında bir PHP uygulaması (sayesinde composer.lock 
 
 **Kendi özel kapsayıcınızı kullanıyorum. Platform için bir SMB paylaşımını bağlaması istiyorum `/home/` dizin.**
 
-Ayarlayarak bunu yapabilirsiniz `WEBSITES_ENABLE_APP_SERVICE_STORAGE` uygulama ayarının *true*. Platform depolama bir değişiklik olduğunda bu kapsayıcı yeniden neden olacağını aklınızda bulundurun.
-
->[!NOTE]
->Varsa `WEBSITES_ENABLE_APP_SERVICE_STORAGE` ayarı belirtilmemiş veya kümesine *false*, `/home/` dizin ölçek örneklerinde değil paylaşılır ve orada yazılır dosyaları kalıcı yeniden başlatmaları arasındaki.
+Varsa `WEBSITES_ENABLE_APP_SERVICE_STORAGE` ayardır **belirtilmeyen** veya kümesine *true*, `/home/` dizin **paylaşılır** ölçek örneğini ve yazılmışdosyalar**korunur** yeniden başlatmaları arasında. Açık olarak ayarlama `WEBSITES_ENABLE_APP_SERVICE_STORAGE` için *false* bağlama devre dışı bırakır.
 
 **My özel kapsayıcı başlatmak uzun sürüyor ve platform, başlatma tamamlanmadan önce kapsayıcıyı yeniden başlatır.**
 

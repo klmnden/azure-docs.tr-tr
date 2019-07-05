@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5f477cf20b817d7a6c8be856636bf1e3755b5424
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b4edec43d01878bbc5899487f6ee1d2816eb135
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61472156"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491827"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Azure Site Recovery ile olağanüstü durum kurtarma için çok katmanlı bir SharePoint uygulaması için olağanüstü durum kurtarmayı ayarlama
 
@@ -196,7 +196,7 @@ En yaygın olarak kullanılan Azure Site Recovery betikleri için 'Azure'a Dağ�
 
 AD için yük devretme testi yapılması yönergeler ve DNS, başvurduğu [Test yük devretme konuları için bir AD ve DNS](site-recovery-active-directory.md#test-failover-considerations) belge.
 
-Yük devretme testi SQL Always ON kullanılabilirlik grupları yapılması ile ilgili yönergeler için bkz [yük devretme testi yapmak için SQL Server Always On](site-recovery-sql.md#steps-to-do-a-test-failover) belge.
+Yük devretme testi SQL Always ON kullanılabilirlik grupları yapılması ile ilgili yönergeler için bkz [gerçekleştiren uygulama DR ile Azure Site Recovery ile yük devretme testi yapılması](site-recovery-sql.md#disaster-recovery-of-application) belge.
 
 ## <a name="doing-a-failover"></a>Bir yük devretme gerçekleştirmeden
 İzleyin [bu kılavuz](site-recovery-failover.md) bir yük devretme gerçekleştirme.

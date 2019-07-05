@@ -1,43 +1,39 @@
 ---
-title: Azure abonelik teklifi değiştirme | Microsoft Docs
-description: Azure aboneliğinizi değiştirin ve Azure hesap merkezi kullanarak başka bir teklife geç hakkında bilgi edinin
-services: ''
-documentationcenter: ''
-author: genlin
-manager: adpick
-editor: ''
+title: Azure abonelik teklifi değiştirme
+description: Azure aboneliğinizi değiştirin ve Azure hesap merkezi aracılığıyla başka bir teklife geç hakkında bilgi edinin.
+author: bandersmsft
+manager: amberb
 tags: billing,top-support-issue
-ms.assetid: aae227b3-6d64-4550-a5b6-d359f53f0a59
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 11d3deb029ef0d8478844b64c54db7982ed1091e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e87bcb9f7d05fd5041623693c96f8c737758c32
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64570988"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490975"
 ---
-# <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Azure Kullandıkça Öde aboneliğinizi farklı bir teklif için değiştirin
+# <a name="change-your-azure-subscription-to-a-different-offer"></a>Farklı bir teklif için Azure aboneliğinizi değiştirin
 
-Olarak bir [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) müşteri, içinde başka bir teklife Azure aboneliğinizi değiştirebilirsiniz [hesap Merkezi](https://account.windowsazure.com/Subscriptions). Örneğin, yararlanmak için bu özelliği kullanabilirsiniz [Visual Studio aboneleri için aylık kredi](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). 
+Bir müşteri olarak bir [Kullandıkça Öde tarifesine göre tek tek abonelikle](https://azure.microsoft.com/offers/ms-azr-0003p/), Azure aboneliğinizi başka bir teklife geçebilirsiniz [hesap Merkezi](https://account.windowsazure.com/Subscriptions). Örneğin, yararlanmak için bu özelliği kullanabilirsiniz [Visual Studio aboneleri için aylık kredi](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-**Yalnızca ücretsiz deneme sürümünden yükseltmek istiyorsunuz?** Bkz: [Kullandıkça Öde aboneliğine yükseltme](billing-upgrade-azure-subscription.md).
+**Yalnızca ücretsiz deneme sürümünden yükseltmek istiyorsunuz?** Bkz: [aboneliği yükseltme](billing-upgrade-azure-subscription.md).
 
 ## <a name="whats-supported"></a>Ne desteklenir:
 
-| Başlangıç | Bitiş |
-| --- | --- |
-| Kullandıkça Öde |[Kullandıkça Öde geliştirme ve Test](https://azure.microsoft.com/offers/ms-azr-0023p/) |
-| Kullandıkça Öde |[Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) |
-| Kullandıkça Öde |[Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/) |
-| Kullandıkça Öde |[MSDN platformları](https://azure.microsoft.com/offers/ms-azr-0062p/) |
-| Kullandıkça Öde |[Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) |
-| Kullandıkça Öde |[Visual Studio Enterprise (Bizspark)](https://azure.microsoft.com/offers/ms-azr-0064p/) |
+Tek bir abonelik için Kullandıkça Öde tarifesine göre ile geçiş yapabilirsiniz:
+
+- [Kullandıkça Öde geliştirme ve Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
+- [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)
+- [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)
+- [MSDN platformları](https://azure.microsoft.com/offers/ms-azr-0062p/)
+- [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)
+- [Visual Studio Enterprise (Bizspark)](https://azure.microsoft.com/offers/ms-azr-0064p/)
 
 > [!NOTE]
 > Diğer teklif değişiklikleri [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -51,37 +47,38 @@ Olarak bir [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/
 >
 
 1. Oturum açmak [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions).
-1. Kullandıkça Öde aboneliğinizi seçin.
-1. **Başka bir teklife geç** seçeneğine tıklayın. Bu düğme, yalnızca Kullandıkça Öde aboneliğine sahipseniz ve ilk fatura döneminiz sona erdiyse kullanılabilir.
+1. Tek tek aboneliğinizi Kullandıkça Öde tarifesine göre seçin.
+1. **Başka bir teklife geç** seçeneğine tıklayın. Bu seçenek, yalnızca Kullandıkça Öde tarifesine göre ile tek bir aboneliğiniz varsa ve ilk fatura döneminiz tamamladınız kullanılabilir.
 
    ![Sayfanın sağ tarafında anahtar teklif düğmesinde dikkat edin.](./media/billing-how-to-switch-azure-offer/switchbutton.png)
-1. **İstediğiniz teklif seçin** tekliflerin listeden aboneliğinizi olarak değiştirilebilir. Bu liste, hesabınızın ilişkilendirildiği üyeliklere göre değişir. Hiçbir şey olup olmadığını denetleyin [kullanılabilir teklifleri için geçiş listesi](#whats-supported) ve üyeliklerini doğru olduğundan emin olun. 
+1. **İstediğiniz teklif seçin** tekliflerin listeden aboneliğinizi olarak değiştirilebilir. Bu liste, hesabınızın ilişkilendirildiği üyeliklere göre değişir. Hiçbir şey olup olmadığını denetleyin [kullanılabilir teklifleri için geçiş listesi](#whats-supported) ve üyeliklerini doğru olduğundan emin olun.
 
    ![Geçiş yapmak istediğiniz bir teklif seçin](./media/billing-how-to-switch-azure-offer/selectoffer.png)
 1. Geçiş yapıyorsanız, teklif bağlı olarak, geçiş etkisi hakkında bir not görebilirsiniz. Bu listede dikkatle gidin ve devam etmeden önce yönergeleri izleyin.
 
    ![Notlarını gözden geçirin](./media/billing-how-to-switch-azure-offer/thingstonote.png)
-1. Aboneliğinizi yeniden adlandırabilirsiniz. Varsayılan olarak, bu yeni teklif adına ayarladık. Tıklayın **anahtar teklif** tıklayarak işlemi tamamlar.
+1. Aboneliğinizi yeniden adlandırabilirsiniz. Varsayılan olarak, bu yeni teklif adına ayarlanır. Tıklayın **anahtar teklif** tıklayarak işlemi tamamlar.
 
    ![Yeşil düğmeyi tıklatın](./media/billing-how-to-switch-azure-offer/confirmpage.png)
 1. Başarılı! Aboneliğiniz, artık yeni teklife geçmesini anahtarlanır.
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
+Aşağıdaki bölümlerde, sık sorulan soruları yanıtlayın.
 
 ### <a name="what-is-an-azure-offer"></a>Bir Azure teklifine nedir?
 
-Bir Azure teklif *türü* , sahip olduğunuz Azure abonelik. Örneğin, [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/), [Open ile Azure](https://azure.microsoft.com/offers/ms-azr-0111p/), ve [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) tüm Azure teklifler şunlardır. Her bir teklifin farklı olan [koşulları](https://azure.microsoft.com/support/legal/offer-details/) ve bazı özel avantajlara sahip olursunuz. Aboneliğinizin teklif hesap Merkezi'nde abonelik sayfasında bulunabilir. Daha fazla bilgi almak için teklif adına tıklayın.
+Bir Azure teklif *türü* , sahip olduğunuz Azure abonelik. Örneğin, [Kullandıkça Öde tarifesine göre bir abonelikle](https://azure.microsoft.com/offers/ms-azr-0003p/), [Open ile Azure](https://azure.microsoft.com/offers/ms-azr-0111p/), ve [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) tüm Azure teklifler şunlardır. Her bir teklifin farklı olan [koşulları](https://azure.microsoft.com/support/legal/offer-details/) ve bazı özel avantajlara sahip olursunuz. Aboneliğinizin teklif hesap Merkezi'nde abonelik sayfasında bulunabilir. Daha fazla bilgi almak için teklif adına tıklayın.
 
    ![Daha fazla bilgi edinmek için hesap Merkezi'nde teklif bağlantısına tıklayın](./media/billing-how-to-switch-azure-offer/offerlink.png)
 
 ### <a name="why-dont-i-see-the-button"></a>Düğme neden göremiyorum?
 
-Görmeyebilirsiniz **başka bir teklife geç** düğmesi:
+Görmeyebilirsiniz **başka bir teklife geç** seçeneğini:
 
-* Açık değil [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/). Şu an için yalnızca Kullandıkça Öde abonelikleri diğer tekliflere dönüştürülebilir.
-  * Üzerinde kullanıyorsanız [ücretsiz deneme](https://azure.microsoft.com/free/), bilgi nasıl [Kullandıkça Öde aboneliğine yükseltme](billing-upgrade-azure-subscription.md).
+* Sahip olmadığınız bir [Kullandıkça Öde tarifesine göre abonelikle](https://azure.microsoft.com/offers/ms-azr-0003p/). Şu anda yalnızca Kullandıkça Öde tarifesine göre aboneliklerle başka bir teklife dönüştürülemez.
+  * Varsa bir [ücretsiz deneme](https://azure.microsoft.com/free/), bilgi nasıl [Kullandıkça Öde aboneliğine yükseltme](billing-upgrade-azure-subscription.md).
   * Farklı bir abonelikten teklif geçmek [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-* Yine de ilk fatura döneminiz üzerinde olduğunuz; Teklifler, değiştirmeden önce sonlandırmak ilk fatura döneminiz için beklemeniz gerekir.
+* Yine de ilk fatura döneminiz içinde işiniz; Teklifler, değiştirmeden önce sonlandırmak ilk fatura döneminiz için beklemeniz gerekir.
 
 ### <a name="why-do-i-see-there-are-no-offers-available-in-your-region-or-country-at-this-time"></a>"Kullanılabilir teklif, ülke veya bölgenizde şu anda" neden görüyorum?
 
@@ -104,7 +101,7 @@ Değiştirdiğinizde teklifleri, tüm [sınırı ve kota artırır varsayılan s
 
 Gün, geçiş, fatura için ödenmemiş tüm oluşturulur. Sonra aboneliğinizi yeni teklife ilişkin fiyatlandırma koşulları faturalandırılır. Abonelik faturalama dönümünü teklifler değiştirdiğiniz tarih olarak değiştirir. Kullanım ve indirim değişiklik korunmaz önce öneririz geçmeden önce bir kopyasını indirmek için faturalama.
 
-### <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>Gelen Kullandıkça Öde aboneliğine geçiş yapabilirsiniz [bulut çözümü sağlayıcısı](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) veya [Kurumsal Anlaşma](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
+### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>Kullandıkça Öde tarifelerine ile bir abonelikten geçirebilirim [bulut çözümü sağlayıcısı](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) veya [Kurumsal Anlaşma](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
 
 * CSP'ye geçirmek için bkz [Azure Kullandıkça Öde aboneliğine geçiş CSP'ye](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
 * Geçirmek için EA kayıt yöneticiniz hesabınızı EA ekleyin gerekir. Aboneliklerinizi EA kaydı altında taşınmış olması davet e-postadaki yönergeleri izleyin. Daha fazla bilgi için bkz. [mevcut bir hesabı ilişkilendirin](https://ea.azure.com/helpdocs/associateExistingAccount) EA portalında.
@@ -117,3 +114,6 @@ Gün, geçiş, fatura için ödenmemiş tüm oluşturulur. Sonra aboneliğinizi 
 ## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+## <a name="next-steps"></a>Sonraki adımlar
+- [Maliyet analizini başlatma](../cost-management/quick-acm-cost-analysis.md)

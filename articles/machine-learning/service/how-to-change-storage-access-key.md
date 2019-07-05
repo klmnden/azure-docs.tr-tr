@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/17/2019
-ms.openlocfilehash: 11abbb0494a9771676dcf2436b5e808346c16368
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 488a032e177897caf2897ba6335f4e7f64dc0e4d
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078566"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543839"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Depolama hesabı erişim anahtarlarını yeniden oluştur
 
@@ -72,7 +72,7 @@ Yeni anahtarı kullanmak için Azure Machine Learning hizmeti güncelleştirmek 
 > [!IMPORTANT]
 > Her ikisi de CLI, Python kullanarak veri depoları ile çalışma alanı güncelleştiriliyor, tüm adımları gerçekleştirin. Her ikisi de güncelleştirilene kadar tek veya diğer güncelleştirme hatalarına neden olabilir.
 
-1. Anahtarı yeniden oluştur. Bir erişim anahtarının yeniden oluşturulması hakkında daha fazla bilgi için bkz: [depolama hesabı yönetme](/azure/storage/common/storage-account-manage.md#access-keys) makalesi. Yeni anahtar kaydedin.
+1. Anahtarı yeniden oluştur. Bir erişim anahtarının yeniden oluşturulması hakkında daha fazla bilgi için bkz: [depolama hesabı yönetme](/azure/storage/common/storage-account-manage#access-keys) makalesi. Yeni anahtar kaydedin.
 
 1. Yeni anahtar kullanılacak çalışma alanını güncelleştirmek için aşağıdaki adımları kullanın:
 

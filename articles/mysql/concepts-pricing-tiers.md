@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: 726da603b5f583c85f4b7c4262c6e97f565a3678
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.date: 06/27/2019
+ms.openlocfilehash: aab3aaafd410c4f85eba7a246d0922128908bf93
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339937"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445423"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Fiyatlandırma katmanları MySQL için Azure veritabanı
 
@@ -62,12 +62,12 @@ Biz depolama sınırları, genel amaçlı ve bellek için iyileştirilmiş Katma
 |              | **Genel amaçlı** | **Bellek için iyileştirilmiş** |
 |:-------------|:--------------------|:---------------------|
 | Depolama türü | Azure Premium Depolama | Azure Premium Depolama |
-| Depolama boyutu | 16 TB'ye kadar 32 GB| 32-16 TB |
+| Depolama boyutu | 16 TB'ye kadar 32 GB| 16 TB'ye kadar 32 GB |
 | Depolama artırma boyutu | 1 GB | 1 GB |
 | IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>20.000 IOPS maks.| 3 IOPS/GB<br/>Min 100 IOPS<br/>20.000 IOPS maks. |
 
 > [!IMPORTANT]
-> Büyük depolama şu anda aşağıdaki bölgelerde genel önizlemeye sunulmuştur: Doğu ABD, Doğu ABD 2, Orta ABD, Batı ABD, Kuzey Avrupa, Batı Avrupa, Güneydoğu Asya, Doğu, Kore Orta, Avustralya Doğu Japonya.
+> Büyük depolama şu anda aşağıdaki bölgelerde genel önizlemeye sunulmuştur: Doğu ABD, Doğu ABD 2, Orta ABD, Batı ABD, Kuzey Avrupa, Batı Avrupa, UK Güney, UK Batı, Güneydoğu Asya, Doğu Asya, Japonya Doğu, Japonya Batı, Kore Orta, Kore Güney, Avustralya Doğu, Avustralya Güney Doğu.
 >
 > Büyük depolama önizlemesi şu anda desteklemez:
 >

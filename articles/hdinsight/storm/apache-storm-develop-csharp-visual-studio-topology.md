@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 14aa45808f44f7ca6fe34b70ef282a99f230bf0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d459f88cd252303384acb4a72d0af0cce6ee226
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687748"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428461"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake araçları kullanarak Apache Storm için C# topolojileri geliştirme
 
@@ -559,7 +559,7 @@ Linux tabanlı HDInsight kümeleri için projeniz .NET 4.5 için derlenmiş ikil
 
 ### <a name="test-a-topology-locally"></a>Bir topoloji yerel olarak test etme
 
-Bazı durumlarda, bir kümeye topoloji bir kolayca olmasına rağmen bir topoloji yerel olarak test gerekebilir. Ve yerel olarak geliştirme ortamınızda bu öğreticideki örnek topoloji test çalıştırmak için aşağıdaki adımları kullanın.
+Bazı durumlarda, bir kümeye topoloji bir kolayca olmasına rağmen bir topoloji yerel olarak test gerekebilir. Ve yerel olarak geliştirme ortamınızda bu makaledeki örnek topoloji test çalıştırmak için aşağıdaki adımları kullanın.
 
 > [!WARNING]  
 > Yerel test yalnızca çalışır basic için C#-yalnızca topolojileri. Yerel test karma topolojiler veya birden çok akışı kullanan Topolojileri için kullanamazsınız.

@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd5bbba681acaa0c32e681f7cb4809142fe11f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6f73d3bf5e502a758dd46561059c15a2970d9b6
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66113235"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471820"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Gruplara erişimi gözden geçirmek veya Azure AD uygulama erişim gözden geçirmeleri
 
@@ -40,7 +40,7 @@ Erişim gözden geçirmesi gerçekleştirmek için ilk adım, erişim gözden ge
 
 1. Erişim gözden geçirme ister Microsoft'tan bir e-posta için bakın. Bir grup erişimini gözden geçirmek için bir örnek e-posta aşağıda verilmiştir.
 
-    ![Gözden geçirme'e-posta erişimi](./media/perform-access-review/access-review-email.png)
+    ![Örnek e-postanın bir gruba erişimi gözden geçirmek için Microsoft](./media/perform-access-review/access-review-email.png)
 
 1. Tıklayın **Başlat gözden geçirme** erişim gözden geçirmesi açmaya yönelik bağlantı.
 
@@ -48,7 +48,7 @@ E-posta yoksa, aşağıdaki adımları izleyerek, beklemedeki erişim gözden ge
 
 1. MyApps portalında oturum açın [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
 
-    ![MyApps portalında](./media/perform-access-review/myapps-access-panel.png)
+    ![MyApps portalında izinlerine sahip uygulamalar listesi](./media/perform-access-review/myapps-access-panel.png)
 
 1. Sayfanın sağ üst köşesinde yer alan ve adınızla varsayılan kuruluşunuzun gösterildiği kullanıcı simgesine tıklayın. Listede birden fazla kuruluş varsa erişim gözden geçirmesi isteğinde bulunan kuruluşu seçin.
 
@@ -56,7 +56,7 @@ E-posta yoksa, aşağıdaki adımları izleyerek, beklemedeki erişim gözden ge
 
     Kutucuk yoksa ilgili kuruluş için bekleyen erişim gözden geçirmesi yoktur ve herhangi bir işlem yapmanız gerekmez.
 
-    ![Erişim incelemeleri listesi](./media/perform-access-review/access-reviews-list.png)
+    ![Uygulamaları ve gruplar için beklemedeki erişim gözden geçirmeleri listesi](./media/perform-access-review/access-reviews-list.png)
 
 1. Tıklayın **başlamak gözden geçirme** gerçekleştirmek istediğiniz erişim gözden geçirmesi için bağlantı.
 
@@ -66,7 +66,7 @@ Erişim gözden geçirmesi açtıktan sonra gözden geçirilmesi gereken kullan�
 
 İstek, kendi erişim gözden geçirmek için ise sayfa farklı görünecektir. Daha fazla bilgi için [erişimi gözden geçir kendiniz grupları ve uygulamaları için](review-your-access.md).
 
-![Erişim değerlendirmesi gerçekleştirme](./media/perform-access-review/perform-access-review.png)
+![Açık erişim gözden geçirilmesi gereken kullanıcıları listeleme](./media/perform-access-review/perform-access-review.png)
 
 Onaylama veya reddetme erişim iki yolu vardır:
 
@@ -81,7 +81,7 @@ Onaylama veya reddetme erişim iki yolu vardır:
 
 1. Tıklayın **onaylama** veya **Reddet**. Emin değilseniz, tıklayabilirsiniz **bilmiyorum**. Bunun yapılması, kullanıcının kendi erişimini koruma neden olur, ancak seçimi denetim günlüklerinde yansıtılır.
 
-    ![Erişim değerlendirmesi gerçekleştirme](./media/perform-access-review/approve-deny.png)
+    ![Onayla, reddet, içeren eylem penceresi ve seçenekleri bilmiyorum](./media/perform-access-review/approve-deny.png)
 
 1. Gerekirse, bir neden girin **neden** kutusu.
 
@@ -102,11 +102,11 @@ Erişim gözden geçirmeleri daha kolay ve hızlı sizin yerinize yapmasını is
 
 1. Sayfanın alt kısmındaki mavi çubuğunda **önerileri kabul et**.
 
-    ![Önerileri kabul et](./media/perform-access-review/accept-recommendations.png)
+    ![Önerileri kabul et düğmesi gösteren listeleme açık erişim gözden geçirme](./media/perform-access-review/accept-recommendations.png)
 
     Önerilen eylemleri özetini görürsünüz.
 
-    ![Özet önerileri kabul et](./media/perform-access-review/accept-recommendations-summary.png)
+    ![Önerilen eylemleri özetini görüntüler penceresi](./media/perform-access-review/accept-recommendations-summary.png)
 
 1. Tıklayın **Tamam** önerileri kabul etmek için.
 

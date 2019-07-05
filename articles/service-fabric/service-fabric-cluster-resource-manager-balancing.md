@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 74fe4f7c4c231f80c7555f39f840a85baae310e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ea95405f68938906ba010836753cd74ab0f775e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809400"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446746"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Service fabric kümenizi Dengeleme
 Service Fabric küme kaynak yöneticisi ekleme veya çıkarma düğümleri veya hizmetler için tepki dinamik yük değişiklikleri destekler. Sabiti ihlallerini de otomatik olarak düzeltir ve proaktif olarak kümeye yeniden dengeler. Ancak bu eylemler ne sıklıkta alınır ve bunları tetikler?
@@ -36,9 +36,9 @@ Küme Kaynak Yöneticisi gerçekleştiren iş üç farklı kategorisi vardır. B
 Küme Kaynak Yöneticisi yapabilirsiniz düzeltmeleri farklı bu türlerinin her biri kendi sıklığı yöneten farklı bir Zamanlayıcı tarafından denetlenir. Her bir zamanlayıcı başlatıldığında, görevi zamanlandı. Varsayılan olarak Kaynak Yöneticisi:
 
 * durumuna tarar ve güncelleştirmeleri (örneğin, bir düğüm kaydı) her 1/10 saniyenin
-* yerleştirme denetim bayrağını ayarlar 
+* saniyede yerleştirme denetim bayrağını ayarlar
 * saniyede kısıtlama denetimi bayrağını ayarlar
-* her beş saniyede karşı bayrağını ayarlar.
+* her beş saniyede karşı bayrağı ayarlar
 
 Bu zamanlayıcılar yöneten yapılandırma örnekleri aşağıda verilmiştir:
 

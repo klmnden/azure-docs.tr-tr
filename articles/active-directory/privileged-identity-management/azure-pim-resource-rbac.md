@@ -16,12 +16,12 @@ ms.subservice: pim
 ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74607f6a746558238ead65036d708b515d370035
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 84bd491d992ed15df288d9226b58bfe832e0692a
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60441453"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476508"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>PIM Azure kaynak rolleri için etkinlik ve denetim geçmişini görüntüle
 
@@ -43,11 +43,11 @@ Belirli bir kullanıcı çeşitli kaynakları sürdü hangi eylemleri görmek i�
 
     Tarihe göre Azure kaynaklarına kullanıcının eylemleri grafik bir görünümünü görürsünüz. Ayrıca, aynı süre boyunca yeni rol etkinleştirmeleri gösterir.
 
-    ![Kullanıcı ayrıntıları](media/azure-pim-resource-rbac/rbac-user-details.png)
+    ![Kaynak etkinliği özeti ve rol etkinleştirmeleri ile kullanıcı ayrıntıları](media/azure-pim-resource-rbac/rbac-user-details.png)
 
 1. Özel rol etkinleştirme ayrıntıları ve bu kullanıcı etkin olduğu sırada gerçekleşen karşılık gelen Azure kaynak etkinliği görmek için tıklayın.
 
-    ![Rol etkinleştirme'yi seçin](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
+    ![Seçili rol etkinleştirme ve tarihe göre görüntülenen etkinlik ayrıntıları](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 
 ## <a name="export-role-assignments-with-children"></a>Alt öğeleri olan rolü atamalarını dışarı aktarma
 
@@ -63,11 +63,11 @@ Bir uyumluluk gereksinimini burada denetçilerine rol atamaları tam listesi sa�
 
 1. Tıklayın **dışarı** dışarı aktarma üyelik bölmesini açmak için.
 
-    ![Dışarı aktarma üyelik bölmesi](media/azure-pim-resource-rbac/export-membership.png)
+    ![Tüm üyeleri dışarı aktarmak için dışarı aktarma üyelik bölmesi](media/azure-pim-resource-rbac/export-membership.png)
 
 1. Tıklayın **tüm üyeleri dışarı** bir CSV dosyasındaki tüm rolü atamalarını dışarı aktarma.
 
-    ![CSV dosyasını dışarı aktar](media/azure-pim-resource-rbac/export-csv.png)
+    ![Excel'de görüntüleme gibi CSV sya rolü atamalarını dışarı](media/azure-pim-resource-rbac/export-csv.png)
 
 ## <a name="view-resource-audit-history"></a>Kaynak denetim geçmişini görüntüleme
 
@@ -83,15 +83,15 @@ Kaynak Denetim, bir kaynak için tüm rol etkinliği bir görünümünü sağlar
 
 1. Önceden tanımlanmış tarih veya özel aralığı kullanarak geçmiş filtreleyin.
 
-    ![Kaynak Denetim filtresi](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    ![Kaynak denetim listesini filtreler](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
 1. İçin **denetim türü**seçin **etkinleştir (atanan + etkinleştirildi)** .
 
-    ![Etkinlik Ayrıntısı](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+    ![Etkinleştirme denetim türüne göre filtrelenmiştir kaynak denetim listesi](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
 1. Altında **eylem**, tıklayın **(etkinlik)** kullanıcının etkinlik ayrıntı Azure kaynakları bir kullanıcı için.
 
-    ![Kullanıcı Etkinlik Ayrıntısı](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
+    ![Belirli bir eylem için kullanıcı etkinliği ayrıntıları](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
 ## <a name="view-my-audit"></a>Denetimim görüntüleyin
 
@@ -107,7 +107,7 @@ Denetimim kişisel rol etkinlik görüntülemenizi sağlar.
 
 1. Önceden tanımlanmış tarih veya özel aralığı kullanarak geçmiş filtreleyin.
 
-    ![Kişisel rol etkinliği](media/azure-pim-resource-rbac/my-audit-time.png)
+    ![Geçerli kullanıcı için Denetim listesi](media/azure-pim-resource-rbac/my-audit-time.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

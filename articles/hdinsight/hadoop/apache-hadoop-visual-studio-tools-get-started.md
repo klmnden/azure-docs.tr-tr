@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 42ef03d604caacf5ba18773b88e892237b5f0eae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 485f3a4b6a5fde532229873fe1f3feaa30ece523
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688536"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450209"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Bağlanmak için Azure HDInsight ve Apache Hive sorguları çalıştırmak için Visual Studio için Data Lake Araçları'nı kullanın
 
@@ -27,9 +27,9 @@ Bir Apache Storm kümesine bağlanma hakkında daha fazla bilgi için bkz. [geli
 
 Visual Studio için Data Lake Araçlarını hem Azure Data Lake Analytics’e hem de HDInsight’a erişmek için kullanabilirsiniz. Data Lake Araçları hakkında bilgi için bkz. [Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme](../../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticiyi tamamlamak ve Visual Studio için Data Lake Araçları’nı kullanmak üzere şunlar gerekir:
+Bu makaleyi tamamlamak ve Visual Studio için Data Lake araçları kullanmak için aşağıdaki öğeler gerekir:
 
 * Bir Azure HDInsight kümesi. Bir HDInsight kümesi oluşturmak için bkz: [Azure HDInsight Apache Hadoop kullanmaya başlama](apache-hadoop-linux-tutorial-get-started.md). Etkileşimli Apache Hive sorguları çalıştırmak için gereken bir [HDInsight etkileşimli sorgu](../interactive-query/apache-interactive-query-get-started.md) kümesi.  
 

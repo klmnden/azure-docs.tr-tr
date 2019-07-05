@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 6446919c80e7e3fd379e6e39eb51712f9736ea7e
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 22be5509a93d0713b8113ba17debfda3cf576006
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341204"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508964"
 ---
 # <a name="api-management-policy-expressions"></a>API Management ilke ifadeleri
 İlke ifadeleri söz dizimi anlatılmaktadır C# 7. Her ifadesi örtük olarak sağlanan erişimi olan [bağlam](api-management-policy-expressions.md#ContextVariables) değişkeni ve izin verilen [alt](api-management-policy-expressions.md#CLRTypes) .NET Framework türleri.
@@ -74,7 +74,7 @@ Birden fazla deyim ifadeleri içine alınmıştır `@{expression}`. Birden fazla
 ## <a name="CLRTypes"></a> .NET framework türleri içinde ilke ifadelere izin veriliyor
 Aşağıdaki tablo, .NET Framework türlerini ve ilke ifadelerinde izin üyeleri listeler.
 
-|Type|Desteklenen üyeleri|
+|Tür|Desteklenen üyeleri|
 |--------------|-----------------------|
 |Newtonsoft.Json.Formatting|Tümü|
 |Newtonsoft.Json.JsonConvert|SerializeObject, DeserializeObject|
@@ -210,13 +210,13 @@ Adlı bir değişken `context` her ilkede örtük olarak kullanılabilir [ifade]
 
 |Bağlam değişkeni|Yöntemler, özellikler ve parametre değerlerini izin|
 |----------------------|-------------------------------------------------------|
-|Bağlam|[API](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Dağıtım](#ref-context-deployment)<br /><br /> Geçen: TimeSpan - zaman damgası değeri ve geçerli saat arasındaki zaman aralığı<br /><br /> [Son hata](#ref-context-lasterror)<br /><br /> [İşlem](#ref-context-operation)<br /><br /> [Ürün](#ref-context-product)<br /><br /> [İstek](#ref-context-request)<br /><br /> RequestId: GUID - benzersiz istek tanımlayıcısı<br /><br /> [Yanıt](#ref-context-response)<br /><br /> [Abonelik](#ref-context-subscription)<br /><br /> Zaman damgası: DateTime - istek alındığında zaman içinde nokta<br /><br /> İzleme: bool - gösterir izleme açık veya kapalı olma <br /><br /> [Kullanıcı](#ref-context-user)<br /><br /> [Değişkenleri](#ref-context-variables): IReadOnlyDictionary < string, object ><br /><br /> void Trace(message: string)|
+|context|[API](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Dağıtım](#ref-context-deployment)<br /><br /> Geçen: TimeSpan - zaman damgası değeri ve geçerli saat arasındaki zaman aralığı<br /><br /> [Son hata](#ref-context-lasterror)<br /><br /> [İşlem](#ref-context-operation)<br /><br /> [Ürün](#ref-context-product)<br /><br /> [İstek](#ref-context-request)<br /><br /> RequestId: GUID - benzersiz istek tanımlayıcısı<br /><br /> [Yanıt](#ref-context-response)<br /><br /> [Abonelik](#ref-context-subscription)<br /><br /> Zaman damgası: DateTime - istek alındığında zaman içinde nokta<br /><br /> İzleme: bool - gösterir izleme açık veya kapalı olma <br /><br /> [Kullanıcı](#ref-context-user)<br /><br /> [Değişkenleri](#ref-context-variables): IReadOnlyDictionary < string, object ><br /><br /> void Trace(message: string)|
 |<a id="ref-context-api"></a>bağlamı. API|ID: dize<br /><br /> IsCurrentRevision: bool<br /><br />  Ad: dize<br /><br /> Yol: dize<br /><br /> Düzeltme: dize<br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> Sürüm: dize |
 |<a id="ref-context-deployment"></a>bağlamı. Dağıtım|Bölge: dize<br /><br /> ServiceName: dize<br /><br /> Sertifikaları: IReadOnlyDictionary < string, X509Certificate2 >|
 |<a id="ref-context-lasterror"></a>bağlamı. Son hata|Kaynak: dize<br /><br /> Neden: dize<br /><br /> İleti: dize<br /><br /> Kapsam: dize<br /><br /> Bölüm: dize<br /><br /> Yol: dize<br /><br /> Policyıd: dize<br /><br /> Bağlamı hakkında daha fazla bilgi için. LastError, bkz: [hata işleme](api-management-error-handling-policies.md).|
 |<a id="ref-context-operation"></a>bağlamı. İşlemi|ID: dize<br /><br /> Yöntemi: dize<br /><br /> Ad: dize<br /><br /> UrlTemplate: dize|
 |<a id="ref-context-product"></a>bağlamı. Ürün|API'ler: IEnumerable <[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Grupları: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> ID: dize<br /><br /> Ad: dize<br /><br /> Durum: sabit listesi ProductState {NotPublished, yayımlanmış}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
-|<a id="ref-context-request"></a>bağlamı. İstek|Gövdesi: [IMessageBody](#ref-imessagebody)<br /><br /> Sertifika: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Üstbilgileri](#ref-context-request-headers): IReadOnlyDictionary < string, string [] ><br /><br /> IPADDRESS: dize<br /><br /> MatchedParameters: IReadOnlyDictionary < string, string ><br /><br /> Yöntemi: dize<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> URL: [IUrl](#ref-iurl)|
+|<a id="ref-context-request"></a>bağlamı. İstek|Gövdesi: [IMessageBody](#ref-imessagebody) veya `null` istek bir gövde yoksa.<br /><br /> Sertifika: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Üstbilgileri](#ref-context-request-headers): IReadOnlyDictionary < string, string [] ><br /><br /> IPADDRESS: dize<br /><br /> MatchedParameters: IReadOnlyDictionary < string, string ><br /><br /> Yöntemi: dize<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> URL: [IUrl](#ref-iurl)|
 |<a id="ref-context-request-headers"></a>dize içeriği. Request.Headers.GetValueOrDefault (headerName: string, defaultValue: dize)|headerName: dize<br /><br /> defaultValue: dize<br /><br /> Üstbilgi değerlerini virgülle ayrılmış istek döndürür veya `defaultValue` üstbilgi bulunamaması durumunda.|
 |<a id="ref-context-response"></a>bağlamı. Yanıt|Gövdesi: [IMessageBody](#ref-imessagebody)<br /><br /> [Üstbilgileri](#ref-context-response-headers): IReadOnlyDictionary < string, string [] ><br /><br /> StatusCode: int<br /><br /> StatusReason: dize|
 |<a id="ref-context-response-headers"></a>dize içeriği. Response.Headers.GetValueOrDefault (headerName: string, defaultValue: dize)|headerName: dize<br /><br /> defaultValue: dize<br /><br /> Üstbilgi değerlerini virgülle ayrılmış bir yanıt döndürür veya `defaultValue` üstbilgi bulunamaması durumunda.|

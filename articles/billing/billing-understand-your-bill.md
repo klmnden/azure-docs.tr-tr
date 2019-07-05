@@ -1,33 +1,29 @@
 ---
-title: Azure faturanızı anlama | Microsoft Docs
-description: Okuma ve Azure aboneliğiniz için fatura ve kullanım anlama hakkında bilgi edinin
-services: ''
-documentationcenter: ''
-author: tonguyen10
+title: Azure faturanızı anlama
+description: Okuma ve Azure aboneliğiniz için fatura ve kullanım anlama hakkında bilgi edinin.
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
-ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 4303b79a7ee69d029504bf6ca2359f6e6070e5b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c8b0d6febbffb80cb4e8bcbf62febb51d059282c
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370189"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490303"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>Microsoft Azure faturanızı anlama
-Azure faturanızı anlama faturanızı ayrıntılı günlük kullanım dosyası ve Azure portalında maliyet Yönetimi raporlarını ile karşılaştırın.
+Azure faturanızı anlamak için ayrıntılı günlük kullanım dosyası ile maliyet Yönetimi raporlarını Azure portalında faturanızı karşılaştırın.
 
 Bu makalede, Azure müşterilerine bir Kurumsal Anlaşma (EA müşterileri) için geçerli değildir. Bir EA müşterisinin kullanıyorsanız bkz [bir kurumsal anlaşma kapsamında olan Azure müşterileri için faturanızı anlayın bölümü](billing-understand-your-bill-ea.md).
 
-Bu makalede, Microsoft Müşteri anlaşmasına sahip Azure müşterileri için geçerli değildir. Bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi varsa, bkz: [Microsoft Müşteri sözleşmesi faturanızla ilgili Azure ücretlerini anlama](billing-mca-understand-your-bill.md).
+Bu makalede, Azure müşterilerine uygulanmaz bir [Microsoft Müşteri sözleşmesi](#check-access-to-a-microsoft-customer-agreement). Bir Microsoft Müşteri Sözleşmemiz var olmadığını [Microsoft Müşteri sözleşmesi faturanızla ilgili Azure ücretlerini anlama](billing-mca-understand-your-bill.md).
 
 Fatura döngüsü, fiyatlandırma ve kullanım, bkz: faturalandırma Azure bulut çözümü sağlayıcısı (Azure CSP) programında nasıl çalıştığına ilişkin bir açıklama için dahil olmak üzere [Azure CSP fatura genel bakış](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/).
 
@@ -39,7 +35,7 @@ Hakkında daha fazla bilgi almak istiyorsanız faturanızla ilgili bir ücret is
 
 ### <a name="option-1-compare-usage-and-costs-with-usage-file"></a>1\. seçenek: Kullanımı ve maliyetleri kullanım dosyayla Karşılaştır
 
-Ayrıntılı kullanım CSV dosyası, fatura dönemindeki günlük kullanım ile bir ücret tahminini gösterir. Dosyasını almak için bkz. [Azure faturanızı ve günlük kullanım verilerinizi alın](billing-download-azure-invoice-daily-usage-date.md).
+Ayrıntılı kullanım CSV dosyası, fatura dönemindeki günlük kullanım ile bir ücret tahminini gösterir. Dosyayı görüntülemek veya indirmek için bkz: [Azure faturanızı ve günlük kullanım verilerinizi alın](billing-download-azure-invoice-daily-usage-date.md).
 
 Kullanım ücretlerinizi ölçüm düzeyinde görüntülenir. Aşağıdaki terimler fatura hem de ayrıntılı kullanım dosyası aynı şeyi anlamına gelir. Örneğin, faturadaki fatura döngüsü ayrıntılı kullanım dosyasında gösterilen fatura döneminde aynıdır.
 
@@ -54,7 +50,7 @@ Kullanım ücretlerinizi ölçüm düzeyinde görüntülenir. Aşağıdaki terim
  |Dahil |Dahil Edilen Miktar |
  |Faturalanabilir |Kapasite Aşım Miktarı |
 
-**Kullanım ücretleri** faturanızı bölümünü, fatura dönemi boyunca tüketilen her bir ölçüm için toplam değerine sahiptir. Örneğin, aşağıdaki ekran görüntüsünde Azure Zamanlayıcı hizmeti için bir kullanım ücreti gösterir.
+**Kullanım ücretleri** faturanızı bölümü, fatura dönemi boyunca tüketilen her bir ölçüm için toplam değeri gösterir. Örneğin, aşağıdaki görüntüde Azure Zamanlayıcı hizmeti için bir kullanım ücreti gösterir.
 
 ![Fatura kullanım ücretleri](./media/billing-understand-your-bill/1.png)
 
@@ -62,7 +58,7 @@ Kullanım ücretlerinizi ölçüm düzeyinde görüntülenir. Aşağıdaki terim
 
 ![CSV kullanım ücretleri](./media/billing-understand-your-bill/2.png)
 
-Bu Ücret günlük dökümünü görmek için Git **günlük kullanım** CSV bölümü. Filtre *Zamanlayıcı* altında *ölçüm kategorisi*. Hangi günlerin gördüğünüz ölçüm kullanıldı ve ne kadar tüketildiğinin. *Kaynak* ve *kaynak grubu* bilgi karşılaştırma için ayrıca listelenir. *Tüketilen* değerleri ekleme fatura üzerinde gösterilen için.
+Günlük ücret dökümünü görmek için Git **günlük kullanım** CSV dosyasının. Filtre *Zamanlayıcı* altında *ölçüm kategorisi*. Hangi günlerin gördüğünüz ölçüm kullanıldı ve ne kadar tüketildiğinin. *Kaynak* ve *kaynak grubu* bilgi karşılaştırma için ayrıca gösterilir. *Tüketilen* değerleri kadar ekleyin ve fatura üzerinde gösterilen eşleşmesi.
 
 ![Günlük kullanım bölümünde CSV](./media/billing-understand-your-bill/3.png)
 
@@ -84,7 +80,7 @@ Azure portalı Ayrıca, yapılacak bir ücret doğrulamanıza yardımcı olabili
 
    ![Azure portalında maliyet analizi görüntüle](./media/billing-understand-your-bill/4.png)
 
-1. Günlük maliyet dökümünü görmek için satır seçin.
+1. Günlük maliyet dökümünü görmek için tahmini ücreti gösteren satırı seçin.
 
    ![Azure portalında maliyet geçmişini görüntüle](./media/billing-understand-your-bill/5.png)
 
@@ -135,6 +131,9 @@ Varsa, [faturayla ödeme](billing-how-to-pay-by-invoice.md), ödemenin konumuna 
   - [Sahipliği hesaplayıcı toplam maliyeti](https://aka.ms/azure-tco-calculator)
   - [Ayrıntılı fiyatlandırma bilgileri her hizmet için](https://azure.microsoft.com/pricing/)
 - [Kullanımı ve maliyetleri Azure portalında düzenli olarak gözden geçirme](billing-getting-started.md#costs).
+
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için erişim denetimi
+[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 

@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
-ms.date: 06/13/2019
-ms.openlocfilehash: 2ea1d116de2c435e873c653bbfa0571377c4f5ef
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/01/2019
+ms.openlocfilehash: 5188862c50895c8e3f1bdecb4e08d39409bb5f9e
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067067"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491661"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL veritabanı esnek sorgu genel bakış (Önizleme)
 
@@ -143,6 +143,7 @@ Esnek sorgu, Azure SQL veritabanı veritabanları maliyetini dahil edilir. Uzak 
 * Nvarchar(max) dışında dış tablo tanımlarında LOB türleri (uzamsal türler dahil) desteklenmez. Geçici bir çözüm olarak, nvarchar(max) LOB türü bıraktığı Uzak veritabanı üzerinde bir görünüm oluşturun, bir görünüm yerine temel tablo üzerinden, dış tablo tanımlayabilir ve ardından sorgularınızdaki özgün LOB türe geri dönüştürme.
 * Sonuç kümesi devre dışı olarak nvarchar(Maks.) veri türü sütunlar büyüklük kertesinde için sorgu performansını etkileyebilir ve esnek sorgu uygulamasında kullanılan teknikleri toplu işleme Gelişmiş ya da büyük olduğunda bile iki kat kurallı olmayan, kullanım örnekleri miktarı Toplu olmayan veriler sorgu sonucu olarak aktarılır.
 * Dış tablolara sütun istatistikleri şu anda desteklenmemektedir. Tablo istatistikleri desteklenir, ancak el ile oluşturulması gerekir.
+* Esnek sorgu, yalnızca Azure SQL veritabanı ile çalışır. Şirket içi SQL Server veya SQL Server bir sanal makinede sorgulama için kullanılamaz.
 
 ## <a name="feedback"></a>Geri Bildirim
 

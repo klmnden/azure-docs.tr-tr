@@ -5,25 +5,29 @@ services: app-service\mobile
 documentationcenter: ios
 manager: crdun
 editor: ''
-author: conceptdev
+author: elamalani
 ms.assetid: fa503833-d23e-4925-8d93-341bb3fbab7d
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: crdun
-ms.openlocfilehash: 4d56453eb05e88c3558b66250439d6211e8069fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 5ab968e88331f888dfcecd2cc30a658b0b0f53ec
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122583"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445369"
 ---
 # <a name="add-push-notifications-to-your-ios-app"></a>İOS uygulamasına anında iletme bildirimleri ekleme
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
+
+> [!NOTE]
+> Visual Studio App Center, mobil uygulama geliştirme merkezi hizmetlerinde yeni ve tümleşik yatırım yapıyor. Geliştiriciler **derleme**, **Test** ve **Dağıt** hizmetlerinin sürekli tümleştirme ve teslim işlem hattı ayarlayın. Uygulama dağıtıldığında, geliştiriciler kendi uygulamasını kullanarak kullanımı ve durumu izleyebilirsiniz **Analytics** ve **tanılama** kullanarak kullanıcılarla etkileşim kurun ve hizmetlerini **anında iletme** hizmeti. Geliştiriciler de yararlanabilir **Auth** , kullanıcıların kimliğini doğrulamak ve **veri** kalıcı hale getirmek ve uygulama verilerini bulutta eşitleme hizmeti. Kullanıma [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-push) bugün.
+>
 
 ## <a name="overview"></a>Genel Bakış
 

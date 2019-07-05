@@ -4,17 +4,17 @@ description: Bu makale Desired State Configuration ' nı (DSC) sorun giderme hak
 services: automation
 ms.service: automation
 ms.subservice: ''
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7cb0d77a266dbe8afd331782965e7e9a44663671
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53fef426c927c690a3b697055f467f6cd35c532c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514456"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477518"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Desired State Configuration (DSC) sorunlarını giderme
 
@@ -164,6 +164,24 @@ Bu hata genellikle düğüm hizmetinde yok. bir düğüm yapılandırması adı 
 
 * Hizmet adı tam olarak eşleşen bir düğüm yapılandırması adı düğümle atama emin olun.
 * İçinde onboarding düğümü ancak düğüm yapılandırması atama değil sonuçlanacak düğüm yapılandırması adı eklememeyi seçebilirsiniz
+
+### <a name="failure-linux-temp-noexec"></a>Senaryo: Bir Linux yapılandırmasında uygulamak, genel bir hata ile bir hata oluşması
+
+#### <a name="issue"></a>Sorun
+
+Bir Linux yapılandırmasında uygularken, hata içeren bir hata oluşur:
+
+```error
+This event indicates that failure happens when LCM is processing the configuration. ErrorId is 1. ErrorDetail is The SendConfigurationApply function did not succeed.. ResourceId is [resource]name and SourceInfo is ::nnn::n::resource. ErrorMessage is A general error occurred, not covered by a more specific error code..
+```
+
+#### <a name="cause"></a>Nedeni
+
+Müşteriler/tmp konumu için noexec ayarlarsanız, geçerli sürümü, DSC yapılandırmaları uygulamak başarısız olur tanımladınız.
+
+#### <a name="resolution"></a>Çözüm
+
+* / Tmp konumu noexec seçeneğini kaldırın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

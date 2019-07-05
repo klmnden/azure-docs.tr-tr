@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: asgang
-ms.openlocfilehash: 0dec8179cc9b69eeea679f517693e4debb9fb56e
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 19a1e13815f1d83f13392892dd9c87b84a40a1c1
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340698"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551686"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Azure Vm'lerini başka bir Azure bölgesine çoğaltma
 
@@ -56,7 +56,7 @@ Bu makalede Site Recovery dağıtımı için hazırladığınıza açıklandığ
    - **Hedef sanal ağ**: Varsayılan olarak, Site Recovery, hedef bölgede adında bir "asr" sonekine sahip yeni bir sanal ağ oluşturur. Bu kaynak ağa eşlenen ve gelecekteki tüm koruma için kullanılır. [Daha fazla bilgi edinin](site-recovery-network-mapping-azure-to-azure.md) ağ eşlemesi hakkında.
    - **Hedef depolama hesapları (kaynak sanal makine yönetilen diskleri kullanmaz)** : Varsayılan olarak, Site Recovery, kaynak VM depolama yapılandırması yakından taklit eden yeni bir hedef depolama hesabı oluşturur. Depolama hesabı zaten mevcut olması durumunda, yeniden kullanılır.
    - **Yönetilen çoğaltma diskleri (kaynak VM, yönetilen diskler kullanır)** : Site Recovery kaynak sanal makinenin yönetilen disklerle aynı depolama türüne (standart veya premium) kaynağın VM'ye yönetilen disk olarak yansıtmak için hedef bölgede yeni yönetilen çoğaltma diskleri oluşturur.
-   - **Önbellek depolama hesapları**: Site Recovery kaynak bölgede önbellek depolama adlı ek bir depolama hesabı gerekir. Kaynak VM üzerinde'olmuyor tüm değişiklikleri izlenir ve bu hedef konuma çoğaltılmadan önce önbellek depolama hesabına gönderilir.
+   - **Önbellek depolama hesapları**: Site Recovery kaynak bölgede önbellek depolama adlı ek bir depolama hesabı gerekir. Kaynak VM üzerinde'olmuyor tüm değişiklikleri izlenir ve bu hedef konuma çoğaltılmadan önce önbellek depolama hesabına gönderilir. Bu depolama hesabı, standart olmalıdır.
    - **Hedef kullanılabilirlik kümeleri**: Varsayılan olarak, Site Recovery, yeni bir kullanılabilirlik hedef bölgede "asr" sonekine bir kullanılabilirlik kümesi kaynak bölgede bir parçası olan VM'ler için ad ile kümesi oluşturur. Site Recovery tarafından önceden oluşturulmuş kullanılabilirlik kümesi varsa, yeniden kullanılır.
    - **Hedef kullanılabilirlik**: Kullanılabilirlik alanları hedef bölge destekliyorsa, varsayılan olarak, Site Recovery hedef bölge kaynak bölgede aynı bölge sayısına atar.
 

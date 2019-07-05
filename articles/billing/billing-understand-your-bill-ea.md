@@ -1,25 +1,22 @@
 ---
-title: Azure Kurumsal faturanızı anlama | Microsoft Docs
-description: Okuma ve Azure Kurumsal anlaşmalar için kullanımınızı ve faturanızı anlama hakkında bilgi edinin
-services: ''
-documentationcenter: ''
+title: Azure Kurumsal faturanızı anlama
+description: Okuma ve Azure Kurumsal anlaşmalar için kullanımınızı ve faturanızı anlama hakkında bilgi edinin.
 author: adpick
 manager: dougeby
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/01/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: be20ad0583558949f65b9706f0a478669360bf3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02ddaf4878367524291ce54a4e12fc9b4fee4cd2
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571199"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490276"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Kurumsal Anlaşma Azure faturanızı anlama
 
@@ -57,7 +54,7 @@ Faturanızı tüm Market ücretlerine göre ve ardından Azure kullanımınızı
 
 Enterprise Portal'da gösterilen, birleşik toplam tutarı karşılaştırma **raporları** > **Kullanım Özeti** Azure faturanızı ile. Tutarları **Kullanım Özeti** vergiler dahil değildir.
 
-1. Oturum [kurumsal portal](https://ea.azure.com).
+1. Oturum açma için [kurumsal portal](https://ea.azure.com).
 1. Seçin **raporları**.
 1. Sağ üst köşesindeki sekmesi üzerinde görünümünden geçiş **M** için **C** ve fatura döneminde eşleştirin.  
     ![M gösteren ekran görüntüsü + C seçeneği kullanım özeti.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
@@ -98,7 +95,7 @@ Gözden geçirin ve ücret, faturada doğrulamak için bir kuruluş yöneticisi 
 
 Enterprise portalında, toplam kullanım miktarı karşılaştırma **raporları** > **Kullanım Özeti** hizmet fazla kullanım faturanızı ile. Servis fazla kullanım faturasına kuruluşunuzun kredi aşan kullanım ve/veya iade tarafından kapsamında olmayan hizmetlerini içerir. Tutarları **Kullanım Özeti** vergiler dahil değildir.
 
-1. Oturum [kurumsal portal](https://ea.azure.com).
+1. Oturum açma için [kurumsal portal](https://ea.azure.com).
 1. Seçin **raporları**.
 1. Sağ üst köşesindeki sekmesi üzerinde görünümünden geçiş **M** için **C** ve fatura döneminde eşleştirin.  
     ![M gösteren ekran görüntüsü + C seçeneği kullanım özeti.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
@@ -122,7 +119,7 @@ Bu bölüm, yalnızca Avustralya, Japonya veya Singapur kullanıyorsanız geçer
 
 Toplam açık, Azure Market'ten karşılaştırma **raporları** > **Kullanım Özeti** Enterprise Portal'da Market faturanızı ile. Market faturasında yalnızca Azure Market satın alma işlemleri ve kullanımı bulunur. Tutarları **Kullanım Özeti** vergiler dahil değildir.
 
-1. Oturum [kurumsal portal](https://ea.azure.com).
+1. Oturum açma için [kurumsal portal](https://ea.azure.com).
 1. Seçin **raporları**.
 1. Sağ üst köşesindeki sekmesi üzerinde görünümünden geçiş **M** için **C** ve fatura döneminde eşleştirin.  
      ![M gösteren ekran görüntüsü + C seçeneği kullanım özeti.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)  

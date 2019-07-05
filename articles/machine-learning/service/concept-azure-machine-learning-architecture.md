@@ -10,36 +10,44 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: e0181eea2895dbc2b3db3367c850140e3fad21d4
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 2196e375db582202997b838d05c902db95b3a3ad
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331717"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461488"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning hizmetinin nasıl çalıştığı: Mimari ve kavramları
 
 Mimari, kavramlar ve Azure Machine Learning hizmeti için iş akışı hakkında bilgi edinin. Ana bileşenleri ve hizmet bu hizmeti kullanmak için genel iş akışı aşağıdaki diyagramda gösterilmiştir:
 
-[![Azure Machine Learning hizmeti mimarisi ve iş akışı](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+![Azure Machine Learning hizmeti mimarisi ve iş akışı](./media/concept-azure-machine-learning-architecture/workflow.png)
 
 ## <a name="workflow"></a>İş akışı
 
-Machine learning iş akışı genellikle bu sırayı takip eder:
+Makine model iş akışı genellikle öğrenimi bu sırayı takip eder:
 
-1. Makine öğrenimi betiklerini Eğitim geliştirme **Python** veya görsel arabirim.
-1. Oluşturma ve yapılandırma bir **hedef işlem**.
-1. **Komut Gönderme** ortamında çalıştırmak için yapılandırılmış işlem hedefine. Eğitim sırasında komut dosyaları okuyabilir ya da yazma **veri deposu**. Ve olarak yürütme kayıtlarını kaydedilir **çalıştıran** içinde **çalışma** ve altında gruplandırılmış **denemeleri**.
-1. **Denemeyi sorgu** için ölçümleri geçerli ve geçmiş çalıştırmalardan oturum. Ölçümler istenilen bir sonucu göstermediği, geri adım 1 ve betiklerinizi üzerinde yineleme döngüsü.
-1. Tatmin edici bir çalıştırma bulunduktan sonra kalıcı modelde kaydetme **modeli kayıt defteri**.
-1. Geliştirme modelini kullanan Puanlama betiğine ve **model dağıtma** olarak bir **web hizmetini** azure'da yenilemek için bir **IOT Edge cihazı**.
+1. **Eğitme**
+    + Makine öğrenimi betiklerini Eğitim geliştirme **Python** veya görsel arabirim.
+    + Oluşturma ve yapılandırma bir **hedef işlem**.
+    + **Komut Gönderme** ortamında çalıştırmak için yapılandırılmış işlem hedefine. Eğitim sırasında komut dosyaları okuyabilir ya da yazma **veri deposu**. Ve olarak yürütme kayıtlarını kaydedilir **çalıştıran** içinde **çalışma** ve altında gruplandırılmış **denemeleri**.
 
-Aşağıdakilerden herhangi biri ile aşağıdaki adımları gerçekleştirin:
-+ [Azure Machine için Python SDK'sı Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-+ [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
-+ [Azure Machine Learning VS Code uzantısı](how-to-vscode-tools.md)
-+  [Azure Machine Learning hizmeti için görsel arabirim (Önizleme)](ui-concept-visual-interface.md)
+1. **Paket** - tatmin edici bir çalıştırma bulunduktan sonra kalıcı modelde kaydetme **modeli kayıt defteri**.
 
+1. **Doğrulama** - **denemeyi sorgu** için ölçümleri geçerli ve geçmiş çalıştırmalardan oturum. Ölçümler istenilen bir sonucu göstermediği, geri adım 1 ve betiklerinizi üzerinde yineleme döngüsü.
+
+1. **Dağıt** -geliştirme modelini kullanan Puanlama betiğine ve **model dağıtma** olarak bir **web hizmetini** azure'da yenilemek için bir **IOT Edge cihazı**.
+
+1. **İzleyici** -izlemek **veri değişikliklerini** dağıtılmış bir modelinin bir eğitim veri kümesi ve çıkarım verileri arasında. Gerekli olduğunda tekrar yeni bir eğitim veri modeli yeniden eğitme için 1. adım döngüsü.
+
+## <a name="tools-for-azure-machine-learning"></a>Azure Machine Learning için Araçlar 
+
+Azure Machine Learning için bu araçları kullanın:
+
++  Hizmet ile herhangi bir Python ortamda etkileşim [Python için Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
++ Makine öğrenimi etkinliklerle otomatikleştirmek [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
++ Visual Studio Code ile kod yazma [Azure Machine Learning VS Code uzantısı](how-to-vscode-tools.md) 
++ Kullanım [görsel arabirim (Önizleme) Azure Machine Learning hizmeti için](ui-concept-visual-interface.md) kod yazmadan iş akışı adımları gerçekleştirmek için.
 
 ## <a name="glossary-of-concepts"></a>Sözlük kavramları
 

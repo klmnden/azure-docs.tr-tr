@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 579d50a95ad0e478f401b7db012e7c743ce58491
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a434101a806a810218927cbf0bc24fa0d22c5628
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730458"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488658"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs ile anında iletme bildirimleri: Sık sorulan sorular
 
@@ -37,7 +37,7 @@ Azure Notification hubs'ı iki kaynak düzeyi vardır: hub'ları ve ad alanları
 En son fiyatlandırma ayrıntıları bulunabilir [Notification Hubs fiyatlandırması] sayfası. Notification hubs'ı ad alanı düzeyinde faturalandırılır. (Bir ad alanı tanımı için bkz: "Notification Hubs'ın kaynak yapısı nedir?") Bildirim hub'ları üç katmanda sunulur:
 
 * **Ücretsiz**: Anında iletme bildirimleri keşfetmek için iyi bir başlangıç noktası katmandır. Üretim uygulamaları için önerilmez. 500 CİHAZDAN alın ve hizmet düzeyi sözleşmesi (SLA) garanti 1 milyon / ay, ad alanı başına dahil edilen gönderim.
-* **Temel**: Bu katman (veya standart katman) küçük üretim uygulamaları için önerilir. 200\.000 aygıt alma ve her ay temel olarak ad alanı başına dahil edilen 10 milyon bildirim gönderilir.
+* **Temel**: Bu katman (veya standart katman) küçük üretim uygulamaları için önerilir. 200.000 aygıt alma ve her ay temel olarak ad alanı başına dahil edilen 10 milyon bildirim gönderilir.
 * **Standart**: Bu katman, Orta ve büyük üretim uygulamaları için önerilir. 10 milyon cihazı alın ve her ay temel olarak ad alanı başına dahil edilen 10 milyon bildirim gönderilir. Zengin telemetri (sağlanan itme durumuyla ilgili ek veriler) içerir.
 
 Standart katman özellikleri:
@@ -69,7 +69,7 @@ Sunucu SDK'ları, .NET, Java, Node.js, PHP ve Python için kullanılabilir. Fark
 
 ### <a name="which-client-platforms-do-you-support"></a>Hangi istemci platformlarını destekliyorsunuz?
 
-Anında iletme bildirimleri için desteklenen [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Evrensel](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android Çin (Baidu) aracılığıyla](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) ve Android, ve [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Daha fazla bilgi için Git [Notification hubs'ı kullanmaya başlama öğreticileri] sayfası.
+Anında iletme bildirimleri için desteklenen [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Evrensel](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android Çin () Baidu) aracılığıyla](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) ve Android, ve [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Daha fazla bilgi için Git [Notification hubs'ı kullanmaya başlama öğreticileri] sayfası.
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>SMS mesajı, e-posta veya web bildirimleri destekliyorsunuz?
 
@@ -85,7 +85,7 @@ Var olan bir mobil uygulama arka ucu varsa ve anında iletme bildirimleri gönde
 
 Başvurmak [Notification Hubs fiyatlandırması] desteklenen aygıtların sayısı hakkında daha fazla ayrıntı için.
 
-10 milyondan fazla kayıtlı cihazlar için desteğe ihtiyacınız varsa [bizimle](https://azure.microsoft.com/overview/contact-us/) doğrudan ve çözümünüzü ölçeklendirin yardımcı olacağız.
+10 milyondan fazla kayıtlı cihazlar için desteğe ihtiyacınız varsa, birden çok hub'larında cihazlarınızı bölümleme gerekir.
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>Kaç tane anında iletme bildirimleri için gönderebilirim?
 

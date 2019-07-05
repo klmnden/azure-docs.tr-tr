@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 06/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: adffb18272d10c579f8b28bef055813b1074a237
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02f772d02f5cc6f188d69b5e79debc0013cf1faa
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754748"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488498"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute SSS
 
@@ -123,9 +123,13 @@ Evet. Her ExpressRoute bağlantı hattı çapraz bağlantıları yüksek kullan�
 
 Eşleme farklı konumlardaki birden çok ExpressRoute bağlantı hatları, tek bir bağlantı hattı kullanılamaz durumda yüksek kullanılabilirlik sağlamak için aynı sanal ağa bağlanabilir. Daha sonra [daha yüksek ağırlıkları atayın](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) belirli bir bağlantı hattı favor için yerel bağlantı'tercih et. Müşterilerin tek hata noktalarından kaçınmak için en az iki ExpressRoute bağlantı hatları Kurulum önemle tavsiye edilir. 
 
+Bkz: [burada](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) için yüksek kullanılabilirlik için tasarlama ve [burada](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) için olağanüstü durum kurtarma için tasarlama.  
+
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Yedeklilik Microsoft eşlemesi üzerinde nasıl uygulanır?
 
 Müşteriler, Microsoft Azure depolama veya Azure SQL yanı sıra, Microsoft Office 365'i farklı eşlemesi içinde birden çok bağlantı hattına uygulamak için eşleme kullanan müşteriler gibi Azure kamu hizmetlerine erişmek için eşleme kullanırken kesinlikle önerilir faiure tek noktalarından kaçınmak için konumları. Müşteriler ya da her iki devreler aynı önek bildirmek ve kullanmak [AS yolu eklenmesini](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) veya şirket içi yolu belirlemek için farklı öneklerini.
+
+Bkz: [burada](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) için yüksek kullanılabilirlik için tasarlama.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Expressroute'a bağlanan bir sanal ağ üzerinde yüksek kullanılabilirlik nasıl emin olabilirim?
 

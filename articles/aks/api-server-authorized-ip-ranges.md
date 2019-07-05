@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 9ec48c8ed924293a5ffea903fe03a9830dcd1184
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: d425fc3e037b43321a278fb16781e86dfafef15c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329425"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441524"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Önizleme - IP adresi aralıklarını Azure Kubernetes Service (AKS) kullanarak API sunucusu için güvenli erişim yetkili
 
@@ -269,5 +269,5 @@ Daha fazla bilgi için [uygulama ve kümelerin aks'deki için güvenlik kavramla
 [az-network-route-table-route-create]: /cli/azure/network/route-table/route#az-network-route-table-route-create
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[az-extension-list]: /cli/azure/extension#az-extension-list
+[az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update

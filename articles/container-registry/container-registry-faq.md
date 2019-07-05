@@ -4,16 +4,16 @@ description: Azure Container Registry hizmeti ile ilgili sık sorulan soruların
 services: container-registry
 author: sajayantony
 manager: jeconnoc
-ms.service: container-instances
+ms.service: container-registry
 ms.topic: article
-ms.date: 5/13/2019
+ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: beeb4986750e398071e3afb6c1f04663f858cec1
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: c32d7342aaf1c4cce52ce14abe48ea1bc347fdb3
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303568"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551582"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry hakkında sık sorulan sorular
 
@@ -27,6 +27,7 @@ Bu makalede, sık sorulan sorular ve Azure Container Registry hakkında bilinen 
 - [Bir kapsayıcı kayıt defteri için yönetici kimlik bilgileri nasıl alabilirim?](#how-do-i-get-admin-credentials-for-a-container-registry)
 - [Yönetici kimlik bilgileri bir Resource Manager şablonunun nasıl alabilirim?](#how-do-i-get-admin-credentials-in-a-resource-manager-template)
 - [Azure CLI veya Azure PowerShell kullanarak çoğaltma silindiğinde olsa da, Yasak durumu ile çoğaltma silme başarısız](#delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell)
+- [Güvenlik duvarı kuralları başarıyla güncelleştirildi ancak geçerlilik kazanmaz](#firewall-rules-are-updated-successfully-but-they-do-not-take-effect)
 
 ### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>Resource Manager şablonu kullanarak bir Azure Container Registry oluşturabilir miyim?
 
@@ -34,11 +35,11 @@ Evet. İşte [şablon](https://github.com/Azure/azure-cli/blob/master/src/comman
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>ACR görüntü tarama güvenlik açığı var mı?
 
-Evet. Belgelerden bkz [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) ve [Açık Deniz Mavisi](http://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Evet. Belgelerden bkz [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) ve [Açık Deniz Mavisi](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Kubernetes ile Azure Container Registry nasıl yapılandırabilirim?
 
-Belgelerine bakın [Kubernetes](http://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) ve için adımları [Azure Kubernetes hizmeti](container-registry-auth-aks.md).
+Belgelerine bakın [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) ve için adımları [Azure Kubernetes hizmeti](container-registry-auth-aks.md).
 
 ### <a name="how-do-i-get-admin-credentials-for-a-container-registry"></a>Bir kapsayıcı kayıt defteri için yönetici kimlik bilgileri nasıl alabilirim?
 
@@ -90,6 +91,11 @@ Kullanıcı bir kayıt defterini izinlere sahip ancak abonelikte okuyucu düzeyi
 ```azurecli  
 az role assignment create --role "Reader" --assignee user@contoso.com --scope /subscriptions/<subscription_id> 
 ```
+
+### <a name="firewall-rules-are-updated-successfully-but-they-do-not-take-effect"></a>Güvenlik duvarı kuralları başarıyla güncelleştirildi ancak geçerlilik kazanmaz
+
+Güvenlik duvarı kuralı değişikliklerinin yayılması biraz zaman alabilir. Güvenlik Duvarı ayarlarını değiştirdikten sonra lütfen bu değişikliğini doğrulayan önce birkaç dakika bekleyin.
+
 
 ## <a name="registry-operations"></a>Kayıt defteri işlemleri
 
@@ -245,8 +251,9 @@ Yalnızca kullanarak `AcrPull` veya `AcrPush` rolü, atanan Azure kayıt defteri
 
 Görüntü karantina şu anda Önizleme ACR özelliğidir. Güvenlik taraması başarıyla geçirilen görüntüleri normal kullanıcılara görünür olacak şekilde bir kayıt defteri karantina modunu etkinleştirebilirsiniz. Ayrıntılar için bkz [ACR GitHub deposunu](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
-## <a name="diagnostics"></a>Tanılama
+## <a name="diagnostics-and-health-checks"></a>Tanılama ve sistem durumu denetimleri
 
+- [Sistem durumu ile işaretleyin `az acr check-health`](#check-health-with-az-acr-check-health)
 - [docker isteği hatası ile başarısız oluyor: net/http: istek iptal bağlantı (Client.Timeout üstbilgileri beklerken aşıldı) beklenirken](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [docker push başarılı olur, ancak docker isteği başarısız olursa, hata: Yetkisiz: kimlik doğrulaması gerekli](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
 - [Etkinleştirme ve docker Daemon programını, hata ayıklama günlükleri alın](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
@@ -255,16 +262,30 @@ Görüntü karantina şu anda Önizleme ACR özelliğidir. Güvenlik taraması b
 - [Neden Azure portalında tüm depoları veya etiketleri listelemez?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 - [Windows üzerinde nasıl http izlemeleri toplamak?](#how-do-i-collect-http-traces-on-windows)
 
+### <a name="check-health-with-az-acr-check-health"></a>Sistem durumu ile işaretleyin `az acr check-health`
+
+Ortak ortam ve kayıt sorunları gidermek için bkz: [Azure container registry durumunu denetleme](container-registry-check-health.md).
+
 ### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>docker isteği hatası ile başarısız oluyor: net/http: istek iptal bağlantı (Client.Timeout üstbilgileri beklerken aşıldı) beklenirken
 
  - Bu hata geçici bir sorun varsa, yeniden deneme başarılı olur.
- - Varsa `docker pull` docker daemon ile ilgili bir sorun olabilir sonra sürekli olarak başarısız olur. Sorun genellikle docker Daemon programını yeniden başlatarak azaltılabilir. 
- - Ardından docker Daemon programını yeniden başlattıktan sonra bu sorunla karşılaşmaya devam ederseniz sorun makinenin bazı ağ bağlantı sorunları olabilir. Genel ağdaki makinenin iyi durumda olup olmadığını denetlemek için bir komutu gibi deneyin `ping www.bing.com`.
- - Bu gibi durumlarda, bir yeniden deneme mekanizması her zaman tüm docker istemci işlemleri olmalıdır.
+ - Varsa `docker pull` Docker daemon ile ilgili bir sorun olabilir sonra sürekli olarak başarısız olur. Sorun genellikle Docker Daemon programını yeniden başlatarak azaltılabilir. 
+ - Ardından Docker Daemon programını yeniden başlattıktan sonra bu sorunla karşılaşmaya devam ederseniz sorun makinenin bazı ağ bağlantı sorunları olabilir. Genel ağdaki makinenin iyi durumda olup olmadığını denetlemek için uç noktası bağlantısını test etmek için aşağıdaki komutu çalıştırın. En düşük `az acr` Bu bağlantı onay komut içeren sürümüdür 2.2.9. Eski bir sürümü kullanıyorsanız, Azure CLI'yı yükseltin.
+ 
+   ```azurecli
+    az acr check-health -n myRegistry
+    ```
+ - Bu gibi durumlarda, bir yeniden deneme mekanizması her zaman tüm Docker istemci işlemleri olmalıdır.
+
+### <a name="docker-pull-is-slow"></a>Docker isteği yavaş
+Kullanım [bu](http://www.azurespeed.com/Azure/Download) makine ağ yükleme hızınızı Test etmek için aracı. Makine ağı yavaşsa, kayıt defterinizin aynı bölgede Azure VM kullanarak göz önünde bulundurun. Bu genellikle, daha hızlı ağ hızı sağlar.
+
+### <a name="docker-push-is-slow"></a>Docker push yavaş
+Kullanım [bu](http://www.azurespeed.com/Azure/Upload) makine ağ karşıya yükleme hızınızı Test etmek için aracı. Makine ağı yavaşsa, kayıt defterinizin aynı bölgede Azure VM kullanarak göz önünde bulundurun. Bu genellikle, daha hızlı ağ hızı sağlar.
 
 ### <a name="docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required"></a>docker push başarılı olur, ancak docker isteği başarısız olursa, hata: Yetkisiz: kimlik doğrulaması gerekli
 
-Docker daemon, Red Hat sürümüyle bu hata oluşabilir burada `--signature-verification` varsayılan olarak etkindir. Aşağıdaki komutu çalıştırarak, Red Hat Enterprise Linux (RHEL) veya Fedora docker daemon seçeneklerini denetleyebilirsiniz:
+Red Hat Docker programını sürümü ile bu hata oluşabilir burada `--signature-verification` varsayılan olarak etkindir. Aşağıdaki komutu çalıştırarak, Red Hat Enterprise Linux (RHEL) veya Fedora Docker daemon seçeneklerini denetleyebilirsiniz:
 
 ```bash
 grep OPTIONS /etc/sysconfig/docker
@@ -284,7 +305,7 @@ unauthorized: authentication required
 ```
 
 Hatayı gidermek için:
-1. Seçeneğini ekleyin `--signature-verification=false` docker daemon yapılandırma dosyasına `/etc/sysconfig/docker`. Örneğin:
+1. Seçeneğini ekleyin `--signature-verification=false` Docker daemon yapılandırma dosyasına `/etc/sysconfig/docker`. Örneğin:
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
@@ -297,9 +318,9 @@ Hatayı gidermek için:
 
 Ayrıntılarını `--signature-verification` çalıştırarak bulunabilir `man dockerd`.
 
-### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Etkinleştirme ve docker Daemon programını, hata ayıklama günlükleri alın  
+### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Etkinleştirme ve Docker Daemon programını, hata ayıklama günlükleri alın  
 
-Başlangıç `dockerd` ile `debug` seçeneği. İlk olarak, docker daemon yapılandırma dosyası oluşturun (`/etc/docker/daemon.json`), varsa ekleyin ve değil `debug` seçeneği:
+Başlangıç `dockerd` ile `debug` seçeneği. İlk olarak, Docker daemon yapılandırma dosyası oluşturun (`/etc/docker/daemon.json`), varsa ekleyin ve değil `debug` seçeneği:
 
 ```json
 {   
@@ -387,7 +408,7 @@ curl $redirect_url
 
 ### <a name="why-does-the-azure-portal-not-list-all-my-repositories-or-tags"></a>Neden Azure portalında tüm depoları veya etiketleri listelemez? 
 
-Microsoft Edge tarayıcısını kullanıyorsanız, en fazla 100 depoları veya listelenen etiketler görebilirsiniz. Kayıt defterinizin 100'den fazla depolar ve etiketleri varsa, Firefox veya Chrome'un tarayıcı tamamı Listelenemeyecek kadar kullanmanızı öneririz.
+Microsoft Edge/IE tarayıcı kullanıyorsanız, en fazla 100 depoları veya etiketleri görebilirsiniz. Kayıt defterinizin 100'den fazla depolar ve etiketleri varsa, Firefox veya Chrome'un tarayıcı tamamı Listelenemeyecek kadar kullanmanızı öneririz.
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Windows üzerinde nasıl http izlemeleri toplamak?
 
@@ -439,86 +460,6 @@ Bu ayar için de geçerlidir. `az acr run` komutu.
 
 - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
 - [GitHub eylemleri](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
-
-## <a name="error-references-for-az-acr-check-health"></a>Hata başvuruları `az acr check-health`
-
-### <a name="dockercommanderror"></a>DOCKER_COMMAND_ERROR
-
-CLI, docker sürüm bulma, docker cinini durumunu değerlendirmek ve docker çekme komutu çalıştırılabilir sağlama ışığının olduğu bulunamadı Bu hata, docker istemcisi gerektiği anlamına gelir.
-
-*Olası çözümleri*: docker istemcisi yükleme; sistem değişkenlerini ekleyerek docker yolu.
-
-### <a name="dockerdaemonerror"></a>DOCKER_DAEMON_ERROR
-
-Bu hata, docker cinini durumu kullanılamıyor veya bunu CLI kullanarak erişilemedi, anlamına gelir. Başka bir deyişle, docker işlemleri (örneğin, oturum açma, çekme) CLI aracılığıyla kullanılamaz.
-
-*Olası çözümleri*: Docker Daemon programını yeniden başlatın veya düzgün şekilde yüklendiğini doğrulayın.
-
-### <a name="dockerversionerror"></a>DOCKER_VERSION_ERROR
-
-Bu hata, CLI komutunu çalıştırmak mümkün olmadığını anlamına gelir `docker --version`.
-
-*Olası çözümleri*: el ile çalıştırarak deneyin, emin olun en yeni CLI sürümüne sahip ve hata iletisini inceleyin.
-
-### <a name="dockerpullerror"></a>DOCKER_PULL_ERROR
-
-Bu hata, CLI ortamınıza bir örnek görüntü çekme okuyamamış anlamına gelir.
-
-*Olası çözümleri*: görüntü çekmek gerekli tüm bileşenleri düzgün şekilde çalıştığını doğrulayın.
-
-### <a name="helmcommanderror"></a>HELM_COMMAND_ERROR
-
-Bu hata, helm istemci diğer helm işlemler ışığının CLI tarafından bulunamadı anlamına gelir.
-
-*Olası çözümleri*: doğrulayın, helm istemcisi yüklendiğinde ve yolu için sistem ortam değişkenlerini eklenir.
-
-### <a name="helmversionerror"></a>HELM_VERSION_ERROR
-
-Bu hata, CLI'yı yüklü Helm sürümü belirlenemiyor anlamına gelir. Bu durum oluşabilir Azure CLI sürümünü (veya helm sürümü) kullanılan kullanımdan kalkmıştır.
-
-*Olası çözümleri*: en son Azure CLI sürümünü veya önerilen helm sürüm için güncelleştirme; komutu el ile çalıştırın ve hata iletisini inceleyin.
-
-### <a name="connectivitydnserror"></a>CONNECTIVITY_DNS_ERROR
-
-Bu hata, belirli kayıt defteri oturum açma sunucusu için DNS işten ancak bunun için kullanılamadığı anlamına gelen yanıt vermedi anlamına gelir. Bu, bazı bağlantı sorunlarını gösterebilir. Bu kayıt yoksa, kullanıcının izinleri (kendi oturum açma sunucusu düzgün bir şekilde almak için) kayıt defteri yok ya da hedef kayıt olandan farklı bir bulutta Azure CLI'da kullanılmakta olduğunu da gelebilir.
-
-*Olası çözümleri*: bağlantı doğrulayın; kayıt defteri yazımını doğrulayın ve bu kayıt defteri var; kullanıcının doğru izinleri olduğunu ve kayıt defterinin bulut üzerinde Azure CLI kullandığınız aynı olduğundan emin olun.
-
-### <a name="connectivityforbiddenerror"></a>CONNECTIVITY_FORBIDDEN_ERROR
-
-Bu belirli bir kayıt sınaması uç nokta 403 Yasak HTTP durum koduyla yanıt anlamına gelir. Bu, kullanıcılar, bir sanal ağ yapılandırması nedeniyle büyük olasılıkla kayıt defterine erişim yok anlamına gelir.
-
-*Olası çözümleri*: sanal ağ kuralları kaldırın veya geçerli istemci IP adresi izin verilenler listesine ekleyin.
-
-### <a name="connectivitychallengeerror"></a>CONNECTIVITY_CHALLENGE_ERROR
-
-Bu hata, hedef kayıt sınaması uç noktası bir sınama vermedi anlamına gelir.
-
-*Olası çözümleri*: süre sonra yeniden deneyin. Am sorun, hata devam ederse, lütfen açın https://aka.ms/acr/issues.
-
-### <a name="connectivityaadloginerror"></a>CONNECTIVITY_AAD_LOGIN_ERROR
-
-Bu hata, hedef kayıt sınaması uç noktası bir sınama verildi, ancak kayıt defteri AAD oturum açma desteklemiyor anlamına gelir.
-
-*Olası çözümleri*: günlükleri, örneğin, yönetici kimlik bilgileri başka bir şekilde deneyin. AAD destek oturum açmak kullanıcının istediği durumunda, am sorunu, lütfen açın https://aka.ms/acr/issues.
-
-### <a name="connectivityrefreshtokenerror"></a>CONNECTIVITY_REFRESH_TOKEN_ERROR
-
-Başka bir deyişle, kayıt defteri oturum açma sunucusu hedef kayıt defterine erişim reddedildi anlamına gelir ve yenileme belirteci ile yanıt vermedi. Kullanıcı kayıt defterini doğru izinlere sahip değilse veya Azure CLI için kullanıcı kimlik bilgileri geçersiz olduğunda bu durum oluşabilir.
-
-*Olası çözümleri*: kullanıcı, kayıt defterini doğru izinlere sahip olup olmadığını doğrulayın; çalıştırma `az login` izinleri, belirteçleri ve kimlik bilgilerini yenilemek için.
-
-### <a name="connectivityaccesstokenerror"></a>CONNECTIVITY_ACCESS_TOKEN_ERROR
-
-Başka bir deyişle, kayıt defteri oturum açma sunucusu hedef kayıt defterine erişim reddedildi anlamına gelir. bir erişim belirteci ile yanıt vermedi. Kullanıcı kayıt defterini doğru izinlere sahip değilse veya Azure CLI için kullanıcı kimlik bilgileri geçersiz olduğunda bu durum oluşabilir.
-
-*Olası çözümleri*: kullanıcı, kayıt defterini doğru izinlere sahip olup olmadığını doğrulayın; çalıştırma `az login` izinleri, belirteçleri ve kimlik bilgilerini yenilemek için.
-
-### <a name="loginservererror"></a>LOGIN_SERVER_ERROR
-
-Bu CLI verilen kayıt defterinin oturum açma sunucusu bulamadı ve geçerli bulut için varsayılan sonek bulundu anlamına gelir. Kayıt defterindeki Bulut ve geçerli Azure CLI bulut eşleşmiyorsa, kullanıcı doğru izinlere kayıt yoksa, kayıt defteri, mevcut değilse veya Azure CLI sürümü eski ise bu durum oluşabilir.
-
-*Olası çözümleri*: yazım doğru olduğunu ve kayıt defterini mevcut; kullanıcı, kayıt defterini doğru izinlere sahip olup olmadığını doğrulayın ve kayıt defteri CLI ortam ve bulut eşleşip eşleşmediğini; doğrulayın Azure CLI'yı en son sürüme güncelleştirin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

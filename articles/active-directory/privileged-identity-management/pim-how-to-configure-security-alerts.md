@@ -14,18 +14,18 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce0d99fb283be8cbeba6f8a7954ff49161a2d511
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6875ab8f184c67b02c91d1a8e312959f3ba9553b
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288552"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476411"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>PIM'de Azure AD rolleri güvenlik uyarılarını yapılandırma
 
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM), ortamınızda şüpheli veya güvenli olmayan bir etkinlik olduğunda uyarılar oluşturur. Bir uyarı tetiklendiğinde, PIM panosunda görünür. Uyarıyı tetikleyen rollerin listeleyen bir rapor görmek için uyarıyı seçin.
 
-![PIM güvenlik uyarıları - ekran görüntüsü](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![Azure AD rolleri - uyarı bölmesinde uyarılar ve önem derecesi listeleme](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
 ## <a name="security-alerts"></a>Güvenlik uyarıları
 
@@ -122,11 +122,11 @@ Güvenlik Uyarıları ortamınız ve Güvenlik amaçları ile çalışmak için 
 
 1. Tıklayın **ayarları** ardından **uyarılar**.
 
-    ![Güvenlik Uyarıları ayarlarına gidin](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
+    ![Seçili uyarıları ayarlarla - Azure AD rolleri](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
 
 1. Bu uyarının ayarı yapılandırmak için bir uyarı adına tıklayın.
 
-    ![Güvenlik Uyarısı Ayarları](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
+    ![Seçilen uyarı, güvenlik uyarısı ayarları bölmesi](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

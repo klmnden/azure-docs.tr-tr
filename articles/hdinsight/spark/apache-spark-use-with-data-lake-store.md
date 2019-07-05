@@ -8,16 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 203f704862c4cbcef58d7ef902380c1dbbf00076
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 5a98cb2356c25329e091514dd1d6181dfc2690be
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137086"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448649"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Data Lake depolama Gen1 verilerini çözümlemek için HDInsight Spark kümesi kullanın
 
-Bu öğreticide kullandığınız [Jupyter not defteri](https://jupyter.org/) bir Data Lake Store hesabından veri okuyan bir iş çalıştırmak için HDInsight Spark kümeleri ile kullanılabilir.
+Bu makalede, kullandığınız [Jupyter not defteri](https://jupyter.org/) bir Data Lake Store hesabından veri okuyan bir iş çalıştırmak için HDInsight Spark kümeleri ile kullanılabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

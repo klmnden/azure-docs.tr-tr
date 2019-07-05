@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 3462255311eaa6e418f97de5da598eb985b2a935
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aaa690b62b44f5f21db0861d99d45734cf210db0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695082"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448694"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Microsoft Bilişsel Araç Seti derin öğrenme modeli Azure HDInsight Spark kümesi ile kullanma
 
@@ -25,13 +25,13 @@ Bu makalede, aşağıdaki adımları uygulayın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* **Bir Azure aboneliği**. Bu öğreticiye başlamadan önce bir Azure aboneliğinizin olması gerekir. Bkz. [Ücretsiz Azure hesabınızı hemen oluşturun](https://azure.microsoft.com/free).
+* **Bir Azure aboneliği**. Bu makaleye başlamadan önce bir Azure aboneliğinizin olması gerekir. Bkz. [Ücretsiz Azure hesabınızı hemen oluşturun](https://azure.microsoft.com/free).
 
 * **Azure HDInsight Spark kümesi**. Bu makale için bir Spark 2.0 kümesi oluşturun. Yönergeler için [Azure HDInsight Apache Spark kümesi](apache-spark-jupyter-spark-sql.md).
 
 ## <a name="how-does-this-solution-flow"></a>Bu çözümü nasıl akıyor?
 
-Bu çözüm, bu makalede ve bu öğreticinin bir parçası olarak yüklemek bir Jupyter not defteri arasında bölünür. Bu makalede, aşağıdaki adımları tamamlayın:
+Bu çözüm, bu makalede ve bu makalede bir parçası olarak yüklemek bir Jupyter not defteri arasında bölünür. Bu makalede, aşağıdaki adımları tamamlayın:
 
 * Betik eylemi, Microsoft Bilişsel Araç Seti ve Python paketlerini yüklemek için bir HDInsight Spark kümesi üzerinde çalıştırın.
 * Çözümü, HDInsight Spark kümesine çalıştıran Jupyter not defterini karşıya yükleyin.
@@ -83,7 +83,7 @@ Microsoft Bilişsel araç seti ile Azure HDInsight Spark kümesi kullanmak için
 
 4. Tıklayın **karşıya** yeniden.
 
-5. Not defterini karşıya yüklendikten sonra not defteri adına tıklayın ve ardından bir veri kümesi yükleyin ve hızlı başlangıç öğreticisinde konusunda not kendisini yönergeleri izleyin.
+5. Not defterini karşıya yüklendikten sonra not defteri adına tıklayın ve ardından veri kümesi yükleyin ve makale konusunda not kendisini yönergeleri izleyin.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Genel Bakış: Azure HDInsight üzerinde Apache Spark](apache-spark-overview.md)

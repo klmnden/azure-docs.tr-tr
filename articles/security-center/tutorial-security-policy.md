@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7f738350743b0b80bf39a322043c514081721def
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ff05421222ff0f4312d703366cfd443eee06450
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967897"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551712"
 ---
 # <a name="working-with-security-policies"></a>Güvenlik ilkeleriyle çalışma
 
@@ -32,7 +32,7 @@ PowerShell kullanarak ilkeler ayarlama konusunda yönergeler için bkz: [hızlı
 > Güvenlik Merkezi tümleştirmesi, Azure İlkesi ile başlatıldı. Mevcut müşteriler, Azure İlkesi ' nde yerleşik yeni girişim yerine önceki Güvenlik Merkezi'nde güvenlik ilkeleri için otomatik olarak geçirilecektir. Bu değişiklik, kaynakları veya Azure İlkesi'nde yeni girişim varlığını dışında ortamının etkilemez.
 
 ## <a name="what-are-security-policies"></a>Güvenlik ilkeleri nedir?
-Güvenlik ilkesi iş yüklerinizin istenen yapılandırmasını tanımlar ve şirketin veya yasal düzenlemelerin gerektirdiği güvenlik gereksinimlerine uyum sağlanmasına yardımcı olur. Azure İlkesi'nde Azure Abonelikleriniz için ilkeler tanımlayın ve bunları iş yükü türüne veya verilerinizin duyarlılığına göre uygun hale getirin. Örneğin, kişisel bilgiler gibi düzenlenen veriler kullanan uygulamalar, diğer iş yükleri yüksek seviyede güvenliği gerektirebilir. Abonelikler arasında ya da Yönetim grupları bir ilke ayarlamak için bunları kümesinde [Azure İlkesi](../governance/policy/overview.md).
+Güvenlik ilkesi iş yüklerinizin istenen yapılandırmasını tanımlar ve şirketin veya yasal düzenlemelerin gerektirdiği güvenlik gereksinimlerine uyum sağlanmasına yardımcı olur. Azure İlkesi'nde Azure Abonelikleriniz için ilkeler tanımlayın ve bunları iş yükü türüne veya verilerinizin duyarlılığına göre uygun hale getirin. Örneğin, kişisel verileri veya müşteri verileri gibi düzenlenen veriler kullanan uygulamalar, diğer iş yükleri yüksek seviyede güvenliği gerektirebilir. Abonelikler arasında ya da Yönetim grupları bir ilke ayarlamak için bunları kümesinde [Azure İlkesi](../governance/policy/overview.md).
 
 Güvenlik ilkelerinizi size Azure Güvenlik Merkezi'nde güvenlik önerilerini. Uyumluluk, olası zayıflıkları belirlemek ve tehditleri önlemeye yardımcı olmak için onlarla izleyebilirsiniz. Listesini sizin için uygun seçeneği belirleme hakkında daha fazla bilgi için bkz. [yerleşik güvenlik ilkeleri](security-center-policy-definitions.md).
 
@@ -73,13 +73,6 @@ Güvenlik Merkezi'nde güvenlik ilkelerinizi görüntüleme:
    > [!NOTE]
    > - Güvenlik Merkezi panosunu aboneliklerin daha yüksek bir sayı gösterebilir **abonelik kapsamı** altında gösterilen aboneliklerin sayısından **İlkesi Yönetimi**. Abonelik kapsamı Standart, Ücretsiz ve “kapsanmayan” aboneliklerin sayısını gösterir. "Kapsanmayan" abonelik, Güvenlik Merkezi'nin etkin olmayan ve altında görüntülenmez **İlkesi Yönetimi**.
    >
-
-   Tablodaki sütunlar şunları gösterir:
-
-   - **İlke girişimi atama** – Güvenlik Merkezi [yerleşik ilkeleri](security-center-policy-definitions.md) ve bir abonelik veya yönetim grubuna atanmış olan girişim.
-   - **Kapsamı** – boş veya yönetim grubu, abonelik veya çalışma çalıştığı standart fiyatlandırma katmanı tanımlar.  Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md).
-   - **Ayarları** – aboneliğiniz bağlantıyı **ayarlarını Düzenle**. Seçme **ayarlarını Düzenle** güncelleştirmenize olanak tanır, [Güvenlik Merkezi Ayarları](security-center-policies-overview.md) her abonelik veya yönetim grubu için.
-   - **Güvenli puanı** - [güvenli puanı](security-center-secure-score.md) nasıl güvenli bir iş yükü güvenlik duruşunu bir ölçü sağlar ve iyileştirme önerileri önceliğini belirlemeye yardımcı olur.
 
 2. İlkeleri görüntülemek istediğiniz abonelik veya yönetim grubunu seçin.
 
@@ -132,11 +125,11 @@ Azure İlkesi ile yerel tümleştirme bir parçası olarak, Azure Güvenlik Merk
 
 Azure İlkesi önemli Kavramları: 
 
-- A **ilke tanımı** bir kuralı 
+- A **ilke tanımı** bir kuralı 
 
-- Bir **girişim** ilke tanımları (kuralları) oluşan bir koleksiyondur 
+- Bir **girişim** ilke tanımları (kuralları) oluşan bir koleksiyondur 
 
-- Bir **atama** girişim veya bir ilke bir uygulama belirli bir kapsama (Yönetim grubu, abonelik, vb.) 
+- Bir **atama** girişim veya bir ilke bir uygulama belirli bir kapsama (Yönetim grubu, abonelik, vb.) 
 
 Güvenlik Merkezi, güvenlik ilkelerini içeren yerleşik bir girişim sahiptir. Azure kaynaklarınızın Güvenlik Merkezi'nin ilkelerini değerlendirmek için yönetim grubu veya abonelik değerlendirmek istediğiniz atama oluşturmanız gerekir.  
 

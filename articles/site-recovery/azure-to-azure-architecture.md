@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 25cf3914274e73e0789aa87e9288649d1b0cb1eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f985260175e5f54a17799ef07b3a280f42b716e
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399585"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491880"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure'dan Azure'a olağanüstü durum kurtarma mimarisi
 
@@ -31,7 +31,7 @@ Azure Vm'leri için olağanüstü durum kurtarma katılan bileşenleri aşağıd
 **Kaynak bölgede VM'ler** | Daha fazla Azure Vm'lerinde birini bir [kaynak bölgede desteklenen](azure-to-azure-support-matrix.md#region-support).<br/><br/> Vm'leri çalıştırıyor olabilir herhangi [işletim sistemi desteklenen](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 **Kaynak VM depolama** | Azure Vm'lerini yönetilen veya yönetilmeyen diskler depolama hesabı arasında yayıldı.<br/><br/>[Hakkında bilgi edinin](azure-to-azure-support-matrix.md#replicated-machines---storage) Azure depolama desteklenir.
 **Kaynak VM ağları** | VM'ler kaynak bölgedeki bir sanal ağ (VNet) içinde bir veya daha fazla alt ağ içinde yer alabilir. [Daha fazla bilgi edinin](azure-to-azure-support-matrix.md#replicated-machines---networking) ağ gereksinimleri hakkında.
-**Önbellek depolama hesabı** | Bir önbellek depolama hesabı kaynak ağı gerekir. Çoğaltma sırasında VM değişiklikler, hedef depolama gönderilmeden önce önbellekte depolanır.<br/><br/> Bir önbellek kullanarak VM'de çalışan üretim uygulamaları üzerinde en az etki sağlar.<br/><br/> [Daha fazla bilgi edinin](azure-to-azure-support-matrix.md#cache-storage) önbellek depolama gereksinimleri hakkında. 
+**Önbellek depolama hesabı** | Bir önbellek depolama hesabı kaynak ağı gerekir. Çoğaltma sırasında VM değişiklikler, hedef depolama gönderilmeden önce önbellekte depolanır.  Önbellek depolama hesapları, standart olması gerekir.<br/><br/> Bir önbellek kullanarak VM'de çalışan üretim uygulamaları üzerinde en az etki sağlar.<br/><br/> [Daha fazla bilgi edinin](azure-to-azure-support-matrix.md#cache-storage) önbellek depolama gereksinimleri hakkında. 
 **Hedef kaynaklar** | Hedef kaynaklar, çoğaltma sırasında ve bir yük devretme gerçekleştiğinde kullanılır. Site Recovery varsayılan olarak hedef kaynağı ayarlayabilirsiniz veya oluşturun/bunları özelleştirebilirsiniz.<br/><br/> Hedef bölgede VM'ler oluşturabilir ve aboneliğinizi hedef bölgede gereken VM boyutları desteklemek için yeterli kaynaklara sahip olduğunu denetleyin. 
 
 ![Kaynak ve hedef çoğaltma](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)

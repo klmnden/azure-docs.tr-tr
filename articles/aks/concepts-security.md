@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 2e655627267546d88f76a2487817bca3153ee91d
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 69ec3869f7bfd74b150db537a01e604cae87570f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65074029"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441991"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Uygulama ve kümelerin Azure Kubernetes Service (AKS) için güvenlik kavramları
 
@@ -36,7 +36,7 @@ Varsayılan olarak Kubernetes API sunucusuna bir genel IP adresini kullanır ve 
 
 AKS, yönetmek ve korumak Azure sanal makineleri düğümlerdir. Linux düğümleri Moby kapsayıcı çalışma zamanı'nı kullanarak bir en iyi duruma getirilmiş Ubuntu dağıtım çalıştırın. En iyi duruma getirilmiş bir Windows Server 2019 Windows Server düğümleri (şu anda önizlemede aks'deki), sürüm ve ayrıca Moby kapsayıcı çalışma zamanı kullanın. Bir AKS kümesi oluşturduğunuz ya da yukarı ölçeklendirilemez düğümlerin en son işletim sistemi güvenlik güncelleştirmelerini ve yapılandırmaları ile otomatik olarak dağıtılır.
 
-Azure platformunun işletim sistemi güvenlik yamaları gecelik temelinde Linux düğümleri için otomatik olarak uygular. Bir Linux işletim sistemi güvenlik güncelleştirmesi ana bilgisayar yeniden başlatma gerektirirse, yeniden başlatma otomatik olarak gerçekleştirilmez. Linux düğümleri el ile yeniden başlatılabilir ya da ortak bir yaklaşım kullanmaktır [Kured][kured], Kubernetes için bir açık kaynak önyükleme arka plan programı. Kured çalışırken bir [DaemonSet] [ aks-daemonsets] ve her düğüm için bir yeniden başlatma gerekli olduğunu belirten bir dosyanın varlığını izler. Yeniden başlatma, aynı kümede yönetilir [kordon altına alma ve boşaltma işlemi](#cordon-and-drain) olarak bir küme yükseltmesi.
+Azure platformunun işletim sistemi güvenlik yamaları gecelik temelinde Linux düğümleri için otomatik olarak uygular. Bir Linux işletim sistemi güvenlik güncelleştirmesi ana bilgisayar yeniden başlatma gerektirirse, yeniden başlatma otomatik olarak gerçekleştirilmez. Linux düğümleri el ile yeniden başlatılabilir ya da ortak bir yaklaşım kullanmaktır [Kured][kured] , an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet][aks-daemonsets] ve her düğüm için bir yeniden başlatma gerekli olduğunu belirten bir dosyanın varlığını izler. Yeniden başlatma, aynı kümede yönetilir [kordon altına alma ve boşaltma işlemi](#cordon-and-drain) olarak bir küme yükseltmesi.
 
 (Şu anda önizlemede aks'deki) Windows Server düğümleri için Windows Update otomatik olarak çalıştırın ve en son güncelleştirmeleri uygulayın. Düzenli bir zamanlamaya göre Windows Güncelleştirme sürüm döngüsü ve kendi doğrulama işlemi, AKS kümenizi yükseltme üzerinde Windows Server düğüm havuzları gerçekleştirmeniz gerekir. Bu yükseltme işlemi, düzeltme ekleri ve en son Windows Server görüntüsü çalıştıran düğümlere oluşturur, ardından eski düğümleri kaldırır. Bu işlem hakkında daha fazla bilgi için bkz. [aks'deki bir düğüm havuzunu yükseltme][nodepool-upgrade].
 
@@ -73,7 +73,7 @@ Sanal ağlarda trafik akışını filtre uygulamak için Azure ağ güvenlik gru
 
 Bir Kubernetes *gizli* hassas verilere erişim kimlik bilgilerine veya anahtarlara gibi pod'ların eklemesine kullanılır. Önce Kubernetes API'yi kullanarak bir gizli dizi oluşturun. Pod veya dağıtım tanımladığınızda, belirli bir gizli dizi istenebilir. Gizli dizileri için bunu gerektiren zamanlanmış bir pod düğüm yalnızca sağlanır ve gizli dizi depolanır *tmpfs*değil yazılı diske. Gizli dizi gerektiren bir düğüm üzerindeki son pod silindiğinde, gizli dizi düğümün tmpfs silindi. Gizli dizileri belirli bir ad alanı içinde depolanır ve yalnızca pod'ların aynı ad alanında tarafından erişilebilir.
 
-Pod ya da hizmet bildirimi YAML içinde tanımlanan hassas bilgileri gizli dizileri kullanımını azaltır. Bunun yerine, YAML bildiriminizin bir parçası olarak Kubernetes API sunucusunda depolanan gizli isteyin. Bu yaklaşım, gizli yalnızca belirli pod erişim sağlar.
+Pod ya da hizmet bildirimi YAML içinde tanımlanan hassas bilgileri gizli dizileri kullanımını azaltır. Bunun yerine, YAML bildiriminizin bir parçası olarak Kubernetes API sunucusunda depolanan gizli isteyin. Bu yaklaşım, gizli yalnızca belirli pod erişim sağlar. Lütfen unutmayın: gizli verileri base64 biçiminde ham gizli bildirim dosyaları içerir (bkz [resmi belgelerine][secret-risks] daha fazla ayrıntı için). Bu nedenle, bu dosya gizli bilgi kabul edilir ve asla kaynak denetimine işlendi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -92,6 +92,7 @@ AKS kümelerinizi güvenliğini kullanmaya başlamak için bkz. [AKS kümesini y
 <!-- LINKS - External -->
 [kured]: https://github.com/weaveworks/kured
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
+[secret-risks]: https://kubernetes.io/docs/concepts/configuration/secret/#risks
 
 <!-- LINKS - Internal -->
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets

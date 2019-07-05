@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: getroyer
-ms.openlocfilehash: 0ac50a5f52682c4315b8d08cf5632c4a6fa5242f
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: fe9886429a5e894f40c04b1f65094e412c1dc9e2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357579"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441199"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Azure veri bilimi sanal makinelerini kullanın
 
@@ -51,7 +51,7 @@ DSVM sayfasından Azure portalında bu değerleri alın.
 
 ## <a name="accessing-azure-notebooks-files-from-the-dsvm"></a>DSVM Azure not defterleri dosyalardan erişme
 
-Dosya sistemi erişimini DSVM sürümleri 19.06.15 veya üzeri. Sürümü denetlemek için önce DSVM'ye (IP adresini Azure portalında kullanılabilir) SSH aracılığıyla bağlanın. Ardından aşağıdaki komutla çalıştırın, `<ip_address>`: `curl -H Metadata:true "http://<ip_address>/metadata/instance?api-version=2018-10-01"`. Sürüm numarası, "Sürüm" için çıktıda gösterilir.
+Dosya sistemi erişimini DSVM sürümleri 19.06.15 veya üzeri. Sürümü denetlemek için önce DSVM'ye SSH aracılığıyla bağlanmak ve ardından aşağıdaki komutu çalıştırın: `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"` (burada gösterilen tam IP adresini kullanmanız gerekir). Sürüm numarası, "Sürüm" için çıktıda gösterilir.
 
 Dosya yollarının ile eşlik korumak için **ücretsiz işlem** katmanı tarafından yalnızca bir DSVM üzerinde bir seferde bir proje açın. Yeni bir proje açmak için açık projenin ilk kapatmanız gerekir.
 

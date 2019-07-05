@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 371cbcc50b574f95e8d9ba4efe79058b2b25a8ba
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3b4992a16061bef782f012aa7887b248e3423234
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67188078"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568385"
 ---
 **Yapılandırma/işlem sunucusu gereksinimleri**
 
@@ -49,7 +49,7 @@ https:\//management.azure.com | Çoğaltma yönetimi işlemleri ve düzenleme i�
 time.nist.gov | Sistem ile genel saat arasındaki saat eşitlemesini denetlemek için kullanılır.
 time.windows.com | Sistem ile genel saat arasındaki saat eşitlemesini denetlemek için kullanılır.
 | <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF ayarlamak bu URL'lere erişimi olmalıdır. Erişim denetimi ve kimlik yönetimi için Azure Active Directory tarafından kullanılır
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | MySQL indirmeyi tamamlamak için
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | MySQL indirmeyi tamamlamak için. </br> Bazı bölgelerde indirme CDN URL'ye yeniden yönlendirilen olabilir. CDN URL'sine izin verilenler listesinde, aynı zamanda olduğunu, gerekirse emin olun.
 |
 **YÜKLENECEK YAZILIM** | 
 VMware vSphere Powerclı | [Powerclı 6.0 sürümünün](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) yapılandırma sunucusunu bir VMware sanal makine üzerinde çalışıyorsa yüklü olması gerekir.

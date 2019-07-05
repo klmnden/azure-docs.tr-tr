@@ -3,7 +3,7 @@ title: Evrensel Windows Platformu (UWP) uygulamanıza kimlik doğrulaması eklem
 description: 'Azure App Service Mobile Apps, çeşitli kimlik sağlayıcılar dahil olmak üzere, kullanarak evrensel Windows Platformu (UWP) uygulamanızdaki kullanıcıların kimliğini doğrulamak için kullanmayı öğrenin: AAD, Google, Facebook, Twitter ve Microsoft.'
 services: app-service\mobile
 documentationcenter: windows
-author: conceptdev
+author: elamalani
 manager: panarasi
 editor: ''
 ms.assetid: 6cffd951-893e-4ce5-97ac-86e3f5ad9466
@@ -12,18 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
-ms.author: panarasi
-ms.openlocfilehash: 7caaa1ca4cdaf7290b7ce05d17c07e565e7b51d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 9a3a6a8d063836094c1285a5ab4c17ee403fc347
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128007"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440228"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Windows kimlik doğrulaması ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
+> [!NOTE]
+> Visual Studio App Center, mobil uygulama geliştirme merkezi hizmetlerinde yeni ve tümleşik yatırım yapıyor. Geliştiriciler **derleme**, **Test** ve **Dağıt** hizmetlerinin sürekli tümleştirme ve teslim işlem hattı ayarlayın. Uygulama dağıtıldığında, geliştiriciler kendi uygulamasını kullanarak kullanımı ve durumu izleyebilirsiniz **Analytics** ve **tanılama** kullanarak kullanıcılarla etkileşim kurun ve hizmetlerini **anında iletme** hizmeti. Geliştiriciler de yararlanabilir **Auth** , kullanıcıların kimliğini doğrulamak ve **veri** kalıcı hale getirmek ve uygulama verilerini bulutta eşitleme hizmeti. Kullanıma [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-users) bugün.
+>
+
+## <a name="overview"></a>Genel Bakış
 Bu konuda, mobil uygulamanıza bulut tabanlı kimlik doğrulaması ekleme işlemini göstermektedir. Bu öğreticide, kimlik doğrulaması için evrensel Windows Platformu (UWP) hızlı başlangıç projesi için Mobile Apps, Azure App Service tarafından desteklenen bir kimlik sağlayıcısı kullanarak ekleyin. Başarıyla kimlik doğrulaması ve yetkili tarafından Mobile App arka ucunuzu sonra kullanıcı kimliği değeri görüntülenir.
 
 Bu öğretici, Mobile Apps hızlı başlangıcı temel alır. Öğreticiyi tamamlamak [Mobile Apps'i kullanmaya başlama](app-service-mobile-windows-store-dotnet-get-started.md).

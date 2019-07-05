@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5955b21ae405f15960974fcbc81b8383f3322509
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60308766"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485709"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Bölümleri ve çoğaltmalarını sorgu ve iş yüklerini Azure Search'te dizin oluşturma için ölçeklendirme
 Çalıştırdıktan sonra [bir fiyatlandırma katmanı seçin](search-sku-tier.md) ve [bir arama hizmeti sağlama](search-create-service-portal.md), isteğe bağlı olarak çoğaltmalar veya bölümler hizmetiniz tarafından kullanılan sayısını artırmak için sonraki adımdır. Her katman, sabit bir faturalandırma birimi sayısı sunar. Bu makalede dengeleyen sorgu yürütme, dizin oluşturma ve depolama gereksinimlerinize en uygun yapılandırmayı elde etmek için bu birimleri ayırma açıklanmaktadır.
@@ -47,6 +47,7 @@ Artırmak veya çoğaltmalar ve bölümler ayrılması değiştirmek için Azure
 Genellikle, özellikle hizmet işlemleri sorgu iş yükleri doğru güçlü eğilimi nedeniyle arama uygulamaları bölümler, daha çok kopya gerekir. Bölüm [yüksek kullanılabilirlik](#HA) nedenini açıklar.
 
 1. Oturum [Azure portalında](https://portal.azure.com/) ve arama hizmeti seçin.
+
 2. İçinde **ayarları**açın **ölçek** sayfanıza çoğaltmalar ve bölümler. 
 
    Aşağıdaki ekran görüntüsünde, sağlanan bir bölüm ve çoğaltma ile standart bir hizmet gösterilmektedir. Formül altındaki kaç arama birimi kullanılan (1) gönderildiğini belirtir. Birim fiyatı 100 ABD doları (gerçek fiyat değil) varsa, bu hizmetin çalışıyor aylık maliyeti ortalama 100 ABD Doları olacaktır.
@@ -108,6 +109,7 @@ Kolay ve hızlı göreceli olarak ölçeklendirilebilecek şekilde olduğundan, 
 Yüksek kullanılabilirlik için genel öneriler şunlardır:
 
 * Salt okunur iş yüklerinin (sorgular) yüksek kullanılabilirlik için iki çoğaltma
+
 * Okuma/yazma iş yüklerinin (sorgular ayrıca tek tek belgeler eklendi, güncelleştirildi veya dizin) yüksek kullanılabilirlik için üç veya daha fazla çoğaltma
 
 Azure Search için hizmet düzeyi sözleşmeleri (SLA), sorgu işlemleri ve ekleme, güncelleştirme veya belgelerinin silinmesini bileşiminden dizin güncelleştirmelerini hedeflenir.

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 005e5c92a16760d8eec5dc37526f4b1f2dbd751c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41b407b4343db4f594049c4b1027fe4279dab840
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540542"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482946"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Nasıl yapılır: Azure Active Directory uygulama galerisinde uygulamanızı listeleme
 
@@ -117,21 +117,21 @@ Güncelleştirme ya da Azure AD uygulama galerisinde mevcut bir uygulamayı kald
 
 Müşteriler, uygulamaya tıklayarak listeleme isteği gönderebilir **uygulama isteyen müşteriler tarafından** -> **yeni istek Gönder**.
 
-![Müşteri istenen uygulama kutucuğu](./media/howto-app-gallery-listing/customer-submit-request.png)
+![İstenen müşteri gösteren uygulama kutucuğu](./media/howto-app-gallery-listing/customer-submit-request.png)
 
 Müşteri akışını uygulamalar tarafından istenen aşağıda verilmiştir
 
-![Müşteri uygulamaları akış istendi](./media/howto-app-gallery-listing/customer-request.png)
+![Müşteri gösterilir uygulamaları akış istendi](./media/howto-app-gallery-listing/customer-request.png)
 
 ## <a name="timelines"></a>Zaman çizelgeleri
 
 SAML 2.0 veya WS-Federasyon uygulama galerisinde listeleme işlemi için zaman çizelgesi 7-10 iş günü ' dir.
 
-   ![Saml galeri uygulamasına listeleme, zaman çizelgesi](./media/howto-app-gallery-listing/timeline.png)
+   ![SAML galeri uygulamasına listeleme, zaman çizelgesi](./media/howto-app-gallery-listing/timeline.png)
 
 Bir Openıd Connect uygulama galerisinde listeleme işlemi için zaman çizelgesi 2-5 iş günü ' dir.
 
-   ![Saml galeri uygulamasına listeleme, zaman çizelgesi](./media/howto-app-gallery-listing/timeline2.png)
+   ![SAML galeri uygulamasına listeleme, zaman çizelgesi](./media/howto-app-gallery-listing/timeline2.png)
 
 ## <a name="escalations"></a>Yardım istekleri
 

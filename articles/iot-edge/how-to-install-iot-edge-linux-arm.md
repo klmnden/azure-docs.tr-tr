@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 06/27/2019
 ms.author: kgremban
-ms.openlocfilehash: 6c22680102c57fdfc3d25beb19e5bc9847995b28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7004edf2bab0e22d4d1e4c1200d6e8b8ef729b3
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65152722"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485943"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Azure IOT Edge çalışma zamanı (ARM32v7/armhf) Linux'ta yükleme
 
@@ -27,7 +27,11 @@ Bu makalede, Azure IOT Edge çalışma zamanı Linux ARM32v7/armhf IOT Edge ciha
 >[!NOTE]
 >Linux yazılım depoları paketlerinde her pakette yer alan lisans koşullarına tabidir (/ usr/paylaşım/doc/*paket adı*). Paket kullanarak önce lisans koşullarını okuyun. Bu koşulları kabul etmeniz, yükleme ve kullanım paket oluşturur. Lisans koşullarını kabul etmiyorsanız, paket kullanmayın.
 
-## <a name="install-the-container-runtime"></a>Kapsayıcı çalışma zamanı yükleme
+## <a name="install-the-latest-version"></a>En son sürümünü yükleyin
+
+Linux ARM cihazlarınızı Azure IOT Edge hizmetine en son sürümünü yüklemek için aşağıdaki bölümleri kullanın. 
+
+### <a name="install-the-container-runtime"></a>Kapsayıcı çalışma zamanı yükleme
 
 Azure IOT Edge dayanır bir [OCI uyumlu](https://www.opencontainers.org/) kapsayıcı çalışma zamanı. Üretim senaryoları için kullanmanız önerilir [Moby tabanlı](https://mobyproject.org/) aşağıda sağlanan altyapısı. Bu, Azure IOT Edge ile resmi olarak desteklenen tek kapsayıcı altyapısıdır. Docker CE/EE kapsayıcı görüntülerini Moby tabanlı çalışma zamanı ile uyumludur.
 
@@ -47,7 +51,7 @@ curl -L https://aka.ms/moby-cli-armhf-latest -o moby_cli.deb && sudo dpkg -i ./m
 sudo apt-get install -f
 ```
 
-## <a name="install-the-iot-edge-security-daemon"></a>IOT Edge güvenlik Daemon'ı yükleme
+### <a name="install-the-iot-edge-security-daemon"></a>IOT Edge güvenlik Daemon'ı yükleme
 
 **IOT Edge güvenlik arka plan programı** sağlar ve cihazın IOT Edge güvenlik standartlarını korur. Arka plan programı, her önyükleme başlar ve cihazın IOT Edge çalışma zamanı geri kalanını başlatarak bootstraps. 
 
@@ -66,7 +70,17 @@ curl -L https://aka.ms/iotedged-linux-armhf-latest -o iotedge.deb && sudo dpkg -
 sudo apt-get install -f
 ```
 
-## <a name="connect-your-device-to-an-iot-hub"></a>Cihazınızı IOT hub'a bağlama 
+IOT Edge başarıyla yüklendikten sonra çıktı yapılandırma dosyasını güncelleştirmek isteyip istemediğinizi sorar. Bağlantısındaki [Azure IOT Edge güvenlik daemon yapılandırma](#configure-the-azure-iot-edge-security-daemon) Cihazınızı sağlama son bölümü. 
+
+## <a name="install-a-specific-version"></a>Belirli bir sürümünü yükleyin
+
+Azure IOT Edge belirli bir sürümünü yüklemek istiyorsanız, doğrudan IOT Edge GitHub deposundan bileşen dosyaları hedefleyebilirsiniz. Aynı `curl` komutları listelenen tüm IOT Edge Cihazınızı bileşenlerini almak için önceki bölümlerde: Moby altyapısı ve CLI, libiothsm ve son olarak IOT Edge güvenlik arka plan programı. Tek fark, Değiştir, **aka.ms** bağlantılarla doğrudan kullanmak istediğiniz her bir bileşenin sürümüne işaret eden URL.
+
+Gidin [Azure IOT Edge sürümleri](https://github.com/Azure/azure-iotedge/releases)ve hedeflemek istediğiniz sürümü bulun. Genişletin **varlıklar** bölümünde sürümü ve cihazın mimari, IOT Edge eşleşen dosyaları seçin. Her IOT Edge sürüm içerir **iotedge** ve **libiothsm** dosyaları. Tüm sürümler dahil **moby altyapısı** veya **moby CLI**. Yüklü Moby container altyapısı yoksa, eski sürümleri Moby bileşenleri içeren bir tane bulana kadar arayın. 
+
+IOT Edge başarıyla yüklendikten sonra çıktı yapılandırma dosyasını güncelleştirmek isteyip istemediğinizi sorar. Sonraki bölümde, cihaz sağlamayı tamamlamak için adımları izleyin. 
+
+## <a name="configure-the-azure-iot-edge-security-daemon"></a>Azure IOT Edge güvenlik daemon'ı yapılandırma
 
 Azure IOT hub'ı var olan bir cihaz kimliği ile fiziksel Cihazınızı bağlamak için IOT Edge çalışma zamanı yapılandırın. 
 

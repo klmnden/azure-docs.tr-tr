@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: e2b6cbabc9a0c727c9eb0232bd55048493b29128
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97bc2e585ccce250dd83dc855c3eda5f958186a7
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696918"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484063"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>HDInsight’ta ölçeğe göre akış
 
@@ -64,7 +64,7 @@ Apache Spark, uygulama gereksinimlerine bağlı olarak, ortamı yapılandırmak 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [HDInsight üzerinde Apache Storm ile çalışmaya başlama](storm/apache-storm-tutorial-get-started-linux.md)
+* [Oluşturma ve bir Azure HDInsight Apache Storm topolojisinde izleme](storm/apache-storm-quickstart.md)
 * [HDInsight üzerinde Apache Storm için örnek topolojiler](storm/apache-storm-example-topology.md)
 * [HDInsight üzerinde Apache Spark'a giriş](spark/apache-spark-overview.md)
 * [HDInsight üzerinde Apache kafka'yı kullanmaya başlayın](kafka/apache-kafka-get-started.md)

@@ -7,31 +7,31 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 00422209302bbcc2139be4f6b490f0bb2816c051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 892a79f898e2448096ad4b252a18e0713bb32e52
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539269"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485301"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure arama için bir fiyatlandırma katmanı seçin
 
-Bir Azure Search Hizmeti oluşturduğunuzda bir [kaynak oluşturulduğu](search-create-service-portal.md) fiyatlandırma katmanı veya hizmet ömrü boyunca sabit SKU. Ücretsiz, temel, standart ve depolama için iyileştirilmiş Katmanlar içerir. Standart ve depolama için iyileştirilmiş, çeşitli yapılandırmaları ve kapasite ile kullanılabilir.
+Bir Azure Search Hizmeti oluşturduğunuzda bir [kaynak oluşturulduğu](search-create-service-portal.md) bir fiyatlandırma Katmanı (ya da SKU), sabit hizmet ömrü boyunca. Ücretsiz, temel, standart ve depolama için iyileştirilmiş Katmanlar içerir. Standart ve depolama için iyileştirilmiş, çeşitli yapılandırmaları ve kapasite ile kullanılabilir.
 
-Hizmet değerlendirebilmeniz için çoğu müşteri ücretsiz katman ile başlayın. Bunlar ardından geliştirme ve üretim dağıtımları için daha yüksek katmanlardan birine yükseltin. Tüm kılavuzlarımız ve öğreticilerimizden yararlanarak kaynak kullanımı yoğun bilişsel arama yönelik olanlar dahil olmak üzere ücretsiz bir katmanı kullanarak tamamlayabilirsiniz.
+Hizmet değerlendirebilmeniz için çoğu müşteri ücretsiz katman ile başlayın. Son değerlendirme, geliştirme ve üretim dağıtımları için daha yüksek katmanlardan birine ikinci bir hizmet oluşturmak için yaygındır. Tüm kılavuzlarımız ve öğreticilerimizden yararlanarak kaynak kullanımı yoğun bilişsel arama yönelik olanlar dahil olmak üzere ücretsiz bir katmanı kullanarak tamamlayabilirsiniz.
 
 > [!NOTE]
-> Microsoft, test ve geri bildirim toplamak amacıyla bir deneme için indirimli fiyatlandırma bir Önizleme'de depolama için iyileştirilmiş hizmet katmanları şu an sunar. Bu katmanları genel olarak kullanılabilir olduğunda son fiyatlandırma daha sonra duyurulacaktır. Biz, üretim uygulamaları için bu katmanları kullanan karşı önerin.
+> 1 Temmuz'dan itibaren tüm katmanları depolama için iyileştirilmiş katmanı da dahil olmak üzere genel olarak kullanılabilir. Tüm fiyatlandırmalar bulunabilir [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/search/) sayfası.
 
 Katmanları hizmeti (yerine özellikleri) barındıran donanım özellikleri yansıtır ve tarafından ayrılır:
 
 + Oluşturabileceğiniz dizinleri sayısı.
 + Boyutu ve hızlı bölümlerin (fiziksel depolama).
 
-Ücretsiz katman dahil, tüm katmanlarda genellikle özellik eşliği sunmasına rağmen daha büyük iş yükleri daha yüksek katmanlara yönelik bir gereksinim okuyabilirsiniz. Örneğin, [yapay ZEKA ile Bilişsel hizmetler dizini oluşturma](cognitive-search-concept-intro.md) veri kümesini küçük olmadığı sürece uzun süre çalışan becerileri ücretsiz bir hizmet o zaman aşımına sahip.
+Ücretsiz katman dahil, tüm katmanlarda genellikle özellik eşliği sunmasına rağmen daha büyük iş yükleri daha yüksek katmanlara yönelik bir gereksinim okuyabilirsiniz. Örneğin, [Bilişsel hizmetler ile yapay ZEKA zenginleştirme](cognitive-search-concept-intro.md) veri kümesini küçük olmadığı sürece uzun süre çalışan becerileri ücretsiz bir hizmet o zaman aşımına sahip.
 
 > [!NOTE] 
 > Özellik eşliği istisnası [dizin oluşturucular](search-indexer-overview.md), hangi S3 HD üzerinde mevcut değildir.
@@ -60,7 +60,11 @@ Aşağıdaki tabloda kullanılabilir Katmanlar listelenmektedir. Üzerinde çeş
 
 ## <a name="how-billing-works"></a>Faturalandırma nasıl çalışır?
 
-Azure Search'te ödemeniz üç yolu vardır ve sabit ve değişken bileşenleri vardır. Bu bölümde üç fatura bileşeni açıklanmaktadır: çekirdek hizmet maliyetleri, veri çıkış ücretlerini ve yapay ZEKA zenginleştirilmiş dizinleme.
+Azure Search'te ödemeniz üç yolu vardır. Bu bölümde, üç fatura bileşeni açıklanmaktadır: 
+
++ Çekirdek service maliyeti
++ Çıkış (veya bant genişliği) bir veri ücreti
++ Yapay ZEKA zenginleştirmelerinin
 
 ### <a name="core-service-costs-fixed-and-variable"></a>Çekirdek hizmet maliyetleri (sabit ve değişken)
 
@@ -98,9 +102,9 @@ Kullanarak [Azure Search dizin oluşturucularında](search-indexer-overview.md) 
 
 Hizmetleri farklı bölgelerde bulunuyorsa için giden veri ücretleri uygulanır. Bu ücretler, Azure Search faturanıza aslında bir parçası değildir. Veri veya AI zenginleştirilmiş dizin oluşturucular veri çekmek için farklı bölgelerden kullanıyorsanız, genel faturanıza yansıtılan maliyetleri görürsünüz çünkü bunlar burada bahsedilen.
 
-### <a name="ai-enriched-indexing-with-cognitive-services"></a>Yapay ZEKA-zenginleştirilmiş Bilişsel hizmetler ile dizinleme
+### <a name="ai-enrichments-with-cognitive-services"></a>Bilişsel hizmetler ile yapay ZEKA zenginleştirmelerinin
 
-İçin [yapay ZEKA ile Bilişsel hizmetler dizini oluşturma](cognitive-search-concept-intro.md), Faturalanabilir Azure Bilişsel hizmetler kaynağı, aynı bölgede Azure Search, Kullandıkça Öde işleme S0 fiyatlandırma katmanında eklemek planlamanız gerekir. Bilişsel Hizmetleri ekleme ile ilişkili hiçbir sabit bir ücret yoktur. Yalnızca gereksinim duyduğunuz işleme için ödeme yaparsınız.
+İçin [Bilişsel hizmetler ile yapay ZEKA zenginleştirme](cognitive-search-concept-intro.md), Faturalanabilir Azure Bilişsel hizmetler kaynağı, aynı bölgede Azure Search, Kullandıkça Öde işleme S0 fiyatlandırma katmanında eklemek planlamanız gerekir. Bilişsel Hizmetleri ekleme ile ilişkili hiçbir sabit bir ücret yoktur. Yalnızca gereksinim duyduğunuz işleme için ödeme yaparsınız.
 
 Görüntü ayıklama belge çözme sırasında bir Azure Search ücretlendirme yapılır. Belgelerinizi ayıklanan görüntüleri sayısına göre faturalandırılır. Metin ayıklama şu anda ücretsiz olarak kullanılabilir.
 

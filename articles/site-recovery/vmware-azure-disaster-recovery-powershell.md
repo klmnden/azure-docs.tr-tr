@@ -4,15 +4,15 @@ description: Çoğaltma ve yük devretme için Azure PowerShell kullanarak Azure
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.date: 04/08/2019
+ms.date: 06/30/2019
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 5490149f199c2d7887716ceae3f035527ad33961
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c13bb8586995a82ee240df39a9c95a67743e2a8
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66170047"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503347"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Azure PowerShell ile VMware vm'lerinin olağanüstü durum kurtarmayı ayarlama
 
@@ -25,7 +25,7 @@ Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 > - Sunucu kaydı kasadaki doğrulayın.
 > - Çoğaltma, çoğaltma ilkesi dahil olmak üzere ayarlayın. VCenter server'ınızı ekleyin ve Vm'leri keşfedin.
 > - Bir vCenter sunucusu eklemek ve keşfedin
-> - Çoğaltılan verileri tutmak için depolama hesapları oluşturmanız ve sanal makinelerini çoğaltma.
+> - Çoğaltma günlükleri veya verileri tutmak için depolama hesapları oluşturmanız ve sanal makinelerini çoğaltma.
 > - Yük devretme gerçekleştirin. Yük devretme ayarlarını yapılandırma, sanal makineleri çoğaltmak için bir ayarı gerçekleştirin.
 
 
@@ -105,7 +105,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 Set-ASRVaultContext cmdlet'ini kullanarak kasa bağlamını ayarlayın. Bir kez ayarlandıktan sonra sonraki Azure Site Recovery işlemlerini bir PowerShell oturumunda seçili kasa bağlamında gerçekleştirilir.
 
 > [!TIP]
-> Azure Site Recovery PowerShell Modülü (Az.RecoveryServices Modülü), çoğu cmdlet için kullanımı kolay diğer adları ile birlikte gelir. Modüldeki cmdlet'ler biçiminde  *\<işlemi >-**AzRecoveryServicesAsr**\<Nesne >* ve biçiminde eşdeğer diğer adlar  *\< İşlem >-**ASR**\<Nesne >* . Bu makalede, kolay okunması için cmdlet diğer adları kullanır.
+> Azure Site Recovery PowerShell Modülü (Az.RecoveryServices Modülü), çoğu cmdlet için kullanımı kolay diğer adları ile birlikte gelir. Modüldeki cmdlet'ler biçiminde  *\<işlemi >-**AzRecoveryServicesAsr**\<Nesne >* ve biçiminde eşdeğer diğer adlar  *\< İşlem >-**ASR**\<Nesne >* . Kullanım kolaylığı için cmdlet diğer adları değiştirebilirsiniz.
 
 Aşağıdaki örnekte, kasa ayrıntıları $vault değişkeni kasa bağlamını PowerShell oturumunun belirtmek için kullanılır.
 
@@ -138,7 +138,7 @@ Bu örnek için şunları sunuyoruz:
 
    ```azurepowershell
    # Verify that the Configuration server is successfully registered to the vault
-   $ASRFabrics = Get-ASRFabric
+   $ASRFabrics = Get-AzRecoveryServicesAsrFabric
    $ASRFabrics.count
    ```
    ```
@@ -201,7 +201,7 @@ Bu adımda, iki çoğaltma ilkeleri oluşturulur. Azure ve diğer çoğaltılaca
 1. Adlı çoğaltma ilkesi oluşturma *ReplicationPolicy* VMware sanal makinelerini, belirtilen özelliklerle Azure'a çoğaltmak için.
 
    ```azurepowershell
-   $Job_PolicyCreate = New-ASRPolicy -VMwareToAzure -Name "ReplicationPolicy" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4 -RPOWarningThresholdInMinutes 60
+   $Job_PolicyCreate = New-AzRecoveryServicesAsrPolicy -VMwareToAzure -Name "ReplicationPolicy" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4 -RPOWarningThresholdInMinutes 60
 
    # Track Job status to check for completion
    while (($Job_PolicyCreate.State -eq "InProgress") -or ($Job_PolicyCreate.State -eq "NotStarted")){
@@ -235,7 +235,7 @@ Bu adımda, iki çoğaltma ilkeleri oluşturulur. Azure ve diğer çoğaltılaca
 2. Azure'dan şirket içi VMware sitesi için kullanılacak bir çoğaltma ilkesi oluşturun.
 
    ```azurepowershell
-   $Job_FailbackPolicyCreate = New-ASRPolicy -AzureToVMware -Name "ReplicationPolicy-Failback" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4 -RPOWarningThresholdInMinutes 60
+   $Job_FailbackPolicyCreate = New-AzRecoveryServicesAsrPolicy -AzureToVMware -Name "ReplicationPolicy-Failback" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4 -RPOWarningThresholdInMinutes 60
    ```
 
    İş ayrıntılarında kullanın *$Job_FailbackPolicyCreate* işlemi tamamlanana kadar izlemek için.
@@ -244,15 +244,15 @@ Bu adımda, iki çoğaltma ilkeleri oluşturulur. Azure ve diğer çoğaltılaca
 
    ```azurepowershell
    #Get the protection container corresponding to the Configuration Server
-   $ProtectionContainer = Get-ASRProtectionContainer -Fabric $ASRFabrics[0]
+   $ProtectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $ASRFabrics[0]
 
    #Get the replication policies to map by name.
-   $ReplicationPolicy = Get-ASRPolicy -Name "ReplicationPolicy"
-   $FailbackReplicationPolicy = Get-ASRPolicy -Name "ReplicationPolicy-Failback"
+   $ReplicationPolicy = Get-AzRecoveryServicesAsrPolicy -Name "ReplicationPolicy"
+   $FailbackReplicationPolicy = Get-AzRecoveryServicesAsrPolicy -Name "ReplicationPolicy-Failback"
 
    # Associate the replication policies to the protection container corresponding to the Configuration Server.
 
-   $Job_AssociatePolicy = New-ASRProtectionContainerMapping -Name "PolicyAssociation1" -PrimaryProtectionContainer $ProtectionContainer -Policy $ReplicationPolicy
+   $Job_AssociatePolicy = New-AzRecoveryServicesAsrProtectionContainerMapping -Name "PolicyAssociation1" -PrimaryProtectionContainer $ProtectionContainer -Policy $ReplicationPolicy
 
    # Check the job status
    while (($Job_AssociatePolicy.State -eq "InProgress") -or ($Job_AssociatePolicy.State -eq "NotStarted")){
@@ -266,7 +266,7 @@ Bu adımda, iki çoğaltma ilkeleri oluşturulur. Azure ve diğer çoğaltılaca
       Configuration server acts as both the Primary protection container and the recovery protection
       container
    #>
-    $Job_AssociateFailbackPolicy = New-ASRProtectionContainerMapping -Name "FailbackPolicyAssociation" -PrimaryProtectionContainer $ProtectionContainer -RecoveryProtectionContainer $ProtectionContainer -Policy $FailbackReplicationPolicy
+    $Job_AssociateFailbackPolicy = New-AzRecoveryServicesAsrProtectionContainerMapping -Name "FailbackPolicyAssociation" -PrimaryProtectionContainer $ProtectionContainer -RecoveryProtectionContainer $ProtectionContainer -Policy $FailbackReplicationPolicy
 
    # Check the job status
    while (($Job_AssociateFailbackPolicy.State -eq "InProgress") -or ($Job_AssociateFailbackPolicy.State -eq "NotStarted")){
@@ -284,7 +284,7 @@ Bir ' % s'vCenter sunucusu tarafından IP adresi veya konak ekleyin. **-Bağlant
 ```azurepowershell
 # The $AccountHandles[0] variable holds details of vCenter_account
 
-$Job_AddvCenterServer = New-ASRvCenter -Fabric $ASRFabrics[0] -Name "MyvCenterServer" -IpOrHostName "10.150.24.63" -Account $AccountHandles[0] -Port 443
+$Job_AddvCenterServer = New-AzRecoveryServicesAsrvCenter -Fabric $ASRFabrics[0] -Name "MyvCenterServer" -IpOrHostName "10.150.24.63" -Account $AccountHandles[0] -Port 443
 
 #Wait for the job to complete and ensure it completed successfully
 
@@ -316,7 +316,9 @@ Errors           : {}
 
 ## <a name="create-storage-accounts-for-replication"></a>Çoğaltma için depolama hesapları oluşturun
 
-Bu adımda, çoğaltma için kullanılacak depolama hesabı oluşturulur. Bu depolama hesaplarından daha sonra sanal makineleri çoğaltmak için kullanılır. Depolama hesapları kasayla aynı Azure bölgesinde oluşturduğunuzdan emin olun. Çoğaltma için mevcut bir depolama hesabı kullanmayı planlıyorsanız, bu adımı atlayabilirsiniz.
+**Yönetilen diske yazmak için kullanın [Powershell Az.RecoveryServices modülü 2.0.0](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) ve sonraki sürümler.** Yalnızca, bir günlük depolama hesabı oluşturulmasını gerektirir. Yalnızca geçici günlüklerini depolamak için kullanıldığından bir standart hesap türü ve LRS çoğaltma kullanmanız önerilir. Kasa ile aynı Azure bölgesindeki depolama hesabı oluşturduğunuzdan emin olun.
+
+Modülün Az.RecoveryServices 2.0.0 eski bir sürümünü kullanıyorsanız, depolama hesaplarını oluşturmak için aşağıdaki adımları kullanın. Bu depolama hesaplarından daha sonra sanal makineleri çoğaltmak için kullanılır. Depolama hesapları kasayla aynı Azure bölgesinde oluşturduğunuzdan emin olun. Çoğaltma için mevcut bir depolama hesabı kullanmayı planlıyorsanız, bu adımı atlayabilirsiniz.
 
 > [!NOTE]
 > Premium depolama hesabı için şirket içi sanal makineleri çoğaltılırken, ek bir standart depolama hesabı (günlük depolama hesabı) belirtmeniz gerekir. Günlükleri premium Depolama Hedef uygulanabilir kadar günlük depolama hesabına çoğaltma günlükleri Ara bir depo olarak korur.
@@ -338,7 +340,8 @@ VCenter sunucusundaki bulunmak sanal makineler için yaklaşık 15-20 dakika sü
 Bulunan bir sanal makineyi korumak için aşağıdaki ayrıntıları ihtiyacınız olacak:
 
 * Çoğaltılacak korunabilir öğe.
-* Sanal makine için çoğaltmak için depolama hesabı. Ayrıca, bir günlük depolama, premium depolama hesabı için sanal makineleri korumak için gereklidir.
+* (Yalnızca depolama hesabına çoğaltma yapıyorsanız) sanal makineyi çoğaltmak için depolama hesabı. 
+* Günlük depolama, sanal makinelerin yönetilen disk bir premium depolama hesabına veya korumak için gereklidir.
 * Çoğaltma için kullanılan işlem sunucusu. Kullanılabilir işlem sunucularının listesini alınan ve kaydedilen ***$ProcessServers [0]***  *(genişletme dosya)* ve ***$ProcessServers [1]*** *(ConfigurationServer)* değişkenleri.
 * Mobility hizmet yazılımı makinelere göndermeli yükleme için kullanılacak hesabı. Kullanılabilir hesaplar listesi alınan ve depolanan ***$AccountHandles*** değişkeni.
 * Koruma kapsayıcısı eşlemesini çoğaltma için kullanılacak çoğaltma ilkesi için.
@@ -350,8 +353,8 @@ Artık bu tabloda belirtilen ayarları kullanarak şu sanal makineleri çoğaltm
 
 |Sanal makine  |İşlem sunucusu        |Depolama Hesabı              |Günlük depolama hesabına  |İlke           |Mobility hizmeti yüklemesi için hesabı|Hedef kaynak grubu  | Hedef sanal ağ  |Hedef alt ağ  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
-|Win2K12VM1       |Genişletme dosya|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR sanal ağ                 |Alt ağ-1       |
-|CentOSVM1       |ConfigurationServer   |replicationstdstorageaccount1| Yok                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR sanal ağ                 |Alt ağ-1       |   
+|CentOSVM1       |ConfigurationServer   |Yok| logstorageaccount1                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR sanal ağ                 |Alt ağ-1       |
+|Win2K12VM1       |Genişletme dosya|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR sanal ağ                 |Alt ağ-1       |   
 |CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| Yok                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR sanal ağ                 |Alt ağ-1       |   
 
 
@@ -364,26 +367,26 @@ $ResourceGroup = Get-AzResourceGroup -Name "VMwareToAzureDrPs"
 $RecoveryVnet = Get-AzVirtualNetwork -Name "ASR-vnet" -ResourceGroupName "asrrg" 
 
 #Get the protection container mapping for replication policy named ReplicationPolicy
-$PolicyMap  = Get-ASRProtectionContainerMapping -ProtectionContainer $ProtectionContainer | where PolicyFriendlyName -eq "ReplicationPolicy"
-
-#Get the protectable item corresponding to the virtual machine Win2K12VM1
-$VM1 = Get-ASRProtectableItem -ProtectionContainer $ProtectionContainer -FriendlyName "Win2K12VM1"
-
-# Enable replication for virtual machine Win2K12VM1
-# The name specified for the replicated item needs to be unique within the protection container. Using a random GUID to ensure uniqueness
-$Job_EnableReplication1 = New-ASRReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM1 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -RecoveryAzureStorageAccountId $PremiumStorageAccount.Id -LogStorageAccountId $LogStorageAccount.Id -ProcessServer $ProcessServers[0] -Account $AccountHandles[1] -RecoveryResourceGroupId $ResourceGroup.ResourceId -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1"
+$PolicyMap  = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $ProtectionContainer | where PolicyFriendlyName -eq "ReplicationPolicy"
 
 #Get the protectable item corresponding to the virtual machine CentOSVM1
-$VM2 = Get-ASRProtectableItem -ProtectionContainer $ProtectionContainer -FriendlyName "CentOSVM1"
+$VM1 = Get-AzRecoveryServicesAsrProtectableItem -ProtectionContainer $ProtectionContainer -FriendlyName "CentOSVM1"
 
-# Enable replication for virtual machine CentOSVM1
-$Job_EnableReplication2 = New-ASRReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM2 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -RecoveryAzureStorageAccountId $ReplicationStdStorageAccount.Id  -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1"
+# Enable replication for virtual machine CentOSVM1 using the Az.RecoveryServices module 2.0.0
+# The name specified for the replicated item needs to be unique within the protection container. Using a random GUID to ensure uniqueness
+$Job_EnableReplication1 = New-AzRecoveryServicesAsrReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM1 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -logStorageAccountId $LogStorageAccount.Id -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1"
+
+#Get the protectable item corresponding to the virtual machine Win2K12VM1
+$VM2 = Get-AzRecoveryServicesAsrProtectableItem -ProtectionContainer $ProtectionContainer -FriendlyName "Win2K12VM1"
+
+# Enable replication for virtual machine Win2K12VM1
+$Job_EnableReplication2 = New-AzRecoveryServicesAsrReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM2 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -RecoveryAzureStorageAccountId $PremiumStorageAccount.Id -LogStorageAccountId $LogStorageAccount.Id -ProcessServer $ProcessServers[0] -Account $AccountHandles[1] -RecoveryResourceGroupId $ResourceGroup.ResourceId -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1"
 
 #Get the protectable item corresponding to the virtual machine CentOSVM2
-$VM3 = Get-ASRProtectableItem -ProtectionContainer $ProtectionContainer -FriendlyName "CentOSVM2"
+$VM3 = Get-AzRecoveryServicesAsrProtectableItem -ProtectionContainer $ProtectionContainer -FriendlyName "CentOSVM2"
 
 # Enable replication for virtual machine CentOSVM2
-$Job_EnableReplication3 = New-ASRReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM3 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -RecoveryAzureStorageAccountId $ReplicationStdStorageAccount.Id  -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1"
+$Job_EnableReplication3 = New-AzRecoveryServicesAsrReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM3 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -RecoveryAzureStorageAccountId $ReplicationStdStorageAccount.Id  -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1"
 
 ```
 
@@ -392,7 +395,7 @@ Etkinleştirme çoğaltma işi başarıyla tamamlandıktan sonra ilk çoğaltma 
 Get-ASRReplicationProtectedItem cmdlet'i ile sanal makine çoğaltma durumu ve çoğaltma durumunu kontrol edebilirsiniz.
 
 ```azurepowershell
-Get-ASRReplicationProtectedItem -ProtectionContainer $ProtectionContainer | Select FriendlyName, ProtectionState, ReplicationHealth
+Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $ProtectionContainer | Select FriendlyName, ProtectionState, ReplicationHealth
 ```
 ```
 FriendlyName ProtectionState                 ReplicationHealth
@@ -415,9 +418,9 @@ Korumalı makineler için yük devretme ayarları kümesi ASRReplicationProtecte
 Bu örnekte, sanal makine için yük devretme sırasında oluşturulacak sanal makinenin VM boyutunu güncelleştiriyoruz *Win2K12VM1* ve sanal makine kullanımı yönetilen diskler üzerinde yük devretme.
 
 ```azurepowershell
-$ReplicatedVM1 = Get-ASRReplicationProtectedItem -FriendlyName "Win2K12VM1" -ProtectionContainer $ProtectionContainer
+$ReplicatedVM1 = Get-AzRecoveryServicesAsrReplicationProtectedItem -FriendlyName "Win2K12VM1" -ProtectionContainer $ProtectionContainer
 
-Set-ASRReplicationProtectedItem -InputObject $ReplicatedVM1 -Size "Standard_DS11" -UseManagedDisk True
+Set-AzRecoveryServicesAsrReplicationProtectedItem -InputObject $ReplicatedVM1 -Size "Standard_DS11" -UseManagedDisk True
 ```
 ```
 Name             : cafa459c-44a7-45b0-9de9-3d925b0e7db9
@@ -450,14 +453,14 @@ Errors           : {}
    TestFailovervnet = Get-AzVirtualNetwork -Name "V2TestNetwork" -ResourceGroupName "asrrg" 
 
    #Start the test failover operation
-   $TFOJob = Start-ASRTestFailoverJob -ReplicationProtectedItem $ReplicatedVM1 -AzureVMNetworkId $TestFailovervnet.Id -Direction PrimaryToRecovery
+   $TFOJob = Start-AzRecoveryServicesAsrTestFailoverJob -ReplicationProtectedItem $ReplicatedVM1 -AzureVMNetworkId $TestFailovervnet.Id -Direction PrimaryToRecovery
    ```
 2. Test yük devretme işi başarıyla tamamlandıktan sonra bir sanal makine ile olark fark edeceksiniz *"-Test"* (Bu durumda, Win2K12VM1-Test) adının Azure içinde oluşturulur.
 3. Şimdi, sınama yük devredilen sanal makinenin başarısız bağlanın ve test yük devretmesi doğrulayın.
 4. Başlangıç ASRTestFailoverCleanupJob cmdlet'ini kullanarak devretmeyi temizleyin. Bu işlem, sanal makine test yük devretme işleminin bir parçası olarak oluşturulan siler.
 
    ```azurepowershell
-   $Job_TFOCleanup = Start-ASRTestFailoverCleanupJob -ReplicationProtectedItem $ReplicatedVM1
+   $Job_TFOCleanup = Start-AzRecoveryServicesAsrTestFailoverCleanupJob -ReplicationProtectedItem $ReplicatedVM1
    ```
 
 ## <a name="fail-over-to-azure"></a>Azure'a yük devretme
@@ -467,7 +470,7 @@ Bu adımda, size belirli bir kurtarma noktasını sanal makineye Win2K12VM1 yük
 1. Yük devretme için kullanılacak kullanılabilir kurtarma noktalarının bir listesini alın:
    ```azurepowershell
    # Get the list of available recovery points for Win2K12VM1
-   $RecoveryPoints = Get-ASRRecoveryPoint -ReplicationProtectedItem $ReplicatedVM1
+   $RecoveryPoints = Get-AzRecoveryServicesAsrRecoveryPoint -ReplicationProtectedItem $ReplicatedVM1
    "{0} {1}" -f $RecoveryPoints[0].RecoveryPointType, $RecoveryPoints[0].RecoveryPointTime
    ```
    ```
@@ -476,7 +479,7 @@ Bu adımda, size belirli bir kurtarma noktasını sanal makineye Win2K12VM1 yük
    ```azurepowershell
 
    #Start the failover job
-   $Job_Failover = Start-ASRUnplannedFailoverJob -ReplicationProtectedItem $ReplicatedVM1 -Direction PrimaryToRecovery -RecoveryPoint $RecoveryPoints[0]
+   $Job_Failover = Start-AzRecoveryServicesAsrUnplannedFailoverJob -ReplicationProtectedItem $ReplicatedVM1 -Direction PrimaryToRecovery -RecoveryPoint $RecoveryPoints[0]
    do {
            $Job_Failover = Get-ASRJob -Job $Job_Failover;
            sleep 60;

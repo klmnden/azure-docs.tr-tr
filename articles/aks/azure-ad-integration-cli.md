@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: iainfou
-ms.openlocfilehash: d80ad5abecc968a9fe3c82d62ddd8577856a3c54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afb554307fd255d1863fc1508cef3703d4dc9f9e
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65835198"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561157"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Azure CLI kullanarak Azure Kubernetes hizmeti ile Azure Active Directory Tümleştirme
 
@@ -28,7 +28,7 @@ Aşağıdaki sınırlamalar geçerlidir:
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Azure CLI Sürüm 2.0.61 gerekir veya daha sonra yüklü ve yapılandırılmış. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][install-azure-cli].
+Azure CLI Sürüm 2.0.61 gerekir veya daha sonra yüklü ve yapılandırılmış. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme][install-azure-cli].
 
 Tutarlılık ve bu makalede komutları çalıştırmak amacıyla istenen AKS küme adınız için bir değişken oluşturun. Adı aşağıdaki örnekte *myakscluster*:
 
@@ -43,13 +43,13 @@ Azure AD kimlik doğrulaması, AKS kümelerine Openıd Connect ile sağlanır. O
 Gelen bir Kubernetes kümesi içinde Web kancası belirteci kimlik doğrulaması kimlik doğrulama belirteçleri doğrulamak için kullanılır. Web kancası belirteci kimlik doğrulaması yapılandırılır ve AKS kümesinin bir parçası yönetilir. Web kancası belirteci kimlik doğrulaması hakkında daha fazla bilgi için bkz. [Web kancası authentication belgeleri][kubernetes-webhook].
 
 > [!NOTE]
-> AKS kimlik doğrulaması için Azure AD yapılandırırken iki Azure AD uygulaması yapılandırılır. Bu işlem, bir Azure Kiracı Yöneticisi tarafından tamamlanması gerekir.
+> AKS kimlik doğrulaması için Azure AD'yi yapılandırma, iki Azure AD uygulamaları yapılandırılır. Bu işlem, bir Azure Kiracı Yöneticisi tarafından tamamlanması gerekir.
 
 ## <a name="create-azure-ad-server-component"></a>Azure AD sunucu bileşeni oluşturma
 
 AKS ile tümleştirmek için oluşturun ve kimlik istekler için bir uç nokta olarak davranan bir Azure AD uygulamasını kullanın. İhtiyacınız olan ilk Azure AD uygulaması, bir kullanıcının Azure AD grup üyeliği alır.
 
-Sunucu bileşeni kullanarak uygulama oluşturma [az ad app oluşturma] [ az-ad-app-create] komutu, sonra Grup üyeliğini talep kullanarak güncelleştirme [az ad app update] [ az-ad-app-update] komutu. Aşağıdaki örnekte *aksname* tanımlanan değişkeni [başlamadan önce](#before-you-begin) bölüm ve bir değişken oluşturur
+Sunucu bileşeni kullanarak uygulama oluşturma [az ad app oluşturma][az-ad-app-create] command, then update the group membership claims using the [az ad app update][az-ad-app-update] komutu. Aşağıdaki örnekte *aksname* tanımlanan değişkeni [başlamadan önce](#before-you-begin) bölüm ve bir değişken oluşturur
 
 ```azurecli-interactive
 # Create the Azure AD application
@@ -62,7 +62,7 @@ serverApplicationId=$(az ad app create \
 az ad app update --id $serverApplicationId --set groupMembershipClaims=All
 ```
 
-Artık server kullanarak uygulama için hizmet sorumlusu oluşturma [az ad sp oluşturma] [ az-ad-sp-create] komutu. Bu hizmet sorumlusu, Azure platformunun içinde kendi kimliğini doğrulamak için kullanılır. Ardından kullanarak hizmet sorumlusu gizli dizi alma [az ad sp kimlik bilgilerini Sıfırla] [ az-ad-sp-credential-reset] adlı değişkene atayın ve komutu *serverApplicationSecret* birini kullanmak için Aşağıdaki adımlar:
+Artık server kullanarak uygulama için hizmet sorumlusu oluşturma [az ad sp oluşturma][az-ad-sp-create] command. This service principal is used to authenticate itself within the Azure platform. Then, get the service principal secret using the [az ad sp credential reset][az-ad-sp-credential-reset] adlı değişkene atayın ve komutu *serverApplicationSecret* için aşağıdaki adımlardan birini kullanın:
 
 ```azurecli-interactive
 # Create a service principal for the Azure AD application
@@ -80,7 +80,7 @@ Azure AD aşağıdaki eylemleri gerçekleştirmek için izinler gerekiyor:
 * Dizin verilerini okuma
 * Oturum açma ve kullanıcı profilini okuma
 
-Kullanarak bu izinleri [az ad app izni ekleme] [ az-ad-app-permission-add] komutu:
+Kullanarak bu izinleri [az ad app izni ekleme][az-ad-app-permission-add] komutu:
 
 ```azurecli-interactive
 az ad app permission add \
@@ -89,7 +89,7 @@ az ad app permission add \
     --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope 06da0dbc-49e2-44d2-8312-53f166ab848a=Scope 7ab1d382-f21e-4acd-a863-ba3e13f7da61=Role
 ```
 
-Son olarak, önceki adımda server kullanarak uygulama için atanan izinler [az ad app iznini] [ az-ad-app-permission-grant] komutu. Geçerli hesabın, bir kiracı Yöneticisi değilse, bu adımı başarısız olur. Aksi takdirde kullanarak yönetici onayı gerektirebilir bilgi istemek Azure AD uygulaması için izinler eklemek etmeniz [az ad app izni yönetici-onayı][az-ad-app-permission-admin-consent]:
+Son olarak, önceki adımda server kullanarak uygulama için atanan izinler [az ad app iznini][az-ad-app-permission-grant] command. This step fails if the current account is not a tenant admin. You also need to add permissions for Azure AD application to request information that may otherwise require administrative consent using the [az ad app permission admin-consent][az-ad-app-permission-admin-consent]:
 
 ```azurecli-interactive
 az ad app permission grant --id $serverApplicationId --api 00000003-0000-0000-c000-000000000000
@@ -98,7 +98,7 @@ az ad app permission admin-consent --id  $serverApplicationId
 
 ## <a name="create-azure-ad-client-component"></a>Azure AD istemci bileşeni oluşturma
 
-Kubernetes CLI ile bir AKS kümesi için bir kullanıcı oturum ikinci Azure AD uygulaması kullanıldığında (`kubectl`). Bu istemci uygulaması, kullanıcıdan kimlik doğrulama isteği alır ve kendi kimlik bilgileri ve izinleri doğrular. İstemci bileşeni kullanmak için Azure AD uygulamanızı oluşturma [az ad app oluşturma] [ az-ad-app-create] komutu:
+Kubernetes CLI ile bir AKS kümesi için bir kullanıcı oturum ikinci Azure AD uygulaması kullanıldığında (`kubectl`). Bu istemci uygulaması, kullanıcıdan kimlik doğrulama isteği alır ve kendi kimlik bilgileri ve izinleri doğrular. İstemci bileşeni kullanmak için Azure AD uygulamanızı oluşturma [az ad app oluşturma][az-ad-app-create] komutu:
 
 ```azurecli-interactive
 clientApplicationId=$(az ad app create \
@@ -108,19 +108,19 @@ clientApplicationId=$(az ad app create \
     --query appId -o tsv)
 ```
 
-Kullanan istemci uygulamaları için hizmet sorumlusu oluşturma [az ad sp oluşturma] [ az-ad-sp-create] komutu:
+Kullanan istemci uygulamaları için hizmet sorumlusu oluşturma [az ad sp oluşturma][az-ad-sp-create] komutu:
 
 ```azurecli-interactive
 az ad sp create --id $clientApplicationId
 ```
 
-Kimlik doğrulaması akışı kullanarak iki uygulama bileşenleri arasında izin vermek için sunucu uygulamasının oAuth2 Kimliğini alın [az ad app show] [ az-ad-app-show] komutu. Bu oAuth2 kimlik, bir sonraki adımda kullanılır.
+Kimlik doğrulaması akışı kullanarak iki uygulama bileşenleri arasında izin vermek için sunucu uygulamasının oAuth2 Kimliğini alın [az ad app show][az-ad-app-show] komutu. Bu oAuth2 kimlik, bir sonraki adımda kullanılır.
 
 ```azurecli-interactive
 oAuthPermissionId=$(az ad app show --id $serverApplicationId --query "oauth2Permissions[0].id" -o tsv)
 ```
 
-İstemci uygulama izinlerini ekleme ve oAuth2 iletişimini kullanmak için sunucu uygulama bileşenleri akış kullanarak [az ad app izni ekleme] [ az-ad-app-permission-add] komutu. Sonra istemci uygulama sunucusu kullanılarak uygulama ile iletişim için izinleri vermelisiniz [az ad app iznini] [ az-ad-app-permission-grant] komutu:
+İstemci uygulama izinlerini ekleme ve oAuth2 iletişimini kullanmak için sunucu uygulama bileşenleri akış kullanarak [az ad app izni ekleme][az-ad-app-permission-add] command. Then, grant permissions for the client application to communication with the server application using the [az ad app permission grant][az-ad-app-permission-grant] komutu:
 
 ```azurecli-interactive
 az ad app permission add --id $clientApplicationId --api $serverApplicationId --api-permissions $oAuthPermissionId=Scope
@@ -129,7 +129,7 @@ az ad app permission grant --id $clientApplicationId --api $serverApplicationId
 
 ## <a name="deploy-the-cluster"></a>Küme dağıtma
 
-Oluşturulan iki Azure AD uygulamaları ile artık AKS kümesi oluşturun. İlk olarak kullanarak bir kaynak grubu oluşturun. [az grubu oluşturma] [ az-group-create] komutu. Aşağıdaki örnekte kaynak grubu oluşturulmaktadır *EastUS* bölgesi:
+Oluşturulan iki Azure AD uygulamaları ile artık AKS kümesi oluşturun. İlk olarak kullanarak bir kaynak grubu oluşturun. [az grubu oluşturma][az-group-create] komutu. Aşağıdaki örnekte kaynak grubu oluşturulmaktadır *EastUS* bölgesi:
 
 Küme için bir kaynak grubu oluşturun:
 
@@ -137,7 +137,7 @@ Küme için bir kaynak grubu oluşturun:
 az group create --name myResourceGroup --location EastUS
 ```
 
-Azure aboneliğini kullanarak Kiracı kimliği alma [az hesabı show] [ az-account-show] komutu. Ardından, AKS kümesi kullanarak oluşturma [az aks oluşturma] [ az-aks-create] komutu. AKS kümesi oluşturmak için komutu sunucu ve istemci uygulama kimlikleri, sunucu uygulama hizmet sorumlusu gizli anahtarı ve Kiracı Kimliğinizi sağlar:
+Azure aboneliğini kullanarak Kiracı kimliği alma [az hesabı show][az-account-show] command. Then, create the AKS cluster using the [az aks create][az-aks-create] komutu. AKS kümesi oluşturmak için komutu sunucu ve istemci uygulama kimlikleri, sunucu uygulama hizmet sorumlusu gizli anahtarı ve Kiracı Kimliğinizi sağlar:
 
 ```azurecli-interactive
 tenantId=$(az account show --query tenantId -o tsv)
@@ -153,7 +153,7 @@ az aks create \
     --aad-tenant-id $tenantId
 ```
 
-Son olarak, küme kullanarak yönetici kimlik bilgilerini alma [az aks get-credentials] [ az-aks-get-credentials] komutu. Aşağıdaki adımlardan birinde, normal alma *kullanıcı* küme kimlik bilgilerini Azure AD kimlik doğrulaması görmek için akışı çalıştırılırken.
+Son olarak, küme kullanarak yönetici kimlik bilgilerini alma [az aks get-credentials][az-aks-get-credentials] komutu. Aşağıdaki adımlardan birinde, normal alma *kullanıcı* küme kimlik bilgilerini Azure AD kimlik doğrulaması görmek için akışı çalıştırılırken.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name $aksname --admin
@@ -163,7 +163,7 @@ az aks get-credentials --resource-group myResourceGroup --name $aksname --admin
 
 Bir Azure Active Directory hesabı kullanarak AKS kümesiyle kullanılmadan önce bir rol bağlama veya küme rolünü bağlaması oluşturulması gerekir. *Rolleri* vermek için izinleri tanımlamanıza ve *bağlamaları* bunları istediğiniz kullanıcılar için geçerlidir. Bu atamaları, tüm küme üzerinde veya belirtilen bir ad alanı için uygulanabilir. Daha fazla bilgi için [kullanarak RBAC yetkilendirme][rbac-authorization].
 
-Kullanıcı şu anda kullanarak oturum için kullanıcı asıl adı (UPN) alma [az ad imzalı kullanıcı show] [ az-ad-signed-in-user-show] komutu. Bu kullanıcı hesabı, sonraki adımda Azure AD tümleştirmesi için etkinleştirilir.
+Kullanıcı şu anda kullanarak oturum için kullanıcı asıl adı (UPN) alma [az ad imzalı kullanıcı show][az-ad-signed-in-user-show] komutu. Bu kullanıcı hesabı, sonraki adımda Azure AD tümleştirmesi için etkinleştirilir.
 
 ```azurecli-interactive
 az ad signed-in-user show --query userPrincipalName -o tsv
@@ -189,7 +189,7 @@ subjects:
   name: userPrincipalName_or_objectId
 ```
 
-ClusterRoleBinding kullanarak oluşturduğunuz [kubectl uygulamak] [ kubectl-apply] komut ve dosya YAML bildiriminizi adını belirtin:
+ClusterRoleBinding kullanarak oluşturduğunuz [kubectl uygulamak][kubectl-apply] komut ve dosya YAML bildiriminizi adını belirtin:
 
 ```console
 kubectl apply -f basic-azure-ad-binding.yaml
@@ -203,7 +203,7 @@ Artık geçirelim AKS kümesi için Azure AD kimlik doğrulaması tümleştirmes
 az aks get-credentials --resource-group myResourceGroup --name $aksname --overwrite-existing
 ```
 
-Artık [kubectl pod'ları alma] [ kubectl-get] komutu tüm ad alanları geneline pod'ları görüntülemek için:
+Artık [kubectl pod'ları alma][kubectl-get] komutu tüm ad alanları geneline pod'ları görüntülemek için:
 
 ```console
 kubectl get pods --all-namespaces

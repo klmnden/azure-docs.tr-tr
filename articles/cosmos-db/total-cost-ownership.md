@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB ile Ownership(TCO) toplam maliyeti
+title: Azure Cosmos DB ile maliyetinizi (TCO) toplam maliyeti
 description: Bu makalede Azure Cosmos DB ile Iaas sahipliğini toplam maliyeti karşılaştırır ve şirket içi veritabanları
 author: rimman
 ms.service: cosmos-db
@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: e603435a49894a9b8faa2df9b49a8572b94eecb5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 861aacb3e4c288ea7f55c5906534b728e9cd22b6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965595"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447216"
 ---
-# <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>Azure Cosmos DB ile Ownership(TCO) toplam maliyeti
+# <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Azure Cosmos DB ile maliyetinizi (TCO) toplam maliyeti
 
-Azure Cosmos DB ile hassas çok kiracılılık ve kaynak İdaresi tasarlanmıştır. Bu tasarım, Azure Cosmos DB'ın önemli ölçüde daha düşük maliyet ve Yardım kullanıcıları çalışmasını sağlar. Şu anda Azure Cosmos DB ile sürekli artan yoğunluğu ve müşteri iş yükleri bir küme içinde binlerce tek bir makinede 280'den fazla müşteri iş yüklerini destekler. Bunu daha fazla bilgi edinmek için bkz: bir veri merkezindeki birden fazla küme ve kümedeki farklı makineler arasında yük dengeleyen müşteri iş yüklerinin kopyaları [Azure Cosmos DB: Global olarak dağıtılmış veritabanı sınır gönderme](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/). Kaynak İdaresi, çok kiracılı modeli ve Azure altyapı geri kalanı ile yerel tümleştirme nedeniyle ortalama 4 ila 6 kat ucuz MongoDB, Cassandra ya da diğer OSS Iaas veritabanı 10 kat ucuz kadar çalıştırıldığı NoSQL Azure Cosmos DB Şirket içinde çalışan altyapıları. Kağıt bakın [(olmayan) bir NoSQL veritabanı bulut hizmeti sahipliğini toplam maliyeti](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf).
+Azure Cosmos DB ile hassas çok kiracılılık ve kaynak İdaresi tasarlanmıştır. Bu tasarım, Azure Cosmos DB'ın önemli ölçüde daha düşük maliyet ve Yardım kullanıcıları çalışmasını sağlar. Şu anda Azure Cosmos DB ile sürekli artan yoğunluğu ve müşteri iş yükleri bir küme içinde binlerce tek bir makinede 280'den fazla müşteri iş yüklerini destekler. Bunu bir veri merkezindeki birden fazla küme ve kümedeki farklı makineler arasında yük dengeleyen müşterilerin iş yüklerinin kopyaları. Daha fazla bilgi için bkz: [Azure Cosmos DB: Global olarak dağıtılmış veritabanı sınır gönderme](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/). Kaynak İdaresi, çok kiracılı modeli ve Azure altyapı geri kalanı ile yerel tümleştirme nedeniyle ortalama 4 ila 6 kat ucuz MongoDB, Cassandra ya da diğer OSS Iaas veritabanı 10 kat ucuz kadar çalıştırıldığı NoSQL Azure Cosmos DB Şirket içinde çalışan altyapıları. Kağıt bakın [(olmayan) bir NoSQL veritabanı bulut hizmeti sahipliğini toplam maliyeti](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf).
 
 OSS NoSQL veritabanı çözümleri, Apache Cassandra, MongoDB, HBase, altyapıları gibi şirket içi için tasarlanmıştır. Yönetilen bir hizmet olarak sunulan bir Resource Manager şablonu ile sağlanan kümeler yönetme ve izleme desteği için bir kiracı veritabanı eşdeğerdir. OSS NoSQL mimarileri önemli işletimsel ek yük gerektirir ve uzmanlığa zor ve pahalı bulmak olabilir. Öte yandan, Azure Cosmos DB işletmeniz için yeniliklerin yerine yönetme ve veritabanı altyapısına bakım uygulama geliştiricilerin odaklanmasını sağlar bir tam olarak yönetilen bir bulut hizmetidir. 
 
@@ -50,7 +50,7 @@ Sunucusuz sağlama modelinin Azure Cosmos DB'nin veritabanı altyapısı işlemi
 
 * **Diğer Azure hizmetleriyle derin tümleştirme Azure Cosmos DB'nin.** Azure Cosmos DB, ağ, hesaplama, Azure işlevleri (sunucusuz), Azure IOT ve diğer Azure Hizmetleri ile yerel bir tümleştirmesi vardır. Bu tümleştirme sayesinde, güçlü garanti ile dünya genelinde veri çoğaltma hızını en iyi performansı alırsınız. Üçüncü taraf çözümleri, eşleştirilecek mümkün olmayacaktır veya genellikle gibi özellikler sunmak için bir premium ücretlendirme.
 
-* **Otomatik olarak yüksek kullanılabilirlik, en az 10-20 hata etki alanları varsayılan olarak sahip olursunuz:** Azure Cosmos DB, yüksek kullanılabilirlik için kritik bir özellik hata etki alanlarında iş yüklerinin dağıtımını destekler. 99\. yüzdebirlik dilimde arasında herhangi bir yazma ve okuma için 99.999 yüksek kullanılabilirlik sunar dünyanın. Şunun gibi kendi sunucunuzda veya bir üçüncü taraf çözümü ile uygulama maliyeti olur yüksek.
+* **Otomatik olarak yüksek kullanılabilirlik, en az 10-20 hata etki alanları varsayılan olarak sahip olursunuz:** Azure Cosmos DB, yüksek kullanılabilirlik için kritik bir özellik hata etki alanlarında iş yüklerinin dağıtımını destekler. 99. yüzdebirlik dilimde arasında herhangi bir yazma ve okuma için 99.999 yüksek kullanılabilirlik sunar dünyanın. Şunun gibi kendi sunucunuzda veya bir üçüncü taraf çözümü ile uygulama maliyeti olur yüksek.
 
 * **Otomatik olarak tüm kurumsal özellikleri ek maliyet olmaksızın alın.** Azure Cosmos DB, en kapsamlı uyumluluk sertifikaları, güvenlik ve şifreleme bekleyen ve Hareket halindeki (rakibimizi için karşılaştırıldığında) ek maliyet olmadan sunar. Otomatik olarak dünyanın herhangi bir yere bölgesel kullanılabilirlik alın. Veritabanınızı herhangi sayıda Azure bölgesine yayılan ekleyebilir veya herhangi bir noktada bölgeleri kaldırın.
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 535ae91abc04b2fdcebb6a2083db95ec50f61798
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 49d1e171d4d4b2210a98c59332f4842e23a2f2b9
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275593"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537846"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL hiper ölçekli veritabanları hakkında SSS
 
@@ -53,7 +53,7 @@ Kullanılabilirlik, depolama türü ve IOPS temel sanal çekirdek tabanlı hizme
 | **Depolama türü** | Tümü |Premium uzaktaki depolama birimi (örnek başına) | Yerel SSD önbellek (örnek başına) ile serbest bağlı depolama | Süper hızlı yerel SSD depolaması (örnek başına) |
 | **Depolama boyutu** | Tek veritabanı / elastik havuz | 5 GB – 4 TB | En fazla 100 TB | 5 GB – 4 TB |
 | | Yönetilen örnek  | 32 GB – 8 TB | Yok | 32 GB – 4 TB |
-| **G/ç aktarım hızı** | Tek veritabanı ** | 7000 maksimum IOPS ile sanal çekirdek başına 500 IOPS | Henüz bilinmiyor | 200.000 maksimum IOPS ile 5000 IOPS|
+| **G/ç aktarım hızı** | Tek veritabanı ** | 7000 maksimum IOPS ile sanal çekirdek başına 500 IOPS | Hiper ölçekli birden çok düzeyde önbelleğe alma ile çok katmanlı bir mimari var. Etkili IOPS, iş yüküne bağlıdır. | 200.000 maksimum IOPS ile 5000 IOPS|
 | | Yönetilen örnek | Dosya boyutuna bağlıdır | Yok | Yönetilen örnek: Dosya boyutuna bağlıdır|
 |**Kullanılabilirlik**|Tümü|1 çoğaltma, hiçbir okuma ölçeği, Hayır yerel önbellek | Lrs'de kadar 15 okuma ölçeği, kısmi yerel önbellek | 3 çoğaltma, 1 okuma ölçeği, bölgesel olarak yedekli HA tam yerel önbellek |
 |**Yedekleri**|Tümü|RA-GRS, 7-35 gün (varsayılan olarak 7 gün)| RA-GRS, 7-35 gün (varsayılan olarak 7 gün), sabit zaman-belirli bir noktaya Kurtarma (PITR) | RA-GRS, 7-35 gün (varsayılan olarak 7 gün) |
@@ -92,7 +92,7 @@ SQL veritabanı hiper ölçekli, iş yükü talebe göre hızlı ölçeklenebili
   İle hiper ölçekli, CPU, bellek gibi kaynakların açısından birincil işlem boyutu ölçeğini ve ardından, Sabit sürede ölçeği. Depolama paylaşıldığından, büyütme ve ölçeği veri işleminin bir boyut değil.  
 - **/ Out ölçeklendirme**
 
-  İle hiper ölçekli, ayrıca, okuma isteklerinin sunmak için kullanabileceğiniz bir veya daha fazla ek işlem düğümleri sağlamasını yapma özelliği edinin. Bu, bu ek işlem düğümleri salt okunur düğüm olarak birincil işlemden iş yükünüz okuma boşaltmak için kullanabileceğiniz anlamına gelir. Ek olarak salt okunur, bu düğümler olarak etkin bekleme Ayrıca hizmet bir hata olması durumunda üzerinden birincil güçlendirin.
+  İle hiper ölçekli, ayrıca, okuma isteklerinin sunmak için kullanabileceğiniz bir veya daha fazla ek işlem düğümleri sağlamasını yapma özelliği edinin. Bu, bu ek işlem düğümleri salt okunur düğüm olarak birincil işlemden iş yükünüz okuma boşaltmak için kullanabileceğiniz anlamına gelir. Ek olarak salt okunur, bu düğümler olarak etkin bekleme Ayrıca hizmet birincil yük devretme durumunda kullanıcının.
 
   Bu ek işlem düğümleri Sabit sürede yapılabilir ve çevrimiçi bir işlem olduğundan her biri sağlama. Ayarlayarak bu ek salt okunur işlem düğümlerine bağlanabilirsiniz `ApplicationIntent` bağlantı dizenizi bağımsız değişkenine `readonly`. Herhangi bir bağlantı ile işaretlenen `readonly` ek salt okunur işlem düğümlerinden biri için otomatik olarak yönlendirilir.
 
@@ -120,7 +120,7 @@ Tüm SQL Server iş yüklerinizi SQL veritabanı hiper ölçekli destekler, anca
 
 ### <a name="how-can-i-choose-between-azure-sql-data-warehouse-and-sql-database-hyperscale"></a>SQL veritabanı hiper ölçekli Azure SQL veri ambarı arasında nasıl seçebilirim
 
-Şu anda olarak veri ambarı, SQL Server'ı kullanarak etkileşimli analiz sorguları çalıştırma (örneğin, birkaç TB 10's TB'a kadar) görece küçük veri ambarları barındırabilir SQL veritabanı hiper ölçekli bir harika daha düşük bir maliyet karşılığında seçenektir; çünkü ve verilerinizi geçirebilirsiniz.  T-SQL kod değişikliği yapmadan ambarı iş yükü için SQL veritabanı hiper ölçekli.
+Bir veri ambarı SQL Server'ı kullanarak etkileşimli analiz sorguları çalıştırıyorsanız, nispeten küçük veri ambarları (örneğin, birkaç TB 10s TB'a kadar) barındırabilir SQL veritabanı hiper ölçekli bir çok daha düşük bir maliyet karşılığında seçenektir; çünkü ve, veri w geçirebilirsiniz. T-SQL kod değişikliği yapmadan arehouse iş yükü için SQL veritabanı hiper ölçekli.
 
 Karmaşık sorgular ile büyük bir ölçekte veri analizi çalıştıran ve paralel veri ambarı'nı (PDW), Teradata veya diğer yüksek düzeyde paralel işlemci (MPP) kullanarak varsa) veri ambarları, SQL veri ambarı en iyi seçenek olabilir.
   
@@ -349,7 +349,7 @@ Son kullanıcı. Otomatik değil.
 
 Evet. İşlem büyüdükçe geçici db otomatik olarak ölçeklenir.  
 
-### <a name="can-i-provision-multiple-primary-computes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>Eşzamanlılık daha yüksek bir düzeyde birden fazla birincil işlem heads burada yönlendirebilirsiniz çok yöneticili bir sistem gibi birden çok birincil hesaplar sağlayabilirim
+### <a name="can-i-provision-multiple-primary-compute-nodes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>Eşzamanlılık daha yüksek bir düzeyde birden fazla birincil işlem heads burada yönlendirebilirsiniz çok yöneticili bir sistem gibi birden çok birincil işlem düğümleri sağlayabilirim
 
 Hayır. Yalnızca birincil işlem düğümü okuma/yazma isteklerini kabul eder. İkincil işlem düğümleri yalnızca salt okunur istekler kabul edin.
 
@@ -369,7 +369,7 @@ Hayır. Belirterek yalnızca okuma ölçeği çoğaltmaya bağlanabilirsiniz `Ap
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>Sistem, okuma iş yükü akıllı yük dengeleme işe yarar
 
-Hayır. Okuma yalnızca bir rastgele okuma ölçeği çoğaltmaya yeniden yönlendirilmiş iş yüküdür.
+Hayır. Salt okunur iş yükü bir rastgele okuma ölçeği çoğaltmaya yönlendirilir.
 
 ### <a name="can-i-scale-updown-the-secondary-compute-nodes-independently-of-the-primary-compute"></a>Ben yukarı/aşağı ikincil işlem düğümlerine birincil işlem bağımsız olarak ölçeklendirebilirsiniz
 

@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: af155b5adb2e4b45412a8b84818852ed1b1c5e72
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0812828f8d7c0be38fb03c06f4a10019e2ed153c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966104"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447295"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure depolama Tablo Tasarımı Kılavuzu: Tasarlama ölçeklenebilir ve performansa yönelik tablolar
 
@@ -255,7 +255,7 @@ Birçok tasarımı birden çok ölçüte bağlı varlıkların aramasını etkin
 Sorgu sonuçları tablosu hizmet tarafından döndürülen göre artan düzende sıralanır **PartitionKey** göre ve ardından **RowKey**.
 
 > [!NOTE]
-> Sorgu sonuçlarını Azure DB'de Azure tablo API'si tarafından döndürülen bölüm anahtarı veya satır anahtarı sıralı değildir. Özellik farkları ayrıntılı bir listesi için bkz. [Azure Cosmos DB ile Azure tablo depolama tablo API'SİNDE arasındaki farklar](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Azure Cosmos DB, Azure tablo API'si tarafından döndürülen sorgu sonuçları bölüm anahtarı veya satır anahtarı sıralı değildir. Özellik farkları ayrıntılı bir listesi için bkz. [Azure Cosmos DB ile Azure tablo depolama tablo API'SİNDE arasındaki farklar](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 Dize değerlerini Azure depolama tablosundaki anahtarlarıdır ve sayısal değerleri doğru sıralamak emin olmak için sabit uzunluk için bunları dönüştürmeniz ve bunları sıfır ile doldurur. Örneğin, çalışan kimliği değeri olarak kullanırsanız **RowKey** bir tamsayı değeri olan çalışan kimliği dönüştürmelisiniz **123** için **00000123**. 
 
@@ -723,7 +723,7 @@ Bu düzeni uygularken aşağıdaki düzenler ve yönergeler de yararlı olabilir
 Alma *n* varlıkları kullanarak bir bölüm için en son eklenen bir **RowKey** geriye doğru tarih ve saat sipariş sıralar değeri.  
 
 > [!NOTE]
-> Sorgu sonuçlarını Azure DB'de Azure tablo API'si tarafından döndürülen bölüm anahtarı veya satır anahtarı sıralanmaz. Bu nedenle, bu düzen Azure tablo depolama ve Azure Cosmos DB için uygundur. Özellik farkları ayrıntılı bir listesi için bkz. [Azure Cosmos DB tablo API'si ile Azure tablo depolama arasındaki farklar](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Azure Cosmos DB, Azure tablo API'si tarafından döndürülen sorgu sonuçları, bölüm anahtarı veya satır anahtarı sıralanmaz. Bu nedenle, bu düzen Azure tablo depolama ve Azure Cosmos DB için uygundur. Özellik farkları ayrıntılı bir listesi için bkz. [Azure Cosmos DB tablo API'si ile Azure tablo depolama arasındaki farklar](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 #### <a name="context-and-problem"></a>Bağlam ve sorun
 Sık karşılaşılan bir gereksinimdir en son oluşturulan varlıkları almak için örneğin on en son bir çalışan tarafından gönderilen talepleri gider. Tablo sorguları destek bir **$top** sorgulama işlemi ilk döndürülecek *n* bir kümesindeki varlıkların: küme içindeki son n varlıkları döndürülecek eşdeğer sorgu işlemi yok.  

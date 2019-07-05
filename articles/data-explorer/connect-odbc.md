@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: 02ae9673f1dc402ee1500b466d7e259263ef3262
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/30/2019
+ms.openlocfilehash: 65795b5b4dea8d2cdeecf5f78f9de751f275dac0
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494840"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537597"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>Azure Veri Gezgini ODBC ile bağlanma
 
@@ -20,7 +20,13 @@ Açık veritabanı bağlantısı ([ODBC](/sql/odbc/reference/odbc-overview)) ver
 
 Arka planda uygulamaları adlı veritabanı özel modüller uygulanan işlevleri ODBC arabiriminde çağırma *sürücüleri*. Azure Veri Gezgini, SQL Server iletişim protokolü kümesini destekler ([MS TDS](/azure/kusto/api/tds/)), SQL Server için ODBC sürücüsü kullanabilirsiniz.
 
-Bu makalede, Azure veri Gezgini'ne ODBC destekleyen herhangi bir uygulamadan bağlanabilmesi için SQL Server ODBC sürücüsü kullanmayı öğrenin.
+Aşağıdaki videoda kullanarak bir ODBC bağlantısı oluşturmak bilgi edinebilirsiniz. 
+
+> [!VIDEO https://www.youtube.com/embed/qA5wxhrOwog]
+
+Alternatif olarak, [ODBC veri kaynağını yapılandırma](#configure-the-odbc-data-source) aşağıda ayrıntılı olarak. 
+
+Makalede, ODBC destekleyen herhangi bir uygulamadan Azure veri Gezgini'ne bağlanabilmesi için SQL Server ODBC sürücüsü kullanmayı öğrenin. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 

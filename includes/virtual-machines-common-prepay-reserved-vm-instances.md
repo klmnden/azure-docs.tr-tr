@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 05/14/2019
-ms.openlocfilehash: c7ff7ab0800449c2a3aa9d58bd036981caccaa1c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: MT
+ms.date: 07/01/2019
+ms.openlocfilehash: 9e0caa8b98133dad3af083e8910d0603bbd2563b
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67188339"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67489927"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances-ri"></a>Azure ayrılmış VM örnekleri (RI) ile sanal makineler için ön ödeme
 
@@ -17,7 +17,7 @@ Sanal makineler için ödeme yaparak Azure ayrılmış sanal makine (VM) örnekl
 
 Ayrılmış VM örneği satın alabileceğiniz [Azure portalında](https://portal.azure.com). Bir örnek satın almak için:
 
-- En az bir kuruluş veya Kullandıkça Öde aboneliğine sahip rolünde olması gerekir.
+- En az bir kurumsal abonelik veya Kullandıkça Öde fiyatı olan bir abonelik sahibi rolünde olması gerekir.
 - Kurumsal abonelikler için **ayrılmış örnekleri ekleme** içinde etkinleştirilmelidir [EA portal](https://ea.azure.com). Veya bu ayarı devre dışıysa, aboneliğini bir EA yönetici olması gerekir.
 - Bulut çözümü sağlayıcısı (CSP) programı için yalnızca yönetim aracıları veya satış aracılarının rezervasyon satın alabilirsiniz.
 
@@ -68,13 +68,13 @@ Ayrılmış VM örnekleri, bazı özel durumlar ile çoğu VM boyutları için k
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Seçin **tüm hizmetleri** > **ayırmaları**.
 3. Seçin **Ekle** yeni bir rezervasyon satın almak için.
-4. Gerekli alanları doldurun. Çalışan VM ayırma indirim almak için öznitelikleri uygun eşleşen örnekleri. Kapsam ve seçilen miktar indirim almak, sanal makine örneği gerçek sayısını bağlıdır.
+4. Gerekli alanları girin. Çalışan VM ayırma indirim almak için öznitelikleri uygun eşleşen örnekleri. Kapsam ve seçilen miktar indirim almak, sanal makine örneği gerçek sayısını bağlıdır.
 
     | Alan      | Açıklama|
     |------------|--------------|
     |Ad        |Bu rezervasyon adı.|
-    |Abonelik|Ayırma için ödeme yapmak üzere kullanılan abonelik. Aboneliğinizin ödeme yöntemini, ön maliyet ayırma için ücretlendirilir. Kurumsal Anlaşma abonelik türü olmalıdır (sayılar sunar: MS-AZR-0017P veya MS-AZR - 0148 P) ya da Kullandıkça Öde (sayılar sunar: MS-AZR-0003P veya MS-AZR-0023P). Kurumsal abonelik için ücretler kaydın maddi işlem bakiyesinden düşülür ve fazla kullanım olarak ücretlendirilir. Kullandıkça Öde aboneliğinde ücretler, aboneliğin kredi kartı veya fatura ödeme yöntemi ile faturalandırılır.|    
-    |`Scope`       |Ayırma'nın kapsamı, bir abonelik veya birden çok abonelik (paylaşılan kapsamı) ele. Seçerseniz: <ul><li>Tek bir abonelik - ayırma indirimini bu abonelikte Vm'lere uygulanır. </li><li>Paylaşılan - ayırma indirimi herhangi bir abonelik, fatura bağlamı içinde çalışan Vm'lere uygulanır. Kurumsal müşteriler için Paylaşılan kapsam kayıt ve kayıt içinde tüm abonelikleri içerir. Kullandıkça Öde müşterileri için paylaşılan tüm Kullandıkça Öde abonelikleri Hesap Yöneticisi tarafından oluşturulan kapsamdır.</li></ul>|
+    |Abonelik|Ayırma için ödeme yapmak üzere kullanılan abonelik. Aboneliğinizin ödeme yöntemini, ön maliyet ayırma için ücretlendirilir. Kurumsal Anlaşma abonelik türü olmalıdır (sayılar sunar: MS-AZR-0017P veya MS-AZR - 0148 P) ya da Kullandıkça Öde tarifesine göre tek tek bir abonelikle (sayılar sunar: MS-AZR-0003P veya MS-AZR-0023P). Kurumsal abonelik için ücretler kaydın maddi işlem bakiyesinden düşülür ve fazla kullanım olarak ücretlendirilir. Kullandıkça Öde tarifesine göre olan bir abonelik için ücretleri, aboneliğinizin kredi kartı veya fatura ödeme yöntemi için faturalandırılır.|    
+    |`Scope`       |Ayırma'nın kapsamı, bir abonelik veya birden çok abonelik (paylaşılan kapsamı) ele. Seçerseniz: <ul><li>Tek bir abonelik - ayırma indirimini bu abonelikte Vm'lere uygulanır. </li><li>Paylaşılan - ayırma indirimi herhangi bir abonelik, fatura bağlamı içinde çalışan Vm'lere uygulanır. Kurumsal müşteriler için Paylaşılan kapsam kayıt ve kayıt içinde tüm abonelikleri içerir. Kullandıkça Öde tarifesine göre olan abonelikleri olan müşteriler için Paylaşılan kapsam Kullandıkça Öde fiyatları üzerinden Hesap Yöneticisi tarafından oluşturulan tüm aboneliklere ' dir.</li></ul>|
     |Bölge    |Ayırma tarafından kapsanan Azure bölgesi.|    
     |VM Boyutu     |Sanal makine örneği boyutu.|
     |İçin en iyi duruma getirme     |Sanal makine örneği boyutu esnekliği, aynı diğer VM'ler için ayırma indirimi geçerlidir [VM boyutu grubu](https://aka.ms/RIVMGroups). Kapasite önceliği dağıtımlarınız için veri merkezi kapasitenizi önceliklendirir. Bu, ihtiyaç duyduğunuzda sanal makine örneklerini başlatma yeteneğinizi ek güvence sunar. Kapasite önceliği yalnızca ayırma kapsamı tek bir abonelik olduğunda kullanılabilir. |
@@ -98,7 +98,7 @@ Satın almanızdan sonra doğrudan aşağıdaki türde değişiklikler yapamaz:
 - Mevcut bir ayırma'nın bölgesi
 - SKU
 - Miktar
-- Süre
+- Duration
 
 Ancak, *exchange* değişiklik yapmak istiyorsanız bir ayırma.
 
@@ -121,7 +121,7 @@ Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](
     - [Azure ayırmaları nelerdir?](../articles/billing/billing-save-compute-costs-reservations.md)
     - [Azure'da ayırmalarını yönetme](../articles/billing/billing-manage-reserved-vm-instance.md)
     - [Ayırma indirimi nasıl uygulanacağını anlama](../articles/billing/billing-understand-vm-reservation-charges.md)
-    - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](../articles/billing/billing-understand-reserved-instance-usage.md)
+    - [Kullandıkça Öde tarifesine göre olan bir abonelik için ayırma kullanımını anlama](../articles/billing/billing-understand-reserved-instance-usage.md)
     - [Kurumsal kayıt için ayırma kullanımını anlama](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
     - [Windows yazılım maliyetleri ile ayırmaları dahil değil](../articles/billing/billing-reserved-instance-windows-software-costs.md)
     - [İş ortağı merkezi bulut çözümü sağlayıcısı (CSP) programında Azure ayırmalar](https://docs.microsoft.com/partner-center/azure-reservations)

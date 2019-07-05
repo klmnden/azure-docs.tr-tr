@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 3e9885466d422a0428311ed3013e2ab34341cd25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24c2bfa4aae94642d3ed66f2cfa6e31ba1e6b19a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66391470"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67457580"
 ---
 Kısa ömürlü işletim sistemi diskleri yerel sanal makine (VM) depolama alanında oluşturulur ve uzak Azure Depolama'da kalıcı hale değil. Burada uygulamaları tek tek VM kesintilerine dayanıklı olsa da, büyük ölçekli dağıtımlar için geçen süreyi veya tek tek sanal makine örneği görüntüsünü yeniden oluşturmak zaman hakkında daha fazla endişe iyi durum bilgisiz iş yükleri için kısa ömürlü işletim sistemi diskleri çalışır. Resource Manager dağıtım modeline taşımak Klasik dağıtım modeli kullanılarak dağıtılan uygulamalar için de uygundur. Kısa Ömürlü İşletim Sistemi diskleriyle, İşletim Sistemi disklerinde okuma/yazma gecikme süresinin kısaldığını ve yeniden görüntü oluşturmanın hızlandığını görebilirsiniz. Ayrıca, kısa ömürlü işletim sistemi diski ücretsizdir, işletim sistemi diski için hiçbir depolama maliyeti doğurur. 
  

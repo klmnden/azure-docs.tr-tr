@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/30/2019
 ms.author: raynew
-ms.openlocfilehash: a02a2be7fb3ed942b1359949e18ba7d3dee824ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d1471188999182623a57db50d3205a859c160a2
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399966"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491792"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Vm'leri ve fiziksel sunucuları başarısız 
 
@@ -70,9 +70,9 @@ Site Recovery ayrıca desteği kullanılarak korunan sanal makineler/fiziksel su
 
 > [!NOTE]
 > Bir şirket içi siteden başka bir şirket içi siteye Hyper-v sanal makinelerin yük devretme sırasında birincil şirket içi siteye geri dönmeniz için ilk sahip olduğunuz **ters çoğaltma** sanal makine yedekleme için birincil site ve ardından bir yük devretme tetikleyin. Birincil sanal makine için önce başlangıç kullanılabilir değilse, **ters çoğaltma** sanal makine bir yedekten geri yüklemek zorunda.   
-> 
-> 
-> ## <a name="failover-job"></a>Yük devretme işi
+ 
+ 
+## <a name="failover-job"></a>Yük devretme işi
 
 ![Yük devretme](./media/site-recovery-failover/FailoverJob.png)
 
@@ -111,7 +111,7 @@ Bir yük devretme yaparken belirli eylemleri otomatikleştirmek isteyebilirsiniz
 ## <a name="post-failover-considerations"></a>Yük devretme konuları gönderin
 Aşağıdaki önerileri göz önünde bulundurun isteyebileceğiniz yük devretme sonrası:
 ### <a name="retaining-drive-letter-after-failover"></a>Yük devretmeden sonra sürücü harfi korunuyor
-Yük devretmeden sonra sanal makinelerde sürücü harfini korumak için ayarlayabileceğiniz **SAN ilkesinin** sanal makine için **OnlineAll**. [Daha fazla bilgi edinin](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+Azure Site Recovery, sürücü harflerini bekletmesi işler. [Daha fazla bilgi edinin](vmware-azure-exclude-disk.md#example-1-exclude-the-sql-server-tempdb-disk) bazı diskleri dışarıda seçtiğinizde üzerinde nasıl gerçekleştirilir.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Yük devretmeden sonra Azure VM'lerine bağlanmak için hazırlık yapma
 

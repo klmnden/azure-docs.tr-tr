@@ -8,19 +8,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: bef71f210e015dc10cd6f5c0c655d0d3beee3655
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5492f4865e464cf8bedaee6e9b0ab25532e21459
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64728927"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448750"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>HDInsight üzerinde Apache Spark kümesi ile özel bir Python kitaplığı kullanarak Web sitesi günlüklerini çözümleme
 
 Bu not defteri, HDInsight üzerinde Apache Spark ile özel bir kitaplık kullanarak günlük verilerini nasıl çözümleyeceğinizi gösterir. Adlı bir Python kitaplığı kullandığımız özel bir kitaplık olan **iislogparser.py**.
 
 > [!TIP]  
-> Bu öğreticide, HDInsight içinde oluşturduğunuz bir Spark (Linux) kümesinde Jupyter not defteri olarak da kullanılabilir. Not Defteri deneyimi not defterinden Python kod çalıştırmanıza olanak tanır. Öğreticinin bir not defteri içinde gerçekleştirmek için Spark kümesi oluşturma, Jupyter not defteri başlatın (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), ve sonra not defteri çalıştırma **özel library.ipynb kullanarak Spark ile günlükleri çözümleme** altında **PySpark**  klasör.
+> Bu makalede, HDInsight içinde oluşturduğunuz bir Spark (Linux) kümesinde Jupyter not defteri olarak da kullanılabilir. Not Defteri deneyimi not defterinden Python kod çalıştırmanıza olanak tanır. Makaleden bir not defteri içinde gerçekleştirmek için Spark kümesi oluşturma, Jupyter not defteri başlatın (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), ve sonra not defteri çalıştırma **özel library.ipynb kullanarak Spark ile günlükleri çözümleme** altında **PySpark** klasör.
 >
 >
 

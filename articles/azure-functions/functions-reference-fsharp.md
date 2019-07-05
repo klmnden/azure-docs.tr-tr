@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: fbc5a149e59bff1897d3949185272e9ca664f989
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23e9ffa5c86674cb34951f29573e033b4a904941
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64717813"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442222"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure işlevleri F# Geliştirici Başvurusu
 
@@ -54,7 +54,7 @@ FunctionsProject
 
 Var olan bir paylaşılan [host.json](functions-host-json.md) işlev uygulamasını yapılandırmak için kullanılan dosya. Her işlev, kendi kod dosyası (.fsx) ve bağlama yapılandırma dosyası (function.json) vardır.
 
-Gerekli bağlama uzantıları [sürüm 2.x](functions-versions.md) işlevleri çalışma zamanı içinde tanımlanmıştır `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Azure portalında işlevleri geliştirirken, bu kayıt sizin yerinize yapılır.
+Gerekli bağlama uzantıları [sürüm 2.x](functions-versions.md) işlevleri çalışma zamanı içinde tanımlanmıştır `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](./functions-bindings-register.md#extension-bundles). Azure portalında işlevleri geliştirirken, bu kayıt sizin yerinize yapılır.
 
 ## <a name="binding-to-arguments"></a>Bağımsız değişkenler için bağlama
 Her bağlama bazı bağımsız değişkenler, içinde ayrıntılı olarak kümesini destekleyen [Azure işlevleri Tetikleyicileri ve bağlamaları Geliştirici Başvurusu](functions-triggers-bindings.md). Örneğin, blob Tetikleyicileri destekler bağımsız değişken bağlamaları biri kullanılarak ifade bir POCO olan bir F# kaydı. Örneğin:

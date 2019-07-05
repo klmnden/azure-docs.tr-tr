@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: sogup
-ms.openlocfilehash: aa953440f03137f3359276bc9e06cb0c73f0ab4a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: add2c72535b5be0edcbc00c077dfe20a6deaa3e0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61219373"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434239"
 ---
 # <a name="manage-azure-vm-backups"></a>Azure VM yedeklemelerini yönetme
 
@@ -103,25 +103,36 @@ Kasa panosunda, işin ilerleme durumunu izlemek için **yedekleme işleri** Dö�
 
 Bir sanal makine korumayı durdurmanın iki yolu vardır:
 
-- Gelecek tarihli tüm yedekleme işlerini durdurma ve tüm kurtarma noktalarını silin. Bu durumda, sanal Makineyi geri yükleme olanağınız olmayacaktır.
-- Gelecek tarihli tüm yedekleme işlerini durdurma ve kurtarma noktalarını tutun. Kasada kurtarma noktalarını tutmak ücret ödemem gerekir ancak gerekirse VM geri yükleme mümkün olacaktır. Daha fazla bilgi için [Azure Backup fiyatlandırma](https://azure.microsoft.com/pricing/details/backup/).
+* **Korumayı durdurma ve yedekleme verilerini koru**. Bu seçenek, VM'nizi korumaya gelen Gelecek tarihli tüm yedekleme işlerini durdurur; Ancak, Azure Backup hizmeti yedeklenmiş kurtarma noktalarını korur.  Kasada kurtarma noktalarını tutmak ücret ödemem gerekir (bkz [Azure Backup fiyatlandırma](https://azure.microsoft.com/pricing/details/backup/) Ayrıntılar için). Gerekirse VM'ye geri yüklenmesi mümkün olacaktır. Sanal makine korumayı sürdürmek karar sonra kullanabileceğiniz *yedeklemeyi Sürdür* seçeneği.
+* **Korumayı durdurma ve yedekleme verilerini silme**. Bu seçenek, VM'nizi korumaya gelen Gelecek tarihli tüm yedekleme işlerini durdurma ve tüm kurtarma noktalarını silin. VM'yi geri yükleme ya da kullanmak mümkün olmayacaktır *yedeklemeyi Sürdür* seçeneği.
 
 >[!NOTE]
 >Yedeklemeleri durdurmadan bir veri kaynağını silerseniz, yeni yedeklemeler başarısız olur. Eski kurtarma noktalarını ilkesine göre dolacak, ancak bir son kurtarma noktası her zaman yedekleri durdurun ve verileri silmek kadar tutulacak.
 >
 
-Bir VM için korumayı durdurmak için:
+### <a name="stop-protection-and-retain-backup-data"></a>Korumayı durdurma ve yedekleme verilerini koru
+
+Korumayı durdurun ve verileri sanal makinenin korumak için:
 
 1. Üzerinde [öğenin Pano kasası](#view-vms-on-the-dashboard)seçin **yedeklemeyi Durdur**.
-2. Korumak veya yedekleme verileri silmek ve gerektiğinde Seçiminizi onaylayın isteyip istemediğinizi seçin. İsterseniz bir açıklama ekleyin. Öğenin adından emin değilseniz, adını görüntülemek için ünlem işareti gelin.
+2. Seçin **yedekleme verilerini koru**ve gerektiği şekilde Seçiminizi onaylayın. İsterseniz bir açıklama ekleyin. Öğenin adından emin değilseniz, adını görüntülemek için ünlem işareti gelin.
 
-    ![Korumayı Durdur](./media/backup-azure-manage-vms/retain-or-delete-option.png)
+    ![Yedekleme verilerini koru](./media/backup-azure-manage-vms/retain-backup-data.png)
 
-     Bir bildirim, yedekleme işlerini durdurduğunuzdan olduğunu bilmenizi sağlar.
+Bir bildirim, yedekleme işlerini durdurduğunuzdan olduğunu bilmenizi sağlar.
+
+### <a name="stop-protection-and-delete-backup-data"></a>Korumayı durdurma ve yedekleme verilerini silme
+
+Korumayı durdurma ve bir sanal makinenin verilerini silmek için:
+
+1. Üzerinde [öğenin Pano kasası](#view-vms-on-the-dashboard)seçin **yedeklemeyi Durdur**.
+2. Seçin **yedekleme verilerini Sil**ve gerektiği şekilde Seçiminizi onaylayın. Yedekleme öğesinin adını girin ve isterseniz bir açıklama ekleyin.
+
+    ![Yedekleme verilerini silme](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
 ## <a name="resume-protection-of-a-vm"></a>Bir sanal makinenin korumasını sürdürme
 
-VM durdurulduğunda yedekleme verileri tutarsanız, daha sonra korumayı devam edebilir. Yedekleme verilerini silmeniz halinde, koruma sürdüremezsiniz.
+Tercih etmiş [korumasını Durdur ve yedekleme verilerini koru](#stop-protection-and-retain-backup-data) seçeneği sırasında VM korumasını durdurun, ardından kullanabilirsiniz **yedeklemeyi Sürdür**. Seçerseniz bu seçenek kullanılamaz [korumasını Durdur ve yedekleme verilerini Sil](#stop-protection-and-delete-backup-data) seçeneği veya [yedekleme verilerini Sil](#delete-backup-data).
 
 Bir sanal makine için korumayı sürdürmek için:
 
@@ -134,23 +145,25 @@ Bir sanal makine için korumayı sürdürmek için:
 
 ## <a name="delete-backup-data"></a>Yedekleme verilerini silme
 
-Sırasında bir sanal makinenin yedekleme verilerini silmeniz **yedeklemeyi Durdur** işi veya yedekleme işi tamamlandıktan sonra. Yedekleme verilerini silmeden önce bu ayrıntıları göz önünde bulundurun:
+Bir sanal makinenin yedekleme verilerini silmek için iki yolu vardır:
 
-- Günler veya haftalar kurtarma noktalarını silmeden önce beklenecek bir fikir olabilir.
-- İşlemi farklı yedekleme verilerini silerken kurtarma noktalarını geri yüklemek için silmek için belirli kurtarma noktalarının silinmesini seçemezsiniz. Yedekleme verilerinizi silerseniz, tüm ilişkili kurtarma noktalarını silin.
+- Kasa öğesi panosunda yedeklemeyi Durdur seçin ve yönergeleri izleyin [korumasını Durdur ve yedekleme verilerini Sil](#stop-protection-and-delete-backup-data) seçeneği.
 
-Durdurmak veya sanal makinenin yedekleme işi devre dışı sonra yedekleme verileri silebilirsiniz:
+  ![Yedeklemeyi Durdur seçin](./media/backup-azure-manage-vms/stop-backup-buttom.png)
 
+- Kasa öğesi panosunda, yedekleme verilerini sil seçin. Bu seçeneğin etkinleştirilmesi için seçtiyseniz [korumasını Durdur ve yedekleme verilerini koru](#stop-protection-and-retain-backup-data) seçeneği sırasında VM korumasını durdurun
 
-1. Üzerinde [kasa öğesi panosunda](#view-vms-on-the-dashboard)seçin **yedekleme verilerini Sil**.
+  ![Delete yedeği seçin](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-    ![Delete yedeği seçin](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+  - Üzerinde [kasa öğesi panosunda](#view-vms-on-the-dashboard)seçin **yedekleme verilerini Sil**.
+  - Kurtarma noktalarını silmek istediğinizi onaylamak için yedekleme öğesinin adını yazın.
 
-1. Kurtarma noktalarını silmek istediğinizi onaylamak için yedekleme öğesinin adını yazın.
+    ![Yedekleme verilerini silme](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
-    ![Kurtarma noktalarını silmek istediğinizi onaylayın](./media/backup-azure-manage-vms/item-verification-box.png)
+  - Öğe için yedekleme verileri silmek için işaretleyin **Sil**. Bir bildirim iletisi, yedekleme verileri silindi bilmenizi sağlar.
 
-1. Öğe için yedekleme verileri silmek için işaretleyin **Sil**. Bir bildirim iletisi, yedekleme verileri silindi bilmenizi sağlar.
+  > [!NOTE]
+  > Yedekleme verilerini sildiğinizde tüm ilişkili kurtarma noktalarını silin. Silmek için belirli kurtarma noktalarının seçemezsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Bilgi edinmek için nasıl [Azure Vm'leri sanal makinenin ayarlarını yedekleme](backup-azure-vms-first-look-arm.md).

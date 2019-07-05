@@ -12,16 +12,16 @@ ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 06/03/2019
-ms.openlocfilehash: ba787ccd51bf5ea9ec8e06e341a0f698afb5a7e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a4d3fd0f7b670bbb0b01385252b405829a91baa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688080"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442308"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Bir Azure SQL veritabanı işlemsel olarak tutarlı bir kopyasını kopyalayın
 
-Azure SQL veritabanı, aynı sunucuda veya farklı bir sunucu üzerinde mevcut bir Azure SQL veritabanını işlemsel olarak tutarlı bir kopyasını oluşturmak için çeşitli yöntemler sunar. Azure portalı, PowerShell veya T-SQL kullanarak SQL veritabanına kopyalayabilirsiniz. 
+Azure SQL veritabanı mevcut bir Azure SQL veritabanını işlemsel olarak tutarlı bir kopyasını oluşturmak için çeşitli yöntemler sağlar ([tek veritabanı](sql-database-single-database.md)) aynı sunucuda veya farklı bir sunucu. Azure portalı, PowerShell veya T-SQL kullanarak SQL veritabanına kopyalayabilirsiniz. 
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -94,7 +94,7 @@ Bu komut, Veritabanı1 Veritabanı2 Sunucu2'adlı yeni bir veritabanı Sunucu1 k
 
 ### <a name="copy-a-sql-database-to-a-different-subscription"></a>Farklı bir aboneliğe bir SQL veritabanını kopyalama
 
-Veritabanınızın SQL veritabanı sunucusu farklı bir abonelikte kopyalamak için önceki bölümdeki adımları descrbed kullanabilirsiniz. Kaynak veritabanında veritabanı sahibi olarak aynı adı ve parola içeren bir oturum açma bilgilerini kullanacak ve dbmanager rolüne bir üye veya sunucu düzeyinde asıl oturum açma işlemi olduğundan emin olun. 
+Veritabanınızın SQL veritabanı sunucusu farklı bir abonelikte kopyalamak için önceki bölümde açıklanan adımları kullanabilirsiniz. Kaynak veritabanında veritabanı sahibi olarak aynı adı ve parola içeren bir oturum açma bilgilerini kullanacak ve dbmanager rolüne bir üye veya sunucu düzeyinde asıl oturum açma işlemi olduğundan emin olun. 
 
 > [!NOTE]
 > [Azure portalında](https://portal.azure.com) farklı aboneliğe kopyalama desteklemez çünkü Portal, ARM API çağrıları ve coğrafi çoğaltma katılan her iki sunucuyu erişmek için abonelik sertifikası kullanır.  

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: glenga
-ms.openlocfilehash: 88e5f1ac7834caa32302a3817e1779d0d733a7b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 83a98a493068d3427e34f3ac2ca5c24baa48dda1
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787538"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508235"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Bir paket dosyasından, Azure işlevleri'ni çalıştırma
 
@@ -45,7 +45,7 @@ Bir paketinden çalıştırılacak işlev uygulamanızı etkinleştirmek için a
 | Değer  | Açıklama  |
 |---------|---------|
 | **`1`**  | Windows üzerinde çalıştırılan işlev uygulamaları için önerilir. Paket dosyasından çalıştırın `d:\home\data\SitePackages` işlev uygulamanızın klasör. Aksi takdirde [zip ile dağıtmak](#integration-with-zip-deployment), bu seçenek adlı bir dosya de klasöre gerektirir `packagename.txt`. Bu dosya, yalnızca tüm boşluk olmadan klasöründeki paket dosya adını içerir. |
-|**`<url>`**  | Çalıştırmak istediğiniz belirli paket dosyasının konumu. BLOB Depolama kullanırken, özel bir kapsayıcı ile kullanması gereken bir [paylaşılan erişim imzası (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) işlevler çalışma zamanı paketi erişmek etkinleştirmek için. Kullanabileceğiniz [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) paket dosyaları Blob Depolama hesabınıza yüklemek için.         |
+|**`<url>`**  | Çalıştırmak istediğiniz belirli paket dosyasının konumu. BLOB Depolama kullanırken, özel bir kapsayıcı ile kullanması gereken bir [paylaşılan erişim imzası (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) işlevler çalışma zamanı paketi erişmek etkinleştirmek için. Kullanabileceğiniz [Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md) paket dosyaları Blob Depolama hesabınıza yüklemek için.         |
 
 > [!CAUTION]
 > Bir işlev uygulaması, Windows üzerinde çalışırken, dış URL seçeneği daha da kötüsü soğuk başlangıç performansı verir. İşlev uygulamanız için Windows Dağıtım yaparken, ayarlamalısınız `WEBSITE_RUN_FROM_PACKAGE` için `1` ve zip dağıtımı ile yayımlayın.
@@ -59,7 +59,7 @@ Aşağıda, Azure Blob Depolama alanında barındırılan bir .zip dosyasından 
 
 ## <a name="integration-with-zip-deployment"></a>Zip dağıtım ile tümleştirme
 
-[Zip dağıtım] [ Zip deployment for Azure Functions] bir işlev uygulaması projenizi dağıtmanıza olanak tanır, Azure App Service özelliğidir `wwwroot` dizin. Proje, dağıtım .zip dosyası olarak paketlenir. API'leri paketinize dağıtmak için kullanılan `d:\home\data\SitePackages` klasör. İle `WEBSITE_RUN_FROM_PACKAGE` uygulama ayarının değerini `1`, zip dağıtım API'leri kopyalama paketinize `d:\home\data\SitePackages` dosyasına ayıklama yerine klasörü `d:\home\site\wwwroot`. Ayrıca oluşturur `packagename.txt` dosya. İşlev uygulaması paketinden bir yeniden başlatma sonrasında çalıştırılan ve `wwwroot` salt okunur hale gelir. Zip dağıtımı hakkında daha fazla bilgi için bkz. [Zip Azure işlevleri için dağıtım](deployment-zip-push.md).
+[Zip dağıtım][Zip deployment for Azure Functions] bir işlev uygulaması projenizi dağıtmanıza olanak tanır, Azure App Service özelliğidir `wwwroot` dizin. Proje, dağıtım .zip dosyası olarak paketlenir. API'leri paketinize dağıtmak için kullanılan `d:\home\data\SitePackages` klasör. İle `WEBSITE_RUN_FROM_PACKAGE` uygulama ayarının değerini `1`, zip dağıtım API'leri kopyalama paketinize `d:\home\data\SitePackages` dosyasına ayıklama yerine klasörü `d:\home\site\wwwroot`. Ayrıca oluşturur `packagename.txt` dosya. İşlev uygulaması paketinden bir yeniden başlatma sonrasında çalıştırılan ve `wwwroot` salt okunur hale gelir. Zip dağıtımı hakkında daha fazla bilgi için bkz. [Zip Azure işlevleri için dağıtım](deployment-zip-push.md).
 
 ## <a name="adding-the-websiterunfrompackage-setting"></a>WEBSITE_RUN_FROM_PACKAGE ayarı ekleme
 

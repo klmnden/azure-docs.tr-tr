@@ -1,5 +1,5 @@
 ---
-title: Varlıklar Media Services - Azure | Microsoft Docs
+title: Azure Media Services varlıklar | Microsoft Docs
 description: Bu makalede, varlıklar nedir ve Azure Media Services tarafından nasıl kullanıldıkları bir açıklama sağlar.
 services: media-services
 documentationcenter: ''
@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 07/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bd9774cf045d9ed7f16a637fcb2eb1378b48686
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65551772"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565824"
 ---
 # <a name="assets"></a>Varlıklar
 
@@ -87,9 +87,22 @@ curl -X PUT \
 
 Tam bir örnek için bkz: [yerel bir dosyadan iş girdisi oluşturma](job-input-from-local-file-how-to.md). Media Services v3 sürümünde bir işin girdisini de HTTPS URL'lerden oluşturulabilir (bkz [bir HTTPS URL'si iş girdisi oluşturma](job-input-from-http-how-to.md)).
 
-## <a name="filtering-ordering-paging"></a>Filtreleme, sıralama, sayfalama
+## <a name="map-v3-asset-properties-to-v2"></a>V2'ye harita v3 varlık özellikleri
 
-Bkz: [filtreleme, sıralama, Media Services varlıklarının sayfalandırma](entities-overview.md).
+Aşağıdaki tabloda nasıl [varlık](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)'s v3 özelliklerinde eşleme v2'de varlığın özellikleri.
+
+|V3 özellikleri|v2 Özellikleri|
+|---|---|
+|Kimliği - (benzersiz) içindeki örneklere bakın tam Azure Resource Manager yolu [varlık](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
+|ad - (benzersiz) bkz [adlandırma kuralları](media-services-apis-overview.md#naming-conventions) ||
+|alternateId|AlternateId|
+|assetId|(Benzersiz) değeri kimliği - ile başlayan `nb:cid:UUID:` önek.|
+|Oluşturulan|Oluşturuldu|
+|description|Ad|
+|Son değiştirme|Son değiştirme|
+|storageAccountName|StorageAccountName|
+|storageEncryptionFormat| Seçenekler - oluşturma seçenekleri|
+|türü||
 
 ## <a name="storage-side-encryption"></a>Depolama tarafında şifreleme
 
@@ -104,6 +117,10 @@ Bekleyen veri varlıklarınızı korumanın varlıklar tarafından depolama tara
 <sup>1</sup> sırada Media Services, işleme içeriğinin desteklemez, açıkta/herhangi bir biçimde şifreleme olmadan, bunu yapmanız bu nedenle önerilmez.
 
 <sup>2</sup> , Media Services v3 (AES-256 şifreleme) depolama şifrelemesi, yalnızca varlıklarınızı Media Services v2 ile oluşturulduğunda için geriye dönük uyumluluk desteklenir. Var olan depolama ile v3 çalışır anlamı varlıklar şifreli ancak yenilerini oluşturulmasına izin vermez.
+
+## <a name="filtering-ordering-paging"></a>Filtreleme, sıralama, sayfalama
+
+Bkz: [filtreleme, sıralama, Media Services varlıklarının sayfalandırma](entities-overview.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

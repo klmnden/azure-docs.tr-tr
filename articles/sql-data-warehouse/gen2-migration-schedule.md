@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 999c75d07ef7e24d4d75587b6b42a4ab1b2192cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3141f3a1d6a9f09261dee4113276af72168e35e8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596119"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444699"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Veri ambarınız için Gen2'ye yükseltme
 
@@ -43,7 +43,7 @@ Aşağıdaki tabloda, bölgeye göre daha düşük 2. nesil işlem katmanını k
 | Çin Kuzey |\* |\* |
 | Çin Kuzey 2 |Kullanılabilir |Gen2'ye yalnızca |
 | Doğu Asya |Kullanılabilir |1 Haziran 2019 |
-| Doğu ABD |Kullanılabilir |1 Haziran 2019 |
+| East US |Kullanılabilir |1 Haziran 2019 |
 | Doğu ABD 2 |Kullanılabilir |1 Haziran 2019 |
 | Fransa Orta |\* |1 Haziran 2019 |
 | Almanya Orta |\* |\* |
@@ -67,7 +67,7 @@ Aşağıdaki tabloda, bölgeye göre daha düşük 2. nesil işlem katmanını k
 
 ## <a name="automatic-upgrade-process"></a>Otomatik yükseltme işlemi
 
-Yukarıdaki kullanılabilirlik grafiğinde bağlı olarak, biz otomatik yükseltmeler Gen1 örnekleriniz için zamanlama. Veri ambarının kullanılabilirliğine herhangi beklenmeyen kesintiler önlemek için otomatik yükseltmeler sırasında bakım zamanlamanızı zamanlanacak. Gen2'ye otomatik yükseltilen bölgede yeni bir Gen1 örneği oluşturma özelliği devre dışı bırakılır. Zamanlama hakkında daha fazla bilgi için bkz. [bakım zamanlaması görüntüleyin](viewing-maintenance-schedule.md)
+Yukarıdaki kullanılabilirlik grafiğinde bağlı olarak, biz otomatik yükseltmeler Gen1 örnekleriniz için zamanlama. Veri ambarının kullanılabilirliğine herhangi beklenmeyen kesintiler önlemek için otomatik yükseltmeler sırasında bakım zamanlamanızı zamanlanacak. Gen2'ye otomatik yükseltilen bölgede yeni bir Gen1 örneği oluşturma özelliği devre dışı bırakılır. Otomatik yükseltme tamamlandıktan sonra Gen1 kullanımdan kaldırılacaktır. Zamanlama hakkında daha fazla bilgi için bkz. [bakım zamanlaması görüntüleyin](viewing-maintenance-schedule.md)
 
 Biz, veri ambarı yeniden başlatmanız gibi yükseltme işlemi bağlantısı (yaklaşık 5 dakika) kısa bir bırakma içerir.  Veri ambarınız yeniden başlatıldıktan sonra tam olarak kullanılmaya hazır olacaktır. Ancak, arka planda veri dosyalarını yükseltmek yükseltme işlemi devam ederken, aslında performansta düşüş karşılaşabilirsiniz. Performans düşüşü için toplam süreyi, veri dosyalarının boyutuna bağlı olarak değişir.
 

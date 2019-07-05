@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 108d17d3e0ca5f32648f9d4f6cf4b5f9a2984d0c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba08cd7fdecda99c04d5bb1007b3e5f61cd1bd5c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66495817"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446759"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>İzleme ve Azure Data Box ve Azure veri kutusu ağır için olay günlüğü
 
@@ -29,7 +29,7 @@ Aşağıdaki tabloda Data Box veya yoğun veri kutusu siparişi adımları ve iz
 | Cihaz verileri Kopyala        | [Görünüm *error.xml* dosyaları](#view-error-log-during-data-copy) veri kopyalama                                                             |
 | Göndermeye hazırlama            | [BOM dosyalarını İnceleme](#inspect-bom-during-prepare-to-ship) veya cihaz üzerinde bildirim dosyaları                                      |
 | Azure için verileri karşıya yükleme       | [Gözden geçirme *copylogs* ](#review-copy-log-during-upload-to-azure) veri sırasında hatalar için Azure veri merkezinde karşıya yükleyin                         |
-| CİHAZDAN verileri silinme   | [Günlükleri gözetim zinciri görüntülemek](#get-chain-of-custody-logs-after-data-erasure) denetim günlükleri ve siparişi geçmişi gibi                                                   |
+| CİHAZDAN verileri silinme   | [Günlükleri gözetim zinciri görüntülemek](#get-chain-of-custody-logs-after-data-erasure) denetim günlükleri ve siparişi geçmişi gibi                |
 
 Bu makalede, çeşitli mekanizmalar veya izlemek ve Data Box veya yoğun veri kutusu siparişi denetlemek kullanılabilen araçlar ayrıntılı olarak açıklanır. Bu makaledeki bilgiler hem Data Box hem de veri kutusu ağır için geçerlidir. Sonraki bölümlerde Data Box yönelik tüm başvuruları de veri kutusu ağır için geçerlidir.
 
@@ -203,7 +203,7 @@ Data Box hizmeti işlenen her sipariş oluşturur *copylog* ilişkili depolama h
 
 Karşıya yükleme sırasında Döngüsel artıklık denetleyin (CRC) hesaplama Azure'a gerçekleştirilir. CRC veri kopyalama ve sonra veriler karşıya karşılaştırılır. CRC uyuşmazlığı, karşılık gelen dosyalar karşıya yüklemek başarısız olduğunu gösterir.
 
-Varsayılan olarak, copylog adlı bir kapsayıcı için günlükleri yazılır. Günlükleri aşağıdaki adlandırma kuralını ile depolanır:
+Varsayılan olarak, adlı bir kapsayıcı için günlükleri yazılır `copylog`. Günlükleri aşağıdaki adlandırma kuralını ile depolanır:
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
@@ -245,7 +245,41 @@ Burada karşıya yükleme hatalarla tamamlandı bir copylog örneği aşağıdad
   <FilesErrored>2</FilesErrored>
 </CopyLog>
 ```
+İşte bir örnek bir `copylog` burada Azure adlandırma kurallarına uymuyor kapsayıcılar yeniden adlandırılmış sırasında Azure için verileri karşıya yükleme.
 
+Kapsayıcılar için yeni benzersiz adlar biçimindedir `DataBox-GUID` ve veri kapsayıcısı için yeni adı kapsayıcının içine yerleştirilir. `copylog` Eski ve yeni bir kapsayıcı adı için kapsayıcı belirtir.
+
+```xml
+<ErroredEntity Path="New Folder">
+   <Category>ContainerRenamed</Category>
+   <ErrorCode>1</ErrorCode>
+   <ErrorMessage>The original container/share/blob has been renamed to: DataBox-3fcd02de-bee6-471e-ac62-33d60317c576 :from: New Folder :because either the name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>Container</Type>
+</ErroredEntity>
+```
+
+İşte bir örnek bir `copylog` burada BLOB veya dosyalar Azure adlandırma kurallarına uymuyor yeniden adlandırılmış sırasında Azure için verileri karşıya yükleme. Yeni blob veya dosya adları SHA256 Özet kapsayıcıya göreli yol dönüştürülür ve hedef türüne göre yoluna yüklenir. Hedef blok blobları, sayfa blobları veya Azure dosyaları olabilir.
+
+`copylog` Azure'daki eski ve yeni blob veya dosya adını ve yolunu belirtir.
+
+```xml
+<ErroredEntity Path="TesDir028b4ba9-2426-4e50-9ed1-8e89bf30d285\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: PageBlob/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="TesDir9856b9ab-6acb-4bc3-8717-9a898bdb1f8c\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: AzureFile/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="TesDirf92f6ca4-3828-4338-840b-398b967d810b\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: BlockBlob/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity>
+```
 
 ## <a name="get-chain-of-custody-logs-after-data-erasure"></a>Günlükleri gözetim zinciri sonra veri silinme Al
 

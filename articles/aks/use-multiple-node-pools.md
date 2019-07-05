@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 679d91da774b3e4d2c53c70cdc0abfd4da9c6953
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 48fdb251fa0302c2755281644a804c74ae80a63e
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059638"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491534"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Önizleme - oluşturma ve Azure Kubernetes Service (AKS) kümesi için birden çok düğüm havuzları yönetme
 
@@ -28,22 +28,26 @@ Bu makalede, bir AKS kümesindeki birden çok düğüm havuzları oluşturma ve 
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Azure CLI Sürüm 2.0.61 gerekir veya daha sonra yüklü ve yapılandırılmış. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][install-azure-cli].
+Azure CLI Sürüm 2.0.61 gerekir veya daha sonra yüklü ve yapılandırılmış. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme][install-azure-cli].
 
 ### <a name="install-aks-preview-cli-extension"></a>Aks önizlemesini CLI uzantısını yükleme
 
-Birden çok düğüm havuzları oluşturma ve yönetme için CLI komutları kullanılabilir *aks önizlemesini* CLI uzantısı. Yükleme *aks önizlemesini* uzantısını Azure CLI kullanarak [az uzantısı ekleme] [ az-extension-add] aşağıdaki örnekte gösterildiği gibi komut:
+Birden çok nodepools kullanmak için gerekir *aks önizlemesini* CLI 0.4.1 uzantı sürümü veya üzeri. Yükleme *aks önizlemesini* uzantısını Azure CLI kullanarak [az uzantısı ekleme][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] komut::
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-> [!NOTE]
-> Daha önce yüklediyseniz *aks önizlemesini* uzantısını kullanarak güncelleştirmeleri yükle kullanılabilen `az extension update --name aks-preview` komutu.
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### <a name="register-multiple-node-pool-feature-provider"></a>Birden çok düğüm havuzu özelliği sağlayıcısını Kaydet
 
-Birden çok düğüm havuzları kullanan bir AKS kümesi oluşturmak için ilk iki özellik bayraklarını aboneliğinizi etkinleştirin. Çok düğümlü havuzu kümeleri (VMSS) bir sanal makine ölçek kümesi dağıtımı ve Kubernetes düğümlerini yapılandırmasını yönetmek için kullanın. Kayıt *MultiAgentpoolPreview* ve *VMSSPreview* özellik bayraklarını kullanarak [az özelliği kayıt] [ az-feature-register] gösterildiği komutu Aşağıdaki örnekte:
+Birden çok düğüm havuzları kullanan bir AKS kümesi oluşturmak için ilk iki özellik bayraklarını aboneliğinizi etkinleştirin. Çok düğümlü havuzu kümeleri (VMSS) bir sanal makine ölçek kümesi dağıtımı ve Kubernetes düğümlerini yapılandırmasını yönetmek için kullanın. Kayıt *MultiAgentpoolPreview* ve *VMSSPreview* özellik bayraklarını kullanarak [az özelliği kayıt][az-feature-register] komutu aşağıdaki örnekte gösterildiği gibi:
+
+> [!CAUTION]
+> Bir Abonelikteki bir özellik kaydettiğinizde, bu özellik şu anda kaydını yapamazsınız. Bazı Önizleme özellikleri etkinleştirdikten sonra varsayılan ardından aboneliği için oluşturulan tüm AKS kümeleri için kullanılabilir. Önizleme özellikleri üretim Aboneliklerde etkinleştirmeyin. Önizleme özellikleri test ve geri bildirim toplamak için ayrı bir abonelik kullanın.
 
 ```azurecli-interactive
 az feature register --name MultiAgentpoolPreview --namespace Microsoft.ContainerService
@@ -53,14 +57,14 @@ az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 > [!NOTE]
 > Başarıyla kaydettikten sonra oluşturduğunuz herhangi bir AKS kümesinde *MultiAgentpoolPreview* Bu önizleme küme deneyimi kullanın. Normal, tam olarak desteklenen kümeleri oluşturmak devam etmek için üretim Aboneliklerde Önizleme özelliklerini etkinleştirme. Önizleme özellikleri test için ayrı bir test veya geliştirme Azure aboneliği kullanın.
 
-Gösterilecek durum için birkaç dakika sürer *kayıtlı*. Kayıt kullanarak durumu denetleyebilirsiniz [az özellik listesi] [ az-feature-list] komutu:
+Gösterilecek durum için birkaç dakika sürer *kayıtlı*. Kayıt kullanarak durumu denetleyebilirsiniz [az özellik listesi][az-feature-list] komutu:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MultiAgentpoolPreview')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
-Hazır olduğunuzda, kayıt yenileme *Microsoft.ContainerService* kullanarak kaynak sağlayıcısını [az provider register] [ az-provider-register] komutu:
+Hazır olduğunuzda, kayıt yenileme *Microsoft.ContainerService* kullanarak kaynak sağlayıcısını [az provider register][az-provider-register] komutu:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -74,16 +78,16 @@ Oluşturma ve birden çok düğüm havuzları destekleyen AKS kümeleri yönetme
 * İlk düğüm havuzunu silemezsiniz.
 * HTTP uygulama yönlendirme eklenti kullanılamaz.
 * Ekleme/güncelleştirme/silme düğüm havuzları gibi çoğu işlemi var olan bir Resource Manager şablonu kullanarak yapamazsınız. Bunun yerine, [ayrı bir Resource Manager şablonu kullanma](#manage-node-pools-using-a-resource-manager-template) bir AKS kümesindeki düğüm havuzları değişiklik yapmak için.
-* Küme otomatik ölçeklendiricinin (şu anda önizlemede aks'deki) kullanılamaz.
 
 Bu özellik Önizleme aşamasında olduğu sürece, aşağıdaki ek kısıtlamalar uygulanır:
 
 * AKS kümesi en fazla sekiz düğüm havuzları sahip olabilir.
 * AKS kümesi en fazla 400 düğümleri bu sekiz düğüm havuzları arasında olabilir.
+* Tüm düğümü havuzlarının aynı alt ağda bulunması gerekir
 
 ## <a name="create-an-aks-cluster"></a>AKS kümesi oluşturma
 
-Başlamak için tek bir düğüm havuzu ile bir AKS kümesi oluşturun. Aşağıdaki örnekte [az grubu oluşturma] [ az-group-create] adlı bir kaynak grubu oluşturmak için komut *myResourceGroup* içinde *eastus* bölge. Adlı bir AKS kümesi *myAKSCluster* ardından kullanılarak oluşturulan [az aks oluşturma] [ az-aks-create] komutu. A *--kubernetes sürümü* , *1.12.6* aşağıdaki bir adımda bir düğüm havuzunu güncelleştirme işlemini göstermek için kullanılır. Tüm belirtebilirsiniz [Kubernetes sürümü desteklenen][supported-versions].
+Başlamak için tek bir düğüm havuzu ile bir AKS kümesi oluşturun. Aşağıdaki örnekte [az grubu oluşturma][az-group-create] adlı bir kaynak grubu oluşturmak için komut *myResourceGroup* içinde *eastus* bölge. Adlı bir AKS kümesi *myAKSCluster* ardından kullanılarak oluşturulan [az aks oluşturma][az-aks-create] komutu. A *--kubernetes sürümü* , *1.12.6* aşağıdaki bir adımda bir düğüm havuzunu güncelleştirme işlemini göstermek için kullanılır. Tüm belirtebilirsiniz [Kubernetes sürümü desteklenen][supported-versions].
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -101,7 +105,7 @@ az aks create \
 
 Kümenin oluşturulması birkaç dakika sürer.
 
-Küme hazır olduğunda, kullanmak [az aks get-credentials] [ az-aks-get-credentials] ile kullanmak için küme kimlik bilgilerini almak için komut `kubectl`:
+Küme hazır olduğunda, kullanmak [az aks get-credentials][az-aks-get-credentials] ile kullanmak için küme kimlik bilgilerini almak için komut `kubectl`:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -109,7 +113,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 ## <a name="add-a-node-pool"></a>Bir düğüm havuzu ekleme
 
-Önceki adımda oluşturulan küme, tek düğüm havuzu vardır. İkinci bir düğüm havuzunu kullanan ekleyelim [az aks düğümü havuzu ekleme] [ az-aks-nodepool-add] komutu. Aşağıdaki örnekte adlı bir düğüm havuzu oluşturur *mynodepool* çalıştırılan *3* düğümleri:
+Önceki adımda oluşturulan küme, tek düğüm havuzu vardır. İkinci bir düğüm havuzunu kullanan ekleyelim [az aks düğümü havuzu ekleme][az-aks-nodepool-add] komutu. Aşağıdaki örnekte adlı bir düğüm havuzu oluşturur *mynodepool* çalıştırılan *3* düğümleri:
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -119,7 +123,7 @@ az aks nodepool add \
     --node-count 3
 ```
 
-Düğüm havuzlarınızı durumunu görmek için [az aks düğümü havuzu listesi] [ az-aks-nodepool-list] komut ve kaynak grubu ve küme adını belirtin:
+Düğüm havuzlarınızı durumunu görmek için [az aks düğümü havuzu listesi][az-aks-nodepool-list] komut ve kaynak grubu ve küme adını belirtin:
 
 ```azurecli-interactive
 az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster -o table
@@ -141,7 +145,7 @@ VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 
 
 ## <a name="upgrade-a-node-pool"></a>Bir düğüm havuzunu yükseltme
 
-AKS kümenizi ilk adımda oluşturulduğunda bir `--kubernetes-version` , *1.12.6* belirtildi. Şimdi yükseltin *mynodepool* kubernetes'e *1.12.7*. Kullanım [az aks düğümü havuzu yükseltme] [ az-aks-nodepool-upgrade] komutu aşağıdaki örnekte gösterildiği gibi düğüm havuzu yükseltmek için:
+AKS kümenizi ilk adımda oluşturulduğunda bir `--kubernetes-version` , *1.12.6* belirtildi. Şimdi yükseltin *mynodepool* kubernetes'e *1.12.7*. Kullanım [az aks düğümü havuzu yükseltme][az-aks-nodepool-upgrade] komutu aşağıdaki örnekte gösterildiği gibi düğüm havuzu yükseltmek için:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -152,7 +156,7 @@ az aks nodepool upgrade \
     --no-wait
 ```
 
-Düğüm havuzlarınızı kullanarak yeniden durumunu listeleyin [az aks düğümü havuzu listesi] [ az-aks-nodepool-list] komutu. Aşağıdaki örnek, gösterir *mynodepool* bulunduğu *yükseltme* durumunu *1.12.7*:
+Düğüm havuzlarınızı kullanarak yeniden durumunu listeleyin [az aks düğümü havuzu listesi][az-aks-nodepool-list] komutu. Aşağıdaki örnek, gösterir *mynodepool* bulunduğu *yükseltme* durumunu *1.12.7*:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
@@ -173,7 +177,7 @@ Uygulamanızla iş yükü, değişiklik talep, bir düğüm havuzdaki düğüm s
 
 <!--If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.-->
 
-Bir düğüm havuzdaki düğüm sayısını ölçeklendirmek için kullanmak [az aks düğümü havuzu ölçek] [ az-aks-nodepool-scale] komutu. Aşağıdaki örnek, düğüm sayısını ölçeklendirir *mynodepool* için *5*:
+Bir düğüm havuzdaki düğüm sayısını ölçeklendirmek için kullanmak [az aks düğümü havuzu ölçek][az-aks-nodepool-scale] komutu. Aşağıdaki örnek, düğüm sayısını ölçeklendirir *mynodepool* için *5*:
 
 ```azurecli-interactive
 az aks nodepool scale \
@@ -184,7 +188,7 @@ az aks nodepool scale \
     --no-wait
 ```
 
-Düğüm havuzlarınızı kullanarak yeniden durumunu listeleyin [az aks düğümü havuzu listesi] [ az-aks-nodepool-list] komutu. Aşağıdaki örnek, gösterir *mynodepool* bulunduğu *ölçeklendirme* yeni sayısı ile durum *5* düğümleri:
+Düğüm havuzlarınızı kullanarak yeniden durumunu listeleyin [az aks düğümü havuzu listesi][az-aks-nodepool-list] komutu. Aşağıdaki örnek, gösterir *mynodepool* bulunduğu *ölçeklendirme* yeni sayısı ile durum *5* düğümleri:
 
 ```console
 $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster -o table
@@ -199,7 +203,7 @@ VirtualMachineScaleSets  1        110        nodepool1   1.12.6                 
 
 ## <a name="delete-a-node-pool"></a>Bir düğüm havuzunu Sil
 
-Bir havuz artık ihtiyacınız kalmadığında, silin ve temel alınan VM düğümleri kaldırma. Bir düğüm havuzunu silmek için kullanın [az aks düğümü havuzunu silme] [ az-aks-nodepool-delete] komut ve düğüm havuzu adı belirtin. Aşağıdaki örnek siler *mynoodepool* önceki adımlarda oluşturulan:
+Bir havuz artık ihtiyacınız kalmadığında, silin ve temel alınan VM düğümleri kaldırma. Bir düğüm havuzunu silmek için kullanın [az aks düğümü havuzunu silme][az-aks-nodepool-delete] komut ve düğüm havuzu adı belirtin. Aşağıdaki örnek siler *mynoodepool* önceki adımlarda oluşturulan:
 
 > [!CAUTION]
 > Bir düğüm havuzu sildiğinizde oluşabilecek veri kaybı için hiçbir kurtarma seçeneği vardır. Pod'ların düğümü havuzlarını zamanlanamaz, söz konusu uygulamaların kullanılamaz. Kullanımdaki uygulamaları veri yedekleri veya küme düğümü havuzlarını üzerinde çalıştırma olanağı olmadığında bir düğüm havuzunu silme emin olun.
@@ -208,7 +212,7 @@ Bir havuz artık ihtiyacınız kalmadığında, silin ve temel alınan VM düğ�
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name mynodepool --no-wait
 ```
 
-Aşağıdaki örnek çıktısı [az aks düğümü havuzu listesi] [ az-aks-nodepool-list] komut gösterir *mynodepool* bulunduğu *silme* durumu:
+Aşağıdaki örnek çıktısı [az aks düğümü havuzu listesi][az-aks-nodepool-list] komut gösterir *mynodepool* bulunduğu *silme* durumu:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
@@ -227,7 +231,7 @@ Bir düğüm havuzu oluşturmak için önceki örneklerde oluşturulan kümedeki
 
 Aşağıdaki örnekte, kullanan bir GPU tabanlı düğüm havuzu oluşturmak *işler için standart_nc6* VM boyutu. Bu sanal makineler, NVIDIA Tesla K80 kartını desteklenir. Kullanılabilir VM boyutları hakkında daha fazla bilgi için bkz: [azure'da Linux sanal makine boyutları][vm-sizes].
 
-Kullanarak bir düğüm havuzu oluşturma [az aks düğümü havuzu ekleme] [ az-aks-nodepool-add] yeniden komutu. Bu kez, adı belirtin *gpunodepool*ve `--node-vm-size` belirtmek için parametre *işler için standart_nc6* boyutu:
+Kullanarak bir düğüm havuzu oluşturma [az aks düğümü havuzu ekleme][az-aks-nodepool-add] yeniden komutu. Bu kez, adı belirtin *gpunodepool*ve `--node-vm-size` belirtmek için parametre *işler için standart_nc6* boyutu:
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -239,7 +243,7 @@ az aks nodepool add \
     --no-wait
 ```
 
-Aşağıdaki örnek çıktısı [az aks düğümü havuzu listesi] [ az-aks-nodepool-list] komut gösterir *gpunodepool* olduğu *oluşturma* düğümleri Belirtilen *VmSize*:
+Aşağıdaki örnek çıktısı [az aks düğümü havuzu listesi][az-aks-nodepool-list] komut gösterir *gpunodepool* olduğu *oluşturma* düğümleri belirtilen *VmSize*:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster -o table
@@ -254,7 +258,7 @@ Birkaç dakika sürer *gpunodepool* başarıyla oluşturulacak.
 
 ## <a name="schedule-pods-using-taints-and-tolerations"></a>Pod'ların taints ve tolerations kullanarak zamanlama
 
-Artık iki düğüm havuzları kümenizde - başlangıçta oluşturulan varsayılan düğüm havuzu ve GPU tabanlı düğüm havuzu sahipsiniz. Kullanım [kubectl alma düğümleri] [ kubectl-get] kümenizdeki düğümleri görmek için komutu. Aşağıdaki örnek çıktıda her düğüm havuzunda bir düğüm gösterir:
+Artık iki düğüm havuzları kümenizde - başlangıçta oluşturulan varsayılan düğüm havuzu ve GPU tabanlı düğüm havuzu sahipsiniz. Kullanım [kubectl alma düğümleri][kubectl-get] kümenizdeki düğümleri görmek için komutu. Aşağıdaki örnek çıktıda her düğüm havuzunda bir düğüm gösterir:
 
 ```console
 $ kubectl get nodes
@@ -271,7 +275,7 @@ Kubernetes Zamanlayıcı taints ve tolerations düğümler üzerinde hangi iş y
 
 Gelişmiş zamanlanmış Kubernetes özellikleri nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [aks'deki Gelişmiş Zamanlayıcı özellikleri için en iyi yöntemler][taints-tolerations]
 
-Bu örnekte, bir taint kullanarak düğüm GPU tabanlı uygulama [kubectl taint düğüm] [ kubectl-taint] komutu. GPU tabanlı düğümünüzü önceki çıktısından adını `kubectl get nodes` komutu. Taint olarak uygulanan bir *anahtar: değer* ve ardından bir zamanlama seçeneği. Aşağıdaki örnekte *sku gpu =* eşleştirebilir ve pod'ların tanımlar Aksi takdirde *NoSchedule* özelliği:
+Bu örnekte, bir taint kullanarak düğüm GPU tabanlı uygulama [kubectl taint düğüm][kubectl-taint] komutu. GPU tabanlı düğümünüzü önceki çıktısından adını `kubectl get nodes` komutu. Taint olarak uygulanan bir *anahtar: değer* ve ardından bir zamanlama seçeneği. Aşağıdaki örnekte *sku gpu =* eşleştirebilir ve pod'ların tanımlar Aksi takdirde *NoSchedule* özelliği:
 
 ```console
 kubectl taint node aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
@@ -310,7 +314,7 @@ Pod kullanarak zamanlamayı `kubectl apply -f gpu-toleration.yaml` komutu:
 kubectl apply -f gpu-toleration.yaml
 ```
 
-Pod zamanlamak ve NGINX görüntü çekmek için birkaç saniye sürer. Kullanım [kubectl açıklayan pod] [ kubectl-describe] pod durumunu görüntülemek için komutu. Aşağıdaki sıkıştırılmış örneğe çıktısı bunu gösterir *sku gpu:NoSchedule =* toleration uygulanır. Olayları bölümünde Zamanlayıcı pod'u atadığı *aks gpunodepool 28993262 vmss000000* GPU tabanlı düğüm:
+Pod zamanlamak ve NGINX görüntü çekmek için birkaç saniye sürer. Kullanım [kubectl açıklayan pod][kubectl-describe] pod durumunu görüntülemek için komutu. Aşağıdaki sıkıştırılmış örneğe çıktısı bunu gösterir *sku gpu:NoSchedule =* toleration uygulanır. Olayları bölümünde Zamanlayıcı pod'u atadığı *aks gpunodepool 28993262 vmss000000* GPU tabanlı düğüm:
 
 ```console
 $ kubectl describe pod mypod
@@ -410,7 +414,7 @@ Bu değerler, güncelleştirmek için ekleme veya gerektiğinde düğüm havuzla
 }
 ```
 
-Bu şablonu kullanarak dağıtma [az grubu dağıtımı oluşturmak] [ az-group-deployment-create] , aşağıdaki örnekte gösterildiği gibi komutu. Mevcut AKS küme adı ve konumu istenir:
+Bu şablonu kullanarak dağıtma [az grubu dağıtımı oluşturmak][az-group-deployment-create] , aşağıdaki örnekte gösterildiği gibi komutu. Mevcut AKS küme adı ve konumu istenir:
 
 ```azurecli-interactive
 az group deployment create \
@@ -424,13 +428,13 @@ Bu düğüm havuzu ayarları ve Resource Manager şablonunuzda tanımladığın�
 
 Bu makalede, GPU tabanlı düğümleri içeren bir AKS kümesi oluşturuldu. Gereksiz maliyetini azaltmak için silmek isteyebilirsiniz *gpunodepool*, ya da tüm AKS kümesi.
 
-GPU tabanlı düğüm havuzu silmek için kullanın [az aks nodepool Sil] [ az-aks-nodepool-delete] komutu aşağıdaki örnekte gösterildiği gibi:
+GPU tabanlı düğüm havuzu silmek için kullanın [az aks nodepool Sil][az-aks-nodepool-delete] komutu aşağıdaki örnekte gösterildiği gibi:
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name gpunodepool
 ```
 
-Kümeyi silmek için kullanın [az grubu Sil] [ az-group-delete] AKS kaynak grubunu silmek için:
+Kümeyi silmek için kullanın [az grubu Sil][az-group-delete] AKS kaynak grubunu silmek için:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -473,3 +477,5 @@ Oluşturma ve Windows Server kapsayıcı düğüm havuzları kullanma hakkında 
 [az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update

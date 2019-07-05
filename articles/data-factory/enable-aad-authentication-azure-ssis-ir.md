@@ -12,12 +12,12 @@ ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: a67436f09d6e28db8d19679e446ac4cf98383709
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3d0aaee624bdba169f13313bb57a3ebe8075592
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65593808"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490064"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure-SSIS tümleştirme çalışma zamanı için Azure Active Directory kimlik doğrulamasını etkinleştirme
 
@@ -146,17 +146,7 @@ Azure SQL veritabanı yönetilen örneği, ADF için yönetilen kimlikle bir ver
 
 ### <a name="configure-azure-ad-authentication-for-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği için Azure AD kimlik doğrulamasını yapılandırma
 
-1.   Azure portalında **tüm hizmetleri** -> **SQL sunucuları** sol gezinti bölmesinden.
-
-2.   Yönetilen Azure AD kimlik doğrulaması ile yapılandırılması örneğinizi seçin.
-
-3.   İçinde **ayarları** dikey penceresinde bölümünü **Active Directory Yöneticisi**.
-
-4.   Komut çubuğunda **yönetici Ayarla**.
-
-5.   Sunucu Yöneticisi yapılması ve ardından seçmek için bir Azure AD kullanıcı hesabı seçin **seçin**.
-
-6.   Komut çubuğunda **Kaydet**.
+Bağlantısındaki [yönetilen Örneğiniz için bir Azure Active Directory Yöneticisi sağlama](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 
 ### <a name="add-the-managed-identity-for-your-adf-as-a-user-in-azure-sql-database-managed-instance"></a>Yönetilen kimlik bilgilerinizi ADF için Azure SQL veritabanı yönetilen örneği'nın bir kullanıcı olarak ekleyin.
 
@@ -164,7 +154,7 @@ Bu sonraki adım için ihtiyacınız [Microsoft SQL Server Management Studio](h
 
 1.  SSMS'yi başlatın.
 
-2.  Yönetilen SQL/Active Directory yönetici hesabınızı kullanarak sunucuya bağlanın.
+2.  Yönetilen bir SQL Server hesabı kullanarak Örneğinize bağlanmak bir **sysadmin**. Bu Azure AD sunucu sorumlusu (oturum açma bilgileri), Azure SQL veritabanı yönetilen örneği için genel kullanımda da geçerli olduğunda, kaldırılacak, geçici bir sınırlamadır Oturumu oluşturmak için bir Azure AD yönetici hesabı kullanmayı denerseniz aşağıdaki hatayı görürsünüz: Msg 15247, Level 16, State 1, satır 1 kullanıcı bu eylemi gerçekleştirme izni yok.
 
 3.  İçinde **Nesne Gezgini**, genişletme **veritabanları** -> **sistem veritabanları** klasör.
 

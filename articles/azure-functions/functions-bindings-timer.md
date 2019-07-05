@@ -4,7 +4,7 @@ description: Azure işlevleri'nde Zamanlayıcı Tetikleyicileri kullanma hakkın
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Azure işlevleri, İşlevler, olay işleme dinamik işlem, sunucusuz mimari
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: azure-functions
@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: db80155b39602ad5810c83e03913fb0f3ccb4281
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 1a26950f355fd10d9dd502851886a8b8101d4a83
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342224"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508299"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure işlevleri için Zamanlayıcı tetikleyicisi 
 
@@ -261,7 +261,7 @@ Azure işlevleri kullanan [NCronTab](https://github.com/atifaziz/NCrontab) sıra
 
 Her bir alan, şu tür değerlerden biri olabilir:
 
-|Type  |Örnek  |Tetiklendiğinde  |
+|Tür  |Örnek  |Tetiklendiğinde  |
 |---------|---------|---------|
 |Belirli bir değer |<nobr>"0 5 * * * *"</nobr>|hh:05:00 hh olduğu her saat (saatte bir)|
 |Tüm değerleri (`*`)|<nobr>"0 * 5 * * *"</nobr>|5:mm adresindeki: her gün 00 mm (60 günde kez) saat, dakika başı olduğu|
@@ -269,12 +269,7 @@ Her bir alan, şu tür değerlerden biri olabilir:
 |Bir değerler kümesi (`,` işleci)|<nobr>"5,8,10 * * * * *"</nobr>|hh:mm:05, hh:mm:08 ve hh:mm:10 ss: dd olduğu her saat (3 kez dakika), dakika başı|
 |Aralık değeri (`/` işleci)|<nobr>"0 */5 * * * *"</nobr>|hh:05:00, hh:10:00, da hh:15:00, aracılığıyla ve benzeri hh:55:00 hh olduğu her saat (12 kat bir saat)|
 
-Aylık veya gün belirtmek için sayısal değerler, adları veya adlarının kısaltmalarını kullanabilirsiniz:
-
-* Gün boyunca sayısal 6 0 0 ile Pazar başladığı değerlerdir.
-* İngilizce dilinde adlarıdır. Örneğin: `Monday`, `January`.
-* Adları büyük/küçük harfe duyarsızdır.
-* Adları kısaltılmış. Üç harf olduğundan önerilen kısaltması uzunluğu.  Örneğin: `Mon`, `Jan`. 
+[!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
 ### <a name="cron-examples"></a>CRON örnekleri
 

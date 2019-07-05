@@ -5,16 +5,16 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: 5884bb5dc389e6abfd4fa23d28dd71ecd16ff423
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6eedc095f155a77cddf48211dbc4a677bf188112
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67347122"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509929"
 ---
 Standart sanal makine (VM) görüntülerini kuruluşların buluta taşımayı ve dağıtımlarında tutarlılığı sağlar. Görüntüler genellikle önceden tanımlı güvenlik ve yapılandırma ayarlarını ve gerekli yazılımı da içerir. Kendi görüntü işlem hattı ayarlama süresi, altyapı ve Kurulum gerektirir ancak Azure VM Görüntü Oluşturucu ile yalnızca görüntünüzü açıklayan basit bir yapılandırma sağlayın, hizmete gönderme ve görüntü oluşturulan dağıtılmış ve.
  
-Azure VM Görüntü Oluşturucu (Azure Görüntü Oluşturucu), bir Windows veya Linux tabanlı Azure Market görüntüsü, var olan özel görüntüler veya Red Hat Enterprise Linux (RHEL) ISO ile ve kendi özelleştirmelerinizi eklemek başlatabilirsiniz olanak tanır. Görüntü Oluşturucusu oluşturulduğundan [HashiCorp Packer](https://packer.io/), ayrıca mevcut Packer Kabuk sağlayıcısı betiklerinizi içeri aktarabilirsiniz. Ayrıca, barındırılan Azure paylaşılan görüntü Galerisi (virtual-machines-common-shared-image-galleries.md), yönetilen bir görüntü olarak veya bir VHD görüntülerinizi istediğiniz belirtebilirsiniz.
+Azure VM Görüntü Oluşturucu (Azure Görüntü Oluşturucu), bir Windows veya Linux tabanlı Azure Market görüntüsü, var olan özel görüntüler veya Red Hat Enterprise Linux (RHEL) ISO ile ve kendi özelleştirmelerinizi eklemek başlatabilirsiniz olanak tanır. Görüntü Oluşturucusu oluşturulduğundan [HashiCorp Packer](https://packer.io/), ayrıca mevcut Packer Kabuk sağlayıcısı betiklerinizi içeri aktarabilirsiniz. Görüntülerinizin barındırılan, buna istediğiniz belirtebilirsiniz [Azure paylaşılan görüntü Galerisi](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), yönetilen bir görüntü veya VHD olarak.
 
 > [!IMPORTANT]
 > Azure Görüntü Oluşturucu şu anda genel Önizleme aşamasındadır.
@@ -33,9 +33,9 @@ Azure VM Görüntü Oluşturucu (Azure Görüntü Oluşturucu), bir Windows veya
 - VHD biçiminde görüntüleri oluşturma.
  
 
-## <a name="regions"></a>Bölgeler
+## <a name="regions"></a>Regions
 Azure Görüntü Oluşturucu hizmeti bu bölgelerde Önizleme için kullanıma sunulacaktır. Bu bölgeler dışında görüntüleri dağıtılabilir.
-- Doğu ABD
+- East US
 - Doğu ABD 2
 - Batı Orta ABD
 - Batı ABD
@@ -50,6 +50,12 @@ AIB Azure Marketi'nde temel işletim sistemi görüntüleri destekler:
 - Windows 2016
 - Windows 2019
 
+AIB RHEL ISO'YU'ın destekleyeceği için bir kaynak olarak:
+- RHEL 7.3
+- RHEL 7.4
+- RHEL 7.5
+
+RHEL 7.6, test edilen ancak desteklenmiyor.
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 

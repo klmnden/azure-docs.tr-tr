@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2019
-ms.openlocfilehash: 0086327661df637dc0ae60208ed9424b4610ef0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28eb7c6a11f71fa87835bcfe78e635753965bac3
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969500"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561227"
 ---
 # <a name="limits-in-azure-cosmos-db"></a>Azure Cosmos DB’nin sınırları
 
@@ -37,7 +37,6 @@ Aboneliğiniz kapsamındaki bir Azure Cosmos hesabı oluşturduktan sonra hesab�
 
 En az bir aktarım hızını 400 RU, Cosmos kapsayıcı (veya paylaşılan aktarım hızı veritabanı) olmalıdır. Kapsayıcı büyüdükçe, desteklenen en düşük aktarım hızı da aşağıdaki etkenlere bağlıdır:
 
-* Kapsayıcı içinde kullanılan en fazla depolama alanına 40 RU başına tüketilen depolama GB'lık artışlarla ölçülür. Bir kapsayıcı 100 GB veri içeriyorsa, örneğin, ardından aktarım hızı en az 4000 RU olmalıdır
 * Hiç olmadığı kadar kapsayıcıdaki sağlanmış en fazla aktarım hızı. Hizmet, bir kapsayıcı, sağlanan en fazla %10 azaltmayı verimini destekler. Aktarım için 10000 RU artırıldı. Örneğin, ardından olası en düşük sağlanan işleme 1000 RU olacaktır
 * Bir paylaşılan aktarım hızı veritabanında hiç olmadığı kadar oluşturduğunuz kapsayıcı toplam sayısı, kapsayıcı başına 100 RU ölçülür. Beş kapsayıcılara paylaşılan aktarım hızı veritabanı oluşturduysanız, örneğin, ardından aktarım hızı en az 500 RU olmalıdır
 
@@ -48,7 +47,6 @@ Bir kapsayıcı veya bir veritabanının güncel ve en düşük aktarım hızı,
 | Kapsayıcı başına en az RU ([adanmış aktarım hızı sağlanmış modu](databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | Veritabanı başına en az RU ([paylaşılan aktarım hızı sağlanmış modu](databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | Kapsayıcı içinde paylaşılan aktarım hızı veritabanı başına en az ru | 100 |
-| Tüketilen depolama GB başına en az ru | 40 |
 
 Cosmos DB, kapsayıcı ya da SDK'ları veya portal aracılığıyla veritabanı başına aktarım hızına (RU) esnek ölçeklendirmeyi destekler. Her kapsayıcı, minimum ve maksimum değerler arasında 100 kez 10 ölçek aralığı içindeki zaman uyumlu ve hemen ölçeklendirebilirsiniz. İstenen işleme değer aralığı dışında ise ölçeklendirme zaman uyumsuz olarak gerçekleştirilir. Zaman uyumsuz ölçeklendirme dakika istenen aktarım hızı ve veri depolama boyutu kapsayıcıdaki bağlı olarak saat sürebilir.  
 

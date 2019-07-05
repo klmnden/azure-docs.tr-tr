@@ -11,20 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5b72be0dbe35cf95eed404c7c1407c53f5f2ecb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2644e0e35139ac470b89f6af1b95cf510f60a0a
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112343"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561013"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>Temel ilke: Son kullanıcı protection (Önizleme)
 
 Yönetici hesaplarını multi-Factor authentication (MFA) ile koruma gerektiren yalnızca hesapları olduğunu düşünmek eğilimindedir. Yöneticiler, geniş hassas bilgilere erişimi ve abonelik genelindeki ayarları için değişiklik yapabilirsiniz. Ancak, hedef son kullanıcılara kötü aktörleri eğilimindedir. Erişim kazandıktan sonra bu kötü aktörleri, ayrıcalıklı bilgileri özgün hesap sahibi adına erişim isteğinde ya da kuruluş genelinde bir kimlik avı saldırı gerçekleştirmek için tüm dizin indirin. Tüm kullanıcılar geliştirmek için bir ortak yöntemi Hesap doğrulama, çok faktörlü kimlik doğrulamasını (MFA) gibi daha güçlü bir form gerektirmektir.
 
 Güvenlik ve kullanılabilirlik makul bir denge sağlamak için oturum açma tek her zaman kullanıcılara istemde olmamalıdır. Aynı konumda aynı bir CİHAZDAN oturum açma gibi normal kullanıcı davranışı, kimlik doğrulama isteklerini tehlike düşük şansına sahip olabilirsiniz. Yalnızca oturum açma, riskli olarak kabul edilen ve kötü bir aktör özelliklerini göster işlemleri ile MFA zorluklarının sorulması gerekir.
-
-![Kullanıcılar için MFA gerektirme](./media/howto-baseline-protect-end-users/baseline-policy-end-user-protection.png)
 
 Son kullanıcı korumadır bir risk tabanlı MFA [temel ilke](concept-baseline-protection.md) tüm yönetici rolleri dahil olmak üzere, bir dizindeki tüm kullanıcılar korur. Bu ilkeyi etkinleştirmek, tüm kullanıcıların kimlik doğrulayıcı uygulamasını kullanarak MFA'ya kaydetmeniz gerektirir. Kullanıcılar daha sonra kullanıcılar için mfa'yı kaydoluncaya kadar açmasını engellenir 14 gün için MFA kayıt istemi yoksayabilirsiniz. Kullanıcılar için mfa'yı kaydedildikten sonra MFA için yalnızca riskli oturum açma girişimleri sırasında istenir. Güvenliği aşılan kullanıcı hesapları kullanarak parolalarını sıfırlayabilir ve risk olayı kapatıldı kadar engellenir.
 
@@ -60,17 +58,6 @@ Eski bir kimlik doğrulama protokolleri (IMAP, SMTP, POP3, vb.), kimlik doğrula
 > [!WARNING]
 > Bu ilke etkinleştirmeden önce eski kimlik doğrulama protokolleri, kullanıcılarınızın kullanmadığınız emin olun. Makaleye göz atın [nasıl yapılır: Azure AD koşullu erişim ile eski kimlik blok](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) daha fazla bilgi için.
 
-### <a name="user-exclusions"></a>Kullanıcı dışlamaları
-
-Bu temel ilke kullanıcılar dışında seçeneği sağlar. Kiracınız için ilke etkinleştirmeden önce aşağıdaki hesapları hariç öneririz:
-
-* **Acil Durum erişim** veya **sonu cam** Kiracı genelinde hesap kilitleme önlemek için hesaplar. Tüm Yöneticiler, kiracınızın dışında kilitli olduğundan olası senaryoda, Acil Durum erişimi yönetici hesabınızın erişim kurtarmak için Kiracı alma adımları oturum kullanılabilir.
-   * Daha fazla bilgi makalesinde bulunabilir [Azure AD'de Acil Durum erişim hesapları yönetme](../users-groups-roles/directory-emergency-access.md).
-* **Hizmet hesapları** ve **servis ilkeleri**, Azure AD Connect eşitleme hesabı gibi. Hizmet, belirli bir kullanıcıya bağlı değil, etkileşimli olmayan hesaplar hesaplarıdır. Bunlar genellikle arka uç Hizmetleri tarafından kullanılan ve uygulamalar için programlı erişim izni. Hizmet hesapları, MFA programlı bir şekilde tamamlanamıyor beri hariç tutulması gerekir.
-   * Kuruluşunuz, betikleri veya kodları kullanımda bu hesapları varsa, bunları ile değiştirmeyi göz önüne alın [yönetilen kimlikleri](../managed-identities-azure-resources/overview.md). Geçici bir çözüm, bu belirli hesapların temel ilkesinden hariç tutabilirsiniz.
-* Sahip değil veya akıllı telefonunuz kullanmanız mümkün olmayacaktır kullanıcılar.
-   * Bu ilke, kullanıcıların MFA için Microsoft Authenticator uygulamasını kullanarak kaydolmasını gerektirir.
-
 ## <a name="enable-the-baseline-policy"></a>Temel ilke etkinleştir
 
 İlke **temel ilke: Son kullanıcı protection (Önizleme)** önceden yapılandırılmış olarak gelir ve Azure portalında koşullu erişim dikey penceresine gittiğinizde en üstünde gösterilir.
@@ -81,7 +68,6 @@ Bu ilkeyi etkinleştirmek ve kullanıcılarınızı korumak için:
 1. Gözat **Azure Active Directory** > **koşullu erişim**.
 1. İlkeler listesinde seçin **temel ilke: Son kullanıcı protection (Önizleme)** .
 1. Ayarlama **ilkesini etkinleştir** için **ilkeyi hemen kullan**.
-1. Herhangi bir kullanıcı özel tıklayarak Ekle **kullanıcılar** > **dışlanan kullanıcılar seçin** ve hariç tutulması gerektiğini kullanıcıları seçme. Tıklayın **seçin** ardından **Bitti**.
 1. Tıklayın **Kaydet**.
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfc9c027806cb1a3f65e67eda771894a7250ee67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b7ffef5c3a7c8dd21654b6364013b1718bea1292
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417657"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482997"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft kimlik platformu protokolleri
 
@@ -36,7 +36,7 @@ Microsoft kimlik platformu için uç nokta kimlik-bir hizmet olarak sektör stan
 
 Neredeyse tüm OAuth 2.0 ve Openıd Connect akışlar Exchange'de kullanılan dört taraflar vardır:
 
-![OAuth 2.0 rolleri](./media/active-directory-v2-flows/protocols-roles.svg)
+![OAuth 2.0 rolleri gösteren diyagram](./media/active-directory-v2-flows/protocols-roles.svg)
 
 * **Yetkilendirme sunucusu** Microsoft kimlik platformu uç noktadır ve sorumlu kullanıcının kimliğini sağlamaya yönelik, belirteçleri verme ve kaynaklara erişimi iptal etme ve verme. Yetkilendirme sunucusu kimlik sağlayıcısı olarak da bilinen - onu güvenli bir şekilde kullanıcının bilgileri, bunların erişim ve bir akışta taraflar arasındaki güven ilişkilerinin ile yapmak için herhangi bir şey işler.
 * **Kaynak sahibi** genellikle son kullanıcısıdır. Verilerin sahibi ve üçüncü tarafların, veri veya kaynak erişim izin vermek için güç olan taraftır.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 5ce3290f7af32b10e1dfbf9b72686e5d30c885bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afb7acda67eb5818ace8169dc4e98fb86bdbeaa7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431323"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442012"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) uygulamaları için ağ kavramları
 
@@ -68,25 +68,57 @@ AKS, aşağıdaki iki ağ modelleri birini kullanan bir küme dağıtabilirsiniz
 
 *Kubernetes* olan AKS kümesi oluşturma için varsayılan yapılandırma seçeneği ağ. İle *kubernetes*, düğümler, Azure sanal ağ alt ağından bir IP adresi alın. Pod'ların, düğümler Azure sanal ağ alt ağına mantıksal olarak farklı adres alanından bir IP adresi alır. Ağ adresi çevirisi (NAT), ardından pod'ları Azure sanal ağındaki kaynaklara erişebilmesi için yapılandırılır. Trafiği kaynak IP adresini, NAT düğümün birincil IP başvuracağını ' dir.
 
-Düğümleri kullanma [kubernetes] [ kubenet] Kubernetes eklentisi. Azure platformu oluşturun ve sanal ağları yapılandırmanız veya varolan bir sanal ağ alt ağı, AKS kümesi dağıtmayı tercih izin verebilirsiniz. Yeniden yönlendirilebilir bir IP adresi yalnızca alır ve AKS küme dışındaki diğer kaynaklarla iletişim için NAT pod'ları kullanın. Bu yaklaşım ağ alanınıza kullanmak pod'ları ayırmanız gerekir IP adresi sayısını önemli ölçüde azaltır.
+Düğümleri kullanma [kubernetes][kubenet] Kubernetes eklentisi. Azure platformu oluşturun ve sanal ağları yapılandırmanız veya varolan bir sanal ağ alt ağı, AKS kümesi dağıtmayı tercih izin verebilirsiniz. Yeniden yönlendirilebilir bir IP adresi yalnızca alır ve AKS küme dışındaki diğer kaynaklarla iletişim için NAT pod'ları kullanın. Bu yaklaşım ağ alanınıza kullanmak pod'ları ayırmanız gerekir IP adresi sayısını önemli ölçüde azaltır.
 
 Daha fazla bilgi için [kubernetes AKS kümesi için ağ yapılandırma][aks-configure-kubenet-networking].
 
 ### <a name="azure-cni-advanced-networking"></a>Azure CNI (Gelişmiş) ağ
 
-Azure CNI her pod alt ağdan bir IP adresi alır ve doğrudan erişilebilir. Bu IP adresleri, ağ alanı benzersiz olmalıdır ve önceden hazırlıklı olmak gerekir. Her düğümü destekliyorsa pod'ların sayısı için bir yapılandırma parametresi vardır. Düğüm başına IP adreslerinin sayısı, bu düğüm için önden ayrılmıştır. Bu yaklaşım, daha fazla planlama gerektirir ve genellikle IP adresi tükenmesi veya uygulama arttıkça daha büyük bir alt ağ kümelerini yeniden gereksinimini doğurur.
+Azure CNI her pod alt ağdan bir IP adresi alır ve doğrudan erişilebilir. Bu IP adresleri, ağ alanı benzersiz olmalıdır ve önceden hazırlıklı olmak gerekir. Her düğümü destekliyorsa pod'ların sayısı için bir yapılandırma parametresi vardır. Düğüm başına IP adreslerinin sayısı, bu düğüm için önden ayrılmıştır. Bu yaklaşım daha planlama, aksi takdirde IP adresi tükenmesi veya uygulama arttıkça daha büyük bir alt ağ kümelerini yeniden oluşturmak için gereken neden olabileceğinden gerektirir.
 
-Düğümleri kullanma [Azure kapsayıcı ağ arabirimi (CNI)] [ cni-networking] Kubernetes eklentisi.
+Düğümleri kullanma [Azure kapsayıcı ağ arabirimi (CNI)][cni-networking] Kubernetes eklentisi.
 
 ![Her tek bir Azure sanal ağa bağlanma köprüleri ile iki düğümü gösteren diyagram][advanced-networking-diagram]
 
-Azure CNI kubernetes ağ üzerinden aşağıdaki özellikleri sağlar:
-
-- Kümedeki her bir pod sanal ağdaki bir IP adresi atanır. Pod'ları, kümedeki diğer pod'ları ve diğer düğümleri sanal ağ ile doğrudan iletişim kurabilir.
-- Bir alt ağdaki hizmet uç noktaları etkinleştirilmiş pod güvenli bir şekilde Azure depolama ve SQL DB gibi Azure hizmetlerine bağlanabilirsiniz.
-- Kullanıcı tanımlı yollar (UDR) bir ağ sanal Gereci pod'ların trafiği yönlendirmek için oluşturabilirsiniz.
-
 Daha fazla bilgi için [yapılandırın, bir AKS kümesi için Azure CNI][aks-configure-advanced-networking].
+
+### <a name="compare-network-models"></a>Ağ modelleri karşılaştırın
+
+Hem kubernetes hem de Azure CNI AKS kümeleriniz için ağ bağlantısı sağlar. Ancak, avantajlar ve dezavantajlar her vardır. Yüksek düzeyde, aşağıdaki maddeler geçerlidir:
+
+* **Kubernetes**
+    * IP adres alanı tasarrufu sağlar.
+    * Kubernetes iç veya dış yük dengeleyici, gelen bir pod küme dışındaki erişmek için kullanır.
+    * El ile yönetin ve kullanıcı tanımlı yollar (Udr) korumak gerekir.
+    * 400 düğüm Küme başına en fazla.
+* **Azure CNI**
+    * Pod'ların tam sanal ağ bağlantısını alın ve doğrudan gelen kümesi dışında erişilebilir.
+    * Daha fazla IP adres alanı gerektirir.
+
+Kubernetes ile Azure CNI arasında davranışı aşağıdaki farklar mevcuttur:
+
+| Özellik                                                                                   | Kubernetes   | Azure CNI |
+|----------------------------------------------------------------------------------------------|-----------|-----------|
+| Mevcut veya yeni bir sanal ağda küme dağıtma                                            | Desteklenen - Udr el ile uygulanan | Desteklenen |
+| Pod pod bağlantısı                                                                         | Desteklenen | Desteklenen |
+| Pod VM bağlantısı; Aynı sanal ağda VM                                          | Pod tarafından başlatıldığında çalışır | Her iki şekilde de çalışır |
+| Pod VM bağlantısı; Eşlenen sanal ağdaki VM                                            | Pod tarafından başlatıldığında çalışır | Her iki şekilde de çalışır |
+| VPN veya Express Route kullanarak şirket içi erişim                                                | Pod tarafından başlatıldığında çalışır | Her iki şekilde de çalışır |
+| Hizmet uç noktaları tarafından güvenli kaynaklara erişim                                             | Desteklenen | Desteklenen |
+| Bir yük dengeleyici hizmet, uygulama ağ geçidi veya giriş denetleyicisine kullanarak Kubernetes Hizmetleri kullanıma sunma | Desteklenen | Desteklenen |
+| Varsayılan Azure DNS ve özel bölgeleri                                                          | Desteklenen | Desteklenen |
+
+### <a name="support-scope-between-network-models"></a>Ağ modelleri arasında destek kapsamı
+
+Ağ modeli kullandığınız bağımsız olarak hem kubernetes hem de Azure CNI aşağıdaki yollardan biriyle dağıtabilir:
+
+* Azure platformu, otomatik olarak oluşturun ve bir AKS kümesi oluşturduğunuzda, sanal ağ kaynaklarını yapılandırın.
+* El ile oluşturabilir ve da sanal ağ kaynaklarını yapılandırmak ve AKS kümenizi oluştururken bu kaynaklara ekleyin.
+
+Hizmet uç noktalarına veya Udr'ler gibi özellikler hem kubernetes hem de Azure CNI ile desteklenir ancak [destek ilkeleri için AKS][support-policies] yapabilirsiniz hangi değişiklikleri tanımlayın. Örneğin:
+
+* Bir AKS kümesi için sanal ağ kaynakları el ile oluşturursanız, kendi Udr veya hizmet uç noktaları yapılandırılırken desteklenir.
+* Azure platformu AKS kümenizin bir sanal ağ kaynakları otomatik olarak oluşturursa, kendi Udr ya da hizmet uç noktaları yapılandırmak için bu AKS tarafından yönetilen kaynaklara el ile olarak değiştirmek için desteklenmiyor.
 
 ## <a name="ingress-controllers"></a>Giriş denetleyicileri
 
@@ -116,7 +148,7 @@ Daha fazla bilgi için [güvenli ağ ilkelerini Azure Kubernetes Service (AKS) k
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ağ AKS ile çalışmaya başlama, oluşturun ve kendi IP adresi aralıkları kullanarak bir AKS kümesi yapılandırma [kubernetes] [ aks-configure-kubenet-networking] veya [Azure CNI] [ aks-configure-advanced-networking].
+Ağ AKS ile çalışmaya başlama, oluşturun ve kendi IP adresi aralıkları kullanarak bir AKS kümesi yapılandırma [kubernetes][aks-configure-kubenet-networking] or [Azure CNI][aks-configure-advanced-networking].
 
 İlişkili en iyi yöntemler için bkz: [en iyi uygulamalar için ağ bağlantısını ve güvenlik aks'deki][operator-best-practices-network].
 
@@ -151,3 +183,4 @@ Ağ AKS ile çalışmaya başlama, oluşturun ve kendi IP adresi aralıkları ku
 [aks-concepts-identity]: concepts-identity.md
 [use-network-policies]: use-network-policies.md
 [operator-best-practices-network]: operator-best-practices-network.md
+[support-policies]: support-policies.md

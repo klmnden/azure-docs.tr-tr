@@ -16,12 +16,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47e9033b33c70a72a1685696f75a442e88eed033
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f83cb38567feb51ba7959ada7730d66ded677bf9
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60289778"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476534"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>Onaylayın veya reddedin istekleri için Azure AD PIM rolleri
 
@@ -41,7 +41,7 @@ Onayınızı bekleyen bir Azure AD rol istek olduğunda, bir temsilci onaylayan 
 
 1. Tıklayın **istekleri onaylama**.
 
-    ![PIM Azure AD rolleri - roller](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
+    ![Azure AD rolleri - istekleri Onayla](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
     Onayınızı bekleyen isteklerinin bir listesini görürsünüz.
 
@@ -49,27 +49,27 @@ Onayınızı bekleyen bir Azure AD rol istek olduğunda, bir temsilci onaylayan 
 
 1. İstekleri onaylama ve ardından istediğiniz seçin **Onayla** Onayla açmak için istekleri bölmesinde seçili.
 
-    ![PIM'i Onayla istekleri listesi](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
+    ![İstek listesi Onayla seçeneğinin vurgulandığı Onayla](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
 
 1. İçinde **onay nedeni** bir neden yazın.
 
-    ![İstekler seçilmiş PIM'i Onayla](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
+    ![Seçili istekleri Onayla neden bölmesiyle Onayla](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
 
 1. Tıklayın **onaylama**.
 
     Durum simgesinde onayınızı ile güncelleştirilecektir.
 
-    ![İstekler seçilmiş PIM'i Onayla](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
+    ![Onayla düğmesine tıklanana sonra bölmesinde seçili istekleri Onayla](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
 
 ## <a name="deny-requests"></a>İstekleri Reddet
 
 1. İstekleri Reddet ve ardından istediğiniz seçin **Reddet** Reddet açmak için istekleri bölmesinde seçili.
 
-    ![PIM'i Onayla istekleri listesi](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
+    ![İzin verme seçeneği vurgulanmış istekleri listesi Onayla](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
 
 1. İçinde **reddetme nedeni** bir neden yazın.
 
-    ![Seçili PIM Reddet istekleri](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
+    ![Reddetme nedeni bölmesiyle seçili istekleri Reddet](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
 
 1. Tıklayın **Reddet**.
 

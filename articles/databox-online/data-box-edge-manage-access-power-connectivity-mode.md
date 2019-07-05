@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 8937f4c47f0fa84d4ec371e951cff8a2fdaa8481
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2426ecd9c480b0cc236295384ae04c60051f37ce
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476907"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442964"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Azure veri kutusu Edge için erişim, güç ve bağlantı modunu yönetin
 
@@ -66,7 +66,7 @@ Veri kutusu sınır cihazı veya kimlik bilgileri gerektiren bir işlem gerçekl
 -  Bir paylaşımı ile ilişkili depolama hesabı oluşturuluyor.
 -  Cihaz paylaşımlarında erişebilen kullanıcı oluşturma.
 
-Olması bir `User` yapabilmesi gereken Active Directory kiracısı üzerinde erişim `Read all directory objects`. İçin izniniz yok gibi Konuk kullanıcı olamaz `Read all directory objects`. Konuk, sonra bir etkinleştirme anahtarı, bir veri kutusu Edge cihazınıza paylaşımında oluşturulmasını oluşturma gibi işlemler kullanıyorsanız, bir kullanıcının oluşturma tüm başarısız olur.
+Olması bir `User` yapabilmesi gereken Active Directory kiracısı üzerinde erişim `Read all directory objects`. İçin izniniz yok gibi Konuk kullanıcı olamaz `Read all directory objects`. Konuk, ardından da nesil gibi işlemleri kullanıyorsanız bir etkinleştirme anahtarı, bir veri kutusu sınır cihazı, bir kullanıcı oluşturma, yapılandırma Edge paylaşımında oluşturulmasını bilgi işlem rolü, tüm cihaz parolasını sıfırlama başarısız olur.
 
 Azure Active Directory Graph API'si için kullanıcılara erişim sağlamak nasıl hakkında daha fazla bilgi için bkz. [Yöneticiler, kullanıcılar ve Konuk kullanıcılar için erişim varsayılan](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 

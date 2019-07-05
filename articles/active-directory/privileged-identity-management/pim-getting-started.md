@@ -14,12 +14,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 651dc4efa653e7a4eb77f153280579ffd87fe8f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 408991ffc3922986234f7d40e1cd589b1d126ba1
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60290047"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476480"
 ---
 # <a name="start-using-pim"></a>PIM kullanmaya başlama
 
@@ -56,25 +56,25 @@ PIM dizininizde kullanmaya başlamak için öncelikle PIM etkinleştirmeniz gere
 
 1. Listesinde **PIM onayı**.
 
-    ![PIM'i Onayla](./media/pim-getting-started/consent-pim.png)
+    ![PIM etkinleştirmek için PIM'i Onayla](./media/pim-getting-started/consent-pim.png)
 
 1. Tıklayın **Kimliğimi doğrula** Azure MFA ile kimliğinizi doğrulayın. Bir hesap seçin istenir.
 
-    ![Bir hesap seçin](./media/pim-getting-started/pick-account.png)
+    ![Kimliğinizi doğrulamak için bir hesabı penceresinin seçin](./media/pim-getting-started/pick-account.png)
 
 1. Daha fazla bilgi için doğrulama gerekliyse sürecinde destekli. Daha fazla bilgi için [iki aşamalı doğrulama konusunda Yardım Al](https://go.microsoft.com/fwlink/p/?LinkId=708614).
 
-    ![Daha fazla bilgi gerekli](./media/pim-getting-started/more-information-required.png)
+    ![Kuruluşunuzda daha fazla bilgi gerekiyorsa penceresi daha fazla bilgi gerekli](./media/pim-getting-started/more-information-required.png)
 
     Örneğin, telefon doğrulama sağlamanız istenebilir.
 
-    ![Ek güvenlik doğrulaması](./media/pim-getting-started/additional-security-verification.png)
+    ![Sizinle nasıl soran ek güvenlik doğrulama sayfasına](./media/pim-getting-started/additional-security-verification.png)
 
 1. Doğrulama işlemi tamamladıktan sonra tıklayın **onay** düğmesi.
 
 1. Görüntülenen iletisinde tıklayın **Evet** PIM hizmetine onay vermek için.
 
-    ![PIM ileti onayı](./media/pim-getting-started/consent-pim-message.png)
+    ![PIM ileti onay işlemini tamamlamak için onay](./media/pim-getting-started/consent-pim-message.png)
 
 ## <a name="sign-up-pim-for-azure-ad-roles"></a>Azure AD rolleri için PIM oturum
 
@@ -100,7 +100,7 @@ PIM dizininiz için etkinleştirdikten sonra Azure AD rolleri yönetmek için PI
 
 PIM kurulumundan sonra kimlik yönetimi görevlerini gerçekleştirebilir.
 
-![PIM için üst düzey görevler - ekran görüntüsü](./media/pim-getting-started/pim-quickstart-tasks.png)
+![PIM gösteren Gezinti penceresinde görevler ve seçeneklerini Yönet](./media/pim-getting-started/pim-quickstart-tasks.png)
 
 | Görev + yönetme | Açıklama |
 | --- | --- |
@@ -125,11 +125,11 @@ PIM açma daha kolay hale getirmek için PIM kutucuğu, Azure portalı panonuza 
 
 1. Denetleme **dikey pencereyi panoya Sabitle** PIM hızlı başlangıç dikey pencereyi panoya sabitleyin.
 
-    ![Dikey pencereyi panoya Sabitle](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
+    ![Raptiye simgesini PIM dikey pencereyi panoya Sabitle](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
 
     Azure panosunda, böyle bir kutucuk görürsünüz:
 
-    ![PIM hızlı kutucuğu](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
+    ![Panodaki kutucuk PIM hızlı başlangıç](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

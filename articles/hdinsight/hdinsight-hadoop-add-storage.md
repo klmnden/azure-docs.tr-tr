@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6b9577bcf8b527abb0cb7b8720ed83ec8321655b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a844465f7ba2222acd7efaf100c7b682c15adb2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64724470"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433511"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>HDInsight için ek depolama hesapları ekleme
 
@@ -196,6 +196,9 @@ Bir depolama hesabı anahtarı değiştirirseniz, HDInsight artık depolama hesa
 Betik eylemi yeniden çalıştırmak mu __değil__ betik depolama hesabı için bir giriş zaten mevcut olup olmadığını denetler anahtarı güncelleştirin. Bir giriş zaten varsa, herhangi bir değişiklik yapmaz.
 
 Bu sorunu çözmek için depolama hesabı için var olan girdiyi kaldırmanız gerekir. Var olan girdiyi kaldırmak için aşağıdaki adımları kullanın:
+
+> [!IMPORTANT]  
+> Bir kümeye bağlı birincil depolama hesabı için depolama anahtarı döndürme desteklenmiyor.
 
 1. Bir web tarayıcısında HDInsight kümeniz için Ambari Web kullanıcı arabirimini açın. URI `https://CLUSTERNAME.azurehdinsight.net`. `CLUSTERNAME` değerini kümenizin adıyla değiştirin.
 

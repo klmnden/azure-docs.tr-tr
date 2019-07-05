@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 95f5dde12ad9e34a0a04c988a816538ac30e01e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 422e9209609eac19b7952557674c99789d9f6088
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595970"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485182"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Azure Search'te bir sorgu oluşturmak nasıl
 
@@ -29,7 +29,7 @@ Aşağıdaki tabloda sorguları gönderme aracı tabanlı yaklaşımlar ve API'l
 | Yöntemi | Açıklama |
 |-------------|-------------|
 | [Arama Gezgini (portal)](search-explorer.md) | Arama çubuğu ve dizin ve API sürümü seçimleri için seçenekler sağlar. Sonuçlar, JSON belgeleri olarak döndürülür. <br/>[Daha fazla bilgi edinin.](search-get-started-portal.md#query-index) | 
-| [Postman veya fiddler'ı](search-fiddler.md) | Web test araçları, REST çağrılarını formulating için harika bir seçenektir. REST API, Azure arama'yı olası her işlemi destekler. Bu makalede, bir HTTP isteği üst bilgisi ve gövdesi istekleri Azure Search'e göndermek için ayarlama konusunda bilgi edinin.  |
+| [Postman veya fiddler'ı](search-get-started-postman.md) | Web test araçları, REST çağrılarını formulating için harika bir seçenektir. REST API, Azure arama'yı olası her işlemi destekler. Bu makalede, bir HTTP isteği üst bilgisi ve gövdesi istekleri Azure Search'e göndermek için ayarlama konusunda bilgi edinin.  |
 | [Searchındexclient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Bir Azure Search dizinini sorgulama için kullanılan istemci.  <br/>[Daha fazla bilgi edinin.](search-howto-dotnet-sdk.md#core-scenarios)  |
 | [Search belgeleri (REST API'si)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | GET veya POST yöntemleri için ek giriş sorgu parametrelerini kullanarak, bir dizin üzerinde.  |
 

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 235fe1fbe7febc193826cf09202365ee4a788194
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: b8244707ec44b9afc51d5f2c21c3e95ff0692cfb
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164754"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482353"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft kimlik platformu ve OAuth 2.0 yetkilendirme kod akışı
 
@@ -147,7 +147,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Postman içinde bu isteğin yürütülmesi deneyin! (Değiştirmeyi unutmayın `code`) [ ![Postman içinde çalıştırın](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Postman içinde bu isteğin yürütülmesi deneyin! (Değiştirmeyi unutmayın `code`) [ ![bu isteği Postman içinde çalıştırmayı deneyin](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 | Parametre  | Gerekli/isteğe bağlı | Açıklama     |
 |------------|-------------------|----------------|
@@ -228,7 +228,7 @@ Hata yanıtları gibi görünür:
 Başarıyla alındı göre bir `access_token`, içine ekleyerek Web API'lerine isteklerinde belirteci kullanabilirsiniz `Authorization` üst bilgi:
 
 > [!TIP]
-> Postman içinde bu isteğin yürütülmesi! (Değiştir `Authorization` üstbilgi ilk) [ ![Postman içinde çalıştırın](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Postman içinde bu isteğin yürütülmesi! (Değiştir `Authorization` üstbilgi ilk) [ ![bu isteği Postman içinde çalıştırmayı deneyin](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 GET /v1.0/me/messages
@@ -259,7 +259,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Postman içinde bu isteğin yürütülmesi deneyin! (Değiştirmeyi unutmayın `refresh_token`) [ ![Postman içinde çalıştırın](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Postman içinde bu isteğin yürütülmesi deneyin! (Değiştirmeyi unutmayın `refresh_token`) [ ![bu isteği Postman içinde çalıştırmayı deneyin](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 > 
 
 | Parametre     |                | Açıklama        |

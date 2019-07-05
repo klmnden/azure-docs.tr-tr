@@ -1,5 +1,5 @@
 ---
-title: Yeni bir çok kiracılı uygulama yapılandırma | Microsoft Docs
+title: Çoklu oturum açmayı yapılandırma | Microsoft Docs
 description: Geliştirdiğiniz ve Azure AD'ye kaydetme özel bir uygulama için çoklu oturum açmayı yapılandırma
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83fae56dd0cf7157575b7c5a07e33ca1888d8560
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d151d4d7f32c479f2cfb4d71a8ed667f42e03b49
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545447"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465684"
 ---
-# <a name="how-to-configure-a-new-multi-tenant-application"></a>Yeni bir çok kiracılı uygulama yapılandırma
+# <a name="how-to-configure-single-sign-on-for-an-application"></a>Bir uygulama için çoklu oturum açmayı yapılandırma
 
 Federasyon çoklu oturum açma (SSO) uygulamanızda etkinleştirme Openıd Connect, SAML 2.0 veya WS-Federasyon için Azure AD ile Federasyon olduğunda otomatik olarak etkinleştirilir. Zaten Azure AD ile varolan bir oturuma sahip olmasına rağmen oturum açmak son kullanıcılarınızın sorunlarınız varsa, uygulamanızı yanlış olasıdır.
 

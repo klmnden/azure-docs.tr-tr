@@ -1,23 +1,21 @@
 ---
-title: Azure ayırmalarını yönetme | Microsoft Docs
+title: Azure ayırmalarını yönetme
 description: Abonelik kapsamını değiştirmek ve erişimi yönetmek için Azure ayırmaları nasıl öğrenin.
 ms.service: billing
-documentationcenter: ''
-author: yashesvi
+author: bandersmsft
 manager: yashesvi
-editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89279387b3630ea654070eef671f131ec757d55f
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66127130"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491192"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Rezervasyonlar Azure kaynaklarını yönetme
 
@@ -54,7 +52,7 @@ Rezervasyon kapsamı güncelleştirilemedi:
 
 Gelen tek bir kapsam için paylaşılan değiştirirseniz, yalnızca sahibi olduğu abonelikleri seçebilirsiniz. Yalnızca rezervasyonla aynı fatura bağlamında bulunan abonelikleri seçebilirsiniz.
 
-Kapsam yalnızca MS-AZR-0003P veya MS-AZR-0023P kodlu Kullandıkça Öde teklifi, MS-AZR-0017P veya MS-AZR-0148P kodlu Kurumsal teklif ya da CSP abonelikleri için geçerlidir.
+Kapsamı yalnızca Kullandıkça Öde tarifesine göre (teklifler MS-AZR - 0003 P veya MS-AZR - 0023 P) ile tek tek abonelikleri Kurumsal teklif MS-AZR - 0017 P veya MS-AZR - 0148 P ya da CSP'ye abonelik türlerinde geçerlidir.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Rezervasyonu yönetebilecek kullanıcıları ekleme veya değiştirme
 

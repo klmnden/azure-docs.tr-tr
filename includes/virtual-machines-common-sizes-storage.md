@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: de998265188b1482be22225bba3c6ab3d58e562b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b98aebfd7bef3edff8e046d7ef1c388ea57afa04
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755593"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67501284"
 ---
 Depolama en iyi duruma getirilmiş VM boyutları, yüksek disk aktarım hızı ve g/ç sunar ve büyük veri, SQL, NoSQL veritabanları, veri ambarı ve büyük işlem veritabanları için idealdir.  Cassandra, MongoDB, Cloudera ve Redis örneklerindendir. Bu makalede, Vcpu, veri diskleri ve NIC hem de yerel depolama aktarım hızı ve ağ bant genişliği için en iyi duruma getirilmiş her boyut sayısı hakkında bilgi sağlar.
 
@@ -35,11 +35,12 @@ Premium Depolama: Desteklenen
 
 Premium depolama önbelleğe alma: Desteklenmiyor
 
-| Boyut          | Sanal işlemci | Bellek (GiB) | Geçici disk<sup>1</sup> (GiB) | NVMe diskleri<sup>2</sup> | NVMe Disk aktarım hızı<sup>3</sup> (okuma IOPS / MB/sn) | Maksimum önbelleğe alınmamış veri diski aktarım hızı (IOPS/MB/sn)<sup>4</sup> | Maksimum veri diskleri | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
+| Size          | Sanal işlemci | Bellek (GiB) | Geçici disk<sup>1</sup> (GiB) | NVMe diskleri<sup>2</sup> | NVMe Disk aktarım hızı<sup>3</sup> (okuma IOPS / MB/sn) | Maksimum önbelleğe alınmamış veri diski aktarım hızı (IOPS/MB/sn)<sup>4</sup> | Maksimum veri diskleri | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
-| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400000 / 2000 | 8000/160 | 16 | 2 / 3200  |
-| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800000 / 4000 | 16000/320 | 32 | 4 / 6400  |
-| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1,5 MİLYON / 8000    | 32000/640 | 32 | 8 / 12800 |
+| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400000 / 2000  | 8000/160   | 16 | 2 / 3200  |
+| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800000 / 4000  | 16000/320  | 32 | 4 / 6400  |
+| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1,5 MİLYON / 8000    | 32000/640  | 32 | 8 / 12800 |
+| Standard_L48s_v2  | 48 | 384 | 480 |  6x1.92 TB  | 2.2 M / 14000   | 48000/960  | 32 | 8 / 16000+ |
 | Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9 M / 16000   | 64000/1280 | 32 | 8 / 16000+ |
 | Standard_L80s_v2<sup>5</sup> | 80 | 640 | 800 | 10x1.92TB   | 3.8 M / 20000   | 80000/1400 | 32 | 8 / 16000+ |
 

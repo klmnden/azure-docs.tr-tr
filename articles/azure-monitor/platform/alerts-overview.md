@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c389f2ab9e67cbb1fd1a6a0c9ee274bca7d4c99d
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347485"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560432"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft azure'da uyarılara genel bakış 
 
@@ -33,7 +33,7 @@ Aşağıdaki diyagramda, uyarılar akışını temsil eder.
 
 ![Uyarı akışı](media/alerts-overview/Azure-Monitor-Alerts.svg)
 
-Uyarı kuralları, uyarılar ve bir uyarı tetiklendiğinde gerçekleştirilecek eylemi ayrılır. 
+Uyarı kuralları, uyarılar ve bir uyarı tetiklendiğinde gerçekleştirilen eylemler ayrılır. 
 
 **Uyarı kuralı** -uyarı kuralı hedef ve uyarı ölçütlerini yakalar. Uyarı kuralı, etkin veya devre dışı durumda olabilir. Uyarılar yalnızca etkinleştirildiğinde kov. 
 
@@ -94,6 +94,8 @@ Yardımcı olan makine öğrenimi algoritmalarıyla, bağlı uyarılar toplamala
 ## <a name="alerts-experience"></a>Uyarı deneyimi 
 Varsayılan uyarılar sayfasında belirli zaman aralığında oluşturulan uyarıların özetini sağlar. Her önem derecesi uyarıların her önem derecesi için her durumda toplam sayısını belirleme sütunlarla toplam uyarı görüntüler. Açmak için önem derecelerinin birini seçin [tüm uyarıları](#all-alerts-page) sayfası, önem derecesine göre filtrelendi.
 
+Alternatif olarak, [REST API'lerini kullanarak aboneliklerinizi üzerinde oluşturulan uyarı örneklerinin program aracılığıyla listeleme](#manage-your-alert-instances-programmatically).
+
 Bırakmaz göster veya eski izleme [Klasik uyarılar](#classic-alerts). Abonelikleri değiştirin veya filtre parametreleri sayfası. 
 
 ![Uyarılar sayfası](media/alerts-overview/alerts-page.png)
@@ -102,7 +104,7 @@ Bu görünümde, sayfanın üst kısmındaki açılan menüler, değerleri seçe
 
 | Sütun | Açıklama |
 |:---|:---|
-| Abonelik | En fazla beş Azure aboneliklerini seçin. Yalnızca seçilen Aboneliklerde uyarılar görünümünde dahil edilir. |
+| Abonelik | Uyarıları görüntülemek istediğiniz Azure aboneliklerini seçin. Tüm aboneliklerinizi seçmek isteğe bağlı olarak seçebilirsiniz. Seçili Aboneliklerde erişimi olmasını yalnızca uyarılar görünümünde dahil edilir. |
 | Kaynak grubu | Tek bir kaynak grubu seçin. Yalnızca seçilen kaynak grubunun hedefleri olan uyarılar görünümünde dahil edilir. |
 | Zaman aralığı | Yalnızca seçili zaman penceresi içinde tetiklenen uyarılar görünümünde dahil edilir. Desteklenen değerler şunlardır: son bir saat, son 24 saat, son 7 günde ve son 30 gün. |
 
@@ -145,7 +147,7 @@ Sayfanın üst kısmındaki açılan menüler aşağıdaki değerleri belirleyer
 
 | Sütun | Açıklama |
 |:---|:---|
-| Abonelik | En fazla beş Azure aboneliklerini seçin. Yalnızca seçilen Aboneliklerde uyarılar görünümünde dahil edilir. |
+| Abonelik | Uyarıları görüntülemek istediğiniz Azure aboneliklerini seçin. Tüm aboneliklerinizi seçmek isteğe bağlı olarak seçebilirsiniz. Seçili Aboneliklerde erişimi olmasını yalnızca uyarılar görünümünde dahil edilir. |
 | Kaynak grubu | Tek bir kaynak grubu seçin. Yalnızca seçilen kaynak grubunun hedefleri olan uyarılar görünümünde dahil edilir. |
 | Kaynak türü | Bir veya daha fazla kaynak türlerini seçin. Yalnızca seçilen türdeki hedefleri olan uyarılar görünümünde dahil edilir. Bu sütun, yalnızca bir kaynak grubu belirttikten sonra kullanılabilir. |
 | Resource | Bir kaynak seçin. Yalnızca bu kaynak bir hedef olarak uyarılarla Görünümü'nde dahil edilir. Bu sütun, yalnızca bir kaynak türünü belirttikten sonra kullanılabilir. |
@@ -157,20 +159,47 @@ Sayfanın üst kısmındaki açılan menüler aşağıdaki değerleri belirleyer
 
 Seçin **sütunları** görüntülenecek sütunları seçmek için sayfanın üst kısmındaki. 
 
-## <a name="alert-detail-page"></a>Uyarı Ayrıntı Sayfası
+## <a name="alert-details-page"></a>Uyarı Ayrıntıları sayfası
 Bir uyarıyı seçtiğinizde, uyarı ayrıntısı sayfası görüntülenir. Bu uyarının ayrıntılar sağlar ve durumuna değiştirmenize olanak tanır.
 
 ![Uyarı ayrıntısı](media/alerts-overview/alert-detail2.png)
 
-Uyarı ayrıntı sayfası aşağıdaki bölümleri içerir.
+Uyarı Ayrıntıları sayfası aşağıdaki bölümleri içerir.
 
 | `Section` | Açıklama |
 |:---|:---|
-| Temel Bileşenler | Özellikleri ve diğer uyarı hakkında önemli bilgi görüntüler. |
+| Özet | Özellikleri ve diğer uyarı hakkında önemli bilgi görüntüler. |
 | Geçmiş | Uyarı tarafından gerçekleştirilen her eylemi ve uyarı değişiklikleri listeler. Durum değişiklikleri şu anda sınırlı. |
-| Akıllı grubu | Akıllı grubu uyarı hakkındaki bilgiler dahil edilir. *Uyarı sayısı* akıllı grubuna dahil edilen uyarıların sayısını ifade eder. Uyarıları Listesi sayfasında süresi filtre bağımsız olarak son 30 gün içinde oluşturulan akıllı grubundaki diğer uyarıları içerir. Ayrıntılarını görüntülemek için bir uyarı seçin. |
-| Diğer ayrıntılar | Daha fazla bağlamsal bilgi uyarı oluşturulan kaynak türü için genellikle belirli bir uyarı görüntüler. |
+| Tanılama | Akıllı grubu uyarı hakkındaki bilgiler dahil edilir. *Uyarı sayısı* akıllı grubuna dahil edilen uyarıların sayısını ifade eder. Uyarıları Listesi sayfasında süresi filtre bağımsız olarak son 30 gün içinde oluşturulan akıllı grubundaki diğer uyarıları içerir. Ayrıntılarını görüntülemek için bir uyarı seçin. |
 
+## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Uyarı örnekleriniz için rol tabanlı erişim denetimi (RBAC)
+
+Tüketim ve uyarı örneklerinin yönetim gerektirir ya da yerleşik RBAC rolleri kullanıcı [izleme katkıda bulunanı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) veya [izleme okuyucusu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). Bu roller, bir kaynak düzeyinde ayrıntılı atamaları için abonelik düzeyinde bir Azure Resource Manager kapsamda desteklenir. Örneğin, kullanıcının yalnızca 'ContosoVM1' sanal makinesi için 'izleme katkıda bulunanı' erişimi varsa, ardından o kullanma ve yalnızca 'ContosoVM1' üzerinde oluşturulan uyarıları yönetmek kullanabilirsiniz.
+
+## <a name="manage-your-alert-instances-programmatically"></a>Uyarı örneklerinizin programlama yoluyla yönetme
+
+Program aracılığıyla sorgulamak için üretilen uyarılar için aboneliğinizi karşı istediğiniz birçok senaryo vardır. Bu, Azure portalında dışında özel görünümlerini oluşturma veya modelleri ve eğilimlerini belirlemek için uyarıları çözümlemek için olabilir.
+
+Aboneliklerinizi karşı kullanarak ya da oluşturulan uyarılar için sorgulama yapabilirsiniz [uyarı Yönetimi REST API'si](https://aka.ms/alert-management-api) kullanarak veya [uyarılar için Azure kaynak Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources).
+
+[Uyarılar için Azure kaynak Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources) uygun ölçekte uyarı örnekleri için sorgu olanak tanır. Bu, birçok farklı abonelikler arasında oluşturulan uyarıları yönetmek için sahip olduğu senaryolar için önerilir. 
+
+Aşağıdaki örnek istek API için bir abonelik içindeki uyarı sayısı döndürür:
+
+```json
+{
+  "subscriptions": [
+    <subscriptionId>
+  ],
+  "query": "where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()",
+  "options": {
+            "dataset":"alerts"
+  }
+}
+```
+Uyarılar için sorgulanabilir kendi ['temel'](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields) alanları.
+
+[Uyarı Yönetimi REST API'si](https://aka.ms/alert-management-api) dahil olmak üzere belirli uyarılar hakkında daha fazla bilgi almak için kullanılan kendi ['uyarı bağlamı'](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) alanları.
 
 ## <a name="classic-alerts"></a>Klasik uyarılar 
 

@@ -7,12 +7,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 5ffbee1b4fdfc08b111e199e73baae19341b1022
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85753e788284396262053aad8cf567ad5cd71fee
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65775674"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509290"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure veri Kataloğu desteklenen veri kaynakları
 
@@ -152,7 +152,7 @@ Meta veri Genel API veya bir tıklama kullanarak yayımlayabilirsiniz-bir kez ka
       <td></td>
     </tr>
     <tr>
-      <td>SQL veri ambarı görünümü</td>
+      <td>Azure SQL veri ambarı görünümü</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -165,7 +165,7 @@ Meta veri Genel API veya bir tıklama kullanarak yayımlayabilirsiniz-bir kez ka
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 ve sonraki sürümler.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services KPI</td>
@@ -173,7 +173,7 @@ Meta veri Genel API veya bir tıklama kullanarak yayımlayabilirsiniz-bir kez ka
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 ve sonraki sürümler.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services ölçüsü</td>
@@ -181,7 +181,7 @@ Meta veri Genel API veya bir tıklama kullanarak yayımlayabilirsiniz-bir kez ka
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 ve sonraki sürümler.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services tablo</td>
@@ -189,15 +189,15 @@ Meta veri Genel API veya bir tıklama kullanarak yayımlayabilirsiniz-bir kez ka
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 ve sonraki sürümler.</td>
     </tr>
     <tr>
       <td>SQL Server Reporting Services rapor</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Tarayıcı</td>
-      <td>Yalnızca yerel mod sunucuları. SharePoint modu desteklenmiyor.</td>
+      <td>Browser</td>
+      <td>Yalnızca yerel mod sunucuları. SharePoint modu desteklenmiyor. SQL Server 2008 ve sonraki sürümler yalnızca</td>
     </tr>
     <tr>
       <td>SQL Server tablosu</td>
@@ -205,7 +205,7 @@ Meta veri Genel API veya bir tıklama kullanarak yayımlayabilirsiniz-bir kez ka
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server veri araçları</td>
-      <td></td>
+      <td>SQL Server 2008 ve sonraki sürümler.</td>
     </tr>
     <tr>
       <td>SQL Server görünümü</td>
@@ -213,7 +213,7 @@ Meta veri Genel API veya bir tıklama kullanarak yayımlayabilirsiniz-bir kez ka
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server veri araçları</td>
-      <td></td>
+      <td>SQL Server 2008 ve sonraki sürümler.</td>
     </tr>
     <tr>
       <td>Teradata tablo</td>

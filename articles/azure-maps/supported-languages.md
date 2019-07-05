@@ -3,17 +3,17 @@ title: Yerelleştirme desteğini Azure haritalar | Microsoft Docs
 description: Azure haritalar Hizmetleri için desteklenen diller hakkında bilgi edinin
 author: walsehgal
 ms.author: v-musehg
-ms.date: 04/25/2019
+ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: ''
-ms.openlocfilehash: 1928185521419006a487a933e2ecba79894a09d3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+manager: philmea
+ms.openlocfilehash: a9446301cc4bb46c989223ad020c7a8e8b353ad3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686776"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446180"
 ---
 # <a name="localization-support-in-azure-maps"></a>Azure haritalar yerelleştirme desteği
 
@@ -25,7 +25,7 @@ Azure haritalar, çeşitli diller ve ülke/bölgeye göre görünümleri destekl
 Azure haritalar Hizmetleri genelinde çeşitli dillerde yerelleştirilmiş. Aşağıdaki tabloda, her hizmet için desteklenen dil kodlarını sağlar.  
   
 
-| Kimlik         | Ad                   |  Haritalar | Ara | Yönlendirme | Trafik olayları | JS harita denetimi | Saat dilimi |
+| id         | Ad                   |  Haritalar | Ara | Yönlendirme | Trafik olayları | JS harita denetimi | Saat dilimi |
 |------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|
 | ZA AF      | Afrikaner dili              |       |    ✓   |    ✓    |                   |                |     ✓     |
 | ar-SA      | Arapça                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
@@ -85,7 +85,51 @@ Azure haritalar Hizmetleri genelinde çeşitli dillerde yerelleştirilmiş. Aşa
 
 ## <a name="azure-maps-supported-views"></a>Azure haritalar desteklenen görünümleri
 
-("Kullanıcı bölge parametre olarak" da denir) azure haritalar görünüm parametresi hangi ekleyemeyebilir kümesini belirtme, ülke/bölge için doğru eşlemeleri Kenarlıklar tartışmalı gösteren 2 harf 3166 ISO ülke kodu, etiketleri harita üzerinde görüntülenir.  Varsayılan görünüm parametre kümesine **"Birleştirilmiş"** .  Görünüm listede yer almayan ülke/bölge "Birleştirilmiş" görünümü için varsayılan olarak kullanılır. Bu, kullanıcılarınızın konumunu belirlemek ve ardından görünümü bu konum için doğru parametre sizin sorumluluğunuzdur. Azure haritalar görünümü parametresinde, ilgili yasalara uyacağınızı belirtir kullanılmalıdır, olanlar dahil olmak üzere burada haritalar, resimler ve olduğunuz diğer verileri ve üçüncü taraf içeriğini Azure haritalar erişim yetkisi ülkenin ilgili eşleme kullanılabilir hale getirilir.
+> [!Note]
+> Azure haritalar aşağıdaki ülkelerde/bölgelerde 1 Ağustos 2019 üzerinde kullanıma sunacağımız:
+>  * Arjantin
+>  * Hindistan
+>  * Fas
+>  * Pakistan
+>
+> 1 Ağustos 2019 sonra **görünümü** parametre ayarı, yukarıda listelenen yeni bölgeler/ülkeler için döndürülen harita içeriğinin tanımlamak. Hizmetlerinizi kullanmaya SDK'ları ve REST API'leri için gerektiği gibi görünümü parametresini ayarladığınızdan emin olmak için önerilir.
+>  
+>
+>  **REST API:**
+>  
+>  Görünüm parametresini gerekli olarak ayarladığınızdan emin olun. Azure haritalar Hizmetleri aracılığıyla hangi ekleyemeyebilir tartışmalı İçerik kümesi döndürülür görünümü parametre belirtir. 
+>
+>  Etkilenen Azure haritalar REST Hizmetleri:
+>    
+>    * Harita kutucuğunu Al
+>    * Harita resminin Al 
+>    * Belirsiz arama Al
+>    * Arama POI Al
+>    * Arama POI kategorisine sahip olursunuz
+>    * Arama yakındaki Al
+>    * Arama adresini alma
+>    * Yapılandırılmış arama adresi alın
+>    * Arama adresini geri alma
+>    * Arama ters arası sokak adresi alın
+>    * Geometri içinde POST arama
+>    * POST arama adresi Batch önizlemesi
+>    * POST arama adresi ters Batch önizlemesi
+>    * Yol boyunca POST arama
+>    * POST arama belirsiz Batch önizlemesi
+>
+>    
+>  **SDK'ları:**
+>
+>  Görünüm parametresi gerekli olarak ayarladıysanız ve Web SDK'sı ve Android SDK'ın en son sürümüne sahip olun. Etkilenen SDK'ları:
+>
+>    * Azure haritalar Web SDK'sı
+>    * Azure haritalar Android SDK'sı
+
+
+Azure haritalar **görünümü** parametresi ("kullanıcı bölge parametre olarak" da denir), ISO-3166 ülke kodu'de içeriği hangi ekleyemeyebilir kümesi belirterek bu ülke/bölge tartışmalı için doğru eşlemeleri gösterir iki harf Kenarlıklar ve Haritada görüntülenen etiketler de dahil olmak üzere Azure haritalar Hizmetleri aracılığıyla döndürdü. 
+
+Varsayılan görünüm parametre kümesine **birleşik**istekte tanımladıysanız bile. Bu, kullanıcılarınızın konumunu belirlemek ve ardından görünümü bu konum için doğru parametre sizin sorumluluğunuzdur. Alternatif olarak, ayarlanacak seçeneğiniz ' görünüm = Auto', istek IP adresine göre harita verileri döndürülür.  Azure haritalar görünümü parametresinde, ilgili yasalara uyacağınızı belirtir kullanılmalıdır, olanlar dahil olmak üzere burada haritalar, resimler ve olduğunuz diğer verileri ve üçüncü taraf içeriğini Azure haritalar erişim yetkisi ülkenin ilgili eşleme kullanılabilir hale getirilir.
+
 
 Aşağıdaki tabloda, desteklenen görünümler sağlar.
 
@@ -107,4 +151,5 @@ Aşağıdaki tabloda, desteklenen görünümler sağlar.
 | SA           | Suudi Arabistan (Arapça görünümü)            |   ✓   |        |     ✓          |
 | SY           | Suriye (Arapça görünümü)                   |   ✓   |        |     ✓          |
 | YE           | Yemen (Arapça görünümü)                   |   ✓   |        |     ✓          |
+| Otomatik         | İsteğin IP adresine göre harita verilerini döndürür.|   ✓   |    ✓   |     ✓          |
 | Birleşik      | Birleşik görünüm (diğer)                  |   ✓   |   ✓     |     ✓          |

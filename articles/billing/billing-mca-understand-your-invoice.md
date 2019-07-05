@@ -1,43 +1,40 @@
 ---
-title: Microsoft Müşteri sözleşmesi faturanızı anlama | Microsoft Docs
-description: Okuma ve MCA faturanızı anlama hakkında bilgi edinin
-services: ''
-documentationcenter: ''
-author: jureid
+title: Azure'da Microsoft Müşteri sözleşmesi faturanızı anlama
+description: Okuma ve azure'da Microsoft Müşteri sözleşmesi faturanızı anlama hakkında bilgi edinin
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: aee51793c66ae57f740300797b8fdc1799e685cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fed658d3f672d6116d7c2b0f3e2e9ad989dd67c6
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604047"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490649"
 ---
-# <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Microsoft Müşteri sözleşmesi faturanızla ilgili koşulları anlama
+# <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Microsoft, müşteri sözleşmesinin koşullarını fatura
 
-Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi için geçerlidir. [Microsoft Müşteri sözleşmesi erişimi olup olmadığını denetlemek](#check-access-to-a-microsoft-customer-agreement).
+Bu makale, Azure faturalandırma hesabınız için bir Microsoft Müşteri sözleşmesi için geçerlidir. [Microsoft Müşteri sözleşmesi erişimi olup olmadığını denetlemek](#check-access-to-a-microsoft-customer-agreement).
 
 Faturanızı ücretleri ve ödeme yönergeleri bir özetini sağlar. Taşınabilir Belge Biçimi (.pdf) indirme için kullanılabilir [Azure portalında](https://portal.azure.com/) veya e-posta ile gönderilebilir. Daha fazla bilgi için [görüntüleyin ve indirme, Microsoft Azure fatura](billing-download-azure-invoice.md).
 
-<!-- ## When am I billed?
+## <a name="billing-period"></a>Fatura dönemi
 
-You are invoiced on a monthly basis. You can find out which day of the month you receive invoices by checking *invoice date* under billing profile properties in the [Azure portal](https://portal.azure.com/). Charges that occur between the end of the billing period and the invoice date are included in the next month's invoice, since they are in the next billing period. The billing period start and end dates for each invoice are listed in the invoice PDF above **Billing Summary**. -->
+Aylık olarak faturalandırılır. Hangi denetleyerek faturalar alıyorsunuz ayın gününü bulabilirsiniz *fatura tarihi* profili özelliklerini faturalama altında [Azure portalında](https://portal.azure.com/). Sonraki fatura döneminde olduğundan, fatura döneminin sonuna ve fatura tarihleri arasında oluşan ücretler sonraki ayın faturasında dahil edilir. Fatura dönemi başlangıç ve bitiş tarihlerini her fatura yukarıdaki PDF faturayı listelenen **fatura özeti**.
 
 ## <a name="invoice-terms-and-descriptions"></a>Fatura hüküm ve açıklamaları
 
-Aşağıdaki bölümlerde her dönem için fatura ve açıklamaları gördüğünüz önemli terimleri listelenmektedir.
+Aşağıdaki liste önemli terimler olarak bölümlerde, faturada bakın ve her dönem için açıklamalar sağlar.
 
 ### <a name="invoice-summary"></a>Fatura özeti
 
-**Fatura özeti** üst kısmındaki ilk sayfa verilmiştir ve fatura profilinizi ve ödeme yöntemini hakkındaki bilgileri gösterir.
+**Fatura özeti** ilk sayfasının üst kısmındaki ve fatura profilinizi ve ödeme yöntemini hakkındaki bilgileri gösterir.
 
 ![Fatura Özeti bölümü](./media/billing-understand-your-invoice-mca/invoicesummary.png)
 
@@ -78,7 +75,6 @@ Her fatura bölümü için fatura profilinizi altında ücretleri, uygulanan Azu
 
 Kalan ödenmemiş toplam tutar her hizmet ailesi çıkarılmasıyla hesaplanır *Azure KREDİLERİ* gelen *KREDİLERİ/ücretleri* ve ekleme *vergi*:
 
-<!-- `Total = Charges/Credits - Azure Credit + Tax` -->
 
 ![Fatura bölümünde ayrıntıları](./media/billing-understand-your-invoice-mca/invoicesectiondetails.png)
 
@@ -103,7 +99,7 @@ Fatura sayfanın en faturanızın ödeme yapmak için yönergeler de vardır. On
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için erişim denetimi
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 

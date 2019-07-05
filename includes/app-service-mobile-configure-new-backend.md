@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: a7c994f85d90e94d514bb4e4f91a6644ed45432c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7e543dcad9ad1b016d1244451cd87cda5ad7492
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66455138"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440206"
 ---
 1. Aşağıdaki platformlar için SDK hızlı başlangıçları istemciyi indirin:
     
@@ -100,6 +100,4 @@ ms.locfileid: "66455138"
 
         4. Seçin **App Service** hedef yayımlama gibi ardından **var olanı Seç**, ardından **Yayımla** pencerenin alt kısmındaki düğmesi.
 
-        5. Visual Studio ile ilk Azure aboneliğinizle oturum gerekecektir. Seçin `Subscription`, `Resource Group`ve ardından uygulamanızın adını seçin. Hazır olduğunuzda tıklayın **Tamam**, bu olan .NET sunucu projesini App Service arka uca yerel olarak dağıtır. Dağıtım tamamlandığında, yönlendirilecek `http://{zumoappname}.azurewebsites.net/` tarayıcıda.
-        
-           ![Arka uç çalışıyor](./media/app-service-mobile-configure-new-backend/backend-is-up.png)
+        5. Visual Studio ile ilk Azure aboneliğinizle oturum gerekecektir. Seçin `Subscription`, `Resource Group`ve ardından uygulamanızın adını seçin. Hazır olduğunuzda tıklayın **Tamam**, bu olan .NET sunucu projesini App Service arka uca yerel olarak dağıtır. Dağıtım tamamlandığında, yönlendirilecek `http://{zumoappname}.azurewebsites.net/` tarayıcıda.                   

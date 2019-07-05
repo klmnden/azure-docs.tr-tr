@@ -12,24 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 07/04/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b1c68d9254b0da2e5296c83d8dd4c95091fde1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd9ff2360fce26b77ba0f5be4d5f70103504ec05
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111799"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67564438"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Azure Active Directory'de (Önizleme) yapılandırılabilir belirteç ömürleri
 
 Azure Active Directory (Azure AD) tarafından verilmiş bir belirteç ömrünü belirtebilirsiniz. Kuruluşunuzda, kuruluşunuzdaki tüm uygulamalar, çok kiracılı (çok kuruluşlu) bir uygulama veya belirli bir hizmet sorumlusu için belirteç ömrünü ayarlayabilirsiniz.
 
 > [!IMPORTANT]
-> Önizleme sırasında müşterilerden işitme sonra biz yapılandırılabilir belirteç ömrünü özelliğiyle değiştirilmiştir [kimlik doğrulama oturumu yönetim özellikleri](https://go.microsoft.com/fwlink/?linkid=2083106) Azure AD koşullu erişim. Bu özellik, 1 Kasım 2019 üzerinde kullanımdan kaldırılacaktır. Yapılandırılabilir belirteç ömrü ilkesi kullanıyorsanız, yeni koşullu erişim özelliğini geçin. 
+> Önizleme sırasında müşterilerden işitme sonra uyguladık [kimlik doğrulama oturumu yönetim özellikleri](https://go.microsoft.com/fwlink/?linkid=2083106) Azure AD koşullu erişim. Bu yeni özellik, oturum sıklığı ayarlayarak yenileme belirteç ömrünü yapılandırmak için kullanabilirsiniz. 1 Kasım 2019 sonra yenileme belirteçleri yapılandırmak üzere yapılandırılabilir belirteç ömrü İlkesi'ni kullanmak mümkün olmayacaktır, ancak yine de, erişim belirteçleri yapılandırmak için kullanabilirsiniz.
 
 Azure AD'de, ayrı ayrı uygulamaların veya kuruluştaki tüm uygulamalar uygulanan bir kurallar kümesi İlkesi nesnesini temsil eder. Her ilke türü, atanmış olan nesnelere uygulanan özellik kümesi ile benzersiz bir yapıya sahiptir.
 

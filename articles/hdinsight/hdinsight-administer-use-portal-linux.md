@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: 44de565b8c94369c5751938b5df939f0af6e7f36
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c745fceca5efa66b1b23661001d93ddb287fe37b
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068912"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460642"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure portalını kullanarak HDInsight Apache Hadoop kümelerini yönetme
 
@@ -152,7 +152,7 @@ Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. 
 İşlem programlama yapabileceğiniz birçok yolu vardır:
 
 * Kullanıcı Azure veri fabrikası. Bkz: [oluşturma isteğe bağlı Linux tabanlı Apache Hadoop Azure Data Factory kullanarak HDInsight kümelerinde](hdinsight-hadoop-create-linux-clusters-adf.md) isteğe bağlı HDInsight'ı oluşturmak için bağlı hizmetler.
-* Azure PowerShell kullanın.  Bkz: [uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data-linux.md).
+* Azure PowerShell kullanın.  Bkz: [uçuş gecikme verilerini çözümleme](./interactive-query/interactive-query-tutorial-analyze-flight-data.md).
 * Azure CLI kullanın. Bkz: [yönetme Azure HDInsight kümeleri Azure CLI kullanarak](hdinsight-administer-use-command-line.md).
 * HDInsight .NET SDK'sını kullanın. Bkz: [gönderme Apache Hadoop işlerini](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 

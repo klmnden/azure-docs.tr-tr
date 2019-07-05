@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: 2b6adcf4231aa44a4f28d277e963efa16de8af81
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afc0bb990f69521efb2557a6a086c0de5126f82c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399338"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440426"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Anlama ve Azure Active Directory Uygulama Proxy CORS sorunları çözme
 
-[Çıkış noktaları arası kaynak paylaşımı (CORS)](http://www.w3.org/TR/cors/) bazen Azure Active Directory Uygulama proxy'si ile yayımladığınız uygulamalar ve API'ler için zorluklar çıkarabilir. Bu makalede, Azure AD uygulama ara sunucusu CORS sorunlar ve çözümler açıklanmaktadır.
+[Çıkış noktaları arası kaynak paylaşımı (CORS)](https://www.w3.org/TR/cors/) bazen Azure Active Directory Uygulama proxy'si ile yayımladığınız uygulamalar ve API'ler için zorluklar çıkarabilir. Bu makalede, Azure AD uygulama ara sunucusu CORS sorunlar ve çözümler açıklanmaktadır.
 
 Tarayıcı güvenlik genellikle bir web sayfası başka bir etki alanına AJAX istekleri yapmasını engeller. Bu kısıtlama adlı *aynı çıkış noktası İlkesi*ve kötü amaçlı bir siteyi başka bir siteden hassas verileri okumasını önler. Ancak, bazen, web API'si çağırma diğer sitelere izin vermek isteyebilirsiniz. CORS aynı çıkış noktası İlkesi gevşeyin ve bazı çıkış noktaları arası istekleri izin verirken diğerlerini bir izin veren bir W3C standardıdır.
 

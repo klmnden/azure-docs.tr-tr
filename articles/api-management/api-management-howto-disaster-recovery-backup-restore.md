@@ -11,26 +11,31 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: e0c02829a2fef6e281794fdba6c9fb5d9b8a736b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6507c39faecfa0e56fc19597e414e9d25d368567
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241711"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460870"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Olağanüstü durum kurtarma hizmeti Yedekleme kullanarak uygulayın ve Azure API Yönetimi'nde geri yükleme
 
 Yayımlama ve Azure API Management aracılığıyla API'leri yönetmeye, hataya dayanıklılık ve aksi tasarım, uygulamak ve el ile yönetmek olan altyapı yeteneklerinden yönlendiriyoruz. Azure platformu, olası arızaları maliyetinin daha düşük Ücretlerle büyük bir bölümünü azaltır.
 
-API Yönetimi hizmetiniz barındıran bölgeyi etkileyen kullanılabilirlik sorunları gidermek için hizmetinizde başka bir bölgeye herhangi bir zamanda yeniden oluşturmak hazır olun. Kullanılabilirlik ve kurtarma zamanı hedeflerine bağlı olarak, bir veya daha fazla bölgede bir yedekleme hizmeti ayırmak isteyebilirsiniz. Kendi yapılandırma ve içerik etkin hizmeti ile eşitlenmiş tutmak deneyebilir. Hizmeti "Yedekleme ve geri yükleme" özelliği, olağanüstü durum kurtarma stratejiniz uygulamak için gereken Yapı bloğu sağlar.
+API Yönetimi hizmetiniz barındıran bölgeyi etkileyen kullanılabilirlik sorunları gidermek için hizmetinizde başka bir bölgeye herhangi bir zamanda yeniden oluşturmak hazır olun. Kurtarma süresi hedefi bağlı olarak, bir veya daha fazla bölgede bir yedek hizmeti tutmak isteyebilirsiniz. Kendi yapılandırma ve içerik, kurtarma noktası hedefi göre etkin hizmeti ile eşitlenmiş tutmak deneyebilir. Hizmet yedekleme ve geri yükleme özelliklerini, olağanüstü durum kurtarma stratejisi uygulamak için gereken yapı taşlarını sağlar.
 
-Bu kılavuz, Azure Resource Manager istek doğrulamanın nasıl gerçekleştirileceğini gösterir. Ayrıca, yedekleme ve geri yükleme, API Management hizmet örneklerini işlemini gösterir.
+Yedekleme ve geri yükleme işlemleri, API Management hizmeti yapılandırması işletimsel ortamlar arasında örneğin geliştirme ve hazırlama çoğaltmak için de kullanılabilir. Kullanıcılar gibi bu çalışma zamanı verileri sızıntılardan ve abonelikleri de, her zaman tercih olmayabilir kopyalanır.
 
-> [!NOTE]
-> Yedekleme ve olağanüstü durum kurtarma için API Management hizmet örneği geri yükleme işlemi, API Management hizmet örneklerini hazırlama gibi senaryolar için çoğaltmak için de kullanılabilir.
+Bu kılavuzda, otomatik yedekleme ve geri yükleme işlemleri nasıl ve yedeğini başarılı kimlik doğrulaması sağlamak ve Azure Resource Manager tarafından istekleri geri yükleme gösterilmektedir.
+
+> [!IMPORTANT]
+> Geri yükleme işlemi, hedef hizmete özel ana bilgisayar adı yapılandırmasını değiştirmez. Geri yükleme işlemi tamamlandıktan sonra trafiği bekleme örneği basit bir DNS CNAME değişiklik tarafından yeniden yönlendirilmiş olabilir böylece, aynı özel ana bilgisayar adı ve TLS sertifikası, etkin ve bekleme Hizmetleri için kullanılması önerilir.
 >
+> Yedekleme işlemi önceden toplanan günlük verilerini analiz dikey penceresinde Azure portalında gösterilen raporlarda kullanılan yakalamaz.
+
+> [!WARNING]
 > Her yedekleme 30 gün sonra süresi dolar. 30 günlük süre sona erdiğinde bir yedekleme geri yükleme girişimi, geri yükleme ile başarısız olur bir `Cannot restore: backup expired` ileti.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -44,9 +49,9 @@ Bu kılavuz, Azure Resource Manager istek doğrulamanın nasıl gerçekleştiril
 
 Kaynakları Azure Resource Manager kullanarak bunu görevlerin tümü, Azure aşağıdaki adımları kullanarak Active Directory ile kimlik doğrulaması yapılması gerekir:
 
-* Azure Active Directory kiracısına uygulama ekleyin.
-* Eklediğiniz uygulama izinlerini ayarlayın.
-* Azure Resource Manager'a isteklerine kimlik doğrulaması için belirteç alın.
+-   Azure Active Directory kiracısına uygulama ekleyin.
+-   Eklediğiniz uygulama izinlerini ayarlayın.
+-   Azure Resource Manager'a isteklerine kimlik doğrulaması için belirteç alın.
 
 ### <a name="create-an-azure-active-directory-application"></a>Bir Azure Active Directory uygulaması oluşturma
 
@@ -55,9 +60,11 @@ Kaynakları Azure Resource Manager kullanarak bunu görevlerin tümü, Azure aş
 
     > [!NOTE]
     > Azure Active Directory varsayılan dizin hesabınıza görünür değilse, hesabınız için gerekli izinleri vermek için Azure aboneliği yöneticisine başvurun.
+
 3. **Yeni uygulama kaydı**’na tıklayın.
 
     **Oluştur** penceresi sağ tarafta görüntülenir. AAD uygulaması ilgili bilgileri girebileceğiniz olmasıdır.
+
 4. Uygulama için bir ad girin.
 5. Uygulama türü için **yerel**.
 6. Bir yer tutucu URL'yi girin `http://resources` için **yeniden yönlendirme URI'si**, gerekli bir alandır, ancak değeri daha sonra kullanılmaz. Uygulamayı kaydetmek için onay kutusuna tıklayın.
@@ -112,6 +119,7 @@ Değiştirin `{tenant id}`, `{application id}`, ve `{redirect uri}` aşağıdaki
 1. Değiştirin `{tenant id}` oluşturduğunuz Azure Active Directory uygulamasının Kiracı kimliği. Kimliği tıklayarak erişebilirsiniz **uygulama kayıtları** -> **uç noktaları**.
 
     ![Uç Noktalar][api-management-endpoint]
+
 2. Değiştirin `{application id}` giderek aldığınız değerle **ayarları** sayfası.
 3. Değiştirin `{redirect uri}` değeriyle **yeniden yönlendirme URI'leri** Azure Active Directory Uygulama sekmesinde.
 
@@ -142,34 +150,34 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 burada:
 
-* `subscriptionId` -API Management hizmeti, yedekleme çalıştığınız tutan aboneliğin kimliği
-* `resourceGroupName` -Azure API Yönetimi hizmetiniz kaynak grubunun adı
-* `serviceName` -API Management hizmeti adını oluşturulduğu sırada belirtilen yedek bir kopyasını yaparsınız
-* `api-version` -değiştirin `2018-06-01-preview`
+-   `subscriptionId` -API Management hizmeti, yedekleme çalıştığınız tutan aboneliğin kimliği
+-   `resourceGroupName` -Azure API Yönetimi hizmetiniz kaynak grubunun adı
+-   `serviceName` -API Management hizmeti adını oluşturulduğu sırada belirtilen yedek bir kopyasını yaparsınız
+-   `api-version` -değiştirin `2018-06-01-preview`
 
 İstek gövdesinde, hedef Azure depolama hesabı adı, erişim anahtarı, blob kapsayıcı adı ve yedekleme adı belirtin:
 
 ```json
 {
-  "storageAccount": "{storage account name for the backup}",
-  "accessKey": "{access key for the account}",
-  "containerName": "{backup container name}",
-  "backupName": "{backup blob name}"
+    "storageAccount": "{storage account name for the backup}",
+    "accessKey": "{access key for the account}",
+    "containerName": "{backup container name}",
+    "backupName": "{backup blob name}"
 }
 ```
 
 Değerini `Content-Type` istek üstbilgisi `application/json`.
 
-Yedekleme tamamlanması bir dakikadan daha fazla sürebilir uzun süren bir işlemdir.  İstek başarılı oldu ve yedekleme işlemi başladı, aldığınız bir `202 Accepted` yanıt durum kodu ile bir `Location` başlığı.  'GET istekleri URL'ye' olun `Location` işlem durumunu öğrenmek için üst bilgi. Yedekleme devam ederken '202 kabul edildi' durum kodu almaya devam eder. Yanıt kodunu `200 OK` yedekleme işlemi başarılı olarak tamamlanmasına gösterir.
+Yedekleme tamamlanması bir dakikadan daha fazla sürebilir uzun süren bir işlemdir. İstek başarılı oldu ve yedekleme işlemi başladı, aldığınız bir `202 Accepted` yanıt durum kodu ile bir `Location` başlığı. 'GET istekleri URL'ye' olun `Location` işlem durumunu öğrenmek için üst bilgi. Yedekleme devam ederken '202 kabul edildi' durum kodu almaya devam eder. Yanıt kodunu `200 OK` yedekleme işlemi başarılı olarak tamamlanmasına gösterir.
 
 Yedekleme isteği yaparken aşağıdaki kısıtlamaları göz önünde bulundurun:
 
-* **Kapsayıcı** istek gövdesinde belirtilen **bulunmalıdır**.
-* Yedekleme devam ederken **hizmet yönetimi değişiklikleri önlemek** SKU yükseltme veya düşürme gibi etki alanı adı ve daha fazlasını değiştirin.
-* Geri yükleme bir **yedekleme yalnızca 30 gün boyunca garanti** oluşturulduğu andan itibaren.
-* **Kullanım verilerini** analiz raporları oluşturmak için kullanılan **bulunmaz** yedekleme. Kullanım [Azure API Management REST API] [ Azure API Management REST API] analiz raporları flooring'in düzenli olarak alınacak.
-* Hizmet yedekleme ile gerçekleştirdiğiniz sıklığı, kurtarma noktası hedefi etkiler. Bu en aza indirmek için düzenli yedeklemeler uygulama ve API Management hizmetiniz için değişiklikler yaptıktan sonra isteğe bağlı yedeklemeler gerçekleştirmek öneririz.
-* **Değişiklikleri** yedeklemesi sırasında (örneğin, API, ilkeleri ve Geliştirici Portalı görünümünü) hizmeti yapılandırması için yapılan işlemi işlemde olduğu **yedeklemeden hariç tutulması ve kaybolacak**.
+-   **Kapsayıcı** istek gövdesinde belirtilen **bulunmalıdır**.
+-   Yedekleme devam ederken **hizmet yönetimi değişiklikleri önlemek** SKU yükseltme veya düşürme gibi etki alanı adı ve daha fazlasını değiştirin.
+-   Geri yükleme bir **yedekleme yalnızca 30 gün boyunca garanti** oluşturulduğu andan itibaren.
+-   **Kullanım verilerini** analiz raporları oluşturmak için kullanılan **bulunmaz** yedekleme. Kullanım [Azure API Management REST API][azure api management rest api] analiz raporları flooring'in düzenli olarak alınacak.
+-   Hizmet yedekleme ile gerçekleştirdiğiniz sıklığı, kurtarma noktası hedefi etkiler. Bu en aza indirmek için düzenli yedeklemeler uygulama ve API Management hizmetiniz için değişiklikler yaptıktan sonra isteğe bağlı yedeklemeler gerçekleştirmek öneririz.
+-   **Değişiklikleri** yedeklemesi sırasında (örneğin, API, ilkeleri ve Geliştirici Portalı görünümünü) hizmeti yapılandırması için yapılan işlemi işlemde olduğu **yedeklemeden hariç tutulması ve kaybolacak**.
 
 ### <a name="step2"> </a>API Management hizmeti geri yükleme
 
@@ -181,19 +189,19 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 burada:
 
-* `subscriptionId` -API Management hizmeti ile bir yedekleme geri yükleme tutan aboneliğin kimliği
-* `resourceGroupName` -içine bir yedekleme geri Azure API Management hizmeti içeren kaynak grubunun adı
-* `serviceName` -API Management hizmet uygulamasına geri yükleniyor, oluşturma zamanında belirtilen adı
-* `api-version` -değiştirin `2018-06-01-preview`
+-   `subscriptionId` -API Management hizmeti ile bir yedekleme geri yükleme tutan aboneliğin kimliği
+-   `resourceGroupName` -içine bir yedekleme geri Azure API Management hizmeti içeren kaynak grubunun adı
+-   `serviceName` -API Management hizmet uygulamasına geri yükleniyor, oluşturma zamanında belirtilen adı
+-   `api-version` -değiştirin `2018-06-01-preview`
 
 İstek gövdesinde yedekleme dosyasının konumunu belirtin. Diğer bir deyişle, Azure depolama hesabı adı, erişim anahtarı, blob kapsayıcı adı ve yedekleme adı ekleyin:
 
 ```json
 {
-  "storageAccount": "{storage account name for the backup}",
-  "accessKey": "{access key for the account}",
-  "containerName": "{backup container name}",
-  "backupName": "{backup blob name}"
+    "storageAccount": "{storage account name for the backup}",
+    "accessKey": "{access key for the account}",
+    "containerName": "{backup container name}",
+    "backupName": "{backup blob name}"
 }
 ```
 
@@ -209,24 +217,21 @@ Geri yükleme tamamlamak için en az 30 dakika sürebileceğini uzun süren bir 
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
-> Yedekleme ve geri yükleme işlemleri de PowerShell ile gerçekleştirilmesi *yedekleme AzApiManagement* ve *geri yükleme-AzApiManagement* komutları sırasıyla.
+> Yedekleme ve geri yükleme işlemleri de PowerShell ile gerçekleştirilmesi _yedekleme AzApiManagement_ ve _geri yükleme-AzApiManagement_ komutları sırasıyla.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Yedekleme/geri yükleme işleminin farklı izlenecek yollar için aşağıdaki kaynaklara göz atın.
 
-* [Azure API Management hesaplarını çoğaltın](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
-* [Logic Apps ile API Management Yedekleme ve Geri Yükleme İşlemlerini Otomatikleştirme](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
-* [Azure API Yönetimi: Yedekleme ve geri yükleme Yapılandırması](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
-  *Fatih tarafından ayrıntılı bir yaklaşım resmi rehberlik eşleşmiyor ancak ilgi çekici değil.*
+-   [Azure API Management hesaplarını çoğaltın](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
+-   [Logic Apps ile API Management Yedekleme ve Geri Yükleme İşlemlerini Otomatikleştirme](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
+-   [Azure API Yönetimi: Yedekleme ve geri yükleme Yapılandırması](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
+    _Fatih tarafından ayrıntılı bir yaklaşım resmi rehberlik eşleşmiyor ancak ilgi çekici değil._
 
-[Backup an API Management service]: #step1
-[Restore an API Management service]: #step2
-
-[Azure API Management REST API]: https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest
-
+[backup an api management service]: #step1
+[restore an api management service]: #step2
+[azure api management rest api]: https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest
 [api-management-add-aad-application]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-add-aad-application.png
-
 [api-management-aad-permissions]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-aad-permissions.png
 [api-management-aad-permissions-add]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-aad-permissions-add.png
 [api-management-aad-delegated-permissions]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-aad-delegated-permissions.png

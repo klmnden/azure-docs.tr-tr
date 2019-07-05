@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: twhitney
-ms.openlocfilehash: 4b72b6e33ad59ffceebf58aed7b315a4833b02f9
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 457a908a70fccd9f4209121d9b99e5e53905500b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203665"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444096"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Windows Server düğüm havuzları ve uygulama iş yüklerini Azure Kubernetes Service (AKS) için geçerli sınırlamalar
 
@@ -28,7 +28,7 @@ Bu makalede, bazı sınırlamalar ve Windows Server AKS düğümleri işletim si
 
 ## <a name="limitations-for-windows-server-in-kubernetes"></a>Windows Server'da Kubernetes sınırlamaları
 
-Windows Server kapsayıcıları bir Windows tabanlı bir kapsayıcı konağı üzerinde çalıştırmanız gerekir. Windows Server kapsayıcıları AKS çalıştırma için [Windows Server çalıştıran bir düğüm havuzunu oluşturma] [ windows-node-cli] konuk işletim sistemi olarak. Yukarı Akış Kubernetes projesi Windows Server'da parçası olan bazı sınırlamalar penceresi sunucu düğüm havuzu desteği içerir. Bu sınırlamalar, AKS için özgü değildir. Bu Yukarı Akış Kubernetes Windows Server desteği hakkında daha fazla bilgi için bkz. [Kubernetes sınırlamaları Windows Server kapsayıcıları](https://docs.microsoft.com/azure/aks/windows-node-limitations).
+Windows Server kapsayıcıları bir Windows tabanlı bir kapsayıcı konağı üzerinde çalıştırmanız gerekir. Windows Server kapsayıcıları AKS çalıştırma için [Windows Server çalıştıran bir düğüm havuzunu oluşturma][windows-node-cli] konuk işletim sistemi olarak. Yukarı Akış Kubernetes projesi Windows Server'da parçası olan bazı sınırlamalar penceresi sunucu düğüm havuzu desteği içerir. Bu sınırlamalar, AKS için özgü değildir. Bu Yukarı Akış Kubernetes Windows Server desteği hakkında daha fazla bilgi için bkz. [Kubernetes sınırlamaları Windows Server kapsayıcıları](https://docs.microsoft.com/azure/aks/windows-node-limitations).
 
 Windows Server kapsayıcıları kubernetes için Yukarı Akış aşağıdaki sınırlamalar AKS için uygundur:
 
@@ -45,7 +45,6 @@ Windows Server kapsayıcıları kubernetes için Yukarı Akış aşağıdaki sı
 Windows Server düğüm havuzu desteği aks'deki aşağıdaki ek kısıtlamalar geçerlidir:
 
 - Bir AKS kümesi, her zaman ilk düğüm havuzu olarak Linux düğüm havuzu içerir. AKS kümesi silinmedikçe bu ilk Linux tabanlı düğüm havuzu silinemiyor.
-- Şu anda AKS, yalnızca varsayılan Linux düğüm havuzu bir arka uç havuzu için yalnızca veren temel Azure load balancer'a destekler. Sonuç olarak, giden trafiği Windows pod'ların her zaman olacak [Azure tarafından yönetilen ortak IP adresine çevrilir][azure-outbound-traffic]. Bu IP adresi yapılandırılabilir olmadığından, Windows pod'ların gelen beyaz liste trafiği için şu anda mümkün değildir. 
 - AKS kümeleri Azure CNI (Gelişmiş) ağ modeli kullanmanız gerekir.
     - Kubernetes (Temel) ağ desteklenmiyor. Kubernetes kullanan bir AKS kümesi oluşturulamıyor. Ağ modelleri arasındaki farklılıklar hakkında daha fazla bilgi için bkz. [kavramları aks'deki uygulamalar için ağ][azure-network-models].
     - Azure CNI ağ modeli, ek planlama ve IP adresi yönetim değerlendirmeleri gerektirir. Planlama ve Azure CNI uygulama konusunda daha fazla bilgi için bkz. [Azure CNI yapılandırma ağ aks'deki][configure-azure-cni].
@@ -60,11 +59,11 @@ Windows Server düğüm havuzu desteği aks'deki aşağıdaki ek kısıtlamalar 
 - Giriş denetleyicileri yalnızca Linux düğümlerinde bir NodeSelector kullanarak zamanlanmalıdır.
 - Azure geliştirme alanları şu anda yalnızca Linux tabanlı düğüm havuzları için kullanılabilir.
 - Grup yönetilen hizmet hesapları Windows sunucusu düğümlerinin bir Active Directory etki alanına katılmamış (gMSA) desteği, AKS içinde şu anda kullanılabilir değil.
-    - Açık kaynak, Yukarı Akış [aks altyapısı] [ aks-engine] proje şu anda gMSA destek sağlar, bu özelliği kullanmanız gerekir.
+    - Açık kaynak, Yukarı Akış [aks altyapısı][aks-engine] proje şu anda gMSA destek sağlar, bu özelliği kullanmanız gerekir.
 
 ## <a name="os-concepts-that-are-different"></a>Farklı işletim sistemi kavramları
 
-Kubernetes tarihsel olarak Linux odaklıdır. Yukarı Akış olarak kullanılan birçok örneği [Kubernetes.io] [ kubernetes] Web sitesi kullanmak üzere Linux düğümleri yöneliktir. Windows Server kapsayıcıları, işletim sistemi düzeyinde Uygula, aşağıdaki konuları kullanan dağıtımlar oluşturduğunuzda:
+Kubernetes tarihsel olarak Linux odaklıdır. Yukarı Akış olarak kullanılan birçok örneği [Kubernetes.io][kubernetes] Web sitesi kullanmak üzere Linux düğümleri yöneliktir. Windows Server kapsayıcıları, işletim sistemi düzeyinde Uygula, aşağıdaki konuları kullanan dağıtımlar oluşturduğunuzda:
 
 - **Kimlik** -Linux UserID (UID) ve tamsayı türleri olarak temsil edilen GroupID (GID) kullanır. Kullanıcı ve grup adları kurallı olmayan - diğer adı içinde oldukları */etc/grupları* veya */etc/parola* UID + GID dönün.
     - Windows Server, Windows güvenlik erişim Yöneticisi (SAM) veritabanına depolanmış bir büyük ikili güvenlik tanımlayıcısı (SID) kullanır. Bu veritabanı, kapsayıcıları veya ana bilgisayar ve kapsayıcılar arasında paylaşılmaz.

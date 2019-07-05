@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: dd5f01c915c658903e87a91992753065c59dfa63
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6c475ab0a2e47cf654d1299a4c5638b34fb5e4b6
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054260"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508542"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute yönlendirme gereksinimleri
 Microsoft bulut hizmetlerine ExpressRoute kullanarak bağlanmak için yönlendirmeyi ayarlamanız ve yönetmeniz gerekir. Bazı bağlantı sağlayıcıları yönlendirme ayarlama ve yönetimini yönetilen bir hizmet olarak sunar. Bu hizmetin sunulup sunulmadığını öğrenmek için bağlantı sağlayıcınıza başvurun. Bu hizmet sağlanmıyorsa aşağıdaki gereksinimlere uymalısınız:
@@ -210,6 +210,7 @@ Microsoft tarafından tanıtılan tüm yollar uygun topluluk değeriyle etiketle
 > 
 > 
 
+### <a name="service-to-bgp-community-value"></a>Hizmet BGP topluluk değeri
 Yukarıdakilerin yanı sıra Microsoft, ön ekleri ait oldukları hizmet göre etiketleyecektir. Bu durum yalnızca Microsoft eşlemesi için geçerlidir. Aşağıdaki tabloda hizmetin BGP topluluk değeri ile eşleşmesi gösterilmektedir.
 
 | **Hizmet** | **BGP topluluk değeri** |

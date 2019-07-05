@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 61477767c59dd521e3f46db4445238a5a1ea759e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5ab24a99b22fae172b5308ba7477953f27ecfd44
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071448"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435944"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Azure Depolama'daki statik Web sitesi barındırma
 
@@ -44,13 +44,7 @@ Kullanarak statik Web sitesi barındırma etkinleştirebilirsiniz [Azure komut s
 
 1. İlk olarak, açık [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), veya [yüklü](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) Azure CLI'yi yerel olarak bir komut konsol uygulaması Windows PowerShell gibi açın.
 
-2. Açtığınız komut penceresinden depolama Önizleme uzantıyı yükleyin.
-
-   ```azurecli-interactive
-   az extension add --name storage-preview
-   ```
-
-3. Kimliğinizi birden fazla abonelik ile ilişkilidir, etkin abonelik için abonelik statik Web sitenizi barındıran depolama hesabı ayarlayın.
+2. Kimliğinizi birden fazla abonelik ile ilişkilidir, etkin abonelik için abonelik statik Web sitenizi barındıran depolama hesabı ayarlayın.
 
    ```azurecli-interactive
    az account set --subscription <subscription-id>
@@ -58,7 +52,7 @@ Kullanarak statik Web sitesi barındırma etkinleştirebilirsiniz [Azure komut s
 
    Değiştirin `<subscription-id>` yer tutucu değerini, abonelik kimliği.
 
-4. Statik Web sitesi barındırma etkinleştirin.
+3. Statik Web sitesi barındırma etkinleştirin.
 
    ```azurecli-interactive
    az storage blob service-properties update --account-name <storage-account-name> --static-website --404-document <error-document-name> --index-document <index-document-name>
@@ -70,7 +64,7 @@ Kullanarak statik Web sitesi barındırma etkinleştirebilirsiniz [Azure komut s
 
    * Değiştirin `<index-document-name>` dizin belgesi adı ile yer tutucu. Bu belge, yaygın olarak "index.html" yöneliktir.
 
-5. Nesnelere karşıya *$web* kaynak dizinden kapsayıcı.
+4. Nesnelere karşıya *$web* kaynak dizinden kapsayıcı.
 
    > [!NOTE]
    > Azure Cloud Shell kullanıyorsanız, eklediğinizden emin olun. bir `\` söz konusu olduğunda kaçış karakteri `$web` kapsayıcı (örneğin: `\$web`). Azure CLI'yı yerel bir yüklemesini kullanıyorsanız, kaçış karakterini kullanmanız gerekmez.

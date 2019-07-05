@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 485f79f79c52067e89fa0a606e76a533c312fb84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85a32244a9aff9319343fd7d3961941973aa9d9a
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545090"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482244"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft kimlik platformu ve OAuth 2.0 istemci kimlik bilgileri akışı
 
@@ -42,7 +42,7 @@ Daha fazla tipik *üç bacaklı OAuth*, bir istemci uygulamanın belirli bir kul
 
 Tüm istemci kimlik bilgileri akışı, aşağıdaki diyagrama benzer. Bu makaledeki adımların her biri açıklanmaktadır.
 
-![İstemci kimlik bilgileri akışı](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
+![İstemci kimlik bilgileri akışını gösteren diyagram](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
 
 ## <a name="get-direct-authorization"></a>Doğrudan yetkilendirme alın
 
@@ -92,7 +92,7 @@ Kullanıcı uygulamanızda oturum açarsanız, uygulama izinleri onaylamak için
 Kuruluşun yönetici izinleri istemek hazır olduğunuzda, kullanıcının Microsoft identity platformuna yönlendirebilirsiniz *yönetici onay uç noktası*.
 
 > [!TIP]
-> Postman içinde bu isteğin yürütülmesi deneyin! (En iyi sonuçları almak için kendi uygulama kimliği kullanın - öğretici uygulama yararlı izinlere ilişkin istek gerekmez.) [![Postman içinde çalıştırın](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Postman içinde bu isteğin yürütülmesi deneyin! (En iyi sonuçları almak için kendi uygulama kimliği kullanın - öğretici uygulama yararlı izinlere ilişkin istek gerekmez.) [![Bu isteği Postman içinde çalıştırmayı deneyin](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 // Line breaks are for legibility only.
@@ -154,7 +154,7 @@ Uygulama sağlama uç noktasından başarılı bir yanıt alındı sonra uygulam
 Uygulamanız için gerekli yetkilendirmeyi edindiğiniz sonra API'ler için erişim belirteçlerini almak ile devam edin. Kimlik bilgileri verme istemcisini kullanarak bir belirteç almak için bir POST isteği gönderin. `/token` Microsoft kimlik platformu uç noktası:
 
 > [!TIP]
-> Postman içinde bu isteğin yürütülmesi deneyin! (En iyi sonuçları almak için kendi uygulama kimliği kullanın - öğretici uygulama yararlı izinlere ilişkin istek gerekmez.) [![Postman içinde çalıştırın](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Postman içinde bu isteğin yürütülmesi deneyin! (En iyi sonuçları almak için kendi uygulama kimliği kullanın - öğretici uygulama yararlı izinlere ilişkin istek gerekmez.) [![Bu isteği Postman içinde çalıştırmayı deneyin](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>İlk Durum: Paylaşılan gizlilik ile erişim belirteci isteği
 

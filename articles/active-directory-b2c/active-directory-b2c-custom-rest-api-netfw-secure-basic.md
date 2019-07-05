@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e07a3fee2cc6c588dee608a68415b554e6fc77f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08aebf698a7a00729a0e37b57cb15938853e4185
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507599"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501626"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>HTTP temel kimlik doğrulaması kullanarak, RESTful Hizmetleri güvenli hale getirme
 
@@ -355,7 +355,7 @@ RESTful hizmetiniz istemci kimliği (kullanıcı adı) ve gizli dizi tarafından
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(İsteğe bağlı) Tüm ilke dosyaları ve kodu indirin
 
 * Tamamladıktan sonra [özel ilkeleri kullanmaya başlama](active-directory-b2c-get-started-custom.md) izlenecek yol, öneririz senaryonuz kendi özel ilke dosyalarını kullanarak oluşturun. Referans olması açısından sağladık [örnek ilke dosyaları](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-basic).
-* Tam koddan indirebileceğiniz [başvuru için örnek Visual Studio çözümü](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API).
+* Tam koddan indirebileceğiniz [başvuru için örnek Visual Studio çözümü](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-basic).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 536d7a572eddc2cf75f6ce135c3cd4f4f2635416
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 9f60c6258da77c0aaa99d16e178f4b3531ce90d9
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203305"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509242"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Lake depolama Gen2'ye gelen veya veri kopyalama kullanarak Azure Data Factory
 
@@ -115,7 +115,7 @@ Hizmet sorumlusu kimlik doğrulaması kullanmak için aşağıdaki adımları iz
 >Listeye klasörleri, hesap düzeyine veya bağlantıyı sınamak için başlatma izni için izin verilen hizmet sorumlusunun ayarlamanız gerekir. **IAM "Depolama Blob verileri okuyucu" iznine sahip depolama hesabı**. Kullandığınızda, bu durum geçerlidir:
 >- **Kopya veri aracını** Yazar kopyalama işlem hattını için.
 >- **Data Factory kullanıcı arabirimini** bağlantı ve geliştirme sırasında klasörleri gezinme test etmek için. 
->Hesap düzeyinde izni verme hakkında endişeleriniz varsa, bağlantıyı test et ve Giriş yolu el ile yazma sırasında atlayabilirsiniz. Hizmet sorumlusu kopyalanacak uygun izinleri ile dosyaları verilen sürece kopyalama etkinliği hala çalışır.
+>Geliştirme sırasında hesap düzeyinde izni verme hakkında endişeleriniz test bağlantısı ve yolu belirtilen izni olan bir üst yol ardından gelen göz atmak için giriş atlayın. Hizmet sorumlusu kopyalanması uygun ile dosyalarını izni olduğu sürece, etkinlik works kopyalayın.
 
 Bu özellikler için bağlı hizmet desteklenir:
 
@@ -169,7 +169,7 @@ Azure kaynak kimlik doğrulaması için yönetilen kimlikleri kullanmak için bu
 >Listeye klasörleri, hesap düzeyine veya bağlantıyı sınamak için başlatma izni için izin verilen yönetilen kimlik ayarlamanız gerekir. **IAM "Depolama Blob verileri okuyucu" iznine sahip depolama hesabı**. Kullandığınızda, bu durum geçerlidir:
 >- **Kopya veri aracını** Yazar kopyalama işlem hattını için.
 >- **Data Factory kullanıcı arabirimini** bağlantı ve geliştirme sırasında klasörleri gezinme test etmek için. 
->Hesap düzeyinde izni verme hakkında endişeleriniz varsa, bağlantıyı test et ve Giriş yolu el ile yazma sırasında atlayabilirsiniz. Yönetilen kimlik kopyalanacak uygun ile dosyalarını izni sürece kopyalama etkinliği çalışır.
+>Geliştirme sırasında hesap düzeyinde izni verme hakkında endişeleriniz test bağlantısı ve yolu belirtilen izni olan bir üst yol ardından gelen göz atmak için giriş atlayın. Hizmet sorumlusu kopyalanması uygun ile dosyalarını izni olduğu sürece, etkinlik works kopyalayın.
 
 >[!IMPORTANT]
 >Data Lake depolama Gen2'için yönetilen kimlik doğrulaması kullanırken, Data Lake depolama Gen2 ' verileri SQL veri ambarı'na yüklemek için PolyBase kullanın, adım 1 ve 2'de izlediğinizden emin olun [bu kılavuz](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) 1) SQL kaydetme Veritabanı sunucusu ile Azure Active Directory (Azure AD) ve 2) SQL veritabanı sunucunuza depolama Blob verileri katkıda bulunan rolü atayın; rest, Data Factory tarafından işlenir. Data Lake depolama Gen2 ', bir Azure sanal ağ uç noktası ile yapılandırılmışsa, kendisinden verileri yüklemek için PolyBase kullanmak için yönetilen kimlik doğrulama PolyBase gerektirdiği kullanmanız gerekir.

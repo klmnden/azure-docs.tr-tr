@@ -5,34 +5,30 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: 56dc87b1cdf36d761c46133004a05f8fa225a091
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4d1044a30d4ebc551cf1305993aba2a201c4c94
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808304"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514454"
 ---
-# <a name="common-questions-about-backing-up-files-and-folders"></a>Dosya ve klasör yedekleme hakkında sık sorulan sorular 
+# <a name="common-questions-about-backing-up-files-and-folders"></a>Dosya ve klasör yedekleme hakkında sık sorulan sorular
 
 Bu makalede Microsoft Azure kurtarma Hizmetleri (MARS) aracısı ile dosya ve klasörleri yedekleme abound yaygın soruların yanıtları bulunur [Azure Backup](backup-overview.md) hizmeti.
 
 ## <a name="general"></a>Genel
 
-### <a name="why-does-the-mars-agent-need-net-framework-452-or-higher"></a>Neden MARS Aracısı gerekli .NET framework 4.5.2 veya üzeri?
-
-Bulunan yeni işlevleri [anında geri yükleme](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) gerekli .NET Framework 4.5.2 veya üzeri.
-
 ## <a name="configure-backups"></a>Yedeklemeleri Yapılandırma
 
-### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>MARS aracısının en son sürümünü nereden indirebilirim? 
-Windows Server makineleri, System Center DPM ve Microsoft Azure Backup sunucusunu yedeklerken kullanılan en yeni MARS Aracısı kullanılabilir [indirme](https://aka.ms/azurebackup_agent). 
+### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>MARS aracısının en son sürümünü nereden indirebilirim?
+Windows Server makineleri, System Center DPM ve Microsoft Azure Backup sunucusunu yedeklerken kullanılan en yeni MARS Aracısı kullanılabilir [indirme](https://aka.ms/azurebackup_agent).
 
 ### <a name="how-long-are-vault-credentials-valid"></a>Kasa kimlik bilgileri geçerli ne kadar?
 Kasa kimlik bilgilerinin süresi 48 sonra dolar. Kimlik bilgileri dosyasının süresi dolarsa, dosyayı Azure portalından yeniden yükleyin.
 
-### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>Hangi sürücülerden miyim dosya ve klasörleri yedekleyebilir miyim? 
+### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>Hangi sürücülerden miyim dosya ve klasörleri yedekleyebilir miyim?
 
 Aşağıdaki türde sürücüleri ve birimleri yedekleyemezsiniz:
 
@@ -45,29 +41,20 @@ Aşağıdaki türde sürücüleri ve birimleri yedekleyemezsiniz:
 
 ### <a name="what-file-and-folder-types-are-supported"></a>Hangi dosya ve klasör türleri desteklenir?
 
-Aşağıdaki türler desteklenir:
-
-* Şifreli
-* Sıkıştırılmış
-* Seyrek
-* Sıkıştırılmış + Seyrek
-* Sabit bağlantılar: Desteklenmez, atlanır
-* Yeniden ayrıştırma noktası: Desteklenmez, atlanır
-* Şifreli + seyrek: Desteklenmez, atlanır
-* Sıkıştırılmış Stream: Desteklenmez, atlanır
-* Yeniden ayrıştırma noktaları, DFS bağlantıları ve birleşim noktaları da dahil olmak üzere
-
+[Daha fazla bilgi edinin](backup-support-matrix-mars-agent.md#supported-file-types-for-backup) dosya ve klasörleri yedekleme için desteklenen türleri hakkında daha fazla.
 
 ### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-an-azure-vm"></a>Bir Azure sanal makinesinde dosyaları ve klasörleri yedeklemek için MARS Aracısı kullanabilir miyim?  
-Evet. Azure Backup, Azure VM Aracısı VM uzantısı kullanarak, Azure Vm'leri için VM düzeyinde yedekleme sağlar. Sanal makinedeki Konuk Windows işletim sisteminde dosya ve klasörleri yedeklemek istiyorsanız, bunu yapmak için MARS Aracısı yükleyebilirsiniz. 
+Evet. Azure Backup, Azure VM Aracısı VM uzantısı kullanarak, Azure Vm'leri için VM düzeyinde yedekleme sağlar. Sanal makinedeki Konuk Windows işletim sisteminde dosya ve klasörleri yedeklemek istiyorsanız, bunu yapmak için MARS Aracısı yükleyebilirsiniz.
 
-### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>Dosya ve klasörleri Azure VM için geçici depolama alanında yedeklemek için MARS Aracısı kullanabilir miyim? 
-Evet. MARS aracısı yükleyin ve dosya ve klasörleri geçici depolama alanına Konuk Windows işletim sisteminde yedekleyin. -Geçici depolama verileri silindikten hakkında yedekleme işleri başarısız.
+### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>Dosya ve klasörleri Azure VM için geçici depolama alanında yedeklemek için MARS Aracısı kullanabilir miyim?
+Evet. MARS aracısı yükleyin ve dosya ve klasörleri geçici depolama alanına Konuk Windows işletim sisteminde yedekleyin.
+
+- Geçici depolama verileri silindikten, yedekleme işleri başarısız olur.
 - Geçici depolama verileri silinirse, yalnızca geçici olmayan depolama birimine geri yükleyebilirsiniz.
 
 ### <a name="how-do-i-register-a-server-to-another-region"></a>Bir sunucu başka bir bölgeye nasıl kaydedebilirim?
 
-Yedekleme verileri, sunucunun kayıtlı olduğu kasanın veri merkezine gönderilir. Veri merkezini değiştirmenin en kolay yolu, kaldırmak ve aracıyı yeniden yükleyin ve ardından yeni bir kasa makineye ihtiyacınız bölgede kaydetme
+Yedekleme verileri, sunucunun kayıtlı olduğu kasanın veri merkezine gönderilir. Veri merkezini değiştirmenin en kolay yolu, kaldırmak ve aracıyı yeniden yükleyin ve yeni bir kasa makineye ihtiyacınız bölgede kaydedebilirsiniz.
 
 ### <a name="does-the-mars-agent-support-windows-server-2012-deduplication"></a>MARS Aracısı destek Windows Server 2012 yinelenenleri kaldırma işlemi yapar?
 Evet. MARS Aracısı, yedekleme işlemini hazırlarken yinelenenleri kaldırılmış verileri normal verilere dönüştürür. Ardından verileri yedekleme için en iyi duruma getirir, verileri şifreler ve şifrelenmiş verileri kasaya ardından gönderir.
@@ -80,7 +67,7 @@ Windows makine yeniden adlandırdığınızda, geçerli olarak yapılandırılm�
 
 - Yeni makine adını Backup kasasına kaydetmeniz gerekir.
 - Yeni adı kasaya kaydettiğinizde, ilk işlem, bir *tam* yedekleme.
-- Eski sunucu adıyla kasaya yedeklenen verileri kurtarmanız gerekiyorsa, Veri Kurtarma Sihirbazı'nı alternatif bir konuma geri yüklemek için bu seçeneği kullanın. [Daha fazla bilgi edinin](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine). 
+- Eski sunucu adıyla kasaya yedeklenen verileri kurtarmanız gerekiyorsa, Veri Kurtarma Sihirbazı'nı alternatif bir konuma geri yüklemek için bu seçeneği kullanın. [Daha fazla bilgi edinin](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>Yedekleme için en fazla dosya yolu uzunluğu nedir?
 MARS Aracısı NTFS kullanır ve sınırlı dosya yolu uzunluğu belirtimi kullanır [Windows API](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths). Korumak istediğiniz dosyaları üst klasörünü veya disk sürücüsünü yedekleyin, izin verilen değer daha uzun olması durumunda.  
@@ -143,8 +130,8 @@ Aşağıdaki öznitelikler veya bunların bileşimleri, önbellek klasörü içi
 Önbellek klasörü ve meta veri VHD’si, Azure Backup aracısı için gerekli özniteliklere sahip değildir.
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>Yedekleme için kullanılan bant genişliği miktarını ayarlamanın bir yolu var mı?
- 
-Evet, kullanabileceğiniz **özelliklerini değiştirme** MARS Aracısı bant genişliği ve zamanlama ayarlamak için seçeneği. [Daha fazla bilgi edinin](backup-configure-vault.md#enable-network-throttling)**.
+
+Evet, kullanabileceğiniz **özelliklerini değiştirme** MARS Aracısı bant genişliği ve zamanlama ayarlamak için seçeneği. [Daha fazla bilgi edinin](backup-configure-vault.md#enable-network-throttling).
 
 ## <a name="restore"></a>Geri Yükleme
 

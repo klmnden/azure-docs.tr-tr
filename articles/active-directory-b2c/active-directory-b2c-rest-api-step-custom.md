@@ -1,5 +1,5 @@
 ---
-title: REST API talep değişimleri - Azure Active Directory B2C | Microsoft Docs
+title: Değişimleri - Azure Active Directory B2C REST API talepleri
 description: Özel ilkeler, Active Directory B2C REST API talep değişimleri ekleyin.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bc0cea765816bfac066b05aca65f668fbce0c8ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bdef508e12a3b11143149b330da73838b53f860
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508760"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439009"
 ---
 # <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Özel ilkeleri Azure Active Directory B2C REST API talep değişimleri ekleyin
 
@@ -28,7 +28,7 @@ Etkileşim, bir talep değişimi REST API talepler ve Azure AD B2C arasındaki b
 - Bir düzenleme adımı tasarlanmış olabilir.
 - Dış bir eylem tetikleyebilirsiniz. Örneğin, bir olay dış veritabanında oturum açabilirsiniz.
 - Bir değer getirir ve ardından kullanıcı veritabanında depolamak için kullanılabilir.
-- Yürütmenin akışını değiştirebilirsiniz. 
+- Yürütmenin akışını değiştirebilirsiniz.
 
 Bu makalede gösterilen senaryo, aşağıdaki eylemleri içerir:
 
@@ -45,9 +45,16 @@ Bu makalede gösterilen senaryo, aşağıdaki eylemleri içerir:
 
 Bu bölümde, Azure işlevi için bir değer almaya hazırlama `email`ve ardından için bir değer döndürmesi `city` kullanılabilen Azure AD B2C tarafından talep olarak.
 
-Run.csx dosyasının aşağıdaki kodu kullanmak için oluşturduğunuz Azure işlevi için değiştirin: 
+Run.csx dosyasının aşağıdaki kodu kullanmak için oluşturduğunuz Azure işlevi için değiştirin:
 
-```
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+
 public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 {
   log.LogInformation("C# HTTP trigger function processed a request.");
@@ -77,9 +84,9 @@ public class ResponseContent
 
 ## <a name="configure-the-claims-exchange"></a>Talep değişimi yapılandırın
 
-Teknik profili, talep exchange yapılandırmasını sağlar. 
+Teknik profili, talep exchange yapılandırmasını sağlar.
 
-Açık *TrustFrameworkExtensions.xml* içinde aşağıdaki XML öğeleri ekleyin ve dosya **ClaimsProvider** öğesi.
+Açık *TrustFrameworkExtensions.xml* dosyasını açıp aşağıdaki **ClaimsProvider** XML öğesi içindeki **ClaimsProviders** öğesi.
 
 ```XML
 <ClaimsProvider>
@@ -134,7 +141,7 @@ Profil düzenleme kullanıcı yolculuğu için bir adım ekleyin. Kullanıcı ol
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
   <ClaimsExchanges>
-    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
   </ClaimsExchanges>
 </OrchestrationStep>
 ```
@@ -188,7 +195,7 @@ Kullanıcı yolculuğu için son XML şu örnekteki gibi görünmelidir:
     <!-- Add a step 6 to the user journey before the JWT token is created-->
     <OrchestrationStep Order="6" Type="ClaimsExchange">
       <ClaimsExchanges>
-        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
       </ClaimsExchanges>
     </OrchestrationStep>
     <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
@@ -204,13 +211,15 @@ Düzen *ProfileEdit.xml* dosya ve ekleme `<OutputClaim ClaimTypeReferenceId="cit
 Yeni Talep ekledikten sonra teknik profili, bu örnekteki gibi görünür:
 
 ```XML
-<DisplayName>PolicyProfile</DisplayName>
-    <Protocol Name="OpenIdConnect" />
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-      <OutputClaim ClaimTypeReferenceId="city" />
-    </OutputClaims>
-    <SubjectNamingInfo ClaimType="sub" />
+<TechnicalProfile Id="PolicyProfile">
+  <DisplayName>PolicyProfile</DisplayName>
+  <Protocol Name="OpenIdConnect" />
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+    <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+    <OutputClaim ClaimTypeReferenceId="city" />
+  </OutputClaims>
+  <SubjectNamingInfo ClaimType="sub" />
 </TechnicalProfile>
 ```
 

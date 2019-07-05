@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1e0c043e484e4eaf2639f76c9af3fef15ad85047
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 69353968f6b38f0d16b68c58b9b00c3e6d45850b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237496"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446867"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>ODBC kullanarak Azure HDInsight Microsoft Power BI ile Apache Hive verileri Görselleştirme
 
@@ -23,7 +23,7 @@ Apache Hive verileri Görselleştirme ve ODBC kullanarak Azure HDInsight için M
 >[!IMPORTANT]
 > Power BI Desktop'ta genel ODBC bağlayıcısı aracılığıyla içe aktarmak için Hive ODBC sürücüsünü yararlanabilirsiniz. Ancak etkileşimli Hive sorgu altyapısı göz önünde bulundurulduğunda BI iş yükleri için önerilmez. [HDInsight Interactive Query Bağlayıcısı](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md) ve [HDInsight Spark Bağlayıcısı](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) performanslarını için daha iyi Seçenekler.
 
-Bu öğreticide, verileri yüklediğiniz bir `hivesampletable` Power bı'a Hive tablosu. Hive tablosu bazı cep telefonu kullanım verilerini içerir. Ardından bir dünya Haritası kullanım verileri Çiz:
+Bu makalede, verilerden yüklediğiniz bir `hivesampletable` Power bı'a Hive tablosu. Hive tablosu bazı cep telefonu kullanım verilerini içerir. Ardından bir dünya Haritası kullanım verileri Çiz:
 
 ![HDInsight Power BI harita raporu](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png)
 

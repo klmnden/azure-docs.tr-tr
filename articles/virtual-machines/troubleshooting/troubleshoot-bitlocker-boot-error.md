@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 116748d7887ebf2ad821e3159c7c1bdcc2428121
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: e60188496e060eeea14fc7b7f1cc9a662551b286
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64684752"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485165"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>BitLocker'ı Azure sanal makinesinde önyükleme hataları
 
@@ -48,7 +48,7 @@ Bu sorunu gidermek için durdurmak ve VM'yi serbest bırakın ve yeniden başlat
 Bu yöntem, çözümleme sorunu varsa, BEK dosyayı el ile geri yüklemek için aşağıdaki adımları izleyin:
 
 1. Etkilenen sanal makinenin sistem diskinin anlık yedekleyin. Daha fazla bilgi için [bir diskin anlık görüntüsünü alma](../windows/snapshot-copy-managed-disk.md).
-2. [Bir kurtarma VM'si sistem diski](troubleshoot-recovery-disks-portal-windows.md) BitLocker tarafından şifrelenir. Bunu çalıştırmak için gerekli [yönetme-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) yalnızca BitLocker şifrelenmiş sanal makinede kullanılabilir komutu.
+2. [Bir kurtarma VM'si sistem diski](troubleshoot-recovery-disks-portal-windows.md). Çalıştırılacak [yönetme-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) adım 7 ' komutunu **BitLocker Sürücü Şifrelemesi** VM Kurtarma özelliği etkinleştirilmelidir.
 
     Yönetilen disk eklediğinizde, bir "şifreleme ayarları içerir ve bu nedenle veri diski olarak kullanılamaz" hata iletisini alabilirsiniz. Bu durumda, diski yeniden denemek için aşağıdaki betiği çalıştırın:
 
@@ -106,7 +106,7 @@ Bu yöntem, çözümleme sorunu varsa, BEK dosyayı el ile geri yüklemek için 
 
     Varsa **içerik türü** değer **sarmalanmış BEK**Git [anahtar şifreleme anahtarı (KEK) senaryoları](#key-encryption-key-scenario).
 
-    Sürücü için BEK dosyasının adı olduğuna göre gizli dosya adı oluşturmanız gerekir. Sürücünün kilidini açmak için BEK dosyası. 
+    Sürücü için BEK dosyasının adı olduğuna göre gizli dosya adı oluşturmanız gerekir. Sürücünün kilidini açmak için BEK dosyası.
 
 6.  BEK dosya kurtarma diski indirin. Aşağıdaki örnek BEK dosyasını C:\BEK klasörüne kaydeder. Emin olun `C:\BEK\` yolun var olduğundan betikler çalıştırmadan önce.
 
@@ -120,14 +120,14 @@ Bu yöntem, çözümleme sorunu varsa, BEK dosyayı el ile geri yüklemek için 
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7.  BEK dosyası kullanarak bağlı disk kilidini açmak için aşağıdaki komutu çalıştırın:
+7.  BEK dosyası kullanarak bağlı disk kilidini açmak için aşağıdaki komutu çalıştırın.
 
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
     ```
     Bu örnekte, ekli işletim sistemi diski F. emin doğru sürücü harfini kullandığınız sürücüdür. 
 
-    - Disk başarıyla BEK anahtarı kullanarak kilidi durumunda. Biz BItLocker sorunun çözülmesi için göz önünde bulundurabilirsiniz. 
+    - Disk başarıyla BEK anahtarı kullanarak kilidi durumunda. Biz BitLocker sorunun çözülmesi için göz önünde bulundurabilirsiniz. 
 
     - BEK anahtarını kullanarak disk açılmıyorsa kullanabileceğiniz geçici olarak BitLocker aşağıdaki komutu çalıştırarak kapatmak için koruma askıya alma
     
@@ -254,7 +254,7 @@ Anahtar şifreleme anahtarı senaryo için aşağıdaki adımları izleyin:
     ```
     Bu örnekte, ekli işletim sistemi diski F. emin doğru sürücü harfini kullandığınız sürücüdür. 
 
-    - Disk başarıyla BEK anahtarı kullanarak kilidi durumunda. Biz BItLocker sorunun çözülmesi için göz önünde bulundurabilirsiniz. 
+    - Disk başarıyla BEK anahtarı kullanarak kilidi durumunda. Biz BitLocker sorunun çözülmesi için göz önünde bulundurabilirsiniz. 
 
     - BEK anahtarını kullanarak disk açılmıyorsa kullanabileceğiniz geçici olarak BitLocker aşağıdaki komutu çalıştırarak kapatmak için koruma askıya alma
     

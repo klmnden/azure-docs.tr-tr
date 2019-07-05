@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: fa82725174645a0e5f1d957d8423c97547682542
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 489c94f37b6c88db001dee437cc6ed89383e6053
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065489"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442172"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure işlevleri PowerShell Geliştirici Kılavuzu
 
@@ -58,7 +58,7 @@ PSFunctionApp
 
 Proje kök dizininde yok paylaşılan [ `host.json` ](functions-host-json.md) işlev uygulamasını yapılandırmak için kullanılan dosya. Her işlev kendi bağlama yapılandırma dosyasını ve kod dosyası (.ps1) sahip bir klasör olan (`function.json`). Function.json dosyanın üst dizininde her zaman işlevinizin adını adıdır.
 
-Bazı bağlamalar bulunması gerekir. bir `extensions.csproj` dosya. Uzantılar, gerekli bağlama [sürüm 2.x](functions-versions.md) işlevler çalışma zamanını, şurada tanımlanan `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Azure portalında işlevleri geliştirirken, bu kayıt sizin yerinize yapılır.
+Bazı bağlamalar bulunması gerekir. bir `extensions.csproj` dosya. Uzantılar, gerekli bağlama [sürüm 2.x](functions-versions.md) işlevler çalışma zamanını, şurada tanımlanan `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](functions-bindings-register.md#extension-bundles). Azure portalında işlevleri geliştirirken, bu kayıt sizin yerinize yapılır.
 
 PowerShell işlevi uygulamalarda, isteğe bağlı olarak olabilir bir `profile.ps1` çalıştırılacak bir işlev uygulaması başlatıldığında çalışır (Aksi halde olarak biliyor bir  *[hazırlıksız başlatma](#cold-start)* . Daha fazla bilgi için [PowerShell profiliniz](#powershell-profile).
 

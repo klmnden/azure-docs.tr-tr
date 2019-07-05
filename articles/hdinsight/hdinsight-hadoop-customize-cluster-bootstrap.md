@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: 7f9100686eaab8c4c75e3d862026b18b6c46ed09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50db9a588cd953bbd0e912ec942194a8deeffe4c
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65203716"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484049"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Bootstrap ile HDInsight kümeleri özelleştirme
 
@@ -133,7 +133,7 @@ Resource Manager şablonunda önyükleme kullanabilirsiniz:
 ![HDInsight Hadoop kümesi önyükleme Azure Resource Manager şablonu özelleştirir](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [HDInsight Apache Hadoop kümeleri oluşturma] [ hdinsight-provision-cluster] diğer özel seçenekleri kullanarak bir HDInsight kümesi oluşturma hakkında yönergeler açıklanmaktadır.
+* [HDInsight Apache Hadoop kümeleri oluşturma][hdinsight-provision-cluster] diğer özel seçenekleri kullanarak bir HDInsight kümesi oluşturma hakkında yönergeler açıklanmaktadır.
 * [HDInsight için betik eylemi betikleri geliştirme][hdinsight-write-script]
 * [Yükleme ve Apache Spark HDInsight kümeleri kullanma][hdinsight-install-spark]
 * [Yükleme ve HDInsight kümeleri üzerinde Apache giraph'ı kullanma](hdinsight-hadoop-giraph-install.md).
@@ -149,9 +149,6 @@ Resource Manager şablonunda önyükleme kullanabilirsiniz:
 ## <a name="appendix-powershell-sample"></a>Ek: PowerShell örneği
 
 Bu PowerShell Betiği bir HDInsight kümesi oluşturur ve Hive ayarı özelleştirir. İçin değerler girdiğinizden emin olun `$nameToken`, `$httpPassword`, ve `$sshPassword`.
-
-> [!IMPORTANT]  
-> Değerleri `DefaultStorageAccount`, ve `DefaultStorageContainer` döndürülen değil [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) olduğunda [güvenli aktarım](../storage/common/storage-require-secure-transfer.md) depolama hesabı etkinleştirilir.
 
 > [!WARNING]  
 > Depolama hesabı türü `BlobStorage` HDInsight kümeleri için kullanılamaz.

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 38d3c61acee9dca18ab1f863d878e02f7437a600
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707981"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433727"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure sanal ağlarda bulunan Apache HBase kümesi çoğaltma ayarlama
 
@@ -21,7 +21,7 @@ Nasıl ayarlanacağını öğrenin [Apache HBase](https://hbase.apache.org/) ço
 
 Küme çoğaltma, bir kaynak itme yöntemini kullanır. Her iki rolde tek seferde gerçekleştirebilir veya bir kaynak veya hedef bir HBase kümesi olabilir. Çoğaltma zaman uyumsuzdur. Çoğaltma son tutarlılık hedeftir. Kaynak çoğaltma etkinleştirildiğinde bir sütun ailesi için bir düzenleme aldığında, düzenleme için tüm hedef küme dağıtılır. Veriler bir kümeden diğerine çoğaltılır, kaynak kümesi ve veri zaten kullanmışsa tüm kümeler, çoğaltma döngüleri önlemek için izlenir.
 
-Bu öğreticide, bir kaynak-hedef çoğaltma kümesi. Diğer küme Topolojileri için bkz. [Apache HBase Başvuru Kılavuzu](https://hbase.apache.org/book.html#_cluster_replication).
+Bu makalede, bir kaynak-hedef çoğaltma kümesi. Diğer küme Topolojileri için bkz. [Apache HBase Başvuru Kılavuzu](https://hbase.apache.org/book.html#_cluster_replication).
 
 Tek bir sanal ağ için HBase çoğaltma kullanım örnekleri şunlardır:
 
@@ -39,7 +39,7 @@ Tek bir sanal ağ için HBase çoğaltma kullanım örnekleri şunlardır:
 Kümeleri kullanarak çoğaltabilirsiniz [betik eylemi](../hdinsight-hadoop-customize-cluster-linux.md) komut dosyalarını [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu öğreticiye başlamadan önce bir Azure aboneliğinizin olması gerekir. Bkz: [Azure ücretsiz deneme sürümü edinin](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+Bu makaleye başlamadan önce bir Azure aboneliğinizin olması gerekir. Bkz: [Azure ücretsiz deneme sürümü edinin](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Ortamları ayarlama
 
@@ -85,7 +85,7 @@ Yardımcı olması için ortamları ayarlama, bazı oluşturduk [Azure Resource 
 
 | Özellik | Değer |
 |----------|-------|
-| Location | Doğu ABD |
+| Location | East US |
 | VNet adı | &lt;ClusterNamePrevix >-vnet2'den |
 | Adres alanı ön eki | 10.2.0.0/16 |
 | Alt ağ adı | alt ağ 1 |
@@ -396,7 +396,7 @@ Açıklanan aynı yordamı izleyebilirsiniz [çoğaltmayı etkinleştir](#enable
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir sanal ağdaki veya iki sanal ağ arasında Apache HBase çoğaltmayı ayarlama öğrendiniz. HDInsight ve Apache HBase hakkında daha fazla bilgi edinmek için şu makalelere bakın:
+Bu makalede, iki sanal ağ arasında veya bir sanal ağ içindeki Apache HBase çoğaltmayı ayarlama öğrendiniz. HDInsight ve Apache HBase hakkında daha fazla bilgi edinmek için şu makalelere bakın:
 
 * [HDInsight, Apache HBase kullanmaya başlama](./apache-hbase-tutorial-get-started-linux.md)
 * [HDInsight Apache Hbase'e genel bakış](./apache-hbase-overview.md)

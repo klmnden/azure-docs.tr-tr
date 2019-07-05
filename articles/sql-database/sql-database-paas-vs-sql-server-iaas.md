@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
-ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9e95569ba3fe65ea5bce7d6a95a24324235e9a7f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60584863"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447747"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Azure'da SQL Server seçeneği sağ seçin
 
@@ -167,3 +167,4 @@ Birçok BT departmanı için, bir Hizmet Düzeyi Sözleşmesi'nin çalışma sü
 - SQL Veritabanı’nı kullanmaya başlamak için bkz. [İlk Azure SQL Veritabanınız](sql-database-single-database-get-started.md).
 - Bkz. [SQL Veritabanı Fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/).
 - Azure VM'lerinde SQL Server'ı kullanmaya başlamak için bkz. [Azure'da SQL Server sanal makinesi sağlama](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md).
+- [Doğru Azure SQL veritabanı/yönetilen örnek SKU'SUNDA şirket içi veritabanınızın tanımlamak](/sql/dma/dma-sku-recommend-sql-db/).

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: e2f0f1e7ac8f510c4ff5be7933c55278fef74694
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: feccaea0451ae36d841aae95ed0baf54f90c2700
+ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60715657"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568252"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Havacılıkta Tahmine dayalı bakım için Cortana Intelligence çözüm şablonları için teknik kılavuz
 
@@ -88,7 +88,7 @@ Azure olay hub'ı genel; Veri, CSV veya JSON biçiminde hub'ına gönderilebilir
 
 Bu belge, verilerinizi nasıl açıklamak değildir, ancak kolayca olayları ya da veri Azure olay Hub'ına olay hub'ı API'lerini kullanarak gönderebilirsiniz.
 
-### <a name="azure-stream-analytics"></a>Azure Stream Analytics
+### <a name="azure-stream-analytics-1"></a>Azure Stream Analytics
 Azure Stream Analytics hizmeti tarafından veri akışlardan okuma ve herhangi bir sayıda veri çıktısı gerçek zamanlı analizler sağlamak için kullanın.
 
 Çözüm şablonu Havacılık için Tahmine dayalı bakım için Azure Stream Analytics sorgu dört alt sorgular her sorgu olayları çıkışlar dört farklı konumlara ile Azure olay hub'ı hizmetinden oluşur. Bu çıktı, üç Power BI veri kümeleri ve bir Azure depolama konumunda oluşur.

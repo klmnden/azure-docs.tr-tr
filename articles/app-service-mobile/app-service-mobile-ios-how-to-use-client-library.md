@@ -3,7 +3,7 @@ title: Nasıl yapılır kullanım iOS için Azure Mobile Apps SDK'sı
 description: Nasıl yapılır kullanım iOS için Azure Mobile Apps SDK'sı
 services: app-service\mobile
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 editor: ''
 ms.assetid: 4e8e45df-c36a-4a60-9ad4-393ec10b7eb9
 ms.service: app-service-mobile
@@ -11,19 +11,24 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: b6f93cc3c35ab18ecd50ccd6b3090985497baabf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 38d992e55a8e1f0a057a96f3e13c93c9dbd0c4a9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122464"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440380"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Nasıl yapılır kullanım iOS için Azure Mobile Apps istemci kitaplığı
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
+> [!NOTE]
+> Visual Studio App Center, mobil uygulama geliştirme merkezi hizmetlerinde yeni ve tümleşik yatırım yapıyor. Geliştiriciler **derleme**, **Test** ve **Dağıt** hizmetlerinin sürekli tümleştirme ve teslim işlem hattı ayarlayın. Uygulama dağıtıldığında, geliştiriciler kendi uygulamasını kullanarak kullanımı ve durumu izleyebilirsiniz **Analytics** ve **tanılama** kullanarak kullanıcılarla etkileşim kurun ve hizmetlerini **anında iletme** hizmeti. Geliştiriciler de yararlanabilir **Auth** , kullanıcıların kimliğini doğrulamak ve **veri** kalıcı hale getirmek ve uygulama verilerini bulutta eşitleme hizmeti. Kullanıma [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=/app-service-mobile-ios-how-to-use-client-library) bugün.
+>
+
+## <a name="overview"></a>Genel Bakış
 Bu kılavuzu kullanarak en yaygın senaryoları gerçekleştirmek için öğretir [Azure Mobile Apps iOS SDK'sı][1]. Azure Mobile Apps için yeni başladıysanız, ilk olarak işlemini [Azure Mobile Apps Hızlı Başlangıç] bir arka ucu oluşturmak için tablo oluşturma ve önceden oluşturulmuş iOS Xcode projenizi indirin. Bu kılavuzda, biz istemci-tarafı iOS SDK'sı odaklanın. Arka uç sunucu tarafı SDK'sı hakkında daha fazla bilgi için sunucu SDK'sı HOWTOs bakın.
 
 ## <a name="reference-documentation"></a>Başvuru belgeleri
@@ -435,7 +440,7 @@ En azından `id` yapma işlemi sildiğinde özniteliği ayarlanmalıdır.
 
 Özel bir API ile herhangi bir arka uç işlevsellik kullanıma sunabilirsiniz. Bir tablo işlemine eşlemeye sahip değil. Yalnızca, ileti üzerinde daha fazla denetim elde edebilir, üstelik okuma/set üst bilgileri ve yanıt gövdesi biçiminin değiştirin. Arka uçta özel API oluşturma konusunda bilgi edinmek için [özel API'ler](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
 
-Özel API çağırmak için çağrı `MSClient.invokeAPI`. İstek ve yanıt içeriği JSON olarak kabul edilir. Diğer medya türleri kullanılacak [bir aşırı yüklemesini kullanmanız `invokeAPI` ] [ 5].  Yapmak için bir `GET` yerine isteği bir `POST` kümesi parametre istek `HTTPMethod` için `"GET"` ve parametre `body` için `nil` (GET istekleri İleti gövdeleri olmadığından.) Özel API'nizi diğer HTTP fiilleri destekliyorsa, değiştirme `HTTPMethod` uygun şekilde.
+Özel API çağırmak için çağrı `MSClient.invokeAPI`. İstek ve yanıt içeriği JSON olarak kabul edilir. Diğer medya türleri kullanılacak [bir aşırı yüklemesini kullanmanız `invokeAPI` ][5].  Yapmak için bir `GET` yerine isteği bir `POST` kümesi parametre istek `HTTPMethod` için `"GET"` ve parametre `body` için `nil` (GET istekleri İleti gövdeleri olmadığından.) Özel API'nizi diğer HTTP fiilleri destekliyorsa, değiştirme `HTTPMethod` uygun şekilde.
 
 **Objective-C**:
 
@@ -516,7 +521,7 @@ Tüm etiketleri, istek güvenlik kaldırılır.  Yüklemeleri veya yüklemeleri 
 
 Azure App Service mobil arka ucu çağırdığınızda tamamlama bloğu içeren bir `NSError` parametresi. Bir hata oluştuğunda, bu parametre nil olmayan içindir. Kodunuzda bu parametreyi denetleyin ve önceki kod parçacıklarında gösterildiği gibi gerektiği gibi hatayı işleyebilir.
 
-Dosya [ `<WindowsAzureMobileServices/MSError.h>` ] [ 6] sabitlerini tanımlar `MSErrorResponseKey`, `MSErrorRequestKey`, ve `MSErrorServerItemKey`. Hatayla ilgili daha fazla veri almak için:
+Dosya [ `<WindowsAzureMobileServices/MSError.h>` ][6] sabitlerini tanımlar `MSErrorResponseKey`, `MSErrorRequestKey`, ve `MSErrorServerItemKey`. Hatayla ilgili daha fazla veri almak için:
 
 **Objective-C**:
 
@@ -548,7 +553,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 Kullanıcıların uygulamanızla Azure Active Directory'yi kullanarak oturum açmak için Active Directory Authentication Library (ADAL) kullanabilirsiniz. Bir kimlik sağlayıcısına SDK'sını kullanarak istemci akışı kimlik doğrulaması kullanılması tercih `loginWithProvider:completion:` yöntemi.  İstemci akışı kimlik doğrulaması, daha doğal bir UX görünümünü sağlar ve için ek özelleştirme yapmanıza izin verir.
 
-1. AAD oturum açma için mobil uygulama arka ucunuzu izleyerek yapılandırın [App Service, Active Directory oturum açma için yapılandırma] [ 7] öğretici. Yerel istemci uygulaması kaydetme isteğe bağlı bir adım tamamladığınızdan emin olun. İOS için yeniden yönlendirme URI'si biçimi olan öneririz `<app-scheme>://<bundle-id>`. Daha fazla bilgi için [ADAL iOS hızlı][8].
+1. AAD oturum açma için mobil uygulama arka ucunuzu izleyerek yapılandırın [App Service, Active Directory oturum açma için yapılandırma][7] öğretici. Yerel istemci uygulaması kaydetme isteğe bağlı bir adım tamamladığınızdan emin olun. İOS için yeniden yönlendirme URI'si biçimi olan öneririz `<app-scheme>://<bundle-id>`. Daha fazla bilgi için [ADAL iOS hızlı][8].
 2. Cocoapods kullanarak ADAL'ı yükleyin. Aşağıdaki tanım, dahil etmek için Podfile Düzenle değiştirerek **YOUR PROJECT** Xcode projenizin adı:
 
         source 'https://github.com/CocoaPods/Specs.git'
@@ -635,8 +640,8 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 
 Uygulamanıza Facebook kullanarak kullanıcıların oturum açmak için iOS için Facebook SDK'sını kullanabilirsiniz.  Bir istemci akışı kimlik doğrulaması kullanarak kullanılması tercih `loginWithProvider:completion:` yöntemi.  İstemci akışı kimlik doğrulaması, daha doğal bir UX görünümünü sağlar ve için ek özelleştirme yapmanıza izin verir.
 
-1. Facebook oturum açma için mobil uygulama arka ucunuzu izleyerek yapılandırın [App Service Facebook oturum açma için yapılandırma] [ 9] öğretici.
-2. İOS için Facebook SDK izleyerek yükleme [Facebook SDK'sı iOS - Başlarken] [ 10] belgeleri. Bir uygulama oluşturmak yerine, varolan bir kaydı için iOS platformunu ekleyebilirsiniz.
+1. Facebook oturum açma için mobil uygulama arka ucunuzu izleyerek yapılandırın [App Service Facebook oturum açma için yapılandırma][9] öğretici.
+2. İOS için Facebook SDK izleyerek yükleme [Facebook SDK'sı iOS - Başlarken][10] belgeleri. Bir uygulama oluşturmak yerine, varolan bir kaydı için iOS platformunu ekleyebilirsiniz.
 3. Facebook'ın belgeleri, uygulama Temsilcide bazı Objective-C kodunu içerir. Kullanıyorsanız **Swift**, aşağıdaki çevirileri AppDelegate.swift için kullanabilirsiniz:
 
     ```swift

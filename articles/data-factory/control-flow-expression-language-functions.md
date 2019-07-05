@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 4c51974498539a0305312d6501bcfa9ebc3b2e88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d48d9e89085e08ac4da9db15458e3a3aa8152bb5
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64573557"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541210"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory’deki ifadeler ve işlevler
 > [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
@@ -139,6 +139,9 @@ Aşağıdaki örnekte, işlem hattı alır **inputPath** ve **outputPath** param
     }
 }
 ```
+#### <a name="tutorial"></a>Öğretici
+Bu [öğretici](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) parametreleri arasında bir işlem hattı ve etkinlik de etkinlikler arasında geçirmek nasıl gösterilmektedir.
+
   
 ## <a name="functions"></a>İşlevler  
  İfadeler içinde işlevleri çağırabilir. Aşağıdaki bölümlerde, bir ifadede kullanılabilen işlevleri hakkında bilgi sağlar.  
@@ -151,7 +154,7 @@ Aşağıdaki örnekte, işlem hattı alır **inputPath** ve **outputPath** param
 |concat|Herhangi bir sayıda dizeyi birleştirir. Örneğin, parametre1 ise `foo,` aşağıdaki ifade döndürür `somevalue-foo-somevalue`:  `concat('somevalue-',pipeline().parameters.parameter1,'-somevalue')`<br /><br /> **Parametre numarası**: 1 ... *n*<br /><br /> **Ad**: Dize *n*<br /><br /> **Açıklama**: Gereklidir. Tek bir dize olarak birleştirilecek dize.|  
 |alt dize|Bir dizedeki karakterlerin bir alt kümesini döndürür. Örneğin, aşağıdaki ifade:<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> döndürür:<br /><br /> `foo`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: String<br /><br /> **Açıklama**: Gereklidir. Alt dizenin alındığı dize.<br /><br /> **Parametre numarası**: 2<br /><br /> **Ad**: Başlangıç dizini<br /><br /> **Açıklama**: Gereklidir. Parametre 1'de alt dizenin başladığı dizin.<br /><br /> **Parametre numarası**: 3<br /><br /> **Ad**: Uzunluk<br /><br /> **Açıklama**: Gereklidir. Alt dizenin uzunluğu.|  
 |Değiştir|Bir dizeyi belirli bir dize ile değiştirir. Örneğin, ifade:<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> döndürür:<br /><br /> `the new string`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: dize<br /><br /> **Açıklama**: Gereklidir.  Parametre 2 parametresi 1, 2 parametre için Aranan ve parametre 3 ile güncelleştirilen dize bulunursa.<br /><br /> **Parametre numarası**: 2<br /><br /> **Ad**: Eski dize<br /><br /> **Açıklama**: Gereklidir. Parametre 1'de bir eşleşme bulunduğunda parametre 3 ile değiştirilecek dize<br /><br /> **Parametre numarası**: 3<br /><br /> **Ad**: Yeni dize<br /><br /> **Açıklama**: Gereklidir. Parametre 1'de bir eşleşme bulunduğunda parametre 2 değiştirmek için kullanılan dize.|  
-|GUID| (Diğer adıyla. genel olarak benzersiz bir dize oluşturur GUID). Örneğin, aşağıdaki çıktıyı üretilemedi `c2ecc88d-88c8-4096-912c-d6f2e2b138ce`:<br /><br /> `guid()`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: Biçimi<br /><br /> **Açıklama**: İsteğe bağlı. Bildiren bir tek biçim belirticisi [bu GUID değerini biçimlendirmek nasıl](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx). "N", "D", "B", "P" veya "X" biçim parametresini olabilir. "D" biçim sağlanmazsa kullanılır.|  
+|guid| (Diğer adıyla. genel olarak benzersiz bir dize oluşturur GUID). Örneğin, aşağıdaki çıktıyı üretilemedi `c2ecc88d-88c8-4096-912c-d6f2e2b138ce`:<br /><br /> `guid()`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: Biçimi<br /><br /> **Açıklama**: İsteğe bağlı. Bildiren bir tek biçim belirticisi [bu GUID değerini biçimlendirmek nasıl](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx). "N", "D", "B", "P" veya "X" biçim parametresini olabilir. "D" biçim sağlanmazsa kullanılır.|  
 |toLower|Bir dizeyi küçük harfe dönüştürür. Örneğin, aşağıdaki döndürür `two by two is four`:  `toLower('Two by Two is Four')`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: String<br /><br /> **Açıklama**: Gereklidir. Daha düşük büyük/küçük harf için dönüştürülecek dize. Dizesindeki bir karakter, bir küçük harf eşdeğeri yoksa döndürülen dizeye değiştirilmeden dahil edilmiştir.|  
 |toUpper|Bir dizeyi büyük harfe dönüştürür. Örneğin, aşağıdaki ifade döndürür `TWO BY TWO IS FOUR`:  `toUpper('Two by Two is Four')`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: String<br /><br /> **Açıklama**: Gereklidir. Üst büyük/küçük harf için dönüştürülecek dize. Dizesindeki bir karakter, bir büyük harf eşdeğeri yoksa, bu döndürülen dizeye değiştirilmeden eklenir.|  
 |indexOf|Dizin bir dize vaka içindeki bir değerin insensitively bulun. Örneğin, aşağıdaki ifade döndürür `7`: `indexof('hello, world.', 'world')`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: String<br /><br /> **Açıklama**: Gereklidir. Değeri içeriyor olabilecek dize.<br /><br /> **Parametre numarası**: 2<br /><br /> **Ad**: String<br /><br /> **Açıklama**: Gereklidir. Dizini aranacak değer.|  
@@ -167,14 +170,14 @@ Aşağıdaki örnekte, işlem hattı alır **inputPath** ve **outputPath** param
 |İşlev adı|Açıklama|  
 |-------------------|-----------------|  
 |içerir|Sözlük anahtarı, bir listesi içeriyorsa true döndürür değeri veya dize alt dizeyi içeren. Örneğin, aşağıdaki ifade döndürür. `true:``contains('abacaba','aca')`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: Koleksiyonu içinde<br /><br /> **Açıklama**: Gereklidir. İçinde arama yapılacak koleksiyon.<br /><br /> **Parametre numarası**: 2<br /><br /> **Ad**: Nesne bulma<br /><br /> **Açıklama**: Gereklidir. İçinde bulunacak nesne **koleksiyonundaki**.|  
-|length|Bir dizi veya dizedeki öğelerin sayısını döndürür. Örneğin, aşağıdaki ifade döndürür `3`:  `length('abc')`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: Koleksiyon<br /><br /> **Açıklama**: Gereklidir. Uzunluğu alma koleksiyonu.|  
-|boş|Nesne, dizi veya dize boşsa true döndürür. Örneğin, aşağıdaki ifade döndürür `true`:<br /><br /> `empty('')`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: Koleksiyon<br /><br /> **Açıklama**: Gereklidir. Boş olup olmadığı denetlenecek koleksiyon.|  
+|length|Bir dizi veya dizedeki öğelerin sayısını döndürür. Örneğin, aşağıdaki ifade döndürür `3`:  `length('abc')`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: Collection<br /><br /> **Açıklama**: Gereklidir. Uzunluğu alma koleksiyonu.|  
+|boş|Nesne, dizi veya dize boşsa true döndürür. Örneğin, aşağıdaki ifade döndürür `true`:<br /><br /> `empty('')`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: Collection<br /><br /> **Açıklama**: Gereklidir. Boş olup olmadığı denetlenecek koleksiyon.|  
 |kesişimi|Tek bir dizi veya nesne ortak öğeleri olan diziler veya geçirilen nesneler arasında döndürür. Örneğin, bu işlevi döndürür `[1, 2]`:<br /><br /> `intersection([1, 2, 3], [101, 2, 1, 10],[6, 8, 1, 2])`<br /><br /> İşlev parametrelerini ya da bir nesne veya dizi (ikisinin karışımı olamaz) kümesi olabilir. Aynı ada sahip iki nesne varsa, son nesnede bu ada sahip son nesne görünür.<br /><br /> **Parametre numarası**: 1 ... *n*<br /><br /> **Ad**: Koleksiyon *n*<br /><br /> **Açıklama**: Gereklidir. Değerlendirilecek koleksiyonlar. Bir nesne, sonuçta görüntülenmek üzere geçirilen tüm koleksiyonlarda olmalıdır.|  
 |birleşim|Tek bir dizi veya nesne, dizi veya nesne kendisine geçirilen tüm öğeleri döndürür. Örneğin, bu işlev döndürür. `[1, 2, 3, 10, 101]:`<br /><br /> :  `union([1, 2, 3], [101, 2, 1, 10])`<br /><br /> İşlev parametrelerini ya da bir nesne veya dizi (ikisinin karışımı olamaz) kümesi olabilir. Son Çıkışta aynı ada sahip iki nesne varsa, son nesnede bu ada sahip son nesne görünür.<br /><br /> **Parametre numarası**: 1 ... *n*<br /><br /> **Ad**: Koleksiyon *n*<br /><br /> **Açıklama**: Gereklidir. Değerlendirilecek koleksiyonlar. Koleksiyonları hiçbirinde görünen bir nesne sonuçta da görüntülenir.|  
-|ilk|Dizi veya dize geçirilen ilk öğeyi döndürür. Örneğin, bu işlevi döndürür `0`:<br /><br /> `first([0,2,3])`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: Koleksiyon<br /><br /> **Açıklama**: Gereklidir. İlk nesnenin alınacağı koleksiyon.|  
-|Son|Dizi veya dize geçirilen son öğeyi döndürür. Örneğin, bu işlevi döndürür `3`:<br /><br /> `last('0123')`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: Koleksiyon<br /><br /> **Açıklama**: Gereklidir. Son nesnenin alınacağı koleksiyon.|  
-|sınav zamanı|İlk döndürür **sayısı** geçirilen dizi veya dizedeki öğeleri, bu işlev, örneğin döndürür `[1, 2]`:  `take([1, 2, 3, 4], 2)`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: Koleksiyon<br /><br /> **Açıklama**: Gereklidir. İlk alınacağı koleksiyon **sayısı** nesneleri.<br /><br /> **Parametre numarası**: 2<br /><br /> **Ad**: Count<br /><br /> **Açıklama**: Gereklidir. Gelen alınacak nesne sayısı **koleksiyon**. Pozitif bir tamsayı olmalıdır.|  
-|Atla|Öğeleri dizi dizininden başlayarak döndürür **sayısı**, bu işlev, örneğin döndürür `[3, 4]`:<br /><br /> `skip([1, 2 ,3 ,4], 2)`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: Koleksiyon<br /><br /> **Açıklama**: Gereklidir. İlk atlanacağı koleksiyon **sayısı** nesneleri.<br /><br /> **Parametre numarası**: 2<br /><br /> **Ad**: Count<br /><br /> **Açıklama**: Gereklidir. Önünden kaldırılacak nesne sayısı **koleksiyon**. Pozitif bir tamsayı olmalıdır.|  
+|ilk|Dizi veya dize geçirilen ilk öğeyi döndürür. Örneğin, bu işlevi döndürür `0`:<br /><br /> `first([0,2,3])`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: Collection<br /><br /> **Açıklama**: Gereklidir. İlk nesnenin alınacağı koleksiyon.|  
+|Son|Dizi veya dize geçirilen son öğeyi döndürür. Örneğin, bu işlevi döndürür `3`:<br /><br /> `last('0123')`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: Collection<br /><br /> **Açıklama**: Gereklidir. Son nesnenin alınacağı koleksiyon.|  
+|sınav zamanı|İlk döndürür **sayısı** geçirilen dizi veya dizedeki öğeleri, bu işlev, örneğin döndürür `[1, 2]`:  `take([1, 2, 3, 4], 2)`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: Collection<br /><br /> **Açıklama**: Gereklidir. İlk alınacağı koleksiyon **sayısı** nesneleri.<br /><br /> **Parametre numarası**: 2<br /><br /> **Ad**: Sayı<br /><br /> **Açıklama**: Gereklidir. Gelen alınacak nesne sayısı **koleksiyon**. Pozitif bir tamsayı olmalıdır.|  
+|Atla|Öğeleri dizi dizininden başlayarak döndürür **sayısı**, bu işlev, örneğin döndürür `[3, 4]`:<br /><br /> `skip([1, 2 ,3 ,4], 2)`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: Collection<br /><br /> **Açıklama**: Gereklidir. İlk atlanacağı koleksiyon **sayısı** nesneleri.<br /><br /> **Parametre numarası**: 2<br /><br /> **Ad**: Count<br /><br /> **Açıklama**: Gereklidir. Önünden kaldırılacak nesne sayısı **koleksiyon**. Pozitif bir tamsayı olmalıdır.|  
   
 ## <a name="logical-functions"></a>Mantıksal işlevler  
  Bu işlevler içinde koşullar yararlıdır, herhangi bir türde mantıksal değerlendirmek için kullanılabilir.  
@@ -182,7 +185,7 @@ Aşağıdaki örnekte, işlem hattı alır **inputPath** ve **outputPath** param
 |İşlev adı|Açıklama|  
 |-------------------|-----------------|  
 |eşittir|İki değer eşitse true döndürür. Örneğin, parametre1'foo olduğunda, aşağıdaki ifade döndürür `true`: `equals(pipeline().parameters.parameter1), 'foo')`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: nesnesi 1<br /><br /> **Açıklama**: Gereklidir. Karşılaştırma yapılacak nesne **nesne 2**.<br /><br /> **Parametre numarası**: 2<br /><br /> **Ad**: 2 nesnesi<br /><br /> **Açıklama**: Gereklidir. Karşılaştırma yapılacak nesne **nesne 1**.|  
-|daha az|İlk bağımsız değişken ikinciden küçükse true döndürür ikinciden. Not: değerleri yalnızca tamsayı, kayan noktalı sayı veya dize olabilir. Örneğin, aşağıdaki ifade döndürür `true`:  `less(10,100)`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: nesnesi 1<br /><br /> **Açıklama**: Gereklidir. Olup olmadığı denetlenecek nesne küçüktür **nesne 2**.<br /><br /> **Parametre numarası**: 2<br /><br /> **Ad**: 2 nesnesi<br /><br /> **Açıklama**: Gereklidir. Daha büyük olup olmadığı denetlenecek nesne **nesne 1**.|  
+|less|İlk bağımsız değişken ikinciden küçükse true döndürür ikinciden. Not: değerleri yalnızca tamsayı, kayan noktalı sayı veya dize olabilir. Örneğin, aşağıdaki ifade döndürür `true`:  `less(10,100)`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: nesnesi 1<br /><br /> **Açıklama**: Gereklidir. Olup olmadığı denetlenecek nesne küçüktür **nesne 2**.<br /><br /> **Parametre numarası**: 2<br /><br /> **Ad**: 2 nesnesi<br /><br /> **Açıklama**: Gereklidir. Daha büyük olup olmadığı denetlenecek nesne **nesne 1**.|  
 |lessOrEquals|İlk bağımsız değişken küçük veya ikinciye eşitse true döndürür. Not: değerleri yalnızca tamsayı, kayan noktalı sayı veya dize olabilir. Örneğin, aşağıdaki ifade döndürür `true`:  `lessOrEquals(10,10)`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: nesnesi 1<br /><br /> **Açıklama**: Gereklidir. Küçük olup olmadığı kontrol veya ona eşit nesne **nesne 2**.<br /><br /> **Parametre numarası**: 2<br /><br /> **Ad**: 2 nesnesi<br /><br /> **Açıklama**: Gereklidir. Büyük veya ona eşit olup olmadığı denetlenecek nesne **nesne 1**.|  
 |daha büyük|İlk bağımsız değişken ikinciden büyükse true döndürür. Not: değerleri yalnızca tamsayı, kayan noktalı sayı veya dize olabilir. Örneğin, aşağıdaki ifade döndürür `false`:  `greater(10,10)`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: nesnesi 1<br /><br /> **Açıklama**: Gereklidir. Daha büyük olup olmadığı denetlenecek nesne **nesne 2**.<br /><br /> **Parametre numarası**: 2<br /><br /> **Ad**: 2 nesnesi<br /><br /> **Açıklama**: Gereklidir. Olup olmadığı denetlenecek nesne küçüktür **nesne 1**.|  
 |greaterOrEquals|İlk bağımsız değişken büyük veya ikinciye eşitse true döndürür. Not: değerleri yalnızca tamsayı, kayan noktalı sayı veya dize olabilir. Örneğin, aşağıdaki ifade döndürür `false`:  `greaterOrEquals(10,100)`<br /><br /> **Parametre numarası**: 1<br /><br /> **Ad**: nesnesi 1<br /><br /> **Açıklama**: Gereklidir. Büyük veya ona eşit olup olmadığı denetlenecek nesne **nesne 2**.<br /><br /> **Parametre numarası**: 2<br /><br /> **Ad**: 2 nesnesi<br /><br /> **Açıklama**: Gereklidir. Küçük veya buna eşit olup olmadığı denetlenecek nesne **nesne 1**.|  
@@ -200,7 +203,7 @@ Aşağıdaki örnekte, işlem hattı alır **inputPath** ve **outputPath** param
   
 -   float  
   
--   boole  
+-   boolean  
   
 -   Diziler  
   

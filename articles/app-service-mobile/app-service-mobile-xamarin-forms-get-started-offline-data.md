@@ -2,7 +2,7 @@
 title: Azure mobil uygulaması (Xamarin.Forms) için çevrimdışı eşitlemeyi etkinleştirme | Microsoft Docs
 description: Xamarin.Forms uygulamanızda çevrimdışı veri önbelleği ve eşitleme için App Service Mobile Apps'ı kullanmayı öğrenin
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: yochayk
 editor: ''
 services: app-service\mobile
@@ -12,17 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/04/2016
-ms.author: crdun
-ms.openlocfilehash: 506c59ca24aeafbac59b1508bb78142051302765
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 53f339d5450965c992f6528ff294e0d37ec2f7f6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127888"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446293"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Xamarin.Forms mobil uygulamanız için çevrimdışı eşitlemeyi etkinleştirme
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+
+> [!NOTE]
+> Visual Studio App Center, mobil uygulama geliştirme merkezi hizmetlerinde yeni ve tümleşik yatırım yapıyor. Geliştiriciler **derleme**, **Test** ve **Dağıt** hizmetlerinin sürekli tümleştirme ve teslim işlem hattı ayarlayın. Uygulama dağıtıldığında, geliştiriciler kendi uygulamasını kullanarak kullanımı ve durumu izleyebilirsiniz **Analytics** ve **tanılama** kullanarak kullanıcılarla etkileşim kurun ve hizmetlerini **anında iletme** hizmeti. Geliştiriciler de yararlanabilir **Auth** , kullanıcıların kimliğini doğrulamak ve **veri** kalıcı hale getirmek ve uygulama verilerini bulutta eşitleme hizmeti. Kullanıma [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-offline-data) bugün.
+>
 
 ## <a name="overview"></a>Genel Bakış
 Bu öğretici için Xamarin.Forms çevrimdışı eşitleme özelliği Azure Mobile Apps tanıtır. Çevrimdışı eşitleme son kullanıcıların görüntüleme, ekleme veya ağ bağlantısı olduğunda bile verileri--değiştirme ile mobil uygulama--etkileşime olanak tanır. Değişiklikler, yerel bir veritabanında depolanır. Cihaz yeniden çevrimiçi olduğunda, bu değişiklikleri uzak hizmeti ile eşitlenir.
@@ -151,7 +155,7 @@ Bu bölümde, çevrimiçi duruma geri dönmeyi uygulama taklit eden mobil arka u
     Uyarı verileri, veritabanı ve yerel depo arasında eşitlenmesini ve uygulamanızı değilken, eklenen öğeleri içeriyor.
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
-* [Azure Mobile apps'te çevrimdışı veri eşitleme][2]
+* [Azure Mobile Apps’te Çevrimdışı Veri Eşitleme][2]
 * [Azure Mobile Apps .NET SDK nasıl yapılır][8]
 
 <!-- URLs. -->

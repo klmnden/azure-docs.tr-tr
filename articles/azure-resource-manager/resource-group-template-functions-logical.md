@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: cf6874512557bc44efe978708c78e3d98db4110b
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 2487cf928685423e4b60bb2923fc7e348eaff0c3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205453"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447967"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager şablonları için mantıksal işlevler
 
@@ -19,9 +19,9 @@ Resource Manager şablonlarınızı karşılaştırmaları yapmak için çeşitl
 
 * [ve](#and)
 * [bool](#bool)
-* [Eğer](#if)
-* [değil](#not)
-* [veya](#or)
+* [if](#if)
+* [not](#not)
+* [or](#or)
 
 ## <a name="and"></a>ve
 
@@ -190,7 +190,7 @@ Aşağıdaki [örnek şablonu](https://github.com/krnese/AzureDeploy/blob/master
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {

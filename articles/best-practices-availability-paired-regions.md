@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 04/28/2019
+ms.date: 07/01/2019
 ms.author: raynew
-ms.openlocfilehash: 5ed9dc595c537d8a923d3eb056dcb002cf225f7c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 81ba993e6cbe55b45d34325545754bec561ce479
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427103"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514467"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>İş sürekliliği ve olağanüstü durum kurtarma (BCDR): Azure eşleştirilmiş bölgeleri
 
@@ -42,7 +42,7 @@ Her Azure bölgesi aynı coğrafyadaki birlikte bölgesel çift yaparak başka b
 | Hindistan |Batı Hindistan |Güney Hindistan |
 | Japonya |Japonya Doğu |Japonya Batı |
 | Güney Kore |Kore Orta |Kore Güney |
-| Kuzey Amerika |Doğu ABD |Batı ABD |
+| Kuzey Amerika |East US |Batı ABD |
 | Kuzey Amerika |Doğu ABD 2 |Orta ABD |
 | Kuzey Amerika |Orta Kuzey ABD |Orta Güney ABD |
 | Kuzey Amerika |Batı ABD 2 |Batı Orta ABD 
@@ -77,7 +77,7 @@ Tablo 1 - Azure bölgesel çiftler eşleme
 
 ![Iaas](./media/best-practices-availability-paired-regions/1Green.png) **Azure (Iaas) işlem** – kaynakları kullanılabilir başka bir bölgede bir olağanüstü durum sırasında önceden sağlamak için ek işlem kaynakları hazırlamanız gerekir. Daha fazla bilgi için [Azure dayanıklılık teknik Kılavuzu](resiliency/resiliency-technical-guidance.md).
 
-![Depolama](./media/best-practices-availability-paired-regions/2Green.png) **Azure depolama** -coğrafi olarak yedekli depolama (GRS), Azure depolama hesabınız oluşturulduğunda varsayılan olarak yapılandırılır. GRS ile verileriniz otomatik olarak üç kez birincil bölge içinde ve üç kez eşleştirilmiş bölge içinde çoğaltılır. Daha fazla bilgi için [Azure depolama Yedekliliği seçenekleri](storage/common/storage-redundancy.md).
+![Depolama](./media/best-practices-availability-paired-regions/2Green.png) **Azure depolama** - yönetilen diskleri kullanıyorsanız, hakkında bilgi edinin [bölgeler arası yedeklemeleri](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) Azure Backup ile ve [Vm'lerini çoğaltma](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) bir bölgeden başka Azure Site Recovery ile. Ardından depolama hesapları kullanıyorsanız, Azure depolama hesabınız oluşturulduğunda coğrafi olarak yedekli depolama (GRS) varsayılan olarak yapılandırılır. GRS ile verileriniz otomatik olarak üç kez birincil bölge içinde ve üç kez eşleştirilmiş bölge içinde çoğaltılır. Daha fazla bilgi için [Azure depolama Yedekliliği seçenekleri](storage/common/storage-redundancy.md).
 
 ![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL veritabanı** – ile Azure SQL veritabanı coğrafi çoğaltma, dünyanın herhangi bir bölgesine işlemlerin zaman uyumsuz çoğaltma yapılandırabilirsiniz; ancak, bu kaynakları dağıtma öneririz bir Çoğu olağanüstü durum kurtarma senaryoları için eşleştirilmiş bölge. Daha fazla bilgi için [coğrafi çoğaltma, Azure SQL veritabanı'nda](sql-database/sql-database-geo-replication-overview.md).
 

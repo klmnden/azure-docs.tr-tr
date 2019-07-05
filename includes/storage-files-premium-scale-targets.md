@@ -4,28 +4,30 @@ ms.service: storage
 ms.topic: include
 ms.date: 06/07/2019
 ms.author: rogarana
-ms.openlocfilehash: c9561f868c70920a0ffb80777f1fc57abafb0df9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 368f08272173b019873dfe20e1164d6baf72ff5e
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073742"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542645"
 ---
-#### <a name="additional-premium-file-share-limits"></a>Ek premium dosya paylaşımı sınırlar
+#### <a name="additional-premium-file-share-level-limits"></a>Ek premium dosya paylaşımı düzeyinde sınırları
 
 |Alan  |Hedef  |
 |---------|---------|
 |En küçük boyut artırma/azaltma    |1 giB      |
-|Temel IOPS    |100\.000 adede kadar GiB başına 1 IOPS|
-|Patlaması IOPS    |100\.000 adede kadar GiB başına 3 x IOPS|
+|Temel IOPS    |100.000 adede kadar bir GiB başına 1 IOPS|
+|Patlaması IOPS    |3 x IOPS, 100.000 adede kadar GiB başına|
 |Çıkış oranı         |60 MiB/sn + 0,06 * GiB sağlandı        |
 |Giriş oranı| 40 MiB/sn + 0.04 * GiB sağlandı |
-|Anlık görüntü sayısı        |200       |
 
-#### <a name="premium-file-limits"></a>Premium dosya sınırları
+#### <a name="file-level-limits"></a>Dosya düzeyi sınırları
 
-|Alan  |Hedef  |
-|---------|---------|
-|Boyut                  |1 TiB         |
-|Dosya başına en fazla IOPS     |5,000         |
-|Eşzamanlı işler    |2,000         |
+|Alan  |Premium dosyası  |Standart dosya |
+|---------|---------|---------|
+|Size                  |1 TiB         |1 TiB|
+|Dosya başına en fazla IOPS     |5,000         |1000|
+|Eşzamanlı işler    |2,000         |2,000|
+|Giriş  |300 MiB/sec|      Standart dosya aktarım hızı değerleri bakın|
+|Çıkış   |200 Mib/sec| Standart dosya aktarım hızı değerleri bakın|
+|Aktarım hızı| Premium dosya giriş/çıkış değerleri bakın| En fazla 60 MiB/sn|

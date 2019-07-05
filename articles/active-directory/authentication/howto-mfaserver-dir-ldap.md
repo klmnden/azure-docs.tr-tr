@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 214462977c160685a943cb64c517da37d96d8e47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc67fb216451bd19fe8cfb327c101aa989228b01
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057354"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536918"
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP kimlik doğrulaması ve Azure multi-Factor Authentication sunucusu
 
@@ -49,6 +49,9 @@ Bu adımları tekrarlayarak diğer LDAP istemcilerini ekleyin.
 ### <a name="configure-the-ldap-directory-connection"></a>LDAP dizini bağlantısını yapılandırma
 
 Azure Multi-Factor Authentication LDAP kimlik doğrulamaları almak üzere yapılandırıldığında, bu kimlik doğrulamalarını LDAP dizinine sunmalıdır. Bu nedenle, LDAP hedefi olarak kullanmak üzere, Hedef sekmesi yalnızca tek bir, gri seçenek görüntüler.
+
+> [!NOTE]
+> Dizin tümleştirme dizinleri dışında Active Directory Domain Services ile çalışacak şekilde garanti edilmez.
 
 1. LDAP dizini bağlantısını yapılandırmak için **Dizin Tümleştirme** simgesine tıklayın.
 2. Ayarlar sekmesinde **Özel LDAP yapılandırması kullan** radyo düğmesini seçin.

@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 6/27/2019
 ms.author: raynew
-ms.openlocfilehash: 8f4e78f7e16f775a852b4c8172d1fa9fd70ec341
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a0e07f338da039be1660e59510b24bcd44eed0c
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417842"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491752"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery ile hangi iş yüklerini koruyabilirsiniz?
 
@@ -35,7 +35,7 @@ Site Recovery, uygulama düzeyinde koruma ve kurtarmaya şu yollarla katkıda bu
 * Desteklenen makinede çalışan iş yükleri için uygulaması belirsiz çoğaltma.
 * En önemli iş uygulamalarının ihtiyaçlarını karşılamak üzere 30 saniye kadar kısa RPO değerleriyle neredeyse tamamen zaman uyumlu çoğaltma.
 * Tek veya çok katmanlı uygulamalar için uygulamayla tutarlı anlık görüntüler.
-* SQL Server AlwaysOn tümleştirmesinin yanı sıra, AD çoğaltması, SQL AlwaysOn, Exchange Veritabanı Kullanılabilirlik Grupları (DAG'ler) ve Oracle Data Guard'ın içinde bulunduğu diğer uygulama düzeyi çoğaltma teknolojileriyle ortaklık.
+* AD çoğaltma, SQL AlwaysOn, Exchange veritabanı kullanılabilirlik grupları (Dag'ler) dahil olmak üzere diğer uygulama düzeyi çoğaltma teknolojileriyle ortaklık yanı sıra SQL Server AlwaysOn ile tümleştirme.
 * Uygulama yığınınızın tümünü tek tıklamayla kurtarmanıza ve harici betiklerin yanı sıra kendi eylemlerinizi de dahil etmenize olanak sağlayan esnek kurtarma planları.
 * Site Recovery'de ve Azure'da bulunan, IP adreslerini ayırabilme, yük dengelemeyi yapılandırabilme ve düşük RTO ağ geçişleri için Azure Traffic Manager ile tümleştirme özelliklerini içeren, uygulama ağ gereksinimlerini basitleştirmeye yönelik gelişmiş ağ yönetimi.
 * İndirilebilen ve kurtarma planlarıyla tümleştirilebilen üretime hazır ve uygulamaya özgü betikler sağlayan zengin bir otomasyon kitaplığı.

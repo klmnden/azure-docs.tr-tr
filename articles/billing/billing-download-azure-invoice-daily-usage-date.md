@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: b78fb7d697f8a72b3c2f99c4509ea6ac5c5e5566
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 16b2eaef74a7aa0e3e28bfcbb6dbd9da568db6cf
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60616475"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491401"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>İndirme veya Azure fatura ve günlük kullanım verilerini görüntüleme
 
@@ -56,7 +56,7 @@ Faturanızı hakkında daha fazla bilgi için bkz: [Microsoft Azure için fatura
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için fatura indir
 
-Faturalar her biri için oluşturulur [profili faturalama](billing-mca-overview.md#understand-billing-profiles) Microsoft Müşteri sözleşmesi. Bir faturalandırma profili sahibi, katkıda bulunan, okuyucu veya faturalama yöneticisi, Azure portalından faturaları indirmesine izin gerekir.
+Faturalar her biri için oluşturulur [profili faturalama](billing-mca-overview.md#billing-profiles) Microsoft Müşteri sözleşmesi. Bir faturalandırma profili sahibi, katkıda bulunan, okuyucu veya faturalama yöneticisi, Azure portalından faturaları indirmesine izin gerekir.
 
 1. Arama **maliyet Yönetimi + faturalandırma**.
 2. Faturalandırma profili seçin.

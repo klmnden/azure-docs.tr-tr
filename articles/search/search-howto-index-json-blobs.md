@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 4f3fb624f5e6137c9edb0be97adc16d8c808ebd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f60a41c48b3e78b860dca0e93d399420900dbd46
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523081"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485429"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Azure Search Blob Dizin Oluşturucu kullanarak JSON bloblarını dizinleme
 Bu makalede bir Azure Search blob yapılandırma işlemi gösterilmektedir [dizin oluşturucu](search-indexer-overview.md) JSON belgeleri olarak Azure Blob depolama alanından yapılandırılmış içeriği ayıklamak ve Azure Search aranabilir hale getirin. Bu iş akışı, bir Azure Search dizini oluşturur ve JSON bloblarından ayıklanan mevcut metinle yükler. 
@@ -118,7 +118,7 @@ Azure Search'te tüm dizin oluşturucular için üç bölümü iş akışı orta
 
 Gözden geçirebilirsiniz [REST örnek kod](#rest-example) sonunda, bu bölümde, tüm üç nesne oluşturma işlemi gösterilmektedir. Bu bölüm hakkında ayrıntılar da içerir. [JSON ayrıştırma modları](#parsing-modes), [tek bloblar](#parsing-single-blobs), [JSON dizileri](#parsing-arrays), ve [iç içe dizi](#nested-json-arrays).
 
-Kod tabanlı JSON dizin oluşturma için kullanmak [Postman](search-fiddler.md) ve bu nesneler oluşturmak için REST API:
+Kod tabanlı JSON dizin oluşturma için kullanmak [Postman](search-get-started-postman.md) ve bu nesneler oluşturmak için REST API:
 
 + [Dizin](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [Veri kaynağı](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
@@ -136,7 +136,7 @@ Azure Blob Depolama alanında JSON bloblarını genellikle tek bir JSON belge ya
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 - giriş istek için bir araya getirin
 
-Her istek için hizmet adını ve yönetici anahtarını Azure arama (POST üstbilgisinde) ve depolama hesabı adı ve blob depolama anahtarı sağlamanız gerekir. Kullanabileceğiniz [Postman](search-fiddler.md) Azure Search için HTTP istekleri göndermek için.
+Her istek için hizmet adını ve yönetici anahtarını Azure arama (POST üstbilgisinde) ve depolama hesabı adı ve blob depolama anahtarı sağlamanız gerekir. Kullanabileceğiniz [Postman](search-get-started-postman.md) Azure Search için HTTP istekleri göndermek için.
 
 Bir istek yapıştırabilmek aşağıdaki dört değerleri Not Defteri'ne kopyalayın:
 

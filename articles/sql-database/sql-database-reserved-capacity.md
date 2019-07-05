@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: 74a52df4eab8a3e471e541889cde74846af00fb8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/01/2019
+ms.openlocfilehash: 8c4fd3d49b4df3b3d18802e49d51aa54c0b58333
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574203"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566176"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Azure SQL veritabanı'nın ayrılmış kapasite ile SQL veritabanı bilgi işlem kaynakları için ön ödeme
 
@@ -28,7 +28,7 @@ Ayırma belirli SQL veritabanı örnekleri için (tek veritabanları, elastik ha
 
 Azure SQL veritabanı'nın ayrılmış kapasite satın alabilirsiniz [Azure portalında](https://portal.azure.com). SQL veritabanı ayrılmış kapasite satın almak için:
 
-- En az bir kuruluş veya Kullandıkça Öde aboneliği sahip rolünün olması gerekir.
+- En az bir kuruluş veya Kullandıkça Öde tarifesine göre tek tek abonelikle sahip rolünün olması gerekir.
 - Kurumsal abonelikler için **ayrılmış örnekleri ekleme** içinde etkinleştirilmelidir [EA portal](https://ea.azure.com). Veya bu ayarı devre dışıysa, aboneliğini bir EA yönetici olması gerekir.
 - Bulut çözümü sağlayıcısı (CSP) programı için yönetim aracıları veya satış aracıları yalnızca SQL veritabanı ayrılmış kapasitesi satın alabilirsiniz.
 
@@ -44,26 +44,25 @@ Rezervasyon boyutu mevcut yakında-için--dağıtılabilir veya tek veritabanlar
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Seçin **tüm hizmetleri** > **ayırmaları**.
-3. Seçin **Ekle** ve ürün türü seçin bölmesinde ardından **SQL veritabanı** SQL veritabanı için yeni bir rezervasyon satın almak için.
-4. Gerekli alanları doldurun. Mevcut veya yeni bir tek veritabanları, elastik havuzlar ve öznitelikleri eşleşen yönetilen örnekleri, ayrılmış kapasite indirim almak uygun. SQL veritabanı örneklerinizi indirim almak gerçek sayısını, kapsam ve seçilen miktar bağlıdır.
+3. Seçin **Ekle** seçip satın alma ayırmaları bölmesinde **SQL veritabanı** SQL veritabanı için yeni bir rezervasyon satın almak için.
+4. Doldurma gerekli alanları. Mevcut veya yeni bir tek veritabanları, elastik havuzlar ve öznitelikleri eşleşen yönetilen örnekleri, ayrılmış kapasite indirim almak uygun. SQL veritabanı örneklerinizi indirim almak gerçek sayısını, kapsam ve seçilen miktar bağlıdır.
+    ![SQL veritabanı göndermeden önce ekran ayrılmış kapasite satın alma](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
 
-   ![SQL veritabanı göndermeden önce ekran ayrılmış kapasite satın alma](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
+Aşağıdaki tabloda, gerekli alanları açıklar.
 
-    | Alan      | Açıklama|
-    |:------------|:--------------|
-    |Ad        |Bu rezervasyon adı.|
-    |Abonelik|SQL veritabanı ayrılmış kapasite ayırma için ödeme yapmak üzere kullanılan abonelik. Aboneliğinizin ödeme yöntemini, ön maliyet SQL veritabanı ayrılmış kapasite ayırma için ücretlendirilir. Kurumsal Anlaşma abonelik türü olmalıdır (sayılar sunar: MS-AZR-0017P veya MS-AZR - 0148 P) ya da Kullandıkça Öde (sayılar sunar: MS-AZR-0003P veya MS-AZR-0023P). Kurumsal abonelik için ücretler kaydın maddi işlem bakiyesinden düşülür ve fazla kullanım olarak ücretlendirilir. Kullandıkça Öde aboneliğinde ücretler, aboneliğin kredi kartı veya fatura ödeme yöntemi ile faturalandırılır.|
-    |`Scope`       |Sanal çekirdek ayırma'nın kapsamı, bir abonelik veya birden çok abonelik (paylaşılan kapsamı) ele. Seçerseniz: <br/><br/>**Tek bir abonelik** -sanal çekirdek ayırma indirimini bu Abonelikteki SQL veritabanı örneklerine uygulanır. <br/><br/>**Abonelik paylaşılan** -sanal çekirdek ayırma indirimi, herhangi bir abonelik, fatura bağlamı içinde çalışan SQL veritabanı örnekleri için uygulanır. Kurumsal müşteriler için Paylaşılan kapsam kayıt ve kayıt içinde tüm abonelikleri içerir. Kullandıkça Öde müşterileri için paylaşılan tüm Kullandıkça Öde abonelikleri Hesap Yöneticisi tarafından oluşturulan kapsamdır.|
-    |Bölge      |SQL veritabanı tarafından kapsanan Azure bölgesini kapasite ayırma saklıdır.|
-    |Dağıtım türü|İçin ayırma satın almak istediğiniz SQL kaynak türü.|
-    |Performans Katmanı|SQL veritabanı örnekleri için hizmet katmanı.
-    |Terim        |Bir yıl veya üç yıl.|
-    |Miktar    |SQL veritabanı içinde satın örneklerinin kapasite ayırma saklıdır. Fatura indirim almak SQL veritabanı örnekleri çalışan sayısını miktarıdır. Doğu ABD bölgesinde 10 SQL veritabanı örneğini çalıştırıyorsanız, örneğin, ardından, miktar avantajı tüm çalışan makineler için en üst düzeye çıkarmak için 10 olarak belirtmeniz gerekir. |
-    |||
+| Alan      | Açıklama|
+|------------|--------------|
+|Abonelik|SQL veritabanı ayrılmış kapasite ayırma için ödeme yapmak üzere kullanılan abonelik. Aboneliğinizin ödeme yöntemini, ön maliyet SQL veritabanı ayrılmış kapasite ayırma için ücretlendirilir. Kurumsal Anlaşma abonelik türü olmalıdır (sayılar sunar: MS-AZR-0017P veya MS-AZR - 0148 P) ya da Kullandıkça Öde fiyatlandırması ile tek bir anlaşma (sayılar sunar: MS-AZR-0003P veya MS-AZR-0023P). Kurumsal abonelik için ücretler kaydın maddi işlem bakiyesinden düşülür ve fazla kullanım olarak ücretlendirilir. İçin tek bir aboneliği Kullandıkça Öde fiyatlandırması ile ücretleri, aboneliğinizin kredi kartı veya fatura ödeme yöntemi için faturalandırılır.|
+|`Scope`       |Sanal çekirdek ayırma'nın kapsamı, bir abonelik veya birden çok abonelik (paylaşılan kapsamı) ele. Seçerseniz: <br/><br/>**Paylaşılan**, sanal çekirdek ayırma indirimi, herhangi bir abonelik, fatura bağlamı içinde çalışan SQL veritabanı örnekleri için uygulanır. Kurumsal müşteriler için Paylaşılan kapsam kayıt ve kayıt içinde tüm abonelikleri içerir. Kullandıkça Öde müşterileri için paylaşılan tüm Kullandıkça Öde abonelikleri Hesap Yöneticisi tarafından oluşturulan kapsamdır.<br/><br/>**Tek bir abonelik**, sanal çekirdek ayırma indirimini bu Abonelikteki SQL veritabanı örneklerine uygulanır. <br/><br/>**Tek bir kaynak grubu**, ayırma indirimini seçili abonelik ve seçilen kaynak grubunda bu Abonelikteki SQL veritabanı örneklerine uygulanır.|
+|Bölge      |SQL veritabanı tarafından kapsanan Azure bölgesini kapasite ayırma saklıdır.|
+|Dağıtım türü|İçin ayırma satın almak istediğiniz SQL kaynak türü.|
+|Performans Katmanı|SQL veritabanı örnekleri için hizmet katmanı.
+|Terim        |Bir yıl veya üç yıl.|
+|Miktar    |SQL veritabanı içinde satın örneklerinin kapasite ayırma saklıdır. Fatura indirim almak SQL veritabanı örnekleri çalışan sayısını miktarıdır. Doğu ABD bölgesinde 10 SQL veritabanı örneğini çalıştırıyorsanız, örneğin, ardından, miktar avantajı tüm çalışan makineler için en üst düzeye çıkarmak için 10 olarak belirtmeniz gerekir. |
 
-5. SQL veritabanı maliyetini ayrılmış kapasite rezervasyonu gözden geçirme **maliyetleri** bölümü.
-6. **Satın al**'ı seçin.
-7. Seçin **bu rezervasyonu görüntüle** satın alma işleminizi durumunu görmek için.
+1. SQL veritabanı maliyetini ayrılmış kapasite rezervasyonu gözden geçirme **maliyetleri** bölümü.
+1. **Satın al**'ı seçin.
+1. Seçin **bu rezervasyonu görüntüle** satın alma işleminizi durumunu görmek için.
 
 ## <a name="cancellations-and-exchanges"></a>İptalleri ve değişimler
 
@@ -76,6 +75,10 @@ Exchange ya da para iadesinin ayırmaları hakkında daha fazla bilgi için bkz.
 ## <a name="vcore-size-flexibility"></a>Sanal çekirdek boyutu esneklik
 
 Sanal çekirdek boyutu esneklik ölçeği artırın veya azaltın performans katmanına ve bölge içinde ayrılmış kapasite avantajı kaybetmeden yardımcı olur. SQL veritabanı ayrılmış kapasite de geçici olarak sık erişimli veritabanlarınızı tek veritabanları ve havuzlar arasında (katmanında aynı bölge ve performans), normal işlemlerin parçası olarak ayrılmış kapasite kaybetmeden taşımak için esneklik sağlar yararlanır. Beklemediğiniz uygulanan bir arabellek rezervasyonunuz içinde tutarak, bütçenizi aşmadan, performans artışlarını etkili bir şekilde yönetebilirsiniz.
+
+## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun
+
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -91,7 +94,3 @@ Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalel
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](../billing/billing-understand-reserved-instance-usage.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](../billing/billing-understand-reserved-instance-usage-ea.md)
 - [İş ortağı merkezi bulut çözümü sağlayıcısı (CSP) programında Azure ayırmalar](https://docs.microsoft.com/partner-center/azure-reservations)
-
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun
-
-Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

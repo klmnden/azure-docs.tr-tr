@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/30/2019
-ms.openlocfilehash: 542813e0f82a1a52142a2b82bea3fdb101fdec28
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af5ddd50556b493cddf27d1ebb766d9bf6105107
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077168"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433425"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Giden ağ trafiği için Güvenlik Duvarı (Önizleme) kullanarak Azure HDInsight kümelerini yapılandırma
 
@@ -54,13 +54,13 @@ Yeni Güvenlik Duvarı'nı seçin **Test FW01** Azure portalından. Tıklayın *
 
 1. Girin bir **adı**, **öncelik**, tıklatıp **izin** gelen **eylem** açılır menüsünde, aşağıdaki kuralları içinde girin**FQDN etiketler bölümü** :
 
-   | **Ad** | **Kaynak adresi** | **FQDN etiketi** | **Notlar** |
+   | **Name** | **Kaynak adresi** | **FQDN etiketi** | **Notlar** |
    | --- | --- | --- | --- |
    | Rule_1 | * | HDInsight ve Windows Update | HDI hizmetler için gerekli |
 
 1. Aşağıdaki kuralları ekleme **hedef FQDN bölüm** :
 
-   | **Ad** | **Kaynak adresi** | **Protokol: bağlantı noktası** | **Hedef FQDN** | **Notlar** |
+   | **Name** | **Kaynak adresi** | **Protokol: bağlantı noktası** | **Hedef FQDN** | **Notlar** |
    | --- | --- | --- | --- | --- |
    | Rule_2 | * | https:443 | login.windows.net | Windows oturum açma etkinliği sağlar |
    | Rule_3 | * | https:443,http:80 | <storage_account_name.blob.core.windows.net> | Kümenizi WASB tarafından destekleniyorsa, bir kural için WASB ekleyin. YALNIZCA https kullanmak üzere bağlantıları emin ["güvenli aktarım gerekli"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) depolama hesabı etkinleştirilir. |
@@ -78,7 +78,7 @@ HDInsight kümenizi doğru şekilde yapılandırmak için ağ kuralları oluştu
 1. Üzerinde **ağ kural koleksiyonu ekleme** ekranında, girin bir **adı**, **öncelik**, tıklatıp **izin** gelen **eylem** açılan menüsü.
 1. Aşağıdaki kurallar oluşturma **IP adresleri** bölümü:
 
-   | **Ad** | **Protokolü** | **Kaynak adresi** | **Hedef adres** | **Hedef bağlantı noktası** | **Notlar** |
+   | **Name** | **Protokolü** | **Kaynak adresi** | **Hedef adres** | **Hedef bağlantı noktası** | **Notlar** |
    | --- | --- | --- | --- | --- | --- |
    | Rule_1 | UDP | * | * | `123` | Zaman hizmeti |
    | Rule_2 | Tüm | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | Kurumsal güvenlik paketi (ESP) kullanıyorsanız, bir ağ kuralı ESP kümeleri için AAD DS ile iletişim kurmasına olanak tanıyan IP adresleri bölümüne ekleyin. IP adreslerini AAD DS bölümündeki etki alanı denetleyicilerinin portalda bulabilirsiniz | 
@@ -87,9 +87,9 @@ HDInsight kümenizi doğru şekilde yapılandırmak için ağ kuralları oluştu
 
 1. Aşağıdaki kurallar oluşturma **hizmet etiketleri** bölümü:
 
-   | **Ad** | **Protokolü** | **Kaynak adresi** | **Hizmet etiketleri** | **Hedef bağlantı noktası** | **Notlar** |
+   | **Name** | **Protokolü** | **Kaynak adresi** | **Hizmet etiketleri** | **Hedef bağlantı noktası** | **Notlar** |
    | --- | --- | --- | --- | --- | --- |
-   | Rule_7 | TCP | * | * | `1433,11000-11999,14000-14999` | Ağ kuralı için SQL Server için hizmet uç noktaları, güvenlik duvarı atlayacaktır HDInsight alt ağda yapılandırılmış sürece, oturum ve SQL trafiğini denetleme olanak tanıyan SQL hizmet etiketleri bölümünde yapılandırın. |
+   | Rule_7 | TCP | * | SQL | `1433` | Ağ kuralı için SQL Server için hizmet uç noktaları, güvenlik duvarı atlayacaktır HDInsight alt ağda yapılandırılmış sürece, oturum ve SQL trafiğini denetleme olanak tanıyan SQL hizmet etiketleri bölümünde yapılandırın. |
 
 1. Tıklayın **Ekle** , ağ kural koleksiyonu oluşturmayı tamamlamak için.
 

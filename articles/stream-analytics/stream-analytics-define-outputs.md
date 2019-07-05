@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 4e62ae47de95f95600faa3dc27f6867b065e117b
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 17214bb4904cc540de0a7d6f753b7e70abfa564c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329974"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443639"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics çıkışları anlama
 
@@ -229,7 +229,7 @@ Service Bus kuyrukları, gönderenden alıcıya bire bir iletişim yöntemi suna
 Bölüm sayısı [Service Bus SKU ve boyutuna bağlı olarak](../service-bus-messaging/service-bus-partitioning.md). Bölüm anahtarı, her bölüm için bir benzersiz bir tamsayı değerdir.
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
-[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) dünyanın dört bir yanındaki, zengin sorgu ve şemadan veri modelleri üzerinde otomatik dizin oluşturma sınırsız elastik ölçeğin sunan Global olarak dağıtılmış veritabanı hizmetidir. Stream Analytics için Azure Cosmos DB koleksiyonu seçenekleri hakkında bilgi edinmek için bkz. [çıktı olarak Azure Cosmos DB ile bir Stream Analytics](stream-analytics-documentdb-output.md) makalesi.
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) dünyanın dört bir yanındaki, zengin sorgu ve şemadan veri modelleri üzerinde otomatik dizin oluşturma sınırsız elastik ölçeğin sunan Global olarak dağıtılmış veritabanı hizmetidir. Stream Analytics için Azure Cosmos DB kapsayıcısı seçenekleri hakkında bilgi edinmek için bkz. [çıktı olarak Azure Cosmos DB ile bir Stream Analytics](stream-analytics-documentdb-output.md) makalesi.
 
 Stream analytics'ten Azure Cosmos DB çıkışı şu anda Azure Çin 21Vianet ve Azure Almanya'yı (T-Systems International) bölgelerinde kullanılabilir değil.
 
@@ -247,7 +247,7 @@ Aşağıdaki tabloda, bir Azure Cosmos DB çıktı oluşturmak için özellikler
 | Hesap Kimliği | Adı veya uç noktası URI'si, Azure Cosmos DB hesabı. |
 | Hesap anahtarı | Azure Cosmos DB hesabı için paylaşılan erişim anahtarı. |
 | Database | Azure Cosmos DB veritabanının adı. |
-| Koleksiyon adı | Azure Cosmos DB'de koleksiyonun adı. Azure Cosmos DB, verilerinizi otomatik Azure Cosmos DB bölümleme, iş yüküne göre bölümler ölçekler için sınırsız kapsayıcılar olan önerilen yaklaşım. |
+| Kapsayıcı adı | Cosmos DB'de mevcut gereken kullanılmak üzere kapsayıcı adı. Örnek:  <br /><ul><li> _MyContainer_: "MyContainer" adlı bir kapsayıcı mevcut olması gerekir.</li>|
 | Belge Kimliği |İsteğe bağlı. Hangi ekleme veya güncelleştirme işlemleri dayalı olduğu birincil anahtarın belirtilmesi için kullanılan çıkış olaylarındaki alanın adı.
 
 ## <a name="azure-functions"></a>Azure İşlevleri
@@ -302,10 +302,10 @@ Bölüm destek ve çıkış yazarların her çıkış türü sayısı aşağıda
 | Azure Tablo depolama | Evet | Herhangi bir çıktı sütunu.  | Giriş bölümleme için aşağıdaki [tam olarak, sorguları paralel](stream-analytics-scale-jobs.md). |
 | Azure Service Bus konusu | Evet | Otomatik olarak seçilir. Bölüm sayısı dayanır [Service Bus SKU ve boyutu](../service-bus-messaging/service-bus-partitioning.md). Bölüm anahtarı, her bölüm için bir benzersiz bir tamsayı değerdir.| Çıkış konudaki bölüm sayısı ile aynıdır.  |
 | Azure Service Bus kuyruğu | Evet | Otomatik olarak seçilir. Bölüm sayısı dayanır [Service Bus SKU ve boyutu](../service-bus-messaging/service-bus-partitioning.md). Bölüm anahtarı, her bölüm için bir benzersiz bir tamsayı değerdir.| Çıkış kuyruğuna bölüm sayısı ile aynıdır. |
-| Azure Cosmos DB | Evet | Koleksiyon adı deseni {partition} belirteci kullanın. {Partition} değeri, sorgu PARTITION BY yan tümcesi dayanır. | Giriş bölümleme için aşağıdaki [tam olarak, sorguları paralel](stream-analytics-scale-jobs.md). |
+| Azure Cosmos DB | Evet | Sorgusunda PARTITION BY yan tümcesi temel. | Giriş bölümleme için aşağıdaki [tam olarak, sorguları paralel](stream-analytics-scale-jobs.md). |
 | Azure İşlevleri | Hayır | None | Geçerli değildir. |
 
-Çıkış bağdaştırıcınızı bölümlenmemiş bir giriş bölümündeki verileri eksikliği geç varış süreyi kadar bir gecikme neden olur. Böyle durumlarda, işlem hattınızda performans sorunlarına neden bir tek yazıcı için çıkış birleştirilir. Geç varış İlkesi hakkında daha fazla bilgi edinmek için [Azure Stream Analytics olay sırası konuları](stream-analytics-out-of-order-and-late-events.md).
+Çıkış yazıcılar sayısını da kullanılarak denetlenebilir `INTO <partition count>` (bkz [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) yan tümcesinde, sorgunuzu istenen iş topolojisi elde etmeye yardımcı olabilir. Çıkış bağdaştırıcınızı bölümlenmemiş bir giriş bölümündeki verileri eksikliği geç varış süreyi kadar bir gecikme neden olur. Böyle durumlarda, işlem hattınızda performans sorunlarına neden bir tek yazıcı için çıkış birleştirilir. Geç varış İlkesi hakkında daha fazla bilgi edinmek için [Azure Stream Analytics olay sırası konuları](stream-analytics-out-of-order-and-late-events.md).
 
 ## <a name="output-batch-size"></a>Toplu iş boyutu
 Azure Stream Analytics, değişken boyutlu toplu olayları işlemek ve çıktıları yazmak için kullanır. Stream Analytics altyapısı genellikle bir kerede tek bir ileti yazma değil emin olun ve verimlilik için toplu işlemi kullanır. Stream Analytics, gelen ve giden olaylarının hızı yüksek olduğunda, daha büyük toplu işler kullanır. Çıkış oranı düşük olduğunda, daha küçük toplu işler gecikme süresi düşük tutmak için kullanır.

@@ -4,17 +4,17 @@ description: Bu makalede, Linux tabanlı bilgisayarlarda yerel veri merkezinde v
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cc07aa9c1b2c540c33949a8c591bd98f91b04666
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 94d34c8a9a3480032a79d100af883a85868d327e
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60738868"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478480"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Bir Linux karma Runbook çalışanı dağıtma
 
@@ -49,9 +49,9 @@ Bir Linux karma Runbook çalışanı için en düşük gereksinimler şunlardır
 | **Gerekli paket** | **Açıklama** | **En düşük sürüm**|
 |--------------------- | --------------------- | -------------------|
 |Glibc |GNU C Kitaplığı| 2.5-12 |
-|openssl| OpenSSL kitaplıkları | 1.0 (TLS 1.1 ve TLS 1.2 desteklenir|
+|Openssl| OpenSSL kitaplıkları | 1.0 (TLS 1.1 ve TLS 1.2 desteklenir|
 |Curl | cURL web istemcisi | 7.15.5|
-|Python ctypes | |
+|Python-ctypes | |
 |PAM | Eklenebilir kimlik doğrulaması modülleri|
 | **İsteğe bağlı paketi** | **Açıklama** | **En düşük sürüm**|
 | PowerShell Core | PowerShell runbook'ları çalıştırmak için PowerShell gereksinimleri yüklenmesi için bkz. [Linux'ta PowerShell Core yükleme](/powershell/scripting/setup/installing-powershell-core-on-linux) yükleneceği hakkında bilgi edinmek için.  | 6.0.0 |

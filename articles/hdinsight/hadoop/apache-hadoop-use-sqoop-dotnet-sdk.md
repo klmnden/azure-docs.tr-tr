@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: ac0890be0abccb316bffc4d9bdd6868a80173e18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bdf1318f93697cd7b479d404f44b7617ad875dc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64710124"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450145"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>HDInsight, Apache Hadoop için .NET SDK kullanarak Apache Sqoop işleri çalıştırma
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -25,12 +25,12 @@ ms.locfileid: "64710124"
 > Bu makalede yer alan yordamları bir Windows tabanlı veya Linux tabanlı HDInsight kümesi ile birlikte kullanabilirsiniz, ancak yalnızca bir Windows istemcisinden çalışırlar. Diğer yöntemleri seçmek için bu makalenin başında sekme seçicisini kullanın.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu öğreticiye başlamadan önce aşağıdaki öğe olmalıdır:
+Bu makaleye başlamadan önce aşağıdaki öğe olması gerekir:
 
 * HDInsight, Apache Hadoop kümesi. Daha fazla bilgi için [bir küme ve SQL veritabanı oluşturma](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
 ## <a name="use-sqoop-on-hdinsight-clusters-with-the-net-sdk"></a>.NET SDK ile HDInsight kümelerinde Sqoop'u kullanma
-Böylece .NET HDInsight kümeleriyle çalışmak daha kolay HDInsight .NET SDK'sı .NET istemci kitaplıkları sağlar. Bu bölümde hivesampletable, bu öğreticide daha önce oluşturduğunuz Azure SQL veritabanı tablosuna dışarı aktarmak için bir C# konsol uygulaması oluşturun.
+Böylece .NET HDInsight kümeleriyle çalışmak daha kolay HDInsight .NET SDK'sı .NET istemci kitaplıkları sağlar. Bu bölümde, oluşturduğunuz bir C# konsol uygulaması, bu makalenin önceki bölümlerinde oluşturduğunuz Azure SQL veritabanı tablosuna hivesampletable verilecek.
 
 ## <a name="submit-a-sqoop-job"></a>Sqoop işi Gönder
 

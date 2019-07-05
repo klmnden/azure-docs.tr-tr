@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: ef97f17bf159511ce94f90cd00623e05489acb92
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 0a7140f70db78c8511f3c4da00b2f9c11c368163
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274675"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477677"
 ---
 # <a name="mapping-data-flow-parameters"></a>Veri akışı parametreleri eşleme
 
@@ -37,6 +37,12 @@ Veri akışınızı parametre eklemek için genel özellikleri görmek için ver
 Parametreleri içindeki herhangi bir veri akışı ifade yararlanılabilir. Parametreleri $ ile başlayın ve sabittir. 'Parameters' sekmesi altındaki ifade oluşturucu içinde kullanılabilir parametrelerin listesini bulabilirsiniz.
 
 ![Veri akışı parametre ifadesi](media/data-flow/parameter-expression.png "veri akışı parametre ifadesi")
+
+## <a name="use-parameters-in-your-data-flow"></a>Veri akışınızı parametreleri kullanma
+
+* İçinde dönüştürme ifadeleri parametre değerlerini kullanabilirsiniz. Parametreler sekmesi altında parametre listesi ifade Oluşturucu'da bulabilirsiniz. ![Veri akışı parametrelerini](media/data-flow/params9.png "kullanım veri akışı parametreleri")
+
+* Parametreler, dinamik değerler için kaynak yapılandırın ve dönüştürme ayarlarını havuz için de kullanılır. Yapılandırılabilir alanları içine tıkladığınızda görünür "dinamik contect Ekle" bağlantısını görürsünüz. Orada tıklamak sizi, dinamik değerler kullanılacak parametreleri kullanabileceğiniz bir ifade oluşturucusu götürür. ![Veri akışı dinamik içerik](media/data-flow/params6.png "veri akışı dinamik içerik")
 
 ## <a name="set-mapping-data-flow-parameters-from-pipeline"></a>Ardışık düzen tarafından veri akışı eşleme parametrelerini ayarla
 

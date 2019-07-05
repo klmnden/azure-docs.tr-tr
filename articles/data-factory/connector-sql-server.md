@@ -1,6 +1,6 @@
 ---
-title: / SQL Server'dan Azure Data Factory kullanarak verileri kopyalama | Microsoft Docs
-description: Veri gönderip buralardan şirket içi SQL Server veritabanı veya Azure Data Factory kullanarak Azure VM taşıma hakkında bilgi edinin.
+title: Azure Data Factory kullanarak verileri ve SQL Server kopyalamak | Microsoft Docs
+description: Azure Data Factory kullanarak verileri ve şirket içi SQL Server veritabanından veya Azure VM'deki taşıma hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,39 +12,39 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 62845557f33fd9c4f3c2ec4e239213c75101955d
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: a6767c7c8931898c44fd748dbe4299b8ed23eb9c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275988"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443285"
 ---
-# <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>İçin ve SQL Server'dan Azure Data Factory kullanarak veri kopyalama
-> [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
+# <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Azure Data Factory kullanarak verileri ve SQL Server kopyalamak
+> [!div class="op_single_selector" title1="Azure Data Factory, kullanmakta olduğunuz sürümünü seçin:"]
 > * [Sürüm 1](v1/data-factory-sqlserver-connector.md)
 > * [Geçerli sürüm](connector-sql-server.md)
 
-Bu makalede, kopyalama etkinliği Azure Data Factory'de gelen ve bir SQL Server veritabanına veri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
+Bu makalede, kopyalama etkinliği Azure Data Factory'de gelen ve SQL Server veritabanına veri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-/ İçin SQL Server veritabanı veri tüm desteklenen havuz veri deposuna kopyalamak ya da SQL Server veritabanı için herhangi bir desteklenen kaynak veri deposundan veri kopyalama. Kaynakları/havuz kopyalama etkinliği tarafından desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
+Kaynak ve hedef SQL Server veritabanı herhangi bir desteklenen havuz veri deposuna veri kopyalayabilirsiniz. Veya bir SQL Server veritabanı herhangi bir desteklenen kaynak veri deposundan veri kopyalayabilirsiniz. Kopyalama etkinliği tarafından kaynak ve havuz desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
 Özellikle, bu SQL Server connector'ı destekler:
 
-- SQL Server 2016, 2014, 2012, 2008 R2, 2008 ve 2005 sürüm
-- Kullanarak verileri kopyalama **SQL** veya **Windows** kimlik doğrulaması.
-- SQL sorgusu veya saklı yordamı kullanarak veri kaynağı olarak alınıyor.
-- Havuz olarak veriler hedef tablonun veya kopyalama sırasında özel mantığı olan bir saklı yordam çağırma ekleniyor.
+- SQL Server sürümleri 2016, 2014, 2012, 2008 R2, 2008 ve 2005.
+- SQL veya Windows kimlik doğrulaması kullanarak veri kopyalama.
+- Bir kaynak olarak bir SQL sorgusu veya saklı yordam kullanarak verileri alınıyor.
+- Bir havuz olarak veriler hedef tablonun veya kopyalama sırasında özel mantığı olan bir saklı yordam çağırma ekleniyor.
 
 >[!NOTE]
->SQL Server **[Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)** bu bağlayıcı tarafından artık desteklenmiyor. Geçici olarak çözmek için kullanabileceğiniz [genel ODBC Bağlayıcısı](connector-odbc.md) ve SQL Server ODBC sürücüsü. İzleyin [bu kılavuz](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017) ODBC sürücüsünü yükleme ve bağlantı dizesi yapılandırmaları ile.
+>SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) bu bağlayıcı tarafından artık desteklenmiyor. Geçici olarak çözmek için kullanabileceğiniz bir [genel ODBC Bağlayıcısı](connector-odbc.md) ve bir SQL Server ODBC sürücüsü. İzleyin [bu kılavuz](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017) ODBC sürücüsünü yükleme ve bağlantı dizesi yapılandırmaları ile.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Genel olarak erişilebilir olmayan SQL Server veritabanından veri kopyalama kullanmak için şirket içinde barındırılan tümleştirme çalışma zamanını oluşturan gerekir. Bkz: [şirket içinde barındırılan tümleştirme çalışma zamanı](create-self-hosted-integration-runtime.md) makale Ayrıntılar için. Tümleştirme çalışma zamanı yerleşik bir SQL Server veritabanı sürücüsünü sağlar, bu nedenle herhangi bir sürücü / için SQL Server veritabanına veri kopyalama işlemi sırasında el ile yüklemeniz gerekmez.
+Genel olarak erişilebilir olmayan SQL Server veritabanından veri kopyalama kullanmak için bir şirket içinde barındırılan tümleştirme çalışma zamanını oluşturan gerekir. Daha fazla bilgi için [barındırılan tümleştirme çalışma zamanını](create-self-hosted-integration-runtime.md). Tümleştirme çalışma zamanı, yerleşik bir SQL Server veritabanı sürücüsünü sağlar. Herhangi bir sürücüsü ya da SQL Server veritabanına veri kopyalama, el ile yüklemeniz gerekmez.
 
-## <a name="getting-started"></a>Başlarken
+## <a name="get-started"></a>başlarken
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -56,16 +56,16 @@ Aşağıdaki özellikler, SQL Server bağlı hizmeti için desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Type özelliği ayarlanmalıdır: **SqlServer** | Evet |
-| connectionString |SQL kimlik doğrulaması veya Windows kimlik doğrulaması kullanarak SQL Server veritabanına bağlanmak üzere gereken bağlantı dizesi bilgilerini belirtin. Aşağıdaki örneklere bakın.<br/>Bu alan, Data Factory'de güvenle depolamak için bir SecureString olarak işaretleyin. Parola Azure anahtar Kasası'nda koyabilirsiniz ve SQL kimlik doğrulaması çekme ise `password` yapılandırma bağlantı dizesini dışında. Aşağıdaki JSON örneği görmek ve [kimlik bilgilerini Azure Key Vault'ta Store](store-credentials-in-key-vault.md) daha fazla ayrıntı içeren makalesi. |Evet |
-| userName adı |Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. Örnek: **domainname\\username**. |Hayır |
-| password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). |Hayır |
-| connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz genel olarak erişilebilir değilse), şirket içinde barındırılan tümleştirme çalışma zamanı veya Azure Integration Runtime kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
+| type | Type özelliği ayarlanmalıdır **SqlServer**. | Evet |
+| connectionString |Belirtin **connectionString** SQL kimlik doğrulaması veya Windows kimlik doğrulaması kullanarak SQL Server veritabanına bağlanmak için gerekli olan bilgileri. Aşağıdaki örneklere bakın.<br/>Bu alanı olarak işaretleyin **SecureString** güvenli bir şekilde Azure Data Factory'de depolamak için. Bu gibi durumlarda, bir parola da Azure anahtar Kasası'nda koyabilirsiniz. SQL kimlik doğrulaması etkinleştirilmişse çeker `password` yapılandırma bağlantı dizesini dışında. Daha fazla bilgi için aşağıdaki tablonun JSON örneğe bakın ve [kimlik bilgilerini Azure Key Vault'ta Store](store-credentials-in-key-vault.md). |Evet |
+| userName |Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. Bir örnek **domainname\\username**. |Hayır |
+| password |Kullanıcı adı için belirtilen kullanıcı hesabı için bir parola belirtin. Bu alanı olarak işaretleyin **SecureString** güvenli bir şekilde Azure Data Factory'de depolamak için. Veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). |Hayır |
+| connectVia | Bu [Integration runtime](concepts-integration-runtime.md) veri deposuna bağlamak için kullanılır. Data store genel olarak erişilebilir olması durumunda, şirket içinde barındırılan tümleştirme çalışma zamanı veya Azure tümleştirme çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirme çalışma zamanı kullanılır. |Hayır |
 
 >[!TIP]
->Hata olarak "UserErrorFailedToConnectToSqlServer" hata koduyla isabet ve gibi ileti "veritabanı için oturum sınırı xxx ve üst sınırına ulaşıldı.", ekleme `Pooling=false` bağlantı dizesi ve yeniden deneyin.
+>"Veritabanı için oturum sınırı xxx ve ulaşıldı gibi", "UserErrorFailedToConnectToSqlServer" hata koduyla bir hata ve bir ileti ulaşırsanız ekleme `Pooling=false` bağlantı dizesi ve yeniden deneyin.
 
-**Örnek 1: SQL kimlik doğrulaması kullanma**
+**Örnek 1: SQL kimlik doğrulaması kullan**
 
 ```json
 {
@@ -86,7 +86,7 @@ Aşağıdaki özellikler, SQL Server bağlı hizmeti için desteklenir:
 }
 ```
 
-**Örnek 2: Azure anahtar Kasası'nda parolayla SQL kimlik doğrulaması kullanma**
+**Örnek 2: Azure anahtar Kasası'nda bir parola ile SQL kimlik doğrulaması kullan**
 
 ```json
 {
@@ -115,7 +115,7 @@ Aşağıdaki özellikler, SQL Server bağlı hizmeti için desteklenir:
 }
 ```
 
-**Örnek 3: Windows kimlik doğrulaması kullanma**
+**Örnek 3: Windows kimlik doğrulaması kullan**
 
 ```json
 {
@@ -145,14 +145,14 @@ Aşağıdaki özellikler, SQL Server bağlı hizmeti için desteklenir:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için veri kümeleri makalesine bakın. Bu bölümde, SQL Server veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-/ İçin SQL Server veritabanına veri kopyalamak için aşağıdaki özellikler desteklenir:
+Gelen ve SQL Server veritabanına veri kopyalamak için aşağıdaki özellikler desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Dataset öğesinin type özelliği ayarlanmalıdır: **SqlServerTable** | Evet |
-| tableName |Tablo veya Görünüm bağlı hizmeti SQL Server veritabanı örneğinde başvurduğu adı. | Kaynak, havuz için Evet Hayır |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır **SqlServerTable**. | Evet |
+| tableName |Bu özellik, tablo veya Görünüm başvuran bağlı hizmetin SQL Server veritabanı örneğinde adıdır. | Kaynak, havuz için Evet Hayır |
 
-**Örnek:**
+**Örnek**
 
 ```json
 {
@@ -174,25 +174,25 @@ Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi
 
 ## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
-Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, SQL Server kaynak ve havuz desteklenen özelliklerin bir listesini sağlar.
+Bölümleri ve etkinlikleri tanımlamak üzere kullanılmak üzere mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, SQL Server kaynak ve havuz desteklenen özelliklerin bir listesini sağlar.
 
-### <a name="sql-server-as-source"></a>Kaynak SQL Server
+### <a name="sql-server-as-a-source"></a>Bir kaynak olarak SQL Server
 
-SQL Server'dan veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **SqlSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
+SQL Server'dan veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **SqlSource**. Kopyalama etkinliği kaynak bölümünde aşağıdaki özellikler desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **SqlSource** | Evet |
-| sqlReaderQuery |Verileri okumak için özel bir SQL sorgusu kullanın. Örnek: `select * from MyTable`. |Hayır |
-| sqlReaderStoredProcedureName |Kaynak tablo verilerini okuyan saklı yordamın adı. Son SQL deyim bir SELECT deyimi saklı yordam içinde olmalıdır. |Hayır |
-| storedProcedureParameters |Saklı yordamın parametreleri.<br/>İzin verilen değerler: ad/değer çiftleri. Adları ve parametreleri büyük küçük harfleri, adları ve saklı yordam parametreleri büyük küçük harfleri eşleşmelidir. |Hayır |
+| type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır **SqlSource**. | Evet |
+| sqlReaderQuery |Verileri okumak için özel bir SQL sorgusu kullanın. `select * from MyTable` bunun bir örneğidir. |Hayır |
+| sqlReaderStoredProcedureName |Bu özellik kaynak tablosundan veri okuyan saklı yordamı adıdır. Son SQL deyim bir SELECT deyimi saklı yordam içinde olmalıdır. |Hayır |
+| storedProcedureParameters |Bu parametreler için saklı yordam kullanılabilir.<br/>İzin verilen değerler, ad veya değer çiftleridir. Adları ve parametreleri büyük küçük harfleri, adları ve saklı yordam parametreleri büyük küçük harfleri eşleşmelidir. |Hayır |
 
 **Dikkat edilecek noktalar:**
 
-- Varsa **sqlReaderQuery** belirtilen SqlSource için kopyalama etkinliği, verileri almak için SQL Server Kaynak karşı bu sorgu çalıştırır. Alternatif olarak, bir saklı yordam belirterek belirtebileceğiniz **sqlReaderStoredProcedureName** ve **storedProcedureParameters** (saklı yordamın parametreleri sürerse).
-- "SqlReaderQuery" veya "sqlReaderStoredProcedureName" belirtmezseniz, sütunları veri kümesi JSON "yapı" bölümünde tanımlanan bir sorgu oluşturmak için kullanılır (`select column1, column2 from mytable`) SQL sunucuda çalıştırılacak. Veri kümesi tanımı "yapı" yoksa, tüm sütunları tablodan seçilir.
+- Varsa **sqlReaderQuery** için belirtilen **SqlSource**, kopyalama etkinliği, verileri almak için SQL Server Kaynak karşı bu sorgu çalıştırır. Belirterek bir saklı yordam belirtebilirsiniz **sqlReaderStoredProcedureName** ve **storedProcedureParameters** saklı yordamın kullandığı parametreler varsa.
+- Ya da belirtmezseniz **sqlReaderQuery** veya **sqlReaderStoredProcedureName**, sütunları veri kümesi JSON "yapı" bölümünde tanımlanan bir sorgu oluşturmak için kullanılır. Sorgu `select column1, column2 from mytable` SQL Sunucusu'na karşı çalışır. Veri kümesi tanımı "yapı" yoksa, tüm sütunları tablodan seçilir.
 
-**Örnek: SQL sorgu kullanma**
+**Örnek: SQL sorgusu kullanın**
 
 ```json
 "activities":[
@@ -224,7 +224,7 @@ SQL Server'dan veri kopyalamak için kopyalama etkinliği için kaynak türünü
 ]
 ```
 
-**Örnek: saklı yordam kullanma**
+**Örnek: Bir saklı yordam kullanma**
 
 ```json
 "activities":[
@@ -260,7 +260,7 @@ SQL Server'dan veri kopyalamak için kopyalama etkinliği için kaynak türünü
 ]
 ```
 
-**Saklı yordam tanımı:**
+**Saklı yordam tanımında**
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -279,24 +279,24 @@ END
 GO
 ```
 
-### <a name="sql-server-as-sink"></a>Havuz olarak SQL Server
+### <a name="sql-server-as-a-sink"></a>Bir havuz olarak SQL Server
 
 > [!TIP]
-> Desteklenen yazma davranışları, yapılandırmaları ve gelen en iyi uygulama hakkında daha fazla bilgi edinin [açısından en iyisi verileri SQL Server'a yüklemeye](#best-practice-for-loading-data-into-sql-server).
+> Desteklenen yazma davranışları, yapılandırmaları ve en iyi uygulamaları hakkında daha fazla bilgi [açısından en iyisi verileri SQL Server'a yüklemeye](#best-practice-for-loading-data-into-sql-server).
 
-SQL Server veri kopyalamak için kopyalama etkinliğine de Havuz türü ayarlayın. **SqlSink**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **havuz** bölümü:
+SQL Server veri kopyalamak için kopyalama etkinliğine de Havuz türü ayarlayın. **SqlSink**. Kopyalama etkinliği havuz bölümünde aşağıdaki özellikler desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Kopyalama etkinliği havuz öğesinin type özelliği ayarlanmalıdır: **SqlSink** | Evet |
-| writeBatchSize |SQL tablosuna ekler için satır sayısı **toplu iş başına**.<br/>İzin verilen değerler: tamsayı (satır sayısı). Varsayılan olarak, Data Factory dinamik olarak satır boyutuna göre uygun toplu iş boyutu belirler. |Hayır |
-| writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlanması için bir süre bekleyin.<br/>İzin verilen değerler: TimeSpan değeri. Örnek: "00: 30:00" (30 dakika). |Hayır |
-| preCopyScript |SQL Server'a veri yazılmadan önce yürütmek kopyalama etkinliği için bir SQL sorgusunu belirtin. Bu yalnızca bir kez çalıştır kopyalama çağrılır. Önceden yüklenmiş ve verileri temizlemek için bu özelliği kullanabilirsiniz. |Hayır |
-| sqlWriterStoredProcedureName |Kaynak verileri hedef tabloya uygulanacağını tanımlayan saklı yordamın adı.<br/>Bu saklı yordamı olacaktır Not **toplu iş çağrılan**. Yalnızca bir kez çalışır ve hiçbir kaynak verileri ile/delete örn truncate yapmak için kullanma işlemi yapmak istiyorsanız `preCopyScript` özelliği. |Hayır |
-| storedProcedureParameters |Saklı yordamın parametreleri.<br/>İzin verilen değerler: ad/değer çiftleri. Adları ve parametreleri büyük küçük harfleri, adları ve saklı yordam parametreleri büyük küçük harfleri eşleşmelidir. |Hayır |
-| sqlWriterTableType |Saklı yordam, kullanılacak bir tablo türü adı belirtin. Kopyalama etkinliği, taşınan veri bir geçici tablo bu tablo türü ile kullanılabilir hale getirir. Saklı yordam kodu daha sonra mevcut verilerle kopyalanan verileri birleştirebilirsiniz. |Hayır |
+| type | Kopyalama etkinliği havuz öğesinin type özelliği ayarlanmalıdır **SqlSink**. | Evet |
+| writeBatchSize |SQL tablosuna eklenecek satır sayısı *toplu iş başına*.<br/>Tamsayılar için satır sayısı izin verilen değerler. Varsayılan olarak, Azure Data Factory satır boyutuna göre uygun toplu iş boyutu dinamik olarak belirler. |Hayır |
+| writeBatchTimeout |Bu özellik toplu ekleme işlemi zaman aşımına uğramadan önce tamamlanması için bekleme süresini belirtir.<br/>Zaman aralığı için izin verilen değerler. Bir örnek verilmiştir "00: 30:00" 30 dakikadır. |Hayır |
+| preCopyScript |Bu özellik, SQL Server'daki verileri yazmadan önce çalıştırmak kopyalama etkinliği için bir SQL sorgusu belirtir. Ayrıca, kopya çalıştırma başına yalnızca bir kez çağrılır. Önceden yüklenmiş ve verileri temizlemek için bu özelliği kullanabilirsiniz. |Hayır |
+| sqlWriterStoredProcedureName |Bu ad, kaynak verileri hedef tabloya uygulanacağını tanımlayan bir saklı yordam içindir.<br/>Bu saklı yordam *toplu iş çağrılan*. Yalnızca bir kez çalıştırır ve kaynak verileri, örneğin, silmek veya kesmek için hiçbir şey sahip bir işlem yapmak için `preCopyScript` özelliği. |Hayır |
+| storedProcedureParameters |Bu parametreler, saklı yordam için kullanılır.<br/>İzin verilen değerler, ad veya değer çiftleridir. Adları ve parametreleri büyük küçük harfleri, adları ve saklı yordam parametreleri büyük küçük harfleri eşleşmelidir. |Hayır |
+| sqlWriterTableType |Bu özellik saklı yordamda kullanılan tablo türü adı belirtir. Kopyalama etkinliği, taşınan veri bir geçici tablo bu tablo türü ile kullanılabilir hale getirir. Saklı yordam kodu daha sonra kopyalanan verileri mevcut verilerle birleştirebilirsiniz. |Hayır |
 
-**Örnek 1: veri ekleme**
+**Örnek 1: Veri ekleme**
 
 ```json
 "activities":[
@@ -330,7 +330,7 @@ SQL Server veri kopyalamak için kopyalama etkinliğine de Havuz türü ayarlay�
 
 **Örnek 2: Kopyalama sırasında bir saklı yordam çağırma**
 
-Daha ayrıntılı bilgi edinin [SQL havuz için saklı yordam çağırma](#invoking-stored-procedure-for-sql-sink).
+Daha ayrıntılı bilgi edinin [SQL havuz saklı bir yordam çağırma](#invoke-a-stored-procedure-from-a-sql-sink).
 
 ```json
 "activities":[
@@ -371,29 +371,29 @@ Daha ayrıntılı bilgi edinin [SQL havuz için saklı yordam çağırma](#invok
 
 SQL Server'daki verileri kopyaladığınızda, farklı yazma davranışını gerektirebilir:
 
-- **[Append](#append-data)** : kaynak Verilerimin yalnızca yeni kayıtları; var
-- **[Upsert](#upsert-data)** : kaynak Verilerimin hem eklemeleri ve güncelleştirmeleri; var
-- **[Üzerine](#overwrite-entire-table)** : Tüm boyut tablosunu her zaman yeniden yüklemek istiyorsanız;
-- **[Özel mantığı ile yazma](#write-data-with-custom-logic)** : Son ekleme ve hedef tabloya önce ek işleme ihtiyacım var.
+- [Append](#append-data): Kaynak verilerimi yalnızca yeni kayıtları sahiptir.
+- [Upsert](#upsert-data): Insertler ve updateler hem kaynak verilerimi sahiptir.
+- [Üzerine](#overwrite-the-entire-table): Tüm boyut tablosuna her zaman yeniden yüklemek istiyorsunuz.
+- [Özel mantığı ile yazma](#write-data-with-custom-logic): Son ekleme ve hedef tabloya önce ek işleme ihtiyacım var.
 
-Başvurmak sırasıyla bölümler ADF ve en iyi yapılandırma.
+Azure Data Factory ve en iyi uygulamaları nasıl yapılandıracağınızı öğrenmek için ilgili bölümlere bakın.
 
 ### <a name="append-data"></a>Veri ekleme
 
-Bu bu SQL Server havuz bağlayıcının varsayılan davranıştır ve ADF yapın **toplu ekleme** tablonuza verimli bir şekilde yazmak için. Yalnızca kaynak yapılandırabilir ve buna göre havuz olarak kopyalama etkinliği.
+Veri ekleme Bu SQL Server havuz bağlayıcının varsayılan davranışıdır. Azure Data Factory tablonuza verimli bir şekilde yazmak için bir toplu ekleme yapar. Kaynak yapılandırma ve buna göre havuz olarak kopyalama etkinliği.
 
 ### <a name="upsert-data"></a>Verileri upsert etme
 
-**Ben seçeneği** (özellikle büyük veri kopyalamak için olduğunda önerilen): **en yüksek performanslı yaklaşım** upsert yapmak için aşağıda verilmiştir: 
+**1. seçenek:** Büyük miktarda veri kopyalayın, bir upsert yapmak için aşağıdaki yaklaşımı kullanın olduğunda: 
 
-- İlk olarak, yararlanan bir [geçici tablo](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=sql-server-2017#temporary-tables) kopyalama etkinliğini kullanarak tüm kayıtları toplu yükleme için. Geçici tablolara yönelik işlemleri günlüğe kaydedilmez gibi saniyeler içinde milyonlarca kayıt yükleyebilirsiniz.
-- Yürütme uygulamak için ADF içinde bir saklı yordam etkinliği bir [birleştirme](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) (veya ekleme/güncelleştirme) ifadesi ve geçici tablo tüm gerçekleştirmek için kaynak güncelleştirmeleri veya tek bir işlem ekler gidiş-dönüş miktarını azaltmayı ve günlük işlemlerini kullanın. Saklı yordam etkinliğine sonunda geçici tablo için bir sonraki upsert döngüyü hazır olmasını kesilebilir. 
+- İlk olarak, bir [geçici tablo](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=sql-server-2017#temporary-tables) tüm kayıtları kopyalama etkinliği'ni kullanarak toplu yükleme için. Geçici tablolara yönelik işlemler oturumunuz açık olmadığından, saniyeler içinde milyonlarca kayıt yükleyebilirsiniz.
+- Bir saklı yordam etkinliği çalıştırma uygulamak için Azure Data Factory'de bir [birleştirme](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) veya INSERT/UPDATE deyimi. Tüm gerçekleştirmek için bir kaynağı güncelleştirir veya tek bir işlem olarak ekler geçici tabloyu kullanın. Bu şekilde, gidiş dönüş ve günlük işlemleri sayısı azaltılır. Saklı yordam etkinliği sonunda geçici tablo için bir sonraki upsert döngüyü hazır olmasını kesilebilir.
 
-Örneğin, Azure Data Factory'de bir işlem hattı oluşturabilirsiniz bir **kopyalama etkinliği** ile zincirleme bir **saklı yordam etkinliği** başarılı. Önceki veri kaynağı Mağazası'ndan bir veritabanı geçici tabloya deyin kopyalar " **##UpsertTempTable**" tablo adı veri kümesinde, ardından ikinci bir depolanan geçici tablo kaynak verileri hedef tabloya birleştirmek için yordamı çağıran ve geçici tablosu temizleme.
+Örneğin, Azure Data Factory'de bir işlem hattı oluşturabilirsiniz bir **kopyalama etkinliği** ile zincirleme bir **saklı yordam etkinliği**. Önceki veri kaynağı deponuzdan veritabanı geçici bir tabloya, örneğin, kopyalar **##UpsertTempTable**, tablo adı veri kümesinde olarak. Ardından ikinci bir geçici tablo kaynak verileri hedef tabloya birleştirebilir ve geçici tablosunu temizlemek için bir saklı yordam çağırır.
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
-Veritabanında bir saklı yordam için yukarıdaki saklı yordam etkinliği işaret edilen aşağıdaki gibi birleştirme mantığıyla tanımlayın. Hedef varsayılarak **pazarlama** üç sütunlar içeren tablo: **Profileıd**, **durumu**, ve **kategori**, temel upsert yapıp **Profileıd** sütun.
+Veritabanında bir saklı yordam için önceki saklı yordam etkinliği işaret edilen aşağıdaki örnekte olduğu gibi birleştirme mantığıyla tanımlayın. Hedef olduğunu varsayın **pazarlama** üç sütunlar içeren tablo: **Profileıd**, **durumu**, ve **kategori**. Temel upsert yapmak **Profileıd** sütun.
 
 ```sql
 CREATE PROCEDURE [dbo].[spMergeData]
@@ -412,28 +412,31 @@ BEGIN
 END
 ```
 
-**Seçenek II:** alternatif olarak, seçebileceğiniz [kopyalama etkinliği içinde saklı yordamı çağırma](#invoking-stored-procedure-for-sql-sink), bu yaklaşım, toplu yararlanarak yerine kaynak tablodaki her satır için yürütüldüğünde Not sırasında varsayılan yaklaşım Ekle Kopyalama etkinliği, bu nedenle, büyük ölçekli upsert için sığmıyor.
+**2. seçenek:** Ayrıca da tercih edebilirsiniz [kopyalama etkinliği içinde saklı bir yordam çağırma](#invoke-a-stored-procedure-from-a-sql-sink). Bu yaklaşım, büyük ölçekli upsert için uygun değilse, kopyalama etkinliğinde, varsayılan olarak toplu ekleme kullanmak yerine kaynak tablodaki her satır çalıştırır.
 
-### <a name="overwrite-entire-table"></a>Tüm tablo üzerine yaz
+### <a name="overwrite-the-entire-table"></a>Tüm tablo üzerine yaz
 
-Yapılandırabileceğiniz **preCopyScript** özelliği kopyalama etkinliğindeki havuz, bu durumda her kopyalama etkinliği için çalıştırma ADF betik ilk olarak, daha sonra verileri eklemek için kopyalama işleminin çalıştırılma yürütür. Örneğin, en son verileriyle tüm tablo üzerine yazmak için önce toplu yeni veri kaynağından yükleme önce tüm kayıtları silmek için bir betik belirtebilirsiniz.
+Yapılandırabileceğiniz **preCopyScript** bir kopyalama etkinliği havuzu özelliği. Bu durumda, çalıştırılan her kopyalama etkinliği için ilk betiği Azure Data Factory çalıştırır. Daha sonra verileri eklemek için bir kopyasını çalıştırır. Örneğin, en son verileriyle tüm tablo üzerine yazmak için bir komut dosyası toplu önce tüm kayıtları silin, kaynaktan yeni veri yükleme belirtin.
 
 ### <a name="write-data-with-custom-logic"></a>Özel mantığı ile veri yazma
 
-Bölümünde anlatıldığı gibi benzer [Upsert veri](#upsert-data) bölümü, son eklenen kaynak verileri hedef tabloya önce ek işleme uygulamak, ihtiyacınız olduğunda şunları yapabilirsiniz bir) büyük ölçekli, geçici bir tabloya yüklemek sonra bir saklı çağırma yordam veya b) kopyalama sırasında bir saklı yordam çağırma.
+Veri özel mantığı yazmak için de açıklananlara benzer adımlarla [Upsert veri](#upsert-data) bölümü. Uygulamak, ihtiyacınız olduğunda ek önce kaynak verinin son ekleme hedef tabloya, büyük ölçekli işleme bunu ikisinden birini yapabilirsiniz: 
 
-## <a name="invoking-stored-procedure-for-sql-sink"></a> SQL havuz saklı yordam çağırma
+- Geçici bir tabloya yükleyin ve ardından bir saklı yordam çağırma. 
+- Kopyalama sırasında bir saklı yordam çağırma.
 
-SQL Server veritabanına veri kopyalama yapılırken, yapılandırabilir ve ek parametreler ile kullanıcı tanımlı saklı yordam çağırma.
+## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> SQL havuz saklı bir yordam çağırma
+
+SQL Server veritabanına veri kopyalama sırasında da yapılandırabilir ve ek parametreler ile kullanıcı tanımlı saklı yordam çağırma.
 
 > [!TIP]
-> Saklı yordam çağırma verileri-satır büyük ölçekli kopyalama için önerilen değil, toplu işlem yerine işler. Daha fazla bilgi [açısından en iyisi verileri SQL Server'a yüklemeye](#best-practice-for-loading-data-into-sql-server).
+> Bir saklı yordam çağırma, büyük ölçekli bir kopya için önermemekteyiz bir toplu işlem'i kullanarak, satır satır yerine verileri işler. Daha fazla bilgi [açısından en iyisi verileri SQL Server'a yüklemeye](#best-practice-for-loading-data-into-sql-server).
 
-Yerleşik kopyalama mekanizmaları, amaca yönelik olmayan bir saklı yordam kullanabilirsiniz örneğin son eklenen kaynak verileri hedef tabloya önce ek işlem uygulayın. Bazı ek işleme örnekleri ek değerler ve birden fazla tablosuna eklenirken Ara birleştirme sütunlarıdır.
+Yerleşik kopyalama mekanizmaları amaca hizmet yoksa, bir saklı yordamı kullanabilirsiniz. Son eklenen kaynak verileri hedef tabloya önce ek işleme uygulamak istediğinizde bir örnektir. Sütunları Birleştir, ek değerleri bakın ve birden fazla tabloya veri eklemek istediğiniz zaman ek işleme örnek verilebilir.
 
-Aşağıdaki örnek, bir saklı yordamı SQL Server veritabanındaki bir tabloya bir upsert yapmak için nasıl kullanılacağını gösterir. Varsayılır, giriş veri ve havuz **pazarlama** her tablo üç sütun vardır: **Profileıd**, **durumu**, ve **kategori**. Temel upsert yapmak **Profileıd** sütun ve yalnızca belirli bir kategori için uygulayın.
+Aşağıdaki örnek, bir saklı yordamı SQL Server veritabanındaki bir tabloya bir upsert yapmak için nasıl kullanılacağını gösterir. Varsayımında girdi verilerini ve havuz **pazarlama** her tablo üç sütun vardır: **Profileıd**, **durumu**, ve **kategori**. Temel upsert yapmak **Profileıd** sütun ve yalnızca belirli bir kategori için uygulayın.
 
-**Çıktı veri kümesi:** "tableName" depolanmış yordamınızdaki (saklı yordam betiği aşağıya bakın) aynı tabloda tür parametre adı olmalıdır.
+**Çıktı veri kümesi:** Aşağıdaki saklı yordamı kodda gösterildiği gibi "tableName" depolanmış yordamınızdaki aynı tabloda tür parametre adı şöyledir:
 
 ```json
 {
@@ -452,7 +455,7 @@ Aşağıdaki örnek, bir saklı yordamı SQL Server veritabanındaki bir tabloya
 }
 ```
 
-Tanımlama **SQL havuz** gibi kopyalama etkinliği bölümü.
+Tanımlama **SQL havuz** gibi kopyalama etkinliği bölümünde:
 
 ```json
 "sink": {
@@ -467,7 +470,7 @@ Tanımlama **SQL havuz** gibi kopyalama etkinliği bölümü.
 }
 ```
 
-Veritabanınızda, aynı ada sahip bir saklı yordam tanımlamak **SqlWriterStoredProcedureName**. Belirtilen kaynak gelen giriş verilerinin işler ve çıkış tablosuna birleştirir. Tablo türünde saklı yordam parametre adı aynı olmalıdır **tableName** kümesinde tanımlanan.
+Veritabanınızda, aynı ada sahip bir saklı yordam tanımlamak **SqlWriterStoredProcedureName**. Belirtilen kaynak gelen giriş verilerinin işler ve çıkış tablosuna birleştirir. Tablo türünde saklı yordam parametre adı aynı olan **tableName** kümesinde tanımlanan.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -484,7 +487,7 @@ BEGIN
 END
 ```
 
-Veritabanınızda, aynı ada sahip bir tablo türü sqlWriterTableType tanımlayın. Tablo türü şemasını girişinizi tarafından döndürülen şema olarak aynı olması gerektiğini unutmayın.
+Veritabanınızda, aynı ada sahip bir tablo türü tanımlayan **sqlWriterTableType**. Tablo türü şemasını girişinizi tarafından döndürülen şema ile aynıdır.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
@@ -494,13 +497,13 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 )
 ```
 
-Saklı yordam özellik yararlanır [Table-Valued parametreleri](https://msdn.microsoft.com/library/bb675163.aspx).
+Saklı yordam özellik yararlanır [tablo değerli parametre](https://msdn.microsoft.com/library/bb675163.aspx).
 
-## <a name="data-type-mapping-for-sql-server"></a>SQL server için eşleme veri türü
+## <a name="data-type-mapping-for-sql-server"></a>SQL Server için veri türü eşlemesi
 
-/ İçin SQL Server verilerini kopyalarken şu eşlemeler, SQL Server veri türleri arasından Azure veri fabrikası geçici veri türleri için kullanılır. Bkz: [şema ve veri türü eşlemeleri](copy-activity-schema-and-type-mapping.md) eşlemelerini nasıl yapar? kopyalama etkinliği kaynak şema ve veri türü için havuz hakkında bilgi edinmek için.
+Gelen ve SQL Server verileri kopyaladığınızda, aşağıdaki eşlemeler SQL Server veri türleri arasından Azure veri fabrikası geçici veri türleri için kullanılır. Kopyalama etkinliği havuz için kaynak şema ve veri türü eşlemelerini nasıl bilgi edinmek için [şema ve veri türü eşlemeleri](copy-activity-schema-and-type-mapping.md).
 
-| SQL Server veri türü | Veri Fabrikası geçici veri türü |
+| SQL Server veri türü | Azure veri fabrikası geçici veri türü |
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
@@ -536,26 +539,26 @@ Saklı yordam özellik yararlanır [Table-Valued parametreleri](https://msdn.mic
 | xml |Xml |
 
 >[!NOTE]
-> Ondalık geçiş türü için veri türü eşlemeleri için ADF desteklemekte duyarlık 28 kadar. 28'den büyük olan hassas verileriniz varsa, SQL sorgusunda dizeye dönüştürmek için göz önünde bulundurun.
+> Eşleme için ondalık geçiş türü veri türleri için Azure Data Factory şu anda 28 kadar duyarlık destekler. 28'den büyük duyarlılık gerektiren varsa, bir SQL sorgusu içindeki bir dizeye dönüştürmeyi düşünün.
 
-## <a name="troubleshooting-connection-issues"></a>Bağlantı sorunlarını giderme
+## <a name="troubleshoot-connection-issues"></a>Bağlantı sorunlarını giderme
 
-1. Uzak bağlantıları kabul etmek için SQL Server'ınızı yapılandırın. Başlatma **SQL Server Management Studio**, sağ **sunucu**, tıklatıp **özellikleri**. Seçin **bağlantıları** denetimi ve liste **sunucunun uzak bağlantılara izin vermek**.
+1. SQL Server örneğinizi uzak bağlantıları kabul edecek şekilde yapılandırın. Başlangıç **SQL Server Management Studio**, sağ **sunucu**seçip **özellikleri**. Seçin **bağlantıları** listesi ve select **bu sunucuya uzak bağlantılara izin vermek** onay kutusu.
 
     ![Uzak bağlantıları etkinleştir](media/copy-data-to-from-sql-server/AllowRemoteConnections.png)
 
-    Bkz: [uzaktan erişim sunucu yapılandırma seçeneğini yapılandırma](https://msdn.microsoft.com/library/ms191464.aspx) ayrıntılı adımlar için.
+    Ayrıntılı adımlar için bkz. [uzaktan erişim sunucu yapılandırma seçeneğini yapılandırma](https://msdn.microsoft.com/library/ms191464.aspx).
 
-2. Başlatma **SQL Server Yapılandırma Yöneticisi**. Genişletin **SQL Server Ağ Yapılandırması** ve seçin, örneğin **MSSQLSERVER protokolleri**. Sağ bölmede protokolleri görmeniz gerekir. Sağ tıklayarak TCP/IP'yi etkinleştirin **TCP/IP'yi** tıklayıp **etkinleştirme**.
+2. Başlangıç **SQL Server Yapılandırma Yöneticisi**. Genişletin **SQL Server Ağ Yapılandırması** ve seçin, örneğin **MSSQLSERVER protokolleri**. Protokolleri, sağ bölmede görünür. Sağ tıklayarak TCP/IP'yi etkinleştirin **TCP/IP'yi** seçerek **etkinleştirme**.
 
     ![TCP/IP'yi etkinleştirin](./media/copy-data-to-from-sql-server/EnableTCPProptocol.png)
 
-    Bkz: [etkinleştirmek veya sunucu ağ protokolünü devre dışı](https://msdn.microsoft.com/library/ms191294.aspx) Ayrıntılar ve TCP/IP protokolünü etkinleştirme alternatif yolu.
+    Daha fazla bilgi ve TCP/IP protokolünü etkinleştirme diğer yolları için bkz. [etkinleştirmek veya devre dışı sunucu ağ protokolünü](https://msdn.microsoft.com/library/ms191294.aspx).
 
 3. Aynı pencerede çift **TCP/IP'yi** başlatmak için **TCP/IP özelliklerini** penceresi.
-4. Geçiş **IP adresleri** sekmesi. Görmek için aşağı kaydırın **IPAll** bölümü. Not **TCP bağlantı noktası** (varsayılan değer **1433**).
-5. Oluşturma bir **Windows Güvenlik Duvarı Kuralı** Bu bağlantı noktası üzerinden gelen trafiğe izin vermek için makinede.  
-6. **Bağlantıyı doğrulama**: Tam adı kullanılarak SQL Server'a bağlanmak için farklı bir makinede SQL Server Management Studio'yu kullanın. Örneğin: `"<machine>.<domain>.corp.<company>.com,1433"`.
+4. Geçiş **IP adresleri** sekmesi. Görmek için aşağı kaydırın **IPAll** bölümü. Not **TCP bağlantı noktası**. Varsayılan değer **1433**.
+5. Oluşturma bir **Windows Güvenlik Duvarı Kuralı** Bu bağlantı noktası üzerinden gelen trafiğe izin vermek için makinede. 
+6. **Bağlantıyı doğrulama**: Tam olarak nitelenmiş adını kullanarak SQL sunucusuna bağlanmak için farklı bir makinede SQL Server Management Studio'yu kullanın. `"<machine>.<domain>.corp.<company>.com,1433"` bunun bir örneğidir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Data Factory kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: cfa00504cd2a05985fde2af3357418eac8baceeb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46944603fdf45a2a7a14641086959bf61b3f773e
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61299104"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465879"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Akıllı algılama - hata Anomalileri
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) otomatik olarak web uygulamanızın olağandışı başarısız istek oranı artışı karşılaşırsa neredeyse gerçek zamanlı olarak bildirir. Bu, HTTP isteklerini veya başarısız olarak raporlanır bağımlılık çağrıları oranını olağan dışı bir artış algılar. Başarısız istekler, istekleri için yanıt kodları 400 veya daha yüksek olan genellikle biçimindedir. Önceliklendirmenize ve sorunu tanılamanıza yardımcı olmak için hataları ve ilgili telemetriyi özelliklerini analizini bildiriminde sağlanır. Daha ileri tanılama için Application Insights portalına bağlantıları vardır. Normal hata oranı tahmin etmek için makine öğrenimi algoritmaları kullanır gibi özellik Kurulum ya da yapılandırması gerekir.
 
-Bu özellik, bulutta ya da kendi sunucularınızda bulunan Java ve ASP.NET web uygulamaları için çalışır. Çağıran bir çalışan rolü varsa, örneğin, istek veya bağımlılık telemetri - oluşturan herhangi bir uygulama için de çalışır [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) veya [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
+Çağıran bir çalışan rolü varsa, örneğin, istek veya bağımlılık telemetri - oluşturan bulutta ya da kendi sunucularınızda barındırılan tüm web uygulaması için bu özelliğin nasıl çalıştığı [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) veya [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
 Ayarladıktan sonra [projeniz için Application Insights](../../azure-monitor/app/app-insights-overview.md), ve uygulamanızı belirli bir en düşük miktarda telemetri oluşturur sağlanan hata anomalileri, akıllı algılama silinmeden önce uygulamanızın normal davranışını öğrenmek için 24 saat sürer. açık ve Uyarıları gönderebilirsiniz.
 
@@ -43,6 +43,26 @@ Size bildirir dikkat edin:
 * Hatalarla ilgili özellik deseni. Bu örnekte, belirli bir yanıt kodu, istek adı (işlem) ve uygulama sürümü yok. Bu hemen, kodunuzda arama nerede başlatılacağını anlatır. Diğer olasılıklar, belirli bir tarayıcı veya istemci işletim sistemi olabilir.
 * Özel durum, günlük izlemeleri ve bağımlılık hatası (veritabanları veya diğer dış bileşenlere) karakterize hataları ile ilişkilendirilecek görünen.
 * İlgili aramalar Application ınsights telemetrisi üzerinde doğrudan bağlantılar.
+
+## <a name="failure-anomalies-v2"></a>Hata Anomalileri v2
+Hata Anomalileri uyarı kuralı yeni bir sürümü kullanıma sunulmuştur. Bu yeni sürümü yeni Azure uyarı platformunda çalışıyor ve mevcut sürümü çeşitli iyileştirmeler sunar.
+
+### <a name="whats-new-in-this-version"></a>Bu sürümdeki yenilikler nelerdir?
+- Sorunları daha hızlı algılanması
+- Daha zengin bir dizi eylemi - uyarı kuralı oluşturulur ile ilişkili [eylem grubu](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) "Application Insights akıllı e-posta ve Web kancası eylemleri içeren ve ek eylemleri tetiklemek için genişletilmiş algılama" adlı olduğunda uyarı ateşlenir.
+- Daha fazla odaklanmış bildirimleri: Bu uyarı kuralı gönderilen e-posta bildirimleri için abonelik okuyucusu izleme ve izleme Katılımcısı rolleri ile ilişkilendirilmiş kullanıcılar artık varsayılan olarak gönderilir. Bunun hakkında daha fazla bilgi edinilebilir [burada](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification).
+- ARM şablonları - bkz. örnek aracılığıyla daha kolay yapılandırma [burada](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config).
+- Bu uyarı kuralı gönderilen bildirimleri ortak uyarı şema desteği - izleyin [ortak uyarı şeması](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema).
+- E-posta şablonu - e-posta bildirimleri bu uyarı kuralının tutarlı bir görünüm ve diğer uyarı türlerinde düşünüyorsanız birleştirilmiş. Bu değişiklik, ayrıntılı tanılama bilgileri içeren hata Anomalileri uyarıları alma seçeneği artık kullanılabilir.
+
+### <a name="how-do-i-get-the-new-version"></a>Yeni sürüm nasıl alabilirim?
+- Yeni oluşturulan Application Insights kaynakları artık hata Anomalileri uyarı kuralı yeni sürümü ile sağlanır.
+- Var olan Application Insights kaynakları hata Anomalileri Klasik sürümü ile uyarı kuralı alacak yeni sürüm bir kez barındırma aboneliklerinin bir parçası olarak yeni uyarılar platformuna geçişi [Klasik uyarıları devre dışı bırakma işlemi ](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).
+
+> [!NOTE]
+> Hata Anomalileri uyarı kuralı yeni sürümünü ücretsiz kalır. Ayrıca, e-posta ve Web kancası eylemleri ilişkili "Application Insights akıllı algılama" tetiklenen ücretsiz de olan eylem grubu.
+> 
+> 
 
 ## <a name="benefits-of-smart-detection"></a>Akıllı algılama avantajları
 Sıradan [ölçüm uyarıları](../../azure-monitor/app/alerts.md) size bir sorun olabilir. Ancak, akıllı algılama, aksi takdirde kendiniz yapmak zorunda olabilirsiniz analiz çok fazla gerçekleştirmek için tanılama iş başlatır. Düzgünce paketlenmiş, sonuçları, sorunun kök hızlı bir şekilde almak için Yardım alın.
