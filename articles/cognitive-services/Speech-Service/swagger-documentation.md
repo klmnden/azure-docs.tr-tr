@@ -7,19 +7,19 @@ author: PanosPeriorellis
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: overview
-ms.date: 04/12/2019
+ms.topic: reference
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6cf3ab6480900aa763598120e6ff7e308f5044e1
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: f6420ea8918816f7356e567ec48cb0f7456065e0
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743216"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604763"
 ---
 # <a name="swagger-documentation"></a>Swagger belgeleri
 
-Birkaç veri alma, modeller oluşturun, model doğruluğunu test, özel uç noktalar oluşturmak, batch döküm ' sıraya ve abonelikleri yönetmek için kullanılan REST API ile etkileşim kurmak için bir Swagger belirtimi konuşma hizmetleri sunar. Özel konuşma tanıma Portalı aracılığıyla sağlanan işlemlerinin çoğu, bu API'leri kullanarak programlı olarak tamamlanabilir. 
+Birkaç veri alma, modeller oluşturun, model doğruluğunu test, özel uç noktalar oluşturmak, batch döküm ' sıraya ve abonelikleri yönetmek için kullanılan REST API ile etkileşim kurmak için bir Swagger belirtimi konuşma hizmetleri sunar. Özel konuşma tanıma Portalı aracılığıyla sağlanan işlemlerinin çoğu, bu API'leri kullanarak programlı olarak tamamlanabilir.
 
 > [!NOTE]
 > Konuşmayı metne hem okuma işlemleri olarak Swagger belirtimi sırayla belgelenen REST API'leri desteklenir.

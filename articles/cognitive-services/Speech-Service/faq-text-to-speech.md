@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: fd8362748c39389139e8384d0bad7e84d20128a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5ca7d8a6b09dc277664fdc7db2433466e665d56
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751615"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606667"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Metin okuma hakkında sık sorulan sorular
 
@@ -59,7 +59,7 @@ Kayıt için betikler hazırlanmanıza yardımcı olması için ek hizmetler sa�
 
 **S: İsteklerim kısıtlanan?**
 
-**A**: REST API istekleri 5 saniye başına 25 sınırlar. Ayrıntılar için sayfalarımızın bulunabilir [metin okuma](text-to-speech.md). 
+**A**: REST API istekleri 5 saniye başına 25 sınırlar. Ayrıntılar için sayfalarımızın bulunabilir [metin okuma](text-to-speech.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

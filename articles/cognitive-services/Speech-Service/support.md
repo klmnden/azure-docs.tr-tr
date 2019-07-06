@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 4099bc7bfce6de620504e03be3afc5392281d8d8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9e975bbdcec2b45d67f910ac1a83a71ed252ebda
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072366"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606272"
 ---
 # <a name="support-and-help-options"></a>Destek ve Yardım seçenekleri
 
@@ -71,7 +71,7 @@ Bir arama ile sorununuzun yanıtını bulamazsanız, yeni Stack Overflow soru g�
 |Konuşma Çevirisi |[[microsoft-bilişsel + çeviri]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |Konuşma amacı |[[microsoft-bilişsel + luıs]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
 |Genel Speech SDK'sı |[[microsoft-bilişsel + microsoft-konuşma tanıma-API'si]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
-| Ses öncelikli sanal Yardımcıları (Önizleme) | [[microsoft-bilişsel + sanal-Yardımcısı + botframework'te]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) | 
+| Ses öncelikli sanal Yardımcıları (Önizleme) | [[microsoft-bilişsel + sanal-Yardımcısı + botframework'te]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
 
 > [!TIP]
 > Stack Overflow aşağıdaki gönderilerinden form soruların konusunda ipuçları içerir ve kaynak kodu ekleyin. Bu yönergeler, topluluk üyeleri değerlendirmek ve sorularınıza hızla yanıt şansını artırmak yardımcı olabilir:  

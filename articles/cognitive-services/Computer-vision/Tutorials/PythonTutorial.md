@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Görüntü işlemleri - Python'
+title: Görüntü işlemleri - Python
 titlesuffix: Azure Cognitive Services
 description: Jupyter notebook’ları kullanarak Python ile Görüntü İşleme API’sinin nasıl kullanılacağını öğrenin. Popüler kitaplıkları kullanarak sonuçlarınızı görselleştirin.
 services: cognitive-services
@@ -7,20 +7,20 @@ author: KellyDF
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: tutorial
-ms.date: 11/06/2018
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: b5333557355aa816245b5086836eac980d90540a
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: b18f41db772c1c214bdf48c9bb765b1ce7e6d2c2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341477"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604150"
 ---
-# <a name="tutorial-computer-vision-api-python"></a>Öğretici: Bilgisayar görüntü işleme API'si Python
+# <a name="computer-vision-api-jupyter-notebook"></a>Bilgisayar görüntü işleme API'si Jupyter not defteri
 
-Bu öğreticide, Python’da Görüntü İşleme API’sinin nasıl kullanılacağı ve popüler kitaplıklar kullanılarak sonuçlarınızın nasıl görselleştirileceği gösterilir. Öğreticiyi çalıştırmak için Jupyter kullanacaksınız. Etkileşimli Jupyter not defterleri ile çalışmaya başlama konusunda bilgi için bkz [Jupyter belgeleri](https://jupyter.readthedocs.io/en/latest/index.html).
+Bu kılavuzda, Python görüntü işleme API'sini kullanmayı ve popüler kitaplıklarını kullanarak, sonuçların görselleştirilmesi nasıl gösterir. Öğreticiyi çalıştırmak için Jupyter kullanacaksınız. Etkileşimli Jupyter not defterleri ile çalışmaya başlama konusunda bilgi için bkz [Jupyter belgeleri](https://jupyter.readthedocs.io/en/latest/index.html).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -28,7 +28,7 @@ Bu öğreticide, Python’da Görüntü İşleme API’sinin nasıl kullanılaca
 - [pip](https://pip.pypa.io/en/stable/installing/) aracı
 - [Jupyter Notebook](https://jupyter.org/install) yüklü
 
-## <a name="open-the-tutorial-notebook-in-jupyter"></a>Öğretici Notebook'unu Jupyter’de Açma 
+## <a name="open-the-notebook-in-jupyter"></a>İçinde Jupyter not defterini açın 
 
 1. [Cognitive Vision Python](https://github.com/Microsoft/Cognitive-Vision-Python) GitHub deposuna gidin. 
 2. Depoyu kopyalamak veya indirmek için yeşil düğmeye tıklayın. 
@@ -37,7 +37,7 @@ Bu öğreticide, Python’da Görüntü İşleme API’sinin nasıl kullanılaca
 1. Komut isteminden `jupyter notebook` komutunu çalıştırarak Jupyter’i başlatın.
 1. Jupyter penceresinde _Computer Vision API Example.ipynb_ seçeneğine tıklayarak öğretici not defterini açın.
 
-## <a name="run-the-tutorial"></a>Öğreticiyi Çalıştırma
+## <a name="run-the-notebook"></a>Not defterini çalıştırma
 
 Bu not defterini kullanmak için, Görüntü İşleme API’si için bir abonelik anahtarı gerekir. Kaydolmak için [Abonelik sayfasını](https://azure.microsoft.com/try/cognitive-services/) ziyaret edin. **Oturum aç** sayfasında oturum açmak için Microsoft hesabınızı kullanın, böylece abone olup ücretsiz anahtar alabilirsiniz. Kayıt işlemini tamamladıktan sonra anahtarınızı not defterinin `Variables` bölümüne yapıştırın (aşağıda oluşturulmuştur). Birincil veya ikincil anahtar çalışacaktır. Anahtarı dize haline getirmek için tırnak içine aldığınızdan emin olun.
 

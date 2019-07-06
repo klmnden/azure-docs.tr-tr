@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 07/05/2019
 ms.author: wellsi
-ms.openlocfilehash: 1c91cde45a6a420376af36f70487adf7fe0ee83a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93272520434ea43a94af9441a947239e983c216f
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751817"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606693"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Bilişsel hizmetler konuşma cihazları SDK sürüm notları
 Aşağıdaki bölümlerde listesi değişiklikleri en son sürümlerde.
@@ -37,17 +37,17 @@ Aşağıdaki bölümlerde listesi değişiklikleri en son sürümlerde.
 *   Yeni Uyandırma word teknolojisi nedeniyle tüm Uyandırma sözcükler bizim geliştirilmiş Uyandırma word portalında yeniden oluşturulmalıdır. Tamamen kaldırmak için cihaz eski sözcüklerden eski uygulamayı kaldırın.
     - adb com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp kaldırma
 
-## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>Bilişsel hizmetler konuşma cihaz SDK'sı 1.4.0: 2019 Apr sürüm 
+## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>Bilişsel hizmetler konuşma cihaz SDK'sı 1.4.0: 2019 Apr sürüm
 
-* Güncelleştirilmiş [Speech SDK'sı](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) sürüm 1.4.0 bileşeni. Daha fazla bilgi için kendi [sürüm notları](https://aka.ms/csspeech/whatsnew). 
+* Güncelleştirilmiş [Speech SDK'sı](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) sürüm 1.4.0 bileşeni. Daha fazla bilgi için kendi [sürüm notları](https://aka.ms/csspeech/whatsnew).
 
-## <a name="cognitive-services-speech-devices-sdk-131-2019-mar-release"></a>Bilişsel hizmetler konuşma cihaz SDK'sı 1.3.1: 2019 Mart sürüm 
+## <a name="cognitive-services-speech-devices-sdk-131-2019-mar-release"></a>Bilişsel hizmetler konuşma cihaz SDK'sı 1.3.1: 2019 Mart sürüm
 
-* Güncelleştirilmiş [Speech SDK'sı](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) sürüm 1.3.1 bileşeni. Daha fazla bilgi için kendi [sürüm notları](https://aka.ms/csspeech/whatsnew). 
+* Güncelleştirilmiş [Speech SDK'sı](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) sürüm 1.3.1 bileşeni. Daha fazla bilgi için kendi [sürüm notları](https://aka.ms/csspeech/whatsnew).
 *   Güncelleştirilmiş Uyandırma sözcük işleme, bozucu değişiklikleri bakın.
 *   Örnek uygulama, konuşma tanıma hem çeviri için dil seçimi ekler.
 
-**Bozucu değişiklikler** 
+**Bozucu değişiklikler**
 
 *   [Uyandırma Word'ü yükleme](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) olmamıştı Basitleştirilmiş, şimdi uygulamanın parçası olduğundan ve cihazın ayrı yükleme gerektirmez.
 *   Uyandırma sözcük tanıma değişti ve iki olay desteklenir.
@@ -55,22 +55,22 @@ Aşağıdaki bölümlerde listesi değişiklikleri en son sürümlerde.
     - RecognizedKeyword, belirtilen anahtar sözcüğün algılamayı tamamlandı, anahtar sözcüğü tanıma gösterir.
 
 
-## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>Bilişsel hizmetler konuşma cihaz SDK'sı 1.1.0: Kasım 2018 sürüm 
+## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>Bilişsel hizmetler konuşma cihaz SDK'sı 1.1.0: Kasım 2018 sürüm
 
-* Güncelleştirilmiş [Speech SDK'sı](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) sürüm 1.1.0 bileşeni. Daha fazla bilgi için kendi [sürüm notları](https://aka.ms/csspeech/whatsnew). 
+* Güncelleştirilmiş [Speech SDK'sı](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) sürüm 1.1.0 bileşeni. Daha fazla bilgi için kendi [sürüm notları](https://aka.ms/csspeech/whatsnew).
 * Şimdiye kadar alan konuşma tanıma doğruluğunu sunduğumuz Gelişmiş ses işleme algoritması ile geliştirilmiştir.
 * Örnek uygulama, Çince konuşma tanıma desteği eklendi.
 
-## <a name="cognitive-services-speech-devices-sdk-101-2018-oct-release"></a>Bilişsel hizmetler konuşma cihaz SDK'sı 1.0.1: Ekim 2018 sürüm 
+## <a name="cognitive-services-speech-devices-sdk-101-2018-oct-release"></a>Bilişsel hizmetler konuşma cihaz SDK'sı 1.0.1: Ekim 2018 sürüm
 
-* Güncelleştirilmiş [Speech SDK'sı](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 1.0.1 sürümü bileşeni. Daha fazla bilgi için kendi [sürüm notları](https://aka.ms/csspeech/whatsnew). 
+* Güncelleştirilmiş [Speech SDK'sı](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 1.0.1 sürümü bileşeni. Daha fazla bilgi için kendi [sürüm notları](https://aka.ms/csspeech/whatsnew).
 * Konuşma tanıma doğruluğunu bizim ses gerçekleştirilen geliştirilmiş işlemi algoritmasıyla geliştirilecektir  
 * Bir sürekli tanıma ses oturumu hatanın giderilmesidir.
 
-**Bozucu değişiklikler** 
+**Bozucu değişiklikler**
 
-* Bu sürümle birlikte birkaç önemli değişiklikler yapılmıştır. Lütfen denetleyin [bu sayfayı](https://aka.ms/csspeech/breakingchanges_1_0_0) API'leri için ilgili ayrıntılar için. 
-* KWS model dosyaları 1.0.1 konuşma cihazları SDK ile uyumlu değildir. Var olan Uyanma Word dosyaları yeni Uyandırma Word dosyaları cihaza yazıldıktan sonra silinir. 
+* Bu sürümle birlikte birkaç önemli değişiklikler yapılmıştır. Lütfen denetleyin [bu sayfayı](https://aka.ms/csspeech/breakingchanges_1_0_0) API'leri için ilgili ayrıntılar için.
+* KWS model dosyaları 1.0.1 konuşma cihazları SDK ile uyumlu değildir. Var olan Uyanma Word dosyaları yeni Uyandırma Word dosyaları cihaza yazıldıktan sonra silinir.
 
 ## <a name="cognitive-services-speech-devices-sdk-050-2018-aug-release"></a>Bilişsel hizmetler konuşma cihaz SDK'sını buradan 0.5.0 sürümünü: 2018-Ağu sürüm
 

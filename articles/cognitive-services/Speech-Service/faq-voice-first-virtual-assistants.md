@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 2c669f00ae65667f85976aca218ce51d630159ee
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: bd7e1f87fea03d0aac7fd9f746b777e3b15e917e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67465494"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606633"
 ---
 # <a name="voice-first-virtual-assistants-preview-frequently-asked-questions"></a>Ses öncelikli sanal Yardımcıları önizleme: Sık sorulan sorular
 

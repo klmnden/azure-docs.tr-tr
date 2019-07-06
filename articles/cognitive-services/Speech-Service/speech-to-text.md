@@ -8,21 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: fcb09720d188150736dbe7da0c925f5762ff6a10
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: afe69d396c42023df8fcf5e4a6772771afc75c76
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072326"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606245"
 ---
 # <a name="what-is-speech-to-text"></a>Konuşmayı metne nedir?
 
 Konuşma metin Azure konuşma Hizmetleri, olarak da bilinen Konuşmayı metne dönüştürme, etkinleştirir, uygulamalar, Araçlar veya cihazları kullanabilen bir metne ses akışları gerçek zamanlı döküm, görüntüleyin ve komut giriş olarak üzerinde işlem gerçekleştir. Bu hizmet Microsoft Cortana ve Office ürünleri için kullanan ve metin okuma ve çeviri ile sorunsuz çalışır aynı tanıma teknolojisini tarafından desteklenmektedir.  Konuşmayı metne diller tam bir listesi için bkz. [desteklenen diller](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
-Varsayılan olarak, konuşma metin hizmetini Evrensel dil modelini kullanır. Bu model, Microsoft'a ait verileri kullanarak eğitim ve bulutta dağıtılır. İçin en iyi damıtarak konuşma bağlamında kullanılabilen ve dikte senaryoları. Konuşma metin tanıma ve benzersiz bir ortamda transkripsiyonu için kullanıyorsanız, oluşturabilir ve adresi ortam gürültü veya sektöre özel sözlük özel akustik ve dil telaffuz modellerini eğitin. 
+Varsayılan olarak, konuşma metin hizmetini Evrensel dil modelini kullanır. Bu model, Microsoft'a ait verileri kullanarak eğitim ve bulutta dağıtılır. İçin en iyi damıtarak konuşma bağlamında kullanılabilen ve dikte senaryoları. Konuşma metin tanıma ve benzersiz bir ortamda transkripsiyonu için kullanıyorsanız, oluşturabilir ve adresi ortam gürültü veya sektöre özel sözlük özel akustik ve dil telaffuz modellerini eğitin.
 
 Kolayca mikrofondan gelen sesi yakalama, bir akıştan okumak veya REST API'leri ve Speech SDK'sı ile depolama biriminden ses dosyaları erişim. WAV/PCM 16-bit, 16 kHz/8 kHz, konuşma tanıma tek kanal ses Speech SDK'sı destekler. Kullanarak ek ses biçimleri desteklenmektedir [konuşma metin REST uç noktasını](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) veya [batch transkripsiyonu hizmeti](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 

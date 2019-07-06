@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: 45ed0167f5a83fa843a224ada35e96672a6752a1
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: b71400c3ae3c1cc6737d9194b4d94bf0b9c7efa9
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311837"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606738"
 ---
 # <a name="why-use-batch-transcription"></a>Batch transkripsiyonu neden kullanmalısınız?
 
@@ -56,7 +55,7 @@ Batch tanıma API'si, aşağıdaki biçimlerde destekler:
 | MP3 | PCM | 16-bit | 8 veya 16 kHz, mono, stereo |
 | OGG | GEÇERLİ | 16-bit | 8 veya 16 kHz, mono, stereo |
 
-Stereo ses akışları için Batch transkripsiyonu API sol ve sağ kanal döküm sırasında böler. Sonuç ile iki JSON dosyaları her tek bir kanaldan oluşturulur. Zaman damgaları utterance başına bir sıralı son döküm oluşturmak Geliştirici etkinleştirin. Bu örnek istek küfür filtresi, noktalama işaretleri ve sözcük düzeyi zaman damgaları özelliklerini içerir. 
+Stereo ses akışları için Batch transkripsiyonu API sol ve sağ kanal döküm sırasında böler. Sonuç ile iki JSON dosyaları her tek bir kanaldan oluşturulur. Zaman damgaları utterance başına bir sıralı son döküm oluşturmak Geliştirici etkinleştirin. Bu örnek istek küfür filtresi, noktalama işaretleri ve sözcük düzeyi zaman damgaları özelliklerini içerir.
 
 ### <a name="configuration"></a>Yapılandırma
 
@@ -97,7 +96,7 @@ Döküm yapılandırmak için bu isteğe bağlı özellikleri kullanın:
 
 Batch transkripsiyonu destekler [Azure Blob Depolama](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) ses ve depolamaya yazma döküm okumak için.
 
-## <a name="webhooks"></a>Web Kancaları 
+## <a name="webhooks"></a>Web Kancaları
 
 Döküm durumu için yoklama değil en yüksek performanslı olabilir ya da en iyi kullanıcı deneyimi sağlamak. Durumunu yoklamak için uzun süre çalışan döküm görevleri tamamladıktan sonra istemciyi bilgilendirir geri çağırmaları kaydedebilirsiniz.
 
@@ -123,7 +122,7 @@ Ses tanıma isteğiniz için diarization işlenir istemek için yalnızca ilgili
 }
 ```
 
-Yukarıdaki istek parametrelerini belirtmeniz Word düzeyi zaman damgaları 'açık olması ' de gerekir. 
+Yukarıdaki istek parametrelerini belirtmeniz Word düzeyi zaman damgaları 'açık olması ' de gerekir.
 
 Bir sayı tarafından tanımlanan konuşmacıları ilgili ses içerecektir (Konuşmacı olarak tanımlanan şekilde şu anda yalnızca iki kişilerden daha fazlasını destekliyoruz ' Konuşmacı 1 ' ve 'Konuşmacı 2') transkripsiyonu çıktı tarafından takip.
 
@@ -134,7 +133,7 @@ Ayrıca Diarization Stereo kayıtlarını kullanılabilir olmadığını unutmay
 
 ## <a name="sentiment"></a>Yaklaşım
 
-Metninizdeki yaklaşımları, Batch tanıma API'sini yeni bir özelliktir ve çağrı merkezi etki alanındaki önemli bir özelliğidir. Müşteriler `AddSentiment` kendi isteklerini parametreleri 
+Metninizdeki yaklaşımları, Batch tanıma API'sini yeni bir özelliktir ve çağrı merkezi etki alanındaki önemli bir özelliğidir. Müşteriler `AddSentiment` kendi isteklerini parametreleri
 
 1.  Müşteri memnuniyetini hakkında Öngörüler edinin
 2.  Aracıların (çağrıları alma ekibi) performansını ilgili Öngörüler edinin
@@ -187,7 +186,7 @@ Bu özellik şu anda Beta sürümünde olan bir yaklaşım modeli kullanır.
 
 Tam örnekler kullanılabilir [GitHub örnek deposundan](https://aka.ms/csspeech/samples) içinde `samples/batch` alt.
 
-Örnek kod, abonelik bilgilerinizi hizmeti bölge, konuşmaların ve durumda özel bir dil ve akustik model kullanmak istediğiniz kimlik modeli için SAS ses dosyasına işaret eden URI ile özelleştirmeniz gerekir. 
+Örnek kod, abonelik bilgilerinizi hizmeti bölge, konuşmaların ve durumda özel bir dil ve akustik model kullanmak istediğiniz kimlik modeli için SAS ses dosyasına işaret eden URI ile özelleştirmeniz gerekir.
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 

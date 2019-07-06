@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 08bf1363f3c6c9b68243cc10ffb2785f53e02107
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 684ddcd49d3cd3c3d4f0a8d6f4675e1e27bdb7b9
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342185"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604879"
 ---
 # <a name="text-to-speech-rest-api"></a>Metin okuma REST API
 
@@ -49,7 +48,7 @@ Bu API kullanmadan önce anlayın:
 | Orta Kanada | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Orta ABD | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Doğu Asya | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Doğu ABD | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Doğu ABD 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Fransa Orta | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Hindistan Orta | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -225,7 +224,7 @@ Her yanıt için HTTP durum kodu, başarı veya sık karşılaşılan hataları 
 | 400 | Bozuk İstek | Gerekli parametre eksik, boş veya null. Veya, gerekli veya isteğe bağlı parametresi için geçirilen değer geçersiz. Çok uzun üstbilgi buna yaygın bir sorundur. |
 | 401 | Yetkilendirilmemiş | İstek yetkili değil. Abonelik anahtarı veya belirteç geçerli ve doğru bölgesinde olduğundan emin olmak için kontrol edin. |
 | 413 | İstek varlığı çok büyük | SSML'yi giriş metni, 1024 karakterden uzun. |
-| 415 | Desteklenmeyen medya türü | Mümkünse, yanlış `Content-Type` sağlandı. `Content-Type` ayarlanmalıdır `application/ssml+xml`. | 
+| 415 | Desteklenmeyen medya türü | Mümkünse, yanlış `Content-Type` sağlandı. `Content-Type` ayarlanmalıdır `application/ssml+xml`. |
 | 429 | Çok Fazla İstek | Kota veya aboneliğiniz için izin isteği sayısını aştınız. |
 | 502 | Hatalı Ağ Geçidi | Ağ veya sunucu tarafı sorun. Geçersiz üst bilgileri de gösterebilir. |
 

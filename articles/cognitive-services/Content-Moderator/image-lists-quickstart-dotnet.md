@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Görüntüleri özel listeler karşı denetleyin C# -Content Moderator'
+title: Görüntüleri özel listeler karşı denetleyin C# -Content Moderator
 titlesuffix: Azure Cognitive Services
 description: C# için Content Moderator SDK'sını kullanarak görüntüleri özel görüntü listeleriyle denetleme.
 services: cognitive-services
@@ -7,17 +7,17 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 10/10/2018
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: ded5b097e7c8feab56e2d82cb44f92e3127519e2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 49f87b7cf3d7f46a66c0992edf25968b1dbae073
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699129"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603405"
 ---
-# <a name="quickstart-moderate-with-custom-image-lists-in-c"></a>Hızlı Başlangıç: Özel görüntü listeleriyle OrtaC#
+# <a name="moderate-with-custom-image-lists-in-c"></a>Özel görüntü listeleriyle OrtaC#
 
 Bu makalede, aşağıdaki amaçlarla [.NET için Content Moderator SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)'nı kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri sağlanmaktadır:
 - Özel görüntü listesi oluşturma
@@ -32,7 +32,7 @@ Bu makalede, aşağıdaki amaçlarla [.NET için Content Moderator SDK'sı](http
 > [!NOTE]
 > Liste sayısı üst sınırı, her biri **10.000 görüntüyü aşmamak** kaydıyla **5 görüntü listesidir**.
 
-Bu hızlı başlangıca ait konsol uygulaması, görüntü listesi API’si ile gerçekleştirebileceğiniz bazı görevlerin benzetimini yapar.
+Bu kılavuz için konsol uygulaması görüntü listesi API'si ile gerçekleştirebileceğiniz görevlerden bazıları benzetimini yapar.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
 
@@ -303,7 +303,7 @@ private static ImageList CreateCustomList(ContentModeratorClient client)
 
 ## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>Listeye görüntü koleksiyonu eklemek için yöntem oluşturma
 
-**Program** sınıfına aşağıdaki yöntemi ekleyin. Bu hızlı başlangıç, listedeki görüntülere nasıl etiket uygulanacağını göstermez. 
+**Program** sınıfına aşağıdaki yöntemi ekleyin. Bu kılavuz, görüntüleri listesinde etiketler nasıl göstermemiz gerekmez. 
 
 ```csharp
 /// <summary>

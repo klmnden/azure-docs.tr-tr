@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 488cbf1874e023cf3a665bc9f2087900b30b3d3d
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8285a76f8cd07863874f9c8e8eebe96f1cb968dd
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204921"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604811"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Konuşma Sentezi Biçimlendirme Dili (SSML)
 
@@ -290,7 +289,7 @@ Konuşma tanıyıcının, bürünsel öznitelik değerleri üzerinde birçok far
 | dağılımı | Dağılımı sinir ses için desteklenmiyor. Dağılımı değişiklikleri de aralık konuşma içerik için bir dizi hedef konuşma çıkışındaki belirtilen zaman konumlarda olarak temsil eder. Her hedef parametre çiftleri kümesi tanımlanır. Örneğin: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Her parametre kümesi içindeki ilk değer sıklık değişimi konumunu metin süresi yüzdesi olarak belirtir. İkinci değer artırmak veya azaltmak aralık için göreli bir değer veya bir sabit listesi değeri kullanarak bir aralık için belirtir (bkz `pitch`). | İsteğe bağlı |
 | Aralığı  | Aralık için metin aralığını temsil eden bir değer. Express `range` açıklamak için kullanılan aynı mutlak değerler, göreli değerler ya da sabit listesi değerlerini kullanarak `pitch`. | İsteğe bağlı |
 | Oranı  | Metni konuşma hızını gösterir. Express `rate` olarak:<ul><li>Bir varsayılan çarpanı olarak davranan bir sayı olarak ifade edilen bir göreli değer. Örneğin, bir değeri *1* oranı değişiklik sonuçlanıyor. Değerini *.5* sonuçları oranını halving içinde. Değerini *3* sonuçları oranını tripling içinde.</li><li>Sabit değer:<ul><li>x-slow</li><li>Yavaş</li><li>Orta</li><li>Hızlı</li><li>x-hızlı</li><li>default</li></ul></li></ul> | İsteğe bağlı |
-| Süresi  | Konuşma geçmesi gereken süreyi saniye ve milisaniye içinde metin sentezi (TTS) hizmeti okur. Örneğin, *2s* veya *1800ms*. | İsteğe bağlı |
+| duration  | Konuşma geçmesi gereken süreyi saniye ve milisaniye içinde metin sentezi (TTS) hizmeti okur. Örneğin, *2s* veya *1800ms*. | İsteğe bağlı |
 | birim  | Konuşma sesinin birim düzeyini gösterir. Toplu olarak express:<ul><li>Gelen sayısı için 0,0 100.0 olarak aralığında ifade bir mutlak değeri *quietest* için *gürültülü*. Örneğin, 75. 100.0 varsayılandır.</li><li>Önünde bir sayı olarak ifade edilen göreli değer, "+" veya "-" birim değiştirmek için bir miktar belirtir. Örneğin + 10 veya-5.5.</li><li>Sabit değer:<ul><li>Sessiz</li><li>x-soft</li><li>yazılım</li><li>Orta</li><li>yüksek</li><li>x-loud</li><li>default</li></ul></li></ul> | İsteğe bağlı |
 
 ### <a name="change-speaking-rate"></a>Konuşma hızını değiştirme

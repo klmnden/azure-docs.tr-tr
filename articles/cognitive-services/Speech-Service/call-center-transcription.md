@@ -7,15 +7,15 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: overview
-ms.date: 05/02/2019
+ms.topic: conceptual
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 055d141cab8ece3fcb462573f6ed4d8941c19751
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 37d68a4d2b7658542ebcfdb5d22a10676a8e4d52
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064099"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603298"
 ---
 # <a name="speech-services-for-telephony-data"></a>Telefon veri konuşma Hizmetleri
 
@@ -36,7 +36,7 @@ Teknoloji ve ilgili özellikleri Azure konuşma Hizmetleri teklifi gözden geçi
 
 İşlev, konuşma Hizmetleri birincil amaçları için çağrı merkezi – uygulandığında – müşteri deneyimini iyileştirmek üzere yönüdür. Bu konuda, üç düz etki alanı mevcuttur:
 
-* Çağrı sonrası analiz çağrı kayıtları işlenmesini diğer bir deyişle, toplu iş 
+* Çağrı sonrası analiz çağrı kayıtları işlenmesini diğer bir deyişle, toplu iş
 * Gerçek zamanlı analiz çağrı (tanınmış bir kullanım örneği olan yaklaşım ile) gerçekleşen olduğu gibi çeşitli bilgileri ayıklamak için ses sinyalini işlenmesini ve
 * Sanal Yardımcıları (Botlar) aracısı yardımcı olmak için iletişim kutusu girişimi hiçbir agent katılımını ile müşterinin sorunu çözmek için müşteri ile bot arasında gidiş veya AI uygulama protokoller.
 
@@ -44,9 +44,9 @@ Bir batch senaryosu uygulanması tipik mimarisi diyagramı aşağıdaki resimde 
 
 ## <a name="speech-analytics-technology-components"></a>Konuşma analizi teknoloji bileşenleri
 
-Etki alanı veya gerçek zamanlı sonrası çağrı olsun, Azure olgun ve ortaya çıkan dizi müşteri deneyimini geliştirmek için teknoloji kümesi sunar. 
+Etki alanı veya gerçek zamanlı sonrası çağrı olsun, Azure olgun ve ortaya çıkan dizi müşteri deneyimini geliştirmek için teknoloji kümesi sunar.
 
-### <a name="speech-to-text-stt"></a>Konuşmadan metne (STT) 
+### <a name="speech-to-text-stt"></a>Konuşmadan metne (STT)
 
 [Konuşmayı metne](speech-to-text.md) herhangi bir çağrı merkezi çözümüne özellik için en çok Aranan sonradır. Aşağı Akış analizi işlemlerini birçoğu transcribed metni kullanan, word hatası oranı (WER) dayanıklılığı olduğu. Çağrı merkezi transkripsiyonu en önemli zorluklardan çağrı merkezi (örneğin arka planda Konuşmayı diğer aracılar), birçok farklı dil yerel ayarlar ve diyalektler yanı sıra gerçek telefon sinyal düşük kalitesini yaygın gürültü biridir. WER'i akustik ve dil modellerini verili bir yerel ayar için ne kadar iyi eğitilir ile son derece bağıntılı, bu nedenle işaretleyebilmesine bölgeniz modele özelleştirmek için önemlidir. Bizim en son birleştirilmiş sürüm 4.x modelleri transkripsiyonu doğruluk ve gecikme süresi çözümdür. On ile eğitilmiş akustik verilerini saatlik binlerce ve sözcük bilgi birleşik milyarlarca çağrı merkezi veri özelliği piyasadaki en doğru modelleri modelleridir.
 
@@ -60,9 +60,9 @@ Konuşma olmayan süresi dediğimiz olması için bir destek çağrısının yü
 Bazı şirketler, teslim yöneticileri müşterileri dünya çapında deneyimini anlayabilmeniz yabancı dilleri destek çağrılarının çevrilmiş dökümleri sağlamaya deneylerini. Bizim [çeviri](translation.md) eşsiz özellikleri. Biz ses için ses veya ses metin için çok sayıda yerel çevirebilir.
 
 ### <a name="text-to-speech"></a>Metin Okuma
-[Metin okuma](text-to-speech.md) müşterilerle etkileşim kuran robotlar uygulamaya başka bir önemli alandır. Tipik müşteri konuşur, metin, ses transcribed, hedefleri için çözümlenmiş metin, tanınan amacına yanıt oluşturulan ve bir varlık için müşteri ya da sonra ortaya veya Sentezlenen sesli yanıt olduğunu yoludur oluşturuldu. Elbette bu tüm sahiptir hızlı bir şekilde – böylece gecikme süresi içinde bu sistemler başarısını önemli bileşenlerden biridir gerçekleşmesi. 
+[Metin okuma](text-to-speech.md) müşterilerle etkileşim kuran robotlar uygulamaya başka bir önemli alandır. Tipik müşteri konuşur, metin, ses transcribed, hedefleri için çözümlenmiş metin, tanınan amacına yanıt oluşturulan ve bir varlık için müşteri ya da sonra ortaya veya Sentezlenen sesli yanıt olduğunu yoludur oluşturuldu. Elbette bu tüm sahiptir hızlı bir şekilde – böylece gecikme süresi içinde bu sistemler başarısını önemli bileşenlerden biridir gerçekleşmesi.
 
-Bizim uçtan uca gecikme süresi gibi dahil çeşitli teknolojileri de göz önünde bulundurur oldukça düşüktür [konuşma metin](speech-to-text.md), [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/), [ Metin okuma](text-to-speech.md). 
+Bizim uçtan uca gecikme süresi gibi dahil çeşitli teknolojileri de göz önünde bulundurur oldukça düşüktür [konuşma metin](speech-to-text.md), [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), [Bot Framework](https://dev.botframework.com/), [ Metin okuma](text-to-speech.md).
 
 Yeni sunduğumuz kişilerden daha fazlasını da insan ses arasından ayırt edilemiyor. Ses kendi benzersiz kişilik botunuzun vermek için kullanabilirsiniz.
 

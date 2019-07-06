@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 07/05/2019
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: fbe6fe25b5ff0cd5148e3bba22dec4648399510d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a100049ddfc9d4859e303546c1b10e814cf96ebb
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072302"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606217"
 ---
 # <a name="webhooks-for-speech-services"></a>Konuşma Hizmetleri için Web kancaları
 
@@ -24,7 +23,7 @@ Web kancaları, uygulamanızın, kullanılabilir olduğunda konuşma Hizmetleri 
 
 ## <a name="supported-operations"></a>Desteklenen işlemler
 
-Web kancaları, konuşma Hizmetleri tüm uzun süre çalışan işlemler için destekler. Aşağıda listelenen işlemlerin her biri, bir HTTP geri çağırma işlemi tamamlandıktan sonra tetikleyebilirsiniz. 
+Web kancaları, konuşma Hizmetleri tüm uzun süre çalışan işlemler için destekler. Aşağıda listelenen işlemlerin her biri, bir HTTP geri çağırma işlemi tamamlandıktan sonra tetikleyebilirsiniz.
 
 * DataImportCompletion
 * ModelAdaptationCompletion
@@ -37,7 +36,7 @@ Ardından, bir Web kancası oluşturalım.
 
 ## <a name="create-a-webhook"></a>Bir Web kancası oluştur
 
-Çevrimdışı bir döküm için bir Web kancası oluşturalım. Senaryo: bir kullanıcının zaman uyumsuz olarak Batch tanıma API'SİYLE konuşmaların istediğiniz bir uzun süre çalışan ses dosyası. 
+Çevrimdışı bir döküm için bir Web kancası oluşturalım. Senaryo: bir kullanıcının zaman uyumsuz olarak Batch tanıma API'SİYLE konuşmaların istediğiniz bir uzun süre çalışan ses dosyası.
 
 Web kancaları oluşturulabilir bir POST isteğinin https:// yaparak\<bölge\>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks.
 
@@ -65,7 +64,7 @@ Batch tanıma API'sine yapılan tüm POST isteklerinden gerektiren bir `name`. `
 
 `Active` Özelliği, geri URL'nizi açıp silin ve Web kancası kaydını yeniden oluşturmak zorunda kalmadan çağırma geçiş yapmak için kullanılır. Yalnızca işlem sahip olduktan sonra geri kez tam çağırmak gerekiyorsa, anahtar ve Web kancası silme `Active` özelliğini false.
 
-Olay türü `TranscriptionCompletion` olayları dizide sağlanır. Bir döküm terminal durumuna ulaştığı zaman geri uç noktanıza çağırır (`Succeeded` veya `Failed`). İstek geri kayıtlı URL'sine çağırırken içerecek bir `X-MicrosoftSpeechServices-Event` kayıtlı olay türlerinden birini içeren üstbilgi. Kayıtlı olay türüne göre bir istek var. 
+Olay türü `TranscriptionCompletion` olayları dizide sağlanır. Bir döküm terminal durumuna ulaştığı zaman geri uç noktanıza çağırır (`Succeeded` veya `Failed`). İstek geri kayıtlı URL'sine çağırırken içerecek bir `X-MicrosoftSpeechServices-Event` kayıtlı olay türlerinden birini içeren üstbilgi. Kayıtlı olay türüne göre bir istek var.
 
 Abone olunamıyor bir olay türü yoktur. Bu `Ping` olay türü. Bu tür bir istekle URL'ye ping URL (aşağıya bakın) kullanarak bir Web kancası oluşturma tamamlandığında gönderilir.  
 
@@ -94,7 +93,7 @@ public async Task<IActionResult> PostAsync([FromHeader(Name = EventTypeHeaderNam
             var validated = contentHash.SequenceEqual(storedHash);
         }
     }
- 
+
     switch (eventTypeHeader)
     {
         case WebHookEventType.Ping:
@@ -106,7 +105,7 @@ public async Task<IActionResult> PostAsync([FromHeader(Name = EventTypeHeaderNam
         default:
             break;
     }
- 
+
     return this.Ok();
 }
 
@@ -121,12 +120,12 @@ Belirli bir Web kancası almak için: AL https://westus.cris.ai/api/speechtotext
 
 Belirli bir Web kancası kaldırmak için: DELETE https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
 
-> [!Note] 
+> [!Note]
 > Yukarıdaki örnekte, 'westus' bölgedir. Bu konuşma Hizmetleri kaynağınızı Azure portalında nerede oluşturduğunuz bölge tarafından değiştirilmelidir.
 
 POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/ping gövdesi: boş
 
-Kayıtlı URL'sine bir POST isteği gönderir. İstek içeren bir `X-MicrosoftSpeechServices-Event` üst bilgi değeri ping ile. Web kancası ile bir gizli dizi kaydettiyseniz, içerdiği bir `X-MicrosoftSpeechServices-Signature` bir SHA256 karma akıştaki HMAC anahtar olarak gizli olan üstbilgiyle. Base64 kodlu karmasıdır. 
+Kayıtlı URL'sine bir POST isteği gönderir. İstek içeren bir `X-MicrosoftSpeechServices-Event` üst bilgi değeri ping ile. Web kancası ile bir gizli dizi kaydettiyseniz, içerdiği bir `X-MicrosoftSpeechServices-Signature` bir SHA256 karma akıştaki HMAC anahtar olarak gizli olan üstbilgiyle. Base64 kodlu karmasıdır.
 
 POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/test gövdesi: boş
 
