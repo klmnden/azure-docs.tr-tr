@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6722fa103b3d48a8ca8ff4b96c9d179a4f743608
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18a00c2aebd05d2ed2da54e436d245c70bf25051
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60409099"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604470"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-c35-in-computer-vision"></a>Hızlı Başlangıç: C ve REST API kullanarak yazdırılan metin (OCR) ayıklayın&#35; , görüntü işleme
+# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-c"></a>Hızlı Başlangıç: Görüntü işleme REST API'sini kullanarak yazdırılan metin (OCR) ayıklayın veC#
 
 Bu hızlı başlangıçta, görüntü işleme'nın REST API'sini kullanarak bir görüntüden optik karakter tanıma (OCR) ile yazdırılan metin ayıklayacaksınız. İle [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) özelliği, bir resimdeki yazılı metni algılayın ve tanınan karakterleri makine tarafından kullanılabilir bir karakter akışı halinde ayıklayın.
 
@@ -247,10 +247,6 @@ Başarılı bir yanıt JSON biçiminde döndürülür. Örnek uygulama aşağıd
     ]
 }
 ```
-
-## <a name="clean-up-resources"></a>Kaynakları temizleme
-
-Artık gerekli değilse Visual Studio çözümünü silin. Bunu yapmak için Dosya Gezgini’ni açın, Visual Studio çözümünü oluşturduğunuz klasöre gidin ve klasörü silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

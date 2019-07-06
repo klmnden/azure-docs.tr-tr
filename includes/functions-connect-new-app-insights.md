@@ -3,17 +3,17 @@ title: include dosyası
 description: include dosyası
 services: functions
 author: ggailey777
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 04/06/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: b6cafcfe6c892cd43f056458fe3586da834c2fd1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9c519fc2db020b8df22275c6b276c6ec23d10b1c
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67188134"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67608401"
 ---
 İşlevleri kolaylaştırır bir işlev uygulaması için Application Insights tümleştirmesi ekleme [Azure Portal].
 
@@ -27,7 +27,7 @@ ms.locfileid: "67188134"
 
     | Ayar      | Önerilen değer  | Açıklama                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Ad** | Benzersiz uygulama adı | Aboneliğinizde benzersiz işlev uygulamanızın olarak aynı adı kullanmak daha kolaydır. | 
+    | **Name** | Benzersiz uygulama adı | Aboneliğinizde benzersiz işlev uygulamanızın olarak aynı adı kullanmak daha kolaydır. | 
     | **Location** | Batı Avrupa | Mümkünse, aynı kullanın [bölge](https://azure.microsoft.com/regions/) işlev uygulamanızı veya onu yakın. |
 
 1. **Tamam**’ı seçin. Aynı kaynak grubunda ve abonelikte işlev uygulamanızı Application Insights kaynağı oluşturulur. Oluşturma işlemi tamamlandıktan sonra Application Insights penceresini kapatın.

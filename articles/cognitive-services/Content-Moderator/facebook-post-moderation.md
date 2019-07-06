@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/18/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 5d31285ca305ba7fefdf31b4a97e3183f58b3e3b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: dd06330e82850cc44bc0f4d36ba7caf596ace939
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233825"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603510"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Öğretici: Orta Facebook gönderilerinizi ve Azure Content Moderator ile komutları
 
@@ -48,11 +48,11 @@ Başvurmak [deneyin Content Moderator Web'de](quick-start.md) kaydolmak yönerge
 
 ## <a name="configure-image-moderation-workflow"></a>Görüntü denetimi iş akışını yapılandırın
 
-Başvurmak [tanımlayın ve test kullanım iş akışları](review-tool-user-guide/workflows.md) özel görüntü iş akışı oluşturma kılavuzu. Bu, otomatik olarak Facebook görüntülerinde denetleyip bazıları gözden geçirme aracı olarak göndermek Content Moderator olanak tanır. İş akışı Not **adı**.
+Başvurmak [tanımlayın ve test kullanım iş akışları](review-tool-user-guide/workflows.md) özel görüntü iş akışı oluşturma kılavuzu. Content Moderator, otomatik olarak Facebook görüntülerinde denetleyip bazıları gözden geçirme aracı olarak göndermek için bu iş akışı kullanır. İş akışı Not **adı**.
 
 ## <a name="configure-text-moderation-workflow"></a>Metin denetimi iş akışını yapılandırın
 
-Yeniden bakın [tanımlayın ve test kullanım iş akışları](review-tool-user-guide/workflows.md) Kılavuzu; bu kez, bir özel metin iş akışı oluşturun. Bu, Content Moderator'ı metin içeriği otomatik olarak denetlemek izin verir. İş akışı Not **adı**.
+Yeniden bakın [tanımlayın ve test kullanım iş akışları](review-tool-user-guide/workflows.md) Kılavuzu; bu kez, bir özel metin iş akışı oluşturun. Content Moderator, metin içeriğini otomatik olarak denetlemek için bu iş akışını kullanır. İş akışı Not **adı**.
 
 ![Metin İş Akışını Yapılandırma](images/text-workflow-configure.PNG)
 
@@ -77,7 +77,7 @@ Oturum [Azure portalında](https://portal.azure.com/) ve aşağıdaki adımları
     | cm:TextWorkflow | Metinler üzerinde çalıştırılacak iş akışının adı |
     | cm:CallbackEndpoint | Bu kılavuzda daha sonra oluşturacağınız CMListener işlev uygulaması için URL |
     | fb:VerificationToken | Oluşturduğunuz gizli bir belirteç kullanılan olayları akış Facebook abone olma |
-    | fb:PageAccessToken | Facebook graph api'si erişim belirtecinin süresi dolmaz ve işlevin sizin adınıza gönderileri Gizlemesini/Silmesini sağlar. Bu daha sonraki bir adımda alırsınız. |
+    | fb:PageAccessToken | Facebook graph api'si erişim belirtecinin süresi dolmaz ve işlevin sizin adınıza gönderileri Gizlemesini/Silmesini sağlar. Bu yöntemi belirteç daha sonraki bir adımda alırsınız. |
 
     Tıklayın **Kaydet** sayfanın üstünde düğme.
 

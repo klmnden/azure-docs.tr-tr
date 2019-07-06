@@ -3,15 +3,15 @@ title: Azure PowerShell Betiği - Azure Cosmos firma güncelleştirme
 description: Azure PowerShell betik örneği - eklenen bölge ile bir Azure Cosmos hesabı güncelleştirme
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4a695fd569459e6372465273675620cd40d7e6a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8fad9b47b4f451f4b77f32038b26d6dc43809a60
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65078288"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602276"
 ---
 # <a name="update-an-azure-cosmos-account-and-add-a-region-using-powershell"></a>Bir Azure Cosmos hesabınızı güncelleştirme ve PowerShell kullanarak bir bölge Ekle
 

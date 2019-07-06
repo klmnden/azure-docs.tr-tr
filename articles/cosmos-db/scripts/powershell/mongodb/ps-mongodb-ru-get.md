@@ -3,15 +3,15 @@ title: Azure PowerShell Betiği - Azure Cosmos DB aktarım hızı alma (RU/sn) M
 description: Azure PowerShell Betiği - Azure Cosmos DB aktarım hızı alma (RU/sn) MongoDB API'si için
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 57a58ae278f3df81218e50c4bc4d8b8c40315fdf
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 91e3d8f1240e2eebb3e1d30ee18b16299f442106
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566836"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602282"
 ---
 # <a name="get-throughput-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>Bir veritabanı veya koleksiyon için Azure Cosmos DB - MongoDB API'si için işleme (RU/s) alma
 

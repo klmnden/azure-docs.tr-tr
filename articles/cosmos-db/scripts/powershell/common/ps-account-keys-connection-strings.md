@@ -3,15 +3,15 @@ title: Azure PowerShell Betiği - hesap anahtarı ve bağlantı dize işlemleri 
 description: Azure PowerShell betik örneği - bir Azure Cosmos hesap için hesap anahtarı ve bağlantı dize işlemleri
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: a7f86bfee0ee2472260b622dc709dc437e53414c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55f28ef6c6ff82f0b82b10ac1dd7931ac46aa2fc
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247867"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602504"
 ---
 # <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>Bağlantı dizesini ve hesap işlemleri için PowerShell kullanarak bir Azure Cosmos hesap anahtarı
 

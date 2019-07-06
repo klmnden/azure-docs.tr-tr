@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 40c9fac27f45699d4c56e57480dcfde1b0ffb64d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 349ae3450b5817b5cfe9c95c41d159e3daca7a39
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815625"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603384"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Hızlı Başlangıç: Yüz tanıma REST API'si ile bir resimdeki yüz algılama veC#
 
@@ -77,7 +77,7 @@ namespace DetectFace
 
 ### <a name="receive-image-input"></a>Görüntü girişi alma
 
-Aşağıdaki kodu ekleyin **ana** yöntemi **Program** sınıfı. Bu, konsola bir resim URL'si girmesini isteyen bir istem yazar. Başka bir yöntem çağırdığı sonra **MakeAnalysisRequest**, bu konumdaki görüntüyü işlemek için.
+Aşağıdaki kodu ekleyin **ana** yöntemi **Program** sınıfı. Bu kod, bir komut istemi bir resim URL'si girmesini isteyen konsola yazar. Başka bir yöntem çağırdığı sonra **MakeAnalysisRequest**, bu konumdaki görüntüyü işlemek için.
 
 ```csharp
         static void Main(string[] args)
@@ -162,7 +162,7 @@ Aşağıdaki adımlarda yardımcı yöntemler tanımlayacaksınız.
 
 ### <a name="process-the-input-image-data"></a>Girdi görüntüsünün verilerini işleme
 
-**Program** sınıfına aşağıdaki yöntemi ekleyin. Bu görüntüyü belirtilen URL'deki Bayt dizisine dönüştürür.
+**Program** sınıfına aşağıdaki yöntemi ekleyin. Bu yöntem, belirtilen URL'deki görüntüyü bir bayt dizisine dönüştürür.
 
 ```csharp
         // Returns the contents of the specified file as a byte array.
@@ -179,7 +179,7 @@ Aşağıdaki adımlarda yardımcı yöntemler tanımlayacaksınız.
 
 ### <a name="parse-the-json-response"></a>JSON yanıtı ayrıştırılamadı
 
-**Program** sınıfına aşağıdaki yöntemi ekleyin. Bu, daha kolay okunabilir olması için giriş JSON biçimlendirir. Uygulamanız bu dize verileri konsola yazar. Ardından, ad alanı ve sınıf kapatabilirsiniz.
+**Program** sınıfına aşağıdaki yöntemi ekleyin. Bu yöntem, daha kolay okunabilir olması için giriş JSON biçimlendirir. Uygulamanız bu dize verileri konsola yazar. Ardından, ad alanı ve sınıf kapatabilirsiniz.
 
 ```csharp
         // Formats the given JSON string by adding line breaks and indents.

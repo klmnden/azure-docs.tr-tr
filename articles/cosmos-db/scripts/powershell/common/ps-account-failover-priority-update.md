@@ -3,15 +3,15 @@ title: Azure PowerShell Betiği - Azure Cosmos hesabınız için değişiklik y�
 description: Azure PowerShell betik örneği - Azure Cosmos hesabınız için değişiklik yük devretme öncelik
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 785ca8941c24014fd00d8135b66cefccd99d2951
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 0aea4e8e01b5f65be0d0ca4bb08082e058cba311
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561212"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603969"
 ---
 # <a name="change-failover-priority-for-an-azure-cosmos-account-using-powershell"></a>Bir Azure Cosmos hesabının PowerShell kullanılarak yük devretme önceliğini değiştirmek
 

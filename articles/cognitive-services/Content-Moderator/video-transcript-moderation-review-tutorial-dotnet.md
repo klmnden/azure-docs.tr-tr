@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 4a28e9f1f911e274f9a53275afa577024405b336
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: b210af2a70a3ce858d8f53102a181c75373b4176
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474689"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606939"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Öğretici: Video ve transkript moderasyonu
 
@@ -37,7 +37,7 @@ Bu öğretici şunların nasıl yapıldığını gösterir:
 - Kaydolun [Content Moderator İnceleme aracı](https://contentmoderator.cognitive.microsoft.com/) web sitesi ve özel etiketler oluşturma. Bkz: [etiketleri kullanmak](Review-Tool-User-Guide/tags.md) bu adımla ilgili yardıma ihtiyacınız varsa.
 
     ![Video denetimi özel etiketler ekran görüntüsü](images/video-tutorial-custom-tags.png)
-- Örnek uygulamayı çalıştırmak için bir Azure hesabı, bir Azure Media Services kaynağı, bir Azure Content Moderator kaynak ve Azure Active Directory kimlik bilgileri gerekir. Bu alma hakkında yönergeler için bkz: [Video denetimi API'si](video-moderation-api.md) Kılavuzu.
+- Örnek uygulamayı çalıştırmak için bir Azure hesabı, bir Azure Media Services kaynağı, bir Azure Content Moderator kaynak ve Azure Active Directory kimlik bilgileri gerekir. Bu kaynakları alma hakkında yönergeler için bkz: [Video denetimi API'si](video-moderation-api.md) Kılavuzu.
 - İndirme [Video gözden geçirme konsol uygulaması](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) gelen GitHub.
 
 ## <a name="enter-credentials"></a>Kimlik bilgilerini girin
@@ -225,7 +225,7 @@ Video denetimi işinin sonucu (Bkz. [video denetimine hızlı başlangıç](vide
 > [!NOTE]
 > Konsol uygulaması karşıya yüklenen videonun ses parçasından transkriptleri oluşturmak için [Azure Media Indexer API'sini](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) kullanır. Sonuçlar WebVTT biçiminde sağlanır. Bu biçimle ilgili daha fazla bilgi için bkz. [Web Video Metin Parçaları Biçimi](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
 
-## <a name="create-a-the-human-in-the-loop-review"></a>Oluşturma bir insan içinde--döngüsü gözden geçirme
+## <a name="create-a-human-review"></a>İnsan tarafından İnceleme oluşturma
 
 Denetleme işlemi videodaki anahtar karelerin listesini ve ses parçalarının transkriptini döndürür. Sonraki adım, insan denetleyiciler için Content Moderator inceleme aracında bir inceleme oluşturmaktır. `Program.cs` dosyasında `ProcessVideo()` yöntemine döndüğünüzde, `CreateVideoReviewInContentModerator()` yöntemine yapılan çağrıyı görürsünüz. Bu yöntem `VideoReviewAPI.cs` içinde yer alan `videoReviewApi` sınıfındadır ve aşağıda gösterilmiştir.
 

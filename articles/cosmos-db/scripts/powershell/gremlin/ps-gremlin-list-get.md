@@ -3,15 +3,15 @@ title: Azure PowerShell Betiği - Azure Cosmos DB listelemek ve Gremlin API işl
 description: Azure PowerShell Betiği - Azure Cosmos DB listelemek ve Gremlin API işlemleri Al
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 507c17d62473ee8f9166ef822ef0f6fa4ae8008e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab13b867efc073b8dffc7d9eb33ce4596bdf4099
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247507"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603935"
 ---
 # <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---gremlin-api"></a>Liste ve Azure Cosmos DB - Gremlin API veritabanları ve grafikler
 

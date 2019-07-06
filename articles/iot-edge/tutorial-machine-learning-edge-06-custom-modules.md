@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6c4636fe370a4046b1c5020aee249529f1498639
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 16c32fc14805ac8ae1412671b2bb400456b4ab7d
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155514"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603640"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Öğretici: Oluşturma ve dağıtma özel IOT Edge modülleri
 
@@ -245,17 +245,17 @@ Yukarıda belirtildiği gibi yapılandırılan yollar IOT Edge çalışma zaman�
 3. Sonraki iletiler için bir rota rulClassifier modülünden turbofanRouter modülünü ekleyin:
 
    ```json
-   "classifierToRouter": "FROM /messages/modules/classifier/outputs/amloutput INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/rulInput\")"
+   "classifierToRouter": "FROM /messages/modules/turbofanRulClassifier/outputs/amloutput INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/rulInput\")"
    ```
 
-#### <a name="outputs"></a>Çıkışlar
+#### <a name="outputs"></a>outputs
 
 Dört ek yolları yönlendirici modül çıkışları işlemek için $edgeHub rota parametresi ekleyin.
 
 1. Program.cs modülü istemci yol kullanılarak RUL sınıflandırıcı ileti göndermek için kullandığı SendMessageToClassifier() yöntemi tanımlar:
 
    ```json
-   "routerToClassifier": "FROM /messages/modules/turbofanRouter/outputs/classOutput INTO BrokeredEndpoint(\"/modules/classifier/inputs/amlInput\")"
+   "routerToClassifier": "FROM /messages/modules/turbofanRouter/outputs/classOutput INTO BrokeredEndpoint(\"/modules/turbofanRulClassifier/inputs/amlInput\")"
    ```
 
 2. SendRulMessageToIotHub() modülü istemci rota aracılığıyla IOT hub'ına cihaz için yalnızca RUL veri göndermek için kullanır:

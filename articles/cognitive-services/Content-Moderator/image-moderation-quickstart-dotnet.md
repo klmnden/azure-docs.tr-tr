@@ -1,25 +1,25 @@
 ---
 title: 'Hızlı Başlangıç: Uygunsuz içeriği görüntüleri analiz ederek C# -Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: .NET için Content Moderator SDK'sını kullanarak çeşitli uygunsuz malzemeler için görüntü içeriğini analiz etme
+description: .NET için içerik Moderator SDK'sını kullanarak çeşitli uygunsuz malzemeler için görüntü içeriği analiz etme
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 03/20/2019
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 9cc18ce1fde5de354e3da5e384c08ada1927d097
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d9a28dcd4af68cf9c00eb3d338c4bd83c8d89ecc
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699078"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604127"
 ---
 # <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>Hızlı Başlangıç: Uygunsuz içeriği görüntüleri analiz edinC#
 
-Bu makalede, [.NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) için Content Moderator SDK'sını kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri sağlanır. Uygunsuz olabilecek malzemeyi azaltmak amacıyla yetişkinlere yönelik veya müstehcen içeriği, ayıklanabilir metinleri ve insan yüzlerini taramayı öğreneceksiniz.
+Bu makalede, [.NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) için Content Moderator SDK'sını kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri sağlanır. Yetişkinlere yönelik veya müstehcen içerik, ayıklanan metin ve potansiyel olarak içeriklere yönetme bir yandan İnsan yüzlerini taraması öğreneceksiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
 
@@ -60,7 +60,7 @@ Aboneliğinize bir Content Moderator istemci sağlayıcısı oluşturmak için a
 
 ### <a name="set-up-input-and-output-targets"></a>Giriş ve çıkış hedeflerini ayarlama
 
-Aşağıdaki statik alanları _Program.cs_ dosyasındaki **Program** sınıfına ekleyin. Bunlar, giriş görüntü içeriğiyle çıkış JSON içeriğinin dosyalarını belirtir.
+Aşağıdaki statik alanları _Program.cs_ dosyasındaki **Program** sınıfına ekleyin. Bu alanlar, giriş görüntü içerik için dosyaları belirtin ve JSON içeriği çıktı.
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=49-53)]
 
@@ -86,13 +86,13 @@ Aynı ad alanında *Program* sınıfıyla birlikte **Program.cs** dosyasına aş
 
 ### <a name="load-the-input-images"></a>Giriş görüntülerini yükleme
 
-Aşağıdaki kodu **Program** sınıfındaki **Main** yöntemine ekleyin. Bu, giriş dosyasındaki her görüntü URL'sinin değerlendirme verilerini alacak şekilde programı ayarlar. Ardından bu verileri tek bir çıkış dosyasına yazar.
+Aşağıdaki kodu **Program** sınıfındaki **Main** yöntemine ekleyin. Bu kod girdi dosyasındaki her bir resim URL'si için değerlendirme verileri almak üzere programı ayarlar. Ardından bu verileri tek bir çıkış dosyasına yazar.
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=17-46)]
 
 ## <a name="run-the-program"></a>Programı çalıştırma
 
-Program JSON dize verilerini _ModerationOutput.json_ dosyasına yazacaktır. Bu hızlı başlangıçta kullanılan örnek görüntüler aşağıdaki çıkışı verir. Her görüntünün `ImageModeration`, `FaceDetection` ve `TextDetection` bölümleri farklıdır ve bunlar **EvaluateImage** yönteminizdeki üç API çağrısı için kullanılır.
+Program JSON dize verilerini _ModerationOutput.json_ dosyasına yazacaktır. Bu hızlı başlangıçta kullanılan örnek görüntüler aşağıdaki çıkışı verir. Her bir görüntü için farklı bölümlere sahip `ImageModeration`, `FaceDetection`, ve `TextDetection`, karşılık üç API çağrısı, **EvaluateImage** yöntemi.
 
 ```json
 [{

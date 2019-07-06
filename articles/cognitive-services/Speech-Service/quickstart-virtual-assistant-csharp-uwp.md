@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: travisw
-ms.custom: ''
-ms.openlocfilehash: 4044f8d48efae4e8423f780c85e0f3ccfde12461
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 22c18b573e7107163f858c79956ca6f5380f6834
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467050"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604969"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Hızlı Başlangıç: Ses öncelikli sanal asistan UWP konuşma SDK ile oluşturma
 
@@ -81,7 +80,7 @@ Bu hızlı başlangıçta, adım adım konuşma özellikli botunuzun bağlanmak 
     </Page>
     ```
 
-1. Arka plan kod kaynak dosyasını açın `MainPage.xaml.cs`. Altında gruplandırılmış bulabilirsiniz `MainPage.xaml`. İçeriğini aşağıdaki kodla değiştirin. Neleri kapsar Bu örnek aşağıda verilmiştir: 
+1. Arka plan kod kaynak dosyasını açın `MainPage.xaml.cs`. Altında gruplandırılmış bulabilirsiniz `MainPage.xaml`. İçeriğini aşağıdaki kodla değiştirin. Neleri kapsar Bu örnek aşağıda verilmiştir:
 
     * Konuşma ve Speech.Dialog ad alanları için using deyimleri
     * Mikrofon erişimi, bir düğme işleyicisi için kablolu emin olmak için basit bir uygulama

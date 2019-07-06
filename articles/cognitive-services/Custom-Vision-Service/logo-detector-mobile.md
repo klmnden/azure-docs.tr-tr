@@ -8,18 +8,18 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 51b2cd42fabe6406f88388e99459a6f3dd3e69f5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: b4b10591069b71a4e70769f5bdcd6149768c5007
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827646"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604015"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Öğretici: Azure hizmeti logo kameradan resim tanıma
 
-Bu öğreticide, daha büyük bir senaryonun parçası olarak Azure özel görüntü işleme kullanan bir örnek uygulama hakkında bilgi edineceksiniz. Yapay ZEKA Visual sağlama uygulaması, mobil platformlar için Xamarin.Forms uygulaması, Azure hizmet logoları kamera resimlerini analiz eder ve sonra kullanıcının Azure hesabı için gerçek Hizmetleri dağıtır. Burada, özel görüntü işleme diğer bileşenleri ile koordinasyon halinde kullanışlı bir uçtan uca uygulama sunun için nasıl kullandığını öğreneceksiniz. Kendiniz için tüm uygulama senaryosu çalıştırmak veya yalnızca özel görüntü işleme kurulumun bir parçası tamamlayın ve uygulama bunu nasıl kullandığını keşfedin.
+Bu öğreticide, daha büyük bir senaryonun parçası olarak Azure özel görüntü işleme kullanan bir örnek uygulama hakkında bilgi edineceksiniz. Yapay ZEKA Visual sağlama uygulaması, mobil platformlar için Xamarin.Forms uygulaması, Azure hizmet logoları kamera resimlerini analiz eder ve sonra kullanıcının Azure hesabı için gerçek Hizmetleri dağıtır. Burada, özel görüntü işleme diğer bileşenleri ile koordinasyon halinde kullanışlı bir uçtan uca uygulama sunun için nasıl kullandığını öğreneceksiniz. Kendiniz için tüm uygulama senaryosu çalıştırabilirsiniz veya Kurulum yalnızca özel görüntü işleme bölümünü tamamlayın ve uygulama bunu nasıl kullandığını keşfedin.
 
 Bu öğreticide şunları nasıl yapacağınızı gösterilecek:
 
@@ -51,7 +51,7 @@ Oturum [Custom Vision Web sitesi](https://customvision.ai/) ve yeni bir proje ol
 
 Ardından, Azure hizmet logoları görüntüleri karşıya yükleme ve bunları el ile etiketleme logosu algılama algoritması eğitin. AIVisualProvision depo kullanabileceğiniz eğitim görüntü kümesi içerir. Web sitesinde seçin **görüntüleri ekleme** düğmesini **eğitim resmi** sekmesi. Ardından **belgeleri/resimler/Training_DataSet** depo klasörü. El ile her bir resim, logolar etiketlemek ihtiyacınız olacak şekilde bu projeyi yalnızca test ediyorsanız, yalnızca bir alt kümesini görüntüleri karşıya yüklemek isteyebilirsiniz. Kullanmayı planladığınız her etiket en az 15 örnekleri yükleyin.
 
-Eğitim resmi karşıya yüklenmesinin ardından, ilk bir görüntü seçin. Bu etiketleme penceresi açılır. Kutularında çizme ve her logo her görüntü için etiketler atayabilirsiniz. 
+Eğitim resmi karşıya yüklenmesinin ardından, ilk bir görüntü seçin. Etiketleme penceresi görüntülenir. Kutularında çizme ve her logo her görüntü için etiketler atayabilirsiniz. 
 
 ![Özel görüntü işleme Web sitesinde etiketleme logosu](media/azure-logo-tutorial/tag-logos.png)
 
@@ -63,13 +63,13 @@ Görüntü etiketi sonra bir sonraki etiket için sağa gidin. İşiniz bittiği
 
 ## <a name="train-the-object-detector"></a>Nesne algılayıcısı eğitin
 
-Sol bölmede ayarlamak **etiketleri** geçin **etiketli** görüntülerinizi görüntülenecek. Sonra modeli eğitmek için sayfanın üst kısmındaki yeşil düğmeyi seçin. Bunun yapılması, yeni görüntüleri aynı etiketleri tanımak için algoritma sağlanır. Ayrıca bazı doğruluğu puanları oluşturmak için var olan görüntülerinizin modeli test eder.
+Sol bölmede ayarlamak **etiketleri** geçin **etiketli** görüntülerinizi görüntülenecek. Sonra modeli eğitmek için sayfanın üst kısmındaki yeşil düğmeyi seçin. Algoritma yeni görüntüleri aynı etiketleri tanıyacak şekilde eğitme. Ayrıca bazı doğruluğu puanları oluşturmak için var olan görüntülerinizin modeli test eder.
 
 ![Custom Vision eğitim resmi sekmesinde Web. Bu ekran görüntüsünde, eğit düğmesine ana hatlarıyla açıklanmıştır](media/azure-logo-tutorial/train-model.png)
 
 ## <a name="get-the-prediction-url"></a>Tahmin URL'sini alma
 
-Modelinizi eğitildi sonra uygulamanızla tümleştirmek hazır olursunuz. Bunu yapmak için uç nokta URL'si (uygulama sorgular modelinizin adresi) ve tahmin anahtarı (tahmin isteği için uygulama erişimi vermek için) almanız gerekir. Üzerinde **performans** sekmesinde **tahmin URL** sayfanın üstünde düğme.
+Modelinizi eğitildi sonra uygulamanızla tümleştirmek hazır olursunuz. Uç nokta URL'si (uygulama sorgular modelinizin adresi) ve tahmin anahtarı (tahmin isteği için uygulama erişimi vermek için) almanız gerekir. Üzerinde **performans** sekmesinde **tahmin URL** sayfanın üstünde düğme.
 
 ![Bir URL adresi ve API anahtarı görüntüleyen Prediction API'deki pencere gösteren özel görüntü işleme Web sitesi](media/azure-logo-tutorial/cusvis-endpoint.png)
 
@@ -95,7 +95,7 @@ Custom Vision bölümü öğreticinin tamamlanmış demektir. Uygulamayı çalı
 
 Görüntü işleme hizmeti için bir anahtarı ve uç nokta URL'si almak için abone olun. Bu adım hakkında daha fazla yardım için bkz: [Abonelik anahtarları edinme](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe).
 
-![Azure portalında, seçili Hızlı Başlangıç menüsünde görüntü işleme hizmeti. API uç nokta URL'si olarak bir bağlantı anahtarları için özetlenen](media/azure-logo-tutorial/comvis-keys.png)
+![Azure portalında, seçili Hızlı Başlangıç menüsü ile görüntü işleme hizmeti. API uç nokta URL'si olarak bir bağlantı anahtarları için özetlenen](media/azure-logo-tutorial/comvis-keys.png)
 
 Ardından, açık *Source\VisualProvision\AppSettings.cs* dosya ve doldurma `ComputerVisionEndpoint` ve `ComputerVisionKey` doğru değerlere sahip değişkenler.
 

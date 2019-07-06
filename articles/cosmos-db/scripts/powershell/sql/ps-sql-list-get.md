@@ -3,15 +3,15 @@ title: Azure PowerShell Betiği - Azure Cosmos DB listelemek ve SQL (çekirdek) 
 description: Azure PowerShell Betiği - Azure Cosmos DB listelemek ve SQL (çekirdek) API işlemleri Al
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: a2bcf8a123ffd19c84e2d39b38d0c9612ba43afb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4c82f1ffffe5149960f710252ec8dfe967ffbe2b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247357"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603823"
 ---
 # <a name="list-and-get-databases-and-containers-for-azure-cosmos-db---sql-core-api"></a>Liste ve Azure Cosmos DB - SQL (çekirdek) API veritabanları ve kapsayıcıları Al
 

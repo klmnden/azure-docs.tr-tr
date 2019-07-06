@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 52faef37dbd9a3ce324db9665f04d6ac9b223d9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6583db5b1403f70593d586a610f4d06be15c729b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815305"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603350"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Hızlı Başlangıç: Ruby ve REST API ile bir resimdeki yüz algılama
 
@@ -28,7 +28,7 @@ Bu hızlı başlangıçta, bir resimdeki İnsan yüzlerini algılamak için Ruby
 
 ## <a name="write-the-script"></a>Komut dosyası yazma
 
-Yeni bir dosya oluşturun _faceDetection.rb_ve aşağıdaki kodu ekleyin. Bu, belirli bir görüntü URL'sini yüz tanıma API'sini çağırır.
+Yeni bir dosya oluşturun _faceDetection.rb_ve aşağıdaki kodu ekleyin. Bu kod, yüz tanıma API'si belirtilen görüntü URL'sini çağırır.
 
 ```ruby
 require 'net/http'
@@ -64,7 +64,7 @@ puts response.body
 
 Güncellemeniz gerekecektir `request['Ocp-Apim-Subscription-Key']` abonelik anahtarınız ve bir değerle değiştirmek gerekebilir `uri` doğru bölge tanımlayıcısı içeren dize (bkz [yüz tanıma API'si belgeleri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) tüm bölge uç noktalar listesi) . 
 
-Değiştirmek isteyebilirsiniz `imageUri` kendi giriş görüntüsünü işaret özgüdür. Ayrıca chang için hazırlandığını `returnFaceAttributes` alanı almak için hangi yüz öznitelikleri belirtir.
+Değiştirmek isteyebilirsiniz `imageUri` kendi giriş görüntüsünü işaret özgüdür. Değiştirmek isteyebilirsiniz `returnFaceAttributes` alanı almak için hangi yüz öznitelikleri belirtir.
 
 ## <a name="run-the-script"></a>Betiği çalıştırın
 
@@ -74,7 +74,7 @@ Ruby betiğini ile aşağıdaki komutu çalıştırın:
 ruby faceDetection.rb
 ```
 
-Konsola yazdırılmasını algılanan yüz veri JSON dizesi görmeniz gerekir. Başarılı bir JSON yanıtı örneği verilmiştir.
+Konsola yazdırılmasını algılanan yüz veri JSON dizesi görmeniz gerekir. Aşağıdaki metni, başarılı bir JSON yanıtı örneğidir.
 
 ```json
 [

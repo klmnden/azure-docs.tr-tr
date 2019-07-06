@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: c45fd508c14c368c6c9057b9fdeea8df9d8a52c3
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 4be33f781dec93fd9fe1b1846322672266cd7350
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905693"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606903"
 ---
 # <a name="what-is-the-azure-face-api"></a>Azure Yüz Tanıma API’si nedir?
 
@@ -59,11 +59,11 @@ Gruplama API'si, bilinmeyen bir dizi yüzü benzerlik temelinde birkaç gruba ay
 
 Tanımlamak API, algılanan bir yüz kişinin bir veritabanında tanımlamak için kullanılır. Bu özellik, fotoğraf Yönetimi yazılım otomatik görüntü etiketleme için yararlı olabilir. Veritabanını önceden oluşturmak ve zaman içinde düzenleyebilirsiniz.
 
-Aşağıdaki görüntüde "myfriends." adlı bir veritabanı örneği gösterilmektedir. Her grup, 1 milyona kadar farklı kişi nesnelerini içerebilir. Her kişi nesnesinde en fazla 248 kayıtlı yüz olabilir.
+Adlı bir veritabanı örneği aşağıdaki resimde gösterilmektedir `"myfriends"`. Her grup, 1 milyona kadar farklı kişi nesnelerini içerebilir. Her kişi nesnesinde en fazla 248 kayıtlı yüz olabilir.
 
 ![Her üç satır yüz görüntülerin farklı kişiler için üç sütun içeren bir kılavuz](./Images/person.group.clare.jpg)
 
-Bir veritabanı oluşturulur ve eğitim sonra yeni algılanan yüzleri gruba göre tanımlama gerçekleştirebilirsiniz. Yüz, grupta bir kişi olarak belirlenirse kişi nesnesi döndürülür.
+Oluşturma ve bir veritabanı eğitimi sonra yeni algılanan yüzleri gruba göre tanımlama gerçekleştirebilirsiniz. Yüz, grupta bir kişi olarak belirlenirse kişi nesnesi döndürülür.
 
 Kişileri tanımlama hakkında daha fazla bilgi için bkz. [yüz tanıma](concepts/face-recognition.md) Kavramları kılavuzu veya [tanımlamak API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) başvuru belgeleri.
 

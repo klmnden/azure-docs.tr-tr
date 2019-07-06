@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: feebca23e38596cff67e07f64e7acf1f7b6252e9
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 98c37d4a39235e5ed1a82df72886d196cbf19e49
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467435"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605033"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-ios-using-the-speech-sdk"></a>Hızlı Başlangıç: Speech SDK'sı kullanarak iOS swift'te konuşma tanıma
 
@@ -86,4 +86,3 @@ Takip eden iletişim kutularında, aşağıdaki seçimleri yapın:
 
 > [!div class="nextstepaction"]
 > [Github'da örneklerimizi keşfedin](https://aka.ms/csspeech/samples)
-

@@ -1,25 +1,25 @@
 ---
 title: 'Hızlı Başlangıç: İçerik, metin analizi C# -Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: .NET için Content Moderator SDK'sını kullanarak çeşitli uygunsuz malzemeler için metin içeriğini analiz etme
+description: .NET için içerik Moderator SDK'sını kullanarak çeşitli uygunsuz malzemeler için metin içeriği analiz etme
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 09fd58fa33873c06ac5dab4970af199bc3030479
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f848ea0d1c86b9c12d26c59b8f0e92d1e5d70094
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756541"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604054"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Hızlı Başlangıç: Metin içeriği için içeriklere analiz edinC#
 
-Bu makalede, [.NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) için Content Moderator SDK'sını kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri sağlanır. Uygunsuz olabilecek malzemeleri yönetmek için terim tabanlı filtreleme ve metin içeriğini sınıflandırma işlemlerini yürütmeyi öğreneceksiniz.
+Bu makalede, [.NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) için Content Moderator SDK'sını kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri sağlanır. Terim tabanlı filtreleme ve potansiyel olarak içeriklere yönetme, bir yandan içerik metin sınıflandırma yürütmek öğreneceksiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
 
@@ -57,11 +57,11 @@ Aboneliğinize bir Content Moderator istemci sağlayıcısı oluşturmak için a
 
 ### <a name="set-up-input-and-output-targets"></a>Giriş ve çıkış hedeflerini ayarlama
 
-Aşağıdaki statik alanları _Program.cs_ dosyasındaki **Program** sınıfına ekleyin. Bunlar, giriş metin içeriğiyle çıkış JSON içeriğinin dosyalarını belirtir.
+Aşağıdaki statik alanları _Program.cs_ dosyasındaki **Program** sınıfına ekleyin. Bu alanlar, giriş metni içerik için dosyaları belirtin ve JSON içeriği çıktı.
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=15-19)]
 
-*TextFile.txt* giriş dosyasını oluşturmanız ve yolunu uygun şekilde güncelleştirmeniz gerekir (göreli yollar, yürütme dizinine göre belirlenir). _TextFile.txt_ dosyasını açın ve yönetilecek metni ekleyin. Bu hızlı başlangıçta aşağıdaki örnek metin kullanılır:
+Oluşturmak ihtiyacınız olacak *TextFile.txt* giriş dosyası ve (yolları olduğundan yürütme dizinine göreli) yolu güncelleştirin. _TextFile.txt_ dosyasını açın ve yönetilecek metni ekleyin. Bu hızlı başlangıçta aşağıdaki örnek metin kullanılır:
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.

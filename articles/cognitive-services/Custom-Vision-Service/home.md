@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 50935aca20af931eec63717921ef7a73267d2373
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8a5dd16948724e3a79863450212702aa8aeb2347
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60996651"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605134"
 ---
 # <a name="what-is-azure-custom-vision"></a>Azure Özel Görüntü İşleme nedir?
 
@@ -31,9 +31,9 @@ Azure özel görüntü işleme oluşturmanızı, dağıtmanızı ve kendi resim 
 
 ### <a name="optimization"></a>İyileştirme
 
-Özel görüntü işleme hizmeti, görüntüleri arasındaki başlıca farklar hızlı bir şekilde tanımak için optimize edilmiştir. Bu, prototip oluşturma başlamak için az miktarda veriniz modelinizi sağlar. 50 etikete göre genellikle iyi bir başlangıç görüntüleridir. Ancak bu durumda hizmet, görüntülerdeki küçük farklılıkları algılamak (kalite denetimi senaryolarında küçük çatlakların veya eziklerin algılanması gibi) için en uygun durumda olmayacaktır.
+Özel görüntü işleme hizmeti, az miktarda veriniz modelinizi prototip oluşturma başlatabilmeniz görüntüleri arasındaki başlıca farklar hızlı bir şekilde tanımak için optimize edilmiştir. 50 etikete göre genellikle iyi bir başlangıç görüntüleridir. Ancak, hizmeti (örneğin, kalite güvencesi senaryolarda küçük kırık veya onarmayacaktır algılama) görüntüler küçük farklılıklar algılamak için en uygun değil.
 
-Ayrıca, özel görüntü işleme algoritması belirli malzemeyi görüntülerle için optimize edilmiş çeşitli çeşitleri aralarından seçim yapabileceğiniz&mdash;yer işareti veya perakende öğeleri. Bu konuda daha fazla bilgi için [Sınıflandırıcı oluşturma](getting-started-build-a-classifier.md) belgesine bakın.
+Ayrıca, özel görüntü işleme algoritması belirli malzemeyi görüntülerle için optimize edilmiş çeşitli çeşitleri aralarından seçim yapabileceğiniz&mdash;yer işareti veya perakende öğeleri. Daha fazla bilgi için [sınıflandırıcı oluşturma](getting-started-build-a-classifier.md) Kılavuzu.
 
 ## <a name="what-it-includes"></a>Neleri içerir
 

@@ -3,16 +3,16 @@ title: Oluşturma ve Azure Cosmos DB PowerShell kullanarak yönetme
 description: Azure Powershell kullanarak, Azure Cosmos DB hesapları, veritabanları, kapsayıcıları ve aktarım hızı yönetin.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 40f041f1b41077824aa3141f6196901b51415c35
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 28fa20a151bd4f3ee7ba9bedf9903827316c3eff
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565911"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602586"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>PowerShell kullanarak Azure Cosmos DB SQL API kaynaklarını yönetme
 

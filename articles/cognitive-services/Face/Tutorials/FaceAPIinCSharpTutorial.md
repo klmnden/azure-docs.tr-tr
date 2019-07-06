@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 02/06/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 6a60afc45894518f92115976876ddd50efa1e410
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54069fbaa8ad06d257ab835ed3b170fecb76d800
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815369"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603337"
 ---
 # <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Öğretici: Bir resimdeki yüz verileri görüntülemek için bir WPF uygulaması oluşturma
 
-Bu öğreticide, Azure yüz tanıma API'si, .NET İstemci SDK'sı ile bir resimdeki yüz algılama ve ardından bu verileri kullanıcı Arabiriminde sunmak için nasıl kullanılacağını öğreneceksiniz. Durum çubuğunda yüzü açıklamasını görüntüler yüzleri algılar ve her yüz etrafında bir çerçeve çizen basit bir Windows Presentation Framework (WPF) uygulaması oluşturacaksınız. 
+Bu öğreticide, Azure yüz tanıma API'si, .NET İstemci SDK'sı ile bir resimdeki yüz algılama ve ardından bu verileri kullanıcı Arabiriminde sunmak için nasıl kullanılacağını öğreneceksiniz. Yüzleri algılar, her yüz etrafında bir çerçeve çizer ve durum çubuğunda yüzü açıklamasını görüntüler bir Windows Presentation Framework (WPF) uygulaması oluşturacaksınız. 
 
 Bu öğretici şunların nasıl yapıldığını gösterir:
 
@@ -46,7 +46,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Yeni bir WPF uygulaması projesi oluşturmak için aşağıdaki adımları izleyin.
 
-1. Visual Studio'da yeni proje iletişim kutusunu açın. Genişletin **yüklü**, ardından **Visual C#** , ardından **WPF uygulaması (.NET Framework)**.
+1. Visual Studio'da yeni proje iletişim kutusunu açın. Genişletin **yüklü**, ardından **Visual C#** , ardından **WPF uygulaması (.NET Framework)** .
 1. Uygulamaya **FaceTutorial** adını verin ve **Tamam**'a tıklayın.
 1. Gereken NuGet paketlerini alın. Çözüm Gezgini'nde projenize sağ tıklayıp **NuGet paketlerini Yönet**; ardından, bulun ve aşağıdaki paketi yükleyin:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
@@ -57,7 +57,7 @@ Bu bölümde, yüz tanıma özgü özelliklerini gerekmeden uygulamayı temel ç
 
 ### <a name="create-the-ui"></a>Kullanıcı Arabirimi oluşturma
 
-Açık *MainWindow.xaml* ve içeriğini aşağıdaki kodla değiştirin&mdash;bu UI pencere oluşturur. Unutmayın `FacePhoto_MouseMove` ve `BrowseButton_Click` olay işleyicileri, daha sonra tanımlayacaksınız.
+Açık *MainWindow.xaml* ve içeriğini aşağıdaki kodla değiştirin&mdash;UI pencere bu kodu oluşturur. `FacePhoto_MouseMove` Ve `BrowseButton_Click` yöntemlerdir olay işleyicileri, daha sonra tanımlayacaksınız.
 
 [!code-xaml[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml?range=1-18)]
 
@@ -67,7 +67,7 @@ Açık *MainWindow.xaml.cs* ve diğer gerekli ad alanları ile birlikte istemci 
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=1-12)]
 
-Ardından, aşağıdaki kodda Ekle **MainWindow** sınıfı. Bu, oluşturur bir **FaceClient** kendiniz girin abonelik anahtarını kullanarak örneği. Bölge dizesi de ayarlamanız gerekir `faceEndpoint` aboneliğiniz için doğru bir bölgeye (bkz [yüz tanıma API'si belgeleri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) tüm bölge uç noktalar listesi).
+Ardından, aşağıdaki kodda Ekle **MainWindow** sınıfı. Bu kod oluşturur bir **FaceClient** kendiniz girin abonelik anahtarını kullanarak örneği. Bölge dize kümesi'nde gerek `faceEndpoint` aboneliğiniz için doğru bir bölgeye (bkz [yüz tanıma API'si belgeleri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) tüm bölge uç noktalar listesi).
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=18-46)]
 
@@ -75,7 +75,7 @@ Ardından aşağıdaki kodu yapıştırın **MainWindow** yöntemi.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=50-61)]
 
-Son olarak, ekleme **BrowseButton_Click** ve **FacePhoto_MouseMove** sınıfı yöntemleri. Bu olay işleyicileri içinde bildirilen karşılık *MainWindow.xaml*. **BrowseButton_Click** yöntemi oluşturur bir **OpenFileDialog**, kullanıcının bir .jpg görüntüsü seçmesine olanak sağlar. Daha sonra görüntüyü ana penceresinde görüntüler. Kalan kodunu ekleyecek **BrowseButton_Click** ve **FacePhoto_MouseMove** sonraki adımlarda. Ayrıca unutmayın `faceList` başvuru&mdash;listesini **DetectedFace** nesneleri. Uygulamanızı nerede ve depolamak çağrı gerçek yüz verileri budur.
+Son olarak, ekleme **BrowseButton_Click** ve **FacePhoto_MouseMove** sınıfı yöntemleri. Bu yöntemler bildirilen olay işleyicileri karşılık *MainWindow.xaml*. **BrowseButton_Click** yöntemi oluşturur bir **OpenFileDialog**, kullanıcının bir .jpg görüntüsü seçmesine olanak sağlar. Daha sonra görüntüyü ana penceresinde görüntüler. Kalan kodunu ekleyecek **BrowseButton_Click** ve **FacePhoto_MouseMove** sonraki adımlarda. Ayrıca unutmayın `faceList` başvuru&mdash;listesini **DetectedFace** nesneleri. Bu, uygulamanız nerede ve depolamak çağrı gerçek yüz verileri başvurudur.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=64-90,146)]
 
@@ -91,19 +91,19 @@ Uygulamanızı test etmek için menüde **Başlat**'a basın. Uygulama penceresi
 
 Uygulamanızı çağırarak yüzleri algılar **FaceClient.Face.DetectWithStreamAsync** sarmalar yöntemi [Algıla](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) yerel görüntü yüklemek için REST API.
 
-Aşağıdaki yöntemi ekleyin **MainWindow** sınıfı, aşağıda **FacePhoto_MouseMove** yöntemi. Bu bir listesini almak için yüz öznitelikleri tanımlar ve gönderilen resim dosyasına okuyan bir **Stream**. Hem de bu nesnelere geçtikten sonra **DetectWithStreamAsync** yöntem çağrısı.
+Aşağıdaki yöntemi ekleyin **MainWindow** sınıfı, aşağıda **FacePhoto_MouseMove** yöntemi. Bu yöntem bir listesini almak için yüz öznitelikleri tanımlar ve gönderilen resim dosyasına okuyan bir **Stream**. Hem de bu nesnelere geçtikten sonra **DetectWithStreamAsync** yöntem çağrısı.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=189-226)]
 
 ## <a name="draw-rectangles-around-faces"></a>Yüzleri dikdörtgenler çizme
 
-Sonra görüntüde algılanan her yüz çevresinde bir dikdörtgen çizmek için kod ekleyeceksiniz. İçinde **MainWindow** sınıfı, sonunda aşağıdaki kodu ekleyin **BrowseButton_Click** yöntemi, sonra `FacePhoto.Source = bitmapSource` satır. Bu, algılanan yüzeylere çağrısından listesini doldurur **UploadAndDetectFaces**. Ardından her yüz çevresinde bir dikdörtgen çizer ve değiştirilen resmi ana penceresinde görüntüler.
+Sonra görüntüde algılanan her yüz çevresinde bir dikdörtgen çizmek için kod ekleyeceksiniz. İçinde **MainWindow** sınıfı, sonunda aşağıdaki kodu ekleyin **BrowseButton_Click** yöntemi, sonra `FacePhoto.Source = bitmapSource` satır. Bu kod çağrısından algılanan yüzeylere listesini doldurur **UploadAndDetectFaces**. Ardından her yüz çevresinde bir dikdörtgen çizer ve değiştirilen resmi ana penceresinde görüntüler.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=92-145)]
 
 ## <a name="describe-the-faces"></a>Yüzleri açıklayın
 
-Aşağıdaki yöntemi ekleyin **MainWindow** sınıfı, aşağıda **UploadAndDetectFaces** yöntemi. Bu, alınan yüz öznitelikleri yüzü açıklayan bir dizeye dönüştürür.
+Aşağıdaki yöntemi ekleyin **MainWindow** sınıfı, aşağıda **UploadAndDetectFaces** yöntemi. Bu yöntem, alınan yüz öznitelikleri yüzü açıklayan bir dizeye dönüştürür.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=228-286)]
 

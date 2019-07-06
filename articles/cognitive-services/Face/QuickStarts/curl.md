@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/06/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 212b935e8986731940effe79ec80f52c0d7b64c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68cdd147977294954051735d70307305aa5dc0cb
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815385"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603321"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Hızlı Başlangıç: CURL ve yüz tanıma REST API'si ile bir resimdeki yüz algılama
 
@@ -29,7 +29,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="write-the-command"></a>Komut yazma
  
-Yüz tanıma API'sini çağırmak ve bir görüntüden yüz özniteliği veri almak için aşağıdakine benzer bir komut kullanın. İlk olarak, kodu bir metin düzenleyicisine kopyalayın&mdash;çalışabilmesi için önce belirli bölümlerini komutu için değişiklik yapmanız.
+Yüz tanıma API'sini çağırmak ve bir görüntüden yüz özniteliği veri almak için aşağıdakine benzer bir komut kullanırsınız. İlk olarak, kodu bir metin düzenleyicisine kopyalayın&mdash;çalışabilmesi için önce belirli bölümlerini komutu için değişiklik yapmanız.
 
 ```shell
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
@@ -40,7 +40,7 @@ Değiştirin `<Subscription Key>` geçerli yüz abonelik anahtarınız ile.
 
 ### <a name="face-endpoint-url"></a>Yüz tanıma uç nokta URL'si
 
-URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` Azure yüz uç noktaya sorgu gösterir. Bu URL, abonelik anahtarınızı karşılık gelen bölge eşleştirilecek ilk bölümünü değiştirmeniz gerekebilir (bkz [yüz tanıma API'si belgeleri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) tüm bölge uç noktalar listesi).
+URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` Azure yüz uç noktaya sorgu gösterir. Bu URL, abonelik anahtarınızı karşılık gelen bölge eşleştirilecek ilk bölümünü değiştirmeniz gerekebilir. Bkz: [yüz tanıma API'si belgeleri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) tüm bölge uç noktaları listesi.
 
 ### <a name="url-query-string"></a>URL sorgu dizesi
 
@@ -57,7 +57,7 @@ Kaynak URL, giriş olarak kullanılacak görüntüyü gösterir. Bu, çözümlem
 https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
 ``` 
 
-## <a name="run-the-command"></a>Komutunu çalıştırın
+## <a name="run-the-command"></a>Yeni bir “kurtarma VM’si” oluşturmak ve sorunlu VM’nin işletim sistemi diskini kurtarma VM’sine veri diski olarak takmak için
 
 Değişikliklerinizi yaptıktan sonra bir komut istemi açın ve yeni bir komut girin. Konsol penceresinde JASON verileri olarak görüntülenen yüz bilgileri görmeniz gerekir. Örneğin:
 

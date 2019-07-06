@@ -1,25 +1,25 @@
 ---
 title: "Hızlı Başlangıç: Algılama ve Python SDK'sı ile bir görüntüdeki yüzleri çerçeve"
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, algılamak ve uzak bir görüntüdeki yüzleri çerçeve için yüz tanıma API'sini kullanan basit bir Python betiğini oluşturur.
+description: Bu hızlı başlangıçta, algılamak ve uzak bir görüntüdeki yüzleri çerçeve için yüz tanıma API'si kullanan bir Python betiği oluşturur.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 07/03/2018
 ms.author: sbowles
-ms.openlocfilehash: b816f4b78921c4bace1d15dd408b3fd701a3d6c5
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 741dd18a3b8da5e44d77c24d46adb8d550322281
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339368"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603290"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Hızlı Başlangıç: Algılamak için bir Python betiği oluşturmak ve çerçevenin bir resimdeki yüz
 
-Bu hızlı başlangıçta, uzak bir görüntüde İnsan yüzlerini algılamak için Python SDK'sı aracılığıyla Azure yüz tanıma API'sini kullanan basit bir Python betiğini oluşturur. Uygulama, seçilen görüntü görüntüler ve algılanan her yüz etrafında bir çerçeve çizer.
+Bu hızlı başlangıçta, uzak bir görüntüde İnsan yüzlerini algılamak için Python SDK'sı aracılığıyla Azure yüz tanıma API'si kullanan bir Python betiği oluşturur. Uygulama, seçilen görüntü görüntüler ve algılanan her yüz etrafında bir çerçeve çizer.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
 
@@ -39,7 +39,7 @@ pip install cognitive_face
 
 ## <a name="detect-faces-in-an-image"></a>Görüntüdeki yüzleri algılayın
 
-Adlı yeni bir Python betiği oluşturmak _FaceQuickstart.py_ ve aşağıdaki kodu ekleyin. Yüz algılama temel işlevlerini budur. Değiştirmeniz gerekecektir `<Subscription Key>` anahtarınızı değerine sahip. Değerini değiştirmeniz gerekebilir `BASE_URL` doğru bölge tanımlayıcısı için anahtarınızı kullanmak için (bkz [yüz tanıma API'si belgeleri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) tüm bölge uç noktalar listesi). Ücretsiz deneme aboneliği anahtarları oluşturulur **westus** bölge. İsteğe bağlı olarak, `img_url` kullanmak istediğiniz herhangi bir görüntü URL'si.
+Adlı yeni bir Python betiği oluşturmak _FaceQuickstart.py_ ve aşağıdaki kodu ekleyin. Bu kod, yüz algılama temel işlevlerini gerçekleştirir. Değiştirmeniz gerekecektir `<Subscription Key>` anahtarınızı değerine sahip. Değerini değiştirmeniz gerekebilir `BASE_URL` doğru bölge tanımlayıcısı için anahtarınızı kullanmak için (bkz [yüz tanıma API'si belgeleri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) tüm bölge uç noktalar listesi). Ücretsiz deneme aboneliği anahtarları oluşturulur **westus** bölge. İsteğe bağlı olarak, `img_url` kullanmak istediğiniz herhangi bir görüntü URL'si.
 
 Betik çağırarak yüzleri algılar **cognitive_face.face.detect** sarmalar yöntemi [Algıla](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API'si ve yüz listesini döndürür.
 
@@ -64,11 +64,11 @@ print(faces)
 
 Komutuyla uygulamayı çalıştırın `python FaceQuickstart.py`. Konsol penceresinde, aşağıdaki gibi bir metin yanıtı almanız gerekir:
 
-```shell
+```console
 [{'faceId': '26d8face-9714-4f3e-bfa1-f19a7a7aa240', 'faceRectangle': {'top': 124, 'left': 459, 'width': 227, 'height': 227}}]
 ```
 
-Algılanan yüzeylere listesidir. Listedeki her bir öğe bir **dict** örneğinde `faceId` algılanan yüz için benzersiz bir kimliği ve `faceRectangle` algılanan yüz konumu açıklar. 
+Çıktı, algılanan yüzeylere listesini temsil eder. Listedeki her bir öğe bir **dict** örneğinde `faceId` algılanan yüz için benzersiz bir kimliği ve `faceRectangle` algılanan yüz konumu açıklar. 
 
 > [!NOTE]
 > Yüz tanıma kimlikleri 24 saat sonra süresi dolacak; uzun süreli saklamak istiyorsanız açıkça yüz verileri depolamak gerekir.
@@ -83,7 +83,7 @@ from io import BytesIO
 from PIL import Image, ImageDraw
 ```
 
-Sonra kodunuzu sonunda, aşağıdaki kodu ekleyin. Bu durum, dikdörtgen koordinatları ayrıştırmak için basit bir işlev oluşturur ve orijinal görüntünün dikdörtgen çizmek için Pillow kullanır. Sonra görüntüyü varsayılan Resim Görüntüleyicisi'nde görüntüler.
+Sonra kodunuzu sonunda, aşağıdaki kodu ekleyin. Bu kod, dikdörtgen koordinatları ayrıştırmak için basit bir işlev oluşturur ve Pillow orijinal görüntünün dikdörtgen çizmek için kullanır. Sonra görüntüyü varsayılan Resim Görüntüleyicisi'nde görüntüler.
 
 ```python
 # Convert width height to a point in a rectangle
