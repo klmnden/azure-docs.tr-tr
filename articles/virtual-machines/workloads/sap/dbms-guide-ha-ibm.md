@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: a74dd1a932cac41081786f76938a5b35de62d878
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7464ea481d4c95856b78a83a875f2cd24c00705b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689706"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503325"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -77,9 +77,9 @@ Yükleme başlamadan önce aşağıdaki SAP notları ve belgeler bakın:
 | Belgeler | 
 | --- |
 | [SAP topluluk Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Linux için sahip tüm gerekli SAP notları |
-| [Azure sanal makineleri planlama ve uygulama için Linux üzerinde SAP] [ planning-guide] Kılavuzu |
-| [Azure sanal makineler dağıtım için Linux'ta SAP] [ deployment-guide] (Bu makale) |
-| [Azure sanal makineleri veritabanı yönetim system(DBMS) dağıtım için Linux'ta SAP] [ dbms-guide] Kılavuzu |
+| [Azure sanal makineleri planlama ve uygulama için Linux üzerinde SAP][planning-guide] Kılavuzu |
+| [Azure sanal makineler dağıtım için Linux'ta SAP][deployment-guide] (Bu makale) |
+| [Azure sanal makineleri veritabanı yönetim system(DBMS) dağıtım için Linux'ta SAP][dbms-guide] Kılavuzu |
 | [SAP iş yüküne Azure planlama ve dağıtım denetim listesi][azr-sap-plancheck] |
 | [SUSE Linux Enterprise Server SAP uygulamaları 12 SP3 en iyi uygulamalar kılavuzları][sles-for-sap-bp] |
 | [SUSE Linux Enterprise yüksek kullanılabilirlik uzantısı 12 SP3][sles-ha-guide] |
@@ -496,13 +496,12 @@ Db2 HADR yapılandırma oluşturduğunuz önce yükleme gerçekleştirdiyseniz, 
 
 İade veya JDBC URL'sini güncelleştirme J2EE Yapılandırma Aracı'nı kullanın. J2EE Yapılandırma Aracı'nı bir grafik aracı olduğundan, X ihtiyacınız yüklü sunucuda:
  
-1. J2EE örneğinin birincil uygulama sunucusunda oturum açın ve yürütün:
-     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>
+1. J2EE örneğinin birincil uygulama sunucusunda oturum açın ve yürütün:   `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. Sol çerçevede seçin **güvenlik deposu**.
-1. Anahtar jdbc/havuz'a sağ çerçevede seçin / \ <SAPSID> /URL.
+1. Anahtar jdbc/havuz'a sağ çerçevedeseçin/\<SAPSID > / url.
 1. Sanal ana bilgisayar adı için JDBC URL ana bilgisayar adını değiştirin.
-     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>
-1. Seçin **ekleme**.
+     `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
+1. **Add (Ekle)** seçeneğini belirleyin.
 1. Değişikliklerinizi kaydetmek için sol üst disk simgesini seçin.
 1. Yapılandırma aracını kapatın.
 1. Java örneğini yeniden başlatın.
