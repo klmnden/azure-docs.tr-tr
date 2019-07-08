@@ -304,14 +304,14 @@ Sertifikanın bilgisayarda yüklü olduğunu doğrulayın\'s kişisel depolama. 
 
         | Özellik | Değer |
         |---|---|
-        | source | Tüm |
-        | Kaynak bağlantı noktası aralıkları | * |
-        | Hedef | Tüm |
-        | Hedef bağlantı noktası aralığı | 636 |
-        | Protocol | Tüm |
-        | Eylem | İzin Ver |
-        | Öncelik | <Desired Number> |
-        | Ad | Port_LDAP_636 |
+        | Source | Any |
+        | Source port ranges | * |
+        | Destination | Any |
+        | Destination port range | 636 |
+        | Protocol | Any |
+        | Action | Allow |
+        | Priority | \<Desired Number> |
+        | Name | Port_LDAP_636 |
 
     ![gelen güvenlik kuralı](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 
