@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 976830232453eee0993e64ac445c2e6a2f7e20ef
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 7b559dc9a5e5c5bb5dbf7a2dc1e40bf6a0df5ec9
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478584"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626248"
 ---
 # <a name="personalizer-settings"></a>Personalizer ayarları
 
@@ -35,7 +35,7 @@ Her geri bildirim döngüsü için Personalizer kaynak oluşturun.
 1. Personalizer kaynağınızı bulun. 
 1. İçinde **kaynak yönetimi** bölümünden **ayarları**.
 
-    Azure portalında ayrılmadan önce kaynak anahtarlarınızdan birini kopyalayın **anahtarları** sayfası. Kullanmak için bu bilgi gerekecektir [Personalizer SDK](https://go.microsoft.com/fwlink/?linkid=2092353).
+    Azure portalında ayrılmadan önce kaynak anahtarlarınızdan birini kopyalayın **anahtarları** sayfası. Kullanmak için bu bilgi gerekecektir [Personalizer SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer).
 
 ### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Kullanım durumunu temel alarak geri bildirim döngüsü ödül ayarlarını yapılandırma
 

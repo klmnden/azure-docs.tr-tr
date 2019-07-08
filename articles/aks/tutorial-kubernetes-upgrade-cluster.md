@@ -2,18 +2,18 @@
 title: Azure’da Kubernetes öğreticisi - Kümeyi yükseltme
 description: Bu Azure Kubernetes Service (AKS) öğreticisinde var olan bir AKS kümesini en son Kubernetes sürümüne yükseltmeyi öğreneceksiniz.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 09e3fab67486b4677c5848d81fb39a68e511b6ac
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 90c5a4e18f72d9a8b048ef0f40a5c0b405a584f2
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305220"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614157"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Öğretici: Azure Kubernetes Service'te (AKS) Kubernetes'i yükseltme
 
@@ -30,7 +30,7 @@ Yedi parçalık bu öğreticinin yedinci kısmında, bir Kubernetes kümesi yük
 
 Önceki öğreticilerde, bir uygulama bir kapsayıcı görüntüsüne paketlendi. Bu görüntü Azure Container Registry'ye yüklendi ve bir AKS kümesi oluşturulmakta. Uygulama ardından için AKS kümesi dağıtıldı. Bu adımları tamamlamadıysanız ve takip etmek istediğiniz, başlayan [öğretici 1 – kapsayıcı görüntüleri oluşturma][aks-tutorial-prepare-app].
 
-Bu öğreticide, Azure CLI Sürüm 2.0.53 gerekir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
+Bu öğreticide, Azure CLI Sürüm 2.0.53 gerekir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme][azure-cli-install].
 
 ## <a name="get-available-cluster-versions"></a>Kullanılabilir küme sürümlerini alma
 
@@ -110,14 +110,14 @@ myAKSCluster  eastus      myResourceGroup  1.10.9               Succeeded       
 
 ## <a name="delete-the-cluster"></a>Küme silme
 
-Bu öğretici serisinin son bölümünde olduğundan, AKS kümeyi silmek isteyebilirsiniz. Kubernetes düğümleri Azure sanal makinelerinde (VM) çalıştığından kümeyi kullanmasanız dahi ücret tahsil edilmeye devam eder. [az group delete][az-group-delete] komutunu kullanarak kaynak grubunu, kapsayıcı hizmetini ve ilgili tüm kaynakları kaldırabilirsiniz.
+Bu öğretici serisinin son bölümünde olduğundan, AKS kümeyi silmek isteyebilirsiniz. Kubernetes düğümleri Azure sanal makinelerinde (VM) çalıştığından kümeyi kullanmasanız dahi ücret tahsil edilmeye devam eder. Kullanım [az grubu Sil][az-group-delete] komutunu kullanarak kaynak grubunu, kapsayıcı hizmetini kaldırmak için ve tüm ilgili kaynakları.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> Kümeyi sildiğinizde, AKS kümesi tarafından kullanılan Azure Active Directory hizmet sorumlusu kaldırılmaz. Hizmet sorumlusunu kaldırma adımları için bkz. [AKS hizmet sorumlusuyla ilgili önemli noktalar ve silme][sp-delete].
+> Kümeyi sildiğinizde, AKS kümesi tarafından kullanılan Azure Active Directory hizmet sorumlusu kaldırılmaz. Hizmet sorumlusunu kaldırma adımları için bkz: [AKS hizmet sorumlusu hakkında önemli noktalar ve silme][sp-delete].
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

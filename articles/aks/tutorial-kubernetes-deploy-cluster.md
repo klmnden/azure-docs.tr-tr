@@ -2,18 +2,18 @@
 title: Azure’da Kubernetes öğreticisi - Kümeyi dağıtma
 description: Bu Azure Kubernetes Service (AKS) öğreticisinde bir AKS kümesi oluşturacak ve kubectl istemcisini kullanarak Kubernetes ana düğümüne bağlanacaksınız.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 020b5935595506732c1c1425179741c45f8326d7
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 27ec77e15d1289742fa40320631684d37c9660a1
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304463"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614263"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Öğretici: Azure Kubernetes Service (AKS) kümesini dağıtma
 
@@ -31,7 +31,7 @@ Ek öğreticilerde Azure Vote uygulaması kümeye dağıtılır, ölçeği geni�
 
 Önceki öğreticilerde, bir kapsayıcı görüntüsü oluşturuldu ve Azure Container Registry örneğine yüklendi. Bu adımları bu işlemi yapmadıysanız ve örneği takip etmek istiyorsanız, başlangıç [öğretici 1 – kapsayıcı görüntüleri oluşturma][aks-tutorial-prepare-app].
 
-Bu öğretici, Azure CLI Sürüm 2.0.53 çalıştırdığınız gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
+Bu öğretici, Azure CLI Sürüm 2.0.53 çalıştırdığınız gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme][azure-cli-install].
 
 ## <a name="create-a-service-principal"></a>Hizmet sorumlusu oluşturma
 
@@ -77,7 +77,7 @@ az role assignment create --assignee <appId> --scope <acrId> --role acrpull
 
 AKS kümeleri Kubernetes rol tabanlı erişim denetimlerini (RBAC) kullanabilir. Bu denetimler, kullanıcılara atanmış olan rollere göre kaynaklara erişim vermenizi sağlayabilir. Bir kullanıcı birden çok rol atanır ve izinleri tek bir ad veya tüm küme genelinde kapsamlı izinler birleştirilir. Bir AKS kümesi oluşturduğunuzda Azure CLI varsayılan ayarlarda RBAC özelliğini otomatik olarak etkinleştirir.
 
-[az aks create][] komutunu kullanarak bir AKS kümesi oluşturun. Aşağıdaki örnek, *myResourceGroup* adlı kaynak grubunda *myAKSCluster* adlı bir küme oluşturur. Bu kaynak grubu, [bir önceki öğreticide][aks-tutorial-prepare-acr] oluşturulmuştur. `<appId>` ve `<password>` yerine hizmet sorumlusunun oluşturulduğu bir önceki adımdan aldığınız değerlerinizi girin.
+[az aks create][] komutunu kullanarak bir AKS kümesi oluşturun. Aşağıdaki örnek, *myResourceGroup* adlı kaynak grubunda *myAKSCluster* adlı bir küme oluşturur. Bu kaynak grubunun oluşturulduğu [önceki öğreticide][aks-tutorial-prepare-acr]. `<appId>` ve `<password>` yerine hizmet sorumlusunun oluşturulduğu bir önceki adımdan aldığınız değerlerinizi girin.
 
 ```azurecli
 az aks create \
@@ -93,7 +93,7 @@ Birkaç dakika sonra dağıtım tamamlanır ve AKS dağıtımı hakkında JSON i
 
 ## <a name="install-the-kubernetes-cli"></a>Kubernetes CLI'yi yükleme
 
-Yerel bilgisayarınızdan Kubernetes kümesine bağlanmak için Kubernetes’in komut satırı istemcisini ([kubectl][kubectl]) kullanmanız gerekir.
+Yerel bilgisayarınızdan Kubernetes kümesine bağlanmak için kullandığınız [kubectl][kubectl], Kubernetes komut satırı istemcisi.
 
 Azure Cloud Shell'i kullanıyorsanız `kubectl` zaten yüklüdür. [az aks install-cli][] komutunu kullanarak da yerel ortama yükleyebilirsiniz:
 
@@ -109,7 +109,7 @@ Yapılandırmak için `kubectl` Kubernetes kümenize bağlanmak için [az aks ge
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Kümenize yönelik bağlantıyı doğrulamak için [kubectl get nodes][kubectl-get] komutunu çalıştırın:
+Kümenize bağlantıyı doğrulamak için çalıştırın [kubectl alma düğümleri][kubectl-get] komutu:
 
 ```
 $ kubectl get nodes

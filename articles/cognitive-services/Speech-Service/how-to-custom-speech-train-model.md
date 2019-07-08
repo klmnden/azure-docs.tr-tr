@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 7bc1f2adf3d8c38845218681a55e3942aa809db5
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 49195efa54c8e6eca9186a9e2fc33da84ff34413
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603197"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625378"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Özel konuşma modeli eğitme
 
@@ -25,12 +25,11 @@ Eğitim bir konuşmayı metne dönüştürme hem Microsoft'un temel model veya o
 
 İnsan etiketli kullanarak modelinizi tanıma sorunları istemcilerinizle dökümleri ve ilgili verileri ek eğitim doğruluğunu artırmak için yardımcı olabilir. Hangi veri kümesinde, sorunu/sorunları ele almak için belirlemek için bu tabloyu kullanın:
 
-| Kullanım örneği | Veri türü | Veri miktarı |
-|----------|-----------|---------------|
-| Tam adlar ifadenin | İlgili metin (cümleler/konuşma) | 10 MB-500 MB |
-| Sözcükleri nedeniyle bir Vurgu ifadenin | İlgili metin (telaffuz) | Misrecognized sözcükleri girin |
-| Ortak kelimeler silindi veya ifadenin | Ses + insan etiketli dökümleri | 10 ila 1.000 transkripsiyonu saat |
-
+| Kullanım örneği | Veri türü |
+|----------|-----------|
+| Sektöre özel sözlük ve tıbbi terminolojisi veya BT terminolojisinin gibi dil bilgisi tanıma doğruluğunu artırmak | İlgili metin (cümleler/konuşma) |
+| Bir sözcük veya ürün adlarına veya kısaltmalar gibi standart olmayan telaffuz olan terim fonetik ve görüntülenen form tanımlayın. | İlgili metin (telaffuz) |
+| Stiller, vurgular veya belirli bir arka plan gürültüleri Konuşmayı şirket tanıma doğruluğunu artırmak | Ses + insan etiketli dökümleri |
 > [!IMPORTANT]
 > Bir veri kümesi yüklemediyseniz, bkz. Lütfen [hazırlayın ve verilerinizi test](how-to-custom-speech-test-data.md). Bu belge, veri ve yüksek kaliteli veri kümeleri oluşturma yönergeleri için yönergeler sağlar.
 

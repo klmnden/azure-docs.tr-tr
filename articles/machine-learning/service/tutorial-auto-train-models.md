@@ -1,5 +1,5 @@
 ---
-title: 'Regresyon modeli öğretici: Otomatik ML'
+title: 'Regresyon modeli öğretici: Otomatikleştirilmiş ML'
 titleSuffix: Azure Machine Learning service
 description: Otomatik machine learning kullanarak machine learning modeli oluşturmayı öğrenin. Azure Machine Learning veri ön işleme, algoritma seçimi ve hiper parametre seçimi otomatik bir şekilde sizin için gerçekleştirebilirsiniz. Daha sonra son modelin Azure Machine Learning hizmeti ile dağıtılır.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 907383c057c0c1eebee6550a0d1e9c75dd88513c
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 8cedf7abf71a772a0b770dd2f82d9a5508f5dd75
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417299"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622369"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Öğretici: Otomatik makine öğrenimi, regresyon modeli derler
 
@@ -144,7 +144,7 @@ dflow_prepared.get_profile()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Type</th>
+      <th>Tür</th>
       <th>Min</th>
       <th>Maks</th>
       <th>Count</th>
@@ -546,9 +546,9 @@ dflow_prepared.get_profile()
       <td>0.0</td>
       <td>0.0</td>
       <td>1</td>
-      <td>1.</td>
-      <td>1.</td>
-      <td>1.</td>
+      <td>1\.</td>
+      <td>1\.</td>
+      <td>1\.</td>
       <td>1</td>
       <td>5</td>
       <td>5</td>
@@ -744,7 +744,7 @@ Güncelleştirmeleri gösterilen çıktıya denemeyi çalışırken dinamik. Her
 
 Otomatik eğitim Jupyter pencere öğesi veya deneme geçmişini inceleyerek sonuçları keşfedin.
 
-### <a name="option-1-add-a-jupyter-widget-to-see-results"></a>1. seçenek: Sonuçları görmek için Jupyter pencere öğesi ekleyin
+### <a name="option-1-add-a-jupyter-widget-to-see-results"></a>1\. seçenek: Sonuçları görmek için Jupyter pencere öğesi ekleyin
 
 Jupyter not defteri kullanırsanız, bir grafik ve tablo tüm sonuçları görmek için bu Jupyter not defteri pencere öğesini kullanın:
 
@@ -757,7 +757,7 @@ RunDetails(local_run).show()
 ![Jupyter pencere öğesi çalıştırması ayrıntıları](./media/tutorial-auto-train-models/automl-dash-output.png)
 ![Jupyter pencere öğesi çizim](./media/tutorial-auto-train-models/automl-chart-output.png)
 
-### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>2. seçenek: Alma ve Python çalışma tüm yinelemelerde inceleyin
+### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>2\. seçenek: Alma ve Python çalışma tüm yinelemelerde inceleyin
 
 Ayrıca, her deneme geçmişini almak ve her bir yineleme çalıştırma bireysel ölçümleri keşfedin. RMSE (root_mean_squared_error) çalıştırmak için tek tek her modeli inceleyerek, çoğu yinelemeler makul bir kenar boşluğu ($3-4) içinde taksi adil maliyetini tahmin etmek bakın.
 
@@ -789,7 +789,7 @@ rundata
     <tr style="text-align: right;">
       <th></th>
       <th>0</th>
-      <th>1.</th>
+      <th>1\.</th>
       <th>2</th>
       <th>3</th>
       <th>4</th>
@@ -1127,6 +1127,8 @@ print(y_predict[:10])
 Gerçek maliyet değerlere kıyasla tahmin edilen maliyet değerleri görselleştirmek için bir dağılım grafiğinde noktalara oluşturun. Aşağıdaki kod `distance` özellik x ekseni ve seyahat `cost` y ekseni olarak. Her bir seyahat uzaklık değeri bir tahmin edilen maliyet varyansını Karşılaştırılacak ilk 100 öngörülen ve gerçek maliyet değerleri ayrı seri olarak oluşturulur. Çizim İnceleme uzaklığı/maliyet neredeyse doğrusal bir ilişkidir ve çoğu durumda çok yakın gerçek maliyet değerlerin aynı seyahat uzaklığı için tahmin edilen maliyet değerler gösterilir.
 
 ```python
+%matplotlib inline
+
 import matplotlib.pyplot as plt
 
 fig = plt.figure(figsize=(14, 10))

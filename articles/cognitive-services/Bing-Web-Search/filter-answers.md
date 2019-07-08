@@ -9,14 +9,14 @@ ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 07/08/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8d8fd03d9c3d912788e9893377bbab3efac86f8a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a89d73b63680415aa8e516926b8e1d6c59ffbbad
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66383848"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626013"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Arama yanıtı içeren yanıtlar filtreleme  
 
@@ -44,14 +44,20 @@ Web sorguladığınızda, Bing arama bulduğu tüm ilgili içeriği döndürür.
     }
 }    
 ```
-(Örnek görüntüleri, videolar ve haberler için) alırsınız içerik türlerini kullanarak filtreleyebilirsiniz [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) sorgu parametresi. Bing, ilgili içeriği için belirtilen yanıtları bulursa, döndürülür. Yanıt filtresi yanıtların virgülle ayrılmış bir listedir. 
 
-Belirli türlerdeki görüntüleri gibi içerikleri yanıttan dışlanacak ekleyebileceğiniz bir `-` başlangıcına karakter `responseFilter` değeri. Dışlanan türler virgül ile ayırın (`,`). Örneğin:
+## <a name="query-parameters"></a>Sorgu parametreleri
+
+Bing tarafından döndürülen yanıtların filtrelemek için kullanmak aşağıda API'nin çağrılması durumunda sorgu parametreleri.  
+
+### <a name="responsefilter"></a>ResponseFilter
+
+Bing yanıta (örneğin görüntü, video ve haber) içeren bir yanıt türleri kullanarak filtreleyebilirsiniz [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) yanıtlar virgülle ayrılmış bir listesi olan sorgu parametresi. Bing için ilgili içeriğin bulursa bir yanıt yanıt olarak dahil edilir. 
+
+Görüntüleri gibi yanıtından belirli yanıtlar dışlamak için önüne ekleyin bir `-` karakter yanıt türü. Örneğin:
 
 ```
 &responseFilter=-images,-videos
 ```
-
 
 Aşağıdakileri nasıl kullanılacağını gösterir `responseFilter` isteği görüntüleri, videolar ve Haberler Yelkenli dinghies. Sorgu dizesini kodlayın, virgül, %2 C değiştirin.  
 
@@ -94,7 +100,9 @@ Bing video ve haber sonuçları önceki yanıtta döndürmedi olsa da, video ve 
 
 Kullanarak önerilmez `responseFilter` tek bir API'den sonuçları elde etmek için. Tek bir Bing API içerikten istiyorsanız doğrudan bu API'ye çağrı. Örneğin, yalnızca görüntüleri almak için resim arama API'si uç noktaya bir istek gönderin `https://api.cognitive.microsoft.com/bing/v7.0/images/search` veya diğer [görüntüleri](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#endpoints) uç noktaları. Tek bir API çağırma yalnızca performansı artırmak için önemli olduğu ancak daha zengin sonuçları içerik özel API'ler sunar. Örneğin, sonuçları filtrelemek için Web araması API'si kullanılabilir değil filtreleri kullanabilirsiniz.  
 
-Belirli bir etki alanına ait arama sonuçlarını almak için dahil `site:` sorgu dizesinde sorgu işleci.  
+### <a name="site"></a>Site
+
+Belirli bir etki alanına ait arama sonuçlarını almak için dahil `site:` sorgu, sorgu dizesi parametresi.  
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us
@@ -103,9 +111,27 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 > [!NOTE]
 > Kullanırsanız sorguya bağlı olarak `site:` sorgu işleci yok yanıt bağımsız olarak, yetişkinlere yönelik içerik içerebilir olasılığını [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch) ayarı. `site:` işlecini yalnızca sitenin içeriği hakkında bilgi sahibiyseniz ve senaryonuz, yetişkinlere yönelik içeriğin mevcut olma ihtimalini destekliyorsa kullanın.
 
+### <a name="freshness"></a>Yenilik
+
+Belirli bir dönemde Bing bulunan Web sayfalarının web yanıt sonuçlarını sınırlamak için ayarlanmış [güncellik](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#freshness) sorgu parametresi için büyük küçük harf duyarsız aşağıdaki değerlerden biri:
+
+* `Day` — Bing son 24 saat içinde bulunan Web sayfalarının döndürür
+* `Week` — Bing son 7 gün içinde bulunan Web sayfalarının döndürür
+* `Month` — Son 30 gün içinde bulunan Web sayfalarının döndürür
+
+Bu parametre ayrıca formunda, özel bir tarih aralığı için ayarlayabilir `YYYY-MM-DD..YYYY-MM-DD`. 
+
+`https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-01..2019-05-30`
+
+Tek bir tarih sonuçlarını sınırlamak için belirli bir tarihe güncellik parametresini ayarlayın:
+
+`https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-04`
+
+Sonuçları Bing filtre ölçütlerinizle eşleşen Web sayfalarını sayısını istediğiniz Web sayfaları (veya Bing döndüren varsayılan numarası) sayısından daha az ise belirtilen dönemini dışında Web sayfalarının içerebilir.
+
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>Yanıtlar yanıt sayısını sınırlandırma
 
-Bing yanıtlarını derecelere dayanan yanıt içerir. Örneğin, sorgu, *yelken açmaya ne dersiniz + dinghies*, Bing döndürür `webpages`, `images`, `videos`, ve `relatedSearches`.
+Bing birden çok yanıt türü içinde JSON yanıtı döndürebilir. Örneğin, sorgu, *yelken açmaya ne dersiniz + dinghies*, Bing döndürebilir `webpages`, `images`, `videos`, ve `relatedSearches`.
 
 ```json
 {

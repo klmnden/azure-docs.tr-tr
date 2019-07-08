@@ -7,15 +7,15 @@ author: KyleStorck
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: KyleStorck
-ms.openlocfilehash: 7dbf63ba39c5dcdebb363cfc37a45f0216a07497
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8684cf16e41c763db01c064242cc5466b1c83f01
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61335488"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621404"
 ---
 # <a name="project-acoustics-bake-resolution"></a>Proje akustik hazırlama çözümleme
 Bu kavramsal genel bakış akustik saklanacağı kaba ve ince çözümleri arasındaki farkı açıklar. Baking iş akışının araştırmaları adımı sırasında bu ayarı seçin.

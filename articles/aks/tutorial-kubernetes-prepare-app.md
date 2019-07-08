@@ -2,18 +2,18 @@
 title: Azure’da Kubernetes öğreticisi - Uygulamayı hazırlama
 description: Bu Azure Kubernetes Service (AKS) öğreticisinde Docker Compose ile AKS'ye dağıtabileceğiniz bir çok kapsayıcılı uygulama hazırlamayı ve derlemeyi öğreneceksiniz.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 8fdc36215841348cf62cd61245950be6573a1938
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 2b4ba646a037b2f5561dabf97dee14454c07c573
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304442"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614221"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Öğretici: Azure Kubernetes Service (AKS) için uygulama hazırlama
 
@@ -34,7 +34,7 @@ Ek öğreticilerde, kapsayıcı görüntüsü bir Azure Container Registry'ye y�
 
 Bu öğreticide kapsayıcılar, kapsayıcı görüntüleri ve `docker` komutları gibi temel Docker kavramları hakkında bilgi sahibi olduğunuz varsayılmıştır. Kapsayıcı temelleri hakkında bilgi için bkz. [Docker ile çalışmaya başlama][docker-get-started].
 
-Bu öğreticiyi tamamlamak için Linux kapsayıcılarını çalıştıran yerel bir Docker geliştirme ortamı gerekir. Docker [Mac][docker-for-mac], [Windows][docker-for-windows] veya [Linux][docker-for-linux] sisteminde Docker'ı kolayca yapılandırmanızı sağlayan paketler sağlar.
+Bu öğreticiyi tamamlamak için Linux kapsayıcılarını çalıştıran yerel bir Docker geliştirme ortamı gerekir. Docker üzerinde Docker'ı yapılandıran paketler sağlar bir [Mac][docker-for-mac], [Windows][docker-for-windows], veya [Linux][linux için docker] sistem.
 
 Azure Cloud Shell, bu öğreticilerdeki her adımı tamamlamak için gerekli olan Docker bileşenlerini içermez. Bu yüzden, eksiksiz bir Docker geliştirme ortamı kullanmanızı öneririz.
 
@@ -58,7 +58,7 @@ Dizinin içinde uygulama kaynak kodu, önceden oluşturulmuş Docker Compose dos
 
 ## <a name="create-container-images"></a>Kapsayıcı görüntüleri oluşturma
 
-[Docker Compose][docker-compose] kapsayıcı görüntülerinden alınan derlemeyi ve çoklu kapsayıcı uygulamalarının dağıtımını otomatikleştirmek için kullanılabilir.
+[Docker Compose][docker-compose] otomatik hale getirmek için kullanılan kapsayıcı görüntüleri ve çoklu kapsayıcı uygulamalarının dağıtımını oluşturmak.
 
 Kapsayıcı görüntüsünü oluşturmak için örnek `docker-compose.yaml` dosyasını çalıştırın, Redis görüntüsünü indirin ve uygulamayı başlatın:
 
@@ -77,7 +77,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Çalışan kapsayıcıları görmek için [docker ps][docker-ps] komutunu kullanın:
+Çalıştırma [docker ps][docker-ps] çalışan kapsayıcıları görmek için komutu:
 
 ```
 $ docker ps
@@ -97,7 +97,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 Artık uygulama işlevselliği doğrulandığından, çalışan kapsayıcılar durdurulup kaldırılabilir. Kapsayıcı görüntülerini silmeyin. Bir sonraki öğreticide *azure-vote-front* görüntüsü bir Azure Container Registry örneğine yüklenecektir.
 
-[docker-compose down][docker-compose-down] komutuyla kapsayıcı örneklerini ve kaynakları durdurabilir ve kaldırabilirsiniz:
+Durdur ve container Instances ve kaynaklarını kaldırmak [docker-compose aşağı][docker-compose-down] komutu:
 
 ```console
 docker-compose down

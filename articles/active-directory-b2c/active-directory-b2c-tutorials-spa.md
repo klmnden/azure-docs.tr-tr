@@ -1,21 +1,21 @@
 ---
-title: Öğretici - kimlik doğrulamasını etkinleştirme tek sayfalı bir uygulamada - Azure Active Directory B2C | Microsoft Docs
-description: Bir tek sayfalı uygulamada (JavaScript) kullanıcının oturum açmasını sağlamak için Azure Active Directory B2C’nin nasıl kullanılacağını gösteren öğretici.
+title: Öğretici - kimlik doğrulamasını etkinleştirme tek sayfalı bir uygulamada - Azure Active Directory B2C
+description: Azure Active Directory B2C'in bir tek sayfalı uygulamada (JavaScript) kullanıcının oturum açmasını sağlamak için kullanmayı öğrenin.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 02/04/2019
+ms.date: 07/08/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6e4be3a14a6cfba6b32bea8a77975e3e34ea012d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 6824cc84c24b41fd82afd39ead3029a212173948
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66507805"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67624786"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C kullanarak tek sayfalı uygulama kimlik doğrulamasını etkinleştirin
 
@@ -32,27 +32,33 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Kullanıcı akışları oluşturma](tutorial-create-user-flows.md) uygulamanızdaki kullanıcı deneyimi sağlar. 
-* Yükleme [Visual Studio 2019](https://www.visualstudio.com/downloads/) ile **ASP.NET ve web geliştirme** iş yükü.
-* Yükleme [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) veya üzeri
-* [Node.js](https://nodejs.org/en/download/)’yi yükleme
+Aşağıdaki Azure AD B2C kaynaklara yerinde adımlara devam etmeden önce bu öğreticide şunlar gerekir:
+
+* [Azure AD B2C kiracısı](tutorial-create-tenant.md)
+* [Kayıtlı uygulama](tutorial-register-applications.md) kiracınızdaki
+* [Oluşturulan kullanıcı akışları](tutorial-create-user-flows.md) kiracınızdaki
+
+Ayrıca, yerel geliştirme ortamınızda aşağıdakiler gerekir:
+
+* Kod Düzenleyicisi, örneğin [Visual Studio Code](https://code.visualstudio.com/) veya [Visual Studio 2019](https://www.visualstudio.com/downloads/)
+* [.NET core SDK 2.0.0](https://www.microsoft.com/net/core) veya üzeri
+* [Node.js](https://nodejs.org/en/download/)
 
 ## <a name="update-the-application"></a>Uygulamayı güncelleştirme
 
-Önkoşulların bir parçası tamamlanan öğreticide, Azure AD B2C web uygulamasında eklendi. Öğreticideki örnek ile iletişimi etkinleştirmek için Azure AD B2C uygulamasında bir yeniden yönlendirme URI'si eklemeniz gerekir.
+Önkoşulların bir parçası tamamlanan ikinci öğreticide bir Azure AD B2C web uygulamasında kayıtlı. Öğreticideki örnek ile iletişimi etkinleştirmek için Azure AD B2C uygulamasında bir yeniden yönlendirme URI'si eklemeniz gerekir.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
-3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**.
-4. Seçin **uygulamaları**ve ardından *webapp1* uygulama.
-5. Altında **yanıt URL'si**, ekleme `http://localhost:6420`.
-6. **Kaydet**’i seçin.
-7. Özellikler sayfasında, web uygulamasını yapılandırırken kullanacağınız uygulama Kimliğini kaydedin.
-8. Seçin **anahtarları**seçin **anahtar üret**seçip **Kaydet**. Web uygulaması yapılandırırken kullanacağınız anahtar kaydedin.
+1. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
+1. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**.
+1. Seçin **uygulamaları**ve ardından *webapp1* uygulama.
+1. Altında **yanıt URL'si**, ekleme `http://localhost:6420`.
+1. **Kaydet**’i seçin.
+1. Özellikler sayfasında, kayıt **uygulama kimliği**. Tek sayfa web uygulamasındaki kod güncelleştirdiğinizde, daha sonraki bir adımda uygulama Kimliğini kullanın.
 
-## <a name="configure-the-sample"></a>Örnek yapılandırma
+## <a name="get-the-sample-code"></a>Örnek kodunu alma
 
-Bu öğreticide, Github'dan indirebileceğiniz örnek yapılandırın. Örnek nasıl bir tek sayfalı uygulama Azure AD B2C kullanıcı kaydolma, oturum açma ve kullanabileceğiniz korumalı web API'si çağırma gösterir.
+Bu öğreticide, Github'dan indirin bir kod örneği, yapılandırın. Örnek kullanıcı kaydolmak için bir tek sayfalı uygulama Azure AD B2C'yi nasıl kullanabileceğiniz ve oturum açın ve korumalı web API çağrısına gösterir.
 
 GitHub’dan [zip dosyasını indirin](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) veya örneği kopyalayın.
 
@@ -60,60 +66,78 @@ GitHub’dan [zip dosyasını indirin](https://github.com/Azure-Samples/active-d
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
 
-Ayarları değiştirmek için:
+## <a name="update-the-sample"></a>Örnek güncelleştirme
 
-1. Açık `index.html` örnek dosyasında.
-2. Örnek uygulama kimliği ve daha önce kaydettiğiniz anahtarını yapılandırın. API'ler ve dizin adları ile değerlerini değiştirerek aşağıdaki kod satırlarını değiştirin:
+Örnek elde, Azure AD B2C kiracınızın adının ve daha önceki bir adımda kaydettiğiniz uygulama kimliği ile kodu güncelleştirin.
+
+1. Açık `index.html` örnek dizin kökündeki dosya.
+1. İçinde `msalConfig` tanımını değiştirme **ClientID** uygulama kimliği ile bir önceki adımda kaydettiğiniz değeri. Ardından, güncelleştirme **yetkilisi** ile Azure AD B2C kiracınızın adının URI değeri. Ayrıca URI önkoşulları birinde oluşturduğunuz kullanıcı oturumu açma kaydolma/oturum açma akışını adını güncelleştirin (örneğin, *B2C_1_signupsignin1*).
 
     ```javascript
-    // The current application coordinates were pre-registered in a B2C directory.
-    var applicationConfig = {
-        clientID: '<Application ID>',
-        authority: "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_signupsignin1",
-        b2cScopes: ["https://contoso.onmicrosoft.com/demoapi/demo.read"],
-        webApi: 'https://contosohello.azurewebsites.net/hello',
+    var msalConfig = {
+        auth: {
+            clientId: "00000000-0000-0000-0000-000000000000", //This is your client ID
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi", //This is your tenant info
+            validateAuthority: false
+        },
+        cache: {
+            cacheLocation: "localStorage",
+            storeAuthStateInCookie: true
+        }
     };
     ```
 
-    Bu öğreticide kullanılan kullanıcı Akış adı **B2C_1_signupsignin1**. Farklı bir userjourney adı kullanıyorsanız, kullanıcı akışı adında kullanın `authority` değeri.
+    Bu öğreticide kullanılan kullanıcı Akış adı **B2C_1_signupsignin1**. Farklı bir userjourney adı kullanıyorsanız, ad belirtin `authority` değeri.
 
 ## <a name="run-the-sample"></a>Örneği çalıştırma
 
-1. Bir Node.js komut istemi başlatın.
-2. Node.js örneğini içeren dizine değiştirin. Örneğin `cd c:\active-directory-b2c-javascript-msal-singlepageapp`
-3. Aşağıdaki komutları çalıştırın:
+1. Bir konsol penceresi açın ve örnek içeren dizine geçin. Örneğin:
+
+    ```console
+    cd active-directory-b2c-javascript-msal-singlepageapp
+    ```
+1. Aşağıdaki komutları çalıştırın:
 
     ```
     npm install && npm update
     node server.js
     ```
 
-    Konsol penceresi uygulamanın barındırıldığı bağlantı noktası numarasını görüntüler.
-    
+    Konsol penceresi, yerel olarak çalışan Node.js sunucusu bağlantı noktası numarasını görüntüler:
+
     ```
     Listening on port 6420...
     ```
 
-4. Adresine gidin, bir tarayıcı kullanın `http://localhost:6420` uygulamayı görüntülemek için.
+1. Gidin `http://localhost:6420` uygulamayı görüntülemek için tarayıcınızda.
 
 Parola sıfırlama ve kaydolma, oturum açma, profil düzenleme örneği destekler. Bu öğreticide, bir e-posta adresi kullanarak nasıl bir kullanıcı oturum açtığında vurgular.
 
 ### <a name="sign-up-using-an-email-address"></a>E-posta adresi kullanarak kaydolma
 
-1. Tıklayın **oturum açma** uygulamasının bir kullanıcısı kaydolmak için. Bu kullanır **B2C_1_signupsignin1** kullanıcı akışı, bir önceki adımda tanımladığınız.
-2. Azure AD B2C, kayıt bağlantısı içeren bir oturum açma sayfası sunar. Henüz bir hesabınız yoksa **Hemen kaydol** bağlantısına tıklayın. 
-3. Kaydolma iş akışında, kullanıcı kimliğini bir e-posta adresi kullanarak toplamak ve doğrulamak için bir sayfa sunar. Kaydolma iş akışı, ayrıca kullanıcının parolasını ve kullanıcı Akış içinde tanımlanmış istenen öznitelikleri toplar.
+1. Tıklayın **oturum açma** uygulamasının bir kullanıcısı kaydolmak için. Bu kullanır **B2C_1_signupsignin1** bir önceki adımda belirttiğiniz kullanıcı akışı.
+1. Azure AD B2C, kayıt bağlantısı içeren bir oturum açma sayfası sunar. Henüz bir hesabınız yoksa **Hemen kaydol** bağlantısına tıklayın.
+1. Kaydolma iş akışında, kullanıcı kimliğini bir e-posta adresi kullanarak toplamak ve doğrulamak için bir sayfa sunar. Kaydolma iş akışı, ayrıca kullanıcının parolasını ve kullanıcı Akış içinde tanımlanmış istenen öznitelikleri toplar.
 
-    Geçerli bir e-posta adresi kullanın ve doğrulama kodunu kullanarak doğrulamayı gerçekleştirin. Parola ayarlayın. İstenen öznitelikler için değerleri girin. 
+    Geçerli bir e-posta adresi kullanın ve doğrulama kodunu kullanarak doğrulamayı gerçekleştirin. Parola ayarlayın. İstenen öznitelikler için değerleri girin.
 
     ![Kaydolma iş akışı](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
 
-4. Azure AD B2C dizininde yerel bir hesap oluşturmak için **Oluştur**’a tıklayın.
+1. Azure AD B2C dizininde yerel bir hesap oluşturmak için **Oluştur**’a tıklayın.
 
-Şimdi, kullanıcı, oturum açmak ve SPA uygulamasını kullanmak için bir e-posta adresini kullanabilir.
+Tıkladığınızda **Oluştur**kayıt sayfasını kapatır ve oturum açma sayfasına yeniden görüntülenir.
 
-> [!NOTE]
-> Oturum açtıktan sonra, uygulama bir “yetersiz izinler” hatası görüntülüyor. Bu hatayı, tanıtım dizinindeki bir kaynağa erişmeye çalıştığınız için alırsınız. Erişim belirteci yalnızca Azure AD dizininiz için geçerli olduğundan, API çağrısı yetkilendirilmez. Dizininiz için korumalı bir web API’si oluşturmak amacıyla sonraki öğreticiye geçin.
+Artık, uygulamada oturum açmak için e-posta adresinizi ve parolanızı kullanabilirsiniz.
+
+### <a name="error-insufficient-permissions"></a>Hata: yetersiz izin
+
+Oturum açtığınızda, uygulama izinleri yetersiz hatası görüntüler - bu sonra **beklenen**:
+
+`ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.`
+
+Tanıtım dizinden bir kaynağa erişmeye çalıştığınız, ancak yalnızca Azure AD dizininiz için erişim belirteci geçerliyse bu hatayı alırsınız. API çağrısı, bu nedenle yetkisiz gereklidir.
+
+Serideki sonraki öğretici ile devam edin (bkz [sonraki adımlar](#next-steps)) dizininiz için korumalı web API'si oluşturma.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -123,6 +147,8 @@ Bu makalede, öğrendiğiniz nasıl yapılır:
 > * Azure AD B2C uygulamasında güncelleştirme
 > * Örnek uygulamayı yapılandırma
 > * Kullanıcı akışı kullanarak kaydolma
+
+Artık serideki sonraki öğretici SPA korumalı web API'sine erişim vermek ilerleyin:
 
 > [!div class="nextstepaction"]
 > [Öğretici: Azure Active Directory B2C kullanarak bir tek sayfalı uygulamasından erişime bir ASP.NET Core Web API'si](active-directory-b2c-tutorials-spa-webapi.md)

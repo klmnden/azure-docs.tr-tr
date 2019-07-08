@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 275fec5fb696a7e1352bbddccd288863e984b796
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 9579db9836ef41706f2c6be09570fa7c1459e14f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304531"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620448"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Öğretici: Bir yönetim aracı dağıtma
 
@@ -57,8 +57,8 @@ Azure kaynak yönetimi şablonu dağıtmak için aşağıdaki yönergeleri izley
 ### <a name="guidance-for-template-parameters"></a>Şablon parametreleri için yönergeler
 Aracı'nı yapılandırmak için parametreleri girmek üzere nasıl aşağıda verilmiştir:
 
-- Bu, RD Aracısı URL kullanılır:  <https://rdbroker.wvd.microsoft.com/>
-- Bu kaynak URL'si.  <https://mrs-prod.ame.gbl/mrs-RDInfra-prod>
+- Bu RD Aracısı URL'sidir: https:\//rdbroker.wvd.microsoft.com/
+- Kaynak URL budur: https:\//mrs-prod.ame.gbl/mrs-RDInfra-prod
 - Azure'da oturum açmanız için devre dışı MFA ile AAD kimlik bilgilerinizi kullanın. Bkz: [Azure Resource Manager şablonu çalıştırmak için ihtiyacınız olanları](#what-you-need-to-run-the-azure-resource-manager-template).
 - Azure Active Directory'de yönetim aracı için kayıtlı uygulama için benzersiz bir ad kullanın. Örneğin, Apr3UX.
 

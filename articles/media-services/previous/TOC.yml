@@ -7,7 +7,7 @@
       href: scenarios-and-availability.md
     - name: Kavramlar
       href: media-services-concepts.md
-- name: başlarken
+- name: Başlarken
   items:
     - name: Hesap oluşturma ve yönetme
       href: media-services-portal-create-account.md
@@ -51,6 +51,9 @@
   items:
     - name: Yönetme
       items:
+        - name: Hesaplar
+          displayName: subscription
+          href: media-services-account-concept.md
         - name: Varlıklar
           items:
             - name: .NET

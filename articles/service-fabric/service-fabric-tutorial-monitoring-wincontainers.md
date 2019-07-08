@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2018
-ms.author: aljo, dekapur
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 11d913264e5920b90ea08d2a29a3651ab101ee64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 011cac977e44f85b8b183d253e987ff1b38c9834
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61390487"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621911"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Öğretici: Azure İzleyici günlüklerine kullanarak Service fabric'te Windows kapsayıcılarını izleme
 
@@ -86,7 +86,7 @@ Bu öğreticinin ilk bölümünde [sağlanan şablonu](https://github.com/Azure-
     "omsSolution": "ServiceFabric"
     ```
 
-3. Microsoft Monitoring Agent’ı sanal makine uzantısı olarak ekleyin. Sanal makine ölçek kümeleri kaynağını bulun: *resources* > *"apiVersion": "[variables('vmssApiVersion')]"*. *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions* yolunda, *ServiceFabricNode* uzantısının altına şu uzantı açıklamasını ekleyin: 
+3. Microsoft Monitoring Agent’ı sanal makine uzantısı olarak ekleyin. Sanal makine ölçek kümeleri kaynağını bulun: *resources* >  *"apiVersion": "[variables('vmssApiVersion')]"* . *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions* yolunda, *ServiceFabricNode* uzantısının altına şu uzantı açıklamasını ekleyin: 
     
     ```json
     {

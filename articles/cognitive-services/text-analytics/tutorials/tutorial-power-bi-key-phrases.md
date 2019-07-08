@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 24767f73e3e1409f81262ad57f3fd5152a4ec319
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 705e637235eb81be29a2ea0d7d68ccd000ea0470
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60828487"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626028"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Öğretici: Power BI ile metin analizi Bilişsel hizmet tümleştirme
 
@@ -103,7 +103,7 @@ Metin Analizi hizmetinin [Anahtar İfadeler API](https://westus.dev.cognitive.mi
 Artık Power BI ve Metin Analizi’ni tümleştirecek özel işlevi oluşturmaya hazırsınız. İşlev, işlenecek metni bir parametre olarak alır. Verileri gerekli JSON biçimine/biçiminden dönüştürür ve Anahtar İfadeler API’sine HTTP isteğinde bulunur. Daha sonra işlev, API’deki yanıtı ayrıştırır ve ayıklanan anahtar ifadelerin virgülle ayrılmış bir listesini içerir.
 
 > [!NOTE]
-> Power BI Desktop özel işlevleri [Power Query M formül dilinde](https://msdn.microsoft.com/library/mt211003.aspx) (veya kısaca "M") yazılır. M, [F#](https://docs.microsoft.com/dotnet/fsharp/) temelindeki işlevsel bir programlama dilidir. Bu öğreticiyi tamamlamanız için programcı olmanız gerekmese de gerekli kod aşağıda verilmiştir.
+> Power BI Desktop özel işlevleri [Power Query M formül dilinde](https://docs.microsoft.com/powerquery-m/power-query-m-reference) (veya kısaca "M") yazılır. M, [F#](https://docs.microsoft.com/dotnet/fsharp/) temelindeki işlevsel bir programlama dilidir. Bu öğreticiyi tamamlamanız için programcı olmanız gerekmese de gerekli kod aşağıda verilmiştir.
 
 Power BI Desktop’ta, halen Sorgu Düzenleyicisi penceresinde bulunduğunuzdan emin olun. Aksi takdirde, **Ana Sayfa** şeridini seçin ve **Dış veri** grubunda **Sorguları Düzenle**’ye tıklayın.
 
@@ -144,7 +144,7 @@ Power BI Desktop’ta Sorgu Düzenleyicisi penceresinde `FabrikamComments` sorgu
 
 Özel İşlev Çağır iletişim kutusu görüntülenir. **Yeni sütun adı** bölümüne `keyphrases` girin. **İşlev sorgusu** bölümünde, oluşturduğunuz özel işlevi (`KeyPhrases`) seçin.
 
-İletişim kutusunda yeni bir alan görüntülenir: **metin (isteğe bağlı)**. Bu alan, Anahtar İfadeler API’sinin `text` parametresi için değer sağlamak amacıyla hangi sütunu kullanmak istediğimizi sorar. (`language` ve `id` parametreleri için değerleri önceden doğrudan yazdığınızı unutmayın.) Açılan menüden `Merged` ([daha önce](#PreparingData) konu ve ileti alanlarını birleştirerek oluşturduğumuz sütun) seçeneğini belirleyin.
+İletişim kutusunda yeni bir alan görüntülenir: **metin (isteğe bağlı)** . Bu alan, Anahtar İfadeler API’sinin `text` parametresi için değer sağlamak amacıyla hangi sütunu kullanmak istediğimizi sorar. (`language` ve `id` parametreleri için değerleri önceden doğrudan yazdığınızı unutmayın.) Açılan menüden `Merged` ([daha önce](#PreparingData) konu ve ileti alanlarını birleştirerek oluşturduğumuz sütun) seçeneğini belirleyin.
 
 ![[Özel işlev çağırma]](../media/tutorials/power-bi/invoke-custom-function.png)
 
@@ -188,7 +188,7 @@ Power BI Desktop kısa bir süre içinde gerekli HTTP isteklerini yapar. Tabloda
 > [!NOTE]
 > Kelime bulutu oluşturmak için her bir yorumun tam metni yerine neden ayıklanan anahtar ifadeleri kullanmalı? Anahtar ifadeler bize yalnızca müşteri yorumlarında yer alan *en sık kullanılan* sözcükleri değil, *önemli* sözcükleri de sunar. Ayrıca sonuçta elde edilen buluttaki sözcük boyutlandırması, bir kelimenin nispeten az sayıda yorumda sık olarak kullanılmasına göre şekillenmez.
 
-Henüz yapmadıysanız, Word Cloud özel görselini yükleyin. Çalışma alanının sağ tarafındaki Görsel Öğeler bölmesinde, üç nokta (**...**) simgesine tıklayın ve **Marketten içe aktarın** seçeneğini belirleyin. Ardından, "cloud" araması yapın ve Word Cloud görselinin yanındaki **Ekle** düğmesine tıklayın. Power BI, Sözcük Bulutu görselini yükler ve başarıyla yüklendiğini size bildirir.
+Henüz yapmadıysanız, Word Cloud özel görselini yükleyin. Çalışma alanının sağ tarafındaki Görsel Öğeler bölmesinde, üç nokta ( **...** ) simgesine tıklayın ve **Marketten içe aktarın** seçeneğini belirleyin. Ardından, "cloud" araması yapın ve Word Cloud görselinin yanındaki **Ekle** düğmesine tıklayın. Power BI, Sözcük Bulutu görselini yükler ve başarıyla yüklendiğini size bildirir.
 
 ![[özel görsel ekleme]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 
@@ -294,7 +294,7 @@ Metin Analizi hizmeti, Power Query M formül dili veya Power BI hakkında daha f
 > [Metin Analizi API'si başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)
 
 > [!div class="nextstepaction"]
-> [Power Query M başvurusu](https://msdn.microsoft.com/library/mt211003.aspx)
+> [Power Query M başvurusu](https://docs.microsoft.com/powerquery-m/power-query-m-reference)
 
 > [!div class="nextstepaction"]
 > [Power BI belgeleri](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
