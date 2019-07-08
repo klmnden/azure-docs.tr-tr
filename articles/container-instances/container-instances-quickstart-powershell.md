@@ -91,7 +91,7 @@ Kapsayıcının `ProvisioningState` bilgisi **Başarılı** olduğunda tarayıc�
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Kapsayıcıyla işiniz bittiğinde kaldırmak ile [Remove-AzContainerGroup] [ Remove-AzContainerGroup] cmdlet:
+Kapsayıcıyla işiniz bittiğinde kaldırmak ile [Remove-AzContainerGroup][Remove-AzContainerGroup] cmdlet:
 
  ```azurepowershell-interactive
 Remove-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer

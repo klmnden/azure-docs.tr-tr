@@ -57,7 +57,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
     **Stilleri**’i kullanarak özelleştirebileceğiniz tüm öğeler sayfada görüntülenir
 5. **Geliştirici portalı görünümünü özelleştirmek için değişken değerleri değiştirin:** alanında "headings-color" değerini girin.
 
-     **\@Başlıklarının rengi** öğesi sayfada görüntülenir. Bu değişken metnin rengini denetler.
+    **\@Başlıklarının rengi** öğesi sayfada görüntülenir. Bu değişken metnin rengini denetler.
 
     ![stili özelleştir](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     

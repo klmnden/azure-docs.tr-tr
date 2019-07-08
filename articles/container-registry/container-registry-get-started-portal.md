@@ -25,7 +25,7 @@ Ayrıca sisteminizde yerel olarak Docker yüklü olması gerekir. Docker [Mac][d
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-https://portal.azure.com adresinden Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com ) adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-container-registry"></a>Kapsayıcı kayıt defteri oluşturma
 
