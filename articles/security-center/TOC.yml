@@ -35,6 +35,12 @@
       href: security-center-data-security.md
     - name: Güvenliği artırmak için önerileri kullanın
       href: security-center-using-recommendations.md
+    - name: Tehditleri algılama
+      href: security-center-detection-capabilities.md
+    - name: Güvenlik uyarılarını yönetme
+      href: security-center-managing-and-responding-alerts.md
+    - name: Güvenlik olayları
+      href: security-center-incident.md
     - name: Olay yanıtı
       href: security-center-incident-response.md
 - name: Nasıl yapılır kılavuzları
@@ -97,19 +103,24 @@
           href: security-center-file-integrity-monitoring.md
         - name: Uyarlamalı ağ sağlamlaştırma
           href: security-center-adaptive-network-hardening.md
-    - name: Tehditleri algılama
-      href: security-center-detection-capabilities.md
+    - name: Tehdit algılama uyarıları
       items:
-        - name: Güvenlik uyarıları
-          href: security-center-managing-and-responding-alerts.md
-        - name: Güvenlik olayları
-          href: security-center-incident.md
-        - name: Güvenlik uyarılarını anlama
-          href: security-center-alerts-type.md
-        - name: Uyarı doğrulaması
+        - name: Güvenlik uyarılarına genel bakış
+          href: security-center-alerts-overview.md
+        - name: VM’ler ve sunucular için tehdit algılama
+          href: security-center-alerts-iaas.md
+        - name: Bulutta yerel bilgi işlem için tehdit algılama
+          href: security-center-alerts-compute.md
+        - name: Veri hizmetleri için tehdit algılama
+          href: security-center-alerts-data-services.md
+        - name: Azure hizmet katmanı için tehdit algılama
+          href: security-center-alerts-service-layer.md
+        - name: Azure Güvenlik Ürünleriyle tümleştirme
+          href: security-center-alerts-integration.md
+        - name: Bulut Akıllı Uyarı bağıntısı (olaylar)
+          href: security-center-alerts-cloud-smart.md
+        - name: Uyarı doğrulaması (EICAR sınama dosyası)
           href: security-center-alert-validation.md
-        - name: Azure kaynakları ve kullanıcıları için UEBA
-          href: security-center-ueba-mcas.md
     - name: Arşiv
       items:
         - name: Disk şifrelemesi uygulayın
@@ -168,6 +179,10 @@
           href: security-center-search.md
         - name: Planlama ve işlemler
           href: security-center-planning-and-operations-guide.md
+        - name: Güvenlik uyarılarını anlama
+          href: security-center-alerts-type.md
+        - name: Azure kaynakları ve kullanıcıları için UEBA
+          href: security-center-ueba-mcas.md
 - name: Başvuru
   items:
     - name: REST API'leri

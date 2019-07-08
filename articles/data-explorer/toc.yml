@@ -100,10 +100,10 @@
           href: manage-database-permissions.md
         - name: Küme durumunu denetleme
           href: check-cluster-health.md
-        - name: Küme ölçeği genişlemesini yönetme
-          href: manage-cluster-scale-out.md
-        - name: Küme ölçeği artmasını yönetme
-          href: manage-cluster-scale-up.md
+        - name: Kümelerin yatay ölçeklemesini yönetme
+          href: manage-cluster-horizontal-scaling.md
+        - name: Kümelerin dikey ölçeklemesini yönetme
+          href: manage-cluster-vertical-scaling.md
         - name: Verileri silme
           href: delete-data.md
         - name: Yinelenen verilerle ilgilenme

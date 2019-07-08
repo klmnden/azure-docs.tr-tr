@@ -10,10 +10,10 @@ metadata:
   ms.service: databox
   ms.subservice: pod
   ms.topic: landing-page
-  ms.date: 01/09/2019
+  ms.date: 07/03/2019
   ms.author: alkohli
 abstract:
-  description: 'Azure Data Box ailesi hızlı, ucuz ve güvenilir bir yolla yüzlerce terabayt boyutundaki veriyi Azure''a aktarmanıza olanak tanır. Süre, ağ veya maliyet konusunda sınırlarınız varsa çevrimdışı veri aktarımı için Data Box cihazlarını kullanabilirsiniz.<p>Verilerinizin boyutuna göre Data Box Disk, Data Box veya Data Box Heavy <SUP>Önizleme</SUP> çözümlerinden birini seçebilirsiniz. Her cihazda Azure''a aktarım 4 kolay adımda gerçekleşir: sipariş, teslim alma, verileri cihaza kopyalama ve cihazı Azure''a geri gönderme. Azure veri merkezinde veriler yüklenir ve ardından cihazdan silinir.</p><p>Çevrimdışı veri aktarımı için Data Box ürünlerini kullanma hakkında bilgi edinmek için hızlı başlangıçlara ve öğreticilere göz atın.</p>'
+  description: 'Azure Data Box ailesi hızlı, ucuz ve güvenilir bir yolla yüzlerce terabayt boyutundaki veriyi Azure''a aktarmanıza olanak tanır. Süre, ağ veya maliyet konusunda sınırlarınız varsa çevrimdışı veri aktarımı için Data Box cihazlarını kullanabilirsiniz.<p>Verilerinizin boyutuna göre Data Box Disk, Data Box veya Data Box Heavy çözümlerinden birini seçebilirsiniz. Her cihazda Azure''a aktarım 4 kolay adımda gerçekleşir: sipariş, teslim alma, verileri cihaza kopyalama ve cihazı Azure''a geri gönderme. Azure veri merkezinde veriler yüklenir ve ardından cihazdan silinir.</p><p>Çevrimdışı veri aktarımı için Data Box ürünlerini kullanma hakkında bilgi edinmek için hızlı başlangıçlara ve öğreticilere göz atın.</p>'
 sections:
   - title: Hızlı Başlangıç
     items:
@@ -30,8 +30,8 @@ sections:
             href: /azure/databox/data-box-disk-quickstart-portal
           - image:
               src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
-            text: Data Box Heavy<SUP>Önizleme</SUP> hizmetine kaydolma
-            href: '/azure/databox/data-box-heavy-overview#sign-up'
+            text: Azure portalında Data Box Heavy'yi ayarlama
+            href: /azure/databox/data-box-heavy-quickstart-portal
   - title: Öğreticiler
     items:
       - type: list
@@ -42,3 +42,5 @@ sections:
             html: <p><a href="/azure/databox/data-box-deploy-ordered">Azure Data Box sipariş etme</a></p><p><a href="/azure/databox/data-box-deploy-set-up">Azure Data Box'ın kablolarını takma ve bağlantıları kurma</a></p><p><a href="/azure/databox/data-box-deploy-copy-data">Azure Data Box'a veri kopyalama</a></p><p><a href="/azure/databox/data-box-deploy-picked-up">Azure Data Box'ı geri gönderme ve yükleme işlemini doğrulama</a></p>
           - title: Data Box Disk için
             html: '<p><a href="/azure/databox/data-box-disk-deploy-ordered">Azure Data Box Disk sipariş etme</a></p><p><a href="/azure/databox/data-box-disk-deploy-set-up">Azure Data Box Disk''i paketinden çıkarma, bağlama, kilidini açma</a></p><p><a href="/azure/databox/data-box-disk-deploy-copy-data">Azure Data Box Disk''e veri kopyalama</a></p><p><a href="/azure/databox/data-box-disk-deploy-picked-up">Azure Data Box Disk''i geri gönderme ve yükleme işlemini doğrulama</a></p>'
+          - title: Data Box Heavy için
+            html: <p><a href="/azure/databox/data-box-heavy-deploy-ordered">Azure Data Box Heavy sipariş etme</a></p><p><a href="/azure/databox/data-box-heavy-deploy-set-up">Azure Data Box Heavy'nin kablolarını takma ve bağlantıları kurma</a></p><p><a href="/azure/databox/data-box-heavy-deploy-copy-data">Azure Data Box Heavy’ye veri kopyalama</a></p><p><a href="/azure/databox/data-box-heavy-deploy-picked-up">Azure Data Box Heavy'yi geri gönderme ve yükleme işlemini doğrulama</a></p>

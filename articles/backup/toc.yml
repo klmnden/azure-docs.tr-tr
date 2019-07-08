@@ -62,6 +62,8 @@
           href: backup-azure-files-faq.md
         - name: SSS-Azure VM’lerindeki SQL Server veritabanlarını yedekleme
           href: faq-backup-sql-server.md
+        - name: SSS-Azure Backup Sunucusu ve DPM
+          href: backup-azure-dpm-azure-server-faq.md
     - name: Backup mimarisi
       href: backup-architecture.md
     - name: Rol Tabanlı Access Control
