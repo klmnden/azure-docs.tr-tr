@@ -42,7 +42,7 @@ Belirli bir Azure SQL veritabanı sunucusuna bağlanmak için SQL Server Managem
 
 Bu makalede verilen PowerShell Betiği tanıtım çalıştırmak istiyorsanız, aşağıdaki önkoşulları geçerlidir:
 
-- Bir Azure aboneliği ve hesabı. Ücretsiz deneme için tıklatın [ https://azure.microsoft.com/free/ ] [ https://azure.microsoft.com/free/].
+- Bir Azure aboneliği ve hesabı. Ücretsiz deneme için tıklatın [https://azure.microsoft.com/free/][https://azure.microsoft.com/free/].
 - Cmdlet ile Azure PowerShell Modülü **yeni AzSqlServerDNSAlias**.
   - Yüklemek veya yükseltmek için bkz: [Azure PowerShell modülü yükleme][install-Az-ps-84p].
   - Çalıştırma `Get-Module -ListAvailable Az;` PowerShell'de\_sürümü bulmak için ise.exe.

@@ -31,7 +31,7 @@ Bu makalede, iki aşamalı doğrulama veya çok faktörlü kimlik doğrulaması 
 
 **Ek güvenlik doğrulama sayfasına gidin**
 
-- https://aka.ms/MFASetup kısmına gidin.
+- [https://aka.ms/MFASetup](https://aka.ms/MFASetup ) kısmına gidin.
 
     ![Düzenleyebileceğinizi](./media/multi-factor-authentication-end-user-manage-settings/proofup.png)
 

@@ -12,7 +12,7 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: eb52169fc522ba323f82c42d9505571b18f49f1b
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66244474"
@@ -72,7 +72,7 @@ WITH (
 ```
 
 ### <a name="12-create-the-external-data-source"></a>1.2. Dış veri kaynağı oluşturma
-Bunu kullanın [CREATE EXTERNAL DATA SOURCE] [ CREATE EXTERNAL DATA SOURCE] veri veri türü ve konumu depolamak için komutu. 
+Bunu kullanın [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] veri veri türü ve konumu depolamak için komutu. 
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -89,7 +89,7 @@ WITH
 > 
 
 ## <a name="2-configure-data-format"></a>2. Veri biçimi yapılandırma
-Veriler Azure blob depolama alanındaki metin dosyalarında depolanır ve her bir alan sınırlayıcı ile ayrılır. SSMS'de, aşağıdakini çalıştırarak [CREATE EXTERNAL FILE FORMAT] [ CREATE EXTERNAL FILE FORMAT] metin dosyalarında verilerin biçimini belirtmek için komutu. Contoso sıkıştırılmamış verilerdir ve kanal ayrılmış.
+Veriler Azure blob depolama alanındaki metin dosyalarında depolanır ve her bir alan sınırlayıcı ile ayrılır. SSMS'de, aşağıdakini çalıştırarak [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] metin dosyalarında verilerin biçimini belirtmek için komutu. Contoso sıkıştırılmamış verilerdir ve kanal ayrılmış.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -213,7 +213,7 @@ GO
 ```
 
 ### <a name="42-load-the-data-into-new-tables"></a>4.2. Yeni tablolarına veri yükleme
-Verileri Azure blob depolamadan veri ambarı tablosuna yüklemek için kullanmak [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] deyimi. CTAS yükleyerek oluşturduğunuz kesin türü belirtilmiş dış tabloları kullanır. Verileri yeni tablolara yüklemek için kullanın [CTAS] [ CTAS] her tablo ifadesi. 
+Verileri Azure blob depolamadan veri ambarı tablosuna yüklemek için kullanmak [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] deyimi. CTAS yükleyerek oluşturduğunuz kesin türü belirtilmiş dış tabloları kullanır. Verileri yeni tablolara yüklemek için kullanın [CTAS][CTAS] her tablo ifadesi. 
  
 CTAS, yeni bir tablo oluşturur ve bir select deyiminin sonuçları ile doldurur. CTAS bir select deyiminin sonuçları aynı sütunlara ve veri türleri için yeni tablo tanımlar. Bir dış tablodan tüm sütunları seçerseniz, yeni bir tablo veri türleri, dış tablo ve sütunları çoğaltmasını olacaktır.
 
@@ -276,12 +276,12 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-Columnstore dizinleri koruma ile ilgili daha fazla bilgi için bkz: [columnstore dizinlerini Yönet] [ manage columnstore indexes] makalesi.
+Columnstore dizinleri koruma ile ilgili daha fazla bilgi için bkz: [columnstore dizinlerini Yönet][manage columnstore indexes] makalesi.
 
 ## <a name="6-optimize-statistics"></a>6. İstatistikleri en iyi duruma getirme
 Hemen sonra bir yükleme tek sütunlu istatistikler oluşturmak idealdir. Bazı sütunlar sorgu koşullarda olacak olmayan biliyorsanız, bu sütunlar üzerinde oluşturmayı istatistikleri atlayabilirsiniz. Her sütunda tek sütunlu İstatistikler oluşturursanız, tüm İstatistikler yeniden uzun sürebilir. 
 
-Tek sütunlu istatistikler her tablonun her sütunu oluşturmaya karar verirseniz, saklı yordam kod örneği kullanabilirsiniz `prc_sqldw_create_stats` içinde [istatistikleri] [ statistics] makalesi.
+Tek sütunlu istatistikler her tablonun her sütunu oluşturmaya karar verirseniz, saklı yordam kod örneği kullanabilirsiniz `prc_sqldw_create_stats` içinde [istatistikleri][statistics] makalesi.
 
 Aşağıdaki örnek istatistik oluşturmak için iyi bir başlangıç noktası var. Her sütunda bir boyut tablosuna ve olgu tabloları katılan her sütunda tek sütunlu İstatistikler oluşturur. Her zaman tek veya birden çok sütun istatistikleri diğer olgu tablo sütunları daha sonra ekleyebilirsiniz.
 

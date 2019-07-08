@@ -51,7 +51,7 @@ Bu kılavuzda, yerel olarak PHP uygulaması içinde veya bir Azure web rolü, ç
 ## <a name="configure-your-application-to-use-service-bus"></a>Service Bus hizmetini kullanmak için uygulamanızı yapılandırma
 Service Bus kuyruğu API'leri kullanmak için aşağıdakileri yapın:
 
-1. Otomatik Yükleyici dosyasını kullanarak başvuru [require_once] [ require_once] deyimi.
+1. Otomatik Yükleyici dosyasını kullanarak başvuru [require_once][require_once] deyimi.
 2. Tüm sınıflar kullanabileceğinize başvuru.
 
 Aşağıdaki örnekte, başvuru ve otomatik yükleyici dosyasını içerecek şekilde gösterilmektedir `ServicesBuilder` sınıfı.
@@ -169,7 +169,7 @@ Service Bus kuyrukları, [Standart katmanda](service-bus-premium-messaging.md) m
 
 ## <a name="receive-messages-from-a-queue"></a>Bir kuyruktan ileti alma
 
-En iyi yolu, bir kuyruktan ileti almak için kullanılacak olan bir `ServiceBusRestProxy->receiveQueueMessage` yöntemi. İleti, iki farklı modda alınabilir: [*ReceiveAndDelete* ](/dotnet/api/microsoft.servicebus.messaging.receivemode) ve [ *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock). **PeekLock** varsayılan değerdir.
+En iyi yolu, bir kuyruktan ileti almak için kullanılacak olan bir `ServiceBusRestProxy->receiveQueueMessage` yöntemi. İleti, iki farklı modda alınabilir: [*ReceiveAndDelete*](/dotnet/api/microsoft.servicebus.messaging.receivemode) ve [*PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock). **PeekLock** varsayılan değerdir.
 
 Kullanırken [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) modunda almak bir tek işlem; diğer bir deyişle, Service Bus kuyruk iletiye yönelik Okuma isteği aldığında, iletiyi kullanılıyor olarak işaretler ve uygulamaya döndürür. [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) modu, en basit modeldir ve uygulamanın hata oluştuğunda bir iletinin işlenmemesine izin verebileceği senaryolarda en iyi şekilde çalışır. Bu durumu daha iyi anlamak için müşterinin bir alma isteği bildirdiğini ve bu isteğin işlenmeden çöktüğünü varsayın. Service Bus iletiyi kullanılıyor olarak işaretleyeceğinden, uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında ardından onu çökmenin öncesinde kullanılan iletiyi atlamış olur.
 
@@ -227,7 +227,7 @@ Uygulama iletiyi ancak önce çökmesi durumunda, `deleteMessage` isteği bildir
 > Service Bus kaynakları ile yönetebileceğiniz [hizmet veri yolu Gezgini](https://github.com/paolosalvatori/ServiceBusExplorer/). Hizmet veri yolu Gezgini, bir Service Bus ad alanınıza bağlanın ve mesajlaşma varlıkları kolay bir şekilde yönetmek kullanıcıların sağlar. Araç, içeri/dışarı aktarma işlevleri veya konu, kuyruklar, abonelikler, geçiş hizmetleri, bildirim hub'ları ve olay hub'ları test etme olanağı gibi gelişmiş özellikler sağlar. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Service Bus kuyruklarına ilişkin temel bilgileri öğrendiğinize göre artık bkz [kuyruklar, konular ve abonelikler] [ Queues, topics, and subscriptions] daha fazla bilgi için.
+Service Bus kuyruklarına ilişkin temel bilgileri öğrendiğinize göre artık bkz [kuyruklar, konular ve abonelikler][Queues, topics, and subscriptions] daha fazla bilgi için.
 
 Ayrıca daha fazla bilgi için ziyaret [PHP Geliştirici Merkezi](https://azure.microsoft.com/develop/php/).
 

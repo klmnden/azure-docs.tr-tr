@@ -31,7 +31,7 @@ Azure Cloud Shell gerekli tüm Docker bileşenlerini (`dockerd` daemon) içermed
 
 ## <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
-Azure aboneliğinizde oturum açın [Connect AzAccount] [ Connect-AzAccount] komutunu ve izleyin ekrandaki yönergeleri izleyin.
+Azure aboneliğinizde oturum açın [Connect AzAccount][Connect-AzAccount] komutunu ve izleyin ekrandaki yönergeleri izleyin.
 
 ```powershell
 Connect-AzAccount
@@ -47,7 +47,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-container-registry"></a>Kapsayıcı kayıt defteri oluşturuluyor
 
-Ardından, yeni kaynak grubunuz ile kapsayıcı kayıt defteri oluşturun [yeni AzContainerRegistry] [ New-AzContainerRegistry] komutu.
+Ardından, yeni kaynak grubunuz ile kapsayıcı kayıt defteri oluşturun [yeni AzContainerRegistry][New-AzContainerRegistry] komutu.
 
 Kaynak defteri adı Azure’da benzersiz olmalı ve 5-50 arası alfasayısal karakter içermelidir. Aşağıdaki örnek, "myContainerRegistry007" adlı bir kayıt defteri oluşturur. Aşağıdaki komutta *myContainerRegistry007* değerini değiştirin ve kayıt defterini oluşturmak için komutu çalıştırın:
 
@@ -59,7 +59,7 @@ Bu hızlı başlangıçta oluşturduğunuz bir *temel* maliyet açısından iyil
 
 ## <a name="log-in-to-registry"></a>Kayıt defterinde oturum açma
 
-Kapsayıcı görüntülerini gönderip çekmeden önce kayıt defterinizde oturum açmalısınız. Üretim senaryolarında, bir bireysel kimlik veya hizmet sorumlusu için kapsayıcı kayıt defteri erişimini kullanır, ancak bu hızlı başlangıcı kısa tutmak için kullanarak kayıt defterinizde yönetici kullanıcıyı etkinleştirin [Get-AzContainerRegistryCredential] [ Get-AzContainerRegistryCredential] komutu:
+Kapsayıcı görüntülerini gönderip çekmeden önce kayıt defterinizde oturum açmalısınız. Üretim senaryolarında, bir bireysel kimlik veya hizmet sorumlusu için kapsayıcı kayıt defteri erişimini kullanır, ancak bu hızlı başlangıcı kısa tutmak için kullanarak kayıt defterinizde yönetici kullanıcıyı etkinleştirin [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential] komutu:
 
 ```powershell
 $creds = Get-AzContainerRegistryCredential -Registry $registry
@@ -79,7 +79,7 @@ Bu komut tamamlandığında `Login Succeeded` döndürülür.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-İşiniz bittiğinde kaynaklarla çalışmak, bu hızlı başlangıçta oluşturduğunuz, kullanın [Remove-AzResourceGroup] [ Remove-AzResourceGroup] kaynak grubunu, kapsayıcı kayıt defteri ve kapsayıcı görüntülerini kaldırmak için komutu depolanan:
+İşiniz bittiğinde kaynaklarla çalışmak, bu hızlı başlangıçta oluşturduğunuz, kullanın [Remove-AzResourceGroup][Remove-AzResourceGroup] kaynak grubunu, kapsayıcı kayıt defteri ve kapsayıcı görüntülerini kaldırmak için komutu depolanan:
 
 ```powershell
 Remove-AzResourceGroup -Name myResourceGroup
