@@ -167,9 +167,9 @@ Açık **QSDataModel.xcdatamodeld**. Dört tablo tanımlanmış--üç SDK taraf�
 | --- | --- |
 | id | Integer 64 |
 | itemId | String |
-| properties | İkili veriler |
+| properties |Binary Data |
 | table | String |
-| tableKind | Tamsayı 16 |
+| tableKind | Integer 16 |
 
 
 **MS_TableOperationErrors**
@@ -180,8 +180,8 @@ Açık **QSDataModel.xcdatamodeld**. Dört tablo tanımlanmış--üç SDK taraf�
 | --- | --- |
 | id |String |
 | operationId |Integer 64 |
-| properties |İkili veriler |
-| tableKind |Tamsayı 16 |
+| properties |Binary Data |
+| tableKind |Integer 16 |
 
  **MS_TableConfig**
 
