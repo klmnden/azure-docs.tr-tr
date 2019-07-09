@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 20e47b6d3243bb0cccbc42ab0ab904b72922e98b
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 428dba9e8ff5ec072d5172fee357fd5319d04ad8
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604792"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657737"
 ---
 # <a name="what-is-speech-translation"></a>Konuşma çevirisi nedir?
 
@@ -55,10 +55,7 @@ Speech SDK'sı için örnek kod, Github'da kullanılabilir. Bu örnekler bir dos
 
 ## <a name="migration-guides"></a>Geçiş kılavuzları
 
-> [!WARNING]
-> Translator konuşma çevirisi, 15 Ekim 2019 üzerinde kullanımdan.
-
-Translator konuşma çevirisi, uygulamalar, Araçlar veya ürünleri kullanıyorsa kılavuzları konuşma Hizmetleri'ne geçirmenize yardımcı olması için oluşturduk.
+Uygulamalar, Araçlar ya da ürünler kullanıyorsanız [Translator konuşma tanıma API'si](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), konuşma Hizmetleri'ne geçirmenize yardımcı olacak Kılavuzlar oluşturduk.
 
 * [Translator konuşma API'sini konuşma Services'a geçme](how-to-migrate-from-translator-speech-api.md)
 

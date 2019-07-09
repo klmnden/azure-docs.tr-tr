@@ -164,8 +164,6 @@
       href: common-parameters-and-headers.md
     - name: Müşteri Verileri
       href: key-vault-customer-data.md
-    - name: Sürüm Notları
-      href: key-vault-versions.md
     - name: Fiyatlandırma
       href: 'https://azure.microsoft.com/pricing/details/key-vault/'
     - name: Bölge kullanılabilirliği

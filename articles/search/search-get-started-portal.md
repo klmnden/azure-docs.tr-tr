@@ -1,21 +1,21 @@
 ---
 title: 'Hızlı Başlangıç: Azure portal - Azure Search kullanarak dizin sorgulama oluşturma ve yükleme'
 description: Verileri İçeri Aktarma Sihirbazı'nı, Azure portalında oluşturma, yükleme ve İlk Azure Search dizininizi sorgulama için kullanın.
-author: HeidiSteen
+author: lobrien
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 05/02/2019
-ms.author: heidist
+ms.date: 07/01/2019
+ms.author: laobri
 ms.custom: seodec2018
-ms.openlocfilehash: 4a1944c5c5f169274cf45bd3ebfb6df47942dd5a
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 98ca455fd92b0c9ed276082413734c6bc063f310
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485642"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671965"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak bir Azure Search dizini oluşturma
 > [!div class="op_single_selector"]
@@ -23,7 +23,6 @@ ms.locfileid: "67485642"
 > * [PowerShell](search-howto-dotnet-sdk.md)
 > * [Postman](search-get-started-postman.md)
 > * [C#](search-create-index-dotnet.md)
->*
 
 Bir hızlı mvc'deki için Azure Search kavramları, Azure portalında yerleşik araçları deneyebilirsiniz. Sihirbazlar ve düzenleyicileri .NET ve REST API'leri ile tam eşlik sağlamaz, ancak hızlı bir şekilde kod gerektirmeyen bir giriş, dakika içinde örnek veriler ilgi çekici sorguları yazma başlayabilirsiniz.
 
@@ -48,7 +47,7 @@ Birçok müşteri ücretsiz hizmetle başlar. Bu sürüm üç dizin, üç veri k
 
 Hizmet panosundaki bölümleri kaç dizin, dizin oluşturucular ve veri kaynaklarına sahip olduğunuzu gösterir. 
 
-![Dizin, dizin oluşturucular ve veri kaynaklarının listesi](media/search-get-started-portal/tiles-indexers-datasources2.png)
+![Dizin, dizin oluşturucular ve veri kaynaklarının listesi](media/search-get-started-portal/tiles-indexers-datasources.png)
 
 ## <a name="create-index"></a> Dizin oluşturma ve verileri yükleme
 
@@ -60,11 +59,11 @@ Bu öğreticide **Verileri içeri aktar** sihirbazı aracılığıyla bir [*dizi
 
 1. Azure Search Hizmeti panosunda **verileri içeri aktarma** oluşturmak ve search dizinini doldurmak için komut çubuğunda.
 
-   ![Verileri içeri aktar komutu](media/search-get-started-portal/import-data-cmd2.png)
+   ![Verileri içeri aktar komutu](media/search-get-started-portal/import-data-cmd.png)
 
-2. Sihirbazda **Verilerinize bağlanın** > **Örnekler** > **realestate-us-sample** yolunu izleyin. Bu veri kaynağı yerleşiktir. Kendi veri kaynağı oluşturuyorsanız, ad, tür ve bağlantı bilgilerini belirtmek gerekir. Oluşturulan kaynak, diğer içeri aktarma işlemlerinde yeniden kullanılabilecek bir “mevcut veri kaynağı” olur.
+2. Sihirbazı'nda tıklatın **verilerinize bağlanın** > **örnekleri** > **hotels örnek**. Bu veri kaynağı yerleşiktir. Kendi veri kaynağı oluşturuyorsanız, ad, tür ve bağlantı bilgilerini belirtmek gerekir. Oluşturulan kaynak, diğer içeri aktarma işlemlerinde yeniden kullanılabilecek bir “mevcut veri kaynağı” olur.
 
-   ![Örnek veri kümesi seçme](media/search-get-started-portal/import-datasource-sample2.png)
+   ![Örnek veri kümesi seçme](media/search-get-started-portal/import-datasource-sample.png)
 
 3. Bir sonraki sayfasına devam edin.
 
@@ -87,7 +86,7 @@ Genellikle dizin oluşturma, veriler yüklenmeden önce tamamlanan kod tabanlı 
 
 Alanların veri türleri ve öznitelikleri vardır. Üstteki onay kutuları, alanın nasıl kullanılacağını denetleyen *dizin öznitelikleridir*.
 
-* **Alınabilir**, arama sonuçları listesinde çıktığı anlamına gelir. Örneğin, alanlar yalnızca filtre ifadelerinde kullanıldığında bu onay kutusunun işaretini kaldırarak alanları arama sonuçları için kapsam dışı olarak işaretleyebilirsiniz.
+* **Alınabilir**, arama sonuçları listesinde çıktığı anlamına gelir. Örneğin, yalnızca filtre ifadelerinde kullanılan alanları için bu onay kutusunu temizleyerek dışı arama sonuçları için ayrı alanlar olarak işaretleyebilirsiniz.
 * **Anahtar** belgenin benzersiz tanımlayıcısı. Her zaman bir dize olduğu ve gerekli değildir.
 * **Filtrelenebilir**, **sıralanabilir**, ve **modellenebilir** alanları bir filtre, sıralama veya çok yönlü gezinme yapısı kullanılıp kullanılmayacağını belirler.
 * **Aranabilir**, bir alanın tam metin aramasına dahil olduğu anlamına gelir. Dizelerde arama yapılabilir. Sayısal alanlar ve Boolean alanları genellikle aranamaz olarak işaretlenir.
@@ -98,9 +97,9 @@ Varsayılan olarak sihirbaz tarafından anahtar alanının temeli olarak benzers
 
 1. Varsayılanları kabul edin. 
 
-   Varolan bir realestate veri kaynağını kullanarak ikinci bir kez Sihirbazı yeniden çalıştırın, varsayılan öznitelikler içeren dizin yapılandırılmaz. İleride içeri aktarmalar özniteliklerinde el ile seçmeniz gerekir.
+   Varolan bir otel veri kaynağını kullanarak ikinci bir kez Sihirbazı yeniden çalıştırın, varsayılan öznitelikler içeren dizin yapılandırılmaz. İleride içeri aktarmalar özniteliklerinde el ile seçmeniz gerekir. 
 
-   ![Emlak dizini oluşturuldu](media/search-get-started-portal/realestateindex2.png)
+   ![Oluşturulan Oteller dizinini](media/search-get-started-portal/hotelsindex.png)
 
 2. Bir sonraki sayfasına devam edin.
 
@@ -114,7 +113,7 @@ Bu nesne, yürütülebilir bir işlemi tanımlar. Yinelenen bir zamanlamaya gör
 
 Tıklayın **Gönder** oluşturmak ve aynı anda dizin oluşturucuyu çalıştırmak için.
 
-  ![emlak dizini oluşturucu](media/search-get-started-portal/realestate-indexer2.png)
+  ![Hotels dizin oluşturucu](media/search-get-started-portal/hotels-indexer.png)
 
 ## <a name="monitor-progress"></a>İlerlemeyi İzle
 
@@ -122,7 +121,7 @@ Sihirbaz burada ilerleme durumunu izleyebilirsiniz. dizin oluşturucular listeye
 
 Portalın sayfanın birkaç dakika sürebilir ve durumunu gösteren ile listesinde yeni oluşturulan dizin oluşturucu görmeniz gerekir "Sürüyor" ya da başarılı dizine eklenen belge sayısını.
 
-   ![Dizin oluşturucu ilerleme durumu iletisi](media/search-get-started-portal/indexers-inprogress2.png)
+   ![Dizin oluşturucu ilerleme durumu iletisi](media/search-get-started-portal/indexers-inprogress.png)
 
 ## <a name="view-the-index"></a>Dizini görüntüleme
 
@@ -130,7 +129,7 @@ Ana hizmet sayfası, Azure Search hizmetinizde oluşturulan kaynakların bağlan
 
    ![Hizmet panosundaki dizinler listesi](media/search-get-started-portal/indexes-list.png)
 
-Bu listeden tıklayarak *realestate-us-sample* yeni dizin oluşturulmuş dizin şemasını görüntüleyin. ve isteğe bağlı olarak yeni alanlar ekleyin. 
+Bu listeden tıklayarak *hotels örnek* yeni dizin, dizin şemasını görüntülemek oluşturulmuş. ve isteğe bağlı olarak yeni alanlar ekleyin. 
 
 **Alanları** sekmesi dizin şemasını gösterir. Yeni bir alan girin için listenin en alt kısma. Çoğu durumda, var olan alanları değiştiremezsiniz. Var olan alanlar Azure Search'te fiziksel olarak temsil edildiğinden kod ile dahi değişiklik yapılamaz. Temelde varolan bir alanı değiştirmek için özgün bırakmadan yeni bir dizin oluşturun.
 
@@ -152,11 +151,11 @@ Artık yerleşik [**Arama gezgini**](search-explorer.md) sorgu sayfasını kulla
 
 1. Komut çubuğunda **Arama gezgini**'ne tıklayın.
 
-   ![Search gezgini komutu](media/search-get-started-portal/search-explorer-cmd2.png)
+   ![Search gezgini komutu](media/search-get-started-portal/search-explorer-cmd.png)
 
-2. *realestate-us-sample* öğesine geçmek için komut çubuğundan **Dizini değiştir**’e tıklayın. Hangi REST API’lerin kullanılabildiğini görmek için komut çubuğundan **API sürümünü ayarla**’ya tıklayın. Aşağıdaki sorgular için genel kullanıma sunulan sürümü (2019-05-06) kullanın.
+2. Gelen **dizin** açılır listesinde, seçin *hotels örnek*. Tıklayın **API sürümü** hangi REST API'lerin kullanılabildiğini görmek için açılır. Aşağıdaki sorgular için genel kullanıma sunulan sürümü (2019-05-06) kullanın.
 
-   ![Dizin ve API komutları](media/search-get-started-portal/search-explorer-changeindex-se2.png)
+   ![Dizin ve API komutları](media/search-get-started-portal/search-explorer-changeindex.png)
 
 3. Aşağıdaki sorgu dizeleri arama çubuğunda yapıştırın ve tıklayın **arama**.
 
@@ -168,29 +167,29 @@ Hüküm ve ifadeler, Bing veya Google arama veya tam olarak belirtilen sorgu ifa
 
 ### <a name="simple-query-with-top-n-results"></a>İlk N sonucu içeren basit sorgu
 
-#### <a name="example-string-query-searchseattle"></a>Örnek (dize sorgusu): `search=seattle`
+#### <a name="example-string-query-searchspa"></a>Örnek (dize sorgusu): `search=spa`
 
-* Bu durumda tam metin aramak üzere anahtar sözcük arama girişi yapmak için **search** parametresi kullanılmıştır ve belgedeki aranabilir alanların herhangi birinde *Seattle* ifadesini içeren Washington eyaletinin King County bölgesindeki listelemeler döndürülmüştür.
+* **Arama** parametresi tam metin araması, bu durumda, bir anahtar sözcük arama girişi için kullanılan otel verileri içeren olanlar için döndüren *spa* belgedeki aranabilir alanların herhangi içinde.
 
 * **Search gezgini** sonuçları JSON biçiminde döndürülür. Bu biçim ayrıntılı olmakla birlikte, belgelerin yoğun bir yapısı varsa okunması zordur. Bu kasıtlıdır; Tüm belgeyi görünürlük özellikle test sırasında geliştirme amacıyla önemlidir. Daha iyi bir kullanıcı deneyimi sunmak için [arama sonuçlarını işleyerek](search-pagination-page-layout.md) önemli öğeleri öne çıkaran bir kod yazmanız gerekir.
 
-* Belgeler, dizinde "alınabilir" olarak işaretlenmiş tüm alanlardan oluşur. Portalda dizin özniteliklerini görüntülemek için tıklayın *realestate-us-sample* içinde **dizinleri** listesi.
+* Belgeler, dizinde "alınabilir" olarak işaretlenmiş tüm alanlardan oluşur. Portalda dizin özniteliklerini görüntülemek için tıklayın *hotels örnek* içinde **dizinleri** listesi.
 
-#### <a name="example-parameterized-query-searchseattlecounttruetop100"></a>Örnek (Parametreli sorgu): `search=seattle&$count=true&$top=100`
+#### <a name="example-parameterized-query-searchspacounttruetop10"></a>Örnek (Parametreli sorgu): `search=spa&$count=true&$top=10`
 
 * **&** simgesi, herhangi bir sırada belirtilebilen arama parametreleri eklemek için kullanılır.
 
-* **$count=true** parametresi, döndürülen tüm belgelerin toplam sayısını döndürür. Bu değer arama sonuçlarının en üstüne yakın bir konumda görünür. **$count=true** tarafından bildirilen değişiklikleri izleyerek filtre sorgularını doğrulayabilirsiniz. Daha küçük sayılar filtrenizin çalıştığını gösterir.
+* **$Count = true** parametresi, döndürülen tüm belgelerin toplam sayısını döndürür. Bu değer arama sonuçlarının en üstüne yakın bir konumda görünür. **$count=true** tarafından bildirilen değişiklikleri izleyerek filtre sorgularını doğrulayabilirsiniz. Daha küçük sayılar filtrenizin çalıştığını gösterir.
 
-* **$top=100**, tüm belgelerin arasından en yüksek puana sahip 100 belgeyi döndürür. Azure Search varsayılan olarak ilk 50 en iyi eşleşmeyi döndürür. **$top** ile bu miktarı artırabilir veya azaltabilirsiniz.
+* **$Top = 10** en yüksek dereceye sahip 10 belgelerin döndürür. Azure Search varsayılan olarak ilk 50 en iyi eşleşmeyi döndürür. **$top** ile bu miktarı artırabilir veya azaltabilirsiniz.
 
 ### <a name="filter-query"></a> Sorguyu filtreleme
 
 **$filter** parametresini eklediğinizde, arama isteklerine filtreler de eklenir. 
 
-#### <a name="example-filtered-searchseattlefilterbeds-gt-3"></a>Örnek (filtrelenmiş): `search=seattle&$filter=beds gt 3`
+#### <a name="example-filtered-searchbeachfilterrating-gt-4"></a>Örnek (filtrelenmiş): `search=beach&$filter=Rating gt 4`
 
-* **$filter** parametresi, sağladığınız ölçütlerle eşleşen sonuçları döndürür. Bu durumda yatak odası sayısı 3’ten büyük olanlar.
+* **$filter** parametresi, sağladığınız ölçütlerle eşleşen sonuçları döndürür. Bu durumda 4'ten büyük derecelendirmeleri.
 
 * Filtre söz dizimi bir OData yapısıdır. Daha fazla bilgi edinmek için bkz. [OData söz dizimini filtreleme](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
@@ -198,45 +197,47 @@ Hüküm ve ifadeler, Bing veya Google arama veya tam olarak belirtilen sorgu ifa
 
 Model filtreleri arama isteklerine dahil edilir. Sağladığınız model değeriyle eşleşen belgelerin toplam sayısını döndürmek için facet parametresini kullanabilirsiniz.
 
-#### <a name="example-faceted-with-scope-reduction-searchfacetcitytop2"></a>Örnek (kapsamı azaltılarak modellenmiş): `search=*&facet=city&$top=2`
+#### <a name="example-faceted-with-scope-reduction-searchfacetcategorytop2"></a>Örnek (kapsamı azaltılarak modellenmiş): `search=*&facet=Category&$top=2`
 
-* **search=** * boş bir aramadır. Boş aramalar her şeyi arar. Boş sorgu göndermenin nedenlerinden biri, belge kümesinin tamamını filtrelemek veya görüntülemektir. Örneğin, dizindeki tüm şehirleri içeren bir gezinme yapısı görünümü oluşturmak isteyebilirsiniz.
-
-* **facet**, bir kullanıcı arabirimi denetimine geçirebileceğiniz bir gezinti yapısı döndürür. Kategorileri ve bir sayımı döndürür. Bu durumda, kategoriler şehir sayısını temel alır. Azure Search'te toplama yoktur ancak her kategorideki belge sayısını veren `facet` ile tahmini bir toplama gerçekleştirebilirsiniz.
+* **search=** * boş bir aramadır. Boş aramalar her şeyi arar. Boş sorgu göndermenin nedenlerinden biri, belge kümesinin tamamını filtrelemek veya görüntülemektir. Örneğin dizindeki tüm hotels oluşması için içeren bir gezinme yapısı isteyebilirsiniz.
+* **facet**, bir kullanıcı arabirimi denetimine geçirebileceğiniz bir gezinti yapısı döndürür. Kategorileri ve bir sayımı döndürür. Bu durumda, kategoriler rahatça adlı bir alan dayalı *kategori*. Azure Search'te toplama yoktur ancak her kategorideki belge sayısını veren `facet` ile tahmini bir toplama gerçekleştirebilirsiniz.
 
 * **$top=2** iki belge getirir ve sonuçları azaltmak veya artırmak için `top` kullanabileceğinizi gösterir.
 
-#### <a name="example-facet-on-numeric-values-searchseattlefacetbeds"></a>Örnek (sayısal değerlerle modelleme): `search=seattle&facet=beds`**
+#### <a name="example-facet-on-numeric-values-searchspafacetrating"></a>Örnek (modeli sayısal değerleri üzerinde): `search=spa&facet=Rating`
 
-* Bu sorgu *Seattle* için yapılan metin aramasında yatakların görünümüdür. *beds* terimi alan dizinde getirilebilen, filtrelenebilen ve görünüm oluşturulabilen bir alan olarak işaretlendiğinden bir model olarak belirtilebilir ve içerdiği değerler (sayısal, 1'den 5'e kadar), listelemelerin gruplar (3 yatak odalı, 4 yatak odalı listelemeler) halinde kategorilere ayrılması için uygundur.
+* Bu sorgu için yapılan metin aramasında derecelendirmesine olan *spa*. Terim *derecelendirme* alan olarak işaretlendiğinden odalı, ve dizin ve (sayısal, 1 ile 5), içerdiği değerlerin listelerini gruplar halinde kategorilere ayırmak için uygun bir model belirtilebilir.
 
 * Yalnızca filtrelenebilir alanlardan görünüm oluşturulabilir. Yalnızca getirilebilir alanlar sonuçlarda döndürülebilir.
+
+* *Derecelendirme* çift duyarlıklı kayan nokta bir alandır ve kesin değerine göre gruplandırma olacaktır. Aralığa göre gruplama hakkında daha fazla bilgi için (örneğin, "3 yıldız değerlendirmelerinde," "4 yıldız değerlendirmelerinde," vb.), bkz: [Azure Arama'da çok yönlü navigasyon uygulamak nasıl](https://docs.microsoft.com/en-us/azure/search/search-faceted-navigation#filter-based-on-a-range).
+
 
 ### <a name="highlight-query"></a> Arama sonuçlarını vurgulama
 
 İsabet vurgulama, belirli bir alanda eşleşme bulunduğunda anahtar sözcükle eşleşen metinlere biçimlendirme eklenmesini ifade eder. Arama teriminiz uzun bir açıklamanın belirsiz bir yerindeyse, terimi bulmayı kolaylaştırmak için isabet vurgulama ekleyebilirsiniz.
 
-#### <a name="example-highlighter-searchgranite-countertopshighlightdescription"></a>Örnek (vurgulama): `search=granite countertops&highlight=description`
+#### <a name="example-highlighter-searchbeachhighlightdescription"></a>Örnek (vurgulama): `search=beach&highlight=Description`
 
-* Bu örnekte biçimlendirilmiş *granit mutfak tezgahları* tümceciği açıklama alanında daha kolay göze çarpar.
+* Bu örnekte, biçimlendirilmiş word *Plaj* açıklama alanında daha kolay olan.
 
-#### <a name="example-linguistic-analysis-searchmicehighlightdescription"></a>Örnek (dilbilimsel analiz): `search=mice&highlight=description`
+#### <a name="example-linguistic-analysis-searchbeacheshighlightdescription"></a>Örnek (dilbilimsel analiz): `search=beaches&highlight=Description`
 
-* Tam metin arama, benzer semantiğe sahip sözcük biçimlerini bulur. Bu durumda, “sıçan” anahtar sözcüğüyle yapılan bir aramanın sonuçları, fare istilasına uğramış evler için “fare” sözcüğünün vurgulandığı metinleri içerir. Dilbilimsel analiz nedeniyle sonuçlarda aynı kelimenin farklı biçimleri görüntülenebilir.
+* Tam metin araması sözcük biçimlerini temel farklılığı tanır. Bu durumda, vurgulanan metni "Plaj" sözcük "dalışı" anahtar sözcük araması için yanıt, aranabilir alanları olan Oteller için arama sonuçlarını içerir. Dilbilimsel analiz nedeniyle sonuçlarda aynı kelimenin farklı biçimleri görüntülenebilir. 
 
 * Azure Search, Lucene ve Microsoft’tan 56 çözümleyiciyi destekler. Azure Search tarafından standart olarak Lucene çözümleyici kullanılır.
 
 ### <a name="fuzzy-search"></a> Belirsiz aramayı deneme
 
-Varsayılan olarak, sorgu terimleri gibi yazım *samamish* Seattle alanında Sammamish Plato için tipik aramada eşleşen döndüremeyen. Aşağıdaki örnek sonuç döndürmez.
+Varsayılan olarak, sorgu terimleri gibi yazım *seatle* "Seattle" için eşleşme bölgesindeki döndürmek başarısız. Aşağıdaki örnek sonuç döndürmez.
 
-#### <a name="example-misspelled-term-unhandled-searchsamamish"></a>Örnek (yanlış yazılmış terim, işlenmiyor): `search=samamish`
+#### <a name="example-misspelled-term-unhandled-searchseatle"></a>Örnek (yanlış yazılmış terim, işlenmiyor): `search=seatle`
 
 Yazım hatalarını işlemek için belirsiz aramayı kullanabilirsiniz. Belirsiz arama, tam Lucene sorgu söz dizimini kullandığınızda etkinleştirilir ve bunun için yapmanız gereken iki işlem vardır: sorguda **queryType=full** belirtin ve arama sorgusunun sonuna **~** ekleyin.
 
-#### <a name="example-misspelled-term-handled-searchsamamishquerytypefull"></a>Örnek (yanlış yazılmış terim, işleniyor): `search=samamish~&queryType=full`
+#### <a name="example-misspelled-term-handled-searchseatlequerytypefull"></a>Örnek (yanlış yazılmış terim, işleniyor): `search=seatle~&queryType=full`
 
-Bu örnekte ardık "Sammamish" ile ilgili belgeler döndürülür.
+Bu örnekte, artık "Seattle" eşleşmeleri ile içeren belgeleri döndürür.
 
 **queryType** belirtildiğinde varsayılan basit sorgu ayrıştırıcı kullanılır. Basit sorgu ayrıştırıcı daha hızlıdır ancak belirsiz arama, normal ifadeler, yakınlık araması ya da diğer gelişmiş sorgu türlerini kullanmanız gerekiyorsa tam söz dizimi gereklidir.
 
@@ -248,7 +249,7 @@ Tam sorgu ayrıştırıcı tarafından etkinleştirilen sorgu senaryoları hakk�
 
 Koordinat içeren bir alanda [edm.GeographyPoint veri türü](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) aracılığıyla jeo-uzamsal arama desteklenir. Coğrafi arama, [OData söz dizimini filtrele](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) seçeneğinde belirtilen bir tür filtredir.
 
-#### <a name="example-geo-coordinate-filters-searchcounttruefiltergeodistancelocationgeographypoint-122121513-47673988-le-5"></a>Örnek (coğrafi koordinat filtreleri): `search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`
+#### <a name="example-geo-coordinate-filters-searchcounttruefiltergeodistancelocationgeographypoint-12212-4767-le-5"></a>Örnek (coğrafi koordinat filtreleri): `search=*&$count=true&$filter=geo.distance(Location,geography'POINT(-122.12 47.67)') le 5`
 
 Örnek sorgu tüm sonuçları konumsal verilere göre filtreler ve belirli bir noktaya 5 kilometreden daha yakın olan sonuçlar (enlem ve boylam koordinatları olarak belirtilir) döndürülür. **$count** ekleyerek mesafeyi veya koordinatları değiştirdiğinizde döndürülen sonuç sayısını görebilirsiniz.
 

@@ -4,16 +4,16 @@ description: Veri Vhd'lerden şirket içi VM iş yüklerini, Azure veri kutusu a
 services: databox
 author: alkohli
 ms.service: databox
-ms.subservice: Heavy
+ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 8065d29c0cb984244178d49fe8c8c5aa853ee682
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: a29cd142b3322c958f70aad8d5cad2bc30b87d76
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595766"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670833"
 ---
 # <a name="tutorial-use-data-box-heavy-to-import-data-as-managed-disks-in-azure"></a>Öğretici: Verileri içeri aktarmak için kullanım veri kutusu ağır yönetilen diskler azure'da
 
@@ -115,7 +115,7 @@ Bir Linux ana bilgisayar kullanıyorsanız, NFS istemcilerinin erişmesine izin 
 
     ![NFS istemci erişimini yapılandırma 1](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
 
-2. NFS istemcisinin IP adresini girin ve **Ekle**'ye tıklayın. Bu adımı tekrarlayarak birden fazla NFS istemcisi için erişim sağlayabilirsiniz. **Tamam** düğmesine tıklayın.
+2. NFS istemcisinin IP adresini girin ve **Ekle**'ye tıklayın. Bu adımı tekrarlayarak birden fazla NFS istemcisi için erişim sağlayabilirsiniz. **Tamam**'ı tıklatın.
 
     ![NFS istemci erişimini yapılandırma 2](media/data-box-deploy-copy-data-from-vhds/nfs-client-access2.png)
 

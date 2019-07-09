@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 26f7f3ab60347d9ec5f2a144410ad3de436f5b5c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: acafc2c42c2946632496b646d001c58d6b48c2a6
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67454900"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657722"
 ---
 # <a name="create-a-cognitive-services-account-using-the-azure-command-line-interfacecli"></a>Azure komut satırı arabirimi kullanarak Bilişsel Hizmetler hesabı oluşturma
 
@@ -43,7 +43,7 @@ Bilişsel hizmetler için aboneliklerinizi Azure kaynakları tarafından temsil 
 
 ### <a name="choose-your-resource-group-location"></a>Kaynak grubu konumunuzu seçin
 
-Bir kaynak oluşturmak için kullanılabilen Azure konumlardan birine, aboneliğiniz için gerekir. İle kullanılabilir konumların bir listesini alabilirsiniz [az hesabı konumları-Listele](/cli/azure/account#az_account_list) komutu. Çoğu Bilişsel hizmetler, çeşitli konumlardan erişilebilir. Size en yakın seçin veya hizmet için hangi konumların kullanılabilir bakın.
+Bir kaynak oluşturmak için kullanılabilen Azure konumlardan birine, aboneliğiniz için gerekir. İle kullanılabilir konumların bir listesini alabilirsiniz [az hesabı konumları-Listele](/cli/azure/account#az-account-list-locations) komutu. Çoğu Bilişsel hizmetler, çeşitli konumlardan erişilebilir. Size en yakın seçin veya hizmet için hangi konumların kullanılabilir bakın.
 
 > [!IMPORTANT]
 > * Azure Bilişsel hizmetler çağırırken gerekir Azure konumunuz unutmayın.
@@ -55,7 +55,7 @@ az account list-locations \
     --out table
 ```
 
-Azure CLI kullanarak azure konumunuz sonra yeni bir kaynak grubu oluşturma [az grubu oluşturma](/cli/azure/group#az_group_create) komutu.
+Azure CLI kullanarak azure konumunuz sonra yeni bir kaynak grubu oluşturma [az grubu oluşturma](/cli/azure/group#az-group-create) komutu.
 
 Aşağıdaki örnekte, azure konumu değiştirin `westus2` biriyle Azure konumları, aboneliğiniz için kullanılabilir.
 

@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: d4269a99a8e535692e4897630a7edd9b27347d41
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: f98f16e9996d90b0380f05885e4c2d74e1413f23
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304027"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657659"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Örnek: Metin Analizi ile yaklaşımı algılama
 
@@ -103,7 +103,7 @@ Hemen çıktı döndürülür. Sonuçları, JSON kabul eden bir uygulamada akı�
 
 Aşağıdaki örnekte, bu makaledeki belge koleksiyonu için yanıt gösterilmektedir.
 
-```
+```json
 {
     "documents": [
         {
@@ -130,6 +130,133 @@ Aşağıdaki örnekte, bu makaledeki belge koleksiyonu için yanıt gösterilmek
     "errors": []
 }
 ```
+
+## <a name="sentiment-analysis-v3-public-preview"></a>Yaklaşım analizi V3 genel önizlemeye sunuldu
+
+[Yaklaşım analizi'nın sonraki sürümü](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) genel önemli geliştirmeler doğruluk ve API'nin metin Kategori ayrıntılarını sağlayan ve puanlama Önizleme için kullanıma sunulmuştur. 
+
+> [!NOTE]
+> * Yaklaşım analizi v3 istek biçimi ve [veri sınırları](../overview.md#data-limits) önceki sürümü ile aynıdır.
+> * Şu anda, yaklaşım analizi V3: 
+>    * Şu anda yalnızca İngilizce dilini desteklemektedir.  
+>    * Aşağıdaki bölgelerde kullanılabilir: `Central US`, `Central Canada`, ` East Asia` 
+
+|Özellik |Açıklama  |
+|---------|---------|
+|Geliştirilmiş doğruluğuna     | Pozitif, nötr, negatif ve karma bir yaklaşım, önceki sürümlere göre metin belgeleri algılama içinde önemli bir iyileştirme.           |
+|Belge ve cümle düzeyinde yaklaşım puanı     | Hem bir belge ve onun tek tek cümleler duyarlılığını algılamak. Belgenin birden çok cümleler içeriyorsa, her cümle ayrıca bir yaklaşım puanına atanır.         |
+|Yaklaşım kategorisi ve puanı     | API, artık yaklaşım kategorileri döndürür (`positive`, `negative`, `neutral` ve `mixed`), yaklaşım puanını yanı sıra metin.        |
+| Gelişmiş çıktı | Yaklaşım analizi, artık tüm metin belgesi hem kendi cümleleri tek tek bilgi döndürür. |
+
+### <a name="sentiment-labeling"></a>Yaklaşım etiketleme
+
+Yaklaşım analizi V3 puanlarını ve etiketleri döndürebilirsiniz (`positive`, `negative`, ve `neutral`) bir cümle ve belge düzeyinde. Belge düzeyinde `mixed` yaklaşım etiketinin (puan değil) de döndürülür. Kendi cümleler puanları toplayarak belgenin yaklaşımı belirlenir.
+
+| Tümce yaklaşım                                                        | Belge etiketi döndürdü |
+|---------------------------------------------------------------------------|----------------|
+| En az bir pozitif cümle ve cümleleri geri kalanı bağımsız. | `positive`     |
+| En az bir negatif cümle ve cümleleri geri kalanı bağımsız.  | `negative`     |
+| En az bir negatif cümle ve en az bir pozitif cümle.         | `mixed`        |
+| Tüm cümleleri belirsiz.                                                 | `neutral`      |
+
+### <a name="sentiment-analysis-v3-example-request"></a>Yaklaşım analizi V3 örnek istek
+
+Aşağıdaki JSON, yaklaşım analizi yeni sürümüne yapılan bir istek örneğidir. Biçimlendirme isteği önceki sürümüyle aynı olduğunu unutmayın:
+
+```json
+{
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "Hello world. This is some input text that I love."
+    },
+    {
+      "language": "en",
+      "id": "2",
+      "text": "It's incredibly sunny outside! I'm so happy."
+    }
+  ]
+}
+```
+
+### <a name="sentiment-analysis-v3-example-response"></a>Yaklaşım analizi V3 örnek yanıt
+
+İstek biçimini önceki sürümüyle aynı olsa da, yanıt biçimi değişmiştir. Yeni API sürümüne ait bir örnek yanıt aşağıdaki JSON şöyledir:
+
+```json
+{
+    "documents": [
+        {
+            "id": "1",
+            "sentiment": "positive",
+            "documentScores": {
+                "positive": 0.98570585250854492,
+                "neutral": 0.0001625834556762,
+                "negative": 0.0141316400840878
+            },
+            "sentences": [
+                {
+                    "sentiment": "neutral",
+                    "sentenceScores": {
+                        "positive": 0.0785155147314072,
+                        "neutral": 0.89702343940734863,
+                        "negative": 0.0244610067456961
+                    },
+                    "offset": 0,
+                    "length": 12
+                },
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.98570585250854492,
+                        "neutral": 0.0001625834556762,
+                        "negative": 0.0141316400840878
+                    },
+                    "offset": 13,
+                    "length": 36
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "sentiment": "positive",
+            "documentScores": {
+                "positive": 0.89198976755142212,
+                "neutral": 0.103382371366024,
+                "negative": 0.0046278294175863
+            },
+            "sentences": [
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.78401315212249756,
+                        "neutral": 0.2067587077617645,
+                        "negative": 0.0092281140387058
+                    },
+                    "offset": 0,
+                    "length": 30
+                },
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.99996638298034668,
+                        "neutral": 0.0000060341349126,
+                        "negative": 0.0000275444017461
+                    },
+                    "offset": 31,
+                    "length": 13
+                }
+            ]
+        }
+    ],
+    "errors": []
+}
+```
+
+### <a name="example-c-code"></a>Örnek C# kod
+
+Bir örnek bulabilirsiniz C# üzerinde yaklaşım analizi bu sürümü çağıran uygulama [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs).
 
 ## <a name="summary"></a>Özet
 

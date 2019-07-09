@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: c21b1e38077575fc49221150a61693a23aa408a3
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: f2efa9b7e1e534f93e4ea01ba52740c8c5ac7b02
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509154"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653873"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Öğretici: Azure Notification Hubs ve Google Firebase Cloud Messaging kullanarak Android cihazlarına anında iletme bildirimleri
 
@@ -88,7 +88,26 @@ Hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışacak şekilde ya
 
 ### <a name="add-google-play-services-to-the-project"></a>Projeye Google Play hizmetlerini ekleme
 
-[!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
+1. Android Studio'da **Araçları** menüsünü ve ardından **SDK Yöneticisi**. 
+2. Projenizde kullanılan Android SDK'sının hedef sürümü seçin. Ardından **Paket ayrıntılarını göster**. 
+
+    ![Android SDK Yöneticisi - select hedef sürümü](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+3. Seçin **Google API'leri**, zaten yüklü değilse.
+
+    ![Android SDK Yöneticisi - Google API'leri seçili](./media/notification-hubs-android-studio-add-google-play-services/googole-apis-selected.png)
+4. Geçiş **SDK Tools** sekmesi. Google Play Hizmetleri henüz yüklemediyseniz, seçin **Google Play Hizmetleri** aşağıdaki görüntüde gösterildiği gibi. Ardından **Uygula** yüklemek için. SDK yolunun sonraki bir adım için olduğunu unutmayın.
+
+    ![Android SDK Yöneticisi - seçili olan Google Play Hizmetleri](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
+3. Görürseniz **değişikliği onaylayın** iletişim kutusunda **Tamam**. Bileşen yükleyici istenen bileşenleri yükler. Seçin **son** bileşenler yüklendikten sonra.
+4. Seçin **Tamam** kapatmak için **yeni projeler için ayarları** iletişim kutusu.  
+5. Seçin **Şimdi Eşitle** araç çubuğunda simge.
+1. AndroidManifest.xml dosyasını açın ve ardından aşağıdaki etiketine ekleyin *uygulama* etiketi.
+
+    ```xml
+    <meta-data android:name="com.google.android.gms.version"
+         android:value="@integer/google_play_services_version" />
+    ```
+
 
 ### <a name="add-azure-notification-hubs-libraries"></a>Azure Notification Hubs kitaplıklarını ekleyin.
 
@@ -354,7 +373,6 @@ Hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışacak şekilde ya
 
         mainActivity = this;
         registerWithNotificationHubs();
-        MyHandler.createChannelAndHandleNotifications(getApplicationContext());
     }
     ```
 
@@ -526,7 +544,7 @@ Ayrıca, altında çalışan öykünücünüze Google hesabınızı eklediğiniz
 Bu öğreticide, Firebase Cloud Messaging hizmete kayıtlı tüm Android cihazlar için bildirimleri için kullanılır. Belirli cihazlara nasıl anında iletme bildirimleri gönderileceğini öğrenmek için aşağıdaki öğreticiye ilerleyin:
 
 > [!div class="nextstepaction"]
->[Öğretici: Belirli Android cihazlarına anında iletme bildirimleri gönderme](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
+>[Öğretici: Belirli Android cihazlarına anında iletme bildirimleri gönderme](push-notifications-android-specific-devices-firebase-cloud-messaging.md)
 
 <!-- Images. -->
 

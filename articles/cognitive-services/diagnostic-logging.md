@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: e1a6a44d7ff9d5786388fc47245ef5c79cb9be82
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 3be912f053bf206999546678e1e407548af181bf
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155736"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657674"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Azure Bilişsel hizmetler için tanılama günlüğünü etkinleştirme
 
@@ -28,14 +28,14 @@ Tanılama günlük kaydını etkinleştirmek için günlük verileri depolamak i
 * [Log Analytics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics) -bir Azure kaynağı tarafından oluşturulan işlenmemiş günlüklerin analiz için sağlayan bir esnek günlük arama ve analiz aracı.
 
 > [!NOTE]
-> Ek yapılandırma seçenekleri kullanılabilir. Daha fazla bilgi için bkz. [toplamak ve Azure kaynaklarınızdan günlük verilerini kullanma](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+> Ek yapılandırma seçenekleri kullanılabilir. Daha fazla bilgi için bkz. [toplamak ve Azure kaynaklarınızdan günlük verilerini kullanma](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 ## <a name="enable-diagnostic-log-collection"></a>Tanılama günlük toplamayı etkinleştir  
 
 Azure portalını kullanarak günlüğe kaydetme tanılama etkinleştirerek başlayalım.
 
 > [!NOTE]
-> PowerShell veya Azure CLI kullanarak bu özelliği etkinleştirmek için bölümlerinde sağlanan yönergeleri kullanın. [toplamak ve Azure kaynaklarınızdan günlük verilerini kullanma](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
+> PowerShell veya Azure CLI kullanarak bu özelliği etkinleştirmek için bölümlerinde sağlanan yönergeleri kullanın. [toplamak ve Azure kaynaklarınızdan günlük verilerini kullanma](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#diagnostic-settings).
 
 1. Azure portalına gidin. Bulun ve Bilişsel hizmetler kaynağı seçin. Örneğin, Bing Web araması aboneliğinize.   
 2. Ardından, sol taraftaki gezinti menüsünden bulun **izleme** seçip **tanılama ayarları**. Bu ekran, bu kaynak için daha önce oluşturulan tüm tanılama ayarları içerir.

@@ -230,7 +230,7 @@ Bu bölümde iki bağlı hizmet içinde veri fabrikanızı oluşturacaksınız.
 
     |Özellik |Değer |
     |---|---|
-    |Ad |`HDIStorageLinkedService` yazın.|
+    |Name |`HDIStorageLinkedService` yazın.|
     |Azure aboneliği |Aşağı açılan listeden aboneliğinizi seçin.|
     |Depolama hesabı adı |PowerShell betiğinin bir parçası oluşturduğunuz Azure depolama hesabını seçin.|
 
@@ -252,7 +252,7 @@ Bu bölümde iki bağlı hizmet içinde veri fabrikanızı oluşturacaksınız.
 
     | Özellik | Değer |
     | --- | --- |
-    | Ad | `HDInsightLinkedService` yazın.|
+    | Name | `HDInsightLinkedService` yazın.|
     | Tür | Seçin **isteğe bağlı HDInsight**. |
     | Azure Storage Bağlı Hizmeti | `HDIStorageLinkedService` öğesini seçin. |
     | Küme türü | Seçin **hadoop** |
@@ -260,7 +260,7 @@ Bu bölümde iki bağlı hizmet içinde veri fabrikanızı oluşturacaksınız.
     | Hizmet sorumlusu kimliği | Önkoşulların bir parçası oluşturduğunuz Azure Active Directory Hizmet sorumlusunun uygulama Kimliğini sağlayın. |
     | Hizmet sorumlusu anahtarı | Azure Active Directory Hizmet sorumlusunun kimlik doğrulama anahtarı sağlayın. |
     | Küme adı ön eki | Data factory tarafından oluşturulan tüm küme türleri için önek alacaktır bir değer belirtin. |
-    |Abonelik |Aşağı açılan listeden aboneliğinizi seçin.|
+    |Subscription |Aşağı açılan listeden aboneliğinizi seçin.|
     | Kaynak grubu seçin | Daha önce kullanılan PowerShell betiğinin bir parçası oluşturduğunuz kaynak grubunu seçin.|
     |Bölge seçin | Aşağı açılan listeden bir bölge seçin.|
     | İşletim sistemi türü/küme SSH kullanıcı adı | Bir SSH kullanıcı adı genellikle girin `sshuser`. |

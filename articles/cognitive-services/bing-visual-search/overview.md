@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 03/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: bd93166cb878fbd961795492ed9a035c919429a8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 4da4340176259265fd36c55d2b81ecfc3f4ed5f8
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "64916615"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657695"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Bing Görsel Arama API’si nedir?
 
@@ -26,11 +26,11 @@ Kullanırsanız [Bing resim arama API'si](../bing-image-search/overview.md), bir
 > [!IMPORTANT]
 > Bing resim arama API'si kullanarak resim öngörüleri alırsanız, Bing görsel arama daha kapsamlı içgörüler sağlayan API'sine, değiştirmeyi göz önünde bulundurun.
 
-## <a name="insights"></a>İçgörüler
+## <a name="insights"></a>Insights
 
 Bing görsel arama'yı kullanarak aşağıdaki Öngörüler bulabilir:
 
-| İçgörü                              | Açıklama |
+| Insight                              | Açıklama |
 |--------------------------------------|-------------|
 | Görsel olarak benzer resimler              | Giriş görüntünün görsel olarak benzer resimler listesi. |
 | Görsel olarak benzer ürünler            | Gösterilen ürün için görsel olarak benzer ürünleri.            |
@@ -43,11 +43,11 @@ Insights yanı sıra, Bing görsel arama terimleri (diğer bir deyişle, etiketl
 
 Bing görsel arama sonuçları, sınırlayıcı kutular bölgeler için görüntüde faiz de içerir. Örneğin, görüntüyü birkaç ünlüleri içeriyorsa, sonuçları her tanınan ünlüleri için sınırlayıcı kutular içerebilir. Veya bir ürün veya görüntüde giysi Bing tanır, sonuç tanınmış öğe için bir sınırlayıcı kutu içerebilir.
 
-## <a name="workflow"></a>İş Akışı
+## <a name="workflow"></a>İş akışı
 
 Bing görsel arama API'si bir RESTful web, HTTP istekleri ve JSON Ayrıştır tüm programlama dilinden çağrı kolaylaştırma hizmetidir. REST API veya SDK hizmeti için kullanabilirsiniz.
 
-1. Oluşturma bir [Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) Bing arama API'lerine erişmek için. Azure aboneliğiniz yoksa, şunları yapabilirsiniz [ücretsiz bir hesap oluşturma](https://azure.microsoft.com/free/). Abonelik anahtarınızı alabilirsiniz [Azure portalında](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#access-your-resource) hesabınızı oluşturduktan sonra veya [Azure Web sitesi](https://azure.microsoft.com/try/cognitive-services/my-apis) sonra ücretsiz deneme sürümü etkinleştiriliyor.
+1. Oluşturma bir [Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) Bing arama API'lerine erişmek için. Azure aboneliğiniz yoksa, şunları yapabilirsiniz [ücretsiz bir hesap oluşturma](https://azure.microsoft.com/free/). Abonelik anahtarınızı alabilirsiniz [Azure portalında](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#get-the-keys-for-your-subscription) hesabınızı oluşturduktan sonra veya [Azure Web sitesi](https://azure.microsoft.com/try/cognitive-services/my-apis) sonra ücretsiz deneme sürümü etkinleştiriliyor.
 2. Geçerli bir arama sorgusuyla API'sine bir istek gönderin.
 3. Döndürülen JSON iletisini ayrıştırarak API yanıtını işleyin.
 

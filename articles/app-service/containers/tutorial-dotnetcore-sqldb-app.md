@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c90d0d2596eb6b8650e2d9809b23bb0e184d97c0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 4837867188721b13b3f4cb64245ae85a1e32fe50
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62117509"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656631"
 ---
 # <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service'te bir ASP.NET Core ve SQL veritabanı uygulaması oluşturma
 
@@ -145,7 +145,7 @@ az sql db create --resource-group myResourceGroup --server <server-name> --name 
 
 ### <a name="create-connection-string"></a>Bağlantı dizesi oluşturma
 
-Aşağıdaki dize ile değiştirin  *\<sunucu-adı >*,  *\<db-username >*, ve  *\<db-password >* , daha önce kullanılır.
+Aşağıdaki dize ile değiştirin  *\<sunucu-adı >* ,  *\<db-username >* , ve  *\<db-password >* , daha önce kullanılır.
 
 ```
 Server=tcp:<server-name>.database.windows.net,1433;Database=coreDB;User ID=<db-username>;Password=<db-password>;Encrypt=true;Connection Timeout=30;
@@ -171,7 +171,7 @@ Bu adımda, Linux’ta App Service üzerinde SQL Veritabanı’na bağlı .NET C
 
 ### <a name="configure-an-environment-variable"></a>Ortam değişkeni yapılandırma
 
-Azure uygulamanıza yönelik bağlantı dizeleri ayarlamak için, Cloud Shell’de [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) komutunu kullanın. Aşağıdaki komutta  *\<-adı >*, hem de  *\<bağlantı dizesi >* daha önce oluşturduğunuz bağlantı dizesiyle parametre.
+Azure uygulamanıza yönelik bağlantı dizeleri ayarlamak için, Cloud Shell’de [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) komutunu kullanın. Aşağıdaki komutta  *\<-adı >* , hem de  *\<bağlantı dizesi >* daha önce oluşturduğunuz bağlantı dizesiyle parametre.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection-string>' --connection-string-type SQLServer
@@ -362,7 +362,7 @@ Mevcut yapılacak öğeleriniz görüntülenmeye devam eder. .NET Core uygulaman
 
 ## <a name="stream-diagnostic-logs"></a>Tanılama günlüklerini akışla aktarma
 
-Örnek Proje zaten yönergelerine izleyen [ASP.NET Core günlüğü azure'da](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) iki yapılandırma değişikliği:
+Örnek Proje zaten yönergelerine izleyen [ASP.NET Core günlüğü azure'da](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider) iki yapılandırma değişikliği:
 
 - Bir başvuru içeriyor `Microsoft.Extensions.Logging.AzureAppServices` içinde *DotNetCoreSqlDb.csproj*.
 - Çağrıları `loggerFactory.AddAzureWebAppDiagnostics()` içinde *Startup.cs*.

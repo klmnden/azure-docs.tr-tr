@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: dbef7c2cb8de5a1b4bbb3073f694b8f77c9f441b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: cf2bd694e126acb61ea31e71ff3fd9d15a6db9ef
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231290"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656579"
 ---
 # <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>Öğretici: Azure Kubernetes Service (AKS) Ansible kullanarak rol tabanlı erişim denetimi (RBAC) rollerini yapılandırma
 
@@ -39,7 +39,7 @@ AKS, kullanılacak yapılandırılabilir [Azure Active Directory (AD)](/azure/ac
 
 ## <a name="configure-azure-ad-for-aks-authentication"></a>AKS kimlik doğrulaması için Azure AD'yi yapılandırma
 
-AKS kimlik doğrulaması için Azure AD'yi yapılandırma, iki Azure AD uygulamaları yapılandırılır. Bu işlem, bir Azure Kiracı Yöneticisi tarafından tamamlanması gerekir. Daha fazla bilgi için [Azure Active Directory Tümleştirme ile AKS](/azure/aks/aad-integration#create-server-application). 
+AKS kimlik doğrulaması için Azure AD'yi yapılandırma, iki Azure AD uygulamaları yapılandırılır. Bu işlem, bir Azure Kiracı Yöneticisi tarafından tamamlanması gerekir. Daha fazla bilgi için [Azure Active Directory Tümleştirme ile AKS](/azure/aks/aad-integration#create-the-server-application). 
 
 Azure Kiracı Yöneticisi'nden aşağıdaki değerleri alın:
 

@@ -220,6 +220,8 @@
           href: application-gateway-troubleshooting-502.md
         - name: Web Uygulaması Güvenlik Duvarı (WAF)
           href: web-application-firewall-troubleshoot.md
+        - name: Kaynak Durumu
+          href: resource-health-overview.md
     - name: v1'den v2'ye geçiş
       href: migrate-v1-v2.md
 - name: Başvuru

@@ -146,7 +146,7 @@ Betik eylemi betikler aşağıdaki yardımcı programlar kullanılabilir:
 
 HDInsight, HDInsight kümelerinde aşağıdaki bileşenleri yüklemek için komut dosyaları sağlar:
 
-| Ad | Komut Dosyası |
+| Name | Komut Dosyası |
 | --- | --- |
 | Bir Azure depolama hesabı ekleme |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Bkz: [HDInsight için ek depolama hesapları ekleme](hdinsight-hadoop-add-storage.md). |
 | Hue yükleme |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Bkz: [yükleme ve kullanma, HDInsight, Hadoop üzerinde Hue kümeleri](hdinsight-hadoop-hue-linux.md). |
@@ -258,9 +258,9 @@ Git [Azure portalında](https://portal.azure.com):
     | Özellik | Değer |
     | --- | --- |
     | Bir komut dosyası seçin | Kendi betiğinizi kullanmayı tercih __özel__. Aksi takdirde, sağlanan bir betik seçin. |
-    | Ad |Betik eylemi için bir ad belirtin. |
+    | Name |Betik eylemi için bir ad belirtin. |
     | Bash betiği URI'si |Betik URI'si belirtin. |
-    | HEAD/çalışan/Zookeeper |Betik üzerinde çalıştığı düğümleri belirtin: **HEAD**, **çalışan**, veya **ZooKeeper**. |
+    | HEAD/Worker/ZooKeeper |Betik üzerinde çalıştığı düğümleri belirtin: **HEAD**, **çalışan**, veya **ZooKeeper**. |
     | Parametreler |Komut dosyası tarafından gerekli parametreleri belirtin. |
 
     Kullanım __bu betik eylemi kalıcı__ betik ölçeklendirme işlemleri sırasında uygulanan emin olmak için giriş.

@@ -155,6 +155,8 @@
               href: data-box-heavy-deploy-picked-up.md
         - name: Kavramlar
           items:
+            - name: Güvenlik yönergelerini okuyun
+              href: data-box-heavy-safety.md
             - name: İzleme ve günlüğe kaydetmeyi gözden geçirme
               href: data-box-logs.md
             - name: Gereksinimleri inceleme

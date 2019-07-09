@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/16/2019
 ms.author: diberry
-ms.openlocfilehash: fa7147dd1b5f22ead17a60042c1c35c4b770cd18
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 720352403fd5f5937669f9838f3974cb0d3f8797
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154904"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657794"
 ---
 # <a name="add-luis-results-to-application-insights-from-a-bot-in-c"></a>LUIS sonuçları bir Bot içinde Application Insights ekleyinC#
 
@@ -173,7 +173,7 @@ LUIS girişlerini görmek için Application ınsights'ı açın. Bu verilerin Ap
     ![Uygulama anlayışları'nda depolanan LUIS özel özellikleri gözden geçirin](./media/luis-tutorial-appinsights/application-insights-luis-trace-custom-properties-csharp.png)
 
 ## <a name="query-application-insights-for-intent-score-and-utterance"></a>Amacını ve score utterance için Application Insights sorgu
-Application Insights ile verileri sorgulamak için power size [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) dışarı aktarma yanı dil [Power BI](https://powerbi.microsoft.com). 
+Application Insights ile verileri sorgulamak için power size [Kusto](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview#what-language-do-log-queries-use) dışarı aktarma yanı dil [Power BI](https://powerbi.microsoft.com). 
 
 1. Seçin **günlük (analiz)** . Bir sorgu penceresi üstündeki ve bir veri tablosu penceresi altındaki yeni bir pencere açılır. Veritabanları önce kullandıysanız, bu düzenleme tanıdık gelir. Sorgu, önceki filtrelenmiş verileri temsil eder. **CustomDimensions** sütununun bot ve LUIS bilgileri.
 1. Üst amacı, Puanlama ve utterance çıkarmak için aşağıdaki yalnızca son satırı ekleyin ( `|top...` satır) sorgu penceresinde:

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: b300c40b4a9c832a0df87f7cfc6e6a9558d766f6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 36d85e11133e7197212ae1b37609628689b68a13
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448221"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657935"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Öğretici: WPF ile bir çeviri uygulaması oluşturma
 
@@ -62,7 +62,7 @@ Yapmamız gereken ilk şey, bizim projesini Visual Studio'da ayarlanır.
 1. Visual Studio'yu açın. Ardından **Dosya > Yeni > Proje**.
 2. Sol bölmede, bulun ve seçin **Visual C#** . Ardından, **WPF uygulaması (.NET Framework)** merkezi panelinde.
    ![Visual Studio'da bir WPF uygulaması oluşturma](media/create-wpf-project-visual-studio.png)
-3. Framework sürümünü ayarlamak, projenizi adlandırın **.NET Framework 4.5.2 veya üzeri**, ardından **Tamam**.
+3. Projenizi adlandırın `MSTranslatorTextDemo`, framework sürümünü ayarlamak **.NET Framework 4.5.2 veya üzeri**, ardından **Tamam**.
 4. Projeniz oluşturuldu. İki sekme açık olduğunu fark edeceksiniz: `MainWindow.xaml` ve `MainWindow.xaml.cs`. Bu öğretici boyunca kod için bu iki dosyayı ekleyeceğiz. Uygulamanın kullanıcı arabirimi için ilk; İkincisi için Translator metin çevirisi ve Bing yazım denetimi bizim çağrıları.
    ![Ortamınızı gözden geçirin](media/blank-wpf-project.png)
 
@@ -82,6 +82,7 @@ Derlemeleri bizim proje nesnelerini seri hale getrime ve ve HTTP isteklerini ve 
    * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
    * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
    * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Windows](https://docs.microsoft.com/dotnet/api/system.windows)
 3. Bu başvuruları projenize ekledikten sonra tıklayabilirsiniz **Tamam** kapatmak için **başvuru Yöneticisi**.
 
 > [!NOTE]
@@ -197,7 +198,7 @@ Tüm Projemizin saklanmış olduğu içinde `MainWindow : Window` sınıfı. Abo
        // authentication options, see: https://docs.microsoft.com/azure/cognitive-services/authentication.
        const string COGNITIVE_SERVICES_KEY = "YOUR_COG_SERVICES_KEY";
        // Endpoints for Translator Text and Bing Spell Check
-       public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api- version=3.0";
+       public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api-version=3.0";
        const string BING_SPELL_CHECK_API_ENDPOINT = "https://westus.api.cognitive.microsoft.com/bing/v7.0/spellcheck/";
        // An array of language codes
        private string[] languageCodes;
@@ -211,7 +212,7 @@ Tüm Projemizin saklanmış olduğu içinde `MainWindow : Window` sınıfı. Abo
        {
            Exception e = (Exception)args.ExceptionObject;
            MessageBox.Show("Caught " + e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-           System.Windows.app.Current.Shutdown();
+           System.Windows.Application.Current.Shutdown();
        }
        // MainWindow constructor
        public MainWindow()
@@ -224,7 +225,7 @@ Tüm Projemizin saklanmış olduğu içinde `MainWindow : Window` sınıfı. Abo
                MessageBox.Show("One or more invalid API subscription keys.\n\n" +
                    "Put your keys in the *_API_SUBSCRIPTION_KEY variables in MainWindow.xaml.cs.",
                    "Invalid Subscription Key(s)", MessageBoxButton.OK, MessageBoxImage.Error);
-               System.Windows.app.Current.Shutdown();
+               System.Windows.Application.Current.Shutdown();
            }
            else
            {
