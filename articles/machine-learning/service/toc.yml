@@ -78,6 +78,9 @@
         - name: Değişim sıklığı tahmini
           displayName: 'Basic Sample, training, classification, sample 5'
           href: ui-sample-classification-predict-churn.md
+        - name: Uçuş rötarları tahmini
+          displayName: 'Basic Sample, training, classification, sample 6'
+          href: ui-sample-classification-predict-flight-delay.md
     - name: Azure Açık Veri Kümeleri
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Kavramlar

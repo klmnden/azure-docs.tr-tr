@@ -127,6 +127,14 @@
           href: sql-data-warehouse-overview-develop.md
         - name: En iyi uygulamalar
           href: sql-data-warehouse-best-practices-development.md
+        - name: Gerçekleştirilmiş görünüm
+          items:
+            - name: SELECT olarak gerçekleştirilmiş görünüm oluşturma (Transact-SQL)
+              href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
+            - name: SELECT olarak gerçekleştirilmiş görünümü değiştirme (Transact-SQL)
+              href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+        - name: Sonuç kümesini önbelleğe alma
+          href: /sql/t-sql/statements/set-result-set-caching-transact-sql
         - name: Tablolar
           items:
             - name: Genel Bakış

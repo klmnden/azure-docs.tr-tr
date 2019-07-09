@@ -58,8 +58,12 @@
           href: virtual-machines-windows-portal-sql-server-provision.md
         - name: Azure PowerShell kullanma
           href: virtual-machines-windows-ps-sql-create.md
+    - name: Kaynak sağlayıcısına kaydolma
+      href: virtual-machines-windows-sql-register-with-resource-provider.md
     - name: SQL VM için lisanslama modelini değiştirme
       href: virtual-machines-windows-sql-ahb.md
+    - name: SQL Server sürümünü değiştirme
+      href: virtual-machines-windows-sql-change-edition.md
     - name: Geçiş
       items:
         - name: SQL Server veritabanını geçirme
