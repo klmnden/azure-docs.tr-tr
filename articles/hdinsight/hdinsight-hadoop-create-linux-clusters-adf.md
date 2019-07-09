@@ -189,9 +189,9 @@ Bu makalede, bir isteğe bağlı HDInsight Hadoop kümesi oluşturmak için Hive
 
     |Özellik  |Değer  |
     |---------|---------|
-    |Ad | Veri Fabrikası için bir ad girin. Bu adın küresel olarak benzersiz olması gerekir.|
-    |Abonelik | Azure aboneliğinizi seçin. |
-    |Kaynak grubu | Seçin **var olanı kullan** ve ardından PowerShell betiğini kullanarak oluşturduğunuz kaynak grubunu seçin. |
+    |Name | Veri Fabrikası için bir ad girin. Bu adın küresel olarak benzersiz olması gerekir.|
+    |Subscription | Azure aboneliğinizi seçin. |
+    |Resource group | Seçin **var olanı kullan** ve ardından PowerShell betiğini kullanarak oluşturduğunuz kaynak grubunu seçin. |
     |Version | Bırakılacak **V2**. |
     |Location | Konum, daha önce bir kaynak grubu oluşturulurken belirtilen konuma otomatik olarak ayarlanır. Bu öğreticide, konumu ayarlamak **Doğu ABD**. |
 
