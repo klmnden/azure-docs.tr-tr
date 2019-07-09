@@ -110,7 +110,7 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 | Ayar | Önerilen değer | Açıklama  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Kaynak grubunun adı için yeni sunucuya ait.|
-|ad | mydemoserver-georestored | Yeni sunucunun adı. |
+|name | mydemoserver-georestored | Yeni sunucunun adı. |
 |source-server | mydemoserver | Coğrafi olarak yedekli yedekleri kullanılan mevcut sunucu adı. |
 |location | eastus | Yeni sunucu konumu. |
 |sku-name| GP_Gen5_8 | Bu parametre, fiyatlandırma katmanı, işlem oluşturma ve yeni sunucunun sanal çekirdek sayısını ayarlar. Genel amaçlı, 5. nesil server 8 sanal çekirdekli GP_Gen5_8 eşlenir.|
