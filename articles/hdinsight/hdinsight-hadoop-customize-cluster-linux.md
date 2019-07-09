@@ -176,9 +176,9 @@ Bu bölümde, bir HDInsight kümesi oluştururken betik eylemleri kullanabilece�
     | Özellik | Değer |
     | --- | --- |
     | Bir komut dosyası seçin | Kendi betiğinizi kullanmayı tercih __özel__. Aksi takdirde, sağlanan betikleri birini seçin. |
-    | Ad |Betik eylemi için bir ad belirtin. |
+    | Name |Betik eylemi için bir ad belirtin. |
     | Bash betiği URI'si |Betik URI'si belirtin. |
-    | HEAD/çalışan/Zookeeper |Betik üzerinde çalıştığı düğümleri belirtin: **HEAD**, **çalışan**, veya **ZooKeeper**. |
+    | HEAD/Worker/ZooKeeper |Betik üzerinde çalıştığı düğümleri belirtin: **HEAD**, **çalışan**, veya **ZooKeeper**. |
     | Parametreler |Komut dosyası tarafından gerekli parametreleri belirtin. |
 
     Kullanım __bu betik eylemi kalıcı__ betik ölçeklendirme işlemleri sırasında uygulanır emin olmak için giriş.
