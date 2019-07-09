@@ -64,6 +64,8 @@
           href: faq-backup-sql-server.md
         - name: SSS-Azure Backup Sunucusu ve DPM
           href: backup-azure-dpm-azure-server-faq.md
+        - name: SSS - Azure Backup izleme uyarısı
+          href: backup-azure-monitor-alert-faq.md
     - name: Backup mimarisi
       href: backup-architecture.md
     - name: Rol Tabanlı Access Control

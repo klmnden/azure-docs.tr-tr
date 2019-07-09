@@ -36,11 +36,16 @@
   items:
     - name: Genel Bakış
       href: concepts-overview.md
-    - name: Bulutta karşıya yükleme ve depolama
+    - name: Hesaplar
       items:
-        - name: Depolama
+        - name: Media Services hesabı
+          displayName: subscription
+          href: media-services-account-concept.md
+        - name: Depolama hesabı
           href: storage-account-concept.md
           displayName: Storage side encryption
+    - name: Karşıya yükleme
+      items:
         - name: Varlıklar
           href: assets-concept.md
     - name: Encoding
