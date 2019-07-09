@@ -61,7 +61,7 @@ Aşağıdaki tabloda parametreler açıklanmaktadır:
 
 | Parametre | Açıklama |
 | --- | --- |
-| Ad |Traffic Manager profili kaynak kaynak adı. Aynı kaynak grubundaki profiller benzersiz adlara sahip olmalıdır. Bu ad, DNS sorguları için kullanılan DNS ad ayrıdır. |
+| Name |Traffic Manager profili kaynak kaynak adı. Aynı kaynak grubundaki profiller benzersiz adlara sahip olmalıdır. Bu ad, DNS sorguları için kullanılan DNS ad ayrıdır. |
 | ResourceGroupName |Profil kaynağını içeren kaynak grubunun adı. |
 | TrafficRoutingMethod |Hangi uç noktaya bir DNS sorgusu yanıtta döndürülen belirlemek için kullanılan trafik yönlendirme yöntemini belirtir. Olası değerler şunlardır: 'Performans', 'Ağırlıklı' veya 'Öncelik'. |
 | RelativeDnsName |Ana bilgisayar adı bölümü bu Traffic Manager profili tarafından sağlanan DNS adını belirtir. Bu değer, tam etki alanı adını (FQDN) profili oluşturmak için Azure Traffic Manager tarafından kullanılan DNS etki alanı adı ile birleştirilir. Örneğin, 'contoso' değeri olarak ayarlandığında 'contoso.trafficmanager.net.' olur |
