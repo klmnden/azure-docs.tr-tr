@@ -74,7 +74,7 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 | Ayar | Önerilen değer | Açıklama  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Kaynak sunucunun bulunduğu kaynak grubu.  |
-| ad | mydemoserver-restored | Geri yükleme komutu tarafından oluşturulan yeni sunucunun adı. |
+| name | mydemoserver-restored | Geri yükleme komutu tarafından oluşturulan yeni sunucunun adı. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Bir noktaya geri yüklemek için saat seçin. Bu tarih ve saat, kaynak sunucunun yedekleme saklama dönemi içinde olmalıdır. ISO8601 tarih ve saat biçimini kullanın. Örneğin, kendi yerel saat dilimi gibi kullanabileceğiniz `2018-03-13T05:59:00-08:00`. Örneğin, şeklindeki UTC Zulu biçimini kullanabilirsiniz `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | Geri yükleme kaynağı olarak kullanılacak sunucunun adı veya kimliği. |
 
@@ -114,7 +114,7 @@ az mariadb server georestore --resource-group newresourcegroup --name mydemoserv
 | Ayar | Önerilen değer | Açıklama  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Kaynak grubunun adı için yeni sunucuya ait.|
-|ad | mydemoserver-georestored | Yeni sunucunun adı. |
+|name | mydemoserver-georestored | Yeni sunucunun adı. |
 |source-server | mydemoserver | Coğrafi olarak yedekli yedekleri kullanılan mevcut sunucu adı. |
 |location | eastus | Yeni sunucu konumu. |
 |sku-name| GP_Gen5_8 | Bu parametre, fiyatlandırma katmanı, işlem oluşturma ve yeni sunucunun sanal çekirdek sayısını ayarlar. Genel amaçlı, 5. nesil server 8 sanal çekirdekli GP_Gen5_8 eşlenir.|
