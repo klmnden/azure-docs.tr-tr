@@ -259,9 +259,9 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**direction**|| Gerekli - kümesine olmalıdır `out`.|
 |**name**|| Gereklidir - değişken adı işlev kodu isteği veya istek gövdesi için kullanılır. Bu değer ```$return``` yalnızca bir dönüş değeri olduğunda. |
 |**ApiKey**|**ApiKey**| API anahtarınızı içeren bir uygulama ayarı adı. Ayarlanmazsa, varsayılan uygulama ayarı adı "AzureWebJobsSendGridApiKey" dir.|
-|**to**|**Alıcı**| Alıcının e-posta adresi. |
+|**to**|**To**| Alıcının e-posta adresi. |
 |**from**|**From**| Gönderenin e-posta adresi. |
-|**subject**|**Konu**| e-postanın konusu. |
+|**subject**|**Subject**| e-postanın konusu. |
 |**text**|**Text**| e-posta içeriği. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
