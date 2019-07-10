@@ -209,6 +209,8 @@
           href: sql-database-managed-instance-index.yml
         - name: Yönetilen örnek özellikleri
           href: sql-database-managed-instance.md
+        - name: Yönetilen örnekler hakkında SSS
+          href: sql-database-managed-instance-faq.md
         - name: Yönetim API'si başvurusu
           href: sql-database-managed-instance-create-manage.md
         - name: Kaynak sınırları

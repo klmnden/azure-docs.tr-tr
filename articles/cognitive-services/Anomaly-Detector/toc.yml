@@ -40,6 +40,8 @@
         - name: Kapsayıcıları yapılandırma
           href: anomaly-detector-container-configuration.md
           displayName: 'docker, container, apikey, billing, log, mount, run, pull, port'
+        - name: Kapsayıcı örnekleri kullanma
+          href: how-to/deploy-anomaly-detection-on-container-instances.md
 - name: Kavramlar
   items:
     - name: Anomali Algılama API'si en iyi yöntemleri

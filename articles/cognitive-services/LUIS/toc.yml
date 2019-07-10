@@ -266,6 +266,8 @@
           href: luis-container-howto.md
         - name: Kapsayıcıları yapılandırma
           href: luis-container-configuration.md
+        - name: Kapsayıcı örnekleri kullanma
+          href: deploy-luis-on-container-instances.md
 - name: Başvuru
   items:
     - name: Kullanıcı gizliliği

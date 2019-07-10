@@ -229,6 +229,11 @@
         - name: Kapsayıcıları yapılandırma
           href: speech-container-configuration.md
           displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
+        - name: Şirket içinde kullanma
+          displayName: 'kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises'
+          href: speech-container-howto-on-premises.md
+        - name: Kapsayıcı örnekleri kullanma
+          href: deploy-speech-on-container-instances.md
 - name: Örnekler
   items:
     - name: Konuşma SDK'sı

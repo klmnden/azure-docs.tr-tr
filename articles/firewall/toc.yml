@@ -49,6 +49,8 @@
       href: deploy-availability-zone-powershell.md
     - name: Yük dengeleyici ile tümleştirme
       href: integrate-lb.md
+    - name: SQL FQDN’leri ile uygulama kuralları
+      href: sql-fqdn-filtering.md
 - name: Başvuru
   items:
     - name: Azure CLI

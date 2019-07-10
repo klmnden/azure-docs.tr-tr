@@ -52,6 +52,8 @@
           items:
             - name: Genel CEF’yi bağlama
               href: connect-common-event-format.md
+            - name: AWS’ye bağlanma
+              href: connect-aws.md
             - name: Barracuda’yı bağlama
               href: connect-barracuda.md
             - name: Check Point’i bağlama

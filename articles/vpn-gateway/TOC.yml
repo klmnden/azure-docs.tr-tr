@@ -140,6 +140,8 @@
               href: vpn-gateway-howto-openvpn-clients.md
         - name: P2S için genel CA ağ geçidi sertifikasına geçiş
           href: vpn-gateway-point-to-site-gateway-public-ca.md
+        - name: Always On VPN cihazı tüneli yapılandırma
+          href: vpn-gateway-howto-always-on-device-tunnel.md
     - name: Azure Kullanılabilirlik Alanları arasında yedekli VNet ağ geçidi oluşturma
       href: create-zone-redundant-vnet-gateway.md
     - name: Bağlantılarda IPsec/IKE ilkelerini yapılandırma

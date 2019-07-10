@@ -35,6 +35,8 @@
         - name: Kapsayıcıları yapılandırma
           href: form-recognizer-container-configuration.md
           displayName: 'docker, container, run, billing, apikey, logging'
+        - name: Kapsayıcı örnekleri kullanma
+          href: deploy-form-recognizer-on-container-instances.md
 - name: Başvuru
   items:
     - name: Form Tanıma API’si

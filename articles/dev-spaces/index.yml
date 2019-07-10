@@ -8,23 +8,31 @@ metadata:
   author: zr-msft
   ms.service: azure-dev-spaces
   ms.topic: landing-page
-  ms.date: 04/29/2019
+  ms.date: 07/08/2019
   ms.author: zarhoads
-  manager: jeconnoc
+  manager: gwallace
 abstract:
   description: 'Azure Dev Spaces, bağımlılıkları çoğaltmak veya taklit etmek zorunda kalmadan Azure Kubernetes Service''te (AKS) çalışan mikro hizmet uygulamanızın tamamını test etmenizi ve yinelemeli olarak geliştirmenizi sağlar. Azure Dev Spaces hem paylaşılan bir Azure Kubernetes Service (AKS) kümesinde takımınızla işbirliği yapmanın hem de doğrudan AKS''nin içinde kapsayıcıları çalıştırmanın ve hatalarını ayıklamanın zorluğunu ve karmaşıklığını azaltır. Bu hızlı başlangıçlardan yararlanarak Azure Dev Spaces''i kullanmayı öğrenin.'
 sections:
   - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
       - type: paragraph
-        text: 'AKS''de takım işbirliği için Azure Dev Spaces''i kullanmayı öğrenin:'
+        text: 'AKS’te Azure Dev Spaces’i kullanmayı öğrenin:'
       - type: list
         style: icon48
         items:
           - image:
               src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Azure CLI ile Takım Geliştirmesi
+            text: Ekibin bir parçası olarak geliştirme
             href: quickstart-team-development.md
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
+            text: Bir uygulamayı çalıştırma
+            href: quickstart-cli.md
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
+            text: Dockerfile ile bir uygulama çalıştırma
+            href: quickstart-cli-dockerfile.md
       - type: paragraph
         text: 'Azure Dev Spaces ile doğrudan AKS''nin içinde yinelemeli geliştirmeyi ve hata ayıklamayı öğrenin:'
       - type: list

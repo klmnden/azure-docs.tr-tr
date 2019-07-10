@@ -25,6 +25,8 @@
   items:
     - name: Kimlik doğrulama yöntemleri
       href: concept-authentication-methods.md
+    - name: Parolasız kimlik doğrulaması
+      href: concept-authentication-passwordless.md
     - name: Birleşik kayıt
       href: concept-registration-mfa-sspr-combined.md
     - name: Parola sıfırlama
@@ -131,8 +133,12 @@
       href: howto-password-smart-lockout.md
     - name: İş İçin Windows Hello
       href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
-    - name: Parolasız telefonla oturum açma
-      href: howto-authentication-phone-sign-in.md
+    - name: Parolasız
+      items:
+        - name: Parolasız işlevini etkinleştirme
+          href: howto-authentication-passwordless-enable.md
+        - name: Parolasız telefonla oturum açma
+          href: howto-authentication-phone-sign-in.md
     - name: Sertifika tabanlı kimlik doğrulaması
       items:
         - name: Sertifika yetkilendirmesine başlarken

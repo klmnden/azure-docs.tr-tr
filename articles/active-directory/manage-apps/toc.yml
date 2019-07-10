@@ -49,6 +49,14 @@
       items:
         - name: Çoklu oturum açma nedir?
           href: what-is-single-sign-on.md
+        - name: Çok kiracılı uygulamanız için SSO’yu etkinleştirme
+          href: isv-sso-content.md
+        - name: Çok kiracılı uygulamalara yönelik Azure kiracısı oluşturma
+          href: isv-tenant-multi-tenant-app.md
+        - name: Çok kiracılı federasyon seçme
+          href: isv-choose-multi-tenant-federation.md
+        - name: Çok kiracılı uygulamalara yönelik belgeler oluşturma
+          href: isv-create-sso-documentation.md
         - name: Çoklu oturum açma dağıtımını planlama
           href: plan-sso-deployment.md
     - name: Tek Tıklamayla SSO
@@ -73,6 +81,20 @@
           href: tenant-restrictions.md
         - name: SAML belirteci şifrelemesini yapılandırma (Önizleme)
           href: howto-saml-token-encryption.md
+    - name: Çoklu oturum açma
+      items:
+        - name: Çoklu oturum açma nedir?
+          href: what-is-single-sign-on.md
+        - name: Çoklu oturum açma dağıtımını planlama
+          href: plan-sso-deployment.md
+        - name: Çok kiracılı uygulamanızda çoklu oturum açmayı etkinleştirme
+          href: isv-sso-content.md
+        - name: Doğru SSO federasyon protokolünü seçme
+          href: isv-choose-multi-tenant-federation.md
+        - name: Çok kiracılı uygulamanıza yönelik Azure kiracısı oluşturma
+          href: isv-tenant-multi-tenant-app.md
+        - name: Uygulamanıza yönelik SSO belgeleri oluşturma ve yayımlama
+          href: isv-create-sso-documentation.md
     - name: Son kullanıcı portalları
       href: end-user-experiences.md
 - name: Nasıl yapılır kılavuzları

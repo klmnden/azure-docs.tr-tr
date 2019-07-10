@@ -9,14 +9,18 @@
       items:
         - name: Takım geliştirme
           href: quickstart-team-development.md
-        - name: Java (VS Code ve CLI)
+        - name: Bir uygulamayı çalıştırma
+          href: quickstart-cli.md
+        - name: Dockerfile ile bir uygulama çalıştırma
+          href: quickstart-cli-dockerfile.md
+        - name: VS Code ile Java’yı çalıştırma ve Java’da hata ayıklama
           href: quickstart-java.md
-        - name: .NET Core (VS Code ve CLI)
+        - name: VS Code ile .NET Core’u çalıştırma ve .NET Core’da hata ayıklama
           href: quickstart-netcore.md
-        - name: .NET Core (Visual Studio)
-          href: quickstart-netcore-visualstudio.md
-        - name: Node.js (VS Code ve CLI)
+        - name: VS Code ile Node.js’yi çalıştırma ve Node.js’de hata ayıklama
           href: quickstart-nodejs.md
+        - name: Visual Studio ile .NET Core’u çalıştırma ve .NET Core’da hata ayıklama
+          href: quickstart-netcore-visualstudio.md
     - name: Öğreticiler
       items:
         - name: Java (VS Code ve CLI)
@@ -55,6 +59,8 @@
       items:
         - name: Geliştirme Alanları Nasıl Çalışır?
           href: how-dev-spaces-works.md
+        - name: Dev Spaces ile VS Code nasıl çalışır?
+          href: how-vs-code-works-with-dev-spaces.md
     - name: Nasıl yapılır
       items:
         - name: Azure Cloud Shell kullanarak Kubernetes kümesi oluşturma
