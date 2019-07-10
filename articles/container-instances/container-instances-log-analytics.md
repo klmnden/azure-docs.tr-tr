@@ -9,7 +9,7 @@ ms.date: 07/17/2018
 ms.author: danlep
 ms.openlocfilehash: 13f1fa92365c284ed10bd7c0a1b2fdefef50b29e
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60580290"
@@ -46,7 +46,7 @@ Log analytics çalışma alanı kimliği ve birincil anahtarı almak için:
 
 Log analytics çalışma alanı kimliği ve birincil anahtar edindikten sonra bir günlük kaydının etkin kapsayıcı grubu oluşturmaya hazırsınız.
 
-Aşağıdaki örnekler tek bir kapsayıcı grubu oluşturmanın iki yolunu gösterir [fluentd] [ fluentd] kapsayıcı: Azure CLI ve Azure CLI ile bir YAML şablonu. Fluentd kapsayıcısı varsayılan yapılandırmasında birkaç çıkış satırı üretir. Bu çıkış Log Analytics çalışma alanınıza gönderileceğinden, günlükleri görüntüleme ve sorgulamayı göstermek için kullanışlıdır.
+Aşağıdaki örnekler tek bir kapsayıcı grubu oluşturmanın iki yolunu gösterir [fluentd][fluentd] kapsayıcı: Azure CLI ve Azure CLI ile bir YAML şablonu. Fluentd kapsayıcısı varsayılan yapılandırmasında birkaç çıkış satırı üretir. Bu çıkış Log Analytics çalışma alanınıza gönderileceğinden, günlükleri görüntüleme ve sorgulamayı göstermek için kullanışlıdır.
 
 ### <a name="deploy-with-azure-cli"></a>Azure CLI ile dağıtma
 

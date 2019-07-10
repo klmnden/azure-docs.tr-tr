@@ -120,7 +120,7 @@ CORS (çıkış noktaları arası kaynak paylaşımı) uç noktanız içerik yü
 Üzerinde içeriğinizin barındırıldığı depolama alanını CORS etkin olduğunu doğrulamak için aşağıdaki adımlarla devam edin:
 
 1. Bir tarayıcı oturumu açın ve sayfasına giderek *unified.html* , depolama hesabındaki konumunun tam URL'yi kullanarak `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Örneğin, https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
-2. https://test-cors.org sayfasına gidin. Bu site, kullanmakta olduğunuz sayfayı CORS etkin olduğunu doğrulamak sağlar.  
+2. [https://test-cors.org](https://test-cors.org ) sayfasına gidin. Bu site, kullanmakta olduğunuz sayfayı CORS etkin olduğunu doğrulamak sağlar.  
    <!--
    ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
    -->
