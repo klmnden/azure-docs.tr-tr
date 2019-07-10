@@ -144,18 +144,18 @@ Aşağıdaki tabloda, özellikleri ve oluşturma ve yönetme, Azure önbelleği 
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration properties
 | Özellik | Açıklama | Fiyatlandırma katmanları |
 | --- | --- | --- |
-| RDB yedekleme etkin |Olmadığını [Redis veri kalıcılığı](cache-how-to-premium-persistence.md) etkin |Yalnızca Premium |
-| RDB depolama bağlantı dizesi |Depolama hesabı için bağlantı dizesi [Redis veri kalıcılığı](cache-how-to-premium-persistence.md) |Yalnızca Premium |
-| RDB yedekleme sıklığı |Yedekleme sıklığı için [Redis veri kalıcılığı](cache-how-to-premium-persistence.md) |Yalnızca Premium |
-| maxmemory-ayrılmış |Yapılandırır [ayrılan bellek](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) önbellek olmayan işlemler için |Standart ve Premium |
-| Maks bellek politikası |Yapılandırır [çıkarma İlkesi](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) önbelleği |Tüm fiyatlandırma katmanları |
-| bildirim-anahtar alanı-olayları |Yapılandırır [anahtar alanı bildirimleri](cache-configure.md#keyspace-notifications-advanced-settings) |Standart ve Premium |
-| en fazla ziplist girişlerini karması |Yapılandırır [bellek iyileştirme](https://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
-| en fazla ziplist değeri karması |Yapılandırır [bellek iyileştirme](https://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
-| en fazla intset Girişlerini Ayarla |Yapılandırır [bellek iyileştirme](https://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
+| rdb-backup-enabled |Olmadığını [Redis veri kalıcılığı](cache-how-to-premium-persistence.md) etkin |Yalnızca Premium |
+| rdb-storage-connection-string |Depolama hesabı için bağlantı dizesi [Redis veri kalıcılığı](cache-how-to-premium-persistence.md) |Yalnızca Premium |
+| rdb-backup-frequency |Yedekleme sıklığı için [Redis veri kalıcılığı](cache-how-to-premium-persistence.md) |Yalnızca Premium |
+| maxmemory-reserved |Yapılandırır [ayrılan bellek](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) önbellek olmayan işlemler için |Standart ve Premium |
+| maxmemory-policy |Yapılandırır [çıkarma İlkesi](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) önbelleği |Tüm fiyatlandırma katmanları |
+| notify-keyspace-events |Yapılandırır [anahtar alanı bildirimleri](cache-configure.md#keyspace-notifications-advanced-settings) |Standart ve Premium |
+| hash-max-ziplist-entries |Yapılandırır [bellek iyileştirme](https://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
+| hash-max-ziplist-value |Yapılandırır [bellek iyileştirme](https://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
+| set-max-intset-entries |Yapılandırır [bellek iyileştirme](https://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
 | zset-max-ziplist-entries |Yapılandırır [bellek iyileştirme](https://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
 | zset-max-ziplist-value |Yapılandırır [bellek iyileştirme](https://redis.io/topics/memory-optimization) küçük toplam veri türleri |Standart ve Premium |
-| veritabanları |Veritabanı sayısı yapılandırır. Bu özellik yalnızca önbellek oluşturma sırasında yapılandırılabilir. |Standart ve Premium |
+| databases |Veritabanı sayısı yapılandırır. Bu özellik yalnızca önbellek oluşturma sırasında yapılandırılabilir. |Standart ve Premium |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Bir Azure önbelleği için Redis oluşturmak için
 Yeni Azure önbelleği için Redis örneği kullanılarak oluşturulur [yeni AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache) cmdlet'i.
