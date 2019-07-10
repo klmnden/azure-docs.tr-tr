@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 02d63897cffa2ceca46b992e7d07b917dd73bc72
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 6207808efb9bee327afd2de21ffa59535acf4e55
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621558"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704801"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>Proje akustik Unreal ve Wwise tümleştirme
 Bu nasıl yapılır mevcut, Unreal ve Wwise game projeye proje akustik eklenti paketi ayrıntılı tümleştirme adımları sağlar. 
@@ -26,7 +26,7 @@ Yazılım gereksinimleri:
 * [Unreal Wwise eklentisi](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
   * Wwise Unreal eklentileri kullanmak yerine doğrudan bir tümleştirme Wwise SDK kullanıyorsanız, proje akustik Unreal eklentisi başvurun ve Wwise API çağrıları ayarlayın.
 
-Proje akustik Wwise dışındaki bir ses altyapısıyla kullanmak istiyorsanız, aracılığıyla Bize Ulaşın [proje akustik forumları](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics). Akustik verileri sorgulamak ve ardından altyapınız için API çağrıları yapmak için proje akustik Unreal eklentisi kullanabilirsiniz.
+Proje akustik Wwise dışındaki bir ses altyapısıyla kullanmak istiyorsanız, bir geliştirme isteği yapın [proje akustik tartışma forumuna](https://github.com/microsoft/ProjectAcoustics/issues). Akustik verileri sorgulamak ve ardından altyapınız için API çağrıları yapmak için proje akustik Unreal eklentisi kullanabilirsiniz.
 
 ## <a name="download-project-acoustics"></a>Proje akustik indirin
 Henüz yüklemediyseniz, indirme [proje akustik Unreal & Wwise eklenti paketi](https://www.microsoft.com/download/details.aspx?id=58090)). 

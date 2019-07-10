@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: 99b20e36163ec8c91fba864706f883b7866de65c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: ecb9777643296685d0dcc7cd5a177f2fe00d2580
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592893"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704625"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Bilgi Bankası'na güvenli SharePoint veri kaynağı Ekle
 
@@ -32,7 +32,7 @@ Tüm soru-cevap Oluşturucu tarafından desteklenen ekleyebilirsiniz [dosya tür
 1. SharePoint sitesi ile kitaplıktan dosya üç nokta menüsünü seçin `...`.
 1. Dosyanın URL'sini kopyalayın.
 
-    ![Sonra URL'yi kopyalayarak dosyanın üç nokta menüsünü seçerek SharePoint dosya URL'yi alın.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
+   ![Sonra URL'yi kopyalayarak dosyanın üç nokta menüsünü seçerek SharePoint dosya URL'yi alın.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
 1. Soru-cevap Oluşturucu Portalı'nda üzerinde **ayarları** sayfasında [URL'sini ekleyin](edit-knowledge-base.md#add-datasource) Bilgi Bankası için. 
 
@@ -52,7 +52,7 @@ Etkileşimli test panosunda, soru-cevap Oluşturucu Portalı'nda soru-cevap çif
 
 ## <a name="permissions"></a>İzinler
 
-İzinleri verme, bir Bilgi Bankası'na bir SharePoint sitesi güvenli bir dosya eklendiğinde gerçekleşir. SharePoint nasıl ayarladığınıza bağlı olarak yukarı ve bu gerektirebilir dosya ekleme kişinin izinleri:
+İzinleri verme, bir Bilgi Bankası'na bir SharePoint sunucusuna güvenli bir dosya eklendiğinde gerçekleşir. SharePoint nasıl ayarladığınıza bağlı olarak yukarı ve bu gerektirebilir dosya ekleme kişinin izinleri:
 
 * ek adımlar - dosya ekleme kişi gereken tüm izinlere sahiptir.
 * her ikisi de adımlarla [Bilgi Bankası Yöneticisi](#knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal) ve [Active Directory Yöneticisi](#active-directory-manager-grant-file-read-access-to-qna-maker).
@@ -76,12 +76,12 @@ Active Directory Yöneticisi'ni (soru-cevap Oluşturucu Yöneticisi değil), sor
 ![Azure Active Directory Yöneticisi etkileşimli olarak izin verir](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
 
 <!--
-The Active Directory manager must grant QnA Maker access either by application name, `QnAMakerPortalSharepoint`, or by application ID, `c2c11949-e9bb-4035-bda8-59542eb907a6`. 
+The Active Directory manager must grant QnA Maker access either by application name, `QnAMakerPortalSharePoint`, or by application ID, `c2c11949-e9bb-4035-bda8-59542eb907a6`. 
 -->
 <!--
 ### Grant access from the interactive pop-up window 
 
-The Active Directory manager will get a pop-up window requesting permissions to the `QnAMakerPortalSharepoint` app. The pop-up window includes the QnA Maker Manager email address that initiated the request, an `App Info` link to learn more about **QnAMakerPortalSharepoint**, and a list of permissions requested. Select **Accept** to provide those permissions. 
+The Active Directory manager will get a pop-up window requesting permissions to the `QnAMakerPortalSharePoint` app. The pop-up window includes the QnA Maker Manager email address that initiated the request, an `App Info` link to learn more about **QnAMakerPortalSharePoint**, and a list of permissions requested. Select **Accept** to provide those permissions. 
 
 ![Azure Active Directory manager grants permission interactively](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
 -->
@@ -91,7 +91,7 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 1. The Active Directory manager signs in to the Azure portal and opens **[App registrations list](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade)**. 
 
-1. Search for and select the **QnAMakerPortalSharepoint** app. Change the second filter box from **My apps** to **All apps**. The app information will open on the right side.
+1. Search for and select the **QnAMakerPortalSharePoint** app. Change the second filter box from **My apps** to **All apps**. The app information will open on the right side.
 
     ![Select QnA Maker app in App registrations list](../media/add-sharepoint-datasources/select-qna-maker-app-in-app-registrations.png)
 
@@ -115,9 +115,9 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 1. Active Directory Yöneticisi, Azure portalında oturum açtığında ve açılır  **[kurumsal uygulamalar](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)** . 
 
-1. Arama `QnAMakerPortalSharepoint` soru-cevap Oluşturucu uygulamayı seçin. 
+1. Arama `QnAMakerPortalSharePoint` soru-cevap Oluşturucu uygulamayı seçin. 
 
-    [![Kurumsal uygulamalar listesinde QnAMakerPortalSharepoint arayın](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
+    [![Kurumsal uygulamalar listesinde QnAMakerPortalSharePoint arayın](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
 
 1. Altında **güvenlik**Git **izinleri**. Seçin **kuruluş için yönetici onayı vermek**. 
 
@@ -165,7 +165,7 @@ Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileu
         {
             "fileUri": "<@microsoft.graph.downloadURL>",
             "fileName": "filename.xlsx",
-            "source": "<sharepoint link>"
+            "source": "<SharePoint link>"
         }
     ],
     "urls": [],

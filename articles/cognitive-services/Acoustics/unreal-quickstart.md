@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 691f49e9be8aabe9a3e229bfd3b35ab183f9fed9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4b9f31425c5029cdeb991fbdcdb7ae4a5c749c9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61432823"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704741"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Proje akustik Unreal/Wwise hızlı başlangıç
 Bu hızlı başlangıçta, tasarım denetimleri Wwise ve Unreal Engine için sağlanan örnek içerik kullanarak proje akustik ile denemeler.
@@ -50,7 +50,7 @@ Ek davranış proje akustik Unreal eklenti gerektirir Wwise Unreal eklentisini A
 
     ![Düzeltme eki Wwise projesine betik gösteren Windows Gezgini'nin ekran görüntüsü penceresi](media/patch-wwise-script.png)
 
-* Yoksa, DirectX SDK'sı yüklü, içinde DXSDK_DIR içeren satırı açıklama satırı yapın gerekir `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
+* DirectX SDK'sı, kullanmakta olduğunuz, Wwise sürümüne bağlı olarak yüklü yoksa içeren satırı açıklama gerekebilir `DXSDK_DIR` içinde `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`:
 
     ![Kod Düzenleyicisi'ni yorum DXSDK gösteren ekran görüntüsü](media/directx-sdk-comment.png)
 
@@ -72,7 +72,7 @@ Varsa **kapatma** çarpanı (varsayılan değer 1) 1'den büyük olduğundan, ka
 Wall ile aktarımını etkinleştirmek için taşıma **iletim (dB)** kaydırıcı, en düşük düzey kapalı. 
 
 ### <a name="modify-wetness-for-a-source"></a>Bir kaynak için wetness değiştirme
-Nasıl hızlı bir şekilde wetness uzaklığı ile değişiklikleri değiştirmek için kullanın **Algısal uzaklık Warp**. Proje akustik düzgün uzaklığı ile değişir ve Algısal uzaklık ipuçlarını sağlama ıslak düzeylerine benzetimi alanından boyunca hesaplar. Uzaklık warp artırılması, bu etkiyi uzaklık ilgili ıslak düzeyleri artırarak arttırdığınızda. 1 değerinden çarpıtma değerleri değiştirme uzaklığı tabanlı reverberation daha hafif olun. Bu etkiyi ayrıca daha ayrıntılı ayrıntılı olarak ayarlayarak ayarlanabilir **Wetness (dB)**.
+Nasıl hızlı bir şekilde wetness uzaklığı ile değişiklikleri değiştirmek için kullanın **Algısal uzaklık Warp**. Proje akustik düzgün uzaklığı ile değişir ve Algısal uzaklık ipuçlarını sağlama ıslak düzeylerine benzetimi alanından boyunca hesaplar. Uzaklık warp artırılması, bu etkiyi uzaklık ilgili ıslak düzeyleri artırarak arttırdığınızda. 1 değerinden çarpıtma değerleri değiştirme uzaklığı tabanlı reverberation daha hafif olun. Bu etkiyi ayrıca daha ayrıntılı ayrıntılı olarak ayarlayarak ayarlanabilir **Wetness (dB)** .
 
 Ayarlayarak boşluğu boyunca decay süresini artırmak **Decay zaman ölçeği**. Benzetim sonucu 1.5 decay süresini olduğu bir durum düşünün s. Ayarı **Decay zaman ölçeği** 3 ' kaynağı için uygulanan bir decay saat 2'ye sonuçlanır s.
 

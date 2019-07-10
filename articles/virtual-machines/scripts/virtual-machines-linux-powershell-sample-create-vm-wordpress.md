@@ -4,7 +4,7 @@ description: Azure PowerShell Betiği Örneği - WordPress
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e4dd70b1d2de54d19305c89dd6b93a5a394cbdf7
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 678a5de4a0adf0bbabb57c2dad857022d9ff03e2
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981188"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708346"
 ---
 # <a name="create-a-wordpress-vm-with-powershell"></a>PowerShell ile WordPress sanal makinesi oluşturma
 
@@ -31,7 +31,7 @@ Bu betik bir sanal makine oluşturur ve sonra Azure Sanal Makinesi özel betik u
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>Örnek betik
 
