@@ -61,7 +61,7 @@ IP adresi kaldırmak için iki seçeneğiniz vardır:
 
 VM benzetimi oturum açarken yalnızca desteklenen PowerShell betiğini kullanarak çözümünüzü dağıttıysanız `build.ps1` içinde [depo](https://github.com/Azure/azure-iot-connected-factory).
 
-Www.azureiotsolutions.com çözümden dağıttıysanız, sanal Makineye oturum açamazsınız. ' De, parolayı rastgele oluşturulan ve size sıfırlayamazsınız olduğundan oturum açamazsınız.
+www.azureiotsolutions.com çözümden dağıttıysanız, sanal Makineye oturum açamazsınız. ' De, parolayı rastgele oluşturulan ve size sıfırlayamazsınız olduğundan oturum açamazsınız.
 
 1. VM'ye bir genel IP adresi ekleyin. Bkz: [benzetimi VM'nin genel IP adresi nasıl eklerim?](#how-do-i-remove-the-public-ip-address-to-the-simulation-vm)
 1. Sanal makinenin IP adresini kullanarak sanal makinenize yönelik SSH oturumu oluşturun.

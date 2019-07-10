@@ -167,7 +167,7 @@ Açık **QSDataModel.xcdatamodeld**. Dört tablo tanımlanmış--üç SDK taraf�
 | --- | --- |
 | id | Integer 64 |
 | itemId | String |
-| properties |Binary Data |
+| properties | Binary Data |
 | table | String |
 | tableKind | Integer 16 |
 

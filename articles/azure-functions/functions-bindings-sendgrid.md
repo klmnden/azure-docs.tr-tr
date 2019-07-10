@@ -258,7 +258,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**type**|| Gerekli - kümesine olmalıdır `sendGrid`.|
 |**direction**|| Gerekli - kümesine olmalıdır `out`.|
 |**name**|| Gereklidir - değişken adı işlev kodu isteği veya istek gövdesi için kullanılır. Bu değer ```$return``` yalnızca bir dönüş değeri olduğunda. |
-|**apiKey**|**ApiKey**| API anahtarınızı içeren bir uygulama ayarı adı. Ayarlanmazsa, varsayılan uygulama ayarı adı "AzureWebJobsSendGridApiKey" dir.|
+|**ApiKey**|**ApiKey**| API anahtarınızı içeren bir uygulama ayarı adı. Ayarlanmazsa, varsayılan uygulama ayarı adı "AzureWebJobsSendGridApiKey" dir.|
 |**to**|**To**| Alıcının e-posta adresi. |
 |**from**|**From**| Gönderenin e-posta adresi. |
 |**subject**|**Subject**| e-postanın konusu. |

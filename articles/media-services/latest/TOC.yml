@@ -242,6 +242,12 @@
           href: monitor-events-portal-how-to.md
         - name: Olayları izleme - CLI
           href: job-state-events-cli-how-to.md
+    - name: Azure İzleyici’yi kullanma
+      items:
+        - name: İzleyici ölçümleri
+          href: media-services-metrics-howto.md
+        - name: Tanılama günlüklerini izleme
+          href: media-services-diagnostic-logs-howto.md
     - name: İçerik koruma
       items:
         - name: İçerik anahtarı ilkesini edinme - .NET

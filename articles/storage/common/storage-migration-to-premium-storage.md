@@ -9,12 +9,12 @@ ms.date: 06/27/2017
 ms.author: rogarana
 ms.reviewer: yuemlu
 ms.subservice: common
-ms.openlocfilehash: 5cfb96bd3115c8f3116a28926e93df89dff54351
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6b6e442ff3333a7fd085f8e452ae056e7daaba8c
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153772"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565510"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>(Yönetilmeyen diskler) Azure Premium depolamaya geçiş
 
@@ -176,23 +176,23 @@ AzCopy kullanarak, Internet üzerinden VHD kolayca karşıya yükleyebilir. VHD'
 
     ```azcopy
     AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /DestKey:key2 /Pattern:abc.vhd
-    ```
+        ```
 
-    AzCopy komutta kullanılan parametreler açıklamaları aşağıda verilmiştir:
+    Here are descriptions of the parameters used in the AzCopy command:
 
-   * **/ Kaynak:  *&lt;kaynak&gt;:* ** VHD içeren bir depolama kapsayıcısı URL'si ve klasör konumu.
-   * **/ SourceKey:  *&lt;kaynağı hesap anahtarı&gt;:* ** Kaynak depolama hesabının depolama hesabı anahtarı.
-   * **/ Hedef:  *&lt;hedef&gt;:* ** Depolama kapsayıcısı URL'si için VHD'yi kopyalayın.
-   * **/ DestKey:  *&lt;hedef hesap anahtarı&gt;:* ** Hedef depolama hesabının depolama hesabı anahtarı.
-   * **/ Desen:  *&lt;dosya adı&gt;:* ** Kopyalamak için VHD dosya adı belirtin.
+   * **/Source: _&lt;source&gt;:_** Location of the folder or storage container URL that contains the VHD.
+   * **/SourceKey: _&lt;source-account-key&gt;:_** Storage account key of the source storage account.
+   * **/Dest: _&lt;destination&gt;:_** Storage container URL to copy the VHD to.
+   * **/DestKey: _&lt;dest-account-key&gt;:_** Storage account key of the destination storage account.
+   * **/Pattern: _&lt;file-name&gt;:_** Specify the file name of the VHD to copy.
 
-Aracı AzCopy kullanma hakkında bilgi için bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](storage-use-azcopy.md).
+For details on using AzCopy tool, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 
-##### <a name="option-2-copy-a-vhd-with-powershell-synchronized-copy"></a>2\. seçenek: PowerShell (Synchronızed kopya) ile bir VHD'yi kopyalayın
+##### Option 2: Copy a VHD with PowerShell (Synchronized copy)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Ayrıca, başlangıç AzStorageBlobCopy PowerShell cmdlet'ini kullanarak VHD dosyasını kopyalayabilirsiniz. Aşağıdaki komut, VHD kopyalamak için Azure PowerShell kullanın. <> Değerleri, kaynak ve hedef depolama hesabınızdan karşılık gelen değerlerle değiştirin. Bu komutu kullanmak için hedef depolama hesabınız VHD adlı bir kapsayıcı olması gerekir. Komutu çalıştırmadan önce bir kapsayıcı mevcut değilse oluşturun.
+You can also copy the VHD file using the PowerShell cmdlet Start-AzStorageBlobCopy. Use the following command on Azure PowerShell to copy VHD. Replace the values in <> with corresponding values from your source and destination storage account. To use this command, you must have a container called vhds in your destination storage account. If the container doesn't exist, create one before running the command.
 
 ```powershell
 $sourceBlobUri = <source-vhd-uri>
@@ -256,7 +256,7 @@ Yerel dizinde VHD'nizi sahip olduğunuza göre Azure Depolama'ya .vhd dosyasın�
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-Bir örnek \<URI > olabilir ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***. Bir örnek \<FileInfo > olabilir ***"C:\path\to\upload.vhd"***.
+Bir örnek \<URI > olabilir  ** _"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"_** . Bir örnek \<FileInfo > olabilir  ** _"C:\path\to\upload.vhd"_** .
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>2\. seçenek: .Vhd dosyasını karşıya yüklemek için AzCopy kullanarak
 AzCopy kullanarak, Internet üzerinden VHD kolayca karşıya yükleyebilir. VHD'ler boyutuna bağlı olarak, bu zaman alabilir. Bu seçenek kullanıldığında depolama hesabı giriş/çıkış sınırları iade etmeyi unutmayın. Bkz: [Azure Storage ölçeklenebilirlik ve performans hedefleri](storage-scalability-targets.md) Ayrıntılar için.
@@ -273,57 +273,57 @@ AzCopy kullanarak, Internet üzerinden VHD kolayca karşıya yükleyebilir. VHD'
 
     ```azcopy
     AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /SourceKey:key1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /DestKey:key2 /BlobType:page /Pattern:abc.vhd
-    ```
+        ```
 
-    AzCopy komutta kullanılan parametreler açıklamaları aşağıda verilmiştir:
+    Here are descriptions of the parameters used in the AzCopy command:
 
-   * **/ Kaynak:  *&lt;kaynak&gt;:* ** VHD içeren bir depolama kapsayıcısı URL'si ve klasör konumu.
-   * **/ SourceKey:  *&lt;kaynağı hesap anahtarı&gt;:* ** Kaynak depolama hesabının depolama hesabı anahtarı.
-   * **/ Hedef:  *&lt;hedef&gt;:* ** Depolama kapsayıcısı URL'si için VHD'yi kopyalayın.
-   * **/ DestKey:  *&lt;hedef hesap anahtarı&gt;:* ** Hedef depolama hesabının depolama hesabı anahtarı.
-   * **/ BlobType: sayfa:** Hedef sayfa blobu olduğunu belirtir.
-   * **/ Desen:  *&lt;dosya adı&gt;:* ** Kopyalamak için VHD dosya adı belirtin.
+   * **/Source: _&lt;source&gt;:_** Location of the folder or storage container URL that contains the VHD.
+   * **/SourceKey: _&lt;source-account-key&gt;:_** Storage account key of the source storage account.
+   * **/Dest: _&lt;destination&gt;:_** Storage container URL to copy the VHD to.
+   * **/DestKey: _&lt;dest-account-key&gt;:_** Storage account key of the destination storage account.
+   * **/BlobType: page:** Specifies that the destination is a page blob.
+   * **/Pattern: _&lt;file-name&gt;:_** Specify the file name of the VHD to copy.
 
-Aracı AzCopy kullanma hakkında bilgi için bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](storage-use-azcopy.md).
+For details on using AzCopy tool, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 
-##### <a name="other-options-for-uploading-a-vhd"></a>Bir VHD'yi karşıya yüklemek için diğer seçenekler
-Depolama hesabınızda aşağıdaki yollardan birini kullanarak bir VHD da karşıya yükleyebilirsiniz:
+##### Other options for uploading a VHD
+You can also upload a VHD to your storage account using one of the following means:
 
-* [Azure depolama kopyalama Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
-* [Azure Depolama Gezgini Blobları karşıya yükleme](https://azurestorageexplorer.codeplex.com/)
-* [Depolama içeri/dışarı aktarma hizmeti REST API Başvurusu](https://msdn.microsoft.com/library/dn529096.aspx)
-
-> [!NOTE]
-> İçeri/dışarı aktarma hizmeti, 7 günden uzun süre karşıya tahmin kullanmanızı öneririz. Kullanabileceğiniz [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) veri boyutu ve aktarım birimi saati tahmin etmek için.
->
-> İçeri/dışarı aktarma, bir standart depolama hesabına kopyalamak için kullanılabilir. AzCopy gibi bir araç kullanarak premium depolama hesabı için standart depolama alanından kopyalamanız gerekir.
->
->
-
-## <a name="create-azure-virtual-machine-using-premium-storage"></a>Azure Premium depolama kullanan sanal makineler oluşturun
-VHD'yi karşıya veya istenen depolama hesabına kopyalanır sonra VHD'yi bir işletim sistemi görüntüsü veya işletim sistemi diski senaryonuza bağlı olarak kaydedin ve bundan bir VM örneği oluşturmak için bu bölümdeki yönergeleri uygulayın. Oluşturulduktan sonra VM'ye veri diski VHD eklenebilir.
-Örnek geçiş betiği bu bölümün sonunda verilmektedir. Bu basit bir betik, tüm senaryolarda eşleşmiyor. Betik kendi senaryonuza ile eşleşecek şekilde güncelleştirmeniz gerekebilir. Bu betik, senaryonuz için geçerli olup olmadığını görmek için aşağıya bakın: [bir betiğe geçiş](#a-sample-migration-script).
-
-### <a name="checklist"></a>Denetim listesi
-1. Tüm kopyalama VHD diskler, tamamlanana kadar bekleyin.
-2. Premium depolama, için geçirdiğiniz bölgede kullanılabilir olduğundan emin olun.
-3. Kullanacağınız yeni VM serisi karar verin. Bir Premium depolama özelliğine sahip olmalıdır ve boyutu bölgede kullanılabilirliğine bağlı olarak ve gereksinimlerinize göre.
-4. Kullanacağınız tam olarak VM boyutuna karar verin. VM boyutu, sahip olduğunuz veri diski sayısı destekleyecek kadar büyük olması gerekiyor. Örneğin VM, 4 veri diskleri varsa, 2 veya daha fazla çekirdek olması gerekir. Ayrıca, işleme gücü, bellek göz önünde bulundurun ve ağ bant genişliği gerekiyor.
-5. Bir Premium depolama hesabı, hedef bölgede oluşturun. Bu yeni VM için kullanacağı hesaptır.
-6. Geçerli sanal makine ayrıntıları kullanışlı, diskler ve karşılık gelen VHD bloblarını listesi dahil olmak üzere vardır.
-
-Uygulamanızı kapalı kalma süresi için hazırlayın. Temiz bir geçiş yapmak için tüm işlemlerin geçerli sistemde durdurmak zorunda. Ancak bundan sonra yeni platforma geçirebileceğiniz tutarlı duruma alabilirsiniz. Kapalı kalma süresi geçirmek için disklerde veri miktarına bağlı olacaktır.
+* [Azure Storage Copy Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
+* [Azure Storage Explorer Uploading Blobs](https://azurestorageexplorer.codeplex.com/)
+* [Storage Import/Export Service REST API Reference](https://msdn.microsoft.com/library/dn529096.aspx)
 
 > [!NOTE]
-> Özel bir VHD diskten bir Azure Resource Manager sanal makine oluşturuyorsanız, edinmek [Bu şablon](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) Resource Manager var olan bir diski kullanarak VM dağıtmak için.
+> We recommend using Import/Export Service if estimated uploading time is longer than 7 days. You can use [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) to estimate the time from data size and transfer unit.
+>
+> Import/Export can be used to copy to a standard storage account. You will need to copy from standard storage to premium storage account using a tool like AzCopy.
 >
 >
 
-### <a name="register-your-vhd"></a>VHD'nizi kaydetme
-İşletim sistemi VHD'den VM oluşturma veya yeni bir VM'ye veri diski eklemek için önce bunları kaydetmeniz gerekir. VHD'NİZİ'ın senaryoya bağlı olarak aşağıdaki adımları izleyin.
+## <a name="create-azure-virtual-machine-using-premium-storage"></a>Create Azure VMs using Premium Storage
+After the VHD is uploaded or copied to the desired storage account, follow the instructions in this section to register the VHD as an OS image, or OS disk depending on your scenario and then create a VM instance from it. The data disk VHD can be attached to the VM once it is created.
+A sample migration script is provided at the end of this section. This simple script does not match all scenarios. You may need to update the script to match with your specific scenario. To see if this script applies to your scenario, see below [A Sample Migration Script](#a-sample-migration-script).
 
-#### <a name="generalized-operating-system-vhd-to-create-multiple-azure-vm-instances"></a>Birden çok Azure VM örnekleri oluşturmak için işletim sistemi VHD'si genelleştirilmiş
-Genelleştirilmiş işletim sistemi görüntüsü VHD depolama hesabına yüklendikten sonra olarak kaydetmek bir **Azure VM görüntüsü** böylece bir veya daha fazla sanal makine örneği oluşturabilir. Bir Azure sanal makine işletim sistemi görüntüsü olarak VHD'nizi kaydetmek için aşağıdaki PowerShell cmdlet'lerini kullanın. VHD kopyalandığı tam kapsayıcı URL'sini sağlayın.
+### Checklist
+1. Wait until all the VHD disks copying is complete.
+2. Make sure Premium Storage is available in the region you are migrating to.
+3. Decide the new VM series you will be using. It should be a Premium Storage capable, and the size should be depending on the availability in the region and based on your needs.
+4. Decide the exact VM size you will use. VM size needs to be large enough to support the number of data disks you have. E.g. if you have 4 data disks, the VM must have 2 or more cores. Also, consider processing power, memory and network bandwidth needs.
+5. Create a Premium Storage account in the target region. This is the account you will use for the new VM.
+6. Have the current VM details handy, including the list of disks and corresponding VHD blobs.
+
+Prepare your application for downtime. To do a clean migration, you have to stop all the processing in the current system. Only then you can get it to consistent state which you can migrate to the new platform. Downtime duration will depend on the amount of data in the disks to migrate.
+
+> [!NOTE]
+> If you are creating an Azure Resource Manager VM from a specialized VHD Disk, please refer to [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) for deploying Resource Manager VM using existing disk.
+>
+>
+
+### Register your VHD
+To create a VM from OS VHD or to attach a data disk to a new VM, you must first register them. Follow steps below depending on your VHD's scenario.
+
+#### Generalized Operating System VHD to create multiple Azure VM instances
+After generalized OS image VHD is uploaded to the storage account, register it as an **Azure VM Image** so that you can create one or more VM instances from it. Use the following PowerShell cmdlets to register your VHD as an Azure VM OS image. Provide the complete container URL where VHD was copied to.
 
 ```powershell
 Add-AzureVMImage -ImageName "OSImageName" -MediaLocation "https://storageaccount.blob.core.windows.net/vhdcontainer/osimage.vhd" -OS Windows
