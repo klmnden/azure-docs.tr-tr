@@ -97,7 +97,7 @@
           href: container-instances-monitor.md
         - name: Kapsayıcı günlüklerini ve olaylarını alma
           href: container-instances-get-logs.md
-        - name: Azure Log Analytics ile günlüğe kaydetme
+        - name: Azure İzleyici günlükleriyle günlüğe kaydetme
           href: container-instances-log-analytics.md
     - name: Sorun giderme
       items:
@@ -137,3 +137,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-container-instances'
     - name: Videolar
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'
+    - name: SSS
+      href: container-instances-faq.md
