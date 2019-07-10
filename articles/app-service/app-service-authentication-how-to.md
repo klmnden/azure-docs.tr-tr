@@ -186,7 +186,7 @@ Zaman sağlayıcınızın erişim belirteci (değil [Oturum belirteci](#extend-s
 - **Microsoft hesabı**: Zaman [Microsoft hesabı kimlik doğrulama ayarları yapılandırma](configure-authentication-provider-microsoft.md)seçin `wl.offline_access` kapsam.
 - **Azure Active Directory**: İçinde [ https://resources.azure.com ](https://resources.azure.com), aşağıdaki adımları uygulayın:
     1. Sayfanın üst kısmında seçin **okuma/yazma**.
-    2. Sol tarayıcıda gidin **abonelikleri** >  ** _\<abonelik\_adı_**   >  **resourceGroups** >  _ **\<kaynak\_grubu\_adı >** _   >  **sağlayıcıları** > **Microsoft.Web** > **siteleri** >  _ **\<uygulama \_adı >** _ > **config** > **authsettings**. 
+    2. Sol tarayıcıda gidin **abonelikleri** >  ** _\<abonelik\_adı_**   >  **resourceGroups** >  _ **\<kaynak\_grubu\_adı >**_   >  **sağlayıcıları** > **Microsoft.Web** > **siteleri** >  _ **\<uygulama \_adı >**_  > **config** > **authsettings**. 
     3. **Düzenle**‘ye tıklayın.
     4. Aşağıdaki özelliğini değiştirin. Değiştirin  _\<uygulama\_kimliği >_ erişmek istediğiniz hizmeti Azure Active Directory Uygulama kimliği.
 
@@ -233,7 +233,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Hem Microsoft Account hem de Azure Active Directory birden çok etki alanından oturum açmanızı sağlar. Örneğin, Microsoft Account sağlar _outlook.com_, _live.com_, ve _hotmail.com_ hesaplar. Azure Active Directory oturum açma hesapları için özel etki alanları herhangi bir sayıda sağlar. Bu davranış, kimseyle istemediğiniz bir iç uygulama için istenmeyen bir _outlook.com_ hesap erişim. Oturum Aç hesapları etki alanı adını sınırlandırmak için aşağıdaki adımları izleyin.
 
-İçinde [ https://resources.azure.com ](https://resources.azure.com), gitmek **abonelikleri** >  ** _\< abonelik\_ adı_**   >  **resourceGroups** >  _ **\< kaynak\_ grubu\_ adı >** _   >  **sağlayıcıları** > **Microsoft.Web** > **siteleri**  >    _ **\< uygulama\_ adı >** _ > **config** > **authsettings**. 
+İçinde [ https://resources.azure.com ](https://resources.azure.com), gitmek **abonelikleri** >  ** _\< abonelik\_ adı_**   >  **resourceGroups** >  _ **\< kaynak\_ grubu\_ adı >**_   >  **sağlayıcıları** > **Microsoft.Web** > **siteleri**  >    _ **\< uygulama\_ adı >**_  > **config** > **authsettings**. 
 
 Tıklayın **Düzenle**aşağıdaki özelliğini değiştirin ve ardından **Put**. Değiştirdiğinizden emin olun  _\<etki alanı\_adı >_ istediğiniz etki alanı.
 

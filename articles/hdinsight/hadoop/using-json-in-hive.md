@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 904a6a2af4c92c374d5afe4148f50e853e5d1fb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ec766cea2135f7c00df032ad0df4ada033d6293
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479600"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461982"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Azure HDInsight, Apache Hive'ı kullanarak işleyebilir ve JSON belgeleri
 
@@ -57,7 +57,7 @@ Azure HDInsight, Apache Hive'ı kullanarak JavaScript nesne gösterimi (JSON) do
 
 Dosya şu yolda bulunabilir: `wasb://processjson@hditutorialdata.blob.core.windows.net/`. HDInsight ile Azure Blob Depolama kullanma hakkında daha fazla bilgi için bkz. [kullanım HDFS uyumlu Azure Blob Depolama, HDInsight, Apache Hadoop ile](../hdinsight-hadoop-use-blob-storage.md). Kümenizin varsayılan kapsayıcıya dosyayı kopyalayabilirsiniz.
 
-Bu öğreticide, Apache Hive konsolunu kullanabilirsiniz. Hive konsolunu açmak yönergeler için bkz: [kullanım Apache Ambari Hive görünümünü HDInsight, Apache Hadoop ile](apache-hadoop-use-hive-ambari-view.md).
+Bu makalede, Apache Hive konsolunu kullanabilirsiniz. Hive konsolunu açmak yönergeler için bkz: [kullanım Apache Ambari Hive görünümünü HDInsight, Apache Hadoop ile](apache-hadoop-use-hive-ambari-view.md).
 
 ## <a name="flatten-json-documents"></a>JSON belgeleri düzleştirmek
 Sonraki bölümde listelenen yöntemlerden istediğinizi JSON belgesini tek bir satırı sahipliğindeki gerektirir. Bu nedenle, dize JSON belgesini düzleştirin gerekir. JSON belgenizi zaten düzleştirilmiş bu adımı atlayın ve JSON verilerini analiz etme üzerinde doğrudan bir sonraki bölüme gidin. JSON belgesini düzleştirmek için aşağıdaki betiği çalıştırın:
@@ -141,7 +141,7 @@ Hive konsolunda bu betiğin çıkışı:
 UDF kullanan json_tuple [yana görünümü](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) hive'da json sağlayan, söz dizimi\_özgün tablonun her satırı için UDT işlevi uygulayarak sanal bir tablo oluşturmak için demet. Yinelenen kullanımı nedeniyle çok zahmetli hale karmaşık Json'lerini **YATAY Görünüm**. Ayrıca, **JSON_TUPLE** iç içe geçmiş Json'lerini işleyemiyor.
 
 ### <a name="use-a-custom-serde"></a>Özel SerDe kullanın
-SerDe, iç içe geçmiş JSON belgelerini ayrıştırmak için en iyi bir seçimdir. JSON şemasını tanımlamanıza olanak sağlar ve ardından belgelerini ayrıştırmak için bir şema kullanabilirsiniz. Yönergeler için [Microsoft Azure HDInsight ile özel bir JSON SerDe kullanmayı](https://web.archive.org/web/20190217104719/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
+SerDe, iç içe geçmiş JSON belgelerini ayrıştırmak için en iyi bir seçimdir. JSON şemasını tanımlamanıza olanak sağlar ve ardından belgelerini ayrıştırmak için bir şema kullanabilirsiniz. Yönergeler için [Microsoft Azure HDInsight ile özel bir JSON SerDe kullanmayı](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
 
 ## <a name="summary"></a>Özet
 Conclusion, seçtiğiniz hive'da JSON işleç türü, senaryoya bağlıdır. Basit bir JSON belge varsa ve yalnızca bir alan üzerinde arama yapmak için Hive UDF get_json_object kullanmayı da tercih edebilirsiniz. Ardından, üzerinde arama yapmak için birden fazla anahtar varsa, json_tuple kullanabilirsiniz. Bir iç içe geçmiş bir belgeniz varsa, JSON SerDe kullanmanız gerekir.
@@ -151,5 +151,5 @@ Conclusion, seçtiğiniz hive'da JSON işleç türü, senaryoya bağlıdır. Bas
 İlgili makaleler için bkz:
 
 * [Apache Hive ve HiveQL HDInsight, Apache Hadoop ile bir örnek Apache log4j dosyasını çözümlemek için kullanın](../hdinsight-use-hive.md)
-* [Apache Hive, HDInsight'ı kullanarak uçuş gecikme verilerini çözümleme](../hdinsight-analyze-flight-delay-data-linux.md)
+* [İçinde HDInsight etkileşimli sorgu kullanarak uçuş gecikme verilerini çözümleme](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 * [Apache Hive, HDInsight kullanarak twitter verilerini çözümleme](../hdinsight-analyze-twitter-data-linux.md)

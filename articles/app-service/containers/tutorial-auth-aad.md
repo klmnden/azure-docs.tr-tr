@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ed056bf28881f391ed1ba16a875259e8e420b39d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2c173da9bfb60f74b90a17f4f3c5ea6f930ca528
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66137923"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705830"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Öğretici: Kimlik doğrulama ve kullanıcıları uçtan uca Linux üzerinde Azure App Service'te yetkilendirme
 
@@ -101,7 +101,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### <a name="configure-cors"></a>CORS Yapılandırma
 
-Bu adım, kimlik doğrulama ve yetkilendirme ile ilgili değildir. Ancak tarayıcınızın Angular.js uygulamanızdan gelen etki alanları arası API çağrılarına izin vermesi için daha sonra [ön uç tarayıcı kodundan arka uç API’yi çağırmak](#call-api-securely-from-browser-code) için buna ihtiyacınız olacaktır. Linux üzerinde App Service, [Windows’daki karşılığı gibi](../app-service-web-tutorial-rest-api.md#add-cors-functionality) yerleşik CORS işlevselliğine sahip değildir, bu nedenle arka uç uygulaması için bunu el ile eklemeniz gerekir.
+Bu adım, kimlik doğrulama ve yetkilendirme ile ilgili değildir. Ancak tarayıcınızın Angular.js uygulamanızdan gelen etki alanları arası API çağrılarına izin vermesi için daha sonra [ön uç tarayıcı kodundan arka uç API’yi çağırmak](#call-api-securely-from-browser-code) için buna ihtiyacınız olacaktır. Linux üzerinde App Service'te CORS işlevselliği gibi artık destekliyor [Windows çözümlemesiyle mu](../app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
 Yerel dizinde _Startup.cs_ dosyasını açın. `ConfigureServices(IServiceCollection services)` yönteminde aşağıdaki kod satırını ekleyin:
 
@@ -109,7 +109,7 @@ Yerel dizinde _Startup.cs_ dosyasını açın. `ConfigureServices(IServiceCollec
 services.AddCors();
 ```
 
-`Configure(IApplicationBuilder app)` yönteminde en başa aşağıdaki kod satırını ekleyin (*\<front_end_app_name>* kısmını değiştirin):
+`Configure(IApplicationBuilder app)` yönteminde en başa aşağıdaki kod satırını ekleyin ( *\<front_end_app_name>* kısmını değiştirin):
 
 ```csharp
 app.UseCors(builder =>
@@ -242,7 +242,7 @@ Azure Active Directory’yi kimlik sağlayıcısı olarak kullanacaksınız. Dah
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Arka uç uygulaması için kimlik doğrulama ve yetkilendirmeyi etkinleştirme
 
-İçinde [Azure portalında](https://portal.azure.com), soldaki menüden tıklayarak arka uç uygulamanızın Yönetim sayfasını açın: **Kaynak grupları** > **myAuthResourceGroup** > _\<geri\_son\_uygulama\_adı >_.
+İçinde [Azure portalında](https://portal.azure.com), soldaki menüden tıklayarak arka uç uygulamanızın Yönetim sayfasını açın: **Kaynak grupları** > **myAuthResourceGroup** >  _\<geri\_son\_uygulama\_adı >_ .
 
 ![Azure App Service'te çalışan ASP.NET Core API'si](./media/tutorial-auth-aad/portal-navigate-back-end.png)
 
@@ -303,7 +303,7 @@ Bu noktada, ön uç uygulamasının **Azure Active Directory Ayarları** sayfas�
 
 ![Azure App Service'te çalışan ASP.NET Core API'si](./media/tutorial-auth-aad/resources-enable-write.png)
 
-Sol tarayıcıda **abonelikler** > **_&lt;sizin\_aboneliğiniz>_** > **resourceGroups** > **myAuthResourceGroup** > **sağlayıcılar** > **Microsoft.Web** > **siteler** > **_\<ön\_uç\_uygulama\_adı>_** > **config** > **authsettings** öğesine tıklayın.
+Sol tarayıcıda **abonelikler** > ** _&lt;sizin\_aboneliğiniz>_**  > **resourceGroups** > **myAuthResourceGroup** > **sağlayıcılar** > **Microsoft.Web** > **siteler** >  ** _\<ön\_uç\_uygulama\_adı>_**  > **config** > **authsettings** öğesine tıklayın.
 
 **authsettings** görünümünde **Düzenle**’ye tıklayın. Kopyaladığınız Uygulama Kimliğini kullanarak aşağıdaki JSON dizesini `additionalLoginParams` olarak ayarlayın. 
 
