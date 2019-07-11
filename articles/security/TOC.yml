@@ -142,6 +142,9 @@
         - name: Güvenlik denetim listesi
           displayName: 'identity, active directory, password'
           href: azure-ad-secure-steps.md
+        - name: Parolasız işlevini seçme
+          displayName: 'identity, active directory, passwordless'
+          href: azure-ad-passwordless.md
         - name: En iyi uygulamalar
           displayName: 'password, identity, active directory'
           href: azure-security-identity-management-best-practices.md
@@ -199,7 +202,7 @@
           items:
             - name: Giriş
               href: security-azure-log-integration-overview.md
-            - name: başlarken
+            - name: Başlarken
               href: security-azure-log-integration-get-started.md
             - name: Azure AD denetim günlüklerini tümleştirme
               displayName: active directory

@@ -53,6 +53,8 @@
       href: signalr-concept-performance.md
     - name: Kimlik Doğrulaması
       href: signalr-concept-authenticate-oauth.md
+    - name: Olay işleme
+      href: signalr-concept-event-grid-integration.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Ölçek
@@ -67,6 +69,8 @@
       items:
         - name: Azure İşlevleri bağlamaları
           href: signalr-concept-azure-functions.md
+        - name: Event Grid tümleştirmesi
+          href: signalr-howto-event-grid-integration.md
 - name: Başvurular
   items:
     - name: Azure CLI

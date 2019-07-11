@@ -119,6 +119,9 @@
         - name: Kafka olaylarını işleme
           href: ../event-hubs/event-hubs-kafka-stream-analytics.md
           maintainContext: true
+        - name: Event Hubs verilerini işleme
+          href: ../event-hubs/process-data-azure-stream-analytics.md
+          maintainContext: true
         - name: Jeo-uzamsal senaryolar
           href: geospatial-scenarios.md
     - name: İzleme

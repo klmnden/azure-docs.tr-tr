@@ -105,6 +105,10 @@
           href: web-sites-php-configure.md
         - name: Java'yı yapılandırma
           href: configure-language-java.md
+        - name: Şirket içi kaynaklara bağlanma
+          href: web-sites-integrate-with-vnet.md
+        - name: Azure Depolama’yı (kapsayıcı) yapılandırma
+          href: configure-connect-to-azure-storage.md
     - name: Azure’a dağıtma
       items:
         - name: Uygulamayı dağıtma

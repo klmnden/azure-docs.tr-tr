@@ -1,0 +1,51 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Veri Paylaşımı Önizleme belgeleri
+metadata:
+  title: 'Azure Veri Paylaşımı Önizleme belgeleri - Öğreticiler, nasıl yapılır kılavuzları'
+  description: 'Azure Veri Paylaşımı Önizleme, üçüncü taraf kuruluşlarla veri paylaşımına olanak sağlayan güvenli bir hizmettir.'
+  author: joannapea
+  ms.author: joanpo
+  ms.service: data-share
+  ms.topic: landing-page
+  ms.date: 07/10/2019
+abstract:
+  description: '<p>Azure Veri Paylaşımı Önizleme, üçüncü taraf kuruluşlarla veri paylaşımına olanak sağlayan güvenli bir hizmettir. Paylaşmak istediğiniz veri kümelerini seçin, alıcıları ekleyin ve yönetip izleyebilme olanağıyla birlikte verilerinizi paylaşmaya başlayın. Ayrıca veri paylaşımı ilişkilerinizi de denetleyebilirsiniz. </p><p>Öğreticilerimizle Azure Veri Paylaşımı’nı kullanmayı öğrenin.</p>'
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: media/azure-friday.png
+      width: 250
+    title: Azure Friday’de Azure Veri Paylaşımı
+    href: 'https://channel9.msdn.com/Shows/Azure-Friday/Share-data-simply-and-securely-using-Azure-Data-Share/player?format=ny'
+    width: 250
+sections:
+  - title: Nasıl yapılır kılavuzları
+    items:
+      - type: paragraph
+        text: 'Veri paylaşımınızı izlemeyi, veri kümesi eşlemelerini yapılandırmayı, alıcılar eklemeyi ve çok daha fazlasını şu nasıl yapılır kılavuzlarından birini kullanarak öğrenin:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/data-share/media/index/portal.svg
+            text: Azure Veri Paylaşımı’nı izleme
+            href: /azure/data-share/how-to-monitor
+          - image:
+              src: /azure/data-share/media/index/portal.svg
+            text: Bir veri kümesi eşlemesi yapılandırma
+            href: /azure/data-share/how-to-configure-mapping
+          - image:
+              src: /azure/data-share/media/index/portal.svg
+            text: Azure Veri Paylaşımı sorunlarını giderme
+            href: /azure/data-share/data-share-troubleshoot
+  - title: Adım Adım öğreticiler
+    items:
+      - type: paragraph
+        text: Azure Veri Paylaşımı’nı kullanarak veri paylaşmaya nasıl başlayacağınızı öğrenme
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="share-your-data">Azure Veri Paylaşımı’nı kullanarak verilerinizi paylaşma</a>
+          - html: <a href="subscribe-to-data-share">Azure Veri Paylaşımı’nı kullanarak veri kabul etme ve alma</a>

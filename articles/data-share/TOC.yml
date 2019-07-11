@@ -1,0 +1,39 @@
+- name: Azure Veri Paylaşımı Önizleme Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Azure Veri Paylaşımı Önizleme nedir?
+      href: overview.md
+- name: Öğreticiler
+  expanded: true
+  items:
+    - name: Veri paylaşımı
+      href: share-your-data.md
+    - name: Veri kabul etme ve alma
+      href: subscribe-to-data-share.md
+- name: Kavramlar
+  items:
+    - name: Azure Veri Paylaşımı Terminolojisi
+      href: terminology.md
+    - name: Roller ve gereksinimler
+      href: concepts-roles-permissions.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: İzleme
+      href: how-to-monitor.md
+    - name: Veri kümesi eşlemelerini yapılandırma
+      href: how-to-configure-mapping.md
+    - name: Sorun giderme
+      href: data-share-troubleshoot.md
+- name: Kaynaklar
+  items:
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/tag/data-share'
+    - name: Microsoft Teknoloji Topluluğu
+      href: 'https://techcommunity.microsoft.com/'
+    - name: Ürün geri bildirimi
+      href: 'https://feedback.azure.com/forums/922759-azure-data-share-public-preview'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=data-share'
