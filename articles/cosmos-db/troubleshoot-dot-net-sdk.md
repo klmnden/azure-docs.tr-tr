@@ -11,7 +11,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 7e48809537acc21edbcf12d299a333df486c258f
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "66257148"
