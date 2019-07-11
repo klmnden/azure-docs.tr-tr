@@ -41,7 +41,7 @@ Her bir kaynak için geçerli örnek sayısına ve otomatik ölçeklendirme duru
 
 Şimdi, ilk otomatik ölçeklendirme ayarı oluşturmak için basit adım adım kılavuz şimdi gidin.
 
-1. Açık **otomatik ölçeklendirme** dikey penceresinde Azure İzleyici ve ölçek istediğiniz bir kaynak seçin. (Bir web uygulaması ile ilişkili bir App Service planı aşağıdaki adımları kullanın. Yapabilecekleriniz [5 dakika içinde Azure'da ilk ASP.NET web uygulamanızı oluşturun.] [4])
+1. Açık **otomatik ölçeklendirme** dikey penceresinde Azure İzleyici ve ölçek istediğiniz bir kaynak seçin. (Bir web uygulaması ile ilişkili bir App Service planı aşağıdaki adımları kullanın. Yapabilecekleriniz [5 dakika içinde Azure'da ilk ASP.NET web uygulamanızı oluşturun.][4])
 1. Geçerli örnek sayısını 1 olduğuna dikkat edin. Tıklayın **etkinleştirmek otomatik ölçeklendirme**.
   ![Yeni web uygulaması için ölçek ayarı][5]
 1. Ölçek ayarı için bir ad belirtin ve ardından **alınabilecek**. Bir bağlam bölmesi sağ tarafındaki açık ölçek kuralı seçeneklerini dikkat edin. Varsayılan olarak, bu yüzde 70 kaynak CPU yüzdesini aşarsa, örnek sayınız 1 ile ölçeklendirme seçeneği ayarlar. Kendi varsayılan değerlerinde bırakın ve tıklayın **Ekle**.
