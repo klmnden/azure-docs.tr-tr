@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Anomali algılayıcısı kitaplığı ve Python kullanarak veri anormallikleri | Microsoft Docs'
+title: 'Hızlı Başlangıç: Anomali algılayıcısı kitaplığı ve Python kullanarak veri anomalileri algılayın'
 titleSuffix: Azure Cognitive Services
 description: Toplu olarak ya da akış verileri, veri serisinde prosesler algılamak için Anomali algılayıcısı API'sini kullanın.
 services: cognitive-services
@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: aahi
-ms.openlocfilehash: 1d89ed8f40547142d41af9c587fc8fc000fa4dd9
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 9176ab84dd3f493604bd655e0498f5ad476776d0
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503680"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721518"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-python"></a>Hızlı Başlangıç: Python için anomali algılayıcısı istemci kitaplığı
 
@@ -67,7 +67,7 @@ Tercih edilen Düzenleyicisi veya IDE içinde yeni bir Python uygulaması oluşt
 > [!NOTE]
 > Bu hızlı başlangıçta, seçtiğiniz varsayar [bir ortam değişkeni oluşturulan](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) Anomali algılayıcısı anahtarınızı adlı `ANOMALY_DETECTOR_KEY`.
 
-Anahtarınızı bir ortam değişkeni olarak, bir zaman serisi veri dosyası ve aboneliğinizin azure konumu için yol değişkenleri oluşturun. Örneğin, `westus2`. 
+Anahtarınızı bir ortam değişkeni olarak, bir zaman serisi veri dosyası ve aboneliğinizin azure konumu için yol değişkenleri oluşturun. Örneğin: `westus2`. 
 
 [!code-python[Vars for the key, path location and data path](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=initVars)]
 
@@ -99,7 +99,7 @@ Veri dosyanızla Pandas kitaplığın yük `read_csv()` metodu ve oluşturma, ve
 
 [!code-python[Load the data file](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=loadDataFile)]
 
-Oluşturma bir [istek](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.request%28class%29?view=azure-python) nesnesi, zaman serisi ile ve [ayrıntı düzeyi](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.granularity?view=azure-python) (veya dönemsellik), veri noktalarının. Örneğin, `Granularity.daily`.
+Oluşturma bir [istek](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.request%28class%29?view=azure-python) nesnesi, zaman serisi ile ve [ayrıntı düzeyi](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.granularity?view=azure-python) (veya dönemsellik), veri noktalarının. Örneğin: `Granularity.daily`.
 
 [!code-python[Create the request object](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=request)]
 

@@ -1,6 +1,6 @@
 ---
-title: Mürekkep verisi mürekkep tanıyıcı API'ye gönderin
-titlesuffix: Azure Cognitive Services
+title: Mürekkep Tanıma API’sine mürekkep verisi gönderme
+titleSuffix: Azure Cognitive Services
 description: Farklı uygulamalar için mürekkep çözümleyici API'si çağırma hakkında bilgi edinin
 services: cognitive-services
 author: erhopf
@@ -10,16 +10,16 @@ ms.subservice: ink-recognizer
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 5a212c7332d085c15baabef8650572162c47903d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 23431a6171f9ce4d2550ee62ac84679ce36126de
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027099"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721767"
 ---
-# <a name="send-ink-data-to-the-ink-recognizer-api"></a>Mürekkep verisi mürekkep tanıyıcı API'ye gönderin 
+# <a name="send-ink-data-to-the-ink-recognizer-api"></a>Mürekkep Tanıma API’sine mürekkep verisi gönderme 
 
-Dijital Mürekkep giriş el yazısı ve çizim gibi dijital temsillerini etkinleştirme teknolojileri ifade eder. Bu genellikle, bir ekran kalemi gibi giriş cihazların hareketleri yakalayan dönüştürücü kullanarak da sağlanır. Zengin dijital mürekkep deneyimleri sağlamak cihazların devam ederken, yapay zeka ve makine öğrenimi yazılı şekil ve metinler her bağlamda tanınmasını sağlar. Mürekkep tanıyıcı API mürekkep vuruşları Gönder ve bunlar hakkında ayrıntılı bilgi almak sağlar. 
+Dijital mürekkep oluşturma, el yazısı ve çizim gibi girdilerin dijital sunumunun yapılmasını sağlayan teknolojilere başvurur. Bu genellikle, bir ekran kalemi gibi giriş cihazların hareketleri yakalayan dönüştürücü kullanarak da sağlanır. Cihazlar zengin dijital mürekkep oluşturma deneyimleri sunmaya devam ederken yapay zeka ve makine öğrenimi, yazılı metin ve şekillerin tüm bağlamlarda tanınmasını sağlar. Mürekkep tanıyıcı API mürekkep vuruşları Gönder ve bunlar hakkında ayrıntılı bilgi almak sağlar. 
 
 ## <a name="the-ink-recognizer-api-vs-ocr-services"></a>Mürekkep tanıyıcı API vs. OCR Hizmetleri
 

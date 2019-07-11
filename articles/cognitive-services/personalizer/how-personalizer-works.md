@@ -6,15 +6,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: edjez
-ms.openlocfilehash: d0a0a6101d876493188426d19f2fa845d20ee274
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 38480d3cc32d53084b79af627e4f7e6ae7dcc03d
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055476"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722365"
 ---
 # <a name="how-personalizer-works"></a>Kişiselleştirme nasıl çalışır?
 
@@ -111,7 +111,7 @@ Personalizer bilgi edinin durumlarda en iyi yeri:
 * Sorun (örneğin, haber veya biçimde tercihlerinde) zaman içinde drifts varsa üzerine en iyi kişiselleştirme kalmak için yeterli olayları yoktur. Gerçek dünyada sürekli değişikliği personalizer Uyarlanır ancak sonuçları yok ise yeterli olayları ve verileri yeni eğilimlere keşfetmek uzmanlardan en uygun olmayacaktır. Sıklıkta gerçekleşen bir kullanım örneği seçmeniz gerekir. En az 500 kereden günde gerçekleşen kullanım örnekleri aranıyor göz önünde bulundurun.
 * Bağlam ve Eylemler öğrenme süreçlerini kolaylaştırmasına için yeterli özellikleri vardır.
 * Çağrı başına derece için 50'den az eylemler vardır.
-* Veri saklama ayarlarınıza Personalizer çevrimdışı değerlendirmeleri ve ilke iyileştirme gerçekleştirmek için yeterli veri toplamaya izin verin. 50\. 000'en az bir veri noktaları genellikle budur.
+* Veri saklama ayarlarınıza Personalizer çevrimdışı değerlendirmeleri ve ilke iyileştirme gerçekleştirmek için yeterli veri toplamaya izin verin. 50. 000'en az bir veri noktaları genellikle budur.
 
 ## <a name="how-to-use-personalizer-in-a-web-application"></a>Bir web uygulamasında Personalizer kullanma
 

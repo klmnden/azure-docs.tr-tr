@@ -12,8 +12,8 @@ ms.openlocfilehash: 3886777b283af35e84683480a59097584b537fea
 ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711587"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717136"
 ---
 ## <a name="create-an-face-resource"></a>Yüz tanıma kaynak oluştur
 
@@ -21,7 +21,7 @@ ms.locfileid: "67711587"
 1. Tıklayın [Oluştur **yüz** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace) kaynak
 1. Tüm gerekli ayarları girin:
 
-    |Ayar|Değer|
+    |Ayar|Value|
     |--|--|
     |Ad|İstenen ad (2-64 karakter)|
     |Subscription|Uygun aboneliği seçin|
@@ -35,4 +35,4 @@ ms.locfileid: "67711587"
     |Portal'daki kaynak sekmesi|Ayar|Değer|
     |--|--|--|
     |**Genel bakış**|Uç Nokta|Uç nokta kopyalayın. Benzer şekilde görünür `https://face.cognitiveservices.azure.com/face/v1.0`|
-    |**anahtarları**|API Anahtarı|İki anahtar 1 kopyalayın. Boşluk veya tire ile 32 bir alfasayısal karakter dizesi olduğu `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |**anahtarları**|API anahtarı|İki anahtar 1 kopyalayın. Boşluk veya tire ile 32 bir alfasayısal karakter dizesi olduğu `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|

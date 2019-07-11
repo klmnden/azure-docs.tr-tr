@@ -1,21 +1,21 @@
 ---
 title: Mürekkep tanıyıcı nedir? -Mürekkep tanıyıcı API
-titlesuffix: Azure Cognitive Services
-description: Mürekkep tanıyıcı uygulamalarınızı, Web sitelerini, araçları ve diğer çözümleri sağlamak için tümleştirme...
+titleSuffix: Azure Cognitive Services
+description: Mürekkep tanıyıcı uygulamalarınızı, Web sitelerini, araçları ve diğer çözümleri mürekkep vuruşu veri tanımlanır ve girdi olarak kullanılan olanak tanımak için tümleştirin.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
-ms.topic: tutorial
+ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 0ed1a72a5dc61458200b72c768ad722656b820d8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 95121523c510e72894086740ad340bdfd33f3c32
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65027232"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721407"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>Mürekkep Tanıma API’si nedir?
 
@@ -35,7 +35,7 @@ Mürekkep tanıyıcı API'si ile uygulamalarınızda el yazısı içeriği kolay
 | Şekil tanıma | En sık kullanılan tanımak [geometrik şekiller](concepts/send-ink-data.md#shapes-recognized-by-the-ink-recognizer-api) notları çekerken. |
 | Birleşik şekiller ve metin tanıma | Hangi mürekkep vuruşlarını şekilleri veya el ile yazılmış içerik ait tanıması ve ayrı olarak sınıflandırın.|
 
-## <a name="workflow"></a>İş Akışı
+## <a name="workflow"></a>İş akışı
 
 Mürekkep tanıyıcı API'si bir RESTful web, HTTP istekleri ve JSON Ayrıştır tüm programlama dilinden çağrı kolaylaştırma hizmetidir.
 

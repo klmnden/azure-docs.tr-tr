@@ -1,5 +1,6 @@
 ---
 title: 'Öğretici: Azure Databricks kullanarak akış verileri üzerinde anomali algılama'
+titleSuffix: Azure Cognitive Services
 description: Verilerinizdeki anormallikleri izlemek için Azure Databricks ve Anomali algılayıcısı API'sini kullanın.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
@@ -10,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: aahi
-ms.openlocfilehash: 7009771f2b647bb582b3d8091edce99fe901a9f1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8d3f5d0e10fadd31fd8bde77339b872c1b90451f
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080798"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721462"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Öğretici: Azure Databricks kullanarak akış verileri üzerinde anomali algılama
 
@@ -74,7 +75,7 @@ Bu bölümde, kullanarak bir Azure Databricks çalışma alanı oluşturma [Azur
     |**Çalışma alanı adı**     | Databricks çalışma alanınız için bir ad sağlayın        |
     |**Abonelik**     | Açılan listeden Azure aboneliğinizi seçin.        |
     |**Kaynak grubu**     | Yeni bir kaynak grubu oluşturmayı veya mevcut bir kaynak grubunu kullanmayı seçin. Kaynak grubu, bir Azure çözümü için ilgili kaynakları bir arada tutan kapsayıcıdır. Daha fazla bilgi için bkz. [Azure Kaynak Grubuna genel bakış](../../../azure-resource-manager/resource-group-overview.md). |
-    |**Konum**     | Seçin **Doğu ABD 2** veya kullanılabilir diğer bölgeler. Bkz: [bölgeye göre kullanılabilir Azure Hizmetleri](https://azure.microsoft.com/regions/services/) için bölge kullanılabilirliği.        |
+    |**Location**     | Seçin **Doğu ABD 2** veya kullanılabilir diğer bölgeler. Bkz: [bölgeye göre kullanılabilir Azure Hizmetleri](https://azure.microsoft.com/regions/services/) için bölge kullanılabilirliği.        |
     |**Fiyatlandırma Katmanı**     |  **Standart** veya **Premium** arasında seçim yapın. Seçmediğiniz **deneme**. Bu katmanlar hakkında daha fazla bilgi için bkz. [Databricks fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     **Oluştur**’u seçin.
@@ -162,13 +163,13 @@ Bu öğreticide kullandığınız [Azure Bilişsel hizmetler Anomali algılayıc
 
 4. **Oluştur** iletişim kutusunda aşağıdaki değerleri sağlayın:
 
-    |Değer |Açıklama  |
+    |Value |Açıklama  |
     |---------|---------|
     |Ad     | Anomali algılayıcısı kaynak için bir ad.        |
-    |Abonelik     | Azure kaynak aboneliği ile ilişkilendirilecektir.        |
+    |Subscription     | Azure kaynak aboneliği ile ilişkilendirilecektir.        |
     |Location     | Bir Azure konumu.        |
     |Fiyatlandırma katmanı     | Hizmet için bir fiyatlandırma katmanı. Anomali algılayıcısı fiyatlandırması hakkında daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).        |
-    |Kaynak grubu     | Yeni bir kaynak grubu oluşturun veya mevcut bir isteyip istemediğinizi belirtin.        |
+    |Resource group     | Yeni bir kaynak grubu oluşturun veya mevcut bir isteyip istemediğinizi belirtin.        |
 
 
      **Oluştur**’u seçin.

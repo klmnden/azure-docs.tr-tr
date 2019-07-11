@@ -9,114 +9,211 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: e37e99323c92adad0b9e897af8c276a8ac153371
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 21f5a2d93b708e93f124bd44177bb7852dfbd86a
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515625"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720550"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Öğretici: Görsel arabirim ile otomobil fiyatını tahmin edin
 
 Bu öğreticide, Azure Machine Learning hizmeti görsel arabirim Tahmine dayalı bir çözüm geliştirirken bir genişletilmiş göz atalım. Bu öğreticinin sonunda, gönderdiğiniz teknik belirtimlerinden yola çıkarak herhangi bir araba fiyatını tahmin edebilen bir çözüm gerekir.
 
-Bu öğreticide [hızlı başlangıçtan devam](ui-quickstart-run-experiment.md) ve **iki kısımlı öğretici serisinin birinci kısmında**. Ancak, başlamadan önce hızlı başlangıcı tamamlamak zorunda değilsiniz.
-
-Birinci öğretici serisinde şunların nasıl yapılır:
+Birinci öğretici şunların nasıl yapılır:
 
 > [!div class="checklist"]
-> * İçeri aktarma ve verileri temizleme (hızlı başlangıç aynı adımları)
+> * İçeri aktarma ve verileri temizleme
 > * Makine öğrenme modeli eğitme
 > * Puanlama ve bir modeli değerlendirme
 
-İçinde [bölüm iki](ui-tutorial-automobile-price-deploy.md) öğretici serisi, Tahmine dayalı model bir Azure web hizmeti olarak dağıtmayı öğreneceksiniz.
-
-> [!NOTE]
-> Bu öğretici tamamlanmış bir sürümünü, örnek deneme olarak kullanılabilir.
-> Denemeleri sayfasından Git **yeni Ekle** > **örnek 1 - regresyon: Otomobil fiyat Prediction(Basic)**
-
+İçinde [bölüm iki](ui-tutorial-automobile-price-deploy.md) Öğreticisi Tahmine dayalı model bir Azure web hizmeti olarak dağıtmayı öğreneceksiniz.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
 
+Bu öğretici tamamlanmış bir sürümünü, örnek deneme olarak kullanılabilir.
+
+Öğesinden bulmak için **denemeleri sayfa**seçin **yeni Ekle**, ardından **örnek 1 - regresyon: Otomobil fiyat Prediction(Basic)** denemeler yapın.
+
 ## <a name="create-a-workspace"></a>Çalışma alanı oluşturma
 
-Bir Azure Machine Learning hizmeti çalışma alanı varsa, atlamak [sonraki bölümde](#open-the-visual-interface-webpage). Aksi takdirde, şimdi bir tane oluşturun.
+Bir Azure Machine Learning hizmeti çalışma alanı varsa, atlamak [sonraki bölümde](#open-the-visual-interface-webpage).
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
 ## <a name="open-the-visual-interface-webpage"></a>Görsel arabirim Web sayfasını açın
 
-1. Çalışma alanınızda açın [Azure portalında](https://portal.azure.com/).  
+1. Çalışma alanınızda açın [Azure portalında](https://portal.azure.com/).
 
-1. Çalışma alanınızı seçin **görsel arabirim**.  Ardından **başlatma görsel arabirim**.  
+1. Çalışma alanınızı seçin **görsel arabirim**. Ardından **başlatma görsel arabirim**. 
 
     ![Azure portalında bir Machine Learning hizmeti çalışma alanından görsel arabirim nasıl gösteren ekran görüntüsü](./media/ui-tutorial-automobile-price-train-score/launch-ui.png)
 
-    Yeni bir tarayıcı sayfada arabirimi Web sayfası açılır.  
+## <a name="create-your-first-experiment"></a>İlk denemenizi oluşturma
 
-## <a name="import-and-clean-your-data"></a>İçeri aktarma ve verilerinizi temizleme
-
-İhtiyacınız olan ilk şey, temiz verilerdir. Hızlı Başlangıç tamamlandı, veri hazırlığı denemenizi buraya yeniden kullanabilirsiniz. Bu hızlı başlangıçta tamamlamadıysanız, sonraki bölüme atlayın ve [yeni bir deneme başlatın](#start-from-a-new-experiment).
-
-### <a name="reuse-the-quickstart-experiment"></a>Hızlı Başlangıç denemeyi yeniden kullanma
-
-1. Hızlı Başlangıç denemenizi açın.
-
-1. Seçin **Kaydet** pencerenin alt kısmındaki.
-
-1. Bu görünen açılan iletişim kutusunda yeni bir ad verin.
-
-    ![Deneme "Öğretici – tahmin otomobil Fiyat" Yeniden Adlandır gösteren ekran görüntüsü](./media/ui-tutorial-automobile-price-train-score/save-a-copy.png)
-
-1. Deneme şimdi aşağıdakine benzer görünmelidir:
-
-    ![Denemeyi beklenen durumunu gösteren ekran görüntüsü. Otomobil veri kümesini eksik verileri temizleme için bağlanan Sütunları Seç modülü bağlanır](./media/ui-tutorial-automobile-price-train-score/save-copy-result.png)
-
-Hızlı Başlangıç denemenizi başarıyla yeniden, başlamak için sonraki bölüme atlayın. [modelinizi eğitim](#train-the-model).
-
-### <a name="start-from-a-new-experiment"></a>Yeni bir deneme başlatın
-
-Bu hızlı başlangıçta tamamlanmadıysa, hızlı bir şekilde içeri aktarır ve otomobil veri kümesini temizler ve yeni bir deneme oluşturmak için aşağıdaki adımları izleyin.
+Görsel arabirim aracı, Tahmine dayalı analiz modelleri oluşturmak için etkileşimli ve görsel bir yer sağlar. Sürükle ve bırak veri kümeleri ve analiz modülleri etkileşimli bir tuvale ve bunları oluşturmak için bir araya bağlayın bir *deneme*.
 
 1. Seçerek yeni bir deneme oluşturma **+ yeni** görsel arabirim pencerenin alt kısmındaki.
 
-1. Seçin **denemeleri** >  **boş deneme**.
+    ![Yeni bir deneme Ekle](./media/ui-tutorial-automobile-price-train-score/add-new.png)
+
+1. Seçin **boş deneme**.
 
 1. Varsayılan deneme adını seçin **"deneme oluşturulan üzerinde...** "tuvalin üst kısmındaki ve anlamlı bir şekilde yeniden adlandırın. Örneğin, **otomobil fiyat tahmini**. Adın benzersiz olması gerekmez.
 
-1. Deneme tuvalinin sol tarafında bir veri kümesi ve modül paleti bulunur. Modüller bulmak için modül paletinin en üstündeki arama kutusunu kullanın. Tür **otomobil** etiketli veri kümesini bulmak için arama kutusuna **otomobil fiyat verileri (ham)** . Bu veri kümesini deneme tuvaline sürükleyin.
+## <a name="add-data"></a>Veri ekleme
 
-    ![Ekran otomobil fiyat veri kümesi bulma](./media/ui-tutorial-automobile-price-train-score/automobile-dataset.png)
+Machine learning için gereken ilk şey verilerdir. Bu arabirimde kullanabileceğiniz birçok örnek veri kümesi vardır. Ayrıca, var olan kaynaklardan gelen verileri içeri aktarabilirsiniz. Bu öğreticide, örnek veri kümesini kullanmak **otomobil fiyat verileri (ham)** . 
 
-    Artık verileriniz olduğuna göre kaldıran bir modül ekleyebileceğiniz **normalized-losses** sütun tamamen. Ardından eksik veriler içeren satırları kaldıran başka bir modül ekleyin.
+1. Deneme tuvalinin sol tarafında bir veri kümesi ve modül paleti bulunur. Seçin **kaydedilmiş veri kümeleri** seçip **örnekleri** kullanılabilir örnek veri kümelerini görüntülemek için.
 
-1. Tür **sütunları seçme** bulmak için arama kutusuna **kümesindeki sütunları seçme** modülü. Ardından bunu deneme tuvaline sürükleyin. Bu modül, hangi veri sütunlarını dahil etmek veya hariç modelde istediğiniz seçmenize olanak sağlar.
+1. Veri kümesi seçin **otomobil fiyat verileri (ham)** ve tuvale sürükleyin.
 
-1. Çıkış bağlantı noktasına bağlanmak **otomobil fiyat verileri (ham)** veri kümesindeki sütunları seçme, giriş bağlantı noktasına kümesi.
+   ![Veri tuvale sürükleyin](./media/ui-tutorial-automobile-price-train-score/drag-data.png)
 
-    ![Animasyonlu GIF gösteren otomobil fiyat verileri modülünü Sütunları Seç modülüne bağlayın](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
+## <a name="select-columns"></a>Sütun seçme
 
-1. Sütunları Seç veri kümesi modülünde'ı seçip **Sütun seçiciyi Başlat** içinde **özellikleri** bölmesi.
+Çalışmak için veri sütunları seçin. İle başlamak modülü, tüm kullanılabilir sütunları gösterecek şekilde yapılandırın.
 
-   1. Sol tarafta, seçin **kurallarla**
+> [!TIP]
+> Veri veya istediğiniz modül adını biliyorsanız Arama çubuğuna paleti üst kısmında hızla bulmak için kullanın. Bu öğreticinin geri kalanını bu kısayol kullanır.
 
-   1. Yanındaki **şununla Başla**seçin **tüm sütunları**. Bu kurallar doğrudan **kümesindeki sütunları seçme** (dışarıda bu sütunlar hariç) tüm sütunlardan geçmeye.
 
-   1. Açılan menüden seçin **hariç** ve **sütun adları**, Anahtar'a tıklayın ve **normalized-losses** metin kutusu içinde.
+1. Tür **seçin** bulmak için arama kutusuna **kümesindeki sütunları seçme** modülü.
 
-   1. (Sağ alt köşede üzerinde) sütun seçiciyi kapatmak için Tamam düğmesini seçin.
+1. Tıklayın ve sürükleyin **kümesindeki sütunları seçme** tuvale. Modülü daha önce eklediğiniz veri kümesi altına bırakın.
 
-     Artık **Select Columns in Dataset (Veri Kümesinde Sütun Seçme)** için özellikler bölmesi, **normalleştirilmiş kayıplar** dışındaki tüm veri kümelerindeki tüm sütunlardan geçeceğini belirtir.
+1. Veri kümesine bağlanmak **kümesindeki sütunları seçme**: veri kümesinin çıkış bağlantı noktasına tıklayın, giriş bağlantı noktasına sürükleyin **kümesindeki sütunları seçme**, ardından fare düğmesini bırakın. Veri kümesi ve modül, ya da tuvalde yerleri bile bağlı kalır.
 
-1. Bir yorum eklemek **kümesindeki sütunları seçme** modüle çift ve "Dışlama normalleştirilmiş kayıplar." girerek modülü. Bu, modülün denemenizde ne yaptığını, bir bakışta görmenize yardımcı olabilir.
+    > [!TIP]
+    > Veri kümeleri ve modülleri küçük dairelerle gösterilen giriş ve çıkış bağlantı noktalarına sahiptir. Giriş bağlantı noktaları yukarıda, çıkış bağlantı noktaları aşağıdadır. Bir modülün çıkış bağlantı noktasını bir diğerinin giriş bağlantı noktasına bağlandığında denemeniz veri bir akış oluşturun.
+    >
 
-    ![Sütunları Seç modülünün ekran gösteren doğru yapılandırma](./media/ui-tutorial-automobile-price-train-score/select-columns.png)
+    ![Modüller bağlanma](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
 
-1. Tür **temiz** bulmak için arama kutusuna **eksik verileri temizleme** modülü. Sürükleme **eksik verileri temizleme** modülünü deneme tuvaline ve buna bağlanmak **kümesindeki sütunları seçme** modülü.
+    Kırmızı ünlem işareti modülü için özellikleri henüz ayarlamadıysanız gösterir.
 
-1. **Özellikler** bölmesinde, **Temizleme modu** altında **Tüm satırı kaldır**’ı seçin. Bu seçenekleri doğrudan **eksik verileri temizleme** değer içeren satırları kaldırarak verileri temizlemesi için. Modüle çift tıklayın ve "Eksik değerli satırları kaldır" yorumunu yazın.
+1. Seçin **kümesindeki sütunları seçme** modülü.
 
-![Eksik verileri temizleme modülü gösteren doğru yapılandırma ekran görüntüsü](./media/ui-tutorial-automobile-price-train-score/clean-missing-data.png)
+1. İçinde **özellikleri** select tuvalinin sağ bölmeye **sütunları Düzenle**.
+
+    İçinde **sütunları seçme** iletişim kutusunda, **tüm sütunları** ve **tüm özellikleri**. İletişim kutusu şu şekilde görünmelidir:
+
+     ![Sütun Seçici](./media/ui-tutorial-automobile-price-train-score/select-all.png)
+
+1. Alt sağ tarafta seçin **Tamam** Sütun seçiciyi kapatmak için.
+
+## <a name="run-the-experiment"></a>Denemeyi çalıştırma
+
+Herhangi bir zamanda bir veri kümesi veya modül verileri bu noktada, veri akışında nasıl göründüğünü görmek için çıkış bağlantı noktasına tıklayın. Varsa **Görselleştir** seçeneği devre dışıdır, ilk deneme çalıştırmanız gerekir.
+
+Bir deney çalışma alanınıza bağlı bir işlem kaynağı olan bir işlem hedefine çalışır. İşlem hedefi oluşturduktan sonra sonraki çalıştırmalar için yeniden kullanabilirsiniz.
+
+[!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
+
+İşlem hedefi kullanılabilir olduktan sonra deneme çalıştırır. Çalıştırma tamamlandığında her modülü, yeşil bir onay işareti görünür.
+
+
+## <a name="preview-the-data"></a>Veri önizlemesi
+
+İlk denemenizi çalıştırdığınızda, veri kümesi ile çalışmak zorunda daha iyi anlamak için verileri görselleştirebilirsiniz.
+
+1. Alt kısmındaki çıkış bağlantı noktasına seçin **kümesindeki sütunları seçme** seçip **Görselleştir**.
+
+1. Farklı sütunların veri penceresinde, bu sütunu hakkındaki bilgileri görüntülemek için tıklayın.
+
+    Bu veri kümesi her satır bir otomobili temsil eder ve her Otomobille ilişkili değişkenler sütun olarak görünür. 205 satırları ve bu kümesindeki 26 sütunları vardır.
+
+     Bir veri sütununun her tıkladığınızda **istatistikleri** bilgi ve **görselleştirme** söz konusu sütunu görüntüsü soldaki bölmede görünür. Örneğin, tıkladığınızda **kapılar num** sahip 2 benzersiz ve 2 eksik değerleri görürsünüz. Değerleri görmek için aşağı kaydırın: iki ve dört kapılar.
+
+     ![Veri önizlemesi](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)
+
+1. Her sütun, veri kümesi hakkında daha fazla bilgi edinin ve olup bu sütunlar bir otomobilin fiyatını tahmin etmek yararlı olacak hakkında düşünmek için tıklayın.
+
+## <a name="prepare-data"></a>Verileri hazırlama
+
+Genellikle bir veri kümesi analiz edilmeden önce biraz ön işleme gerekir. Veri kümesi görselleştirirken kullanılacak bazı eksik değerleri fark olabilirsiniz. Modelin verileri doğru şekilde analiz edebilmesi için bu eksik değerlerin temizlenmesi gerekir. Eksik değerleri olan satırları kaldıracağız. Ayrıca, **normalized-losses** sütununun büyük kısmı eksik değerleri, bu sütunu modelin tamamen dışında şekilde.
+
+> [!TIP]
+> Giriş verilerinden eksik değerleri temizleme, çoğu modülü kullanmanın bir önkoşuludur.
+
+### <a name="remove-column"></a>Sütunu kaldırma
+
+İlk olarak, kaldırma **normalized-losses** sütun tamamen.
+
+1. Seçin **kümesindeki sütunları seçme** modülü.
+
+1. İçinde **özellikleri** select tuvalinin sağ bölmeye **sütunları Düzenle**.
+
+    * Bırakın **kurallarla** ve **tüm sütunları** seçili.
+
+    * Açılan menülerden **Hariç Tut** ve **sütun adlarını** seçerek metin kutusuna tıklayın. Tür **normalized-losses**.
+
+    * Alt sağ tarafta seçin **Tamam** Sütun seçiciyi kapatmak için.
+
+    ![Bir sütununu hariç tutun](./media/ui-tutorial-automobile-price-train-score/exclude-column.png)
+        
+    Şimdi bunu tüm sütunları veri kümesinden geçer kümesindeki sütunları seçme için Özellikler bölmesi gösterir **normalized-losses**.
+        
+    Özellikler bölmesi gösteren **normalized-losses** sütun çıkarılır.
+        
+    ![Özellik bölmesi](./media/ui-tutorial-automobile-price-train-score/property-pane.png)
+        
+    Modüle çift tıklayıp metin girerek bir modüle yorum ekleyebilirsiniz. Bu, modülün denemenizde ne işe yaradığını bir bakışta görmenize yardımcı olabilir. 
+
+1. Çift **kümesindeki sütunları seçme** modülü ve yorumunu yazın "normalleştirilmiş kayıpları dışarıda." 
+    
+    Yorum yazın sonra modülü tıklayın. Modül bir açıklamayı içeren göstermek için aşağı ok görünür.
+
+1. Aşağı açıklamayı görüntülemek için oka tıklayın.
+
+    Modülü artık yorum gizlemek için bir yukarı ok gösterir.
+        
+    ![Açıklamalar](./media/ui-tutorial-automobile-price-train-score/comments.png)
+
+### <a name="clean-missing-data"></a>Eksik verileri temizleme
+
+Bir model eğitip, eksik veriler hakkında bir şey yapmanız gerekir. Bu durumda, bir modül eksik verileri olan kalan tüm satırı Kaldır ekleyeceksiniz.
+
+1. Tür **temiz** bulmak için arama kutusuna **eksik verileri temizleme** modülü.
+
+1. Sürükleme **eksik verileri temizleme** modülünü deneme tuvaline ve buna bağlanmak **kümesindeki sütunları seçme** modülü. 
+
+1. Özellikler bölmesinde seçin **tüm satırı Kaldır** altında **temizleme modu**.
+
+    Bu seçenekleri doğrudan **eksik verileri temizleme** değer içeren satırları kaldırarak verileri temizlemesi için.
+
+1. Modüle çift tıklayın ve "Eksik değerli satırları kaldır" yorumunu yazın.
+ 
+    ![Satırları Kaldır](./media/ui-tutorial-automobile-price-train-score/remove-rows.png)
+
+    Denemenizi şöyle görünmelidir:
+    
+    ![sütun seçin](./media/ui-tutorial-automobile-price-train-score/experiment-clean.png)
+
+## <a name="visualize-the-results"></a>Sonuçlarını Görselleştirme
+
+Değişiklikleri denemenizde modüllerine yapılan sonra durum "İçinde Taslak" durumuna değişti.  Yeni temiz verileri görselleştirmek için ilk kez denemeyi tekrar çalıştırabilir gerekir.
+
+1. Seçin **çalıştırma** kısımdaki denemeyi çalıştırın.
+
+    Bu süre, daha önce oluşturduğunuz işlem hedef yeniden kullanabilirsiniz.
+
+1. Seçin **çalıştırma** iletişim.
+
+   ![Denemeyi çalıştırma](./media/ui-tutorial-automobile-price-train-score/select-compute.png)
+
+1. Çalıştırma tamamlandığında sağ **eksik verileri temizleme** yeni temiz verileri görselleştirmek için modülü.
+
+    ![Temiz verileri görselleştirin](./media/ui-tutorial-automobile-price-train-score/visualize-cleaned.png)
+
+1. Farklı sütunlar Temizlenen veri penceresinde verileri nasıl değiştiğini görmek için tıklayın.
+
+    ![Temiz verileri görselleştirin](media/ui-tutorial-automobile-price-train-score/visualize-result.png)
+
+    Artık olduğuna 193 satırları ve sütunları 25.
+
+    Tıkladığınızda **kapılar num** hala 2 benzersiz değerlere sahip ancak artık 0 eksik değerleri olan görürsünüz. Sütun kümesinde eksik değerlerin yok olduğuna bakın kalanında tıklayın. 
 
 ## <a name="train-the-model"></a>Modeli eğitme
 
@@ -154,7 +251,8 @@ Verileriniz, hem modeli eğitmek ve verileri ayrı eğitim ve test bölerek test
 
     ![Sütun Seçici modülü için doğru yapılandırmayı gösteren ekran görüntüsü. Kurallarla > Include column names > "price"](./media/ui-tutorial-automobile-price-train-score/select-price.png)
 
-    Şimdi deneme gibi görünmelidir.
+    Denemenizi şu şekilde görünmelidir:
+
     ![Model eğitme modülünü ekledikten sonra deneme doğru yapılandırıldığını gösteren ekran görüntüsü.](./media/ui-tutorial-automobile-price-train-score/train-graph.png)
 
 ### <a name="run-the-training-experiment"></a>Eğitim denemesini çalıştırma
@@ -219,7 +317,7 @@ Görsel arabirim içinde oluşturduğunuz denemeleri, Azure Machine Learning hiz
 
 Serinin Bu öğretici, bu adımlar tamamlandı:
 
-* Bu hızlı başlangıçta oluşturulan denemeyi yeniden kullanma
+* Bir deney oluşturuldu
 * Verileri hazırlama
 * Modeli eğitme
 * Puanlama ve modeli değerlendirme

@@ -1,5 +1,5 @@
 ---
-title: Pekiştirmeye dayalı öğrenme - Personalizer
+title: Ölçeklenebilirlik ve performans - Personalizer
 titleSuffix: Azure Cognitive Services
 description: 'Yüksek performanslı ve trafiği yüksek Web siteleri ve uygulamalar ile Personalizer ölçeklenebilirlik ve performans için dikkate alınması gereken iki ana etmene vardır: gecikme süresi ve eğitim işleme.'
 services: cognitive-services
@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: edjez
-ms.openlocfilehash: 242cc1b96c08cd79dc3e2ef5efbbe96a934b8ad3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 06c2e65c723e18acc515dd7effc61aae0564f411
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058444"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722427"
 ---
 # <a name="scalability-and-performance"></a>Ölçeklenebilirlik ve performans
 

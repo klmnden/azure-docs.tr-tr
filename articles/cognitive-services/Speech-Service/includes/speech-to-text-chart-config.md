@@ -14,8 +14,8 @@ ms.openlocfilehash: 1b46c58d3f3c804052e637f7bde2e1a456764dba
 ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711510"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717241"
 ---
 ### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>Konuşmayı metne (alt grafik: grafikler/speechToText)
 

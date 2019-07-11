@@ -1,5 +1,5 @@
 ---
-title: Kapsayıcı - Form tanıyıcı yapılandırın
+title: Bir kapsayıcı için Form tanıyıcı yapılandırma
 titleSuffix: Azure Cognitive Services
 description: Form ve tablo verilerini ayrıştırmak için Form tanıyıcı kapsayıcının nasıl yapılandırılacağını öğrenin.
 author: IEvangelist
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: e4b6a852ece3060ecf866d66d32f213355d99950
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 7752b09dd1bf20d796b19d03e62426b098486c39
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592658"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718445"
 ---
 # <a name="configure-form-recognizer-containers"></a>Form tanıyıcı kapsayıcılar'ı yapılandırma
 
@@ -74,10 +74,10 @@ Form tanıyıcı kapsayıcı, bir giriş bağlama ve bir çıkış bağlama gere
 
 Konak bağlama konumu söz dizimi konak işletim sistemine göre değişir. Ayrıca, bağlama konumu [ana bilgisayar](form-recognizer-container-howto.md#the-host-computer) Docker hizmet hesabı izinleri ve ana bilgisayar bağlama konumu izinler arasında bir çakışma nedeniyle erişilebilir olmayabilir.
 
-|İsteğe bağlı| Ad | Veri türü | Açıklama |
+|İsteğe Bağlı| Ad | Veri türü | Açıklama |
 |-------|------|-----------|-------------|
-|Gerekli| `Input` | String | Giriş bağlama hedefi. Varsayılan değer `/input` şeklindedir.    <br><br>Örnek:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Gerekli| `Output` | String | Çıkış bağlama hedefi. Varsayılan değer `/output` şeklindedir.  <br><br>Örnek:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Gerekli| `Input` | Dize | Giriş bağlama hedefi. Varsayılan değer `/input` şeklindedir.    <br><br>Örnek:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Gerekli| `Output` | Dize | Çıkış bağlama hedefi. Varsayılan değer `/output` şeklindedir.  <br><br>Örnek:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Örnek docker komutlarını çalıştırın
 

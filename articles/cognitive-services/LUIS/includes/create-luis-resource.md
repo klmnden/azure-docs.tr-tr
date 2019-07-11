@@ -12,8 +12,8 @@ ms.openlocfilehash: 52d8e1355558b197b193a50c7cde571799541268
 ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711840"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717179"
 ---
 ## <a name="create-a-luis-resource"></a>LUIS kaynak oluştur
 
@@ -21,7 +21,7 @@ ms.locfileid: "67711840"
 1. Tıklayın [oluşturma **dil anlama**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUIS)
 1. Tüm gerekli ayarları girin:
 
-    |Ayar|Değer|
+    |Ayar|Value|
     |--|--|
     |Ad|İstenen ad (2-64 karakter)|
     |Subscription|Uygun aboneliği seçin|
@@ -32,7 +32,7 @@ ms.locfileid: "67711840"
 1. Tıklayın **Oluştur** ve kaynak oluşturulmasını bekleyin. Oluşturulduktan sonra kaynak sayfasına gidin
 1. Toplama yapılandırılmış `endpoint` ve API anahtarı:
 
-    |Portal'daki kaynak sekmesi|Ayar|Değer|
+    |Portal'daki kaynak sekmesi|Ayar|Value|
     |--|--|--|
     |**Genel bakış**|Uç Nokta|Uç nokta kopyalayın. Benzer şekilde görünür `https://luis.cognitiveservices.azure.com/luis/v2.0`|
-    |**anahtarları**|API Anahtarı|İki anahtar 1 kopyalayın. Boşluk veya tire ile 32 bir alfasayısal karakter dizesi olduğu `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |**anahtarları**|API anahtarı|İki anahtar 1 kopyalayın. Boşluk veya tire ile 32 bir alfasayısal karakter dizesi olduğu `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|

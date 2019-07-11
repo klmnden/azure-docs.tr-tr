@@ -1,20 +1,21 @@
 ---
-title: Yükleme ve kapsayıcıları - Anomali algılayıcısı çalıştırın
+title: Yükleme ve Anomali algılayıcısı API kullanımı için kapsayıcıları çalıştırın
 titleSuffix: Azure Cognitive Services
 description: Zaman serisi verilerinizdeki anormallikleri belirlemek için gelişmiş algoritmalar Anomali algılayıcısı API'nin kullanın.
 services: cognitive-services
 author: IEvangelist
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 254173df33bdc82b7de87328a715954c1a6993d7
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: f84f1bab048630d6dd45085b3d082004d10bb6a8
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593121"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721713"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>Yükleme ve Anomali algılayıcısı kapsayıcıları çalıştırma
 

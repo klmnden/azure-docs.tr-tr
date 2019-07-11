@@ -1,20 +1,21 @@
 ---
-title: Kapsayıcı - Anomali algılayıcısı yapılandırın
+title: Anomali algılayıcısı API için bir kapsayıcı yapılandırma
 titleSuffix: Azure Cognitive Services
-description: Anomali algılayıcısı kapsayıcı çalışma zamanı ortamı kullanılarak yapılandırılan `docker run` komut bağımsız değişkenleri. Bu kapsayıcı birkaç isteğe bağlı ayarları ile birlikte gerekli birkaç ayar vardır.
+description: Anomali algılayıcısı API kapsayıcı çalışma zamanı ortamı kullanılarak yapılandırılan `docker run` komut bağımsız değişkenleri. Bu kapsayıcı birkaç isteğe bağlı ayarları ile birlikte gerekli birkaç ayar vardır.
 services: cognitive-services
 author: IEvangelist
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 50f62fa20ea9b52db79160d9d2f3a6fa463079b7
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: cb0a12df6696e76050d4c53bd75e07134b3dc27c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593096"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721722"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Anomali algılayıcısı kapsayıcılar'ı yapılandırma
 
@@ -87,10 +88,10 @@ Anomali algılayıcısı kapsayıcıları giriş kullanmıyorum veya eğitim vey
 
 Konak bağlama konumu söz dizimi konak işletim sistemine göre değişir. Ayrıca, [ana bilgisayar](anomaly-detector-container-howto.md#the-host-computer)'s bağlama konumu Docker hizmet hesabı tarafından kullanılan izinler arasında bir çakışma nedeniyle erişilebilir olmayabilir ve konak yeri izinleri bağlayın. 
 
-|İsteğe bağlı| Ad | Veri türü | Açıklama |
+|İsteğe Bağlı| Ad | Veri türü | Açıklama |
 |-------|------|-----------|-------------|
-|İzin verilmiyor| `Input` | String | Anomali algılayıcısı kapsayıcıları bu kullanmayın.|
-|İsteğe bağlı| `Output` | String | Çıkış bağlama hedefi. Varsayılan değer `/output` şeklindedir. Bu günlükler konumdur. Bu, kapsayıcı günlükleri içerir. <br><br>Örnek:<br>`--mount type=bind,src=c:\output,target=/output`|
+|İzin verilmiyor| `Input` | Dize | Anomali algılayıcısı kapsayıcıları bu kullanmayın.|
+|İsteğe Bağlı| `Output` | Dize | Çıkış bağlama hedefi. Varsayılan değer `/output` şeklindedir. Bu günlükler konumdur. Bu, kapsayıcı günlükleri içerir. <br><br>Örnek:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Örnek docker komutlarını çalıştırın 
 

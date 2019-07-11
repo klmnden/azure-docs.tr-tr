@@ -1,5 +1,6 @@
 ---
-title: 'Hızlı Başlangıç: Java ve Anomali algılayıcısı REST API kullanarak, zaman serisi verilerinde görülen anormallikleri | Microsoft Docs'
+title: 'Hızlı Başlangıç: Java ve Anomali algılayıcısı REST API kullanarak, zaman serisi verilerinde görülen anomalileri algılayın'
+titleSuffix: Azure Cognitive Services
 description: Toplu olarak ya da akış verileri, veri serisinde prosesler algılamak için Anomali algılayıcısı API'sini kullanın.
 services: cognitive-services
 author: aahill
@@ -9,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 04ace16559a6f5b747bc735aa89265d2962a32b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2a219dfac597208a2c409f76c035a1b913864245
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073219"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721511"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Hızlı Başlangıç: Java ve Anomali algılayıcısı REST API kullanarak, zaman serisi verilerinde görülen anomalileri algılayın
 

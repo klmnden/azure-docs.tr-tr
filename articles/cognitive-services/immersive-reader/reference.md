@@ -1,20 +1,21 @@
 ---
 title: Derinlikli okuyucu SDK başvurusu
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Derinlikli okuyucu SDK başvurusu
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: c128608b3c4a8e1155c3ac962bcfd07f589fbf23
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 485e8626af4266492e02d4f9fbe4af486e10c082
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311794"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718396"
 ---
 # <a name="immersive-reader-sdk-reference"></a>Derinlikli okuyucu SDK başvurusu
 
@@ -36,8 +37,8 @@ launchAsync(token: string, resourceName: string, content: Content, options?: Opt
 
 | Ad | Tür | Açıklama |
 | ---- | ---- |------------ |
-| `token` | string | Çağrısından alınan erişim belirteci `issueToken` uç noktası. |
-| `resourceName` | string | Ayrılmış. Ayarlanmalıdır `null`. |
+| `token` | dize | Çağrısından alınan erişim belirteci `issueToken` uç noktası. |
+| `resourceName` | dize | Ayrılmış. Ayarlanmalıdır `null`. |
 | `content` | [İçeriği](#content) | Derinlikli okuyucusunda gösterilecek içeriği içeren bir nesne. |
 | `options` | [Seçenekler](#options) | Derinlikli okuyucu belirli davranışları yapılandırma seçenekleri. İsteğe bağlı. |
 

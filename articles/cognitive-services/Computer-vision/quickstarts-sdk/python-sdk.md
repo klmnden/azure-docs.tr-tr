@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 9b126d5ccbbf3cb1f22163ffb6ac53a8aff61004
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: c03568ece97bdaad86f4564debf9f3b2fa14c6ed
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357345"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786641"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Azure Bilişsel hizmetler görüntü işleme için Python SDK'sı
 
@@ -28,7 +28,7 @@ Görüntü İşleme hizmeti geliştiricilerin görüntü işlemeye ve bilgi dön
 * [Resimlerdeki el yazısı görüntüsünü Al](#get-text-from-image)
 * [Küçük resim oluşturma](#generate-thumbnail)
 
-Bu hizmet hakkında daha fazla bilgi için bkz. [görüntü işleme nedir?] [computervision_docs].
+Bu hizmet hakkında daha fazla bilgi için bkz. [görüntü işleme nedir?][computervision_docs].
 
 Daha fazla belgelerini mi arıyorsunuz?
 
@@ -38,11 +38,11 @@ Daha fazla belgelerini mi arıyorsunuz?
 ## <a name="prerequisites"></a>Önkoşullar
 
 * [Python 3.6 +][python]
-* Ücretsiz [görüntü işleme anahtarı] [ computervision_resource] ve ilişkili uç noktası. Örneğini oluşturduğunuzda bu değerlere ihtiyacınız olur [ComputerVisionClient] [ ref_computervisionclient] istemci nesnesi. Bu değerleri almak için aşağıdaki yöntemlerden birini kullanın.
+* Ücretsiz [görüntü işleme anahtarı][computervision_resource] and associated endpoint. You need these values when you create the instance of the [ComputerVisionClient][ref_computervisionclient] istemci nesnesi. Bu değerleri almak için aşağıdaki yöntemlerden birini kullanın.
 
 ### <a name="if-you-dont-have-an-azure-subscription"></a>Bir Azure aboneliğiniz yoksa
 
-Ücretsiz bir anahtar ile 7 gün için geçerli oluşturma **[deneyin] [ computervision_resource]** deneyimi için görüntü işleme hizmeti. Anahtar oluşturulduğunda, anahtarını ve uç nokta adı kopyalayın. Bunun için gerekir [istemcisi oluşturma](#create-client).
+Ücretsiz bir anahtar ile 7 gün için geçerli oluşturma **[deneyin][computervision_resource]** deneyimi için görüntü işleme hizmeti. Anahtar oluşturulduğunda, anahtarını ve uç nokta adı kopyalayın. Bunun için gerekir [istemcisi oluşturma](#create-client).
 
 Anahtar oluşturulduktan sonra aşağıdakilere dikkat edin:
 
@@ -51,7 +51,7 @@ Anahtar oluşturulduktan sonra aşağıdakilere dikkat edin:
 
 ### <a name="if-you-have-an-azure-subscription"></a>Bir Azure aboneliğiniz varsa
 
-Aboneliğinizde bir kaynak oluşturmak için en kolay yöntem aşağıdaki kullanmaktır [Azure CLI] [ azure_cli] komutu. Bu, birçok bilişsel hizmetler kullanılabilir bir Bilişsel hizmet anahtarı oluşturur. Seçim yapması _mevcut_ kaynak grubu adı, örneğin, "cogserv-grubum" ve yeni bilgisayar işleme kaynak adı, "my-bilgisayar-işleme-kaynak gibi".
+Aboneliğinizde bir kaynak oluşturmak için en kolay yöntem aşağıdaki kullanmaktır [Azure CLI][azure_cli] komutu. Bu, birçok bilişsel hizmetler kullanılabilir bir Bilişsel hizmet anahtarı oluşturur. Seçim yapması _mevcut_ kaynak grubu adı, örneğin, "cogserv-grubum" ve yeni bilgisayar işleme kaynak adı, "my-bilgisayar-işleme-kaynak gibi".
 
 ```Bash
 RES_REGION=westeurope
@@ -84,17 +84,17 @@ source cogsrv-vision-env/bin/activate
 
 ### <a name="install-the-sdk"></a>SDK yükle
 
-Python için Azure Bilişsel hizmetler bilgisayar işleme SDK yükleme [paket] [ pypi_computervision] ile [pip][pip]:
+Python için Azure Bilişsel hizmetler bilgisayar işleme SDK yükleme [paket][pypi_computervision] with [pip][pip]:
 
 ```Bash
 pip install azure-cognitiveservices-vision-computervision
 ```
 
-## <a name="authentication"></a>Kimlik Doğrulaması
+## <a name="authentication"></a>Authentication
 
 Görüntü işleme kaynağınızı oluşturduktan sonra ihtiyacınız kendi **uç nokta**, diğeri kendi **hesap anahtarları** istemci nesnesi örneklemek için.
 
-Örneği oluşturmak için bu değerleri kullanabilirsiniz [ComputerVisionClient] [ ref_computervisionclient] istemci nesnesi.
+Örneği oluşturmak için bu değerleri kullanabilirsiniz [ComputerVisionClient][ref_computervisionclient] istemci nesnesi.
 
 Örneğin, Bash terminal ortam değişkenlerini ayarlamak için kullanın:
 
@@ -107,7 +107,7 @@ ACCT_NAME=<computervision-account-name>
 
 Uç noktasını ve anahtarı anımsamıyorsanız bulmak için aşağıdaki yöntemi kullanabilirsiniz. Bir anahtarı ve uç noktası oluşturmanız gerekiyorsa, yöntemi için kullanabileceğiniz [Azure abonelik sahipleri](#if-you-have-an-azure-subscription) veya [kullanıcıların bir Azure aboneliği olmadan](#if-you-dont-have-an-azure-subscription).
 
-Kullanım [Azure CLI] [ cloud_shell] görüntü işleme hesabıyla iki ortam değişkenleri doldurmak için aşağıdaki kod parçacığında **uç nokta** ve kendi **anahtarları**(Ayrıca bu değerleri bulabilirsiniz [Azure portalında][azure_portal]). Kod parçacığı, Bash kabuğunda biçimlendirilir.
+Kullanım [Azure CLI][cloud_shell] görüntü işleme hesabıyla iki ortam değişkenleri doldurmak için aşağıdaki kod parçacığında **uç nokta** ve kendi **anahtarları** (Ayrıca bu değerleri bulabilirsiniz [Azure portalında][azure_portal]). Kod parçacığı, Bash kabuğunda biçimlendirilir.
 
 ```Bash
 RES_GROUP=<resourcegroup-name>
@@ -129,7 +129,7 @@ export ACCOUNT_KEY=$(az cognitiveservices account keys list \
 
 ### <a name="create-client"></a>İstemcisi oluşturma
 
-Ortam değişkenlerinden uç noktasını ve anahtarı alın ardından oluşturma [ComputerVisionClient] [ ref_computervisionclient] istemci nesnesi.
+Ortam değişkenlerinden uç noktasını ve anahtarı alın ardından oluşturma [ComputerVisionClient][ref_computervisionclient] istemci nesnesi.
 
 ```Python
 from azure.cognitiveservices.vision.computervision import ComputerVisionClient
@@ -150,11 +150,11 @@ client = ComputerVisionClient(endpoint, credentials)
 
 ## <a name="examples"></a>Örnekler
 
-Gereksinim duyduğunuz bir [ComputerVisionClient] [ ref_computervisionclient] aşağıdaki görevlerden herhangi birini kullanmadan önce istemci nesnesi.
+Gereksinim duyduğunuz bir [ComputerVisionClient][ref_computervisionclient] aşağıdaki görevlerden herhangi birini kullanmadan önce istemci nesnesi.
 
 ### <a name="analyze-an-image"></a>Resim çözümleme
 
-Bir görüntü ile belirli özellikler için çözümleyebilirsiniz [ `analyze_image` ] [ ref_computervisionclient_analyze_image]. Kullanım [ `visual_features` ] [ ref_computervision_model_visualfeatures] görüntü üzerinde gerçekleştirmek için analizi türleri ayarlamak için özellik. Ortak değerler `VisualFeatureTypes.tags` ve `VisualFeatureTypes.description`.
+Bir görüntü ile belirli özellikler için çözümleyebilirsiniz [ `analyze_image` ][ref_computervisionclient_analyze_image] . Use the [`visual_features`][ref_computervision_model_visualfeatures] görüntü üzerinde gerçekleştirmek için analizi türleri ayarlamak için özellik. Ortak değerler `VisualFeatureTypes.tags` ve `VisualFeatureTypes.description`.
 
 ```Python
 url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Broadway_and_Times_Square_by_night.jpg/450px-Broadway_and_Times_Square_by_night.jpg"
@@ -167,7 +167,7 @@ for tag in image_analysis.tags:
 
 ### <a name="get-subject-domain-list"></a>Konu etki alanı listesini alma
 
-Görüntünüzü ile analiz etmek için kullanılan konu etki alanlarını gözden geçirmenize [ `list_models` ] [ ref_computervisionclient_list_models]. Bu etki alanı adları kullanılır, [etki alanına göre bir resmi çözümleme](#analyze-an-image-by-domain). Bir etki alanı örneğidir `landmarks`.
+Görüntünüzü ile analiz etmek için kullanılan konu etki alanlarını gözden geçirmenize [ `list_models` ][ref_computervisionclient_list_models]. Bu etki alanı adları kullanılır, [etki alanına göre bir resmi çözümleme](#analyze-an-image-by-domain). Bir etki alanı örneğidir `landmarks`.
 
 ```Python
 models = client.list_models()
@@ -178,7 +178,7 @@ for x in models.models_property:
 
 ### <a name="analyze-an-image-by-domain"></a>Etki alanına göre bir resmi çözümleme
 
-Bir görüntü ile konu etki alanına göre analiz edebilirsiniz [ `analyze_image_by_domain` ] [ ref_computervisionclient_analyze_image_by_domain]. Alma [desteklenen konu etki alanları listesi](#get-subject-domain-list) doğru etki alanı adını kullanmak için.
+Bir görüntü ile konu etki alanına göre analiz edebilirsiniz [ `analyze_image_by_domain` ][ref_computervisionclient_analyze_image_by_domain]. Alma [desteklenen konu etki alanları listesi](#get-subject-domain-list) doğru etki alanı adını kullanmak için.
 
 ```Python
 # type of prediction
@@ -199,7 +199,7 @@ for landmark in analysis.result["landmarks"]:
 
 ### <a name="get-text-description-of-an-image"></a>Metin açıklama Görüntü Al
 
-Dil tabanlı metin açıklamasını görüntüsüne alabilirsiniz [ `describe_image` ] [ ref_computervisionclient_describe_image]. Bazı açıklamalar ile istek `max_description` görüntüyle ilişkilendirilen anahtar sözcükler için metin analizi yapıyorsanız özelliği. Aşağıdaki görüntüde metin açıklamasını örnekler `a train crossing a bridge over a body of water`, `a large bridge over a body of water`, ve `a train crossing a bridge over a large body of water`.
+Dil tabanlı metin açıklamasını görüntüsüne alabilirsiniz [ `describe_image` ][ref_computervisionclient_describe_image]. Bazı açıklamalar ile istek `max_description` görüntüyle ilişkilendirilen anahtar sözcükler için metin analizi yapıyorsanız özelliği. Aşağıdaki görüntüde metin açıklamasını örnekler `a train crossing a bridge over a body of water`, `a large bridge over a body of water`, ve `a train crossing a bridge over a large body of water`.
 
 ```Python
 domain = "landmarks"
@@ -216,7 +216,7 @@ for caption in analysis.captions:
 
 ### <a name="get-text-from-image"></a>Görüntüden SMS alın
 
-Bir görüntüden herhangi bir el yazısı veya yazılı metni alabilirsiniz. Bu iki SDK çağrıları gerektirir: [ `batch_read_file` ](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#batch-read-file-url--mode--custom-headers-none--raw-false----operation-config-) ve [ `get_read_operation_result` ](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#get-read-operation-result-operation-id--custom-headers-none--raw-false----operation-config-). Çağrı `batch_read_file` zaman uyumsuzdur. Sonuçlarında `get_read_operation_result` çağrısı gereken ilk çağrısı tamamlandı, denetlenecek [ `TextOperationStatusCodes` ] [ ref_computervision_model_textoperationstatuscodes] metin verileri ayıklama önce. Sonuçları metin için sınırlama kutusu koordinatları yanı sıra metni içerir.
+Bir görüntüden herhangi bir el yazısı veya yazılı metni alabilirsiniz. Bu iki SDK çağrıları gerektirir: [ `batch_read_file` ](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python) ve [ `get_read_operation_result` ](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python). Çağrı `batch_read_file` zaman uyumsuzdur. Sonuçlarında `get_read_operation_result` çağrısı gereken ilk çağrısı tamamlandı, denetlenecek [ `TextOperationStatusCodes` ][ref_computervision_model_textoperationstatuscodes] metin verileri ayıklama önce. Sonuçları metin için sınırlama kutusu koordinatları yanı sıra metni içerir.
 
 ```Python
 # import models
@@ -253,7 +253,7 @@ if result.status == TextOperationStatusCodes.succeeded:
 
 ### <a name="generate-thumbnail"></a>Küçük resim oluşturma
 
-Küçük resmi (JPG) ile görüntü oluşturabilirsiniz [ `generate_thumbnail` ] [ ref_computervisionclient_generate_thumbnail]. Küçük resim özgün görüntü olarak aynı oranlarını olması gerekmez.
+Küçük resmi (JPG) ile görüntü oluşturabilirsiniz [ `generate_thumbnail` ][ref_computervisionclient_generate_thumbnail]. Küçük resim özgün görüntü olarak aynı oranlarını olması gerekmez.
 
 Yükleme **Pillow** Bu örneği kullanmak için:
 
@@ -286,9 +286,9 @@ image.save('thumbnail.jpg')
 
 ### <a name="general"></a>Genel
 
-Ne zaman etkileşim [ComputerVisionClient] [ ref_computervisionclient] Python SDK'sını kullanarak istemci nesnesi [ `ComputerVisionErrorException` ] [ ref_computervision_computervisionerrorexception] sınıfı kullanılır hatalarını döndürmek için. Hizmet tarafından döndürülen hataları için REST API istekleri döndürülen HTTP durum kodları karşılık gelir.
+Ne zaman etkileşim [ComputerVisionClient][ref_computervisionclient] client object using the Python SDK, the [`ComputerVisionErrorException`][ref_computervision_computervisionerrorexception] sınıfı hatalarını döndürmek için kullanılır. Hizmet tarafından döndürülen hataları için REST API istekleri döndürülen HTTP durum kodları karşılık gelir.
 
-Örneğin, geçersiz bir anahtara sahip bir resmi çözümleme denerseniz bir `401` hata döndürülür. Aşağıdaki kod parçacığında [hata] [ ref_httpfailure] istisnayı ve hatayla ilgili ek bilgileri görüntüleyerek düzgün bir şekilde ele alınır.
+Örneğin, geçersiz bir anahtara sahip bir resmi çözümleme denerseniz bir `401` hata döndürülür. Aşağıdaki kod parçacığında [hata][ref_httpfailure] istisnayı ve hatayla ilgili ek bilgileri görüntüleyerek düzgün bir şekilde ele alınır.
 
 ```Python
 
@@ -312,12 +312,12 @@ except HTTPFailure as e:
 
 ### <a name="handle-transient-errors-with-retries"></a>Yeniden deneme ile geçici hata işleme
 
-İle çalışırken [ComputerVisionClient] [ ref_computervisionclient] istemci, geçici hatalar nedeniyle çalıştırdığınızca [oran sınırları] [ computervision_request_units] Hizmet veya ağ kesintileri gibi diğer geçici sorunlar tarafından zorunlu tutulur. Bu tür hataları işleme hakkında daha fazla bilgi için bkz: [yeniden deneme düzeni] [ azure_pattern_retry] bulut tasarımı desenleri Kılavuzu ve ilgili [devre kesici düzeni] [azure_pattern_circuit_breaker].
+İle çalışırken [ComputerVisionClient][ref_computervisionclient] client, you might encounter transient failures caused by [rate limits][computervision_request_units] hizmeti veya ağ kesintileri gibi diğer geçici sorunlar tarafından zorunlu tutulur. Bu tür hataları işleme hakkında daha fazla bilgi için bkz: [yeniden deneme düzeni][azure_pattern_retry] bulut tasarımı desenleri Kılavuzu ve ilgili [devrekesicidüzeni][azure_pattern_circuit_breaker].
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Görüntülere içerik etiket uygulama](../concept-tagging-images.md)
+> [Resimlere içerik etiketleri uygulama](../concept-tagging-images.md)
 
 <!-- LINKS -->
 [pip]: https://pypi.org/project/pip/

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: a942f91dfa03eea2d9dc14b4b44e2ef5ee57c1ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39e0932288b513aa1579945396dff1a7d2df77b3
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60686812"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786226"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Azure Cosmos DB SQL API hesabı (SDK sürüm 3 Önizleme) verileri yönetmek için bir .NET konsol uygulaması oluşturma
 
@@ -52,7 +52,7 @@ Zamanınız yok mu? Endişelenmeyin! Eksiksiz çözümü [GitHub](https://github
 
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]
 
-## <a name="step-1-create-an-azure-cosmos-db-account"></a>1. Adım: Azure Cosmos DB hesabı oluşturma
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>1\. adım: Azure Cosmos DB hesabı oluşturma
 Bir Azure Cosmos DB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten varsa [Visual Studio Çözümünüzü Kurma](#SetupVS)'ya atlayabilirsiniz. Azure Cosmos DB öykünücüsü'nü kullanıyorsanız, bu adımları izleyin [Azure Cosmos DB öykünücüsü'nü](local-emulator.md) öykünücünün kurulumunu ve atlayın [Kurulum, Visual Studio projesi](#SetupVS).
 
 [!INCLUDE [create-dbaccount-preview](../../includes/cosmos-db-create-dbaccount-preview.md)]
@@ -60,7 +60,7 @@ Bir Azure Cosmos DB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zate
 ## <a id="SetupVS"></a>2. adım: Kurulum, Visual Studio projesi
 1. Bilgisayarınızda **Visual Studio 2017**'yi açın.
 1. **Dosya** menüsünde **Yeni**'yi seçin ve ardından **Proje**'yi seçin.
-1. İçinde **yeni proje** iletişim kutusunda **Visual C#**   /  **konsol uygulaması (.NET Framework)**, projenizi adlandırın ve ardından **Tamam** .
+1. İçinde **yeni proje** iletişim kutusunda **Visual C#**   /  **konsol uygulaması (.NET Framework)** , projenizi adlandırın ve ardından **Tamam** .
     ![Yeni Proje penceresinin ekran görüntüsü](./media/sql-api-get-started/dotnet-tutorial-visual-studio-new-project.png)
 1. **Çözüm Gezgini**'nde Visual Studio çözümünüzün altındaki yeni konsol uygulamanıza sağ tıklayın ve **NuGet Paketlerini Yönet...** öğesine tıklayın.
     
@@ -173,8 +173,8 @@ Harika! Kurulumu tamamladığımıza göre, biraz kod yazmaya başlayalım. Bu �
 
 Tebrikler! Bir Azure Cosmos DB hesabına başarıyla bağlandınız. 
 
-## <a name="step-4-create-a-database"></a>4. Adım: Veritabanı oluşturma
-Bir veritabanını kullanarak oluşturulabilir [ **Createdatabaseasync** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) veya [ **Documentclient** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) işlevi ``CosmosDatabases`` sınıfı. Veritabanı, kapsayıcılar genelinde bölümlenmiş öğelerin mantıksal bir kapsayıcısıdır.
+## <a name="step-4-create-a-database"></a>4\. Adım: Veritabanı oluşturma
+Bir veritabanını kullanarak oluşturulabilir [ **Createdatabaseasync** ](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync) veya [ **Documentclient** ](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseasync) işlevi ``CosmosDatabases`` sınıfı. Veritabanı, kapsayıcılar genelinde bölümlenmiş öğelerin mantıksal bir kapsayıcısıdır.
     
 1. Kopyalama ve yapıştırma **CreateDatabase** yöntemi aşağıdaki, **GetStartedDemoAsync** yöntemi. **CreateDatabase** kimliğine sahip yeni bir veritabanı oluşturur ``FamilyDatabase`` , zaten, öğesinden belirtilen kimliğe sahip yoksa ``databaseId`` alan. 
 
@@ -291,7 +291,7 @@ Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB veritabanı oluşturdunu
 > 
 > 
 
-Bir kapsayıcı kullanarak oluşturulabilir [ **CreateContainerIfNotExistsAsync** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) veya [ **CreateContainerAsync** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) işlevi **CosmosContainers** sınıfı. Bir kapsayıcı (Bu SQL API'si söz konusu olduğunda JSON belgelerini) öğelerden oluşur ve ilişkili JavaScript sunucu tarafı uygulama mantığı, örneğin saklı yordamlar, kullanıcı tanımlı işlevler ve tetikleyiciler.
+Bir kapsayıcı kullanarak oluşturulabilir [ **CreateContainerIfNotExistsAsync** ](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync) veya [ **CreateContainerAsync** ](/dotnet/api/microsoft.azure.cosmos.database.createcontainerasync) işlevi **CosmosContainers** sınıfı. Bir kapsayıcı (Bu SQL API'si söz konusu olduğunda JSON belgelerini) öğelerden oluşur ve ilişkili JavaScript sunucu tarafı uygulama mantığı, örneğin saklı yordamlar, kullanıcı tanımlı işlevler ve tetikleyiciler.
 
 1. Kopyalama ve yapıştırma **CreateContainer** yöntemi aşağıdaki, **CreateDatabase** yöntemi. **CreateContainer** kimliğine sahip yeni bir kapsayıcı oluşturacak ``FamilyContainer`` , zaten, öğesinden belirtilen kimliğe sahip yoksa ``containerId`` alan. 
 
@@ -326,7 +326,7 @@ Bir kapsayıcı kullanarak oluşturulabilir [ **CreateContainerIfNotExistsAsync*
 Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB kapsayıcısı oluşturdunuz.  
 
 ## <a id="CreateDoc"></a>6. adım: Öğeleri kapsayıcıya Ekle
-Bir öğeyi kullanarak oluşturulabilir [ **Createıtemasync** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmositems) işlevi **CosmosItems** sınıfı. SQL API'sini kullanarak öğeler, kullanıcı tanımlı (rastgele) JSON içeriği olan belgeler olarak görüntülenir. Bu gibi durumlarda, bir öğe artık Azure Cosmos DB kapsayıcınız ekleyebilirsiniz.
+Bir öğeyi kullanarak oluşturulabilir [ **Createıtemasync** ](/dotnet/api/microsoft.azure.cosmos.container.createitemasync) işlevi **CosmosItems** sınıfı. SQL API'sini kullanarak öğeler, kullanıcı tanımlı (rastgele) JSON içeriği olan belgeler olarak görüntülenir. Bu gibi durumlarda, bir öğe artık Azure Cosmos DB kapsayıcınız ekleyebilirsiniz.
 
 İlk olarak, bu örnekte Azure Cosmos DB içinde depolanan nesneleri temsil edecek bir **Family** sınıfı oluşturmamız gerekir. **Family**'nin içinde kullanılan **Parent**, **Child**, **Pet**, **Address** alt sınıflarını da oluşturacağız. Belgelerin, JSON'da **id** olarak seri hale getirilmiş bir **Id** özelliğine sahip olmaları gerektiğini unutmayın. 
 1. Seçin **Ctrl + Shift + A** açmak için **Yeni Öğe Ekle** iletişim. Yeni bir sınıf ekleyin **Family.cs** projenize. 
@@ -603,7 +603,7 @@ Tebrikler! Bir Azure Cosmos DB kapsayıcısı karşı başarıyla sorguladınız
 
 Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB öğesini değiştirdiniz.
 
-## <a id="DeleteDocument"></a>9. adım: Öğeyi sil
+## <a id="DeleteDocument"></a>9. adım: Öğeyi Sil
 Şimdi, size Azure Cosmos DB içindeki bir öğeyi siler.
 
 1. Kopyalama ve yapıştırma **DeleteFamilyItem** yöntemi aşağıdaki, **ReplaceFamilyItem** yöntemi.

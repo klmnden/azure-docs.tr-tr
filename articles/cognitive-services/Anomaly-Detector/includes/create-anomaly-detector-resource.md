@@ -12,8 +12,8 @@ ms.openlocfilehash: b40f1833f08074cb0a8d45fe3afc6bac7cbac7f0
 ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711686"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717111"
 ---
 ## <a name="create-an-anomaly-detector-resource"></a>Bir Anomali algılayıcısı kaynağı oluşturun
 
@@ -36,7 +36,7 @@ ms.locfileid: "67711686"
     |Portal'daki kaynak sekmesi|Ayar|Değer|
     |--|--|--|
     |**Genel bakış**|Uç Nokta|Uç nokta kopyalayın. Benzer şekilde görünür `https://westus2.api.cognitive.microsoft.com/`|
-    |**anahtarları**|API Anahtarı|İki anahtar 1 kopyalayın. Boşluk veya tire ile 32 bir alfasayısal karakter dizesi olduğu `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |**anahtarları**|API anahtarı|İki anahtar 1 kopyalayın. Boşluk veya tire ile 32 bir alfasayısal karakter dizesi olduğu `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
 
 
 

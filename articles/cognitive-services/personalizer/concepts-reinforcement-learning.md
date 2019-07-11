@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: b65073c0646db0cd0c27a71005bb4f74b091ae09
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 26f8348bc2de9cb56110c1cc7ce896934bb46ef7
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506880"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722460"
 ---
 # <a name="what-is-reinforcement-learning"></a>Pekiştirmeye dayalı öğrenme nedir?
 
@@ -59,7 +59,7 @@ John aynı zamanda birkaç öğreticiler daha önce birleşik tahmin (ICML 2015)
 
 Şu anda personalizer kullanır [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit/wiki) machine learning için temel olarak. Bu çerçeve, en fazla aktarım hızı ve düşük kişiselleştirme yapmadan sıralayan zaman gecikme süresi ve tüm olayları modeli eğitmek için sağlar.
 
-## <a name="references"></a>Başvurular
+## <a name="references"></a>Referanslar
 
 * [Düşük teknik borç ile bağlamsal bir karar almadan](https://arxiv.org/abs/1606.03966)
 * [Bir adil sınıflandırma indirimleri yaklaşımı](https://arxiv.org/abs/1803.02453)

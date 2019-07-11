@@ -12,12 +12,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3841ba3782286fc1478f4c9c5f3bdd0726004b31
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 634c1d05847f3d4d7b7168d484cd16bf8e351b27
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702138"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723930"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Öğretici: SAML tabanlı çoklu oturum açma bir uygulama için Azure Active Directory ile yapılandırın.
 
@@ -67,14 +67,14 @@ Etki alanını ve URL'leri yapılandırmak için:
     | Yapılandırma ayarı | SP ile başlatılan | idP ile başlatılan | Açıklama |
     |:--|:--|:--|:--|
     | Tanımlayıcı (Varlık Kimliği) | Bazı uygulamalar için gereklidir | Bazı uygulamalar için gereklidir | Çoklu oturum açma yapılandırmasının yapıldığı uygulamayı benzersiz olarak tanımlar. Azure AD tanımlayıcısı SAML belirteç hedef kitlesi parametre olarak uygulamasına gönderir. Bunu doğrulamak için uygulamayı bekleniyor. Bu değer ayrıca uygulama tarafından sağlanan SAML meta verilerinde Varlık Kimliği olarak da görünür.|
-    | Yanıt URL'si | İsteğe bağlı | Gerekli | Uygulamanın SAML belirtecini almayı beklediği konumu belirtir. Yanıt URL'si, Onay Belgesi Tüketici Hizmeti (ACS) URL'si olarak da bilinir. |
+    | Yanıt URL'si | İsteğe Bağlı | Gerekli | Uygulamanın SAML belirtecini almayı beklediği konumu belirtir. Yanıt URL'si, Onay Belgesi Tüketici Hizmeti (ACS) URL'si olarak da bilinir. |
     | Oturum açma URL'si | Gerekli | Belirtmeyin | Kullanıcı bu URL'yi açtığında hizmet sağlayıcısı kimlik doğrulaması ve oturum açma için Azure AD'ye yönlendirir. Azure AD, Office 365 veya Azure AD erişim paneli uygulamayı başlatmak için URL'yi kullanır. Boş bırakıldığında, Azure AD çoklu oturum açma kullanıcı uygulamayı başlattığında başlatmak için kimlik sağlayıcısını kullanır.|
-    | Geçiş Durumu | İsteğe bağlı | İsteğe bağlı | Uygulamaya kimlik doğrulaması tamamlandıktan sonra kullanıcının yönlendirileceği yeri belirtir. Genellikle uygulama için geçerli bir URL değerdir. Ancak, bazı uygulamalar farklı bu alanı kullanın. Daha fazla bilgi için uygulama satıcısına danışın.
-    | Oturum Kapatma URL'si | İsteğe bağlı | İsteğe bağlı | Uygulamaya SAML oturum kapatma yanıtları göndermek için kullanılır.
+    | Geçiş Durumu | İsteğe Bağlı | İsteğe Bağlı | Uygulamaya kimlik doğrulaması tamamlandıktan sonra kullanıcının yönlendirileceği yeri belirtir. Genellikle uygulama için geçerli bir URL değerdir. Ancak, bazı uygulamalar farklı bu alanı kullanın. Daha fazla bilgi için uygulama satıcısına danışın.
+    | Oturum Kapatma URL'si | İsteğe Bağlı | İsteğe Bağlı | Uygulamaya SAML oturum kapatma yanıtları göndermek için kullanılır.
 
 1. Temel SAML yapılandırma seçeneklerini düzenlemek için seçin **Düzenle** sağ üst köşesindeki simgeyi (Kalem) **temel SAML yapılandırma** bölümü.
 
-     ![Temel SAML yapılandırma seçeneklerini Düzenle](media/configure-single-sign-on-portal/basic-saml-configuration-edit-icon.png)
+     ![Temel SAML yapılandırma seçenekleri Düzenle](media/configure-single-sign-on-portal/basic-saml-configuration-edit-icon.png)
 
 1. Adım 1'de uygulama satıcısı tarafından sağlanan bilgileri sayfasında ilgili alanlara girin.
 1. Sayfanın üst kısmında seçin **Kaydet**.

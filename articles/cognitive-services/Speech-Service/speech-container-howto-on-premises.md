@@ -1,38 +1,37 @@
 ---
 title: Kubernetes şirket içi kullanma
 titleSuffix: Azure Cognitive Services
-description: Konuşmayı metne ve metin okuma kapsayıcı görüntülerini tanımlamak için (K8s) Kubernetes ve Helm kullanarak bir Kubernetes paket oluşturacağız. Bu paket dağıtılacak için bir Kubernetes kümesi şirket içi.
+description: Konuşmayı metne ve metin okuma kapsayıcı görüntülerini tanımlamak için Kubernetes ve Helm kullanarak bir Kubernetes paket oluşturacağız. Bu paket dağıtılacak için bir Kubernetes kümesi şirket içi.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 7/10/2019
 ms.author: dapine
-ms.openlocfilehash: 1e3afc80abad5f5c1f9b4d57c52ca75449eeb755
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 33d9de956a6d43145fc68f4ec46b09b8e8bf0188
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711488"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786248"
 ---
 # <a name="use-kubernetes-on-premises"></a>Kubernetes şirket içi kullanma
 
-Konuşmayı metne ve metin okuma kapsayıcı görüntülerini tanımlamak için (K8s) Kubernetes ve Helm kullanarak bir Kubernetes paket oluşturacağız. Bu paket dağıtılacak için bir Kubernetes kümesi şirket içi. Son olarak, biz dağıtılan hizmetler ve yapılandırma seçeneklerini test etme hakkında bilgi edineceksiniz.
+Konuşmayı metne ve metin okuma kapsayıcı görüntülerini tanımlamak için Kubernetes ve Helm kullanarak bir Kubernetes paket oluşturacağız. Bu paket dağıtılacak için bir Kubernetes kümesi şirket içi. Son olarak, biz dağıtılan hizmetler ve yapılandırma seçeneklerini test etme hakkında bilgi edineceksiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu yordam, yüklü ve yerel olarak çalıştırma çeşitli araçlar gerektirir.
+Konuşma kapsayıcıları şirket içi kullanmadan önce aşağıdaki gereksinimleri karşılaması gerekir:
 
-* Bir Azure aboneliği kullanın. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][free-azure-account] oluşturun.
-* Yükleme [Azure CLI][azure-cli] (az).
-* Yükleme [Kubernetes CLI][kubernetes-cli] (kubectl).
-* Yükleme [Helm][helm-install] istemcisi, Kubernetes Paket Yöneticisi.
-    * Helm sunucusu yükleme [Tiller][tiller-install].
-* Doğru fiyatlandırma katmanı ile bir Azure kaynağı. Tüm fiyatlandırma katmanları bu kapsayıcı görüntüleri ile çalışır:
-    * **Konuşma** kaynak F0 veya standart fiyatlandırma katmanlarını yalnızca.
-    * **Bilişsel Hizmetler** kaynak fiyatlandırma katmanı S0 ile.
+|Gerekli|Amaç|
+|--|--|
+| Azure hesabı | Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][free-azure-account] oluşturun. |
+| Kapsayıcı kayıt defteri erişimi | Kubernetes kümesine docker görüntüleri çekmek sırada, kapsayıcı kayıt defterine erişim gerekir. Şunları yapmanız [kapsayıcı kayıt defterine erişim isteği][speech-preview-access] ilk. |
+| Kubernetes CLI | [Kubernetes CLI][kubernetes-cli] kapsayıcı kayıt defterinden Paylaşılan kimlik bilgilerini yönetmek için gereklidir. Kubernetes Kubernetes Paket Yöneticisi Helm'in önce de gereklidir. |
+| Helm CLI | Bir parçası olarak [Helm CLI][helm-install] install, you'll also need to initialize Helm which will install [Tiller][tiller-install]. |
+|Konuşma kaynak |Bu kapsayıcıların kullanabilmeniz için şunlara sahip olmalısınız:<br><br>A _konuşma_ fatura uç noktası URI'si ve ilişkili faturalandırma anahtarı almak için Azure kaynak. Her iki değeri de Azure portalında üzerinde kullanılabilir **konuşma** genel bakış ve anahtarları sayfaları ve bu, kapsayıcı başlatma için gerekli.<br><br>**{API_KEY}** : kaynak anahtarı<br><br>**{ENDPOINT_URI}** : uç nokta URI'si örnektir: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## <a name="the-recommended-host-computer-configuration"></a>Önerilen ana bilgisayar yapılandırması
 
@@ -43,19 +42,13 @@ Başvurmak [konuşma hizmeti kapsayıcı ana bilgisayar][speech-container-host-c
 | **Konuşma metin** | bir kod çözücü 1,150 millicores en az gerektirir. Varsa `optimizedForAudioFile` etkindir, sonra da 1,950 millicores gereklidir. (varsayılan: iki kod çözücüleri) | Gerekli: 2 GB<br>Sınırlı:  4 GB |
 | **Metin okuma** | bir eş zamanlı istek en az 500 millicores gerektirir. Varsa `optimizeForTurboMode` 1.000 millicores gerekli etkinse. (varsayılan: iki eş zamanlı istek) | Gerekli: 1 GB<br> Sınırlı: 2 GB |
 
-## <a name="request-access-to-the-container-registry"></a>Kapsayıcı kayıt defterine erişim isteği
-
-Gönderme [Bilişsel hizmetler konuşma kapsayıcıları istek formunu][speech-preview-access] kapsayıcıya erişim istemek için. 
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
 ## <a name="connect-to-the-kubernetes-cluster"></a>Kubernetes kümesine bağlanma
 
 Ana bilgisayar, kullanılabilir bir Kubernetes kümesi olması beklenir. Bu öğreticide bakın [bir Kubernetes kümesini dağıtırken](../../aks/tutorial-kubernetes-deploy-cluster.md) bir ana bilgisayara bir Kubernetes kümesi dağıtma hakkında kavramsal anlayış için.
 
 ### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Docker kimlik bilgileri ile Kubernetes Küme Paylaşımı
 
-Kubernetes kümesine izin vermek için `docker pull` gelen yapılandırılmış yansımaları `containerpreview.azurecr.io` kapsayıcı kayıt defteri, docker kimlik bilgileri kümeye aktarmak için ihtiyacınız. Yürütme [ `kubectl create` ][kubectl-create] oluşturmak için aşağıdaki komutu bir *docker-registry gizli* kapsayıcıdan sağlanan kimlik bilgileri temel [kayıt defteri erişimini](#request-access-to-the-container-registry) bölümü.
+Kubernetes kümesine izin vermek için `docker pull` gelen yapılandırılmış yansımaları `containerpreview.azurecr.io` kapsayıcı kayıt defteri, docker kimlik bilgileri kümeye aktarmak için ihtiyacınız. Yürütme [ `kubectl create` ][kubectl-create] oluşturmak için aşağıdaki komutu bir *docker-registry gizli* kapsayıcı kayıt defteri erişim önkoşul sağlanan kimlik bilgileri temel.
 
 Komut satırı arabiriminizden seçtiğiniz, aşağıdaki komutu çalıştırın. Değiştirdiğinizden emin olun `<username>`, `<password>`, ve `<email-address>` kapsayıcı kayıt defteri kimlik bilgilerine sahip.
 

@@ -1,7 +1,7 @@
 ---
-title: Personalizer nedir
+title: Kişiselleştirme nedir?
 titleSuffix: Azure Cognitive Services
-description: Azure Personalizer, gerçek zamanlı davranışından öğrenme kullanıcılarınıza göstermek için en iyi deneyimi seçmenize olanak tanıyan bulut tabanlı bir API hizmetidir.
+description: Personalizer, gerçek zamanlı davranışından öğrenme kullanıcılarınıza göstermek için en iyi deneyimi seçmenize olanak tanıyan bulut tabanlı bir API hizmetidir.
 services: cognitive-services
 author: edjez
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 7eb85aa38815b8fcdfbe68518122563e1b579e17
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e5781af44732782936e1e1a87bf70bd4a9d4804d
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150406"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722266"
 ---
-# <a name="what-is-personalizer"></a>Personalizer nedir?
+# <a name="what-is-personalizer"></a>Kişiselleştirme nedir?
 
-Azure Personalizer, gerçek zamanlı davranışından öğrenme kullanıcılarınıza göstermek için en iyi deneyimi seçmenize olanak tanıyan bulut tabanlı bir API hizmetidir.
+Azure Kişiselleştirme, kullanıcıların gerçek zamanlı davranışlarından öğrenerek onlara gösterilebilecek en iyi deneyimi seçmenizi sağlayan bulut tabanlı bir API’dir.
 
 * Kullanıcılar ve içeriği hakkında bilgi sağlar ve kullanıcılarınızın göstermek için en iyi eylemi alır. 
 * Temizleme ve veri Personalizer kullanmadan önce etiketi gerek yoktur.

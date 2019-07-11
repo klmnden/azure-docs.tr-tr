@@ -1,5 +1,6 @@
 ---
 title: 'Hızlı Başlangıç: Dijital Mürekkep mürekkep tanıyıcı REST API ve Node.js ile tanıması'
+titleSuffix: Azure Cognitive Services
 description: Dijital mürekkep vuruşlarını algılamayı başlatmak için mürekkep tanıyıcı API'sini kullanın.
 services: cognitive-services
 author: aahill
@@ -9,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 1785faf718b940794aebc045a3491be45eea03f5
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7e158b0ae27780eeecb1ee7948087bf59b1502e1
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435205"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721258"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Hızlı Başlangıç: Dijital Mürekkep mürekkep tanıyıcı REST API ve JavaScript ile tanıması
 

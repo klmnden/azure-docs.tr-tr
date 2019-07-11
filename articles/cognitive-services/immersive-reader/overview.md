@@ -1,26 +1,27 @@
 ---
-title: Derinlikli okuyucu hakkında
-titlesuffix: Azure Cognitive Services
-description: Derinlikli okuyucu hakkında bilgi edinin
+title: Derinlikli okuyucu API nedir?
+titleSuffix: Azure Cognitive Services
+description: Derinlikli okuyucu API'si hakkında bilgi edinin.
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 38056f701b76f3fc2cf1f617a6977321445f78ff
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 4500b6213c549ab9977fe8f2d849ffa8089d04b9
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296774"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718442"
 ---
-# <a name="what-is-immersive-reader"></a>Derinlikli okuyucu nedir?
+# <a name="what-is-immersive-reader"></a>Tam Ekran Okuyucu nedir?
 
 [Sürükleyici okuyucu](https://www.onenote.com/learningtools) okuma kavramayı Gelişmekte olan okuyucular, language learners artırmak ve okuma zorluğu gibi farkları öğrenmek kişiler için kendini kanıtlamış teknikleri uygulayan aralığında tasarlanmış bir araçtır.
 
-Derinlikli okuyucu SDK'sını kullanarak web uygulamanızda sürükleyici okuyucu kullanabilirsiniz.
+Tam Ekran Okuyucu SDK’sını kullanarak web uygulamanızda Tam Ekran Okuyucu’yu kullanabilirsiniz.
 
 ## <a name="what-does-immersive-reader-do"></a>Derinlikli okuyucu ne yapar?
 
@@ -28,7 +29,7 @@ Derinlikli okuyucu okuma erişilebilirliği herkes için hale getirecek şekilde
 
 * En az Okuma Görünümü'nde içerik gösterir
 
-  ![Derinlikli okuyucusu](./media/immersive-reader.png)
+  ![Tam Ekran Okuyucu](./media/immersive-reader.png)
 
 * Yaygın olarak kullanılan bir kelimelerin resimleri görüntüler
 
@@ -56,7 +57,7 @@ Bir tek başına web uygulaması sürükleyici okuyucusudur, mevcut web uygulama
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Derinlikli okuyucu ile kullanmaya başlayın:
+Tam Ekran Okuyucu’yu kullanmaya başlama:
 
 * İçine atlanamaz [hızlı başlangıç](./quickstart.md)
 * Keşfedin [sürükleyici okuyucu GitHub üzerinde SDK](https://github.com/Microsoft/immersive-reader-sdk)

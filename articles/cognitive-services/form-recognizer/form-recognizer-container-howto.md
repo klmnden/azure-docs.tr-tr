@@ -1,5 +1,5 @@
 ---
-title: Yükleme ve kapsayıcı - Form tanıyıcı çalıştırma
+title: Yükleme ve kapsayıcı için Form tanıyıcı çalıştırın
 titleSuffix: Azure Cognitive Services
 description: Form ve tablo verisini ayrıştırmak için Form Tanıma kapsayıcısını kullanmayı öğrenin.
 author: IEvangelist
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: f88cfb1d74897abddeaea6aaec9d7f7b1960be6e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a251e97d671c4aad0aebb1d6c3349cdc09444308
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704318"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718476"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Yüklemek ve forma tanıyıcı kapsayıcılarını çalıştırın
 
@@ -104,7 +104,7 @@ Kapsayıcı üzerinde sonra [ana bilgisayar](#the-host-computer), kapsayıcı il
 
 Kullanım [docker run](https://docs.docker.com/engine/reference/commandline/run/) üç kapsayıcı birini çalıştırmak için komutu. Komutu şu parametreleri kullanır:
 
-| Yer tutucu | Değer |
+| Yer tutucu | Value |
 |-------------|-------|
 |{BILLING_KEY} | Bu anahtar kapsayıcısı başlatmak için kullanılır. Azure portalında kullanılabilir **Form tanıyıcı anahtarları** sayfası.  |
 |{BILLING_ENDPOINT_URI} | Fatura uç noktası URI değeri Azure Portal'da kullanılabilir **Form tanıyıcı genel bakış** sayfası.|
