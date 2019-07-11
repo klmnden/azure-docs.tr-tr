@@ -1,5 +1,5 @@
 ---
-title: Azure hesaplarınıza bir iş ortağı kimliği bağlama | Microsoft Docs
+title: Bir iş ortağı kimliğini Azure hesaplarınızla bağlantılı hale getirme | Microsoft Docs
 description: Müşterinin kaynakları yönetmek için kullandığınız kullanıcı hesabına bir iş ortağı kimliği bağlayarak Azure müşterileriyle yaşadığımız izleyin.
 services: billing
 author: dhirajgandhi
@@ -18,17 +18,17 @@ ms.contentlocale: tr-TR
 ms.lasthandoff: 07/02/2019
 ms.locfileid: "67502688"
 ---
-# <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure hesaplarınıza bir iş ortağı kimliği bağlama
+# <a name="link-a-partner-id-to-your-azure-accounts"></a>Bir iş ortağı kimliğini Azure hesaplarınızla bağlantılı hale getirme
 
-Microsoft iş ortakları, Microsoft ürünlerini kullanarak müşterilerin iş ve görev hedeflerine ulaşmalarına yardımcı olan hizmetler sunar. Müşteri adına Azure servislerini yönetirken, yapılandırırken ve desteklerken iş ortağı kullanıcılarının müşterinin ortamına erişmesi gerekir. İş Ortağı Yönetici Bağlantısı kullanarak iş ortakları, iş ortağı ağ kimliklerini hizmet sunumu için kullanılan kullanıcı bilgileri ile ilişkilendirebilirler.
+Microsoft iş ortakları, Microsoft ürünlerini kullanarak müşterilerin iş ve görev hedeflerine ulaşmalarına yardımcı olan hizmetler sunar. İş ortağı kullanıcılarının müşteri adına Azure hizmetlerini yönetirken, yapılandırırken ve söz konusu hizmetler için destek sunarken müşterinin ortamına erişmesi gerekir. İş ortakları, İş Ortağı Yöneticisi Bağlantısını kullanarak iş ortağı ağ kimliklerini hizmet sunumu için kullanılan kimlik bilgileri ile ilişkilendirebilir.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="get-access-from-your-customer"></a>Müşterinizden erişim alın
+## <a name="get-access-from-your-customer"></a>Müşterinizden erişim izni alın
 
-İş ortağı kimliğinizi bağlamadan önce, müşteriniz aşağıdaki seçeneklerden birini kullanarak size Azure kaynaklarına erişim sağlamalıdır:
+İş ortağı kimliğinizi bağlantılı hale getirmeden önce, müşteriniz aşağıdaki seçeneklerden birini kullanarak size Azure kaynaklarına erişim izni sağlamalıdır:
 
-- **Konuk kullanıcı**: Müşteriniz sizi konuk kullanıcı olarak ekleyebilir ve herhangi bir rol tabanlı erişim denetimi (RBAC) rolü atayabilir. Daha fazla bilgi için [Başka bir dizinden konuk kullanıcılar ekleme](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- **Konuk kullanıcı**: Müşteriniz sizi konuk kullanıcı olarak ekleyebilir ve herhangi bir rol tabanlı erişim denetimi (RBAC) rolü atayabilir. Daha fazla bilgi için bkz. [Başka bir dizinden konuk kullanıcılar ekleme](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
 - **Dizin hesabı**: Müşteriniz, sizin için kendi dizininde bir kullanıcı hesabı oluşturun ve herhangi bir RBAC rolü atayın.
 
