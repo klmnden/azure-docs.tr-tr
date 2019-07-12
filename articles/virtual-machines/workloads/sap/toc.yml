@@ -128,6 +128,8 @@
           href: dbms_guide_ibm.md
         - name: SUSE Linux Enterprise Server üzerinde Azure VM’lerindeki IBM Db2 LUW’a yönelik yüksek kullanılabilirlik
           href: dbms-guide-ha-ibm.md
+        - name: Red Hat Enterprise Linux Server üzerinde Azure VM’lerindeki IBM Db2 LUW’a yönelik yüksek kullanılabilirlik
+          href: high-availability-guide-rhel-ibm-db2-luw.md
         - name: SAP iş yükü için SAP ASE Azure Sanal Makineler DBMS dağıtımı
           href: dbms_guide_sapase.md
         - name: 'Azure''da SAP MaxDB, liveCache ve İçerik Sunucusu dağıtımı'

@@ -224,9 +224,9 @@
         - name: Dağıtım nereye ve nasıl yapılır?
           displayName: publish azure kubernetes azure container instances
           href: how-to-deploy-and-where.md
-        - name: GPU’lar
+        - name: GPU çıkarımı
           href: how-to-deploy-inferencing-gpus.md
-        - name: FPGA'lar
+        - name: FPGA çıkarımı
           href: how-to-deploy-fpga-web-service.md
         - name: IoT Edge
           href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
@@ -235,7 +235,7 @@
         - name: Mevcut modelleri dağıtma
           displayName: publish existing model
           href: how-to-deploy-existing-model.md
-        - name: Sorun giderme
+        - name: Sorun giderme ve Hata ayıklama
           href: how-to-troubleshoot-deployment.md
     - name: Web hizmetlerini kullanma
       items:

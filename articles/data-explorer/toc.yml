@@ -66,6 +66,8 @@
           href: write-queries.md
         - name: Azure Data Lake’te verileri sorgulama
           href: data-lake-query-data.md
+        - name: Azure İzleyici’de verileri sorgulama
+          href: query-monitor-data.md
         - name: Python
           href: python-query-data.md
         - name: Zaman Serisi Analizi ve Makine Öğrenmesi

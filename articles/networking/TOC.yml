@@ -126,6 +126,8 @@
   items:
     - name: Yazar şablonları
       href: /azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Sağlayıcılar
+      href: networking-partners-msp.md
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: Topluluk şablonları

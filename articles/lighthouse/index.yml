@@ -1,0 +1,59 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Lighthouse Belgeleri
+metadata:
+  title: Azure Lighthouse Belgeleri
+  description: Müşteri kaynaklarını uygun ölçekte yönetmeyi öğrenin
+  author: JnHs
+  manager: carmonm
+  ms.service: lighthouse
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/11/2019
+  ms.author: jenhayes
+abstract:
+  description: 'Azure Lighthouse, hizmet yöneticilerinin Azure’ı tüm müşterilerinde daha fazla otomatikleştirme, ölçeklendirme ve geliştirilmiş idare ile görüntüleyip yönetmesi için tek bir denetim düzlemi sunar.'
+sections:
+  - title: Kavramlar
+    items:
+      - type: paragraph
+        text: Azure Lighthouse’ın önemli yönleri hakkında bilgi edinin.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="concepts/azure-delegated-resource-management">Azure tarafından atanan temsilcinin kaynak yönetimi</a>
+          - html: <a href="concepts/cross-tenant-management-experience">Kiracılar arası yönetim deneyimleri</a>
+          - html: <a href="concepts/managed-services-offers">Azure Market’teki Yönetilen Hizmetler teklifleri</a>
+          - html: <a href="concepts/recommended-security-practices.md">Önerilen güvenlik uygulamaları</a>
+          - html: <a href="concepts/cloud-solution-provider.md">Bulut Çözüm Sağlayıcısı programı hakkında önemli noktalar</a>
+  - title: Nasıl yapılır kılavuzları
+    items:
+      - type: paragraph
+        text: Azure tarafından atanan temsilcinin kaynak yönetimine müşterileri eklemeyi ve bunların kaynaklarını yönetmeyi öğrenin.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="how-to/onboard-customer">Bir müşteriyi Azure tarafından atanan temsilcinin kaynak yönetimine ekleme</a>
+          - html: <a href="how-to/publish-managed-services-offers">Yönetilen Hizmetler tekliflerini Azure Market’te yayımlama</a>
+          - html: <a href="how-to/view-manage-customers">Müşterileri ve temsilci olarak atanmış kaynakları görüntüleme ve yönetme</a>
+          - html: <a href="how-to/view-manage-service-providers">Hizmet sağlayıcılarını görüntüleme ve yönetme</a>
+  - title: Örnekler
+    items:
+      - type: paragraph
+        text: Azure Lighthouse’ı kullanmanıza yardımcı olabilecek kullanılabilir örnek ve şablonları inceleyin.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="samples/index">Örnek dizini</a>
+  - title: Başvuru
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Diller
+            html: '<p><a href="/dotnet/api/Microsoft.Azure.Management.ManagedServices">.NET için Azure SDK</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/">.NET için Azure SDK (NuGet)</a></p><p><a href="https://docs.microsoft.com/python/api/azure-mgmt-managedservices">Python için Azure SDK</a></p><p><a href="https://pypi.org/project/azure-mgmt-managedservices/">Python için Azure SDK (PyPi)</a></p>'
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/managedservices/">API Başvurusu</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01">2019-06-01 (OpenAPI)</a></p>'

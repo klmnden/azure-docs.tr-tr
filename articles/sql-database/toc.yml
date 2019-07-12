@@ -30,6 +30,8 @@
       items:
         - name: Sunucu düzeyinde IP güvenlik duvarı kuralları
           href: sql-database-server-level-firewall-rule.md
+        - name: Yönetilen Örnek’te genel uç noktayı yapılandırma
+          href: sql-database-managed-instance-public-endpoint-configure.md
         - name: Yönetilen örneğe yönelik istemci VM bağlantısı
           href: sql-database-managed-instance-configure-vm.md
         - name: Yönetilen örneğe yönelik noktadan siteye bağlantı
@@ -512,8 +514,6 @@
           href: sql-database-managed-instance-threat-detection.md
         - name: Uygulamaları bağlama
           href: sql-database-managed-instance-connect-app.md
-        - name: Genel uç nokta yapılandırma
-          href: sql-database-managed-instance-public-endpoint-configure.md
     - name: Verileri yükleme ve taşıma
       items:
         - name: Azure’da bir veritabanını kopyalama

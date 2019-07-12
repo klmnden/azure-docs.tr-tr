@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/10/2019
 abstract:
-  description: '<p>Azure Veri Paylaşımı Önizleme, üçüncü taraf kuruluşlarla veri paylaşımına olanak sağlayan güvenli bir hizmettir. Paylaşmak istediğiniz veri kümelerini seçin, alıcıları ekleyin ve yönetip izleyebilme olanağıyla birlikte verilerinizi paylaşmaya başlayın. Ayrıca veri paylaşımı ilişkilerinizi de denetleyebilirsiniz. </p><p>Öğreticilerimizle Azure Veri Paylaşımı’nı kullanmayı öğrenin.</p>'
+  description: '<p>Azure Veri Paylaşımı Önizleme, üçüncü taraf kuruluşlarla veri paylaşımına olanak sağlayan güvenli bir hizmettir. Paylaşmak istediğiniz veri kümelerini seçin, alıcıları ekleyin ve yönetip izleyebilme olanağıyla birlikte verilerinizi paylaşmaya başlayın. Ayrıca veri paylaşımı ilişkilerinizi de denetleyebilirsiniz. </p><p>Öğretici ve nasıl yapılır kılavuzlarıyla Azure Veri Paylaşımı’nı kullanmayı öğrenin.</p>'
   aside:
     image:
       alt: null
