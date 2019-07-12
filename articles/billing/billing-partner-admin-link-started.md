@@ -28,7 +28,7 @@ Microsoft iş ortakları, Microsoft ürünlerini kullanarak müşterilerin iş v
 
 İş ortağı kimliğinizi bağlantılı hale getirmeden önce, müşteriniz aşağıdaki seçeneklerden birini kullanarak size Azure kaynaklarına erişim izni sağlamalıdır:
 
-- **Konuk kullanıcı**: Müşteriniz sizi konuk kullanıcı olarak ekleyebilir ve herhangi bir rol tabanlı erişim denetimi (RBAC) rolü atayabilir. Daha fazla bilgi için bkz. [Başka bir dizinden konuk kullanıcılar ekleme](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- **Konuk kullanıcı**: Müşteri Konuk kullanıcı olarak ekleyebilir ve herhangi bir rol tabanlı erişim denetimi (RBAC) rollerini atayın. Daha fazla bilgi için [başka bir dizinden Konuk kullanıcıları eklemek](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
 - **Dizin hesabı**: Müşteriniz, sizin için kendi dizininde bir kullanıcı hesabı oluşturun ve herhangi bir RBAC rolü atayın.
 
