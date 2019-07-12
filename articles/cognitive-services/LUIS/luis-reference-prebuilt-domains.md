@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 3265477108b7e74d65050408add6c5d5c94b4852
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b615185472ede25fd6ceef9cc3e7325375e16ac7
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233886"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846673"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>LUIS uygulamanızı için önceden oluşturulmuş etki alanı başvurusu
 Bu başvuru, hakkında bilgi sağlar. [önceden oluşturulmuş etki alanları](luis-how-to-use-prebuilt-domains.md), önceden oluşturulmuş koleksiyon hedefleri ve LUIS sunan varlıkların olduğu.
@@ -54,7 +54,7 @@ The table below summarizes the currently supported domains. Support for English 
 
 |varlık türü|description|
 |--|--|
-|Takvim|Takvim olduğundan, hiçbir şey, kişisel toplantılar ve randevuları hakkında _değil_ genel olaylar (dünya Kupası zamanlamalar, Seattle olay takvimleri veya genel takvimler (hangi gününde bugün olduğu gibi hangi fall başlıyor, işçilik gün olduğunda).|
+|Takvim|Takvim olduğundan, hiçbir şey, kişisel toplantılar ve randevuları hakkında _değil_ genel olaylar (örneğin, dünya Kupası zamanlamalar, Seattle olay takvimleri) veya genel takvimleri (hangi gününde bugün olduğu gibi hangi fall başlıyor, işçilik gün olduğunda).|
 |İletişim|Çağrısı, istekleri metinleri ya da anlık ileti bulun ve kişiler ekleyip (genellikle Giden) çeşitli diğer iletişimle ilgili istekleri gönderin. İlgili kişi adı yalnızca sorgularını iletişimi etki alanına ait değil.|
 |Email|E-posta iletişimi etki alanının alt etki alanı var. Esas olarak, e-posta üzerinden ileti göndermek ve almak için istekleri içerir.|
 |HomeAutomation|Hedefleri ve Akıllı Giriş cihazları denetlemek için ilgili varlıkları HomeAutomation etki alanı sağlar. Çoğunlukla ışıkları ve yapının klimaları ilgili denetim komutu destekler ancak bazı diğer elektrikli aletler için genelleştirme yeteneklerini sahiptir.|

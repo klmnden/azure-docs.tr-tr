@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: e990ebe89f4446a0226aa0e0f73ffd900e5b021a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.author: nolachar
+ms.openlocfilehash: ed18d30a0c3f5d51cb3a07b8948863cdda16c1ae
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592953"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845957"
 ---
 # <a name="when-to-use-enum-entities-and-set-entity-actions"></a>ENUM varlıkları ve varlık KÜMESİ Eylemler ne zaman kullanılacağı
 
@@ -71,7 +71,7 @@ Olası değerler varlığın açık uçlu ve düzeltilmedi olduğunda, alternati
 
 Örnek: Bot: Adınız ne?
 Kullanıcı: Matt Bot: En sevdiğiniz renk nedir?
-Kullanıcı: Gümüş
+Kullanıcı: Silver
 
 Rasgele değerler ile yanıtlanması çünkü bu istemleri açık uçlu olarak kabul edilir.
 
@@ -85,7 +85,7 @@ ENUM varlıklar, yalnızca diğer varlıklar gibi oluşturulur. "Program" varlı
 
 ### <a name="set-entity-actions"></a>Varlık eylemleri ayarlayın
 
-Yukarıda belirtildiği gibi "Varlık kümesi" eylemleri bir varlık için bir bilinen enum değeri ayarlamanız yeterlidir. Bir API geri çağırma eylemi oluşturarak ve varlık kümesi için bir değer için bellek Yöneticisi'ni kullanarak aynı sonuçları elde. Örneğin [https://login.microsoftonline.com/consumers/](`memory.Set(entityName, entityValue)`). Konuşma Öğrenici bu çalışmayı kolaylaştırmak ve bunların ne zaman kullanıldığını bu eylemleri otomatik olarak oluşturmak için özel eylemler vardır. Bu nedenle bu kod yazma ve bu eylemlerin oluşturmak zorunda sıkıcı ve yönetmek - sabit hale gelir. Bunlar bağımsız eylem olarak sahip olmak, bu diğer eylemler veya botunuzun kodda eşleşmiş olmadan oluşturma olanağı korur.
+Yukarıda belirtildiği gibi "Varlık kümesi" eylemleri bir varlık için bir bilinen enum değeri ayarlamanız yeterlidir. Bir API geri çağırma eylemi oluşturarak ve varlık kümesi için bir değer için bellek Yöneticisi'ni kullanarak aynı sonuçları elde. Örneğin `memory.Set(entityName, entityValue)`. Konuşma Öğrenici bu çalışmayı kolaylaştırmak ve bunların ne zaman kullanıldığını bu eylemleri otomatik olarak oluşturmak için özel eylemler vardır. Bu nedenle bu kod yazma ve bu eylemlerin oluşturmak zorunda sıkıcı ve yönetmek - sabit hale gelir. Bunlar bağımsız eylem olarak sahip olmak, bu diğer eylemler veya botunuzun kodda eşleşmiş olmadan oluşturma olanağı korur.
 
 - Eylemler, yalnızca bir enum varlık önce oluşturmanız gerekir enum varlığın değerine başvururken oluşturulabilir varlık kümesi.
 - Kümesi varlık ayrıca "olmayan-çıktı görünür olan ve"kullanıcının görebileceği bir wait"eylemi tarafından izlenmesi gereken await" eylemlerdir.
