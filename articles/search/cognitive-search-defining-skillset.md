@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 010880304c5011bd5a767650aa0ae6b6103bdde2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5d473cffeefe29febc4f0dfb2a620d917bf238d
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540870"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672106"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Bir zenginleştirme işlem hattı, bir beceri kümesi oluşturma
 
-Bilişsel arama ayıklar ve Azure Search aranabilir hale getirmek için veri zenginleştirir. Ayıklama ve zenginleştirme adımları diyoruz *bilişsel beceriler*, içine birleşik bir *beceri kümesi* dizin oluşturma sırasında başvurulan. Bir beceri kümesi kullanabilirsiniz [yerleşik yetenekler](cognitive-search-predefined-skills.md) veya özel becerileri (bkz [örnek: özel bir yetenek oluşturmak](cognitive-search-create-custom-skill-example.md) daha fazla bilgi için).
+Bilişsel arama ayıklar ve Azure Search aranabilir hale getirmek için veri zenginleştirir. Ayıklama ve zenginleştirme adımları diyoruz *bilişsel beceriler*, içine birleşik bir *beceri kümesi* dizin oluşturma sırasında başvurulan. Bir beceri kümesi kullanabilirsiniz [yerleşik yetenekler](cognitive-search-predefined-skills.md) veya özel becerileri (bkz [örneği: Bilişsel arama için özel bir yetenek oluşturma](cognitive-search-create-custom-skill-example.md) daha fazla bilgi için).
 
 Bu makalede, kullanmak istediğiniz yetenekler için bir zenginleştirme işlem hattı oluşturma konusunda bilgi edinin. Bir beceri kümesi için bir Azure Search bağlı [dizin oluşturucu](search-indexer-overview.md). Bu makalede ele alınan işlem hattı tasarımının bir parçası becerilerine kendisini oluşturmak. 
 

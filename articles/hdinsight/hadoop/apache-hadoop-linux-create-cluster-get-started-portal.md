@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
-ms.date: 06/12/2019
+ms.date: 07/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: e178326c4a165a9bebbef6b0162cc79c1f9a0727
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: f92cb247afb25562a96373c28534549a2f16d8c9
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67459508"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805581"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Azure HDInsight Apache Hadoop kümesi oluşturma
 
@@ -41,12 +41,12 @@ Bu bölümde, Azure portalını kullanarak HDInsight’ta Hadoop kümesi oluştu
     |Özellik  |Açıklama  |
     |---------|---------|
     |Küme adı   | Hadoop kümesi için bir ad girin. HDInsight’taki tüm kümeler aynı DNS ad alanını paylaştığından, bu adın benzersiz olması gerekir. Ad harf, rakam ve kısa çizgi de dahil olmak üzere en fazla 59 karakterlerinden oluşabilir. Adın ilk ve son karakterleri, kısa çizgi olamaz. |
-    |Abonelik    |  Azure aboneliğinizi seçin. |
+    |Subscription    |  Azure aboneliğinizi seçin. |
     |Küme türü     | Bunu şimdilik atlayın. Bu yordamın sonraki adımında bu girdiyi sağlayacaksınız.|
     |Küme oturum açma kullanıcı adı ve parola    | Varsayılan oturum açma adı **admin**’dir. Parola en az 10 karakter uzunluğunda olmalıdır ve en az bir rakam, bir büyük harf, bir küçük harf, bir alfasayısal olmayan karakter (' " ` karakterleri hariç\) içermelidir. "Pass@word1" gibi genel parolalar **sağlamadığınızdan** emin olun.|
     |Secure Shell (SSH) kullanıcı adı | Varsayılan kullanıcı adı **sshuser** şeklindedir.  SSH kullanıcı adı için başka bir ad sağlayabilirsiniz. |
     |Küme oturum açma parolası için SSH kullanın.| SSH kullanıcısı için, küme oturum açma kullanıcısı için sağlananla aynı parolayı kullanmak için bu onay kutusunu seçin.|
-    |Kaynak grubu     | Bir kaynak grubu oluşturun veya mevcut bir kaynak grubunu seçin.  Kaynak grubu, Azure bileşenleri için bir kapsayıcıdır.  Bu durumda, kaynak grubu HDInsight kümesini ve bağımlı Azure Depolama hesabını içermektedir. |
+    |Resource group     | Bir kaynak grubu oluşturun veya mevcut bir kaynak grubunu seçin.  Kaynak grubu, Azure bileşenleri için bir kapsayıcıdır.  Bu durumda, kaynak grubu HDInsight kümesini ve bağımlı Azure Depolama hesabını içermektedir. |
     |Location    | Kümenizi oluşturmak istediğiniz bir Azure konumunu seçin.  Daha iyi performans için kendinize yakın bir konum seçin. |
 
     ![HDInsight Linux - Küme temel değerleri sağlamaya başlama](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-basics.png "HDInsight kümesi oluşturmak için temel değerler sağlama")
@@ -68,7 +68,7 @@ Bu bölümde, Azure portalını kullanarak HDInsight’ta Hadoop kümesi oluştu
     |---------|---------|
     |Birincil depolama türü    | Bu makale için Azure depolama blobu varsayılan depolama hesabı olarak kullanmak için Azure storage'ı seçin. Varsayılan depolama alanı olarak Azure Data Lake Storage’ı da kullanabilirsiniz. |
     |Seçim yöntemi     |  Bu makale için, **Aboneliklerim**’i seçerek Azure aboneliğinizdeki bir depolama hesabını kullanın. Diğer aboneliklerdeki depolama hesabını kullanmak için, **Erişim anahtarı**’nı seçin ve sonra o hesaba ilişkin erişim anahtarını sağlayın. |
-    |Bir depolama hesabı seçin   | Seçin **bir depolama hesabı seçin** mevcut bir depolama hesabını seçin veya **Yeni Oluştur**.|
+    |Bir depolama hesabı seçin   | Seçin **bir depolama hesabı seçin** mevcut bir depolama hesabını seçin veya **Yeni Oluştur**. Yeni bir hesap oluşturursanız, adı 3 ila 24 karakter uzunluğunda olmalıdır ve yalnızca sayılar ve küçük harfler içerebilir.|
 
     Diğer tüm varsayılan değerleri kabul edin ve ardından **sonraki** Özet sayfaya ilerlemek için.
 

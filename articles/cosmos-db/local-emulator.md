@@ -3,15 +3,15 @@ title: Azure Cosmos öykünücü ile yerel olarak geliştirme
 description: Azure Cosmos öykünücüsü'nü kullanarak geliştirin ve bir Azure aboneliği oluşturmadan için yerel uygulamanızı ücretsiz test edin.
 ms.service: cosmos-db
 ms.topic: tutorial
-author: deborahc
-ms.author: dech
-ms.date: 06/21/2019
-ms.openlocfilehash: d7d9d62525161e6871cafd65cf5cd2c403cf0579
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+author: markjbrown
+ms.author: mjbrown
+ms.date: 07/09/2019
+ms.openlocfilehash: 9649c53f9fc11795449afd78b12fda691239bb18
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331766"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797321"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Yerel geliştirme ve test için Azure Cosmos öykünücüsünü kullanma
 
@@ -232,7 +232,7 @@ Yükleme konumundan komut satırında başlatmak ve öykünücüsü'nü durdurun
 
 ### <a name="command-line-syntax"></a>Komut satırı sözdizimi
 
-    CosmosDB.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/?]
+    CosmosDB.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
 
 Seçenek listesini görüntülemek için komut satırına `CosmosDB.Emulator.exe /?` yazın.
 
@@ -244,18 +244,19 @@ Seçenek listesini görüntülemek için komut satırına `CosmosDB.Emulator.exe
 | Kapat| Azure Cosmos öykünücüsü'nü kapatır.| CosmosDB.Emulator.exe /Shutdown | |
 |DataPath | Veri dosyalarının depolanacağı yolu belirtir. % LocalAppdata%\CosmosDBEmulator varsayılan değerdir. | CosmosDB.Emulator.exe /DataPath=\<datapath\> | \<DataPath\>: Erişilebilir bir yol |
 |Port | Öykünücü için kullanılacak bağlantı noktası numarasını belirtir. Varsayılan değer 8081'dir. |CosmosDB.Emulator.exe /Port=\<port\> | \<Bağlantı noktası\>: Tek bir bağlantı noktası numarası |
-| MongoPort | MongoDB uyumluluk API’si için kullanılacak bağlantı noktası numarasını belirtir. 10255 olarak varsayılan değerdir. |CosmosDB.Emulator.exe /MongoPort = \<mongoport\>|\<mongoport\>: Tek bir bağlantı noktası numarası|
-| CassandraPort | Cassandra uç noktası için kullanılacak bağlantı noktası numarasını belirtir. 10350 varsayılan değerdir. | CosmosDB.Emulator.exe /CassandraPort = \<cassandraport\> | \<cassandraport\>: Tek bir bağlantı noktası numarası |
 | ComputePort | Belirtilen işlem Interop ağ geçidi hizmeti için kullanılacak bağlantı noktası numarası. Ağ geçidinin HTTP uç noktası araştırma bağlantı noktası ComputePort + 79 olarak hesaplanır. Bu nedenle, ComputePort ve ComputePort + 79 açık ve kullanılabilir olması gerekir. 8900, varsayılan değerler 8979. | CosmosDB.Emulator.exe /ComputePort = \<computeport\> | \<computeport\>: Tek bir bağlantı noktası numarası |
+| EnableMongoDbEndpoint | MongoDB API'si sağlar. | CosmosDB.Emulator.exe /EnableMongoDbEndpoint | |
+| MongoPort | MongoDB uyumluluk API’si için kullanılacak bağlantı noktası numarasını belirtir. 10255 olarak varsayılan değerdir. |CosmosDB.Emulator.exe /MongoPort = \<mongoport\>|\<mongoport\>: Tek bir bağlantı noktası numarası|
 | EnableCassandraEndpoint | Cassandra API sağlar. | CosmosDB.Emulator.exe /EnableCassandraEndpoint | |
+| CassandraPort | Cassandra uç noktası için kullanılacak bağlantı noktası numarasını belirtir. 10350 varsayılan değerdir. | CosmosDB.Emulator.exe /CassandraPort = \<cassandraport\> | \<cassandraport\>: Tek bir bağlantı noktası numarası |
 | EnableGremlinEndpoint | Gremlin API sağlar. | CosmosDB.Emulator.exe /EnableGremlinEndpoint | |
 | GremlinPort | Gremlin uç noktası için kullanılacak bağlantı noktası numarası. 8901 varsayılan değerdir. | CosmosDB.Emulator.exe /GremlinPort=\<port\> | \<Bağlantı noktası\>: Tek bir bağlantı noktası numarası |
+|EnableTableEndpoint | Azure tablo API'si sağlar. | CosmosDB.Emulator.exe /EnableTableEndpoint | |
 |TablePort | Azure tablosu uç noktası için kullanılacak bağlantı noktası numarası. 8902 varsayılan değerdir. | CosmosDB.Emulator.exe /TablePort =\<bağlantı noktası\> | \<Bağlantı noktası\>: Tek bir bağlantı noktası numarası|
 | KeyFile | Yetkilendirme anahtarı belirtilen dosyadan okuma. Bir keyfile oluşturmak için /GenKeyFile seçeneğini kullanın | CosmosDB.Emulator.exe/keyfile =\<file_name\> | \<file_name\>: Dosyasının yolu |
 | ResetDataPath | Yinelemeli olarak tüm dosyaları belirtilen yolda kaldırır. Bir yol belirtmezseniz, %LOCALAPPDATA%\CosmosDbEmulator için varsayılan olarak | CosmosDB.Emulator.exe /ResetDataPath[=\<path>] | \<Yol\>: Dosya yolu  |
 | StartTraces  |  Hata ayıklama izleme günlüklerini toplama başlatma. | CosmosDB.Emulator.exe /StartTraces | |
 | StopTraces     | Hata ayıklama izleme günlükleri toplamayı durdurun. | CosmosDB.Emulator.exe /StopTraces  | |
-|EnableTableEndpoint | Azure tablo API'si sağlar. | CosmosDB.Emulator.exe /EnableTableEndpoint | |
 |FailOnSslCertificateNameMismatch | Sertifikanın SAN öykünücü ana bilgisayarın etki alanı adı, yerel IPv4 adresi, 'localhost' ve '127.0.0.1' içermiyorsa varsayılan olarak öykünücü otomatik olarak imzalanan SSL sertifikasını yeniden oluşturur. Bu seçenekle, öykünücü için bunun yerine başlangıçta başarısız olur. Ardından, oluşturmak ve yeni bir otomatik olarak imzalanan SSL sertifikası yüklemek için /GenCert seçeneği kullanmanız gerekir. | CosmosDB.Emulator.exe /FailOnSslCertificateNameMismatch  | |
 | GenCert | Oluştur ve yeni bir otomatik olarak imzalanan SSL sertifikası yükleyin. İsteğe bağlı olarak ağ üzerinden öykünücü erişmek için ek DNS adlarını virgülle ayrılmış bir listesi dahil. | CosmosDB.Emulator.exe /GenCert [ \<ek dns adlarını virgülle ayrılmış listesi\>] | |
 | DirectPorts |Doğrudan bağlantı için kullanılacak bağlantı noktalarını belirtir. Varsayılan değerler: 10251,10252,10253,10254. | CosmosDB.Emulator.exe /DirectPorts:\<directports\> | \<directports\>: 4 bağlantı noktalarının virgülle ayrılmış listesi |
@@ -276,11 +277,11 @@ Seçenek listesini görüntülemek için komut satırına `CosmosDB.Emulator.exe
 
 Varsayılan olarak, en fazla 25 sabit boyutlu kapsayıcıların (yalnızca Azure Cosmos DB SDK'larını kullanarak desteklenir) veya Azure Cosmos öykünücüsü'nü 5 sınırsız kapsayıcılar oluşturabilirsiniz. Değiştirerek **bölüm sayısı** değer, en fazla 250 sabit boyutlu kapsayıcıların veya 50 sınırsız kapsayıcılar veya herhangi bir birleşimini 250 sabit boyutlu kapsayıcıların aşmayan iki oluşturabilirsiniz (burada bir sınırsız kapsayıcı = 5 sabit boyutu kapsayıcılar için). Ancak, öykünücünün kurulumunu ile 200'den fazla sabit boyutlu kapsayıcıları çalıştırmak için önerilmez. Disk g/ç işlemleri için ekler ek yükü nedeniyle, hangi API uç noktası kullanırken öngörülemeyen zaman aşımlarına neden.
 
-
 Geçerli bölüm sayısı aşıldıktan sonra bir kapsayıcı oluşturma girişimi, öykünücü şu iletiyle ServiceUnavailable bir özel durum oluşturur.
 
 "Ne yazık ki şu anda bu bölgede yüksek talep yaşayan olan ve isteğiniz şu anda yerine getiremiyor. Size daha fazla kapasite ve daha fazla çevrimiçi duruma getirmek için sürekli olarak çalışır ve yeniden denemeniz önerilir.
-Lütfen e-posta çekinmeyin askcosmosdb@microsoft.com herhangi bir zamanda veya herhangi bir nedenle. Etkinlik Kimliği: 12345678-1234-1234-1234-123456789abc"
+Lütfen e-posta çekinmeyin askcosmosdb@microsoft.com herhangi bir zamanda veya herhangi bir nedenle.
+Etkinlik Kimliği: 12345678-1234-1234-1234-123456789abc"
 
 Azure Cosmos öykünücüsü'nde kullanılabilir kapsayıcı sayısını değiştirmek için aşağıdaki adımları çalıştırın:
 
@@ -288,7 +289,7 @@ Azure Cosmos öykünücüsü'nde kullanılabilir kapsayıcı sayısını değiş
 2. Bu klasördeki tüm öykünücüsü verilerini Sil `%LOCALAPPDATA%\CosmosDBEmulator`.
 3. Sistem tepsisindeki **Azure Cosmos DB Öykünücüsü** simgesine sağ tıklayıp **Çıkış**’a tıklayarak tüm açık örneklerden çıkın. Tüm örneklerin çıkması bir dakika sürebilir.
 4. En son sürümünü yükleyin [Azure Cosmos öykünücüsü](https://aka.ms/cosmosdb-emulator).
-5. 250 veya daha düşük bir değer ayarlayarak PartitionCount bayrağı ile öykünücüyü başlatın. Örneğin: `C:\Program Files\Azure Cosmos DB Emulator> CosmosDB.Emulator.exe /PartitionCount=100`.
+5. 250 veya daha düşük bir değer ayarlayarak PartitionCount bayrağı ile öykünücüyü başlatın. Örneğin: `C:\Program Files\Azure Cosmos DB Emulator> CosmosDB.Emulator.exe /PartitionCount=100`
 
 ## <a name="controlling-the-emulator"></a>Öykünücüyü denetleme
 

@@ -10,24 +10,24 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 06879164c6f72891b734da077c667c6f90448fe4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6163f1cbf878f4d4678b2b66829522b0dd16ae22
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512959"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835622"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Koşullar ve PredicateValidations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-**Doğrulamaları** ve **PredicateValidations** öğeleri düzgün şekilde biçimlendirilmiş veriler yalnızca Azure Active Directory (Azure AD) B2C kiracınızda oturum girildiğinden emin olmak için bir doğrulama işlemini gerçekleştirmek etkinleştirme .  
+**Doğrulamaları** ve **PredicateValidations** öğeleri düzgün şekilde biçimlendirilmiş veriler yalnızca Azure Active Directory (Azure AD) B2C kiracınızda oturum girildiğinden emin olmak için bir doğrulama işlemini gerçekleştirmek etkinleştirme .
 
-Aşağıdaki diyagramda, öğeleri arasındaki ilişki gösterilmektedir:  
+Aşağıdaki diyagramda, öğeleri arasındaki ilişki gösterilmektedir:
 
-![Koşullar](./media/predicates/predicates.png)
+![Koşulları ve koşul doğrulamaları ilişkiyi gösteren diyagram](./media/predicates/predicates.png)
 
-## <a name="predicates"></a>Koşullar  
+## <a name="predicates"></a>Koşullar
 
 **Koşul** öğesi döndürür ve bir talep türünün değerini denetlemek için bir temel doğrulama tanımlar `true` veya `false`. Belirtilen bir kullanarak doğrulama gerçekleştirilir **yöntemi** öğesi ve bir dizi **parametre** yönteme ilgili öğeleri. Örneğin, bir koşul, talep dize uzunluğu belirtilen minimum ve maksimum parametreleri aralığında olup ya da bir karakter kümesi bir dize talep değeri içerip içermediğini kontrol edebilirsiniz. **UserHelpText** öğe denetimi başarısız olursa bu hata iletisi için kullanıcılara sağlar. Değerini **UserHelpText** öğesi yerelleştirilmiş kullanarak [dil özelleştirme](localization.md).
 
@@ -35,13 +35,13 @@ Aşağıdaki diyagramda, öğeleri arasındaki ilişki gösterilmektedir:
 
 | Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
-| Karşılaştırma | 1:n | Koşullar listesi. | 
+| Karşılaştırma | 1:n | Koşullar listesi. |
 
 **Koşul** öğesi aşağıdaki öznitelikler içerir:
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Kimlik | Evet | Koşul için kullanılan tanımlayıcıdır. Diğer öğeleri tanımlayıcısı bu ilkede kullanabilirsiniz. |
+| Id | Evet | Koşul için kullanılan tanımlayıcıdır. Diğer öğeleri tanımlayıcısı bu ilkede kullanabilirsiniz. |
 | Yöntem | Evet | Doğrulama için kullanılacak yöntem türü. Olası değerler: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters**, veya **IsDateRange**. **IsLengthRange** değeri bir dize talep değeri uzunluğu belirtilen minimum ve maksimum parametreleri aralığı içinde olup olmadığını denetler. **MatchesRegex** değeri bir dize talep değeri normal bir ifade ile eşleşip eşleşmediğini denetler. **IncludesCharacters** değeri bir dize talep değeri bir karakter kümesi içerip içermediğini denetler. **IsDateRange** değerini bir tarih talep değeri bir dizi belirtilen minimum ve maksimum parametreleri arasında olup olmadığını denetler. |
 
 **Koşul** öğesi aşağıdaki öğeleri içerir:
@@ -49,19 +49,19 @@ Aşağıdaki diyagramda, öğeleri arasındaki ilişki gösterilmektedir:
 | Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 | Denetimi başarısız olursa, kullanıcılar için bir hata iletisi. Bu dize kullanarak yerelleştirilebilen [dil özelleştirme](localization.md) |
-| Parametreler | 1:1 | Dize doğrulama yöntemi türü parametreleri. | 
+| Parametreler | 1:1 | Dize doğrulama yöntemi türü parametreleri. |
 
 **Parametreleri** öğesi aşağıdaki öğeleri içerir:
 
 | Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
-| Parametre | 1:n | Dize doğrulama yöntemi türü parametreleri. | 
+| Parametre | 1:n | Dize doğrulama yöntemi türü parametreleri. |
 
 **Parametre** öğesi aşağıdaki öznitelikler içerir:
 
 | Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
-| Kimlik | 1:1 | Parametre tanımlayıcısı. |
+| Id | 1:1 | Parametre tanımlayıcısı. |
 
 Aşağıdaki örnekte gösterildiği bir `IsLengthRange` parametrelerle yöntemi `Minimum` ve `Maximum` dize uzunluğu aralığını belirtin:
 
@@ -108,7 +108,7 @@ Aşağıdaki örnekte gösterildiği bir `IsDateRange` parametrelerle yöntemi `
 </Predicate>
 ```
 
-## <a name="predicatevalidations"></a>PredicateValidations 
+## <a name="predicatevalidations"></a>PredicateValidations
 
 Bir talep türüne karşı denetlemek için doğrulama koşullarına tanımlama sırasında **PredicateValidations** Grup koşulları bir talep türü için uygulanabilir bir kullanıcı girdisi doğrulama oluşturmak için bir dizi. Her **PredicateValidation** öğesi içeren bir dizi **PredicateGroup** öğeleri içeren bir dizi **PredicateReference** için bir işaretedenöğeler**Koşul**. Doğrulama geçirmek için talep değerini tüm herhangi bir koşul altında tüm testleri geçmelidir **PredicateGroup** kendi kümesiyle **PredicateReference** öğeleri.
 
@@ -134,38 +134,38 @@ Bir talep türüne karşı denetlemek için doğrulama koşullarına tanımlama 
 
 | Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
-| PredicateValidation | 1:n | Koşul doğrulama listesi. | 
+| PredicateValidation | 1:n | Koşul doğrulama listesi. |
 
 **PredicateValidation** öğesi aşağıdaki öznitelik içeriyor:
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Kimlik | Evet | Koşul doğrulama için kullanılan tanımlayıcıdır. **ClaimType** ilke öğesi bu tanımlayıcıyı kullanabilirsiniz. |
+| Id | Evet | Koşul doğrulama için kullanılan tanımlayıcıdır. **ClaimType** ilke öğesi bu tanımlayıcıyı kullanabilirsiniz. |
 
 **PredicateValidation** öğesi aşağıdaki öğeyi içerir:
 
 | Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
-| PredicateGroups | 1:n | Koşul gruplarının listesi. | 
+| PredicateGroups | 1:n | Koşul gruplarının listesi. |
 
 **PredicateGroups** öğesi aşağıdaki öğeyi içerir:
 
 | Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
-| PredicateGroup | 1:n | Koşullar listesi. | 
+| PredicateGroup | 1:n | Koşullar listesi. |
 
 **PredicateGroup** öğesi aşağıdaki öznitelik içeriyor:
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Kimlik | Evet | Koşul grubu için kullanılan tanımlayıcıdır.  |
+| Id | Evet | Koşul grubu için kullanılan tanımlayıcıdır.  |
 
 **PredicateGroup** öğesi aşağıdaki öğeleri içerir:
 
 | Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
-| UserHelpText | 1:1 |  Hangi bir değer kattığını bilmek, kullanıcılar için yararlı olabilecek koşul açıklamasını bunlar yazmanız gerekir. | 
-| PredicateReferences | 1:n | Koşul başvuruları listesi. | 
+| UserHelpText | 1:1 |  Hangi bir değer kattığını bilmek, kullanıcılar için yararlı olabilecek koşul açıklamasını bunlar yazmanız gerekir. |
+| PredicateReferences | 1:n | Koşul başvuruları listesi. |
 
 **PredicateReferences** öğesi aşağıdaki öznitelikler içerir:
 
@@ -177,18 +177,18 @@ Bir talep türüne karşı denetlemek için doğrulama koşullarına tanımlama 
 
 | Öğe | Örnekleri | Açıklama |
 | ------- | ----------- | ----------- |
-| PredicateReference | 1:n | Bir koşula yönelik bir başvuru. | 
+| PredicateReference | 1:n | Bir koşula yönelik bir başvuru. |
 
 **PredicateReference** öğesi aşağıdaki öznitelikler içerir:
 
 | Öznitelik | Gerekli | Açıklama |
 | --------- | -------- | ----------- |
-| Kimlik | Evet | Koşul doğrulama için kullanılan tanımlayıcıdır.  |
+| Id | Evet | Koşul doğrulama için kullanılan tanımlayıcıdır.  |
 
 
 ## <a name="configure-password-complexity"></a>Parola karmaşıklığını yapılandırın
 
-İle **doğrulamaları** ve **PredicateValidationsInput** bir hesabı oluştururken bir kullanıcı tarafından sağlanan parola karmaşıklık gereksinimleri kontrol edebilirsiniz. Varsayılan olarak, güçlü parolalar Azure AD B2C kullanır. Azure AD B2C, ayrıca müşteriler parola karmaşıklığı denetlemek için yapılandırma seçeneklerini destekler. Bu koşul öğeleri kullanarak parola karmaşıklığını tanımlayabilirsiniz: 
+İle **doğrulamaları** ve **PredicateValidationsInput** bir hesabı oluştururken bir kullanıcı tarafından sağlanan parola karmaşıklık gereksinimleri kontrol edebilirsiniz. Varsayılan olarak, güçlü parolalar Azure AD B2C kullanır. Azure AD B2C, ayrıca müşteriler parola karmaşıklığı denetlemek için yapılandırma seçeneklerini destekler. Bu koşul öğeleri kullanarak parola karmaşıklığını tanımlayabilirsiniz:
 
 - **IsLengthBetween8And64** kullanarak `IsLengthRange` yöntemi doğrular parola 8 ile 64 karakter arasında olmalıdır.
 - **Küçük harf** kullanarak `IncludesCharacters` yöntemi doğrular parola küçük harf içeriyor.
@@ -348,7 +348,7 @@ Talep türünüz ekleme **PredicateValidationReference** öğesi ve SimplePasswo
 
 Azure AD B2C hata iletisi görüntülendiğinde öğeleri nasıl düzenlendiği gösterir:
 
-![Doğrulama işlemi](./media/predicates/predicates-pass.png)
+![Koşulu ve PredicateGroup parola karmaşıklık örnek diyagramı](./media/predicates/predicates-pass.png)
 
 ## <a name="configure-a-date-range"></a>Bir tarih aralığı yapılandırın
 
@@ -382,8 +382,8 @@ Ekleme bir **PredicateValidation** başvurusuyla `DateRange` koşul.
 </PredicateValidations>
 ```
 
-Talep türünüz ekleme **PredicateValidationReference** öğe tanımlayıcı olarak belirtin `CustomDateRange`. 
-    
+Talep türünüz ekleme **PredicateValidationReference** öğe tanımlayıcı olarak belirtin `CustomDateRange`.
+
 ```XML
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date of Birth</DisplayName>

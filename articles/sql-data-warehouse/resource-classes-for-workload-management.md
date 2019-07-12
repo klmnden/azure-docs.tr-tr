@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: workload management
+ms.subservice: workload-management
 ms.date: 06/20/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: d1983f0842f8c04d627e66727ddddf618969992d
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 548271e888344eeb0d111c074153ef7492af5b33
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303308"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595529"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda kaynak sınıfları ile iş yükü yönetimi
 
@@ -91,7 +91,7 @@ Dinamik kaynak sınıflarında Gen1 detayına olarak bakıldığında, davranı�
 | smallrc        | 3%                | 32                     |
 | mediumrc       | %10               | 10                     |
 | largerc        | 22%               | 4                      |
-| xlargerc       | 70%               | 1                      |
+| xlargerc       | 70%               | 1\.                      |
 
 ### <a name="default-resource-class"></a>Varsayılan kaynak sınıfı
 
