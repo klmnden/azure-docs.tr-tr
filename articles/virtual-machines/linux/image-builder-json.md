@@ -6,13 +6,13 @@ ms.author: cynthn
 ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-manager: jeconnoc
-ms.openlocfilehash: a577a2a2a3b21cb027ba699450631a627f4f7a39
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+manager: gwallace
+ms.openlocfilehash: 16ad2a93c9ff035166a738edba40c99075a6e7ba
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67501882"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671471"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Önizleme: Azure Görüntü Oluşturucu şablonu oluşturma 
 
@@ -270,7 +270,7 @@ Yeniden başlatma Özelleştirici Windows VM'yi yeniden başlatın ve bekleyin y
  
 Özellikleri Özelleştir:
 - **Tür**: WindowsRestart
-- **restartCommand** -(isteğe bağlı) yeniden çalıştırılacak komutu. Varsayılan değer: `'shutdown /r /f /t 0 /c \"packer restart\"'`.
+- **restartCommand** -(isteğe bağlı) yeniden çalıştırılacak komutu. Varsayılan, `'shutdown /r /f /t 0 /c \"packer restart\"'` değeridir.
 - **restartCheckCommand** – yeniden başlatma (isteğe bağlı) başarılı olup olmadığını denetlemek için komutu. 
 - **restartTimeout** -magnitude ve birimi bir dize olarak belirtilen zaman aşımı'ı yeniden başlatın. Örneğin, `5m` (5 dakika) veya `2h` (2 saat). Varsayılan değer: ' 5 milyon '
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 134ab2a5f0b1b1569cdf4747f5bbe3f895ba4e8f
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 8487f82b123b42f9d6a6f0fbd6d6cbb240bf9fdc
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293026"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785538"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD parola korumasını dağıtma
 
@@ -44,7 +44,7 @@ Denetim aşamasında pek çok kuruluş bulmak:
    > Proxy hizmet dağıtımı, etki alanı denetleyicisi giden doğrudan internet bağlantısı olmasa bile, Azure AD parola koruması dağıtmak için zorunlu bir gereksinimdir. 
    >
 * Azure AD parola koruması Proxy hizmeti yüklü olduğu tüm makineler .NET 4.7 yüklü olması gerekir.
-  .NET 4.7 zaten tamamen güncelleştirilmiş bir Windows sunucusuna yüklenmesi gerekir. Durum bu değilse, indirmek ve bulunan yükleyiciyi çalıştırın [Windows için .NET Framework 4.7 çevrimdışı yükleyici](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+  .NET 4.7 zaten tamamen güncelleştirilmiş bir Windows sunucusuna yüklenmesi gerekir. Durum bu değilse, indirmek ve bulunan yükleyiciyi çalıştırın [Windows için .NET Framework 4.7 çevrimdışı yükleyici](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * Tüm makineler, Azure AD parola koruması bileşenleri yüklü etki alanı denetleyicileri, dahil olmak üzere, Evrensel C çalışma zamanı yüklü olması gerekir. Tüm güncelleştirmeleri Windows Update'ten olmasını sağlayarak çalışma zamanı elde edebilirsiniz. Veya bir işletim sistemine özgü güncelleştirme paketinde alabilirsiniz. Daha fazla bilgi için [Windows Evrensel C çalışma zamanı güncelleştirmesi](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * Ağ bağlantısı her etki alanında en az bir etki alanı denetleyicisi ile en az bir sunucu arasında parola koruması için proxy hizmeti barındıran mevcut olması gerekir. Bu RPC uç nokta Eşleyici bağlantı noktası 135 ve RPC sunucusu bağlantı noktası proxy hizmetine erişmek etki alanı denetleyicisi bağlanmaya izin vermelidir. Varsayılan olarak, dinamik bir RPC bağlantı noktası RPC sunucusu bağlantı noktası olduğu halde şekilde yapılandırılabilir [statik bağlantı noktasını](#static).
 * Proxy hizmeti barındıran tüm makinelerin aşağıdaki uç noktalarına ağ erişimi olması gerekir:

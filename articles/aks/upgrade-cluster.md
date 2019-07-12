@@ -2,17 +2,17 @@
 title: Azure Kubernetes Service (AKS) kümesini yükseltme
 description: Azure Kubernetes Service (AKS) kümesini yükseltme hakkında bilgi edinin
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: 2cadd4b33cb52307599ce1e83eee8370ef9850fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: dd88b5a044fe495da374178be8774f45bdd30f61
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66692784"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614057"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Azure Kubernetes Service (AKS) kümesini yükseltme
 
@@ -22,11 +22,11 @@ AKS için bkz: birden çok düğüm havuzları veya (hem de AKS şu anda önizle
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalede, Azure CLI Sürüm 2.0.65 gerekir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
+Bu makalede, Azure CLI Sürüm 2.0.65 gerekir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme][azure-cli-install].
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Kullanılabilir AKS küme güncelleştirmelerini denetle
 
-Kümeniz için hangi Kubernetes sürümlerinin kullanılabilir denetlemek için kullanmak [az aks get-yükseltmeleri] [ az-aks-get-upgrades] komutu. Aşağıdaki örnekte adlı Küme için kullanılabilen yükseltmeler denetler *myAKSCluster* adlı kaynak grubunda *myResourceGroup*:
+Kümeniz için hangi Kubernetes sürümlerinin kullanılabilir denetlemek için kullanmak [az aks get-yükseltmeleri][az-aks-get-upgrades] komutu. Aşağıdaki örnekte adlı Küme için kullanılabilen yükseltmeler denetler *myAKSCluster* adlı kaynak grubunda *myResourceGroup*:
 
 ```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
@@ -47,7 +47,7 @@ default  myResourceGroup  1.11.9         1.11.9           1.12.7, 1.12.8
 
 ## <a name="upgrade-an-aks-cluster"></a>AKS kümesini yükseltme
 
-AKS kümenizin kullanılabilir sürümlerin listesini ile [az aks yükseltme] [ az-aks-upgrade] yükseltmek komutu. Yükseltme işlemi sırasında AKS yeni bir düğüm belirtilen Kubernetes sürümü, ardından dikkatli bir şekilde çalışan kümeye ekler [cordon ve azaldıkça] [ kubernetes-drain] çalışan kesintisini en aza indirmek için eski düğümlerinden biri uygulamalar. Yeni düğüm uygulama pod'ların çalıştığı onaylandıktan eski düğümü silinir. Kümedeki tüm düğümlerin yükseltilene dek bu işlemi yineler.
+AKS kümenizin kullanılabilir sürümlerin listesini ile [az aks yükseltme][az-aks-upgrade] command to upgrade. During the upgrade process, AKS adds a new node to the cluster that runs the specified Kubernetes version, then carefully [cordon and drains][kubernetes-drain] çalışan uygulamaların kesintiye en aza indirmek için eski düğümlerinden biri. Yeni düğüm uygulama pod'ların çalıştığı onaylandıktan eski düğümü silinir. Kümedeki tüm düğümlerin yükseltilene dek bu işlemi yineler.
 
 Aşağıdaki örnek, bir küme sürüme yükseltme *1.12.8*:
 
@@ -57,7 +57,7 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 
 Sahip olduğunuz kaç düğümleri bağlı olarak bir küme yükseltmesi birkaç dakika sürer.
 
-Yükseltmenin başarılı olduğunu doğrulamak için şunu kullanın [az aks show] [ az-aks-show] komutu:
+Yükseltmenin başarılı olduğunu doğrulamak için şunu kullanın [az aks show][az-aks-show] komutu:
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table

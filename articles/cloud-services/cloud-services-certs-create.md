@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 4ca26c7b8fbfebbce8cfcb9915a7db12e5ad2352
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 82d1114451b677880b0b02234546d9cdb2e743e2
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337417"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593056"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure Cloud Services sertifikalarına genel bakış
 Sertifikalar Azure'da bulut Hizmetleri için kullanılır ([hizmet sertifikaları](#what-are-service-certificates)) ve yönetim API'si ile kimlik doğrulaması ([yönetim sertifikaları](#what-are-management-certificates)). Bu konu nasıl hem sertifika türleri için genel bir bakış sağlar için [oluşturma](#create) ve Azure'a dağıtın.
@@ -39,7 +39,7 @@ Hizmet sertifikası, ya da Azure portal'ı kullanarak azure'a veya Klasik dağı
 Hizmet sertifikaları hizmetlerinizden ayrı olarak yönetilebilir ve farklı kişiler tarafından yönetiliyor olabilir. Örneğin, bir geliştirici, bir BT yöneticisi Azure'a daha önce yüklenmiş bir sertifikaya başvurur bir hizmet paketi karşıya yükleyebilirsiniz. Bir BT yöneticisi, yönetin ve yeni bir hizmet paketini karşıya yüklemek gerek kalmadan (hizmetinin yapılandırmasını değiştirme) Bu sertifika yenileme. Yeni bir hizmet paketi güncelleştirme mantıksal adı, depo adı ve sertifika konumu hizmet tanımı dosyasında olduğundan ve sertifika parmak izini, hizmet yapılandırma dosyasında belirtilen sırada mümkündür. Bir sertifikayı güncelleştirmek için yalnızca yeni sertifikayı karşıya yüklemek ve hizmet yapılandırma dosyasında parmak izi değerini değiştirmek gereklidir.
 
 >[!Note]
->[Cloud Services hakkında SSS'yi](cloud-services-faq.md) makale sertifikalar hakkında bazı yararlı bilgiler vardır.
+>[Cloud Services SSS - yapılandırma ve Yönetim](cloud-services-configuration-and-management-faq.md) makale sertifikalar hakkında bazı yararlı bilgiler vardır.
 
 ## <a name="what-are-management-certificates"></a>Yönetim sertifikaları nelerdir?
 Yönetim sertifikaları Klasik dağıtım modeliyle kimlik doğrulamasından geçmesini sağlar. Birçok programları ve Araçları (örneğin, Visual Studio ya da Azure SDK'sı) bu sertifikaları yapılandırma ve çeşitli Azure Hizmetleri dağıtımını otomatikleştirmek için kullanın. Bunlar gerçekten bulut Hizmetleri için ilgili değildir. 

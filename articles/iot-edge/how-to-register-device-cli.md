@@ -10,12 +10,12 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: de00c317483da9bcd93bb2e2505350d787385925
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bbb8dcb410f17ba894210c9c090ec0975f83c0b3
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66495384"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796130"
 ---
 # <a name="register-a-new-azure-iot-edge-device-with-azure-cli"></a>Azure CLI ile yeni bir Azure IOT Edge cihazı kaydetme
 
@@ -28,7 +28,7 @@ Bu makalede, Azure CLI kullanarak yeni bir IOT Edge cihazı kaydettirmek göster
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Bir [IOT hub'ı](../iot-hub/iot-hub-create-using-cli.md) Azure aboneliğinizdeki.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) ortamınızdaki. En az 2.0.24 Azure CLI sürümünüzü olmalıdır veya üzeri. Doğrulamak için `az –-version` kullanın. Bu sürüm, az uzantı komutlarını destekler ve Knack komut çerçevesini kullanıma sunar.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) ortamınızdaki. En az 2.0.24 Azure CLI sürümünüzü olmalıdır veya üzeri. Doğrulamak için `az --version` kullanın. Bu sürüm, az uzantı komutlarını destekler ve Knack komut çerçevesini kullanıma sunar.
 * [Azure CLI için IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="create-a-device"></a>Cihaz oluşturma

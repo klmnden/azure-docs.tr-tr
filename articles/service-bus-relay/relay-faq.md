@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6ea5e72f70620004b4b00be0c779893a3b2ad90
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111479"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706185"
 ---
 # <a name="azure-relay-faqs"></a>Azure geçişi ile ilgili SSS
 
@@ -42,7 +42,7 @@ Daha önce adlandırılmış Service Bus geçişi hizmetini şimdi adlı [WCF ge
 Bu bölümde, fiyatlandırma yapısı geçişi hakkında sık sorulan bazı sorular yanıtlanmaktadır. Ayrıca bkz [Azure desteği SSS](https://azure.microsoft.com/support/faq/) genel Azure fiyatlandırma bilgileri için. Geçişi fiyatlandırması hakkında tam bilgi için bkz. [Service Bus fiyatlandırma ayrıntıları][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Nasıl karma bağlantılar ve WCF geçişi için ücretlendirme yapılır?
-Geçişi fiyatlandırması hakkında tam bilgi için bkz. [karma bağlantılar ve WCF geçişleri] [ Pricing overview] Service Bus fiyatlandırma ayrıntıları sayfasına tablosunda. Bu sayfada bahsi geçen ücretler ek olarak, ilişkili veri aktarımları, uygulamanızın sağlandığı veri merkezi dışında çıkışı için ücretlendirilirsiniz.
+Geçişi fiyatlandırması hakkında tam bilgi için bkz. [karma bağlantılar ve WCF geçişleri][Pricing overview] Service Bus fiyatlandırma ayrıntıları sayfasına tablosunda. Bu sayfada bahsi geçen ücretler ek olarak, ilişkili veri aktarımları, uygulamanızın sağlandığı veri merkezi dışında çıkışı için ücretlendirilirsiniz.
 
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>Karma bağlantılar için nasıl faturalandırılırım?
 Karma bağlantılar için üç örnek fatura senaryoları şunlardır:
@@ -106,7 +106,7 @@ Bir ad alanı bir Azure aboneliğine ait başka bir aboneliğe taşımak için k
 
 #### <a name="azure-portal"></a>Azure portal
 
-Azure geçişi ad alanlarını başka bir aboneliğe bir abonelikten geçirmek için Azure portalını kullanmak için bkz: [kaynakları yeni kaynak grubuna veya aboneliğe taşıma](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+Azure geçişi ad alanlarını başka bir aboneliğe bir abonelikten geçirmek için Azure portalını kullanmak için bkz: [kaynakları yeni kaynak grubuna veya aboneliğe taşıma](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 
@@ -128,7 +128,7 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 Sık karşılaşılan özel durumlar ve önerilen eylemler gerçekleştirebileceğiniz açıklaması için bkz: [geçiş özel durumları][Relay exceptions].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>Paylaşılan erişim imzası nedir ve hangi dillerin bir imzayı üretmek için kullanabilir miyim?
-Paylaşılan erişim imzaları (SAS), SHA-256'yı güvenli karmaları veya URI dayalı bir kimlik doğrulama mekanizmasıdır. Düğüm, PHP, Java, C ve C# içinde kendi imzaları üretmek hakkında daha fazla bilgi için bkz: [paylaşılan erişim imzaları ile Service Bus kimlik doğrulaması][Shared Access Signatures].
+Paylaşılan erişim imzaları (SAS), SHA-256'yı güvenli karmaları veya URI dayalı bir kimlik doğrulama mekanizmasıdır. Düğüm, PHP, Java, C, kendi imzaları üretmek hakkında bilgi ve C#, bkz: [paylaşılan erişim imzaları ile Service Bus kimlik doğrulaması][Shared Access Signatures].
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>Beyaz liste geçiş uç noktaları için olası mı?
 Evet. Geçiş istemcisi, tam etki alanı adlarını kullanarak Azure geçişi hizmetini bağlantıları sağlar. Müşteriler için bir giriş ekleyebilirsiniz `*.servicebus.windows.net` DNS beyaz listeye ekleme desteği güvenlik.

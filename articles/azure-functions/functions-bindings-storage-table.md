@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 002ea00364056f0780146b79936a6bc04e289973
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: b815ce95da24b20ff18ea03d637ad85bfe72cb00
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480071"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654259"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure tablo depolama bağlamaları
 
@@ -507,7 +507,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**TableName** | **TableName** | Tablonun adı.| 
 |**partitionKey** | **partitionKey** |İsteğe bağlı. Okunacak tablo varlığın bölüm anahtarı. Bkz: [kullanım](#input---usage) bölümü bu özelliği kullanmak hakkında yönergeler için.| 
 |**RowKey** |**RowKey** | İsteğe bağlı. Okunacak tablo varlığın satır anahtarı. Bkz: [kullanım](#input---usage) bölümü bu özelliği kullanmak hakkında yönergeler için.| 
-|**sınav zamanı** |**sınav zamanı** | İsteğe bağlı. Varlıkları JavaScript'te okunacak maksimum sayısı. Bkz: [kullanım](#input---usage) bölümü bu özelliği kullanmak hakkında yönergeler için.| 
+|**take** |**sınav zamanı** | İsteğe bağlı. Varlıkları JavaScript'te okunacak maksimum sayısı. Bkz: [kullanım](#input---usage) bölümü bu özelliği kullanmak hakkında yönergeler için.| 
 |**Filtre** |**Filtre** | İsteğe bağlı. Bir OData filtre ifadesi JavaScript'te giriş tablosu. Bkz: [kullanım](#input---usage) bölümü bu özelliği kullanmak hakkında yönergeler için.| 
 |**bağlantı** |**bağlantı** | Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.|
 
@@ -537,7 +537,7 @@ Tablo depolama giriş bağlamasına aşağıdaki senaryoları destekler:
 Bir Azure tablo depolama çıkış bir Azure depolama hesabındaki bir tabloda varlıklar yazılacak bağlaması kullanın.
 
 > [!NOTE]
-> Bu çıkış bağlaması, var olan varlıkları güncelleştirilmesini desteklemiyor. Kullanım `TableOperation.Replace` işlemi [Azure depolama SDK'sı gelen](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet#replace-an-entity) var olan bir varlığı güncelleştirmek için.   
+> Bu çıkış bağlaması, var olan varlıkları güncelleştirilmesini desteklemiyor. Kullanım `TableOperation.Replace` işlemi [Azure depolama SDK'sı gelen](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-table-dotnet#delete-an-entity) var olan bir varlığı güncelleştirmek için.   
 
 ## <a name="output---example"></a>Çıkış - örnek
 

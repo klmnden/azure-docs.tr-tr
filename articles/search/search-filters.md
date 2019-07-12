@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8676ad48bc4fab6149db00d778349ac1acd7223d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4b5d198506473c598f058c881f781a06e191df88
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062394"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653432"
 ---
 # <a name="filters-in-azure-search"></a>Azure Search'te filtreler 
 
@@ -97,7 +97,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ## <a name="filter-usage-patterns"></a>Filtre kullanım desenleri
 
-Aşağıdaki örnekler, filtre senaryoları için çeşitli kullanım desenlerini gösterir. Daha fazla fikir için bkz: [OData ifadesi söz dizimi > örnekler](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
+Aşağıdaki örnekler, filtre senaryoları için çeşitli kullanım desenlerini gösterir. Daha fazla fikir için bkz: [OData ifadesi söz dizimi > örnekler](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples).
 
 + Tek başına **$filter**, filtre ifadesi ilgi belgeleri tam olarak nitelemek için yararlı bir sorgu dizesi olmadan. Bir sorgu dizesi hiçbir sözlü ya da dil analizi, herhangi bir Puanlama ve hiçbir sıralama yoktur. Arama dizesi "tüm belgeler aynı" anlamına gelir. yalnızca bir yıldız işareti olduğuna dikkat edin.
 
@@ -195,7 +195,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=city gt 'Seattle'
 ```
 
-Daha fazla örnek ile çalışmak için bkz [OData filtre ifadesinin söz dizimi > örnekler](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
+Daha fazla örnek ile çalışmak için bkz [OData filtre ifadesinin söz dizimi > örnekler](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

@@ -5,19 +5,19 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 07/10/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: fb9dc5116ba23d57c7f2fe543e734759e8bbcc7b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e598cc03a1b7b4999719152540866c7168130e03
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367646"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807471"
 ---
 # <a name="about-expressroute-direct"></a>ExpressRoute Direct hakkında
 
-ExpressRoute doğrudan, Microsoft'un küresel ağı dünya genelindeki stratejik dağıtılmış eşleme konumlarda doğrudan bağlanma özelliği sağlar. ExpressRoute doğrudan uygun ölçekte etkin/etkin bağlantı destekleyen çift 100 Gbps bağlantı sağlar.
+ExpressRoute doğrudan, Microsoft'un küresel ağı dünya genelindeki stratejik dağıtılmış eşleme konumlarda doğrudan bağlanma özelliği sağlar. ExpressRoute doğrudan çift 100 GB/sn veya uygun ölçekte etkin/etkin bağlantı destekleyen 10 GB/sn bağlantı sağlar.
 
 ExpressRoute doğrudan sağlayan önemli özellikler dahil ancak bunlarla sınırlı değildir:
 
@@ -38,9 +38,9 @@ ExpressRoute doğrudan kullanmadan önce aboneliğinizi kaydetmelisiniz. Kaydetm
 
 | **ExpressRoute kullanarak bir hizmet sağlayıcısı** | **ExpressRoute doğrudan** | 
 | --- | --- |
-| Hızlı ekleme ve mevcut altyapısıyla bağlantısını etkinleştirmek için hizmet sağlayıcıları kullanır. | 100 GB/sn altyapı ve tam yönetim tüm katmanların gerektirir
+| Hızlı ekleme ve mevcut altyapısıyla bağlantısını etkinleştirmek için hizmet sağlayıcıları kullanır. | 100 GB/sn/10 GB/sn altyapı ve tam yönetim tüm katmanların gerektirir
 | Sağlayıcı Ethernet ve MPLS gibi yüzlerce ile tümleşir | Düzenlenen sektör ve büyük veri alımı için doğrudan/adanmış kapasite |
-| 50 MB/sn devreler SKU'lardan 10 GB/sn | Müşteri, aşağıdaki bağlantı hattı SKU'ları bir birleşimini seçebilirsiniz: 5 GB/sn, 10 GB/sn, 40 GB/sn, 100 GB/sn için 200 GB/sn'lik toplam sınırlı-
+| 50 MB/sn devreler SKU'lardan 10 GB/sn | Müşteri, doğrudan aşağıdaki bağlantı hattı SKU'larında 100 GB/sn ExpressRoute bir birleşimini seçebilirsiniz: <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> Müşteri, doğrudan aşağıdaki SKU'larında 10 Gbps ExpressRoute bağlantı hattı bir birleşimini seçebilirsiniz:<ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
 | Tek bir kiracı için en iyi duruma getirilmiş | Tek kiracılı/bulut hizmeti sağlayıcıları için en iyi duruma getirilmiş / birden çok iş birimleri
 
 ## <a name="expressroute-direct-circuits"></a>Doğrudan ExpressRoute bağlantı hatları
@@ -53,7 +53,28 @@ Her eşleme konumunda, Microsoft'un genel ağ erişimi olan ve varsayılan olara
 
 ## <a name="circuit-skus"></a>Bağlantı hattı SKU'ları
 
-ExpressRoute doğrudan Azure depolama ve diğer büyük veri hizmetlerle büyük veri alma senaryolarını destekler. ExpressRoute bağlantı hattına ExpressRoute doğrudan üzerinde şimdi de destek **40 GB/sn** ve **100 GB/sn** bağlantı hattı SKU'ları. Fiziksel bağlantı noktası çiftleri **100 GB/sn** yalnızca ve herhangi bir birleşimini 200 GB/sn için en fazla 5 GB/sn, 10 GB/sn, 40 GB/sn, 100 GB/sn - bant genişlikleri birden çok sanal devresiyle olabilir. 
+ExpressRoute doğrudan Azure depolama ve diğer büyük veri hizmetlerle büyük veri alma senaryolarını destekler. ExpressRoute bağlantı hatları üzerinde 100 GB/sn ExpressRoute doğrudan şimdi de destek **40 GB/sn** ve **100 GB/sn** bağlantı hattı SKU'ları. Fiziksel bağlantı noktası çiftleri **100 veya 10 GB/sn** yalnızca ve birden çok sanal bağlantı hattına sahip olabilir. Bağlantı hattı boyutları:
+
+| **ExpressRoute doğrudan 100 GB/sn** | **10 Gbps ExpressRoute doğrudan** | 
+| --- | --- |
+| **Bant genişliği abone**: 200 Gbps | **Bant genişliği abone**: 20 Gbps |
+| <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> | <ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
+
+## <a name="technical-requirements"></a>Teknik Gereksinimler
+
+* Microsoft Enterprise Edge (MSEE) yönlendirici arabirimleri:
+    * İkili 10 ya da 100 Gigabit Ethernet bağlantı noktası yalnızca yönlendirici çifti arasında
+    * Tek modu LR Fiber bağlantısı
+    * IPv4 ve IPv6
+    * IP MTU 1500 bayt
+
+* Anahtar/yönlendirici Katman 2/Katman 3 bağlantısı:
+    * 1 802.1Q (Dot1Q) etiketi veya iki etiketi (QinQ) 802.1Q desteklemelidir kapsülleme etiketi
+    * Ethernet türü 0x8100 =
+    * Microsoft tarafından - belirtilen bir VLAN kimliği temel dış VLAN etiket (STAG) eklemelisiniz *yalnızca QinQ uygulanabilir*
+    * Çoklu BGP oturumları (VLAN) bağlantı noktası ve cihaz başına desteklemelidir
+    * IPv4 ve IPv6 bağlantısı. *IPv6 için hiçbir ek alt arabirimi oluşturulur. IPv6 adresi için var olan alt arabirimi eklenecek*. 
+    * İsteğe bağlı: [Çift yönlü iletme algılama (BFD)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) desteği, varsayılan olarak tüm özel eşlemeler ExpressRoute bağlantı hatları üzerinde yapılandırıldığı
 
 ## <a name="vlan-tagging"></a>VLAN etiketleme
 

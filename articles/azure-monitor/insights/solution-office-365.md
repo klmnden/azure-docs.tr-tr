@@ -6,18 +6,18 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: ''
-ms.service: operations-management-suite
+ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: bwren
-ms.openlocfilehash: 34c7ecbf235bed838af9ed2f848ca492916583f6
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 3f4b0ad8b7aad01472a76db67f2c07e03e978e41
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514203"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673051"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365 Yönetim çözümüne (Önizleme)
 
@@ -72,7 +72,7 @@ Log Analytics çalışma alanınızdan:
 
 Office 365 aboneliğinize:
 
-- Kullanıcı Adı: Bir yönetici hesabı e-posta adresi.
+- Kullanıcı adı: Bir yönetici hesabı e-posta adresi.
 - Kiracı kimliği: Office 365 aboneliğiniz için benzersiz kimlik.
 - İstemci kimliği: Office 365 istemci temsil eden 16-karakter dizesi.
 - İstemci gizli anahtarı: Kimlik doğrulaması için gereken şifreli dize.
@@ -101,7 +101,7 @@ Office 365 aboneliğinize:
     ![Ayarları multitenant](media/solution-office-365/settings-multitenant.png)
 
 1. Seçin **gerekli izinler** içinde **ayarları** menüsünü seçin ve ardından **Ekle**.
-1. Tıklayın **bir API seçin** ardından **Office 365 Yönetim API'leri**. tıklayın **Office 365 Yönetim API'leri**. **Seç**'e tıklayın.
+1. Tıklayın **bir API seçin** ardından **Office 365 Yönetim API'leri**. tıklayın **Office 365 Yönetim API'leri**. Tıklayın **seçin**.
 
     ![API seçin](media/solution-office-365/select-api.png)
 
@@ -541,10 +541,10 @@ Aşağıdaki özellikler, tüm Office 365 kayıtlarına yaygındır.
 
 | Özellik | Description |
 |:--- |:--- |
-| Tür | *OfficeActivity* |
+| Type | *OfficeActivity* |
 | ClientIP | Etkinlik günlüğe kaydedildiğinde kullanılan cihazın IP adresi. IP adresi IPv4 veya IPv6 adresi biçiminde görüntülenir. |
 | OfficeWorkload | Kayıt başvurduğu office 365 hizmeti.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
-| İşlem | Kullanıcı veya yönetici etkinliğinin adı.  |
+| Çalışma | Kullanıcı veya yönetici etkinliğinin adı.  |
 | OrganizationId | Kuruluşunuzun Office 365 kiracısı için GUID. Bu değer her zaman içinde gerçekleştiği Office 365 hizmet ne olursa olsun, kuruluşunuz için aynı olacaktır. |
 | RecordType | Gerçekleştirilen işlem türü. |
 | ResultStatus | Eylemin (Operation özelliğinde belirtilen) başarılı olup olmadığını gösterir. Olası değerler şunlardır: başarılı oldu, kısmen başarılı veya başarısız oldu. Exchange yönetim etkinliği için ya da True değeridir ya da yanlış. |

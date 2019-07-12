@@ -4,7 +4,7 @@ description: Yedekleme ve kurtarma Azure ortamınızda bir Oracle Database 12 c 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: c41f13a6437f69121d3bbb387c96d8e13f2be0b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 461f6127111e745fe4a81958aaa225ed1dc4392a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60567104"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707713"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Yedekleme ve bir Azure Linux sanal makinesinde Oracle Database 12 c veritabanı kurtarma
 
@@ -284,11 +284,11 @@ Daha fazla bilgi için [Linux VM'ler için uygulamayla tutarlı yedekleme](https
 
     ![Kurtarma Hizmetleri kasaları sayfasında yedekleme](./media/oracle-backup-recovery/recovery_service_04.png)
 
-5.  Üzerinde **yedekleme hedefi** dikey penceresinde varsayılan değerleri kullanmak **Azure** ve **sanal makine**. **Tamam**'ı tıklatın.
+5.  Üzerinde **yedekleme hedefi** dikey penceresinde varsayılan değerleri kullanmak **Azure** ve **sanal makine**.           **Tamam**'ı tıklatın.
 
     ![Kurtarma Hizmetleri kasaları Ayrıntı Sayfası](./media/oracle-backup-recovery/recovery_service_05.png)
 
-6.  İçin **yedekleme İlkesi**, kullanın **DefaultPolicy**, ya da seçin **oluşturma yeni ilke**. **Tamam**'ı tıklatın.
+6.  İçin **yedekleme İlkesi**, kullanın **DefaultPolicy**, ya da seçin **oluşturma yeni ilke**.           **Tamam**'ı tıklatın.
 
     ![Kurtarma Hizmetleri kasaları yedekleme İlkesi Ayrıntı Sayfası](./media/oracle-backup-recovery/recovery_service_06.png)
 

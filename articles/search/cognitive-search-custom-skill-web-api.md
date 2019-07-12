@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seojan2018
-ms.openlocfilehash: e5f7ee172563a81d45e3a35da2cfc7e8731de48d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1ca8a5ce7b615ed8d84c91d8a0d72098c175c44
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023849"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672127"
 ---
 # <a name="custom-web-api-skill"></a>Özel Web API'si beceri
 
@@ -205,4 +205,4 @@ Web API kullanılamıyor ya da bir HTTP hatası döndürür durumlar için kolay
 
 + [Bir beceri kümesi tanımlama](cognitive-search-defining-skillset.md)
 + [Bilişsel arama için özel Yetenek Ekle](cognitive-search-custom-skill-interface.md)
-+ [Metni Çevir API'sini kullanarak özel bir yetenek oluşturma](cognitive-search-create-custom-skill-example.md)
++ [Örnek: Bilişsel arama için özel bir yetenek oluşturma](cognitive-search-create-custom-skill-example.md)

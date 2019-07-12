@@ -5,19 +5,19 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: include
-ms.date: 02/25/2019
+ms.date: 07/09/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: ab74c331bdc8b72612aa848688e1de080314337a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e6eb449f4e7a8dcd6c4547162a575d21f303f83
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133325"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712438"
 ---
 ### <a name="what-is-expressroute-direct"></a>ExpressRoute doğrudan nedir?
 
-ExpressRoute Direct, müşterilere Microsoft’un dünya çapında stratejik noktalara yerleştirilmiş eşleme konumlarından oluşan küresel ağına doğrudan bağlanabilme olanağı sağlar. ExpressRoute doğrudan sağlar çift 100 GB/sn bağlantısı, uygun ölçekte etkin/etkin bağlantıyı destekler. 
+ExpressRoute Direct, müşterilere Microsoft’un dünya çapında stratejik noktalara yerleştirilmiş eşleme konumlarından oluşan küresel ağına doğrudan bağlanabilme olanağı sağlar. ExpressRoute doğrudan uygun ölçekte etkin/etkin bağlantı destekleyen çift 100 veya 10 GB/sn bağlantısı sağlar. 
 
 ### <a name="how-do-customers-connect-to-expressroute-direct"></a>Müşteriler için ExpressRoute doğrudan nasıl bağlanırım? 
 
@@ -28,22 +28,28 @@ Müşteriler kendi yerel operatörler ve ortak yerleşim sağlayıcıları ile E
 Kullanılabilir bağlantı noktaları, dinamik ve kapasite görüntülemek için PowerShell uygulamaları tarafından kullanılabilir. Konumlar içerir ve *yapılmak kaydıyla değiştirebilir kullanılabilirliğine göre*:
 
 * Amsterdam
+* Amsterdam2
+* Auckland 
 * Chicago
-* Washington DC
-* Dallas 
+* Dallas
+* Dublin
 * Hong Kong SAR
 * Londra
 * Los Angeles
+* Melbourne
 * New York City
-* Paris
 * Perth
-* Toronto
 * San Antonio
 * Seattle
 * Seul
 * Silikon Vadisi
-* Singapur 
+* Singapur2 
 * Sidney
+* Taipei
+* Tokyo
+* Toronto
+* Washington DC
+* Washington DC2
 
 ### <a name="what-is-the-sla-for-expressroute-direct"></a>ExpressRoute doğrudan için SLA'sı nedir?
 
@@ -51,7 +57,7 @@ ExpressRoute doğrudan aynı yararlanacaktır [ExpressRoute, kurumsal düzeyde](
 
 ### <a name="what-scenarios-should-customers-consider-with-expressroute-direct"></a>Hangi senaryoları ile ExpressRoute doğrudan müşteriler göz önünde bulundurmalıyım?  
 
-ExpressRoute doğrudan müşteriler ile doğrudan 100 GB/sn bağlantı noktası çiftleri Microsoft Genel omurga sağlar. Müşteriler en büyük avantaj sağlayacak senaryolar şunlardır: İşleme, çok büyük veri alımı, düzenlenen pazarlara yönelik fiziksel yalıtım ve geçirme senaryosu için adanmış kapasite ister. 
+ExpressRoute doğrudan müşteriler Microsoft Genel omurga doğrudan 100 veya 10 GB/sn bağlantı noktası çiftleri ile sağlar. Müşteriler en büyük avantaj sağlayacak senaryolar şunlardır: İşleme, çok büyük veri alımı, düzenlenen pazarlara yönelik fiziksel yalıtım ve geçirme senaryosu için adanmış kapasite ister. 
 
 ### <a name="what-is-the-billing-model-for-expressroute-direct"></a>ExpressRoute doğrudan için faturalandırma modeli nedir? 
 

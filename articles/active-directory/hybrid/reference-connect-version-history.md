@@ -16,12 +16,12 @@ ms.date: 05/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fafd853250ed76b49b66b86ffda9c91240c8ce48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b13b23e59595acf8c637a2ef58c8098256920bea
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109166"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654054"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayınlama geçmişi
 Azure Active Directory (Azure AD) ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect güncelleştirir. Tüm eklemeleri için tüm kitlelere yönelik uygulanabilir.
@@ -50,8 +50,8 @@ Tüm sürümleri Azure AD Connect otomatik yükseltme için kullanılabilir hale
 > İçeri aktarmak için bu sorunu çözmek için **AdSync** modülü ve ardından Çalıştır`Set-ADSyncDirSyncConfiguration` Azure AD Connect sunucusu üzerindeki powershell cmdlet'i.  Aşağıdaki adımları kullanabilirsiniz:
 >
 >1. PowerShell'i Yönetici modunda açın
->2. `Import-Module "ADSync"` öğesini çalıştırın
->3. `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""` öğesini çalıştırın
+>2.           `Import-Module "ADSync"`'i çalıştırın.
+>3.           `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`'i çalıştırın.
  
 
 
@@ -408,18 +408,18 @@ Bir geliştirme önerilen izni altında açıklandığı gibi bölümü değişt
 *   Kendi KENDİNE özgü ACE dışında belirli nesne üzerindeki tüm ACE kaldırın. Kendi KENDİNE söz konusu olduğunda, varsayılan izinleri korumak istiyoruz.
 *   Bu özel izinler atayın:
 
-Tür     | Ad                          | Access               | İçin geçerlidir
+Type     | Ad                          | Access               | İçin geçerlidir
 ---------|-------------------------------|----------------------|--------------|
-İzin Ver    | SİSTEM                        | Tam Denetim         | Bu nesne  |
-İzin Ver    | Kuruluş Yöneticileri             | Tam Denetim         | Bu nesne  |
-İzin Ver    | Etki alanı yöneticileri                 | Tam Denetim         | Bu nesne  |
-İzin Ver    | Yöneticiler                | Tam Denetim         | Bu nesne  |
-İzin Ver    | Kuruluş etki alanı denetleyicileri | İçeriği Listele        | Bu nesne  |
-İzin Ver    | Kuruluş etki alanı denetleyicileri | Tüm özellikleri oku  | Bu nesne  |
-İzin Ver    | Kuruluş etki alanı denetleyicileri | Okuma izinleri     | Bu nesne  |
-İzin Ver    | Kimliği doğrulanmış kullanıcılar           | İçeriği Listele        | Bu nesne  |
-İzin Ver    | Kimliği doğrulanmış kullanıcılar           | Tüm özellikleri oku  | Bu nesne  |
-İzin Ver    | Kimliği doğrulanmış kullanıcılar           | Okuma izinleri     | Bu nesne  |
+Allow    | SİSTEM                        | Tam Denetim         | Bu nesne  |
+Allow    | Kuruluş Yöneticileri             | Tam Denetim         | Bu nesne  |
+Allow    | Etki alanı yöneticileri                 | Tam Denetim         | Bu nesne  |
+Allow    | Yöneticiler                | Tam Denetim         | Bu nesne  |
+Allow    | Kuruluş etki alanı denetleyicileri | İçeriği Listele        | Bu nesne  |
+Allow    | Kuruluş etki alanı denetleyicileri | Tüm özellikleri oku  | Bu nesne  |
+Allow    | Kuruluş etki alanı denetleyicileri | Okuma izinleri     | Bu nesne  |
+Allow    | Kimliği doğrulanmış kullanıcılar           | İçeriği Listele        | Bu nesne  |
+Allow    | Kimliği doğrulanmış kullanıcılar           | Tüm özellikleri oku  | Bu nesne  |
+Allow    | Kimliği doğrulanmış kullanıcılar           | Okuma izinleri     | Bu nesne  |
 
 Ayarlar, AD DS hesabı için reddedeceği çalıştırabilirsiniz [bu PowerShell Betiği](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). PowerShell Betiği, AD DS hesabı için yukarıda bahsedilen izinlerin atar.
 
@@ -889,7 +889,7 @@ Azure AD Connect Eşitleme
 * Azure AD kiracınızda parola eşitleme özelliğini veya kiracınız için etkinleştirilip etkinleştirilmeyeceğini gösteren bir hizmet yapılandırması yok. Daha önce etkin ve bir hazırlık sunucusu varsa, Azure AD Connect tarafından yanlış yapılandırılması için hizmet yapılandırması kolaydır. Şimdi, Azure AD Connect hizmet yapılandırması, etkin tutarlı tutmak çalışacak yalnızca Azure AD Connect sunucusu.
 * Azure AD Connect Sihirbazı artık algılar ve bir uyarı verir AD AD geri dönüşüm kutusu etkin olmayan şirket içi.
 * Daha önce toplu işlemdeki nesnelerin birleştirilmiş boyutu belirli bir eşiği aşarsa başarısız olur ve Azure AD zaman aşımına ile dışarı aktarın. Şimdi, eşitleme hizmeti sorunla karşılaşılırsa nesneleri ayrı, daha küçük toplu işler halinde yeniden göndermeyi yeniden deneyecek.
-* Eşitleme hizmeti anahtar yönetimi uygulaması, Windows Başlat Menüsü'nden kaldırıldı. Şifreleme anahtarı yönetimi miiskmu.exe kullanarak komut satırı arabirimi aracılığıyla desteklenmeye devam edecektir. Şifreleme anahtarı'nı yönetme hakkında daha fazla bilgi için makalesine bakın [Azure AD Connect Sync şifreleme anahtarını bırakıp](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-azure-ad-connect-sync-encryption-key).
+* Eşitleme hizmeti anahtar yönetimi uygulaması, Windows Başlat Menüsü'nden kaldırıldı. Şifreleme anahtarı yönetimi miiskmu.exe kullanarak komut satırı arabirimi aracılığıyla desteklenmeye devam edecektir. Şifreleme anahtarı'nı yönetme hakkında daha fazla bilgi için makalesine bakın [Azure AD Connect Sync şifreleme anahtarını bırakıp](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-adsync-service-account-encryption-key).
 * Azure AD Connect eşitleme hizmeti hesabı parolasını değiştirirseniz, şifreleme anahtarını terk ve Azure AD Connect eşitleme hizmeti hesabı parolasını yeniden kadar daha önce eşitleme hizmeti mümkün başlangıç doğru olmayacak. Şimdi, bu işlem artık gerekli değildir.
 
 Masaüstü SSO

@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: e7210b2b1be072f5326070d768d5fe12c386ee0b
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 5312ad2593e732f4c84eb67ed263bc9e4666a67a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191609"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594185"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion-preview"></a>NSG erişim ve Azure savunma (Önizleme) ile çalışma
 
@@ -44,9 +44,9 @@ Bu diyagramda:
 
 Nsg'leri uygularsanız **AzureBastionSubnet**, Azure denetim düzlemi ve altyapınız için aşağıdaki iki hizmet etiketleri izin ver:
 
-* **(Yalnızca Resource Manager) GatewayManager**: Bu etiket Azure Ağ Geçidi Yöneticisi hizmetin adres ön eklerini belirtir. GatewayManager değeri belirtirseniz, trafiğe izin verilir veya trafik reddedilir GatewayManager için.
+* **(Yalnızca Resource Manager) GatewayManager**: Bu etiket Azure Ağ Geçidi Yöneticisi hizmetin adres ön eklerini belirtir. GatewayManager değeri belirtirseniz, trafiğe izin verilir veya trafik reddedilir GatewayManager için.  Nsg'ler hakkında AzureBastionSubnet oluşturuyorsanız, GatewayManager etiketi gelen trafik için etkinleştirin.
 
-* **(Yalnızca Resource Manager) AzureCloud**: Bu etiket, tüm veri merkezi genel IP adresleri de dahil olmak üzere Azure için IP adresi alanını belirtir. AzureCloud değeri belirtirseniz, trafiğe izin verilir veya trafik reddedilir Azure genel IP adresleri. Yalnızca belirli bir bölgede AzureCloud erişmesine izin vermek istiyorsanız bölgeyi belirtebilirsiniz. Örneğin, yalnızca Doğu ABD bölgesindeki Azure AzureCloud erişimine izin vermek istiyorsanız, bir hizmet etiketiyle AzureCloud.EastUS belirtebilirsiniz.
+* **(Yalnızca Resource Manager) AzureCloud**: Bu etiket, tüm veri merkezi genel IP adresleri de dahil olmak üzere Azure için IP adresi alanını belirtir. AzureCloud değeri belirtirseniz, trafiğe izin verilir veya trafik reddedilir Azure genel IP adresleri. Yalnızca belirli bir bölgede AzureCloud erişime izin vermek istiyorsanız bölgeyi belirtebilirsiniz. Örneğin, yalnızca Doğu ABD bölgesindeki Azure AzureCloud erişimine izin vermek istiyorsanız, bir hizmet etiketiyle AzureCloud.EastUS belirtebilirsiniz. Nsg'ler hakkında AzureBastionSubnet oluşturuyorsanız, AzureCloud etiketi giden trafik için etkinleştirin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

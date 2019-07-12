@@ -5,28 +5,27 @@ services: databox
 documentationcenter: NA
 author: alkohli
 ms.service: databox
-ms.subservice: pod
+ms.subservice: heavy
 ms.topic: overview
-ms.date: 06/19/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 94ba0040b1de7e1f03825f1cd2ef2a6536343d96
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 0f4657cdd71a104ca111f62a6e9757b5a33b46e8
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271750"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592309"
 ---
-# <a name="what-is-azure-data-box-heavy-preview"></a>Azure Data Box Heavy nedir? (önizleme)
+# <a name="what-is-azure-data-box-heavy"></a>Azure Data Box Heavy nedir?
 
 Azure veri kutusu ağır yüzlerce terabayt boyutunda veriyi hızlı, ucuz, Azure'da ve güvenilir bir şekilde göndermenizi sağlar. Veriler, veri kutusu ağır bir cihaz ile veri doldurun ve Microsoft'a geri gönderir 1-PB depolama kapasitesi ile sevkiyat tarafından Azure'a aktarılır. Cihaz koruma ve iletim sırasında verilerinizi güvenli bir rugged büyük/küçük harf sahiptir.
 
-Veri kutusu ağır şu anda Önizleme aşamasındadır. Azure portalından bir cihaz için istemek kaydolun. Cihaz, veri merkezinde alındıktan sonra yerel web kullanıcı arabirimini kullanarak ayarlayabilirsiniz. Sunucularınızdaki verileri cihaza kopyalayın ve cihazı Azure'a geri gönderin. Azure veri merkezinde, Azure depolama hesaplarınızda verilerinizi karşıya yüklendi. Azure portalında tüm uçtan uca işlem izleyebilirsiniz.
+Cihaz, veri merkezinde alındıktan sonra yerel web kullanıcı arabirimini kullanarak ayarlayabilirsiniz. Sunucularınızdaki verileri cihaza kopyalayın ve cihazı Azure'a geri gönderin. Azure veri merkezinde, Azure depolama hesaplarınızda verilerinizi karşıya yüklendi. Azure portalında tüm uçtan uca işlem izleyebilirsiniz.
 
 
 > [!IMPORTANT]
-> - Data Box Heavy önizleme aşamasındadır. Bu çözümü dağıtmadan önce [Önizleme için Azure hizmet şartlarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin.
-> - Cihaz istemek için [Önizleme portalına](https://aka.ms/azuredatabox) kaydolun.
-> - Önizleme sırasında Data Box Heavy, ABD ve Avrupa Birliği ülkelerindeki müşterilere gönderilebilir. Daha fazla bilgi için bkz. [Bölge kullanılabilirliği](#region-availability).
+> - Bir cihaz istemek için de kaydolun [Azure portalında](https://portal.azure.com).
+
 
 ## <a name="use-cases"></a>Uygulama alanları
 
@@ -115,25 +114,14 @@ En güncel bilgiler için bölge kullanılabilirliği için veri kutusu ağır, 
 
 ## <a name="sign-up"></a>Kaydolma
 
-Data Box Heavy önizleme aşamasındadır ve kaydolmanız gerekir. Veri kutusu ağır için kaydolmak için aşağıdaki adımları uygulayın:
+Veri kutusu ağır için kaydolmak için aşağıdaki adımları uygulayın:
 
-1. Azure portalında oturum açın: https://aka.ms/azuredatabox.
+1. Azure portalında oturum açın: https://portal.azure.com.
 2. Tıklayın **+ kaynak Oluştur** yeni bir kaynak oluşturmak için. **Azure Data Box** için arama yapın. **Azure Data Box** hizmetini seçin.
-
-    <!--![The Data Box Heavy sign up 1]()-->
-
-3. **Oluştur**’a tıklayın.
-
-    <!--![The Data Box Heavy sign up 2]()-->
-
-4. Data Box Heavy önizlemesinde kullanmak istediğiniz aboneliği seçin. Data Box Heavy kaynağını dağıtmak istediğiniz bölgeyi seçin. **Data Box Heavy** seçeneğinde **Kaydol**'a tıklayın.
-
-   <!--![The Data Box Heavy sign up 3]()-->
-
+3.           **Oluştur**'a tıklayın.
+4. Veri kutusu ağır için kullanmak istediğiniz aboneliği seçin. Data Box Heavy kaynağını dağıtmak istediğiniz bölgeyi seçin. **Data Box Heavy** seçeneğinde **Kaydol**'a tıklayın.
 5. Veri ile ilgili sorularını ikametgahınızda ülke/bölge, zaman çerçevesini, hedef Azure hizmeti için veri aktarımı, ağ bant genişliği ve veri aktarım sıklığı. Gizlilik ve koşulları gözden geçirdikten sonra, Microsoft sizinle iletişim kurmak için e-posta adresinizi kullanabilir onay kutusunu seçin.
 
-    <!--![The Data Box Heavy sign up 4]()-->
-
-Kaydolduysanız ve önizleme için etkinleştirilmiş bir kez, bir veri kutusu ağır sipariş edebilirsiniz.
+Açıldıktan sonra bir veri kutusu ağır sipariş edebilirsiniz.
 
     

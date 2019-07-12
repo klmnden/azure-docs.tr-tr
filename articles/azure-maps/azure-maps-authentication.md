@@ -3,18 +3,18 @@ title: Azure Haritalar ile kimlik doğrulaması | Microsoft Docs
 description: Azure haritalar Hizmetleri kullanarak kimlik doğrulaması.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 22aba19e16e4349a5b495b307c9906f7ded5a636
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4608d0631c9a590fdde583e399883a023275c30
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393671"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838049"
 ---
 # <a name="authentication-with-azure-maps"></a>Azure Haritalar ile kimlik doğrulaması
 
@@ -31,7 +31,7 @@ Anahtarlarınızı görüntüleme hakkında daha fazla bilgi için bkz: [kimlik 
 
 ## <a name="authentication-with-azure-active-directory-preview"></a>Azure Active Directory (Önizleme) ile kimlik doğrulaması
 
-Azure haritalar şimdi tekliflerini [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) isteklerinin Azure haritalar Hizmetleri kimlik doğrulaması için tümleştirme. Azure AD kimlik tabanlı kimlik doğrulaması sağlar dahil olmak üzere [rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)kullanıcı düzeyinde veya uygulama düzeyinde Azure haritalar kaynaklara erişim için. Aşağıdaki bölümlerde, Azure AD ile Azure haritalar tümleştirme bileşenlerinin ve kavramları anlamanıza yardımcı olabilir.
+Azure haritalar şimdi tekliflerini [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) isteklerinin Azure haritalar Hizmetleri kimlik doğrulaması için tümleştirme. Azure AD kimlik tabanlı kimlik doğrulaması sağlar dahil olmak üzere [rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview), Azure haritalar kaynaklarına kullanıcı düzeyi, grup düzeyinde ve uygulama düzeyi erişimi vermek için. Aşağıdaki bölümlerde, Azure AD ile Azure haritalar tümleştirme bileşenlerinin ve kavramları anlamanıza yardımcı olabilir.
 
 ## <a name="authentication-with-oauth-access-tokens"></a>OAuth erişim belirteçleri ile kimlik doğrulaması
 
@@ -54,10 +54,10 @@ Azure AD'den isteyen belirteçleri hakkında genel bilgi için bkz: [kimlik doğ
 
 Azure AD'den bir belirteç alındığında, aşağıdaki iki gerekli istek üst bilgileri kümesi ile Azure haritalar için bir istek gönderilebilir:
 
-| İstek üstbilgisi    |    Değer    |
+| İstek üstbilgisi    |    Value    |
 |:------------------|:------------|
 | x-ms-istemci kimliği    | 30d7cc….9f55|
-| Yetkilendirme     | Taşıyıcı eyJ0e HNIVN |
+| Authorization     | Taşıyıcı eyJ0e HNIVN |
 
 > [!Note]
 > `x-ms-client-id` Azure haritalar kimlik doğrulaması sayfasında görüntülenen Azure haritalar hesabı tabanlı GUID'dir.
@@ -75,9 +75,9 @@ Authorization: Bearer eyJ0e….HNIVN
 
 ## <a name="control-access-with-rbac"></a>RBAC ile erişimi denetleme
 
-RBAC kullanarak güvenlikli kaynaklara erişimi denetlemek, azure AD olanak tanır. Azure haritalar hesabınızı oluşturun ve Azure AD kiracınızda Azure haritalar'ı Azure AD uygulamanızı kaydetmeniz sonra bir kullanıcı, uygulama veya Azure haritalar hesabı portal sayfasında Azure kaynağı için RBAC ayarlayabilirsiniz.
+RBAC kullanarak güvenlikli kaynaklara erişimi denetlemek, azure AD olanak tanır. Azure haritalar hesabınızı oluşturun ve Azure AD kiracınızda Azure haritalar'ı Azure AD uygulamanızı kaydetmeniz sonra kullanıcı, Grup, uygulama veya Azure haritalar hesabı portal sayfasında Azure kaynak için RBAC ayarlayabilirsiniz.
 
-Azure haritalar destekler okuma erişim denetimi için tek tek Azure AD kullanıcıları, uygulamaları ve Azure kaynakları için yönetilen kimlikleri aracılığıyla Azure Hizmetleri.
+Azure haritalar destekler okuma erişim denetimi için tek tek Azure AD kullanıcıları, grupları, uygulamaları ve Azure kaynakları için yönetilen kimlikleri aracılığıyla Azure Hizmetleri.
 
 ![Azure haritalar verileri Okuyucu (Önizleme)](./media/azure-maps-authentication/concept.png)
 

@@ -4,19 +4,19 @@ description: Azure sanal Makineler'de iç içe sanallaştırmayı etkinleştirme
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 ms.author: cynthn
 ms.date: 10/09/2017
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: acb44a34eae84d8a5718ebcc0003d3cf50b9d43a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 843dfa64cdf0af3ad6cfd3a9f83c16f0ce85fcd0
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510054"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720218"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Azure VM'de iç içe sanallaştırmayı etkinleştirme
 
@@ -120,6 +120,10 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 ## <a name="create-the-guest-virtual-machine"></a>Konuk sanal makinesi oluşturma
 
+>[!IMPORTANT] 
+>
+>Azure Konuk Aracısı, iç içe Vm'lere desteklenmiyor ve hem konak hem de iç içe geçmiş Vm'leri sorunlara neden olabilir. İç içe Vm'lere Azure aracısını yükleme ve bir görüntü zaten Azure Konuk aracısı yüklü olan iç içe geçmiş Vm'leri oluşturmak için kullanmayın.
+
 1. Hyper-V Yöneticisi'ni açın ve yeni bir sanal makine oluşturun. Oluşturduğunuz yeni iç ağa kullanılacak sanal makineyi yapılandırın.
     
     ![NetworkConfig](./media/virtual-machines-nested-virtualization/configure-networking.png)
@@ -168,7 +172,7 @@ Dinamik olarak Konuk sanal makineye bir IP adresi atamak için DHCP yapılandır
 
 2. Konuk sanal makineye sağ tıklayın ve Bağlan'a tıklayın.
 
-3. Konuk sanal makinesinde oturum açın.
+3. Konuk sanal makinede oturum açın.
 
 4. Konuk sanal makinede ağ ve Paylaşım Merkezi'ni açın.
 

@@ -4,7 +4,7 @@ description: Microsoft Azure sanal makineler, yoğun işlem gücü kullanımlı 
 services: virtual-machines-windows
 documentationcenter: ''
 author: mscurrell
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: e9980ce9-124a-41f1-b9ec-f444c8ea5c72
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: 49824741facc8822a9417306794f1028fc180e16
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 857382c09192e71d9727a91274993091f2f903b2
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60555137"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718680"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Azure Vm'lerinde MATLAB dağıtılmış bilgi işlem sunucusu kümeleri oluşturma
 Microsoft Azure sanal makineler, yoğun işlem gücü kullanımlı paralel MATLAB iş yüklerini çalıştırmak için bir veya daha fazla MATLAB dağıtılmış bilgi işlem sunucusu kümeleri oluşturmak için kullanın. Temel görüntü olarak ve bir Azure Hızlı Başlangıç şablonu veya Azure PowerShell Betiği kullanmak, bir VM'de MATLAB dağıtılmış bilgi işlem sunucu yazılımınızı yüklemeniz (kullanılabilir [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) dağıtmak ve kümeyi yönetmek için. Dağıtımdan sonra iş yüklerinizi çalıştırmak için kümeye bağlanın.

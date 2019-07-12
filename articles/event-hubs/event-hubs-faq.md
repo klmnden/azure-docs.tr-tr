@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: c5e58f7bc89fbe2d93f6610465abf4a92fd31406
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1ec6987f1a142e9bf9cd4413cfb4444bde1b7dd
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476125"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796992"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Olay hub'ları hakkında sık sorulan sorular
 
@@ -83,7 +83,7 @@ Bağlantılarınız için doğru IP adreslerini beyaz listeye bulmak için aşa�
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Not alın, döndürülen IP adresine `Non-authoritative answer`. Bu IP adresi statiktir. Değiştirmeniz gerekir yalnızca zaman içinde ad farklı bir kümeye açın geri noktasıdır.
+2. Not alın, döndürülen IP adresine `Non-authoritative answer`. Değiştirmeniz gerekir yalnızca zaman içinde ad farklı bir kümeye açın geri noktasıdır.
 
 Ad alanınız için bölge artıklığı kullanırsanız birkaç ek adımları gerçekleştirmeniz gerekir: 
 

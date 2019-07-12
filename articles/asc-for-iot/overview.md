@@ -2,24 +2,25 @@
 title: IOT Önizleme için Azure Güvenlik Merkezi nedir | Microsoft Docs
 description: Azure Güvenlik Merkezi hakkında IOT özelliklerini ve hizmet için öğrenin.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: mlottner
-ms.openlocfilehash: 7efe32039f926ea9b5be3c24fa967dede72cd081
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2e454d3be536d908003ad9163a44089eb3a5eb99
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192502"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618056"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>IOT için Azure Güvenlik Merkezi ile tanışın
 
@@ -41,15 +42,15 @@ IOT için Azure Güvenlik Merkezi (ASC) karma iş yükü koruması edge üzerind
 
 ### <a name="unified-visibility-and-control"></a>Birleşik görünürlük ve Denetim
 
-Tüm şirket içi güvenlik birleşik bir görünümünü elde ve iş yükleri, Azure IOT çözümünüzü dahil olmak üzere bulut. Otomatik olarak bulmak ve yeni cihaz ekleme ve güvenlik standartları ile yüklerinize (yaprak cihazlar, uç cihazlarına, IOT hub'ı) uyumluluk sağlamak için güvenlik ilkeleri uygulayın.
+Azure IoT çözümünüz de dahil olmak üzere tüm şirket içi ve bulut iş yüklerinizin güvenliğini gösteren birleşik bir görünüm elde edin. Yeni cihazları otomatik olarak keşfedip ekleyin ve iş yüklerinizde (Leaf cihazları, Edge cihazları, IoT Hub) güvenlik ilkeleri uygulayarak güvenlik standartlarıyla uyumluluğu sağlayın.
 
 ### <a name="adaptive-threat-prevention"></a>Uyarlamalı tehdit önleme
 
-IOT için ASC makineler, ağlar ve Azure IOT çözümünüzden uç cihazlarında uygulamaları gibi Azure hizmetlerini güvenliğini sürekli olarak izlemek için kullanın. Yüzlerce yerleşik güvenlik değerlendirmeleri ile kullanın veya kendi IOT hub'ı Pano için merkezi ASC oluşturmak seçim yapabilirsiniz. Güvenlik ayarlarını en iyi duruma getirmek ve sanal makineler, ağlar, uygulamalar ve verilerde, eyleme dönüştürülebilir öneriler güvenlik puanıyla geliştirin. Artık yeni eklenen IOT özelliklerle, saldırı yüzeyini azaltmak için Azure IOT çözümünüzü ve kötüye kullanılmadan önce sorunları düzeltin.
+IOT için ASC makineler, ağlar ve Azure IOT çözümünüzden uç cihazlarında uygulamaları gibi Azure hizmetlerini güvenliğini sürekli olarak izlemek için kullanın. Yüzlerce yerleşik güvenlik değerlendirmeleri ile kullanın veya kendi IOT hub'ı Pano için merkezi ASC oluşturmak seçim yapabilirsiniz. Sanal makineler, ağlar, uygulamalar ve veriler genelinde sağlanan eyleme dönüştürülebilir öneriler sayesinde güvenlik ayarlarınızı iyileştirin ve güvenlik puanınızı geliştirin. Yeni eklenen IoT olanakları sayesinde Azure IoT çözümünüzün saldırı yüzeyini azaltabilir ve sorunları, kötüye kullanılmasına fırsat tanımadan çözebilirsiniz.
 
 ### <a name="intelligent-threat-detection-and-response"></a>Akıllı tehdit algılama ve yanıtlama
 
-Bir edge gelişen siber saldırılardan üzerinden almak için Gelişmiş analiz ve Microsoft Intelligent Security Graph'ı kullanın. Yerleşik davranış analizi ve makine öğrenimi saldırıları belirleyin ve sıfır gün açıklarından yararlanır. IOT çözümünüzü gelen saldırıları ve ihlal sonrası etkinliği. Aygıt araştırma ve düzeltme etkileşimli Araçlar ve bağlama dayalı tehdit zekası ile kolaylaştırın.
+Bir edge gelişen siber saldırılardan üzerinden almak için Gelişmiş analiz ve Microsoft Intelligent Security Graph'ı kullanın. Yerleşik davranış analizi ve makine öğrenimi saldırıları belirleyin ve sıfır gün açıklarından yararlanır. IoT çözümünüzü gelen saldırılara veya güvenlik ihlali sonrası etkinliklere karşı izleyin. Aygıt araştırma ve düzeltme etkileşimli Araçlar ve bağlama dayalı tehdit zekası ile kolaylaştırın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

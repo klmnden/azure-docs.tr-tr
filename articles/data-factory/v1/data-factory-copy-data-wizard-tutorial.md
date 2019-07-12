@@ -13,18 +13,17 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ace2ffdacf775a3c0c5a579e9a4208641c20f661
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0d67e18182d44dc640c75d982ccb40f1d22f8b41
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60489004"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836606"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Öğretici: Data Factory Kopyalama Sihirbazı'nı kullanarak kopyalama Etkinlikli bir işlem hattı oluşturma
 > [!div class="op_single_selector"]
 > * [Genel bakış ve önkoşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Kopyalama Sihirbazı](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager şablonu](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -83,7 +82,7 @@ Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak i
    1. **Görev adı** için **CopyFromBlobToAzureSql** girin
    2. **Açıklama** girin (isteğe bağlı).
    3. Bitiş tarihini bugüne, başlangıç tarihini ise beş gün öncesine ayarlayacak şekilde **Başlangıç tarihi ve saati** ile **Bitiş tarihi ve saati** değerlerini değiştirin.  
-   4. **İleri**’ye tıklayın.  
+   4.           **İleri**'ye tıklayın.  
       
       ![Kopyalama Aracı - Özellikler sayfası](./media/data-factory-copy-data-wizard-tutorial/copy-tool-properties-page.png) 
 3. **Kaynak veri deposu** sayfasında **Azure Blob Storage** kutucuğuna tıklayın. Kopyalama görevine yönelik kaynak veri deposunu belirtmek için bu sayfayı kullanın. 
@@ -119,7 +118,7 @@ Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak i
    3. Azure **aboneliğinizi** seçin.  
    4. **Sunucu adı** ve **Veritabanı** öğelerini seçin.
    5. **Kullanıcı Adı** ve **Parola** girin.
-   6. **İleri**’ye tıklayın.  
+   6.           **İleri**'ye tıklayın.  
       
       ![Kopyalama Aracı - Azure SQL veritabanı belirtme](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
 10. **Tablo eşleme** sayfasında **Hedef** alanı için aşağı açılan listeden **emp** öğesini seçin, **aşağı oka** tıklayarak (isteğe bağlı) şemayı ve verilerin önizlemesini görün.

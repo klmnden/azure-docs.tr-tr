@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 07/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5919eebccad8d7f9e048ae07be296eaaaf8428eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 535842989ef49ee13a5ddee7c4349a3b819f741c
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112117"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797851"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
@@ -101,7 +101,7 @@ Bir koşullu erişim ilkesini bir istemcide ilke işletim sistemine bağlamak i�
 
 Koşullu erişim ilkenizi yapılandırabilirsiniz [istemci uygulamaları](conditions.md#client-apps) erişim denemesi başlattı istemci uygulaması İlkesi bağlamak için koşul. İstemci uygulamaları koşul vermek veya istemci uygulamaları aşağıdaki türlerden erişim denemesi yapıldığında erişimi engellemek için ayarlayın:
 
-- Tarayıcı
+- Browser
 - Mobil uygulamalar ve Masaüstü uygulamaları
 
 ![İstemci uygulamaları için erişimi denetleme](./media/technical-reference/03.png)
@@ -114,7 +114,7 @@ Koşullu erişim ilkenizi seçtiğiniz **tarayıcılar** istemci uygulaması ola
 
 Bu ayar tüm tarayıcılarla çalışır. Ancak, bir cihaz uyumlu gereksinim gibi bir cihaz ilkeyi karşılamak için aşağıdaki işletim sistemleri ve tarayıcılar desteklenir:
 
-| İşletim Sistemi                     | Tarayıcılar                                      |
+| OS                     | Tarayıcılar                                      |
 | :--                    | :--                                           |
 | Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
 | Windows 8 / 8.1        | Internet Explorer, Chrome                     |
@@ -134,14 +134,14 @@ Windows 7, iOS, Android ve macOS cihaz Azure AD'ye kaydedildiğinde, sağlanan b
 
 #### <a name="chrome-support"></a>Chrome desteği
 
-Chrome için destek **Windows 10 Creators Update (sürüm 1703)** veya daha sonra yükleme [bu uzantı](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+Chrome için destek **Windows 10 Creators Update (sürüm 1703)** veya daha sonra yükleme [Windows 10 hesapları uzantısı](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Koşullu erişim ilkesi, cihaz belirli ayrıntıları gerektirdiğinde bu gerekli bir uzantısıdır.
 
 Bu uzantı Chrome tarayıcısına otomatik olarak dağıtmak için aşağıdaki kayıt defteri anahtarı oluşturun:
 
 |    |    |
 | --- | --- |
 | `Path` | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Name | 1 |
+| Name | 1\. |
 | Type | REG_SZ (String) |
 | Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
 

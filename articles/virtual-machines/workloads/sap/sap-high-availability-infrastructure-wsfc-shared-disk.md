@@ -4,7 +4,7 @@ description: Azure altyapı SAP yüksek kullanılabilirlik için bir SAP ASCS/SC
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae3d1b36b89bb1bce1ff384bfa12a1bf643614fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4e107da9d8e5019ba51769d283f3faa34839380
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65408769"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709248"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Azure altyapı SAP yüksek kullanılabilirlik için bir Windows Yük devretme kümesi ve paylaşılan disk SAP ASCS/SCS kullanarak hazırlama
 
@@ -224,7 +224,7 @@ _**Şekil 1:** SAP yüksek kullanılabilirlik Azure Resource Manager parametrele
 >
 
 ## <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Üretimde kullanmak için kurumsal ağ bağlantısı (şirket içi) ile sanal makineleri dağıtma
-Üretim SAP sistemlerini için Azure sanal makineleri dağıtma [kurumsal ağ bağlantısı (şirket içi)] [ planning-guide-2.2] Azure VPN ağ geçidi veya Azure ExpressRoute kullanarak.
+Üretim SAP sistemlerini için Azure sanal makineleri dağıtma [kurumsal ağ bağlantısı (şirket içi)][planning-guide-2.2] Azure VPN ağ geçidi veya Azure ExpressRoute kullanarak.
 
 > [!NOTE]
 > Azure sanal ağı örneğinizin kullanabilirsiniz. Sanal ağ ve alt ağ zaten oluşturduğunuz hazırlanmış ve.
@@ -295,7 +295,7 @@ Aşağıdaki bölümlerde şablonları ve şablonlar, sağlamanız gereken param
 
 ASCS/SCS şablonu birden fazla ASCS/SCS örneği barındıran bir Windows Server Yük devretme kümesi oluşturmak için kullanabileceğiniz iki sanal makine dağıtır.
 
-ASCS/SCS çoklu SID şablonu, ayarlamak için [ASCS/SCS çoklu SID şablon] [ sap-templates-3-tier-multisid-xscs-marketplace-image] veya [yönetilen diskleri kullanarak ASCS/SCS çoklu SID şablon] [ sap-templates-3-tier-multisid-xscs-marketplace-image-md], aşağıdaki parametreler için değerleri girin:
+ASCS/SCS çoklu SID şablonu, ayarlamak için [ASCS/SCS çoklu SID şablon][sap-templates-3-tier-multisid-xscs-marketplace-image] or [ASCS/SCS multi-SID template by using Managed Disks][sap-templates-3-tier-multisid-xscs-marketplace-image-md], aşağıdaki parametreler için değerleri girin:
 
 - **Kaynak önek**:  Dağıtım sırasında oluşturulan tüm kaynakları önek olarak eklemek için kullanılan kaynak öneki ayarlayın. Kaynakları tek bir SAP sistemine ait olmadığından kaynak öneki tek SAP sistemine SID'si değil.  Önek üç ve altı karakter arasında olmalıdır.
 - **Yığın türü**: SAP sistemine yığın türünü seçin. Yığın türüne bağlı olarak, Azure Load Balancer (ABAP ya da yalnızca Java) veya iki (ABAP + Java) özel IP adresi başına SAP sistemine sahiptir.
@@ -333,7 +333,7 @@ Yük Dengeleyici (burada x Örneğin, 1, 2, 3... SAP sistemine sayısıdır) aş
 
 Veritabanı şablonu, bir veya iki tek SAP sistemine ilişkisel veritabanı yönetim sistemi (RDBMS) yüklemek için kullanabileceğiniz sanal makinelerin dağıtır. Örneğin, beş SAP sistemlerini bir ASCS/SCS şablonu dağıtırsanız, beş kez bu şablonu dağıtmak gerekir.
 
-Veritabanı çoklu SID Şablonu ' ayarlamak için [veritabanı çoklu SID şablonu] [ sap-templates-3-tier-multisid-db-marketplace-image] veya [yönetilen diskleri kullanarak veritabanı çoklu SID şablonu] [ sap-templates-3-tier-multisid-db-marketplace-image-md], aşağıdaki parametreler için değerleri girin:
+Veritabanı çoklu SID Şablonu ' ayarlamak için [veritabanı çoklu SID şablonu][sap-templates-3-tier-multisid-db-marketplace-image] or [database multi-SID template by using Managed Disks][sap-templates-3-tier-multisid-db-marketplace-image-md], aşağıdaki parametreler için değerleri girin:
 
 - **SAP sistem kimliği**: Yüklemek istediğiniz SAP sistemine SAP sistemi Kimliğini girin. Kimlik ön eki olarak dağıtılan kaynaklar için kullanılır.
 - **İşletim sistemi türü**: Sanal makinelerin işletim sistemi seçin.
@@ -350,7 +350,7 @@ Veritabanı çoklu SID Şablonu ' ayarlamak için [veritabanı çoklu SID şablo
 
 Uygulama sunucuları şablonu iki veya daha fazla SAP uygulama sunucusu örnekleri olarak bir SAP sistemi için kullanılabilir sanal makinelerin dağıtır. Örneğin, beş SAP sistemlerini bir ASCS/SCS şablonu dağıtırsanız, beş kez bu şablonu dağıtmak gerekir.
 
-Uygulama sunucuları çoklu SID Şablonu ' ayarlamak için [uygulama sunucuları çoklu SID şablonu] [ sap-templates-3-tier-multisid-apps-marketplace-image] veya [yönetilen disklerkullanarakuygulamasunucularıçokluSIDşablonu] [ sap-templates-3-tier-multisid-apps-marketplace-image-md], aşağıdaki parametreler için değerleri girin:
+Uygulama sunucuları çoklu SID Şablonu ' ayarlamak için [uygulama sunucuları çoklu SID şablonu][sap-templates-3-tier-multisid-apps-marketplace-image] or [application servers multi-SID template  by using Managed Disks][sap-templates-3-tier-multisid-apps-marketplace-image-md], aşağıdaki parametreler için değerleri girin:
 
   -  **SAP sistem kimliği**: Yüklemek istediğiniz SAP sistemine SAP sistemi Kimliğini girin. Kimlik ön eki olarak dağıtılan kaynaklar için kullanılır.
   -  **İşletim sistemi türü**: Sanal makinelerin işletim sistemi seçin.
@@ -555,7 +555,7 @@ SAP ASCS/SCS örneği her iki küme düğümlerinde kayıt defteri girdileri ekl
 | --- | --- |
 | Değişken adı |`KeepAliveTime` |
 | Değişken türü |REG_DWORD (ondalık) |
-| Değer |120000 |
+| Value |120000 |
 | Belgelerinin bağlantısı |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 **Tablo 3:** İlk TCP/IP'yi parametre değiştirme

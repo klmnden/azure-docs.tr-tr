@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bccaa28d34ebff47c7de73a4d9b3d8296ae9fef
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: b01ff1e2d0c9bc926d54bd54716e0579ef395ec0
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476134"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655984"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Nasıl için özel olarak geliştirilmiş bir uygulamada belirli alanları doldurun
 
@@ -43,7 +43,7 @@ Bu makalede, kullanılabilir tüm alanları uygulama kayıt formunda kısa bir a
 |------------------|------------------------------------------------------------------------------------------|
 | Ad             | Uygulamanın adı. Bu, en az dört karakter olmalıdır.                |
 | Desteklenen hesap türleri| Hangi hesapların desteklemek üzere uygulamanızı istediğinizi seçin: yalnızca kuruluş bu dizinde hesapları, tüm kuruluş dizinindeki hesaplarını veya herhangi bir kuruluş dizinindeki ve kişisel Microsoft hesapları.  |
-| Yeniden yönlendirme URI'si (isteğe bağlı) | Oluşturmakta olduğunuza, uygulama türünü seçin **Web** veya **genel istemci (Mobil ve Masaüstü)** ve ardından uygulamanızın yeniden yönlendirme URI'si (veya yanıt URL'si) girin. Web uygulamaları için, uygulamanızın temel URL'sini girin. Örneğin http://localhost:31544 yerel makinenizde çalışan bir web uygulamasının URL'si olabilir. Kullanıcılar, bir web istemci uygulamasında oturum açmak için bu URL'yi kullanır. Genel istemci uygulamaları için, Azure AD'nin belirteç yanıtlarını döndürmek üzere kullandığı URI'yi girin. Myapp://auth gibi uygulamanıza özgü bir değer girin. Web uygulamalarına veya yerel uygulamalara özgü örnekler görmek için, [hızlı başlangıçlara](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts) göz atın.|
+| Yeniden yönlendirme URI'si (isteğe bağlı) | Oluşturmakta olduğunuza, uygulama türünü seçin **Web** veya **genel istemci (Mobil ve Masaüstü)** ve ardından uygulamanızın yeniden yönlendirme URI'si (veya yanıt URL'si) girin. Web uygulamaları için, uygulamanızın temel URL'sini girin. Örneğin http://localhost:31544 yerel makinenizde çalışan bir web uygulamasının URL'si olabilir. Kullanıcılar, bir web istemci uygulamasında oturum açmak için bu URL'yi kullanır. Genel istemci uygulamaları için, Azure AD'nin belirteç yanıtlarını döndürmek üzere kullandığı URI'yi girin. Myapp://auth gibi uygulamanıza özgü bir değer girin. Web uygulamalarına veya yerel uygulamalara özgü örnekler görmek için, [hızlı başlangıçlara](https://docs.microsoft.com/azure/active-directory/develop) göz atın.|
 
 Yukarıdaki alanları doldurduktan sonra Azure portalında uygulama kaydedilir ve uygulama genel bakış sayfasına yönlendirilirsiniz. Sol bölmede altında ayarları sayfalarında **Yönet** uygulamanızı özelleştirmek size daha fazla alana sahip. Aşağıdaki tablolarda tüm alanları açıklar. Yalnızca, bir web uygulaması veya bir ortak istemci uygulaması oluşturduğunuz bağlı olarak, bu alanların bir alt kümesini görür.
 
@@ -60,7 +60,7 @@ Yukarıdaki alanları doldurduktan sonra Azure portalında uygulama kaydedilir v
 | Karşıya yeni logo yükle | Bu, uygulamanız için bir logosu yüklemek için kullanabilirsiniz. Logo, .bmp, .jpg veya .png biçiminde olmalıdır ve dosya boyutu 100 KB'tan küçük olmalıdır. Görüntü boyutları ile merkez resim boyutları: 94 x 94 piksel 215 x 215 piksel olmalıdır.|
 | Giriş sayfası URL'si   | Uygulama kaydı sırasında belirtilen oturum açma URL'si budur.|
 
-### <a name="authentication"></a>Kimlik Doğrulaması
+### <a name="authentication"></a>Authentication
 
 | Alan           | Açıklama        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d15bb4a1cd19af70b29d1d74f43e137cf884c4db
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4f213acea71f22815d8b26b6c4c6cb54f64b8b34
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164104"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807796"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile SharePoint uzaktan erişimi etkinleştirme
 
@@ -34,9 +34,7 @@ Azure AD uygulama ara sunucusu ile SharePoint için uzaktan erişimi etkinleşti
 Bu makalede, ortamınızda SharePoint 2013 veya daha yeni zaten sahibi olduğunuzu varsayar. Ayrıca, aşağıdaki önkoşulları göz önünde bulundurun:
 
 * SharePoint yerel Kerberos desteği içerir. Bu nedenle, iç sitelere Azure AD uygulama proxy'si aracılığıyla uzaktan erişen kullanıcılar, bir çoklu oturum açma (SSO) deneyimi sağlamak için kabul edilebilir.
-
 * Bu senaryo, SharePoint Server'ınıza yapılandırma değişiklikleri içerir. Bir hazırlık ortamı kullanmanızı öneririz. Bu şekilde güncelleştirmeleri hazırlama sunucunuza ilk olun ve sonra üretime geçmeden önce bir test döngüsünü kolaylaştırmak.
-
 * Yayımlanmış URL'sini SSL zorunlu kılarız. SSL iç URL'SİNDE gönderilen/eşlenen bağlantıları doğru olduğundan emin olmak için de gereklidir.
 
 ## <a name="step-1-configure-kerberos-constrained-delegation-kcd"></a>1\. adım: Kerberos'u yapılandırma Kısıtlı temsilci (KCD)
@@ -55,13 +53,13 @@ KCD ' için bir SharePoint sunucusu ayarlamak için aşağıdaki sıralı bölü
 Sitelerinizi bir tanımlı bir hizmet hesabı altında çalıştığından emin olun için aşağıdaki adımları gerçekleştirin:
 
 1. Açık **SharePoint Yönetim Merkezi** site.
-2. Git **güvenlik** seçip **hizmet hesaplarını yapılandırın**.
-3. Seçin **Web uygulama havuzu - SharePoint - 80**. Seçenekler, web havuzu adına göre biraz farklı olabilir veya web havuzu varsayılan olarak SSL kullanır.
+1. Git **güvenlik** seçip **hizmet hesaplarını yapılandırın**.
+1. Seçin **Web uygulama havuzu - SharePoint - 80**. Seçenekler, web havuzu adına göre biraz farklı olabilir veya web havuzu varsayılan olarak SSL kullanır.
 
    ![Bir hizmet hesabı yapılandırma seçenekleri](./media/application-proxy-integrate-with-sharepoint-server/service-web-application.png)
 
-4. Varsa **bu bileşen için bir hesap seçersiniz** ayarlanmış **yerel hizmet** veya **ağ hizmeti**, bir hesap oluşturmanız gerekir. Değilse, tamamlanmış ve sonraki bölüme geçebilirsiniz.
-5. Seçin **kaydı yeni yönetilen hesabı**. Hesabınızı oluşturduktan sonra ayarlamalısınız **Web uygulama havuzu** hesabı kullanabilmeniz için önce.
+1. Varsa **bu bileşen için bir hesap seçersiniz** ayarlanmış **yerel hizmet** veya **ağ hizmeti**, bir hesap oluşturmanız gerekir. Değilse, tamamlanmış ve sonraki bölüme geçebilirsiniz.
+1. Seçin **kaydı yeni yönetilen hesabı**. Hesabınızı oluşturduktan sonra ayarlamalısınız **Web uygulama havuzu** hesabı kullanabilmeniz için önce.
 
 ### <a name="set-a-service-principal-name-for-the-sharepoint-service-account"></a>SharePoint hizmet hesabı için bir hizmet asıl adı ayarlayın
 
@@ -77,7 +75,7 @@ HTTP/SharePoint
 ```
 
 > [!NOTE]
-> Lütfen İç URL için aşağıdaki önerileri dikkate:
+> İç URL için aşağıdaki önerileri uygulayın:
 > * HTTPS kullanın
 > * Özel bağlantı noktaları kullanmayın
 > * DNS'de, SharePoint WFE (veya yük dengeleyici) üzerine bir konak (A) ve olmayan bir diğer ad (CName) oluştur
@@ -101,12 +99,12 @@ SharePoint uygulama havuzu hesabı için kullanıcı kimliklerini Azure AD uygul
 KCD yapılandırmak için her bir bağlayıcı makine için aşağıdaki adımları yineleyin:
 
 1. Bir DC için bir etki alanı yöneticisi olarak oturum açın ve ardından açın **Active Directory Kullanıcıları ve Bilgisayarları**.
-2. Bağlayıcıyı çalıştıran bilgisayarı bulmak. Bu örnekte, aynı SharePoint sunucusudur.
-3. Bilgisayarı çift tıklatın ve ardından **temsilci** sekmesi.
-4. Temsilci seçme ayarları ayarlandığından emin olun **bu bilgisayara yalnızca belirtilen hizmetlere temsilci seçmek için güven**. Ardından, **herhangi bir kimlik doğrulama protokolünü kullan**.
-5. Tıklayın **Ekle** düğmesini tıklatın, **kullanıcılar veya bilgisayarlar**, SharePoint uygulama havuzu hesabı, örneğin bulun _demo\spAppPoolAccount_.
-6. SPN'ler listesinde, daha önce oluşturduğunuz hizmet hesabı için bir tane seçin.
-7. **Tamam** düğmesine tıklayın. Tıklayın **Tamam** yeniden değişiklikleri kaydedin.
+1. Bağlayıcıyı çalıştıran bilgisayarı bulmak. Bu örnekte, aynı SharePoint sunucusudur.
+1. Bilgisayarı çift tıklatın ve ardından **temsilci** sekmesi.
+1. Temsilci seçme ayarları ayarlandığından emin olun **bu bilgisayara yalnızca belirtilen hizmetlere temsilci seçmek için güven**. Ardından, **herhangi bir kimlik doğrulama protokolünü kullan**.
+1. Tıklayın **Ekle** düğmesini tıklatın, **kullanıcılar veya bilgisayarlar**, SharePoint uygulama havuzu hesabı, örneğin bulun _demo\spAppPoolAccount_.
+1. SPN'ler listesinde, daha önce oluşturduğunuz hizmet hesabı için bir tane seçin.
+1. **Tamam** düğmesine tıklayın. Tıklayın **Tamam** yeniden değişiklikleri kaydedin.
   
    ![Temsilci seçme ayarları](./media/application-proxy-integrate-with-sharepoint-server/delegation-box2.png)
 
@@ -119,28 +117,28 @@ KCD yapılandırdığınıza göre Azure AD uygulama proxy'si yapılandırmaya h
    * **Ön kimlik doğrulama yöntemi**: Azure Active Directory
    * **Bilgilerde URL'yi çevir**: NO
 
-   >[!TIP]
-   >SharePoint kullanan _ana bilgisayar üst bilgisini_ siteyi aramak için değer. Ayrıca bu değere göre bağlantılar oluşturur. Net etkisiyle SharePoint oluşturan herhangi bir bağlantıyı dış URL'sini kullanmak üzere doğru şekilde yayımlanmış bir URL olmasıdır. Değerini **Evet** Ayrıca arka uç uygulaması isteği iletmek bağlayıcıyı etkinleştirir. Ancak, ayar değeri **Hayır** bağlayıcı iç ana bilgisayar adını göndermez anlamına gelir. Bunun yerine, bağlayıcıyı arka uç uygulaması için yayımlanan URL olarak ana bilgisayar üst bilgisi gönderir.
+   > [!TIP]
+   > SharePoint kullanan _ana bilgisayar üst bilgisini_ siteyi aramak için değer. Ayrıca bu değere göre bağlantılar oluşturur. Net etkisiyle SharePoint oluşturan herhangi bir bağlantıyı dış URL'sini kullanmak üzere doğru şekilde yayımlanmış bir URL olmasıdır. Değerini **Evet** Ayrıca arka uç uygulaması isteği iletmek bağlayıcıyı etkinleştirir. Ancak, ayar değeri **Hayır** bağlayıcı iç ana bilgisayar adını göndermez anlamına gelir. Bunun yerine, bağlayıcıyı arka uç uygulaması için yayımlanan URL olarak ana bilgisayar üst bilgisi gönderir.
 
    ![SharePoint uygulaması olarak Yayımla](./media/application-proxy-integrate-with-sharepoint-server/publish-app.png)
 
-2. Uygulamanızı yayımladıktan sonra aşağıdaki adımlarla çoklu oturum açma ayarları yapılandırın:
+1. Uygulamanızı yayımladıktan sonra aşağıdaki adımlarla çoklu oturum açma ayarları yapılandırın:
 
    1. Uygulama sayfasında portalında seçin **çoklu oturum açma**.
-   2. Çoklu oturum açma modu için seçin **tümleşik Windows kimlik doğrulaması**.
-   3. İç uygulama SPN'si daha önce ayarlanan değere ayarlayın. Bu örnekte, olacak **HTTP/SharePoint**.
-   4. Temsilci oturum açma'nde "kimlik", Active Directory orman yapılandırmanız için en uygun seçeneği seçin. Örneğin, orman, select tek bir AD etki alanı varsa **şirket içi SAM hesabı adı** (olarak aşağıda gösterilmiştir), ancak kullanıcıların SharePoint aynı etki alanında olmayan ve sonra uygulama Proxy Bağlayıcısı sunucuları seçin,  **Şirket içi kullanıcı asıl adı** (gösterilmemiştir).
+   1. Çoklu oturum açma modu için seçin **tümleşik Windows kimlik doğrulaması**.
+   1. İç uygulama SPN'si daha önce ayarlanan değere ayarlayın. Bu örnekte, olacak **HTTP/SharePoint**.
+   1. Temsilci oturum açma'nde "kimlik", Active Directory orman yapılandırmanız için en uygun seçeneği seçin. Örneğin, orman, select tek bir AD etki alanı varsa **şirket içi SAM hesabı adı** (olarak aşağıda gösterilmiştir), ancak kullanıcıların SharePoint aynı etki alanında olmayan ve sonra uygulama Proxy Bağlayıcısı sunucuları seçin,  **Şirket içi kullanıcı asıl adı** (gösterilmemiştir).
 
    ![SSO için tümleşik Windows kimlik doğrulamasını yapılandırma](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 
-3. Uygulamanızı ayarlama işlemini sonlandırmak için şuraya gidin: **kullanıcılar ve gruplar** bölümünde ve bu uygulamaya erişmek için kullanıcı atama. 
+1. Uygulamanızı ayarlama işlemini sonlandırmak için şuraya gidin: **kullanıcılar ve gruplar** bölümünde ve bu uygulamaya erişmek için kullanıcı atama. 
 
 ## <a name="step-3-configure-sharepoint-to-use-kerberos-and-azure-ad-proxy-urls"></a>3\. adım: Kerberos ve Azure AD Proxy URL'ler kullanmak için SharePoint'i yapılandırma
 
 Sonraki adım, SharePoint web uygulaması İç URL için gönderilen gelen istekleri işlemek için Kerberos ve uygun bir alternatif erişim eşlemeyi SharePoint izin verecek şekilde yapılandırılmış yeni bir bölge için genişletme ve bağlantılar için dış URL'yi yerleşik yanıt sağlamaktır.
 
 1. Başlangıç **SharePoint Yönetim Kabuğu'nu**.
-2. Extranet bölgesine web uygulaması'nı genişletin ve Kerberos kimlik doğrulamasını etkinleştirmek için aşağıdaki betiği çalıştırın:
+1. Extranet bölgesine web uygulaması'nı genişletin ve Kerberos kimlik doğrulamasını etkinleştirmek için aşağıdaki betiği çalıştırın:
 
    ```powershell
    # Replace "http://spsites/" with the URL of your web application
@@ -149,17 +147,17 @@ Sonraki adım, SharePoint web uygulaması İç URL için gönderilen gelen istek
    Get-SPWebApplication "http://spsites/" | New-SPWebApplicationExtension -Name "SharePoint - AAD Proxy" -SecureSocketsLayer -Zone "Extranet" -Url "https://sharepoint-f128.msappproxy.net/" -AuthenticationProvider $winAp
    ```
 
-3. Açık **SharePoint Yönetim Merkezi** site.
-4. Altında **sistem ayarlarını**seçin **alternatif erişim eşlemelerini yapılandırma**. Alternatif erişim eşlemeleri kutusu açılır.
-5. Örneğin, sitenizi seçin **SharePoint - 80**. Şu anda, Extranet Bölge henüz düzgün ayarlanıp dahili URL'yi sahip değil:
+1. Açık **SharePoint Yönetim Merkezi** site.
+1. Altında **sistem ayarlarını**seçin **alternatif erişim eşlemelerini yapılandırma**. Alternatif erişim eşlemeleri kutusu açılır.
+1. Örneğin, sitenizi seçin **SharePoint - 80**. Şu anda, Extranet Bölge henüz düzgün ayarlanıp dahili URL'yi sahip değil:
 
-   ![Alternatif erişim eşlemelerini kutusu](./media/application-proxy-integrate-with-sharepoint-server/alternate-access1.png)
+   ![Alternatif erişim eşlemeleri kutusu gösterir](./media/application-proxy-integrate-with-sharepoint-server/alternate-access1.png)
 
-6. Tıklayın **İç URL ekleyin**.
-7. İçinde **URL protokolü, ana bilgisayar ve bağlantı noktası** metin kutusuna **İç URL** örneğin Azure AD proxy yapılandırılan <https://SharePoint/>.
-8. Select bölge **Extranet** aşağı açılan listesinde.
-9. **Kaydet**’e tıklayın.
-10. Alternatif erişim eşlemeleri gibi görünmelidir:
+1. Tıklayın **İç URL ekleyin**.
+1. İçinde **URL protokolü, ana bilgisayar ve bağlantı noktası** metin kutusuna **İç URL** örneğin Azure AD proxy yapılandırılan <https://SharePoint/>.
+1. Select bölge **Extranet** aşağı açılan listesinde.
+1. **Kaydet**’e tıklayın.
+1. Alternatif erişim eşlemeleri gibi görünmelidir:
 
     ![Alternatif erişim eşlemelerini düzeltin](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)
 
@@ -168,7 +166,7 @@ Sonraki adım, SharePoint web uygulaması İç URL için gönderilen gelen istek
 SharePoint yapılandırması olan artık tamamlandı, ancak iç URL Extranet bölgenin olduğundan <https://SharePoint/>, bu site için bir sertifika ayarlamanız gerekir.
 
 1. Windows PowerShell konsolunu açın.
-2. Kendinden imzalı bir sertifika oluşturur ve MY deposunda bilgisayara eklemek için aşağıdaki betiği çalıştırın:
+1. Kendinden imzalı bir sertifika oluşturur ve MY deposunda bilgisayara eklemek için aşağıdaki betiği çalıştırın:
 
    ```powershell
    # Replace "SharePoint" with the actual hostname of the Internal URL of your Azure AD proxy application
@@ -178,10 +176,10 @@ SharePoint yapılandırması olan artık tamamlandı, ancak iç URL Extranet bö
    > [!NOTE]
    > Otomatik olarak imzalanan sertifikaları, yalnızca test amaçları için uygundur. Üretim ortamlarında, bunun yerine bir sertifika yetkilisi tarafından verilen sertifikaların kullanılacak önemle tavsiye edilir.
 
-3. "Internet Information Services Manager" konsolunu açın.
-4. Ağaç görünümünde sunucuyu genişletin, "siteler", "SharePoint – AAD Proxy" siteyi seçin ve tıklayın **bağlamaları**.
-5. HTTPS bağlamasını seçip tıklayın **Düzenle...** .
-6. SSL sertifika alanında, seçtiğiniz **SharePoint** sertifika ve Tamam'a tıklayın.
+1. "Internet Information Services Manager" konsolunu açın.
+1. Ağaç görünümünde sunucuyu genişletin, "siteler", "SharePoint – AAD Proxy" siteyi seçin ve tıklayın **bağlamaları**.
+1. HTTPS bağlamasını seçip tıklayın **Düzenle...** .
+1. SSL sertifika alanında, seçtiğiniz **SharePoint** sertifika ve Tamam'a tıklayın.
 
 Artık Azure AD uygulama proxy'si aracılığıyla harici olarak SharePoint sitesine erişebilirsiniz.
 

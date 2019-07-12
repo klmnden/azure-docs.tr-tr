@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecf5b874345a94e8fd3d3a0783f8e48c7484377d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d84801d6368bcc29f08145f190c2a07c64050ced
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111264"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795095"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Web API'leri - çağıran Masaüstü uygulamasının bir belirteç Al
 
@@ -293,8 +293,9 @@ Ayrıca kullanıcı adı ve parolasını sağlayarak bir belirteç elde edebilir
 
 Bu akış **önerilmez** çünkü bir kullanıcı kendi parolasını isteyen uygulamanızı güvenli değildir. Bu sorun hakkında daha fazla bilgi için bkz. [bu makalede](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). Windows etki alanına katılmış makinelerde sessiz bir belirteç almak için tercih edilen akışı [tümleşik Windows kimlik doğrulaması](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). Aksi takdirde kullanabilirsiniz [cihaz kod akışı](https://aka.ms/msal-net-device-code-flow)
 
+> [!NOTE] 
 > Kullanıcı Arabirimi, onw sağlarsınız etkileşimli senaryolar kullanıcı adı/parola kullanmak istiyorsanız bu bazı durumlarda (DevOps senaryolarını) kullanışlı olsa da, bunu uzağa taşıma hakkında gerçekten düşünmelisiniz. Kullanıcı adı/parola kullanarak, veren birkaç Yukarı:
-
+>
 > - modern kimlik kiracılar Çekirdek: parola fished, yeniden yürütülmesi. Çünkü bu kavramı, geçirilebilir bir paylaşım gizli dizi sahip olabiliyoruz.
 > Bu, parolasız ile uyumlu değil.
 > - MFA yapmak için gereken kullanıcılar etkileşimi (olduğu gibi) oturum açmanız mümkün olmayacaktır.
@@ -651,7 +652,7 @@ Sınıflar ve arabirimler belirteç önbelleği serileştirme dahil olan aşağ�
 > [!IMPORTANT]
 > MSAL.NET belirteci önbellekler oluşturur ve size sağlar `IToken` önbelleğe uygulamanın çağırdığınızda `GetUserTokenCache` ve `GetAppTokenCache` yöntemleri. Kendiniz arabirim uygulamak için kullanılmaması. Bir özel belirteç önbelleği serileştirme uyguladığınızda sizin sorumluluğunuzdadır olmaktır:
 >
-> - Tepki `BeforeAccess` ve `AfterAccess` "olaylar". `BeforeAccess` İse temsilci önbellek seri durumdan çıkarılacak sorumlu `AfterAccess` önbellek serileştirmek için sorumlu biridir.
+> - Tepki `BeforeAccess` ve `AfterAccess` "olaylar" (veya *zaman uyumsuz* karşılığı). `BeforeAccess` İse temsilci önbellek seri durumdan çıkarılacak sorumlu `AfterAccess` önbellek serileştirmek için sorumlu biridir.
 > - Bu olayların bölümü depolamak veya yüklemek istediğiniz her depolama alanına geçirilen olay bağımsız değişkeni BLOB sayısı.
 
 Stratejiler genel istemci uygulaması (Masaüstü) veya gizli bir istemci uygulaması (web uygulaması/web API'si, arka plan programı uygulama) için bir belirteç önbelleği serileştirme yazıyorsanız bağlı olarak farklıdır.
@@ -724,6 +725,7 @@ static class TokenCacheHelper
 
 Dosya tabanlı serileştirici (Windows, Mac ve Linux'ta çalışan masaüstü uygulamalar için) ortak istemci uygulamaları için kullanılabilir bir ürün kalitesini belirteci bir önbellek önizlemesini [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) Açık Kaynak Kitaplığı. Uygulamalarınıza aşağıdaki nuget paketinden içerebilir: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
 
+> [!NOTE]
 > Sorumluluk reddi. Microsoft.Identity.Client.Extensions.Msal kitaplığı MSAL.NET uzantısıdır. Bu kitaplıklar sınıflarda aşamalarından MSAL.NET gelecekte olduğundan veya önemli değişiklikler ile yapabilirsiniz.
 
 ### <a name="dual-token-cache-serialization-msal-unified-cache--adal-v3"></a>Çift belirteç önbelleği serileştirme (MSAL birleşik önbellek + ADAL V3)

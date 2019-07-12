@@ -2,18 +2,18 @@
 title: include dosyası
 description: include dosyası
 services: virtual-machines
-author: jpconnock
+author: singhkays
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/25/2019
-ms.author: jeconnoc
+ms.author: kasing
 ms.custom: include file
-ms.openlocfilehash: 289912e1519a68ae607ace7766e35731af0016b9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: de2e33ceb182383d9529bfe41afffbbf28e1e493
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67188345"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671318"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Iaas kaynaklarının Klasik modelden Azure Resource Manager'a Platform destekli geçiş
 Bu makalede hizmet (Iaas) kaynaklar Klasikten Resource Manager dağıtım modelleri ve ayrıntıları olarak aboneliğinizde sanal ağ'ı kullanarak birlikte bulunan iki dağıtım modellerindeki kaynaklara bağlanma altyapı geçirme siteden siteye ağ geçitleri. Daha fazla bilgi edinebilirsiniz [Azure Resource Manager özelliklerine ve avantajlarına](../articles/azure-resource-manager/resource-group-overview.md). 

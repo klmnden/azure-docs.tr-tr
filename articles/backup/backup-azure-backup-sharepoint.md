@@ -6,14 +6,14 @@ author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 07/09/2019
 ms.author: kasinh
-ms.openlocfilehash: 7e8043badbc0accd38ad618a7d455729ab6606b2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dd38ed8119e2879c4a1e4c6a52ad283043f067bf
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60644344"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705245"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Bir SharePoint grubunu Azure’a yedekleme
 Microsoft Azure'a çok diğer veri kaynaklarını yedekleme aynı şekilde, System Center Data Protection Manager (DPM) kullanarak bir SharePoint grubunu yedekleme. Azure Backup, yedekleme zamanlaması günlük oluşturmak için esneklik sağlar, haftalık, aylık veya yıllık yedekleme işaret ve çeşitli yedekleme noktaları için bekletme ilkesi seçenekleri sunar. DPM, Hızlı Kurtarma süresi hedeflerini (RTO) için yerel disk kopyaları depolamak ve ekonomik, uzun süreli saklama için azure'a kopyaları depolamak için yeteneği sağlar.
@@ -87,7 +87,7 @@ DPM ve daha önce açıklandığı gibi SharePoint grubu yapılandırdıktan son
    > DPM aracısının yüklü olduğu sunucunun sihirbazdaki görebilirsiniz. DPM, aynı zamanda yapısını gösterir. ConfigureSharePoint.exe çalıştığından, DPM SharePoint VSS Yazıcı hizmetini ve ilgili SQL Server veritabanlarını ile iletişim kurar ve SharePoint grup yapısı, ilişkili içerik veritabanları ve karşılık gelen öğeleri algılar.
    >
    >
-4. Üzerinde **veri koruma yöntemini seçin** sayfasını, adını **koruma grubu**ve tercih ettiğiniz *koruma yöntemleri*. **İleri**’ye tıklayın.
+4. Üzerinde **veri koruma yöntemini seçin** sayfasını, adını **koruma grubu**ve tercih ettiğiniz *koruma yöntemleri*.           **İleri**'ye tıklayın.
 
     ![Veri koruma yöntemini seçin](./media/backup-azure-backup-sharepoint/select-data-protection-method1.png)
 
@@ -158,7 +158,7 @@ Aşağıdaki örnekte, *SharePoint kurtarma öğesi* yanlışlıkla silinmişse 
 5. Ayrıca, çeşitli kurtarma noktalarına göz atın ve bir veritabanı veya kurtarmak için öğeyi seçin. Seçin **tarih > Kurtarma zamanı**ve ardından doğru **veritabanı > SharePoint grubu > kurtarma noktası > öğesi**.
 
     ![DPM SharePoint Protection7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
-6. Öğeye sağ tıklayın ve ardından **kurtarmak** açmak için **Kurtarma Sihirbazı'nı**. **İleri**’ye tıklayın.
+6. Öğeye sağ tıklayın ve ardından **kurtarmak** açmak için **Kurtarma Sihirbazı'nı**.           **İleri**'ye tıklayın.
 
     ![Kurtarma seçimini inceleyin](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
 7. Gerçekleştirin ve ardından istediğiniz kurtarma türünü seçin **sonraki**.
@@ -182,7 +182,7 @@ Aşağıdaki örnekte, *SharePoint kurtarma öğesi* yanlışlıkla silinmişse 
     DPM içerik veritabanını geçici SQL Server örneği için SharePoint öğesini barındıran ekler. İçerik veritabanından DPM sunucusuna öğesi kurtarır ve DPM sunucusundaki hazırlama dosya konumunda koyar. DPM sunucusunun hazırlama konumuna sunulmuştur Kurtarılan bir öğeye SharePoint grubu hazırlama konumuna verilmesi gerekir.
 
     ![Hazırlama Location2](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. Seçin **kurtarma seçeneklerini belirtin**, SharePoint grubu için güvenlik ayarlarını Uygula ve kurtarma noktasının güvenlik ayarlarını uygula. **İleri**’ye tıklayın.
+10. Seçin **kurtarma seçeneklerini belirtin**, SharePoint grubu için güvenlik ayarlarını Uygula ve kurtarma noktasının güvenlik ayarlarını uygula.           **İleri**'ye tıklayın.
 
     ![Kurtarma Seçenekleri](./media/backup-azure-backup-sharepoint/recovery-options.png)
 
@@ -227,17 +227,6 @@ Aşağıdaki örnekte, *SharePoint kurtarma öğesi* yanlışlıkla silinmişse 
 
     ![DPM SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. Bu noktada, bir SharePoint içerik veritabanını diskten kurtarmak için bu makalenin önceki bölümlerinde kurtarma adımları izleyin.
-
-## <a name="faqs"></a>SSS
-
-### <a name="which-versions-of-dpm-support-sql-server-2014-and-sql-2012-sp2"></a>Hangi sürümlerinin DPM, SQL Server 2014 ve SQL 2012 (SP2) destekliyor?
-DPM 2012 R2 güncelleştirme paketi 4 ile her ikisini de destekler.
-
-### <a name="can-i-recover-a-sharepoint-item-to-the-original-location-if-sharepoint-is-configured-by-using-sql-alwayson-with-protection-on-disk"></a>SharePoint, SQL AlwaysOn (disk koruması) kullanılarak yapılandırılmışsa, bir SharePoint öğesi için özgün konuma kurtarma gerçekleştirebilir miyim?
-Evet, öğe özgün SharePoint sitesine kurtarılabilir.
-
-### <a name="can-i-recover-a-sharepoint-database-to-the-original-location-if-sharepoint-is-configured-by-using-sql-alwayson"></a>SharePoint, SQL Alwayson'u kullanarak yapılandırılmışsa, bir SharePoint veritabanını özgün konumuna kurtarma gerçekleştirebilir miyim?
-SharePoint veritabanlarını SQL AlwaysOn yapılandırıldığından, bunlar kullanılabilirlik grubu kaldırılmadığı sürece değiştirilemez. Sonuç olarak, DPM veritabanını özgün konumuna geri yükleyemezsiniz. Bir SQL Server veritabanını başka bir SQL Server örneğine kurtarabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * SharePoint DPM koruma hakkında daha fazla bilgi - bkz [Video serisi - SharePoint DPM koruma](https://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)

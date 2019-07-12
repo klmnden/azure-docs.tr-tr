@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: a81232266749c14ce421ccf774e0cbd843b8b4eb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 99a55d0cd06e6f1a92a70b20447d300dbc05eee1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67436618"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709530"
 ---
 # <a name="security-groups"></a>Güvenlik grupları
 <a name="network-security-groups"></a>
@@ -38,7 +38,7 @@ Bir ağ güvenlik grubunda Azure abonelik [limitleri](../azure-subscription-serv
 |Protocol     | TCP, UDP veya (ancak bunlarla sınırlı değil) içeren herhangi, TCP, UDP ve ICMP. Tek başına ICMP'yi belirtemezsiniz. ICMP gerekiyorsa Tümü seçeneğini kullanın. |
 |Direction| Kuralın gelen veya giden trafiğe uygulanma seçeneği.|
 |Bağlantı noktası aralığı     |Tek bir bağlantı noktası veya aralık belirtebilirsiniz. Örneğin 80 veya 10000-10005 değerini kullanabilirsiniz. Aralık belirterek oluşturmanız gereken güvenlik kuralı sayısını azaltabilirsiniz. Genişletilmiş güvenlik kuralları yalnızca Resource Manager dağıtım modeliyle oluşturulmuş olan ağ güvenlik gruplarında oluşturulabilir. Klasik dağıtım modeliyle oluşturulmuş olan ağ güvenlik gruplarında aynı güvenlik kuralı içinde birden fazla bağlantı noktası ve bağlantı noktası aralığı belirtemezsiniz.   |
-|Eylem     | İzin ver veya reddet        |
+|Action     | İzin ver veya reddet        |
 
 Ağ güvenlik grubu güvenlik kuralları, trafiğe izin verilmesi veya trafiğin reddedilmesi için 5 tanımlama grubu bilgisi (kaynak, kaynak bağlantı noktası, hedef, hedef bağlantı noktası ve protokol) ile önceliğe göre değerlendirilir. Var olan bağlantılar için bir akış kaydı oluşturulur. Akış kaydının bağlantı durumuna göre iletişime izin verilir veya iletişim reddedilir. Akış kaydı bir ağ güvenlik grubunun durum bilgisine sahip olmasını sağlar. Örneğin 80 numaralı bağlantı noktasından tüm adreslere doğru giden bir güvenlik kuralı belirtirseniz giden trafiğe yanıt olarak bir gelen güvenlik kuralı belirtmeniz gerekli değildir. Yalnızca iletişimin dışarıdan başlatılması halinde bir gelen güvenlik kuralı belirtmeniz gerekir. Bunun tersi de geçerlidir. Gelen trafiğe bir bağlantı noktası üzerinden izin verilmesi halinde bağlantı noktasından geçen trafiğe yanıt olarak bir giden güvenlik belirtmeniz gerekli değildir.
 Akışı etkinleştiren bir güvenlik kuralını kaldırdığınızda mevcut bağlantılar kesintiye uğramayabilir. Bağlantılar durdurulduğunda trafik akışları kesintiye uğrar ve en azından birkaç dakika boyunca hiçbir yönde trafik akışı gerçekleşmez.
@@ -82,6 +82,11 @@ Aşağıdaki hizmet etiketlerinden kullanılmak üzere kullanılabilir [ağ güv
 * **AzureBackup*** (yalnızca Resource Manager): Bu etiket, AzureBackup hizmetin adres ön eklerini belirtir. Belirtirseniz *AzureBackup* değeri için trafiğe izin veya trafik için AzureBackup reddedilir. Bu etikete sahip bağımlılık **depolama** ve **AzureActiveDirectory** etiketi. Bu etiket, giden güvenlik kuralı için önerilir. 
 * **AzureActiveDirectoryDomainServices*** (yalnızca Resource Manager): Bu etiket, Azure Active Directory Domain Services özel dağıtımlar için yönetim trafiğinin adres ön eklerini belirtir. Belirtirseniz *AzureActiveDirectoryDomainServices* değeri için trafiğe izin veya trafik için AzureActiveDirectoryDomainServices reddedilir. Bu etiket, gelen/giden güvenlik kuralı için önerilir.  
 * **SqlManagement*** (yalnızca Resource Manager): Bu etiket, adres ön eklerini SQL Yönetim trafiğini dağıtımları ayrılmış belirtir. Belirtirseniz *SqlManagement* değeri için trafiğe izin veya trafik için SqlManagement reddedilir. Bu etiket, gelen/giden güvenlik kuralı için önerilir. 
+* **CognitiveServicesManagement** (yalnızca Resource Manager): Bu etiket, Bilişsel hizmetler için trafik adres ön eklerini belirtir. Belirtirseniz *CognitiveServicesManagement* değeri için trafiğe izin veya trafik için CognitiveServicesManagement reddedilir. Bu etiket, giden güvenlik kuralı için önerilir.  
+* **Dynamics365ForMarketingEmail** (yalnızca Resource Manager): Bu etiket, Dynamics 365 pazarlama e-posta hizmetin adres ön eklerini belirtir. Belirtirseniz *Dynamics365ForMarketingEmail* değeri için trafiğe izin veya trafik için Dynamics365ForMarketingEmail reddedilir. Yalnızca belirli bir Dynamics365ForMarketingEmail erişmesine izin vermek istiyorsanız [bölge](https://azure.microsoft.com/regions), şu biçimde Dynamics365ForMarketingEmail bölgeyi belirtebilirsiniz. [ bölge adı].
+* **AzurePlatformDNS** (yalnızca Resource Manager): Bu etiket, temel altyapı hizmeti DNS belirtir. Belirtirseniz *AzurePlatformDNS* değeri için varsayılan devre dışı bırakabilirsiniz [Azure platformu göz önünde bulundurarak](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) DNS için. Lütfen bu etiket kullanarak uyarı alın. Bu etiket kullanmadan önce test önerilir. 
+* **AzurePlatformIMDS** (yalnızca Resource Manager): Bu etiket, temel altyapı hizmeti IMDS belirtir. Belirtirseniz *AzurePlatformIMDS* değeri için varsayılan devre dışı bırakabilirsiniz [Azure platformu göz önünde bulundurarak](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) IMDS için. Lütfen bu etiket kullanarak uyarı alın. Bu etiket kullanmadan önce test önerilir. 
+* **AzurePlatformLKM** (yalnızca Resource Manager): Bu etiket, Windows lisans veya anahtar yönetimi hizmeti belirtir. Belirtirseniz *AzurePlatformLKM* değeri için varsayılan devre dışı bırakabilirsiniz [Azure platformu göz önünde bulundurarak](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) lisans. Lütfen bu etiket kullanarak uyarı alın. Bu etiket kullanmadan önce test önerilir. 
 
 > [!NOTE]
 > Hizmet etiketleri Azure hizmetlerinin adres ön eklerini kullanılan özel buluttan gösterir. 
@@ -105,19 +110,19 @@ Azure, oluşturduğunuz tüm ağ güvenlik gruplarına aşağıdaki varsayılan 
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Öncelik|source|Kaynak bağlantı noktaları|Hedef|Hedef bağlantı noktaları|Protocol|Access|
+|Öncelik|Source|Kaynak bağlantı noktaları|Hedef|Hedef bağlantı noktaları|Protocol|Access|
 |---|---|---|---|---|---|---|
-|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Tümü|İzin Ver|
+|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Tümü|Allow|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Öncelik|source|Kaynak bağlantı noktaları|Hedef|Hedef bağlantı noktaları|Protocol|Access|
+|Öncelik|Source|Kaynak bağlantı noktaları|Hedef|Hedef bağlantı noktaları|Protocol|Access|
 |---|---|---|---|---|---|---|
-|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Tümü|İzin Ver|
+|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Tümü|Allow|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Öncelik|source|Kaynak bağlantı noktaları|Hedef|Hedef bağlantı noktaları|Protocol|Access|
+|Öncelik|Source|Kaynak bağlantı noktaları|Hedef|Hedef bağlantı noktaları|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Tümü|Reddet|
 
@@ -125,19 +130,19 @@ Azure, oluşturduğunuz tüm ağ güvenlik gruplarına aşağıdaki varsayılan 
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Öncelik|source|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
+|Öncelik|Source|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Tümü | İzin Ver |
+| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Tümü | Allow |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Öncelik|source|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
+|Öncelik|Source|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Tümü | İzin Ver |
+| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Tümü | Allow |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Öncelik|source|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
+|Öncelik|Source|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Tümü | Reddet |
 
@@ -157,15 +162,15 @@ Yukarıdaki resimde *NIC1* ve *NIC2*, *AsgWeb* uygulama güvenlik grubunun üyel
 
 Bu kural, internetten Web sunucularına gelen trafiğe izin vermek için kullanılır. İnternetten gelen trafik, [DenyAllInbound](#denyallinbound) varsayılan güvenlik grubu tarafından reddedildiğinden *AsgLogic* veya *AsgDb* uygulama güvenlik grupları için ek kurala ihtiyaç duyulmaz.
 
-|Öncelik|source|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
+|Öncelik|Source|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 100 | Internet | * | AsgWeb | 80 | TCP | İzin Ver |
+| 100 | Internet | * | AsgWeb | 80 | TCP | Allow |
 
 ### <a name="deny-database-all"></a>Deny-Database-All
 
 [AllowVNetInBound](#allowvnetinbound) varsayılan güvenlik kuralı aynı sanal ağ içinde bulunan kaynaklar arasındaki tüm iletişime izin verdiğinden, tüm kaynaklardan gelen trafiği reddetmek için bu kurala ihtiyaç duyulur.
 
-|Öncelik|source|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
+|Öncelik|Source|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | Tümü | Reddet |
 
@@ -173,9 +178,9 @@ Bu kural, internetten Web sunucularına gelen trafiğe izin vermek için kullan�
 
 Bu kural *AsgLogic* uygulama güvenlik grubundan *AsgDb* uygulama güvenlik grubuna gelen trafiğe izin verir. Bu kuralın önceliği, *Deny-Database-All* kuralının önceliğinden daha yüksektir. Sonuç olarak bu kural, *Deny-Database-All* kuralından önce işlenir ve böylece *AsgLogic* uygulama güvenlik grubundan gelen trafiğe izin veriler ve diğer tüm trafik engellenir.
 
-|Öncelik|source|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
+|Öncelik|Source|Kaynak bağlantı noktaları| Hedef | Hedef bağlantı noktaları | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 110 | AsgLogic | * | AsgDb | 1433 | TCP | İzin Ver |
+| 110 | AsgLogic | * | AsgDb | 1433 | TCP | Allow |
 
 Bir uygulama güvenlik grubunu kaynak veya hedef olarak belirten kurallar yalnızca uygulama güvenlik grubuna üye olan ağ arabirimlerine uygulanır. Ağ arabirimi bir uygulama güvenlik grubuna üye değilse, ağ güvenlik grubu alt ağ ile ilişkilendirilmiş olsa dahi kural ağ arabirimine uygulanmaz.
 

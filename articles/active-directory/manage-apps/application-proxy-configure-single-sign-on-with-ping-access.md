@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c43498a7829a43fad331841aca045f52ae680be
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 54a99d001f8cb59af3042ce8b6849a2cd9480e99
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481480"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724002"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Üst bilgi tabanlı kimlik doğrulaması için uygulama proxy'si ile PingAccess ile çoklu oturum açma
 
@@ -53,10 +53,11 @@ Uygulama Ara sunucusu, etkin ve bir bağlayıcı zaten yüklü, etkinleştirdiys
 Uygulama Ara sunucusu Bağlayıcısı'nı yayımladığınız uygulamalarda uzak çalışanlarınız gelen trafiği yönlendiren bir Windows Server hizmetidir. Daha ayrıntılı yükleme yönergeleri için bkz. [Öğreticisi: Azure Active Directory Uygulama proxy'si aracılığıyla uzaktan erişim için şirket içi uygulama ekleme](application-proxy-add-on-premises-application.md).
 
 1. Oturum [Azure Active Directory portalında](https://aad.portal.azure.com/) uygulama yöneticisi olarak. **Azure Active Directory Yönetim Merkezi** sayfası görüntülenir.
-2. Seçin **Azure Active Directory** > **uygulama proxy'si** > **bağlayıcı hizmeti indir**. **Uygulama Proxy Bağlayıcısı indirme** sayfası görüntülenir.
+1. Seçin **Azure Active Directory** > **uygulama proxy'si** > **bağlayıcı hizmeti indir**. **Uygulama Proxy Bağlayıcısı indirme** sayfası görüntülenir.
 
    ![Uygulama Ara sunucusu Bağlayıcısı indirme](./media/application-proxy-configure-single-sign-on-with-ping-access/application-proxy-connector-download.png)
-3. Yükleme yönergelerini izleyin.
+
+1. Yükleme yönergelerini izleyin.
 
 Bağlayıcıyı indirdiğinizde otomatik olarak etkinleştirmelisiniz uygulama proxy'si dizininiz için ancak Aksi takdirde, seçebileceğiniz **uygulama ara sunucusunu etkinleştirme**.
 
@@ -205,7 +206,7 @@ PingAccess tüketecektir access_token ile e-posta adresi eklemek için örnek:
 
 ### <a name="use-of-claims-mapping-policy-optional"></a>Talep eşleme ilkesi (isteğe bağlı) kullanın
 
-[Talep eşleme ilkesi (Önizleme)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/) AzureAD içinde yok öznitelikler için. ADFS veya kullanıcı nesneleri tarafından desteklenen ek özel talep ekleyerek, eski şirket içi uygulamaları buluta geçirmek talep eşleme sağlar
+[Talep eşleme ilkesi (Önizleme)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties) AzureAD içinde yok öznitelikler için. ADFS veya kullanıcı nesneleri tarafından desteklenen ek özel talep ekleyerek, eski şirket içi uygulamaları buluta geçirmek talep eşleme sağlar
 
 Uygulamanızın özel talep kullanın ve ek alanları dahil olmak üzere seçtiğiniz emin olması da [bir özel talep İlkesi eşlemesi oluşturulur ve uygulamaya atanan](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 

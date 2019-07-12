@@ -8,18 +8,19 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 7594261fc8af4e7b392e2f229b28cfee36a52115
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 06f49dc00b83ee2190f6361ebb8e6f052384402a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60366326"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657313"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Oluşturma ve PowerShell kullanarak ExpressRoute devresi değiştirme
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
+> * [Azure Resource Manager şablonu](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video - Azure portalı](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klasik)](expressroute-howto-circuit-classic.md)
 >
@@ -78,8 +79,8 @@ SKU ailesi ve SKU katmanı doğru belirttiğinizden emin olun:
 
 > [!IMPORTANT]
 > ExpressRoute bağlantı hattı, bir hizmet anahtarı verildiğinde andan itibaren faturalandırılır. Bağlantı sağlayıcısı devreyi sağlamak hazır olduğunda bu işlem bir şekilde gerçekleştirdiğinizden emin olun.
-> 
-> 
+>
+>
 
 Yanıt hizmet anahtarı içerir. Aşağıdaki komutu çalıştırarak tüm parametrelerin ayrıntılı açıklamaları alabilirsiniz:
 
@@ -208,8 +209,8 @@ Adım adım yönergeler için bkz: [ExpressRoute bağlantı hattı yönlendirme 
 
 > [!IMPORTANT]
 > Bu yönergeler yalnızca Katman 2 bağlantı hizmetleri sunan hizmet sağlayıcıları ile oluşturulan bağlantı hatları için geçerlidir. Yönetilen sunan bir hizmet sağlayıcısı kullanıyorsanız, Katman 3 Hizmetleri (genellikle bir IP VPN, MPLS gibi), bağlantı sağlayıcınız yapılandırır ve yönlendirmeyi sizin için yönetir.
-> 
-> 
+>
+>
 
 ### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. ExpressRoute bağlantı hattına bir sanal ağı bağlama
 Ardından, bir sanal ağ, ExpressRoute bağlantı hattına bağlayın. Kullanım [sanal ağları ExpressRoute devresine bağlama](expressroute-howto-linkvnet-arm.md) makale Resource Manager dağıtım modeliyle çalışırken.
@@ -291,7 +292,7 @@ Belirli bir ExpressRoute bağlantı hattı özelliklerini bağlantıyı etkileme
 Kapalı kalma süresi olmadan aşağıdaki görevleri gerçekleştirebilirsiniz:
 
 * Etkinleştirmek veya ExpressRoute bağlantı hattı için ExpressRoute premium eklenti devre dışı bırakın.
-* ExpressRoute bağlantı hattı bant genişliği var. sağlanan kapasite kullanılabilir bağlantı noktası üzerinde artırın. Bağlantı hattı bant önceki sürüme indirme desteklenmiyor. 
+* ExpressRoute bağlantı hattı bant genişliği var. sağlanan kapasite kullanılabilir bağlantı noktası üzerinde artırın. Bağlantı hattı bant önceki sürüme indirme desteklenmiyor.
 * Ölçüm planını, ölçülen verilerden sınırsız veri değiştirin. Ölçüm plan sınırsız verilerden ölçülen veri değiştirme desteklenmiyor.
 * Etkinleştirebilir ve devre dışı *Klasik işlemlere izin Ver'i*.
 
@@ -314,8 +315,8 @@ Bağlantı hattı artık etkin ExpressRoute premium eklenti özellikleri vardır
 ### <a name="to-disable-the-expressroute-premium-add-on"></a>ExpressRoute premium eklentisi devre dışı bırakmak için
 > [!IMPORTANT]
 > Bu işlem için standart devreyi izin daha büyük olan kaynaklar kullanıyorsanız, başarısız olabilir.
-> 
-> 
+>
+>
 
 Aşağıdaki bilgileri not edin:
 
@@ -341,7 +342,7 @@ Denetimi sağlayıcınız için desteklenen bir bant genişliği seçenekleri i�
 > ExpressRoute bağlantı hattı mevcut bağlantı noktası üzerinde yetersiz kapasite ise yeniden oluşturmanız gerekebilir. Yoksa hiçbir ek kapasite kullanılabilir o konumda devre yükseltemezsiniz.
 >
 > Kesintisiz bir ExpressRoute bağlantı hattı bant indiremezsiniz. Bant genişliği eski sürüme düşürme, ExpressRoute bağlantı hattının sağlamasını kaldırma ve ardından yeni ExpressRoute bağlantı hattı yeniden sağlamak istiyor.
-> 
+>
 
 Gereksinim boyutu karar verdikten sonra bağlantı hattınızı yeniden boyutlandırmak için aşağıdaki komutu kullanın:
 
@@ -369,7 +370,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="to-control-access-to-the-classic-and-resource-manager-environments"></a>Klasik ve Resource Manager ortamları erişimi denetlemek için
-Gözden geçirme yönergeleri [Resource Manager dağıtım modeline taşıma ExpressRoute devreleri Klasikten](expressroute-howto-move-arm.md).  
+Gözden geçirme yönergeleri [Resource Manager dağıtım modeline taşıma ExpressRoute devreleri Klasikten](expressroute-howto-move-arm.md).
 
 ## <a name="delete"></a>Sağlama kaldırmayı ve bir ExpressRoute bağlantı hattı siliniyor
 Aşağıdaki bilgileri not edin:

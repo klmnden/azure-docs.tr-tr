@@ -7,19 +7,19 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: danlep
-ms.openlocfilehash: 98a72123a05fa7d8dc16be7ddb787f2a2cf7e4d1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d91706da898e84effc6194a74dce69a66be0f4ac
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563129"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657625"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Azure Container ınstances'da bir emptyDir birim bağlama
 
 Bağlama öğrenin bir *emptyDir* Azure Container ınstances'da bir kapsayıcı grubundaki kapsayıcı arasında veri paylaşımı için birim.
 
 > [!NOTE]
-> Bağlama bir *emptyDir* birim şu anda Linux kapsayıcıları için kısıtlanmış. Tüm özellikleri Windows kapsayıcılarına getirmek için çalışmamız esnasında, geçerli platform farklılıklarını [Azure Kapsayıcı Örnekleri için kotalar ve bölge kullanılabilirliği](container-instances-quotas.md) bölümünde bulabilirsiniz.
+> Bağlama bir *emptyDir* birim şu anda Linux kapsayıcıları için kısıtlanmış. Tüm özellikleri Windows kapsayıcılarına getirmek için çalışıyoruz, ancak geçerli platform farklılıklarını içinde bulabilirsiniz [genel bakış](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="emptydir-volume"></a>emptyDir birim
 

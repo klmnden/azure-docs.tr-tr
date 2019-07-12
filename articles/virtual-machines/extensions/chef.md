@@ -4,7 +4,7 @@ description: Chef istemci Chef VM uzantısı kullanarak bir sanal makine dağıt
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: roiyz
-ms.openlocfilehash: 6bd3ea4e664523fe8014be40c51d573ed5158ecf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e72536cc6f9ec3b94016d16de8502e70bc7107aa
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60800272"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706096"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Linux ve Windows için Chef VM uzantısı
 
@@ -69,10 +69,10 @@ Aşağıdaki JSON şema için Chef VM uzantısı gösterir. Uzantı, Chef sunucu
 ### <a name="core-property-values"></a>Çekirdek özellik değerleri
 
 | Ad | Değer / örnek | Veri Türü
-| ---- | ---- | ---- 
+| ---- | ---- | ----
 | apiVersion | `2017-12-01` | string (date) |
-| publisher | `Chef.Bootstrap.WindowsAzure` | string |
-| type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
+| publisher | `Chef.Bootstrap.WindowsAzure` | dize |
+| türü | `LinuxChefClient` (Linux), `ChefClient` (Windows) | dize |
 | typeHandlerVersion | `1210.12` | string (double) |
 
 ### <a name="settings"></a>Ayarlar
@@ -80,14 +80,14 @@ Aşağıdaki JSON şema için Chef VM uzantısı gösterir. Uzantı, Chef sunucu
 | Ad | Değer / örnek | Veri Türü | Gerekli mi?
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | E |
-| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | E |
-| settings/runlist | `recipe[mycookbook::default]` | string | E |
+| settings/bootstrap_options/validation_client_name | `myorg-validator` | dize | E |
+| settings/runlist | `recipe[mycookbook::default]` | dize | E |
 
 ### <a name="protected-settings"></a>Korumalı ayarları
 
 | Ad | Örnek | Veri Türü | Gerekli mi?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | E |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | dize | E |
 
 <!--
 ### Linux-specific settings
@@ -105,7 +105,7 @@ Aşağıdaki JSON şema için Chef VM uzantısı gösterir. Uzantı, Chef sunucu
 
 Azure VM uzantıları Azure Resource Manager şablonları ile dağıtılabilir. Şablonları, bir veya daha fazla sanal makine dağıtın, Chef istemciyi yüklemek, Chef sunucu ve gerçekleştirme tarafından tanımlandığı gibi ilk yapılandırma sunucusuna bağlanmak için kullanılabilir [çalıştırma listesi](https://docs.chef.io/run_lists.html)
 
-Chef VM uzantısı içeren örnek bir Resource Manager şablonu bulunabilir [Azure hızlı başlangıç Galerisine](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
+Chef VM uzantısı içeren örnek bir Resource Manager şablonu bulunabilir [Azure hızlı başlama Galerisi](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
 
 Sanal makine uzantısı için JSON yapılandırma içinde sanal makine kaynağı iç içe geçmiş veya kök veya bir Resource Manager JSON şablonunu üst düzey yerleştirilir. Kaynak adı ve türü değeri JSON yapılandırma yerleşimini etkiler. Daha fazla bilgi için [ayarlamak için alt kaynakları ad ve tür](../../azure-resource-manager/resource-manager-template-child-resource.md).
 

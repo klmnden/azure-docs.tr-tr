@@ -2,17 +2,17 @@
 title: İşleç en iyi uygulamalar - kapsayıcı görüntüsü Yönetimi Azure Kubernetes Hizmetleri (AKS)
 description: Yönetme ve güvenli kapsayıcı görüntülerini Azure Kubernetes Service (AKS) için küme işleci en iyi uygulamaları öğrenin
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: iainfou
-ms.openlocfilehash: ea39bceaa6b58e84def9635436d902002e33cd14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 3feadaca361950df2a09f8da33fe380fc3763763
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514507"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614823"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Kapsayıcı görüntü yönetimi ve güvenliği Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -24,13 +24,13 @@ Bu makalede aks'deki kapsayıcılarınızı güvenliğini nasıl ele alınmaktad
 > * Tarama ve resim güvenlik açıklarını düzeltin
 > * Otomatik olarak tetikleyin ve temel görüntüsü güncelleştirildiğinde kapsayıcı görüntülerini yeniden dağıtma
 
-Ayrıca, en iyi yöntemler için okuyabilirsiniz [küme güvenlik] [ best-practices-cluster-security] ve [pod güvenlik][best-practices-pod-security].
+Ayrıca, en iyi yöntemler için okuyabilirsiniz [küme güvenlik][best-practices-cluster-security] and for [pod security][best-practices-pod-security].
 
 ## <a name="secure-the-images-and-run-time"></a>Görüntüleri güvenli ve çalışma zamanı
 
 **En iyi uygulama kılavuzunu** - kapsayıcı görüntülerinizi güvenlik açıkları için tarayın ve yalnızca doğrulama başarılı görüntüleri dağıtma. Düzenli olarak uygulama çalışma zamanı ve temel görüntüleri güncelleştirin, sonra AKS kümesinde iş yükleri yeniden dağıtın.
 
-Bir kapsayıcı tabanlı iş yüklerini benimsenmesini içeriğiyle görüntüleri ve kendi uygulamalarınızı oluşturmak için kullanılan çalışma zamanı güvenliğini doğruluyor. Nasıl güvenlik açıklarını dağıtımlarınızı açmadığınızdan emin olabilirim? Dağıtım iş akışı gibi araçları kullanarak kapsayıcı görüntülerini taramak için bir işlem içermelidir [Twistlock] [ twistlock] veya [Açık Deniz Mavisi][aqua]ve ardından yalnızca dağıtılacak doğrulanmış görüntüler sağlar.
+Bir kapsayıcı tabanlı iş yüklerini benimsenmesini içeriğiyle görüntüleri ve kendi uygulamalarınızı oluşturmak için kullanılan çalışma zamanı güvenliğini doğruluyor. Nasıl güvenlik açıklarını dağıtımlarınızı açmadığınızdan emin olabilirim? Dağıtım iş akışı gibi araçları kullanarak kapsayıcı görüntülerini taramak için bir işlem içermelidir [Twistlock][twistlock] or [Aqua][aqua]ve yalnızca dağıtılacak doğrulanmış görüntüleri sağlar.
 
 ![Tarama ve düzeltme kapsayıcı görüntüleri, doğrulamak ve dağıtma](media/operator-best-practices-container-security/scan-container-images-simplified.png)
 
@@ -40,7 +40,7 @@ Gerçek hayatta kullanılan örnekte, görüntü tarama, doğrulama ve dağıtı
 
 **En iyi uygulama kılavuzunu** - temel görüntü güncelleştirilirken yeni görüntüleri oluşturmak için kullanımı Otomasyon uygulama görüntüleri için temel görüntüleri olarak. Bu temel görüntüleri genellikle güvenlik düzeltmelerini içeren herhangi bir aşağı akış uygulaması kapsayıcı görüntülerini güncelleştirin.
 
-Temel görüntü her güncelleştirildiğinde tüm aşağı akış kapsayıcı görüntülerini de güncelleştirilmesi gerekir. Doğrulama ve dağıtım işlem hatları gibi bu yapı işlemini tümleşik [Azure işlem hatları] [ azure-pipelines] veya Jenkins. Bu işlem hatları uygulamalarınızı güncelleştirilmiş temel görüntüleri üzerinde çalışmaya devam ettiğinden emin yapar. Uygulama kapsayıcı görüntülerinizi doğrulandıktan sonra AKS dağıtımları daha sonra en son, güvenli görüntülerini çalıştırmak için güncelleştirilebilir.
+Temel görüntü her güncelleştirildiğinde tüm aşağı akış kapsayıcı görüntülerini de güncelleştirilmesi gerekir. Doğrulama ve dağıtım işlem hatları gibi bu yapı işlemini tümleşik [Azure işlem hatları][azure-pipelines] veya Jenkins. Bu işlem hatları uygulamalarınızı güncelleştirilmiş temel görüntüleri üzerinde çalışmaya devam ettiğinden emin yapar. Uygulama kapsayıcı görüntülerinizi doğrulandıktan sonra AKS dağıtımları daha sonra en son, güvenli görüntülerini çalıştırmak için güncelleştirilebilir.
 
 Temel görüntü güncelleştirildiğinde azure kapsayıcı kayıt defteri görevleri kapsayıcı görüntülerini otomatik olarak güncelleştirebilirsiniz. Bu özellik, az sayıda temel görüntüleri oluşturmak ve düzenli olarak hata ve güvenlik düzeltmeleri ile güncel kalmasını sağlar.
 

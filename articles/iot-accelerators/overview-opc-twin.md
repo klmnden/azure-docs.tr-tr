@@ -5,15 +5,15 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: overview
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 15deadad3b53b64c619933db76d28f012c85d6d1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d58dc18d5513259d5c01f7ddcc54736796e5c824
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730257"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603637"
 ---
 # <a name="what-is-opc-twin"></a>OPC İkizi nedir?
 
@@ -28,7 +28,7 @@ OPC İkizi OPC UA sunucuları bulundu ve kayıtlı Fabrika ağ taramak Fabrika i
 ### <a name="simple-control"></a>Basit Denetim
 OPC İkizi olaylarına tepki verme ve Fabrika katı makinelerinde buluttan otomatik olarak veya el ile yeniden çalışma sırasında Fabrika işleçleri sağlar. OPC İkizi OPC UA server hizmetlerini çağırmak için değişkenleri okuma/yazma yöntemleri ve yürütme için adres alanı de göz atın, REST API'ler sağlar. Örneğin, bir ortak, üretim hattı denetlemek için sıcaklık KPI'yı kullanır. Sıcaklık algılayıcısı değişiklik OPC Publisher'ı kullanarak verileri yayımlar. Fabrika işleci sıcaklık eşiğine ulaştığında bir uyarı alır. Üretim hattı otomatik olarak OPC İkizi soğutma imkanı sunar. Fabrika işleci, aşağı seyrek erişimli bildirilir.
 
-## <a name="authentication"></a>Kimlik Doğrulaması
+## <a name="authentication"></a>Authentication
 Basit kimlik doğrulaması ve basit bir geliştirici deneyimi için OPC İkizi'ni kullanabilirsiniz.
 
 ### <a name="simple-authentication"></a>Basit kimlik doğrulaması 

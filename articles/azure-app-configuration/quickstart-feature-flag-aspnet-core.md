@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: bd812ad1194f88b14d88f067583ca6eee4bb0c74
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 38b404ec10fb7b66b5e276665b0c9047d0576c15
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274216"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798397"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Hızlı Başlangıç: Özellik bayrakları için ASP.NET Core uygulaması Ekle
 
@@ -41,7 +41,7 @@ Bu hızlı başlangıç yapmak için yükleme [.NET Core SDK'sı](https://dotnet
 
 6. Seçin **özellik Yöneticisi** >  **+ Oluştur** aşağıdaki özellik bayraklarını eklemek için:
 
-    | Anahtar | Eyalet |
+    | Anahtar | Durum |
     |---|---|
     | Beta | Kapalı |
 
@@ -84,12 +84,10 @@ Ekleme [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/aspnet/core
 
 ## <a name="connect-to-an-app-configuration-store"></a>Bir uygulama yapılandırma deposuna bağlanma
 
-1. Başvuruları Ekle `Microsoft.Extensions.Configuration.AzureAppConfiguration` ve `Microsoft.FeatureManagement` aşağıdaki komutları çalıştırarak NuGet paketleri:
+1. Başvuru ekleme `Microsoft.Azure.AppConfiguration.AspNetCore` aşağıdaki komutu çalıştırarak NuGet paketi:
 
     ```
-    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008920001-990
-
-    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-009000001-1251
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
     ```
 
 1. Projeniz için paketler geri yüklemek için aşağıdaki komutu çalıştırın:
@@ -146,6 +144,16 @@ Ekleme [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/aspnet/core
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddFeatureManagement();
+    }
+    ```
+
+1. Güncelleştirme `Configure` web uygulamasına ASP.NET Core sırasında yinelenen aralıklarla yenilenmesi için özellik bayrağı değerleri izin vermek için bir ara yazılım ekleme yöntemi devam isteklerini almak.
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        app.UseAzureAppConfiguration();
+        app.UseMvc();
     }
     ```
 
@@ -257,7 +265,7 @@ Ekleme [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/aspnet/core
 
 1. Seçin **özellik Yöneticisi**ve durumunu değiştirme **Beta** anahtarını **üzerinde**:
 
-    | Anahtar | Eyalet |
+    | Anahtar | Durum |
     |---|---|
     | Beta | Açık |
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 40ecdb3f83dba741d1430a912a3f17500a36da6e
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 08d8103c4b35148a87d347e31b11c7c8c968598b
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484356"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622340"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Bir ExpressRoute bağlantı hattı için eşlemesi oluşturma ve değiştirme
 
@@ -132,6 +132,7 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı 
    * İkincil bağlantı için bir /30 alt ağı. Alt ağ, sanal ağlar için ayrılmış herhangi bir adres alanının parçası olmamalıdır. Microsoft, yönlendirici için ikinci kalmayacak IP kullandığından bu alt ağından yönlendiriciniz için ilk kullanılabilir IP adresi atar.
    * Bu eşlemenin kurulacağı geçerli bir VLAN kimliği. Bağlantı hattındaki başka bir eşlemenin aynı VLAN kimliğini kullanmadığından emin olun. Birincil ve ikincil bağlantı için aynı VLAN kimliğini kullanmanız gerekir
    * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz. Kullanabileceğiniz özel eşleme için AS bu 65515 numarasından 65520, dışında aralığında numarası.
+   * Özel eşleme ayarlama ayarladığınızda, yollarını şirket içi uç yönlendiriciniz BGP aracılığıyla azure'a tanıtmanız gerekir.
    * **İsteğe bağlı -** kullanmayı seçerseniz bir MD5 karma değeri.
 3. Aşağıdaki örnekte gösterildiği gibi Azure private eşleme satırını seçin:
 

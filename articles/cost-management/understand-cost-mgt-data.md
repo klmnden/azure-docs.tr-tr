@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 4c1c987befe928d316b11c6ecd379be76f8f80d4
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 44b95c92f51ca9782fca492f3dec3142087ecc91
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490140"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797013"
 ---
 # <a name="understand-cost-management-data"></a>Maliyet Yönetimi verilerini anlama
 
@@ -25,34 +25,43 @@ Maliyet yönetimi, tüm kullanım ve satın alma işlemleri, ayırmaları ve ü�
 
 ## <a name="supported-microsoft-azure-offers"></a>Desteklenen Microsoft Azure teklifleri
 
-Aşağıdaki bilgiler, şu anda desteklenen gösterir [Microsoft Azure'un sunduğu](https://azure.microsoft.com/support/legal/offer-details/) tarafından Azure maliyet yönetimi. İmzalı sözleşmenize bir Azure teklifine sahip olduğunuz Azure aboneliğini türünü belirler.
+Aşağıdaki bilgiler, şu anda desteklenen gösterir [Microsoft Azure'un sunduğu](https://azure.microsoft.com/support/legal/offer-details/) Azure maliyet Yönetimi'nde. Bir Azure teklifi, sahip olduğunuz Azure aboneliğinin türüdür. Başlangıç maliyet Yönetimi'nde veriler kullanılabilir **bulunan veri** tarih. Bir abonelik teklif değişirse, maliyetleri teklif değişiklik tarihinden önce kullanılamaz. 
+
+| **Kategori**  | **Teklif adı** | **Kota kimliği** | **Teklif numarası** | **Kullanılabilir veri** |
+| --- | --- | --- | --- | --- |
+| **Azure Almanya** | [Azure Almanya Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P | 2 Ekim 2018<sup>2</sup> |
+| **Azure Devlet Kurumları** | Azure kamu Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | Mayıs 2014<sup>1</sup> |
+| **Kurumsal Anlaşma (EA)** | Kurumsal Geliştirme ve Test                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | Mayıs 2014<sup>1</sup> |
+| **Kurumsal Anlaşma (EA)** | [Microsoft Azure Kurumsal](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | Mayıs 2014<sup>1</sup> |
+| **Microsoft Müşteri Sözleşmesi** | [Microsoft Azure-planı](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | Yok | Mar 2019<sup>3</sup> |
+| **Microsoft Müşteri Sözleşmesi** | [Microsoft Azure geliştirme ve Test planlama](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | Yok | Mar 2019<sup>3</sup> |
+| **Microsoft Geliştirici Ağı (MSDN)** | [MSDN platformları](https://azure.microsoft.com/offers/ms-azr-0062p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2 Ekim 2018<sup>2</sup> |
+| **Kullandıkça Öde** | [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2 Ekim 2018<sup>2</sup> |
+| **Kullandıkça Öde** | [Kullandıkça Öde geliştirme ve Test](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2 Ekim 2018<sup>2</sup> |
+| **Kullandıkça Öde** | [Microsoft iş ortağı ağı](https://azure.microsoft.com/offers/ms-azr-0025p)      | MPN_2014-09-01 | MS-AZR-0025P | 2 Ekim 2018<sup>2</sup> |
+| **Kullandıkça Öde** | [Ücretsiz deneme sürümü](https://azure.microsoft.com/offers/ms-azr-0044p)<sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2 Ekim 2018<sup>2</sup> |
+| **Kullandıkça Öde** | [Open ile Azure](https://azure.microsoft.com/offers/ms-azr-0111p)<sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2 Ekim 2018<sup>2</sup> |
+| **Kullandıkça Öde** | [Öğrenciler için Azure](https://azure.microsoft.com/offers/ms-azr-0170p)<sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P | 2 Ekim 2018<sup>2</sup> |
+| **Kullandıkça Öde** | Azure Pass<sup>4</sup>                                                            | AzurePass_2014-09-01 | MS-AZR - 0120P, MS - AZR - 0122P, MS-AZR - 0125P, MS - AZR - 0128P - MS-AZR - 0130P | 2 Ekim 2018<sup>2</sup> |
+| **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p)<sup>4</sup>     | MPN_2014-09-01 | MS-AZR-0029P | 2 Ekim 2018<sup>2</sup> |
+| **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)<sup>4</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | 2 Ekim 2018<sup>2</sup> |
+| **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p)<sup>4</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | 2 Ekim 2018<sup>2</sup> |
+| **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)<sup>4</sup>           | MSDN_2014-09-01 | MS-AZR-0063P | 2 Ekim 2018<sup>2</sup> |
+| **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0064P | 2 Ekim 2018<sup>2</sup> |
+
+_<sup>**1** </sup> Mayıs 2014'ten önce daha fazla veri için ziyaret [Azure Enterprise portal](https://ea.azure.com)._
+
+_<sup>**2** </sup> veri 2 Ekim 2018 tarihinden önce ziyaret edin [Azure hesap Merkezi](https://account.azure.com/subscriptions)._
+
+_<sup>**3** </sup> Microsoft Müşteri anlaşmalarını Mar 2019 içinde çalışmaya ve bu noktadan önce tüm geçmiş verisi yok._
+
+_<sup>**4** </sup> kredi tabanlı ve ödeme ödemeli abonelikler için geçmiş verileri faturanızı değil aynı. Bkz: [geçmiş verileri eşleşmiyor olabilir fatura](#historical-data-might-not-match-invoice) aşağıda._
+
+Aşağıdaki tablo, henüz desteklenmeyen teklifler gösterir.
 
 | Category  | **Teklif adı** | **Kota kimliği** | **Teklif numarası** |
 | --- | --- | --- | --- |
-| **Azure Almanya** | [Azure Almanya Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
-| **Azure Devlet Kurumları** | Azure kamu Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
-| **Kurumsal Anlaşma (EA)** | Kurumsal Geliştirme ve Test                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
-| **Kurumsal Anlaşma (EA)** | [Microsoft Azure Kurumsal](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
-| **Microsoft Müşteri Sözleşmesi** | [Microsoft Azure-planı](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | Yok |
-| **Microsoft Müşteri Sözleşmesi** | [Microsoft Azure geliştirme ve Test planlama](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | Yok |
-| **Microsoft Geliştirici Ağı (MSDN)** | [MSDN platformları](https://azure.microsoft.com/offers/ms-azr-0062p) | MSDN_2014-09-01 | MS-AZR-0062P |
-| **Kullandıkça Öde** | [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
-| **Kullandıkça Öde** | [Kullandıkça Öde geliştirme ve Test](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
-| **Kullandıkça Öde** | [Microsoft iş ortağı ağı](https://azure.microsoft.com/offers/ms-azr-0025p)           | MPN_2014-09-01 | MS-AZR-0025P |
-| **Kullandıkça Öde** | [Ücretsiz deneme](https://azure.microsoft.com/offers/ms-azr-0044p)                          | FreeTrial_2014-09-01 | MS-AZR-0044P |
-| **Kullandıkça Öde** | [Açık lisansta Azure](https://azure.microsoft.com/offers/ms-azr-0111p)                       | AzureInOpen_2014-09-01 | MS-AZR-0111P |
-| **Kullandıkça Öde** | [Öğrenciler için Azure](https://azure.microsoft.com/offers/ms-azr-0170p)                  | AzureForStudents_2018-01-01 | MS-AZR-0170P |
-| **Kullandıkça Öde** | Azure Pass                                                                             | AzurePass_2014-09-01 | MS-AZR - 0120P, MS - AZR - 0122P, MS-AZR - 0125P, MS - AZR - 0128P - MS-AZR - 0130P |
-| **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p)      | MPN_2014-09-01 | MS-AZR-0029P |
-| **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)          | MSDN_2014-09-01 | MS-AZR-0059P |
-| **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p)     | MSDNDevTest_2014-09-01 | MS-AZR-0060P |
-| **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)            | MSDN_2014-09-01 | MS-AZR-0063P |
-| **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)  | MSDN_2014-09-01 | MS-AZR-0064P |
-
-Aşağıdaki tablo, maliyet Yönetimi tarafından desteklenmeyen Azure tekliflerini gösterir.
-
-| Category  | **Teklif adı** | **Kota kimliği** | **Teklif numarası** |
-| --- | --- | --- | --- |
+| **Azure Almanya** | [Azure Almanya Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-de-0003p) | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **Bulut çözümü sağlayıcısı (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **Bulut çözümü sağlayıcısı (CSP)** | Azure kamu CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **Bulut çözümü sağlayıcısı (CSP)** | Microsoft Bulut Almanya için CSP’de Azure Almanya   | CSP_2015-05-01 | MS-AZR-DE-0145P |
@@ -65,8 +74,6 @@ Aşağıdaki tablo, maliyet Yönetimi tarafından desteklenmeyen Azure teklifler
 | **Destek planları** | Azure kamu standart destek   | Default_2014-09-01 | MS-AZR-USGOV-0041P |
 | **Destek planları** | Azure kamu profesyonel doğrudan desteği | Default_2014-09-01 | MS-AZR-USGOV-0042P |
 | **Destek planları** | Azure kamu Geliştirici Desteği  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
-
-Kullandıkça Öde olan müşteriler, MSDN ve Visual Studio kategorileri sunar, veriler 02/10/2018 başlayarak maliyet Yönetimi'nde kullanılabilir. 02/10/2018 önce aboneliğinizi verilerine erişmek için kullanabileceğiniz [Azure hesap Merkezi](https://account.azure.com/subscriptions) kullanımınızı indirmek için bir CSV dosyasında ayrıntıları veya kullanabileceğiniz [kullanım ayrıntılarını API'si](/rest/api/consumption/usagedetails).
 
 ## <a name="determine-your-offer-type"></a>Teklif türünüz belirleme
 Veriler için bir abonelik göremiyor ve aboneliğinizi desteklenen teklifleri altında kalırsa belirlemek istiyorsanız, aboneliğinizin desteklenip desteklenmediğini doğrulayabilirsiniz. Bir Azure aboneliği desteklendiğini doğrulamak için oturum [Azure portalında](https://portal.azure.com). Ardından **tüm hizmetleri** sol menü bölmesinde. Hizmetler listesinde seçin **abonelikleri**. Abonelik listesi menüde, doğrulamak istediğiniz aboneliğe tıklayın. Aboneliğiniz genel bakış sekmesinde gösterilen ve gördüğünüz **teklif** ve **Teklif kimliği**. Aşağıdaki resimde bir örnek gösterilir.
@@ -81,23 +88,24 @@ Aşağıdaki tablolarda, maliyet Yönetimi'nde değil ya da eklenmiştir. Bu ver
 
 | **Dahil edilen** | **Dahil değil** |
 | --- | --- |
-| Azure hizmet kullanımı<sup>1</sup> | Rezervasyon satın alma – daha fazla bilgi için [Otomasyon Azure ayırma için API'leri](../billing/billing-reservation-apis.md). |
-| Market kullanım teklifi<sup>2</sup> | Market satın alımları – daha fazla bilgi için [üçüncü taraf hizmet ücretlerini](../billing/billing-understand-your-azure-marketplace-charges.md). |
-|   | Destek ücretleri - daha fazla bilgi için bkz: [fatura açıklanan terimleri](../billing/billing-understand-your-invoice.md). |
-|   | Vergi - daha fazla bilgi için [fatura açıklanan terimleri](../billing/billing-understand-your-invoice.md). |
-|   | Krediler - daha fazla bilgi için [fatura açıklanan terimleri](../billing/billing-understand-your-invoice.md). |
+| Azure hizmet kullanımı<sup>5</sup>        | Destek ücretleri - daha fazla bilgi için bkz: [fatura açıklanan terimleri](../billing/billing-understand-your-invoice.md). |
+| Market kullanım teklifi<sup>6</sup> | Vergi - daha fazla bilgi için [fatura açıklanan terimleri](../billing/billing-understand-your-invoice.md). |
+| Market satın<sup>6</sup>      | Krediler - daha fazla bilgi için [fatura açıklanan terimleri](../billing/billing-understand-your-invoice.md). |
+| Rezervasyon satın alma işlemleri<sup>7</sup>      |  |
 
-<sup>1</sup> azure hizmet kullanımı üzerinde ayırma temel alır ve fiyatlarını görüştü.
+_<sup>**5** </sup> azure hizmet kullanımı üzerinde ayırma temel alır ve fiyatlarını görüştü._
 
-<sup>2</sup> Market kullanım teklifi, Kullandıkça Öde için MSDN, kullanılabilir değil ve Visual Studio, şu anda sunar.
+_<sup>**6** </sup> Market kullanım ve satın alma Kullandıkça Öde için MSDN, mevcut değildir ve Visual Studio, şu anda sunar._
+
+_<sup>**7** </sup> rezervasyon satın alma işlemleri yalnızca Kurumsal Sözleşme (EA) hesapları için kullanılabilir şu anda._
 
 **Meta verileri**
 
 | **Dahil edilen** | **Dahil değil** |
 | --- | --- |
-| Kaynak etiketleri<sup>3</sup> | kaynak grubu etiketleri |
+| Kaynak etiketleri<sup>8</sup> | kaynak grubu etiketleri |
 
-<sup>3</sup> kaynak etiketleri kullanım her hizmetinden yayıldığını olarak uygulanır ve geçmiş kullanımı için geriye dönük olarak kullanılamaz.
+_<sup>**8** </sup> kaynak etiketleri kullanım her hizmetinden yayıldığını olarak uygulanır ve geçmiş kullanımı için geriye dönük olarak kullanılamaz._
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Derecelendirilmiş kullanım Veri Yenileme zamanlaması
 
@@ -131,20 +139,12 @@ Bazı hizmetler, kullanım diğerlerinden daha sık gösterin. Bu nedenle, bazı
 
 Geçmiş verileri kredi tabanlı ve önceden ödeme teklifleri, faturanızı eşleşmeyebilir. Bazı Azure Kullandıkça Öde, MSDN ve Visual Studio Azure KREDİLERİ ve Gelişmiş ödemeleri için fatura uyguladığınız sunar. Bununla birlikte, maliyet Yönetimi'nde gösterilen geçmiş verileri yalnızca, tahmini tüketim ücretleri alır. Maliyet Yönetimi geçmiş verileri, ödemeler ve krediler içermez. Sonuç olarak, aşağıdaki teklifler için gösterilen geçmiş verileri tam olarak faturanızı ile eşleşmeyebilir.
 
--   MS-AZR-0029P
--   MS-AZR-0064P
--   MS-AZR-0170P
--   MS-AZR-0062P
--   MS-AZR-0123P
--   MS-AZR-0129P
--   MS-AZR-0044P
--   MS-AZR-0128P
--   MS-AZR-0120P
--   MS-AZR-0125P
--   MS-AZR-0059P
--   MS-AZR-0063P
--   MS-AZR-0060P
--   MS-AZR-0111P
+- (MS-AZR - 0170P) Öğrenciler için Azure
+- Açık (MS-AZR - 0111P)
+- Azure geçişi (MS-AZR - 0120P, MS - AZR - 0123P, MS - AZR - 0125P, MS - AZR - 0128P, MS - AZR - 0129P)
+- Ücretsiz deneme sürümü (MS-AZR - 0044P)
+- MSDN (MS-AZR-0062P)
+- Visual Studio (MS-AZR - 0029P, MS - AZR - 0059P, MS - AZR - 0060P, MS - AZR - 0063P, MS - AZR - 0064P)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

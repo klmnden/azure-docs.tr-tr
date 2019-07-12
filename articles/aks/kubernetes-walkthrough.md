@@ -2,18 +2,18 @@
 title: Hızlı Başlangıç - Azure Kubernetes Service (AKS) kümesi oluşturma
 description: Hızla bir Kubernetes kümesi oluşturma, bir uygulamayı dağıtmak ve performans Azure Kubernetes hizmeti (Azure CLI kullanılarak AKS) izleme hakkında bilgi edinin.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 05/20/2019
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: a7558308d668fc153b5ac9561efbdf68777ae09f
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 2079144cf6cb36870645d3182aabdecccfcbadd0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514380"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615086"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Hızlı Başlangıç: Azure CLI kullanarak bir Azure Kubernetes Service (AKS) kümesini dağıtma
 

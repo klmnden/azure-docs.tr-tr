@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: a0846a7d03cc2f63af6747c8b8514b563c1d4a5d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f4e19b916553912e36f2c3beee3f6a518b244e4d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447811"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706998"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Genel Bakış Azure SQL veritabanı yönetilen örneği kaynak sınırları
 
@@ -37,11 +37,11 @@ Azure SQL veritabanı yönetilen örnek üzerinde iki donanım Nesilleri dağıt
 |   | **4. nesil** | **5. nesil** |
 | --- | --- | --- |
 | Donanım | Intel E5-2673 v3 (Haswell) 2,4 GHz işlemcileri, bağlı SSD sanal çekirdek = 1 PP (fiziksel çekirdek) | Intel E5-2673 v4 (Broadwell) 2.3 GHz işlemcileri, hızlı NVMe SSD, sanal çekirdek = 1 LP (hiper iş parçacığı) |
-| Sanal çekirdekler | 8, 16, 24 sanal çekirdek | 4, 8, 16, 24, 32, 40, 64, 80 sanal çekirdekler |
-| Bellek (bellek/çekirdek oranı) | Sanal çekirdek başına 7 GB | Sanal çekirdek başına 5.1 GB |
+| Sanal çekirdek sayısı | 8, 16, 24 sanal çekirdek | 4, 8, 16, 24, 32, 40, 64, 80 sanal çekirdekler |
+| En fazla bellek (bellek/çekirdek oranı) | Sanal çekirdek başına 7 GB<br/>Daha fazla bellek almak için daha fazla sanal çekirdekler ekleyin. | Sanal çekirdek başına 5.1 GB<br/>Daha fazla bellek almak için daha fazla sanal çekirdekler ekleyin. |
 | Maks. bellek içi OLTP bellek | Örnek sınırı: Sanal çekirdek başına 3 GB<br/>Veritabanı sınırları:<br/> -8 Çekirdek: Veritabanı başına 8 GB<br/> -16 Çekirdek: Veritabanı başına 20 GB<br/> -24 çekirdekli: Veritabanı başına 36 GB | Örnek sınırı: Sanal çekirdek başına 2,5 GB<br/>Veritabanı sınırları:<br/> -8 Çekirdek: Veritabanı başına 13 GB<br/> -16 Çekirdek: Veritabanı başına 32 GB |
-| En büyük örnek depolama (genel amaçlı) |  8 TB | 8 TB |
-| En büyük örnek depolama (iş açısından kritik) | 1 TB | 1 TB, 2 TB veya 4 TB çekirdek sayısına bağlı olarak |
+| En büyük örnek depolama (genel amaçlı) ayrılmış |  8 TB | 8 TB |
+| En büyük örnek depolama (iş açısından kritik) ayrılmış | 1 TB | 1 TB, 2 TB veya 4 TB çekirdek sayısına bağlı olarak |
 
 > [!IMPORTANT]
 > Yeni 4. nesil veritabanları, AustraliaEast bölgesinde artık desteklenmemektedir.
@@ -53,16 +53,16 @@ Yönetilen örnek, iki hizmet katmanı vardır: Genel amaçlı ve iş açısınd
 | **Özelliği** | **Genel amaçlı** | **İş açısından kritik** |
 | --- | --- | --- |
 | Sanal çekirdek sayısı\* | 4\. nesil: 8, 16, 24<br/>5\. nesil: 4, 8, 16, 24, 32, 40, 64, 80 | 4\. nesil: 8, 16, 24, 32 <br/> 5\. nesil: 4, 8, 16, 24, 32, 40, 64, 80 |
-| Bellek | 4\. nesil: 56 GB - 168 GB (7GB/sanal çekirdek)<br/>5\. nesil: 40.8 GB - 408 GB (5.1 GB/sanal çekirdek) | 4\. nesil: 56 GB - 168 GB (7GB/sanal çekirdek)<br/>5\. nesil: 40.8 GB - 408 GB (5.1 GB/sanal çekirdek) |
-| En büyük örnek depolama boyutu | -4 sanal çekirdek (5. nesil yalnızca) için 2 TB<br/>-Diğer boyutları için 8 TB | 4\. nesil: 1 TB <br/> 5\. nesil: <br/>-1 TB 4, 8, 16 sanal çekirdek<br/>-24 sanal çekirdek 2 TB<br/>-32, 40, 64 4 TB 80 sanal çekirdekler |
-| Veritabanı başına maks. depolama | Örnek başına en fazla depolama boyutu tarafından belirlenir. | Örnek başına en fazla depolama boyutu tarafından belirlenir. |
+| En fazla bellek | 4\. nesil: 56 GB - 168 GB (7GB/sanal çekirdek)<br/>5\. nesil: 40.8 GB - 408 GB (5.1 GB/sanal çekirdek)<br/>Daha fazla bellek almak için daha fazla sanal çekirdekler ekleyin. | 4\. nesil: 56 GB - 168 GB (7GB/sanal çekirdek)<br/>5\. nesil: 40.8 GB - 408 GB (5.1 GB/sanal çekirdek)<br/>Daha fazla bellek almak için daha fazla sanal çekirdekler ekleyin. |
+| Depolama boyutu en fazla örnek ayrılmış | -4 sanal çekirdek (5. nesil yalnızca) için 2 TB<br/>-Diğer boyutları için 8 TB | 4\. nesil: 1 TB <br/> 5\. nesil: <br/>-1 TB 4, 8, 16 sanal çekirdek<br/>-24 sanal çekirdek 2 TB<br/>-32, 40, 64 4 TB 80 sanal çekirdekler |
+| Maks. veritabanı boyutu | Örnek başına en fazla depolama boyutu tarafından belirlenir. | Örnek başına en fazla depolama boyutu tarafından belirlenir. |
 | En fazla örnek başına veritabanı sayısı | 100 | 100 |
-| Örnek başına en fazla veritabanı dosyaları | En fazla 280 | Veritabanı başına 32.767 dosyaları |
-| Veri/günlük IOPS (yaklaşık) | 500 - 7.500 dosya başına<br/>\*[Dosya boyutuna bağlıdır](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/sanal çekirdek) |
-| Günlük aktarım hızı | Sanal çekirdek başına 3 MB/sn<br/>Örnek başına en çok 22 MB/sn | Sanal çekirdek başına 4 MB/sn<br/>Örnek başına en fazla 48 MB/sn|
-| Veri aktarım hızı (yaklaşık) | 100 - dosya başına 250 MB/sn<br/>\*[Dosya boyutuna bağlıdır](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Yok |
-| GÇ gecikmesi (yaklaşık) | 5-10 ms | 1-2 ms |
-| En fazla tempDB boyutu | 192 - 1,920 GB (24 GB sanal çekirdek başına) | Maksimum örnek depolama boyutuyla sınırlı hiçbir kısıtlama- |
+| Veritabanı dosyaları örnek başına en fazla sayısı | En fazla 280 | Veritabanı başına 32.767 dosyaları |
+| Veri/günlük IOPS (yaklaşık) | 500 - 7.500 dosya başına<br/>\*[Daha fazla IOPS almak için dosya boyutunu artırın](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/sanal çekirdek)<br/>Daha iyi g/ç performansı elde etmek için daha fazla sanal çekirdekler ekleyin. |
+| Günlük yazma aktarım hızı sınırı | Sanal çekirdek başına 3 MB/sn<br/>Örnek başına en çok 22 MB/sn | Sanal çekirdek başına 4 MB/sn<br/>Örnek başına en fazla 48 MB/sn|
+| Veri aktarım hızı (yaklaşık) | 100 - dosya başına 250 MB/sn<br/>\*[Daha iyi g/ç performansı elde etmek için dosya boyutunu artırın](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Yok |
+| Depolama GÇ gecikmesi (yaklaşık) | 5-10 ms | 1-2 ms |
+| En fazla tempDB boyutu | 192 - 1,920 GB (24 GB sanal çekirdek başına)<br/>Daha fazla TempDB alanı almak için daha fazla sanal çekirdekler ekleyin. | Maksimum örnek depolama boyutu sınırlıdır. TempDB günlük dosyası boyutu, şu anda 24 GB/sanal çekirdek sınırlıdır. |
 | En fazla oturum | 30000 | 30000 |
 
 > [!NOTE]
@@ -126,7 +126,7 @@ Daha büyük bir kota alma işlemi başlatmak için:
 
      ![Sorun türü kota](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
 
-3. **İleri**’ye tıklayın.
+3.           **İleri**'ye tıklayın.
 4. Üzerinde **sorun sekmesini** yeni destek isteği için:
    - İçin **önem derecesi**, sorunun önem derecesini seçin.
    - İçin **ayrıntıları**, hata iletileri de dahil olmak üzere sorununuzla ilgili ek bilgiler sağlayın.
@@ -140,9 +140,9 @@ Daha büyük bir kota alma işlemi başlatmak için:
      > - (Hiçbir alt ağda mevcut gerekiyorsa genişletilecek. her hizmet katmanında mevcut alt ağlar kota sonra sanal çekirdekler gerekli sayısını artırın
      > - (Yeni alt ağlara yönetilen örnekleri dağıtmanız gerekiyorsa), yeni alt ağ sayısını ve yeni alt ağlara hizmet katmanında başına çekirdek sayısı gereklidir.
 
-5. **İleri**’ye tıklayın.
+5.           **İleri**'ye tıklayın.
 6. Yeni destek isteği için irtibat bilgileri sekmesinde, tercih edilen iletişim yöntemine (e-posta veya telefon) ve kişi ayrıntılarını girin.
-7. **Oluştur**’a tıklayın.
+7.           **Oluştur**'a tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

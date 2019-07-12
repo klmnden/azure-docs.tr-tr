@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 03df2ceb2df4d857e48f1790703a1d87647e43d0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f5697e0b51e8349de62e71be1471beb76aa48765
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60401179"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838733"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Azure IOT araçları Visual Studio Code için Azure IOT Hub cihaz yönetimi için kullanın.
 
@@ -63,7 +63,7 @@ Azure IOT araçları, Visual Studio Code için çeşitli yönetim seçenekler il
 5. Cihaz listesinde gösterilecek **Azure IOT Hub cihazları** birkaç saniye içinde sekmesi.
 
    > [!Note]
-   > Ayrıca, ayarlamayı tamamlamak için **IoT Hub Bağlantı Dizesini Ayarla**'yı seçebilirsiniz. Açılır pencerede bağlanır IOT Cihazınızı IOT hub'ının bağlantı dizesini girin.
+   > Ayrıca, ayarlamayı tamamlamak için **IoT Hub Bağlantı Dizesini Ayarla**'yı seçebilirsiniz. Girin **iothubowner** İlkesi açılır pencerede bağlanır IOT Cihazınızı IOT hub'ının bağlantı dizesi.
 
 ## <a name="direct-methods"></a>Doğrudan yöntemler
 

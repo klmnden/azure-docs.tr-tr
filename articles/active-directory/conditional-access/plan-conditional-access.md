@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56ddc2738305600c611cab1e09d654164f78b3d6
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 3fca84a71e1ede572e3889f973248db158115bec
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509437"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655492"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Nasıl Yapılır: Azure Active Directory'de koşullu erişim dağıtımınızı planlama
 
@@ -162,7 +162,7 @@ Test planı beklenen sonuçları ve gerçek sonuçların arasında bir karşıla
 |---|---|---|---|
 |[Çalışmıyorken MFA gerektirme](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Kullanıcı oturum açtığında yetkili *uygulama* while güvenilir bir konumda / iş|MFA için kullanıcıdan değil| |
 |[Çalışmıyorken MFA gerektirme](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Kullanıcı oturum açtığında yetkili *uygulama* while güvenilen konumunda / iş|Kullanıcı MFA için istenir ve başarılı bir şekilde oturum açabilirsiniz| |
-|[(Yönetici için) MFA gerektirme](https://docs.microsoft.com/azure/active-directory/conditional-access/baseline-protection#require-mfa-for-admins)|Genel yönetici imzalar içine *uygulama*|MFA yönetim istenir| |
+|[(Yönetici için) MFA gerektirme](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|Genel yönetici imzalar içine *uygulama*|MFA yönetim istenir| |
 |[Riskli oturum açma işlemleri](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|Kullanıcı oturum açtığında içine *uygulama* kullanarak bir [Tor tarayıcı](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)|MFA yönetim istenir| |
 |[Cihaz yönetimi](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Yetkili bir CİHAZDAN oturum açmak yetkili bir kullanıcı çalışır|Erişim izni verildi| |
 |[Cihaz yönetimi](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Yetkisiz bir CİHAZDAN oturum açmak için denemelerini yetkili|Erişim engellendi| |

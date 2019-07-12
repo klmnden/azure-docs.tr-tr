@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 88051c45f21bdf11807ffcc63d8248cba81ae70b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec2580f0c71c98c7a03f3326cb1b8ff539109ee0
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66137065"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720017"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure'daki Web uygulamaları için yapılandırma ve yönetim hakkında SSS
 
@@ -30,7 +30,7 @@ Bu makale için yapılandırma ve yönetim sorunları hakkında sık sorulan sor
 
 ## <a name="are-there-limitations-i-should-be-aware-of-if-i-want-to-move-app-service-resources"></a>App Service kaynaklarını taşımak isterseniz dikkat etmem sınırlaması var mı?
 
-App Service kaynakları yeni kaynak grubuna veya aboneliğe taşımayı planlıyorsanız, dikkat edilmesi gereken bazı sınırlamalar vardır. Daha fazla bilgi için [App Service sınırlamalarını](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations).
+App Service kaynakları yeni kaynak grubuna veya aboneliğe taşımayı planlıyorsanız, dikkat edilmesi gereken bazı sınırlamalar vardır. Daha fazla bilgi için [App Service sınırlamalarını](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
 ## <a name="how-do-i-use-a-custom-domain-name-for-my-web-app"></a>Özel etki alanı için web uygulamamı nasıl kullanabilirim?
 
@@ -56,11 +56,11 @@ Satın alma ve App Service web uygulamanız için SSL sertifikası ayarlama hakk
 
 Azure Application Insights, taşıma işlemi şu anda desteklemiyor. Özgün kaynak grubunuz bir Application Insights kaynağı içeriyorsa, bu kaynak taşınamıyor. Bir App Service uygulaması taşımaya çalıştığınızda Application Insights kaynak içeriyorsa, tüm işlemi başarısız taşıyın. Ancak, Application Insights ve App Service planı düzgün çalışması için aynı kaynak grubunda uygulama için uygulama olması gerekmez.
 
-Daha fazla bilgi için [App Service sınırlamalarını](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations).
+Daha fazla bilgi için [App Service sınırlamalarını](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
 ## <a name="where-can-i-find-a-guidance-checklist-and-learn-more-about-resource-move-operations"></a>Burada kılavuz denetim bulmak ve miyim öğrenin kaynak hakkında daha fazla taşıma işlemlerini?
 
-[App Service sınırlamalarını](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations) kaynakları aynı abonelikte yeni bir kaynak grubu veya yeni bir aboneliğe taşıma işlemi gösterilmektedir. Kaynak taşıma denetim listesi hakkında bilgi edinin, hangi hizmetlerin taşıma işlemi destekler ve App Service kısıtlamaları ve diğer konular hakkında daha fazla bilgi edinin.
+[App Service sınırlamalarını](../azure-resource-manager/move-limitations/app-service-move-limitations.md) kaynakları aynı abonelikte yeni bir kaynak grubu veya yeni bir aboneliğe taşıma işlemi gösterilmektedir. Kaynak taşıma denetim listesi hakkında bilgi edinin, hangi hizmetlerin taşıma işlemi destekler ve App Service kısıtlamaları ve diğer konular hakkında daha fazla bilgi edinin.
 
 ## <a name="how-do-i-set-the-server-time-zone-for-my-web-app"></a>Sunucu saat dilimi web uygulamamı nasıl ayarlayabilirim?
 

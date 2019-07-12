@@ -4,7 +4,7 @@ description: Bir Windows VHD veya VHDX Azure'a yüklemek üzere hazırlamayı ö
 services: virtual-machines-windows
 documentationcenter: ''
 author: glimoli
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 7802489d-33ec-4302-82a4-91463d03887a
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: cc942aeb34d17e8dff064c6a21a3c7b2099c742a
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: f40b3e0d2a49f6522149a977572d4f3c12e34255
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151022"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720058"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Bir Windows VHD veya VHDX yüklemek için hazırlama
 
@@ -234,7 +234,7 @@ Aşağıdaki ayarlar, uzaktan erişim için doğru şekilde yapılandırıldığ
    ``` 
 5. VM bir etki alanının parçası olacaksa, önceki ayarları geri olmayan emin olmak için aşağıdaki Azure AD'ye ilkelerine göz atın. 
 
-    | Hedef                                 | İlke                                                                                                                                                  | Değer                                   |
+    | Hedef                                 | İlke                                                                                                                                                  | Value                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
     | Windows Güvenlik duvarı profillerini etkinleştirme | Computer Configuration\Policies\Windows Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows Firewall   | Tüm ağ bağlantılarını korumaya         |
     | RDP'yi etkinleştirin                           | Computer Configuration\Policies\Windows Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows Firewall   | Gelen Uzak Masaüstü özel durumlarına izin ver |
@@ -346,7 +346,7 @@ VM, iyi durumda, güvenli olduğundan emin olun ve RDP erişilebilir:
 ### <a name="install-windows-updates"></a>Windows güncelleştirmeleri yükle
 İdeal olarak, güncelleştirme zamanı makine tutmalısınız *düzeltme eki düzeyi*. Bu mümkün değilse, aşağıdaki güncelleştirmelerin yüklü olduğundan emin olun:
 
-| Bileşen               | binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
+| Bileşen               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
 | Depolama                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | Storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |

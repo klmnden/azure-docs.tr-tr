@@ -3,17 +3,17 @@ title: Azure sanal makineleri yedekleme hatalarında sorun giderme
 description: Backup ve Azure sanal makinelerini geri yükleme sorunlarını giderme
 services: backup
 author: srinathvasireddy
-manager: vijayts
+manager: sivan
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.author: srinathvasireddy
-ms.openlocfilehash: 23137cd686bcdba59880ff705a43b16ced992b59
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/05/2019
+ms.author: srinathv
+ms.openlocfilehash: d7b99e7076e52db004bba7155922f4b144f2ad0a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66303990"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704891"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure sanal makine yedekleme sorunlarını giderme
 Aşağıda listelenen bilgilerle Azure Backup'ı kullanırken karşılaşılan hataları giderebilirsiniz:
@@ -31,7 +31,7 @@ Bu, geçici depolama hataları veya yetersiz depolama hesabı yedekleme hizmeti 
 ## <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState - VM yedeklemeleri izin veren bir durumda değil.
 
 Hata kodu: UserErrorVmNotInDesirableState <br/>
-Hata iletisi: VM yedeklemeleri izin veren bir durumda değil.<br/>
+Hata iletisi: Sanal makine yedeklemelere izin veren bir durumda değil.<br/>
 
 VM başarısız durumda yedekleme işlemi başarısız oldu. Başarılı yedekleme VM durumu çalışıyor, durduruldu veya durduruldu (serbest bırakıldı) olmalıdır.
 
@@ -163,7 +163,7 @@ Bu, anlık görüntünün Konuk yerine konak üzerinden alınmasını sağlar. Y
 
 | Hata Ayrıntıları | Geçici Çözüm |
 | ------ | --- |
-| Hata kodu: 320001<br/> Hata iletisi: VM artık mevcut olmadığından işlem gerçekleştirilemiyor. <br/> <br/> Hata kodu: 400094 <br/> Hata iletisi: Sanal makine yok <br/> <br/>  Bir Azure sanal makinesi bulunamadı.  |Birincil VM silindiği ancak yedekleme ilkesini yedeklemek için bir VM için yine de görünür. Bu hata oluşuyor. Bu hatayı düzeltmek için aşağıdaki adımları uygulayın: <ol><li> Sanal makine ile aynı ada ve aynı kaynak grubu adı, yeniden oluşturma **bulut hizmeti adı**,<br>**veya**</li><li> İle veya olmadan, yedekleme verilerini silmeden sanal makine korumayı durdurun. Daha fazla bilgi için [sanal makineleri korumayı durdurun](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
+| Hata kodu: 320001<br/> Hata iletisi: VM artık mevcut olmadığından işlem gerçekleştirilemiyor. <br/> <br/> Hata kodu: 400094 <br/> Hata iletisi: Sanal makine yok <br/> <br/>  Bir Azure sanal makinesi bulunamadı.  |Birincil VM silindiği ancak yedekleme ilkesini yedeklemek için bir VM için yine de görünür. Bu hata oluşuyor. Bu hatayı düzeltmek için aşağıdaki adımları uygulayın: <ol><li> Sanal makine ile aynı ada ve aynı kaynak grubu adı, yeniden oluşturma **bulut hizmeti adı**,<br>**or**</li><li> İle veya olmadan, yedekleme verilerini silmeden sanal makine korumayı durdurun. Daha fazla bilgi için [sanal makineleri korumayı durdurun](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
 | VM başarısız sağlama durumunda olup: <br>VM'yi yeniden başlatın ve VM'nin çalıştığından emin olun veya kapatma. | Uzantı hataları birini VM başarısız sağlama durumu koyarsa bu hata oluşur. Başarısız bir uzantısı varsa, kaldırana uzantılar listesine denetleyin ve sanal makineyi yeniden başlatarak gidin. Tüm uzantıları çalışır durumda olduğundan, VM aracısı hizmetinin çalışıp çalışmadığını denetleyin. Aksi durumda, VM Aracısı hizmetini yeniden başlatın. |
 |Hata kodu: UserErrorBCMPremiumStorageQuotaError<br/> Hata iletisi: Depolama hesabında yeterli boş alan sanal makinenin anlık görüntüsü kopyalanamadı. | VM yedekleme yığını V1 üzerinde Premium VM'ler için şu anlık görüntü depolama hesabına kopyalayın. Bu adım, bir anlık görüntü üzerinde çalışır, yedekleme yönetim trafiği, premium diskler kullanarak bir uygulama için kullanılabilir IOPS sayısını kısıtlamaz emin olur. <br><br>Yalnızca yüzde 50, toplam depolama hesabı alanının 17,5 TB ayırmanız önerilir. Daha sonra kasa için depolama hesabındaki kopyalanan bu konumdan Azure Backup hizmeti anlık görüntü depolama hesabı ve aktarım veri kopyalayabilirsiniz. |
 | Sanal makine çalışmadığından Microsoft Kurtarma Hizmetleri Uzantısı yüklenemedi <br>VM Aracısı, Azure kurtarma Hizmetleri uzantısı için bir önkoşuldur. Azure sanal makine Aracısı yükleme ve kayıt işlemi yeniden başlatın. |<ol> <li>VM Aracısı düzgün yüklü olup olmadığını denetleyin. <li>VM yapılandırması bayrağı doğru ayarlandığından emin olun.</ol> VM aracısı ve VM Aracısı yüklemesini doğrulamak nasıl yükleme hakkında daha fazla bilgi edinin. |
@@ -179,8 +179,8 @@ Bu, anlık görüntünün Konuk yerine konak üzerinden alınmasını sağlar. Y
 
 | Hata Ayrıntıları | Geçici Çözüm |
 | --- | --- |
-| İptal, bu proje türü için desteklenmez: <br>İş tamamlanana kadar bekleyin. |None |
-| İş, iptal edilebilir bir durumda değil: <br>İş tamamlanana kadar bekleyin. <br>**veya**<br> Seçili iş, iptal edilebilir bir durumda değil: <br>İşin tamamlanmasını bekleyin. |Neredeyse tamamlanmış iş olduğundan emin olma olasılığı yüksektir. İş tamamlanana kadar bekleyin.|
+| İptal, bu proje türü için desteklenmez: <br>İş tamamlanana kadar bekleyin. |Yok. |
+| İş, iptal edilebilir bir durumda değil: <br>İş tamamlanana kadar bekleyin. <br>**or**<br> Seçili iş, iptal edilebilir bir durumda değil: <br>İşin tamamlanmasını bekleyin. |Neredeyse tamamlanmış iş olduğundan emin olma olasılığı yüksektir. İş tamamlanana kadar bekleyin.|
 | Yedekleme, devam eden olmadığından iş iptal edilemiyor: <br>İptal, yalnızca devam eden işler için desteklenir. Devam eden işi iptal etmeyi deneyin. |Bu hata geçici bir durum nedeniyle oluşur. Bir dakika bekleyin ve İptal işlemi yeniden deneyin. |
 | Yedekleme işi iptal edilemedi: <br>İş tamamlanana kadar bekleyin. |None |
 
@@ -190,14 +190,14 @@ Bu, anlık görüntünün Konuk yerine konak üzerinden alınmasını sağlar. Y
 | --- | --- |
 | Geri yükleme, bir bulut iç hatayla başarısız oldu. |<ol><li>Geri yükleme çalıştığınız bulut hizmeti DNS ayarlarıyla yapılandırılır. Kontrol edebilirsiniz: <br>**$deployment = get-AzureDeployment - ServiceName "ServiceName"-yuvası "Üretim" Get-AzureDns - DnsSettings $deployment. DnsSettings**.<br>Varsa **adresi** DNS ayarlarını yapılandırıldıysa, yapılandırılır.<br> <li>Yapılacak çalıştığınız geri yüklemek bulut hizmeti ile yapılandırılmış **ReservedIP**, ve bulut hizmetindeki var olan VM'ler durdurulmuş durumda. Bir bulut hizmeti aşağıdaki PowerShell cmdlet'lerini kullanarak bir IP ayırdığı denetleyebilirsiniz: **$deployment = Get-AzureDeployment - ServiceName "servicename"-"Üretim" $yuvası DEP Reservedıpname**. <br><li>Bir sanal makineyle aynı bulut hizmetine aşağıdaki özel ağ yapılandırmalarını geri yüklemek çalışıyorsunuz: <ul><li>Sanal makineleri yük dengeleyici yapılandırmasını, iç ve dış altında.<li>Birden çok ayrılmış IP ile sanal makineler. <li>Birden çok NIC içeren sanal makineler. </ul><li>Kullanıcı Arabirimi veya bkz: yeni bir bulut hizmeti seçin [konuları geri](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) özel ağ yapılandırmaları olan VM'ler için.</ol> |
 | Seçilen DNS adı zaten alınmış: <br>Farklı bir DNS adı belirtip yeniden deneyin. |Bu DNS adı genellikle ile biten bulut hizmeti adı başvurduğu **. cloudapp.net**. Bu adın benzersiz olması gerekir. Bu hatayı alırsanız, geri yükleme sırasında farklı bir VM adı seçmeniz gerekir. <br><br> Bu hata, yalnızca Azure portalı kullanıcılarına gösterilir. Yalnızca diskleri geri yükler ve VM'yi oluşturmak değildir çünkü PowerShell aracılığıyla geri yükleme işlemi başarılı olur. Diski geri yükleme işleminden VM açıkça sizin tarafınızdan oluşturulduğunda hata karşılaştığı. |
-| Belirtilen sanal ağ yapılandırması doğru değil: <br>Farklı sanal ağ yapılandırması belirtin ve yeniden deneyin. |None |
-| Belirtilen bulut hizmeti, geri yüklenen sanal makine yapılandırmasını eşleşmeyen bir ayrılmış IP kullanıyor: <br>Ayrılmış IP kullanmıyor farklı bir bulut hizmeti belirtin. Veya geri yükleme için başka bir kurtarma noktası seçin. |None |
+| Belirtilen sanal ağ yapılandırması doğru değil: <br>Farklı sanal ağ yapılandırması belirtin ve yeniden deneyin. |Yok. |
+| Belirtilen bulut hizmeti, geri yüklenen sanal makine yapılandırmasını eşleşmeyen bir ayrılmış IP kullanıyor: <br>Ayrılmış IP kullanmıyor farklı bir bulut hizmeti belirtin. Veya geri yükleme için başka bir kurtarma noktası seçin. |Yok. |
 | Bulut hizmetine giriş uç noktaları sayısı sınırına ulaştı: <br>İşlemi farklı bir bulut hizmeti belirterek veya var olan bir uç nokta kullanarak yeniden deneyin. |None |
-| Kurtarma Hizmetleri kasası ve hedef depolama hesabı, iki farklı bölgede şunlardır: <br>Geri yükleme işleminde belirtilen depolama hesabının, Kurtarma Hizmetleri kasasıyla aynı Azure bölgesinde olduğundan emin olun. |None |
+| Kurtarma Hizmetleri kasası ve hedef depolama hesabı, iki farklı bölgede şunlardır: <br>Geri yükleme işleminde belirtilen depolama hesabının, Kurtarma Hizmetleri kasasıyla aynı Azure bölgesinde olduğundan emin olun. |Yok. |
 | Geri yükleme işlemi için belirtilen depolama hesabı desteklenmiyor: <br>Yerel olarak yedekli veya coğrafi olarak yedekli çoğaltma ayarlarıyla yalnızca temel veya standart depolama hesapları desteklenmektedir. Desteklenen bir depolama hesabı seçin. |None |
 | Çevrimiçi geri yükleme işlemi için belirtilen depolama hesabı türü değil: <br>Geri yükleme işleminde belirtilen depolama hesabı çevrimiçi olduğundan emin olun. |Bu hata, Azure Depolama'daki geçici bir hata nedeniyle veya kesinti nedeniyle gerçekleşebilir. Başka bir depolama hesabı seçin. |
 | Kaynak grubu kotasına ulaşıldı: <br>Bazı kaynak gruplarını, Azure portalından silin veya limitleri artırmak için Azure desteğine başvurun. |None |
-| Seçilen alt ağ yok: <br>Var olan bir alt ağ seçin. |None |
+| Seçilen alt ağ yok: <br>Var olan bir alt ağ seçin. |Yok. |
 | Backup hizmeti, aboneliğinizdeki kaynaklara erişmek için yetkiniz yok. |Bu hatayı gidermek için ilk diskleri adımları kullanarak geri [yedeklenen diskleri geri](backup-azure-arm-restore-vms.md#restore-disks). PowerShell adımları kullanın [geri yüklenen diskten VM oluşturma](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
 ## <a name="backup-or-restore-takes-time"></a>Yedekleme veya geri yükleme sürüyor

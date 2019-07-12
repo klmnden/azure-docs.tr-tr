@@ -8,12 +8,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: c227abce5adcefd16a41c5590e3ff490d138c424
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8b8c200979b70e145fca64746547b37dee558848
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441444"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720441"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>HDInsight Kurumsal güvenlik paketi kullanma
 
@@ -37,7 +37,7 @@ Aşağıdaki öğeleri otomatik olarak oluşturulur:
 
 Özetlemek gerekirse, bir ortam ile ayarlamanız gerekir:
 
-- Bir Active Directory (Azure AD DS tarafından yönetilen) etki alanı.
+- Bir Active Directory (Azure AD DS tarafından yönetilen) etki alanı. **Etki alanı adı 39 karakteri olmalıdır ya da Azure HDInsight ile çalışmak için daha az.**
 - Azure AD DS'de etkinleştirilmiş LDAP (LDAPS) güvenli hale getirin.
 - Ayrı sanal ağlar tercih ederseniz Azure AD DS sanal ağ için uygun ağ bağlantısı HDInsight sanal ağdan. HDInsight'ın sanal ağ içindeki bir VM görebilmesi için sanal ağ eşlemesi üzerinden Azure AD DS olması gerekir. Aynı sanal ağda HDInsight ve Azure AD DS dağıtılmışsa, bağlantı otomatik olarak sağlanır ve başka bir eylem gerekmez.
 

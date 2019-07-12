@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: cafceb0c7ee6b165ee03727e1dff76db00d2863b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f38f1c313be17457c28c5b30fa743f7a0eae2cc0
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077334"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67621993"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Azure veri Gezgini'ne olay Hub'ından veri alma
 
@@ -56,8 +56,8 @@ Bu makalede, örnek veri üretme ve olay hub'ına gönderebilirsiniz. İlk adım
 
     **Ayar** | **Önerilen değer** | **Alan açıklaması**
     |---|---|---|
-    | Abonelik | Aboneliğiniz | Olay hub'ınız için kullanmak istediğiniz Azure aboneliğini seçin.|
-    | Kaynak grubu | *test-hub-rg* | Yeni bir kaynak grubu oluşturun. |
+    | Subscription | Aboneliğiniz | Olay hub'ınız için kullanmak istediğiniz Azure aboneliğini seçin.|
+    | Resource group | *test-hub-rg* | Yeni bir kaynak grubu oluşturun. |
     | Konum | *Batı ABD* | Seçin *Batı ABD* Bu makale için. Üretim sisteminde ihtiyaçlarınıza en uygun bölgeyi seçmeniz gerekir. Olay hub'ı ad alanı en iyi performans için Kusto kümesi ile aynı konumda (en yüksek aktarım hızı olay hub'ı ad alanları için önemli) oluşturun.
     | Ad alanı adı | Benzersiz bir ad alanı adı | Ad alanınızı tanımlayan benzersiz bir ad seçin. Örneğin, *mytestnamespace*. Girdiğiniz adın sonuna *servicebus.windows.net* etki alanı adı eklenir. Ad yalnızca küçük harf, sayı ve kısa çizgi içerebilir. Ad bir harf ile başlamalı ve harf veya sayı ile bitmelidir. Değer uzunluğu 6 ile 50 karakter arasında olmalıdır.
     | Olay hub'ı adı | *test-hub* | Olay hub'ı benzersiz bir kapsayıcı kapsamı sunan ad alanında bulunur. Olay hub'ı adının ad alanında benzersiz olması gerekir. |
@@ -187,7 +187,7 @@ Uygulama tarafından oluşturulan verilerin olay hub'ından kümenizdeki tabloya
     ![İleti sonuç kümesi](media/ingest-data-event-hub/message-result-set.png)
 
     > [!NOTE]
-    > Azure Veri Gezgini, bir toplama (toplu) ilke alma işlemi optimize etmek için tasarlanan, veri alımı için vardır. Bir gecikme karşılaşabileceğiniz şekilde ilkeyi 5 dakika ile yapılandırılır.
+    > Azure Veri Gezgini, bir toplama (toplu) ilke alma işlemi optimize etmek için tasarlanan, veri alımı için vardır. Bir gecikme karşılaşabileceğiniz şekilde İlkesi 5 dakika, varsayılan olarak yapılandırılır. Bkz: [ilke toplu işleme](/azure/kusto/concepts/batchingpolicy) Toplama Seçenekleri. Bkz: [İlkesi akış](/azure/kusto/concepts/streamingingestionpolicy) hiç toplama ile alımı için.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

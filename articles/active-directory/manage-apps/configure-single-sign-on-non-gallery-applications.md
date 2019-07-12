@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95b7cbcf4e485dc93d49b9559dcb7d0d4f597ebe
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: a72cb7bc7feeba984d568a0465d4f23a494496e8
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550349"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807644"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>Galeri dışı uygulamalar için çoklu oturum açma Microsoft kimlik platformu yapılandırın.
 
@@ -50,13 +50,14 @@ Diğer tüm türleri kullanarak uygulamaları kaydetmek için [desteklenen kimli
 Bir uygulama tümleştirme şablonu kullanarak listelenmemiş uygulamaya bağlanmak için bu adımları uygulayın:
 
 1. Oturum [Azure Active Directory portalında](https://aad.portal.azure.com/) Microsoft kimlik platformu yönetici hesabınızı kullanarak.
-2. Seçin **kurumsal uygulamalar** > **yeni uygulama**.
-3. (İsteğe bağlı ancak önerilir) İçinde **Galeriden Ekle** arama kutusuna, uygulamanın görünen adı girin. Uygulama arama sonuçlarında görüntülenirse, seçin ve bu yordamın geri kalanını atlayın.
-4. Seçin **galeri dışı uygulama**. **Kendi uygulamanızı ekleyin** sayfası görüntülenir.
+1. Seçin **kurumsal uygulamalar** > **yeni uygulama**.
+1. (İsteğe bağlı ancak önerilir) İçinde **Galeriden Ekle** arama kutusuna, uygulamanın görünen adı girin. Uygulama arama sonuçlarında görüntülenirse, seçin ve bu yordamın geri kalanını atlayın.
+1. Seçin **galeri dışı uygulama**. **Kendi uygulamanızı ekleyin** sayfası görüntülenir.
 
-   ![Uygulama ekleme](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
-5. Yeni uygulamanızın görünen adı girin.
-6. **Add (Ekle)** seçeneğini belirleyin.
+   ![Kendi uygulama Sayfası Ekle gösterir](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
+
+1. Yeni uygulamanızın görünen adı girin.
+1. **Add (Ekle)** seçeneğini belirleyin.
 
 Bu şekilde uygulamaya eklediğinizde, önceden tümleştirilmiş uygulamalar için kullanılabilir bir benzer bir deneyim sağlar. İlk seçin **çoklu oturum açma** uygulamanın kenar çubuğundan. Sonraki sayfaya (**tek bir oturum açma yönteminizi seçmeniz**) SSO yapılandırma seçeneklerini sunar:
 
@@ -64,7 +65,7 @@ Bu şekilde uygulamaya eklediğinizde, önceden tümleştirilmiş uygulamalar i�
 - **Parola tabanlı**
 - **Bağlı**
 
-![Tek bir oturum açma yöntemi seçin](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
+![Bir çoklu oturum açma yöntemi sayfası seçin gösterir](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
 
 Bu seçenekler hakkında daha fazla bilgi için bu makalenin aşağıdaki bölümlere bakın.
 
@@ -72,13 +73,13 @@ Bu seçenekler hakkında daha fazla bilgi için bu makalenin aşağıdaki bölü
 
 Seçin **SAML** SAML tabanlı kimlik doğrulaması için uygulama yapılandırma seçeneği. (Bu seçenek, uygulamanın SAML 2.0 desteği gerektirir.) **Yukarı çoklu oturum açma SAML ile ayarlanmış** sayfası görüntülenir.
 
-![SAML ile çoklu oturum açmayı ayarlama](./media/configure-single-sign-on-non-gallery-applications/set-up-single-sign-on-with-saml.png)
+![Çoklu oturum açma SAML sayfası ile Ayarla gösterir](./media/configure-single-sign-on-non-gallery-applications/set-up-single-sign-on-with-saml.png)
 
 Bu sayfa, beş farklı başlıkları var:
 
 | Başlık numarası | Başlık adı | Bu başlık bir özeti için bkz: |
 | --- | --- | --- |
-| 1 | **Temel bir SAML yapılandırma** | [Temel bir SAML yapılandırma girin](#enter-basic-saml-configuration) |
+| 1\. | **Temel bir SAML yapılandırma** | [Temel bir SAML yapılandırma girin](#enter-basic-saml-configuration) |
 | 2 | **Kullanıcı öznitelikleri ve talepler** | [Gözden geçirmek veya SAML belirtecinde verilen talepleri özelleştirme](#review-or-customize-the-claims-issued-in-the-saml-token) |
 | 3 | **SAML imzalama sertifikası** | [Gözden geçirme sertifika sona erme verilerini, durum ve e-posta bildirimi](#review-certificate-expiration-data-status-and-email-notification) |
 | 4 | **Ayarlanan \<uygulama adı >** | [Hedef uygulama ayarlama](#set-up-target-application) |
@@ -90,7 +91,7 @@ Artık devam etmeden önce uygulamanın SAML işlevlerini nasıl kullanacağın�
 
 Azure ad kurulumu için şuraya gidin: **temel SAML yapılandırma** başlık ve seçin, **Düzenle** simgesi (Kalem). El ile değerleri girin veya alanın değerini ayıklamak için bir meta veri dosyasını karşıya yükleyin.
 
-![Temel bir SAML yapılandırma](./media/configure-single-sign-on-non-gallery-applications/basic-saml-configuration.png)
+![Temel bir SAML yapılandırma sayfasını gösterir](./media/configure-single-sign-on-non-gallery-applications/basic-saml-configuration.png)
 
 Aşağıdaki iki alan gereklidir:
 
@@ -141,7 +142,7 @@ Görüntülemek veya uygulamaya SAML belirtecindeki gönderilen talepleri düzen
 
 - Git **kullanıcı öznitelikleri ve talepler** seçin ve başlık **Düzenle** simgesi. **Kullanıcı öznitelikleri ve talepler** sayfası görüntülenir.
 
-![Kullanıcı öznitelikleri ve talepler](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
+![Kullanıcı öznitelikleri ve talepler sayfasını gösterir](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
 
 İki nedenden dolayı SAML belirtecinde verilen talepleri düzenlemeniz gerekebilir:
 
@@ -158,7 +159,7 @@ Azure AD'den etkin Sertifikayı Base64 veya ham biçiminde ana doğrudan indireb
 
 Görüntüleme, oluşturma veya sertifikalarınızı (etkin veya devre dışı) indirmek için Git **SAML imzalama sertifikası** seçin ve başlık **Düzenle** simgesi. **SAML imzalama sertifikası** görünür.
 
-![SAML imzalama sertifikası](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
+![SAML imzalama sertifikası sayfasını gösterir](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
 
 Sertifikaya sahip olduğunu doğrulayın:
 
@@ -182,13 +183,13 @@ Uygulamanızı bir SAML tabanlı kimlik sağlayıcısı olarak Azure AD'yi kulla
 Uygulamanız için yeni bir kullanıcı veya grup atamak için:
 
 1. Uygulama Kenar çubuğunda seçin **kullanıcılar ve gruplar**. **\<Uygulama adı >-Kullanıcılar ve gruplar** sayfası görüntülenirse, atanan kullanıcılar ve gruplar geçerli listesini gösterir.
-2. Seçin **kullanıcı ekleme**. **Atamaları Ekle** sayfası görüntülenir.
-3. Seçin **kullanıcılar ve gruplar (\<numarası > Seçili)** . **Kullanıcılar ve gruplar** sayfası görüntülenirse, mevcut kullanıcıları ve grupları listesini gösteren.
-4. Kullanıcı veya Grup listesinden atamak istediğiniz bulmak için tür veya kaydırma.
-5. Her bir kullanıcı veya grubu ekleyin ve ardından istediğiniz seçin **seçin** düğmesi. **Kullanıcılar ve gruplar** sayfası kaybolur.
-6. İçinde **atamaları Ekle** sayfasında **atama**. **\<Uygulama adı >-Kullanıcılar ve gruplar** listesinde gösterilen ek kullanıcılar sayfası görüntülenir.
+1. Seçin **kullanıcı ekleme**. **Atamaları Ekle** sayfası görüntülenir.
+1. Seçin **kullanıcılar ve gruplar (\<numarası > Seçili)** . **Kullanıcılar ve gruplar** sayfası görüntülenirse, mevcut kullanıcıları ve grupları listesini gösteren.
+1. Kullanıcı veya Grup listesinden atamak istediğiniz bulmak için tür veya kaydırma.
+1. Her bir kullanıcı veya grubu ekleyin ve ardından istediğiniz seçin **seçin** düğmesi. **Kullanıcılar ve gruplar** sayfası kaybolur.
+1. İçinde **atamaları Ekle** sayfasında **atama**. **\<Uygulama adı >-Kullanıcılar ve gruplar** listesinde gösterilen ek kullanıcılar sayfası görüntülenir.
 
-   ![Uygulama kullanıcıları ve grupları](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
+   ![Uygulama kullanıcıları ve grupları sayfasını gösterir](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
 
 Bu listeden şunları yapabilirsiniz:
 
@@ -213,26 +214,29 @@ Yapılandırmak için bu seçeneği belirleyin [parola tabanlı çoklu oturum a�
 
 Seçtikten sonra **parola tabanlı**, uygulamanın web tabanlı oturum açma sayfasının URL'sini girmeniz istenir.
 
-![Parola tabanlı çoklu oturum açma](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
+![Oturum açma URL'sini girin ve oturum açma URL'si sayfasına gösterir](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
 
 Ardından bu adımları uygulayın:
 
 1. URL'yi girin. Bu dize, kullanıcı adı giriş alanını içeren sayfasında olmalıdır.
-2. **Kaydet**’i seçin. Azure AD oturum açma sayfasına Giriş bir kullanıcı adı ve parola girişi için ayrıştırmak çalışır.
-3. Azure AD girişimi başarısız ayrıştırma, seçin **yapılandırma \<uygulama adı > Parola çoklu oturum açma ayarları** görüntülenecek **yapılandırma oturum açma** sayfası. (Deneme başarılı olursa, bu yordamın kalan kısmını atlayabilirsiniz.)
-4. Seçin **oturum açma alanlarını el ile algılama**. Oturum açma alanlarının el ile algılama ek yönergeler görünür.
+1. **Kaydet**’i seçin. Azure AD oturum açma sayfasına Giriş bir kullanıcı adı ve parola girişi için ayrıştırmak çalışır.
+1. Azure AD girişimi başarısız ayrıştırma, seçin **yapılandırma \<uygulama adı > Parola çoklu oturum açma ayarları** görüntülenecek **yapılandırma oturum açma** sayfası. (Deneme başarılı olursa, bu yordamın kalan kısmını atlayabilirsiniz.)
+1. Seçin **oturum açma alanlarını el ile algılama**. Oturum açma alanlarının el ile algılama ek yönergeler görünür.
 
    ![Parola tabanlı çoklu oturum açma, el ile yapılandırma](./media/configure-single-sign-on-non-gallery-applications/password-configure-sign-on.png)
-5. Seçin **oturum açma alanlarını Yakala**. Bir yakalama durumu sayfası iletisini gösteren yeni bir sekmede açılır **meta veri yakalama şu anda devam eden**.
-6. Varsa **erişim paneli uzantısı için gereken** kutusu yeni bir sekmede görünür seçin **Şimdi Yükle** yüklemek için **My Apps güvenli oturum açma uzantısı** tarayıcı uzantısı. (Tarayıcı uzantısı, Microsoft Edge, Chrome ve Firefox gerektirir.) Yüklemeyi, başlatma, uzantıyı etkinleştirmek ve yakalama durumu sayfayı yenileyin.
+
+1. Seçin **oturum açma alanlarını Yakala**. Bir yakalama durumu sayfası iletisini gösteren yeni bir sekmede açılır **meta veri yakalama şu anda devam eden**.
+1. Varsa **erişim paneli uzantısı için gereken** kutusu yeni bir sekmede görünür seçin **Şimdi Yükle** yüklemek için **My Apps güvenli oturum açma uzantısı** tarayıcı uzantısı. (Tarayıcı uzantısı, Microsoft Edge, Chrome ve Firefox gerektirir.) Yüklemeyi, başlatma, uzantıyı etkinleştirmek ve yakalama durumu sayfayı yenileyin.
 
    Tarayıcı uzantısı ardından girilen URL görüntüler başka bir sekme açılır.
-7. Girilen URL ile bir sekmede, oturum açma sürecinden geçer. Kullanıcı adı ve parola alanları doldurun ve oturum açmayı deneyin. (Doğru parolayı sağlamanız gerekmez.)
+
+1. Girilen URL ile bir sekmede, oturum açma sürecinden geçer. Kullanıcı adı ve parola alanları doldurun ve oturum açmayı deneyin. (Doğru parolayı sağlamanız gerekmez.)
 
    Bir komut istemi yakalanan oturum açma alanlarını kaydetmenizi ister.
-8. **Tamam**’ı seçin. Sekme kapatır, tarayıcı uzantısı iletinin yakalama durumu sayfasını güncelleştirir **uygulaması için meta verileri güncelleştirildi**ve ayrıca kapanır sekmesinde bu tarayıcı.
-9. Azure AD'de **yapılandırma oturum açma** sayfasında **Tamam, ı uygulamada başarıyla oturum açabildi**.
-10. **Tamam**’ı seçin.
+
+1. **Tamam**’ı seçin. Sekme kapatır, tarayıcı uzantısı iletinin yakalama durumu sayfasını güncelleştirir **uygulaması için meta verileri güncelleştirildi**ve ayrıca kapanır sekmesinde bu tarayıcı.
+1. Azure AD'de **yapılandırma oturum açma** sayfasında **Tamam, ı uygulamada başarıyla oturum açabildi**.
+1. **Tamam**’ı seçin.
 
 Oturum açma sayfası yakalama sonra kullanıcılar ve gruplar atayabilir ve normal gibi kimlik bilgisi ilkeleri ayarlayabilirsiniz [parola SSO uygulamaları](what-is-single-sign-on.md).
 

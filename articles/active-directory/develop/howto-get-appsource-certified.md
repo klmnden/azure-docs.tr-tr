@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b820068f7bd59941346c8d2a3e8ede15252d58b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc42ab8a8cfb0d182c69bd0940e23cffdb2be0af
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540281"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807243"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory için AppSource sertifikalı alma
 
@@ -56,19 +56,19 @@ Tek kiracılı uygulamalar etkinleştirebilir *benimle iletişim kurun* karşıl
 
 ## <a name="appsource-trial-experiences"></a>AppSource deneme deneyimleri
 
-### <a name="free-trial-customer-led-trial-experience"></a>Ücretsiz deneme sürümü (deneme sürümü deneyimi müşteri tarafından yönetilen) 
+### <a name="free-trial-customer-led-trial-experience"></a>Ücretsiz deneme sürümü (deneme sürümü deneyimi müşteri tarafından yönetilen)
 
-Müşteri destekli deneme sürümü, uygulamanız için bir tek tıklamayla erişim sunar, AppSource önerir deneyimidir. Nasıl bir gösterimi bu deneyim şu şekilde görünür:<br/><br/>
+Müşteri destekli deneme sürümü, uygulamanız için bir tek tıklamayla erişim sunar, AppSource önerir deneyimidir. Aşağıdaki örnek, bu deneyimin nasıl göründüğünü gösterir:
 
 <table >
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%"/><ul><li>Kullanıcı, uygulamanızın AppSource Web sitesinde bulur.</li><li>'Ücretsiz deneme sürümü' seçeneğini belirler</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" /><ul><li>AppSource, web sitenizde bir URL'ye kullanıcı yönlendirir.</li><li>Web sitesi başlatıldığında <i>çoklu oturum açma</i> işlem otomatik olarak (üzerinde sayfa yükleme)</li></ul></td>
-    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%"/><ul><li>Kullanıcı Microsoft oturum açma sayfasına yönlendirilir.</li><li>Kullanıcı oturum açmak için kimlik bilgilerini sağlar.</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%" alt-text="Shows Free trial for customer-led trial experience"/><ul><li>Kullanıcı, uygulamanızın AppSource Web sitesinde bulur.</li><li>'Ücretsiz deneme sürümü' seçeneğini belirler</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" alt-text="Shows how user is redirected to a URL in your web site"/><ul><li>AppSource, web sitenizde bir URL'ye kullanıcı yönlendirir.</li><li>Web sitesi başlatıldığında <i>çoklu oturum açma</i> işlem otomatik olarak (üzerinde sayfa yükleme)</li></ul></td>
+    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%" alt-text="Shows the Microsoft sign-in page"/><ul><li>Kullanıcı Microsoft oturum açma sayfasına yönlendirilir.</li><li>Kullanıcı oturum açmak için kimlik bilgilerini sağlar.</li></ul></td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%"/><ul><li>Kullanıcı, uygulamanız için izninizi verir.</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>Oturum açma tamamlandıktan ve kullanıcı, web sitesine yönlendirilir</li><li>Ücretsiz deneme kullanıcı başlatır</li></ul></td>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%" alt-text="Example: Consent page for an application"/><ul><li>Kullanıcı, uygulamanız için izninizi verir.</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt-text="Shows the experience the user sees when redirected back to your site"/><ul><li>Oturum açma tamamlandıktan ve kullanıcı, web sitesine yönlendirilir</li><li>Ücretsiz deneme kullanıcı başlatır</li></ul></td>
     <td></td>
 </tr>
 </table>
@@ -79,20 +79,20 @@ Müşteri destekli deneme sürümü, uygulamanız için bir tek tıklamayla eri�
 
 <table valign="top">
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%"/><ul><li>Kullanıcı, uygulamanızın AppSource web sitesinde bulur.</li><li>'Benimle iletişim kurun' seçeneğini belirler</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%"/><ul><li>İletişim bilgileri ile bir formunu doldurur.</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%" alt-text="Shows Contact me for partner-led trial experience"/><ul><li>Kullanıcı, uygulamanızın AppSource web sitesinde bulur.</li><li>'Benimle iletişim kurun' seçeneğini belirler</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%" alt-text="Shows an example form with contact info"/><ul><li>İletişim bilgileri ile bir formunu doldurur.</li></ul></td>
      <td valign="top" width="33%">3.<br/><br/>
         <table bgcolor="#f7f7f7">
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/UserContact.png" width="55%"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/UserContact.png" width="55%" alt-text="Shows placeholder for user information"/></td>
             <td>Kullanıcı bilgilerini alma</td>
         </tr>
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/SetupEnv.png" width="55%"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/SetupEnv.png" width="55%" alt-text="Shows placeholder for setup environment info"/></td>
             <td>Ortamı Kurulumu</td>
         </tr>
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/ContactCustomer.png" width="55%"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/ContactCustomer.png" width="55%" alt-text="Shows placeholder for trial info"/></td>
             <td>Deneme bilgileri ile ilgili kullanıcı</td>
         </tr>
         </table><br/><br/>
@@ -100,9 +100,9 @@ Müşteri destekli deneme sürümü, uygulamanız için bir tek tıklamayla eri�
     </td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%"/><ul><li>Kullanıcı uygulamanızı erişir ve çoklu oturum açma işlemini tamamlayın</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%"/><ul><li>Kullanıcı, uygulamanız için izninizi verir.</li></ul></td>
-    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>Oturum açma tamamlandıktan ve kullanıcı, web sitesine yönlendirilir</li><li>Ücretsiz deneme kullanıcı başlatır</li></ul></td>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%" alt-text="Shows the application sign-in screen"/><ul><li>Kullanıcı uygulamanızı erişir ve çoklu oturum açma işlemini tamamlayın</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%" alt-text="Shows an example consent page for an application"/><ul><li>Kullanıcı, uygulamanız için izninizi verir.</li></ul></td>
+    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt-text="Shows the experience the user sees when redirected back to your site"/><ul><li>Oturum açma tamamlandıktan ve kullanıcı, web sitesine yönlendirilir</li><li>Ücretsiz deneme kullanıcı başlatır</li></ul></td>
    
 </tr>
 </table>
@@ -110,16 +110,15 @@ Müşteri destekli deneme sürümü, uygulamanız için bir tek tıklamayla eri�
 ### <a name="more-information"></a>Daha fazla bilgi
 
 AppSource deneme deneyimi hakkında daha fazla bilgi için bkz. [bu videoyu](https://aka.ms/trialexperienceforwebapps). 
- 
+
 ## <a name="next-steps"></a>Sonraki Adımlar
 
 - Azure AD oturum açma işlemleri destekleyen uygulamalar derleme hakkında daha fazla bilgi için bkz. [Azure AD için kimlik doğrulama senaryoları](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 - SaaS uygulamanızı appsource'ta listeleyin hakkında daha fazla bilgi için bkz: Git [AppSource iş ortağı bilgileri](https://appsource.microsoft.com/partners)
 
-
 ## <a name="get-support"></a>Destek alın
 
-Azure AD tümleştirmesi için kullandığımız [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) desteklemek için toplulukla birlikte. 
+Azure AD tümleştirmesi için kullandığımız [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) desteklemek için toplulukla birlikte.
 
 Sorularınızı Stack Overflow sitesinde ilk sormak ve mevcut sorunları birisi önce sorunuzu sormadığını görmek için Gözat öneririz. Sorularınızı ve yorumlarınızı ile etiketlendiğinden emin [ `[azure-active-directory]` ve `[appsource]` ](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
@@ -131,6 +130,5 @@ Aşağıdaki yorum bölümünde geri bildirim sağlamak ve geliştirmek ve içer
 [AAD-Dev-Guide]: v1-overview.md
 [AAD-Howto-Multitenant-Overview]: howto-convert-app-to-be-multi-tenant.md
 [AAD-QuickStart-Web-Apps]: v1-overview.md#get-started
-
 
 <!--Image references-->

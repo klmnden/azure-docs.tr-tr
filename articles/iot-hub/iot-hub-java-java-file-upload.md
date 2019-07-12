@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 3658b57d003ddc5429c6857f88044376fe1aaa93
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 27cdada0bfbb4236e16d17c263aaba0f4f5c511f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60399158"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620107"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Cihazınızı IOT Hub ile buluta dosyaları karşıya yükleme
 
@@ -26,7 +26,7 @@ Bu öğreticide kodda geliştirir [IOT Hub ile bulut buluttan cihaza ileti gönd
 
 * IOT hub'ı dosya karşıya yükleme bildirimlerini, uygulama arka ucu dosyasında bir işlem tetiklemek için kullanın.
 
-[(Java) IOT hub'a telemetri gönderme](quickstart-send-telemetry-java.md) ve [IOT hub'ı (Java) ile bulut buluttan cihaza ileti gönderme](iot-hub-java-java-c2d.md) öğreticiler, IOT Hub'ın temel CİHAZDAN buluta ve bulut-cihaz Mesajlaşma işlevlerini gösterir. [IOT Hub ile ileti yönlendirmeyi yapılandırma](tutorial-routing.md) Öğreticisi, CİHAZDAN buluta iletileri Azure blob depolama alanında güvenilir bir şekilde depolamak için bir yol açıklar. Ancak, bazı senaryolarda cihazlarınızı IOT hub'ı kabul görece küçük bir CİHAZDAN buluta ileti gönderme verileri kolayca eşlenemiyor. Örneğin:
+[Telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-java.md) hızlı ve [IOT Hub ile bulut buluttan cihaza ileti gönderme](iot-hub-java-java-c2d.md) öğretici, IOT temel CİHAZDAN buluta ve bulut-cihaz Mesajlaşma işlevleri Göster Hub'ı. [IOT Hub ile ileti yönlendirmeyi yapılandırma](tutorial-routing.md) Öğreticisi, CİHAZDAN buluta iletileri Azure blob depolama alanında güvenilir bir şekilde depolamak için bir yol açıklar. Ancak, bazı senaryolarda cihazlarınızı IOT hub'ı kabul görece küçük bir CİHAZDAN buluta ileti gönderme verileri kolayca eşlenemiyor. Örneğin:
 
 * Görüntüleri içeren büyük dosyaları
 * Videolar
@@ -37,7 +37,7 @@ Bu dosyalar genellikle toplu işleme gibi araçları kullanarak bulutta olduğu 
 
 Bu öğreticinin sonunda iki Java konsol uygulaması çalıştırın:
 
-* **simulated-device**, [IOT Hub ile gönderme bulut-cihaz iletilerini] öğreticisinde oluşturulan uygulamanın değiştirilmiş bir sürümüdür. Bu uygulama bir dosya depolama, IOT hub tarafından sağlanan bir SAS URI'sini kullanarak yükler.
+* **simulated-device**, [IOT Hub ile bulut buluttan cihaza iletileri gönderme] öğreticisinde oluşturulan uygulamanın değiştirilmiş bir sürümüdür. Bu uygulama bir dosya depolama, IOT hub tarafından sağlanan bir SAS URI'sini kullanarak yükler.
 
 * **dosya karşıya yükleme bildirimini oku**, IOT hub'ından dosya karşıya yükleme bildirimleri alır.
 
@@ -265,7 +265,9 @@ Karşıya yüklenen dosya yapılandırdığınız depolama kapsayıcısında gö
 Bu öğreticide, cihazlardan karşıya dosya yükleme işlemleri basitleştirmek için dosya karşıya yükleme özellikleri IOT hub'ı kullanmayı öğrendiniz. IOT hub özelliklerini ve aşağıdaki makalelerde senaryolarını keşfetmeye devam edebilirsiniz:
 
 * [Programlamalı IOT hub oluşturma](iot-hub-rm-template-powershell.md)
+
 * [C SDK'ya giriş](iot-hub-device-sdk-c-intro.md)
+
 * [Azure IoT SDK’ları](iot-hub-devguide-sdks.md)
 
 Daha fazla IOT Hub'ın özelliklerini keşfetmek için bkz:

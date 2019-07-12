@@ -4,7 +4,7 @@ description: Azure Resource Manager dağıtım modeli kullanılarak oluşturulmu
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 53faf630-8da5-4955-8d0b-6e829bf30cba
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: afd8e6b47fb86985acde062af1fb38ec3af4e902
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1436eadace2ff57bde9d67201d6b38d4aee8f523
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711445"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722652"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Yükleme ve azure'da Windows sanal makinesi üzerinde MongoDB yapılandırma
 [MongoDB](https://www.mongodb.org) popüler açık kaynaklı, yüksek performanslı NoSQL veritabanıdır. Bu makalede yükleme ve azure'da bir Windows Server 2016 sanal makine (VM) üzerinde MongoDB yapılandırma sırasında size kılavuzluk eder. Ayrıca [azure'da bir Linux sanal makinesi üzerinde MongoDB yükleme](../linux/install-mongodb.md).

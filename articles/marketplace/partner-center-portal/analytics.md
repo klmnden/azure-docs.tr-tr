@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 0da95dbdca52232b4b24ad921bf2d9c78dc76d56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e467def33eb2980e58611d50c314a1206877e3b0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247732"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619680"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>İş ortağı merkezi ticari Market'te için analiz
 
@@ -138,7 +138,7 @@ Büyüme oranını tabanlı eğilimleri görüntüleyebilir, **oluşturulan sipa
 
 - **Azure üzerinden faturalandırılır**: Microsoft, sizin adınıza müşteriler için seçtiğinizde düzenler [teklifinizi Microsoft aracılığıyla satış](./create-new-saas-offer.md#sell-through-microsoft) bu lisans türüne sahip. Kullandıkça Öde kredi kartı veya Kurumsal fatura aracılığıyla ödeme türleri içerir.
 - **Kendi lisansını Getir**: Microsoft, müşterilerin bu tür bir Market teklifi kullanımları bill değil. Olarak listelenen **[hemen (ücretsiz) edinin](./create-new-saas-offer.md#get-it-now-free)** Market'te.
-- **Ücretsiz**: Microsoft, müşterilerin bu tür bir Market teklifi kullanımları bill değil. Olarak listelenen **[ücretsiz deneme sürümü](./create-new-saas-offer.md#free-trial)** Market'te.
+- **Ücretsiz**: Microsoft, müşterilerin bu tür bir Market teklifi kullanımları bill değil. Olarak listelenen **[ücretsiz deneme sürümü](./create-new-saas-offer.md##free-trial-listing)** Market'te.
 - **Microsoft satıcı olarak**: Microsoft satıcıları tarafından bir parçası olarak satılan tekliflerin temsil  **[bulut çözümü sağlayıcısı (CSP) programında](./create-new-saas-offer.md#csp-program-opt-in)** .
 
 ![İş ortağı merkezi analiz siparişleri lisans türü](./media/analyze-license-type.png)
@@ -276,7 +276,7 @@ Bir açılır bildirim ve bağlantısı içeren bir e-posta alırsınız **indir
 | Teklif türü: Sanal makine | Sipariş verme| Müşteriniz ile ilişkili bir abonelik için bir sanal gereç dağıttığınızda sanal makine teklif türünü kullanın.||
 | Teklif türü: Visual Studio Market uzantısı  | Sipariş verme| Azure DevOps uzantı geliştiricileri için Teklif türü daha önce kullanılabilir. Azure DevOps ileri giderek uzantı geliştiricileri kendi uzantı doğrudan müşterilere satabilirsiniz. Uzantı teklifleri, ücretli veya deneme sürümü dahil olmak üzere yapılandırılabilir. |
 | Sipariş İptal tarihi| Sipariş verme| Market siparişi iptal edildiği tarih.||
-| Sipariş Kimliği| Sipariş verme| Müşteri siparişi Market hizmetiniz için benzersiz tanımlayıcısı. Sanal makine kullanım tabanlı teklifleri bir sıra ile ilişkili değildir.| |
+| Sipariş kimliği| Sipariş verme| Müşteri siparişi Market hizmetiniz için benzersiz tanımlayıcısı. Sanal makine kullanım tabanlı teklifleri bir sıra ile ilişkili değildir.| |
 | Sipariş satın alma tarihi| Sipariş verme| Market siparişi oluşturulduğu tarih.|||
 | Sipariş durumu| Sipariş verme| Verilerin son yenilenme zamanı Market sırada durumu.|     |
 | Sipariş durumu: Etkin  | Sipariş verme| Müşteri, sipariş satın aldı ve bunların sırası iptal değil.|         |

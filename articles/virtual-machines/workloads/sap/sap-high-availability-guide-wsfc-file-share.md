@@ -4,7 +4,7 @@ description: SAP ASCS/SCS örneği ile Azure dosya paylaşımı kullanarak bir W
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 28b3851a52ec5fe69eaa531e2e08f66fb73cb1e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d26df6aeb09934408b9081ac077af52ffc24d66
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60936338"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709068"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -310,11 +310,11 @@ Bir genişleme dosya paylaşımını kullanmak için sisteminizde aşağıdaki g
 * Azure Premium diskleri kullanmanız gerekir.
 * Azure yönetilen diskler kullanmanızı öneririz.
 * Dayanıklı dosya sistemi (ReFS) kullanarak birimleri biçimlendirin öneririz.
-    * Daha fazla bilgi için [SAP notu 1869038 - ReFs dosya sistemi için SAP Destek] [ 1869038] ve [dosya sistemi seçme] [ planning-volumes-s2d-choosing-filesystem] bölüm makale planlama birimleri depolama alanları doğrudan.
+    * Daha fazla bilgi için [SAP notu 1869038 - ReFs dosya sistemi için SAP Destek][1869038] and the [Choosing the file system][planning-volumes-s2d-choosing-filesystem] makale planlama birimleri depolama alanları doğrudan'ın bölüm.
     * Yüklediğiniz mutlaka [Microsoft KB4025334 toplu güncelleştirme][kb4025334].
 * DS serisi veya DSv2 serisi Azure VM boyutları kullanabilirsiniz.
 * Depolama alanları doğrudan disk eşitleme için gerekli olan sanal makineler arasında iyi bir ağ performansı için en az bir "Yüksek" ağ bant genişliğine sahip bir VM türü kullanın.
-    Daha fazla bilgi için [DSv2 serisi] [ dv2-series] ve [DS serisi] [ ds-series] belirtimleri.
+    Daha fazla bilgi için [DSv2 serisi][dv2-series] and [DS-Series][ds-series] belirtimleri.
 * Depolama havuzundaki bazı ayrılmamış kapasite ayırma öneririz. Depolama havuzundaki bazı ayrılmamış kapasite bırakarak bir sürücü arızalanırsa "yerinde" onarmak için birim alanı sağlar. Bu, veri güvenliği ve performansı artırır.  Daha fazla bilgi için [birim boyutunu seçme][choosing-the-size-of-volumes-s2d].
 * Genişleme dosya paylaşımını Azure Vm'leri, kendi Azure kullanılabilirlik kümesinde dağıtılmalıdır.
 * İçin gibi genişleme dosya paylaşımına ağ adı için bir Azure iç yük dengeleyici yapılandırmanız gerekmez \<SAP genel konak\>. Bunu yapmanız \<ASCS/SCS sanal ana bilgisayar adı\> SAP ASCS/SCS örneği veya DBMS. Bir genişleme dosya paylaşımında tüm küme düğümleri arasında yük ölçeklendirir. \<SAP genel konak\> tüm küme düğümleri için yerel IP adresi kullanır.

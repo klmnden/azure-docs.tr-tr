@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 2a6d670ba9f2f496cc94d2790eb6f66d46305746
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30c97eed5f28631bd2583cbda75df5755ffe2e34
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65872794"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626106"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure işlevleri C# Geliştirici Başvurusu
 
@@ -50,7 +50,7 @@ Aşağıdaki örnek, yapı çıktı dizininde oluşturulmuş gibi görünen bir 
  | - host.json
 ```
 
-Bu dizin ne işlev uygulamanızı azure'da dağıtılan olur. Gerekli bağlama uzantıları [sürüm 2.x](functions-versions.md) işlevleri çalışma zamanı olan [projeye NuGet paketleri olarak eklenen](./functions-bindings-register.md#c-class-library-with-visual-studio-2019).
+Bu dizin ne işlev uygulamanızı azure'da dağıtılan olur. Gerekli bağlama uzantıları [sürüm 2.x](functions-versions.md) işlevleri çalışma zamanı olan [projeye NuGet paketleri olarak eklenen](./functions-bindings-register.md#vs).
 
 > [!IMPORTANT]
 > Derleme işlemi oluşturur bir *function.json* her işlev için dosya. Bu *function.json* dosyasının doğrudan düzenlenmesi değil yöneliktir. Bağlama yapılandırması değiştiremez veya bu dosyayı düzenleyerek işlevi devre dışı bırakın. Bir işlev devre dışı bırakma hakkında bilgi edinmek için [işlevler devre dışı bırakma](disable-function.md#functions-2x---c-class-libraries).
@@ -231,7 +231,7 @@ public static class ICollectorExample
 }
 ```
 
-## <a name="logging"></a>Günlüğe kaydetme
+## <a name="logging"></a>Günlüğe Kaydetme
 
 Çıkış akış günlüklerinizi oturum C#, türünde bir bağımsız değişken içeren [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Bu ad öneririz `log`, aşağıdaki örnekte olduğu gibi:  
 

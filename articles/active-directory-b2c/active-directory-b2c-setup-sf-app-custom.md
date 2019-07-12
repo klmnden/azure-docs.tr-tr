@@ -1,5 +1,5 @@
 ---
-title: Salesforce SAML sağlayıcısı ile oturum açma Azure Active Directory B2C'de özel ilkeler kullanarak ayarlama | Microsoft Docs
+title: Salesforce SAML sağlayıcısı ile oturum açma Azure Active Directory B2C'de özel ilkeler kullanarak ayarlama
 description: Salesforce SAML sağlayıcısı ile oturum açma Azure Active Directory B2C'de özel ilkeler kullanarak ayarlayın.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e565822c006191615dbc10b980da24dcd9ed787a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7cbde2beb03c174facbd145954387a31f6158a9a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508313"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654186"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Salesforce SAML sağlayıcısı ile oturum açma Azure Active Directory B2C'de özel ilkeler kullanarak ayarlama
 
@@ -31,11 +31,11 @@ Bu makalede kullanıcıların Salesforce kullanmasını kuruluş için oturum a�
 
 ### <a name="set-up-salesforce-as-an-identity-provider"></a>Salesforce kimlik sağlayıcısı olarak ayarlayın.
 
-1. [Salesforce oturum](https://login.salesforce.com/). 
+1. [Salesforce oturum](https://login.salesforce.com/).
 2. Soldaki menünün altındaki **ayarları**, genişletin **kimlik**ve ardından **kimlik sağlayıcısı**.
 3. Seçin **etkinleştirme kimlik sağlayıcısı**.
-4. Altında **sertifikayı seçin**, Salesforce, Azure AD B2C ile iletişim kurmak için kullanmak istediğiniz sertifikayı seçin. Varsayılan sertifikayı kullanabilirsiniz. 
-5. **Kaydet**’e tıklayın. 
+4. Altında **sertifikayı seçin**, Salesforce, Azure AD B2C ile iletişim kurmak için kullanmak istediğiniz sertifikayı seçin. Varsayılan sertifikayı kullanabilirsiniz.
+5. **Kaydet**’e tıklayın.
 
 ### <a name="create-a-connected-app-in-salesforce"></a>Salesforce'ta bağlı bir uygulama oluşturun
 
@@ -49,7 +49,7 @@ Bu makalede kullanıcıların Salesforce kullanmasını kuruluş için oturum a�
       ```
 
 6. İçinde **ACS URL** aşağıdaki URL'yi girin. Değerini değiştirdiğinizden emin olun `your-tenant` Azure AD B2C kiracınızın adı.
-      
+
       ```
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
@@ -90,17 +90,17 @@ Azure AD B2C kiracınızda oluşturduğunuz sertifika deposuna gerekir.
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
 3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**.
-4. Genel bakış sayfasında **kimlik deneyimi çerçevesi - PREVIEW**.
+4. Genel bakış sayfasında **kimlik deneyimi çerçevesi**.
 5. Seçin **ilke anahtarları** seçip **Ekle**.
 6. İçin **seçenekleri**, seçin `Upload`.
 7. İlke için bir **Ad** girin. Örneğin, SAMLSigningCert. Önek `B2C_1A_` anahtarınızı adına otomatik olarak eklenir.
-8. Gidin ve oluşturduğunuz B2CSigningCert.pfx sertifikayı seçin. 
+8. Gidin ve oluşturduğunuz B2CSigningCert.pfx sertifikayı seçin.
 9. Girin **parola** sertifikası.
-3. **Oluştur**’a tıklayın.
+3.           **Oluştur**'a tıklayın.
 
 ## <a name="add-a-claims-provider"></a>Bir talep Sağlayıcı Ekle
 
-Salesforce hesabı kullanarak oturum açmasını istiyorsanız, Azure AD B2C'yi bir uç nokta ile iletişim kurabilen bir talep sağlayıcısı olarak hesabı tanımlamanız gerekir. Uç nokta, Azure AD B2C tarafından belirli bir kullanıcı yapıldığını doğrulamak için kullanılan bir talepler kümesi sağlar. 
+Salesforce hesabı kullanarak oturum açmasını istiyorsanız, Azure AD B2C'yi bir uç nokta ile iletişim kurabilen bir talep sağlayıcısı olarak hesabı tanımlamanız gerekir. Uç nokta, Azure AD B2C tarafından belirli bir kullanıcı yapıldığını doğrulamak için kullanılan bir talepler kümesi sağlar.
 
 Bir talep sağlayıcısı olarak bir Salesforce hesabına ekleyerek tanımlayabilirsiniz **ClaimsProviders** ilkenizin uzantısı dosyasında öğe.
 
@@ -166,7 +166,7 @@ Bu noktada, kimlik sağlayıcısı ayarlandı, ancak herhangi bir kaydolma veya 
 2. Bul ve tüm içeriğini kopyalayın **UserJourney** içeren öğe `Id="SignUpOrSignIn"`.
 3. Açık *TrustFrameworkExtensions.xml* ve bulma **UserJourneys** öğesi. Öğe yoksa bir tane ekleyin.
 4. Tüm içeriğini yapıştırın **UserJourney** öğesi alt öğesi olarak kopyaladığınız **UserJourneys** öğesi.
-5. Kullanıcı yolculuğu kimliği yeniden adlandırın. Örneğin, `SignUpSignInSalesforce`.
+5. Kullanıcı yolculuğu kimliği yeniden adlandırın. Örneğin: `SignUpSignInSalesforce`.
 
 ### <a name="display-the-button"></a>Bir düğme görüntülemek
 
@@ -189,8 +189,8 @@ Yerinde bir düğmeye sahip olduğunuza göre bir eyleme bağlamanız gerekir. E
     ```XML
     <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="salesforce" />
     ```
-    
-    Değerini güncelleştirin **TechnicalProfileReferenceId** için **kimliği** daha önce oluşturduğunuz teknik profil. Örneğin, `LinkedIn-OAUTH`.
+
+    Değerini güncelleştirin **TechnicalProfileReferenceId** için **kimliği** daha önce oluşturduğunuz teknik profil. Örneğin: `LinkedIn-OAUTH`.
 
 3. Kaydet *TrustFrameworkExtensions.xml* dosya ve doğrulama için yeniden yükleyin.
 
@@ -204,14 +204,14 @@ Azure AD B2c ile iletişim kiracınızda oluşturduğunuz bir uygulama üzerinde
 4. Seçin **uygulamaları**ve ardından **Ekle**.
 5. Uygulama için bir ad girin, örneğin *testapp1*.
 6. İçin **Web uygulaması / Web API'sini**seçin `Yes`yazıp enter `https://jwt.ms` için **yanıt URL'si**.
-7. **Oluştur**’a tıklayın.
+7.           **Oluştur**'a tıklayın.
 
 ## <a name="update-and-test-the-relying-party-file"></a>Güncelleştirme ve bağlı olan taraf dosyayı test etme
 
 Yeni oluşturduğunuz kullanıcı yolculuğu başlatan bağlı olan taraf (RP) dosyasını güncelleştirin:
 
 1. Bir kopyasını *SignUpOrSignIn.xml* çalışma dizininizdeki ve yeniden adlandırın. Örneğin, yeniden adlandırın *SignUpSignInSalesforce.xml*.
-2. Yeni dosyayı açın ve değeri güncelleştirme **Policyıd** özniteliğini **TrustFrameworkPolicy** benzersiz bir değere sahip. Örneğin, `SignUpSignInSalesforce`.
+2. Yeni dosyayı açın ve değeri güncelleştirme **Policyıd** özniteliğini **TrustFrameworkPolicy** benzersiz bir değere sahip. Örneğin: `SignUpSignInSalesforce`.
 3. Değerini güncelleştirin **PublicPolicyUri** ilkesi için URI ile. Örneğin,`http://contoso.com/B2C_1A_signup_signin_salesforce`
 4. Değerini güncelleştirin **Referenceıd** özniteliğini **DefaultUserJourney** (SignUpSignInSalesforce) oluşturduğunuz yeni kullanıcı yolculuğu kimliği eşleştirmek için.
 5. Yaptığınız değişiklikleri kaydedin, dosyayı karşıya yükleyin ve ardından listeden yeni ilkeyi seçin.

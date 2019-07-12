@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 999bffe9650f3d2f2a04dba728a9aa41fa46a6b0
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60324173"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593403"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Azure CDN ile SAS kullanma
 
@@ -135,7 +135,7 @@ Azure CDN, SAS parametreleri için Azure CDN görünür olmadığından, bunlar�
 
 | SAS parametre adı | Açıklama |
 | --- | --- |
-| Başlatma | Azure CDN blob dosyasına erişmek için başlayabilirsiniz süre. Saat nedeniyle (bir saat sinyal farklı bileşenleri için farklı zamanlarda geldiğinde) eğriltmek, varlık hemen kullanılabilir olmasını istiyorsanız, daha önce 15 dakika seçin. |
+| Start | Azure CDN blob dosyasına erişmek için başlayabilirsiniz süre. Saat nedeniyle (bir saat sinyal farklı bileşenleri için farklı zamanlarda geldiğinde) eğriltmek, varlık hemen kullanılabilir olmasını istiyorsanız, daha önce 15 dakika seçin. |
 | End | Saat sonra Azure CDN blob dosyası artık erişemez. Daha önce Azure cdn'de önbelleğe alınan dosyalar hala erişilebilir. Dosya süre sonu zamanı denetlemek için Azure CDN güvenlik belirteci üzerinde güncel uygun sona erme saati ayarlamak veya varlık temizleme. |
 | İzin verilen IP adresleri | İsteğe bağlı. Kullanıyorsanız **verizon'dan Azure CDN**, tanımlanan aralıklar için bu parametreyi ayarlayın [Azure CDN from Verizon uç sunucu IP aralıkları](/azure/cdn/cdn-pop-list-api). Kullanıyorsanız **akamai'den Azure CDN**, IP adreslerini statik olduğundan IP aralıkları parametresi ayarlanamıyor.|
 | İzin verilen protokoller | Hesap SAS'si ile yapılan bir istek için izin verilen protokoller:. HTTPS ayarı önerilir.|

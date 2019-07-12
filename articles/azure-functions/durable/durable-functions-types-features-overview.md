@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 07/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 76b6f013333113d5a24b744bc962d36b1c0e21b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de5019e0f91c92829082aed962bb9633da52b4a9
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731133"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812840"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>Dayanıklı işlevler türleri ve özellikleri (Azure işlevleri)
 
@@ -27,7 +27,7 @@ Bu makalede, bir dayanıklı işlevler düzenleme kullanabileceğiniz işlevleri
 
 ## <a name="types-of-durable-functions"></a>Dayanıklı işlevler türleri
 
-Azure işlevleri'nde dayanıklı işlevi üç kullanabilirsiniz: etkinlik, orchestrator ve istemci.
+Azure işlevleri'nde dört dayanıklı işlevi türlerini kullanabilirsiniz: etkinlik, orchestrator, varlık ve istemci.
 
 ### <a name="activity-functions"></a>Etkinlik işlevleri
 
@@ -43,7 +43,7 @@ Daha fazla bilgi ve örnekler için bkz: [etkinlik işlevlerini](durable-functio
 
 ### <a name="orchestrator-functions"></a>Orchestrator işlevleri
 
-Orchestrator işlevleri nasıl eylemleri yürütülür ve Eylemler yürütüldüğü sırada açıklanmaktadır. Orchestrator işlevler kod düzenleme açıklayın (C# veya JavaScript) gösterildiği gibi [dayanıklı işlevler desenleri ve teknik kavramlar](durable-functions-concepts.md). Düzenleme Eylemler dahil olmak üzere, birçok farklı türde olabilir [etkinlik işlevlerini](#activity-functions), [alt düzenlemeleri](#sub-orchestrations), [dış olayları beklemeyi](#external-events)ve [zamanlayıcılar](#durable-timers). 
+Orchestrator işlevleri nasıl eylemleri yürütülür ve Eylemler yürütüldüğü sırada açıklanmaktadır. Orchestrator işlevler kod düzenleme açıklayın (C# veya JavaScript) gösterildiği gibi [dayanıklı işlevler desenleri ve teknik kavramlar](durable-functions-concepts.md). Düzenleme Eylemler dahil olmak üzere, birçok farklı türde olabilir [etkinlik işlevlerini](#activity-functions), [alt düzenlemeleri](#sub-orchestrations), [dış olayları beklemeyi](#external-events)ve [zamanlayıcılar](#durable-timers). Orchestrator işlevleri ile de çalışabilirler [varlık işlevleri](#entity-functions).
 
 Bir düzenleyici işlevi tarafından tetiklenmesi gerekir bir [düzenleme tetikleyici](durable-functions-bindings.md#orchestration-triggers).
 
@@ -51,11 +51,18 @@ Bir orchestrator tarafından başlatılan bir [orchestrator istemci](#client-fun
 
 Daha fazla bilgi ve örnekler için bkz: [düzenleme Tetikleyicileri](durable-functions-bindings.md#orchestration-triggers).
 
+###  <a name="entity-functions"></a>Varlık işlevleri (Önizleme)
+
+Varlık işlevleri tanımlayın okuma ve küçük parçaları olarak bilinen durumunu güncelleştirmek için işlemleri *dayanıklı varlıkları*. Bir özel tetikleyici türü işlevleriyle orchestrator işlevler gibi varlık işlevlerdir *varlık tetikleyici*. Orchestrator işlevleri farklı olarak, belirli bir kod kısıtlamalardan varlık işlevleri yoktur. Varlık işlevlerini de yönetmek durumu açıkça örtük olarak durumu aracılığıyla denetim akışını temsil eden yerine.
+
+> [!NOTE]
+> Varlık işlevlerini ve ilgili işlevleri, yalnızca kullanılabilir, dayanıklı işlevler 2.0 ve üzeri.
+
+Varlık işlevleri hakkında daha fazla bilgi için bkz. [varlık işlevleri](durable-functions-preview.md#entity-functions) önizleme özelliği belgeleri.
+
 ### <a name="client-functions"></a>İstemci işlevleri
 
-İstemci, düzenleme, yeni örneklerini oluşturan tetiklenen işlevler işlevlerdir. İstemci, dayanıklı işlevler düzenleme örneğini oluşturmak için giriş noktası işlevlerdir. Herhangi bir kaynaktan (HTTP, kuyruk, olay akışının) bir istemci işlevi tetikleyebilirsiniz. Bir istemci işlevi uygulamanın desteklediği herhangi bir dilde yazabilirsiniz. 
-
-İstemci işlevleri de bir [düzenleme istemcisi](durable-functions-bindings.md#orchestration-client) bağlama. Bir istemci işlevi oluşturma ve dayanıklı düzenlemeleri yönetme bağlama düzenleme istemcisi kullanabilirsiniz. 
+İstemci, düzenlemeleri ve varlıkların örnekleri oluşturma ve yönetme tetiklenen işlevler işlevlerdir. Dayanıklı işlevler ile etkileşim kurmak için giriş noktası etkili bir şekilde değildirler. Herhangi bir kaynakta (HTTP, kuyruk, olay akışının.) bir istemci işlevi tetikleyebilirsiniz. Bir istemci işlevini kullanan [düzenleme istemcisi bağlama](durable-functions-bindings.md#orchestration-client) dayanıklı düzenlemeleri ve varlıklar oluşturmak ve yönetmek için.
 
 En temel istemci işlevi bir düzenleyici işlevi başlar ve ardından onay durumu yanıt döndüren bir HTTP tetiklemeli işlevin örneğidir. Bir örnek için bkz. [HTTP API URL'si bulma](durable-functions-http-api.md#http-api-url-discovery).
 

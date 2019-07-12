@@ -12,18 +12,19 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cc0b3a9a02c023678691921100443436cdf0011
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e4b073a63b5b6bec565aed67bcaec7ed014261b
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66015469"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807864"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Mevcut şirket içi proxy sunucuları ile çalışma
 
 Bu makalede, Azure Active Directory (Azure AD) uygulama Proxy bağlayıcıları giden bağlantı proxy'si sunucularıyla çalışacak şekilde yapılandırmak açıklanmaktadır. Var olan proxy sahip ağ ortamları sahip müşteriler için tasarlanmıştır.
 
 Biz bu ana dağıtım senaryolarında bakarak başlayın:
+
 * Bağlayıcılar, şirket içi giden proxy atlamak için yapılandırın.
 * Azure AD uygulama proxy'si erişmek için bir giden proxy kullanmak için bağlayıcıları yapılandırın.
 
@@ -53,6 +54,7 @@ Bağlayıcı için giden bağlantı proxy'si kullanımını devre dışı bırak
   </appSettings>
 </configuration>
 ```
+
 Connector Updater Hizmeti ayrıca Proxy'yi atlar için benzer bir değişiklik ApplicationProxyConnectorUpdaterService.exe.config dosyasına olun. Bu dosya, C:\Program Files\Microsoft AAD uygulama Proxy Connector Updater bulunur.
 
 Varsayılan .config dosyasına geri yapmanız durumunda orijinal dosyalarının kopyalarını emin olun.
@@ -67,8 +69,8 @@ Giden proxy üzerinden gitmek için bağlayıcı trafiği, aşağıdaki diyagram
 
 Yalnızca giden trafiğe sahip sonucu olarak, güvenlik duvarları üzerinden gelen erişimi yapılandırmak için gerek yoktur.
 
->[!NOTE]
->Uygulama proxy'si kimlik doğrulama için diğer proxy'leri desteklemez. Bağlayıcı/güncelleştirici ağ hizmeti hesabı için kimlik doğrulaması yanıt olmadan bir proxy sunucusuna bağlanmak görebilmeniz gerekir.
+> [!NOTE]
+> Uygulama proxy'si kimlik doğrulama için diğer proxy'leri desteklemez. Bağlayıcı/güncelleştirici ağ hizmeti hesabı için kimlik doğrulaması yanıt olmadan bir proxy sunucusuna bağlanmak görebilmeniz gerekir.
 
 ### <a name="step-1-configure-the-connector-and-related-services-to-go-through-the-outbound-proxy"></a>1\. adım: Giden proxy üzerinden gitmek için ilgili hizmetler ve bağlayıcı yapılandırma
 
@@ -98,22 +100,23 @@ Ardından, Connector Updater hizmetini C:\Program Files\Microsoft AAD uygulama P
 ### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>2\. adım: Bağlayıcı ve ilgili hizmetleri akışına trafiğine izin vermek için proxy ayarlarını yapılandırma
 
 Giden proxy dikkate alınması gereken dört unsur vardır:
+
 * Proxy giden kuralları
 * Ara sunucu kimlik doğrulaması
 * Proxy bağlantı noktası
 * SSL denetimi
 
 #### <a name="proxy-outbound-rules"></a>Proxy giden kuralları
+
 Aşağıdaki URL'lere erişim izin ver:
 
-| URL'si | Nasıl kullanılır |
+| URL | Nasıl kullanılır |
 | --- | --- |
 | \*. msappproxy.net<br>\*. servicebus.windows.net | Bağlayıcı ve uygulama proxy'si bulut hizmeti arasında iletişim |
 | mscrl.microsoft.com:80<br>CRL.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure sertifikaları doğrulamak için bu URL'leri kullanır. |
 | login.windows.net<br>login.microsoftonline.com | Bağlayıcı, bu URL'ler kayıt işlemi sırasında kullanır. |
 
 Güvenlik Duvarı veya proxy yapılandırmanıza izin veriyorsa DNS izin listeleri, bağlantılara izin vermek \*. msappproxy.net ve \*. servicebus.windows.net. Erişime izin vermek, gerekirse [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). IP aralıklarını haftalık olarak güncelleştirilir.
-
 
 FQDN DEĞERİNE göre bağlantısına izin vermek ve bunun yerine IP aralıklarını belirtmeniz gerekir, bu seçenekleri kullanın:
 
@@ -128,13 +131,15 @@ Ara sunucu kimlik doğrulaması şu anda desteklenmiyor. Bizim geçerli Internet
 
 Bağlayıcı, BAĞLAN metoduyla giden SSL tabanlı bağlantılar oluşturur. Bu yöntem bir tünel üzerinden giden bağlantı proxy'si temel olarak ayarlar. Proxy sunucunun tünel 443 ve 80 numaralı bağlantı noktalarına izin verecek şekilde yapılandırın.
 
->[!NOTE]
->Service Bus HTTPS üzerinden çalıştığında, 443 numaralı bağlantı noktasını kullanır. Ancak, varsayılan olarak, Service Bus doğrudan TCP bağlantıları çalışır ve yalnızca doğrudan bağlantı başarısız olursa HTTPS'ye geri döner.
+> [!NOTE]
+> Service Bus HTTPS üzerinden çalıştığında, 443 numaralı bağlantı noktasını kullanır. Ancak, varsayılan olarak, Service Bus doğrudan TCP bağlantıları çalışır ve yalnızca doğrudan bağlantı başarısız olursa HTTPS'ye geri döner.
 
 #### <a name="ssl-inspection"></a>SSL denetimi
-Bağlayıcı trafiği için sorunlara neden olduğundan SSL incelemesi bağlayıcı trafiği için kullanmayın. Uygulama proxy'si hizmeti için kimlik doğrulaması için bir sertifika Bağlayıcısı'nı kullanır ve bu sertifikayı SSL incelemesi sırasında kaybolur. 
+
+Bağlayıcı trafiği için sorunlara neden olduğundan SSL incelemesi bağlayıcı trafiği için kullanmayın. Uygulama proxy'si hizmeti için kimlik doğrulaması için bir sertifika Bağlayıcısı'nı kullanır ve bu sertifikayı SSL incelemesi sırasında kaybolur.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>Bağlayıcı proxy sorunları ve hizmet bağlantı sorunlarını giderme
+
 Artık proxy üzerinden akan tüm trafiği görmeniz gerekir. Sorunlarla karşılaşırsanız, aşağıdaki sorun giderme bilgileri yardımcı olmalıdır.
 
 En iyi yolu belirleyip Bağlayıcısı bağlantı sorunlarını gidermek için bağlayıcı hizmeti başlatılırken bir ağ görüntüsü alın sağlamaktır. Burada, yakalama ve ağ izlemelerini filtreleme hızlı bazı ipuçları verilmektedir.
@@ -151,21 +156,18 @@ Aşağıdaki örnekler için ileti Çözümleyicisi özgüdür, ancak herhangi b
 
    ![Azure AD uygulama ara sunucusu Bağlayıcısı hizmeti services.msc](./media/application-proxy-configure-connectors-with-proxy-servers/services-local.png)
 
-2. İleti Çözümleyicisi'ni yönetici olarak çalıştırın.
-3. Seçin **Başlat yerel izleme**.
+1. İleti Çözümleyicisi'ni yönetici olarak çalıştırın.
+1. Seçin **Başlat yerel izleme**.
+1. Azure AD uygulama ara sunucusu Bağlayıcısı hizmeti başlatın.
+1. Ağ yakalama işlemini durdurun.
 
-   ![Ağ Yakalamayı Başlat](./media/application-proxy-configure-connectors-with-proxy-servers/start-local-trace.png)
-
-3. Azure AD uygulama ara sunucusu Bağlayıcısı hizmeti başlatın.
-4. Ağ yakalama işlemini durdurun.
-
-   ![Ağ Yakalamayı Durdur](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
+   ![Ekran görüntüsü, Dur ağ yakalama düğmesini gösterir.](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
 
 ### <a name="check-if-the-connector-traffic-bypasses-outbound-proxies"></a>Giden proxy Bağlayıcısı trafiği atlar, denetleyin
 
-Proxy sunucuları atlamak ve doğrudan uygulama ara Sunucusu hizmetine bağlanmak için uygulama ara sunucusu bağlayıcısını yapılandırdıysanız, TCP bağlantı girişimleri başarısız için ağ yakalama bakın istiyorsunuz. 
+Proxy sunucuları atlamak ve doğrudan uygulama ara Sunucusu hizmetine bağlanmak için uygulama ara sunucusu bağlayıcısını yapılandırdıysanız, TCP bağlantı girişimleri başarısız için ağ yakalama bakın istiyorsunuz.
 
-Eğer bu girişimlerden tanımlamak için ileti Çözümleyicisi filtreyi kullanın. Girin `property.TCPSynRetransmit` seçip filtre kutusuna **Uygula**. 
+Eğer bu girişimlerden tanımlamak için ileti Çözümleyicisi filtreyi kullanın. Girin `property.TCPSynRetransmit` seçip filtre kutusuna **Uygula**.
 
 TCP bağlantısı kurmak için gönderilen ilk paketi SYN pakettir. Bu paket yanıtı döndürmezse SYN reattempted. Yukarıdaki filtre, tüm yeniden SYN isteklerini görmek için kullanabilirsiniz. Ardından, bu SYN istekleri Bağlayıcısı ile ilgili tüm trafik için karşılık gelen olup olmadığını kontrol edebilirsiniz.
 
@@ -173,9 +175,9 @@ Azure hizmetlerine doğrudan bağlantı kurmak için bağlayıcıyı bekliyorsan
 
 ### <a name="check-if-the-connector-traffic-uses-outbound-proxies"></a>Bağlayıcı trafiği giden proxy kullanıp kullanmadığını denetleyin
 
-Uygulama Ara sunucusu Bağlayıcısı trafiğiniz Ara sunucularınız üzerinden gitmek için yapılandırılmışsa, başarısız https bağlantıları için proxy Ara istiyorsunuz. 
+Uygulama Ara sunucusu Bağlayıcısı trafiğiniz Ara sunucularınız üzerinden gitmek için yapılandırılmışsa, başarısız https bağlantıları için proxy Ara istiyorsunuz.
 
-Bu bağlantı girişimleri için ağ yakalama filtrelemek için girin `(https.Request or https.Response) and tcp.port==8080` ileti Çözümleyicisi filtrede 8080 proxy hizmet bağlantı noktası ile değiştiriliyor. Seçin **Uygula** filtre sonuçlarını görmek için. 
+Bu bağlantı girişimleri için ağ yakalama filtrelemek için girin `(https.Request or https.Response) and tcp.port==8080` ileti Çözümleyicisi filtrede 8080 proxy hizmet bağlantı noktası ile değiştiriliyor. Seçin **Uygula** filtre sonuçlarını görmek için.
 
 Yukarıdaki filtre, gelen/giden proxy bağlantı noktası yalnızca HTTPs isteklerini ve yanıtlarını gösterir. Proxy sunucusu ile iletişim gösteren CONNECT istekler için bakıyorsunuz. Başarılı olduktan sonra bir HTTP Tamam (200) yanıt alın.
 
@@ -183,6 +185,5 @@ Yukarıdaki filtre, gelen/giden proxy bağlantı noktası yalnızca HTTPs istekl
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure AD uygulama ara sunucusu bağlayıcıları anlama](application-proxy-connectors.md)
-
-- Bağlayıcı bağlantı sorunları ile ilgili sorunlar varsa, sorunuzu içinde sorun [Azure Active Directory Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) veya destek ekibimiz ile bir bilet oluşturun.
+* [Azure AD uygulama ara sunucusu bağlayıcıları anlama](application-proxy-connectors.md)
+* Bağlayıcı bağlantı sorunları ile ilgili sorunlar varsa, sorunuzu içinde sorun [Azure Active Directory Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) veya destek ekibimiz ile bir bilet oluşturun.

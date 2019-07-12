@@ -4,7 +4,7 @@ description: Bir Linux VM'nin Azure dahil olmak üzere çeşitli durumları bir 
 services: virtual-machines-linux
 documentationcenter: ''
 author: shandilvarun
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: d7341c40b8a130b81e61277daf306f7a900d24ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b894b0d1c97af7b3d71eab6bf48bea7a6ecc23cb
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704466"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708722"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Sanal makine yaşam döngüsü ve durumlar
 

@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: aljo, subramar
-ms.openlocfilehash: ecb7ac4d3359142d3aef247e4b918f517e10c3bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: subramar
+ms.openlocfilehash: 2dcb678e8350ae0de3317db3682f0e51e27ab6f5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926122"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621926"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric kapsayıcı ağ modları
 
@@ -200,14 +200,14 @@ Bir kapsayıcı hizmeti yeniden başlatılıyor veya kümedeki başka bir düğ�
  
 3. Yalnızca Windows kümeleri için aşağıdaki değerlerle sanal ağ için bağlantı noktası UDP/53'kurmak açılır bir Azure ağ güvenlik grubu (NSG) kuralı ayarlayın:
 
-   |Ayar |Değer | |
+   |Ayar |Value | |
    | --- | --- | --- |
    |Öncelik |2000 | |
    |Ad |Custom_Dns  | |
-   |source |VirtualNetwork | |
+   |Source |VirtualNetwork | |
    |Hedef | VirtualNetwork | |
    |Hizmet | DNS (UDP/53) | |
-   |Eylem | İzin Ver  | |
+   |Action | Allow  | |
    | | |
 
 4. Her hizmet için uygulama bildiriminde ağ modu belirtin: `<NetworkConfig NetworkType="Open">`. **Açık** modu sonuçları bir ayrılmış IP adresini alma hizmetinde ağ oluşturma. Hizmet bir modu belirtilmezse, varsayılan **nat** modu. Aşağıdaki örnekte liste, `NodeContainerServicePackage1` ve `NodeContainerServicePackage2` hizmetleri her aynı bağlantı noktasını dinler kullanabilirsiniz (her iki hizmet de dinlemede `Endpoint1`). Ağ modunu açın belirtildiğinde `PortBinding` yapılandırmaları belirtilemez.

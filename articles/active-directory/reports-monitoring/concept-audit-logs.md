@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3da96c09026baff3965e0a90d1f461fd948a3a50
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59f716ccd7b2e02c9064f13cf1ffd6e8180858c9
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60441146"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827905"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki denetim etkinliği raporları 
 
@@ -41,7 +41,7 @@ Bu makalede, Denetim raporuna genel bir bakış sağlar.
  
 ## <a name="who-can-access-the-data"></a>Verilere kimler erişebilir?
 
-* Kullanıcıların **güvenlik yönetici**, **güvenlik okuyucusu**, **rapor okuyucu** veya **genel yönetici** rolleri
+* Kullanıcıların **Güvenlik Yöneticisi**, **güvenlik okuyucusu**, **rapor okuyucu** veya **genel yönetici** rolleri
 * Ayrıca, tüm kullanıcılar (Yönetici olmayanlar) kendi denetim etkinliklerini görebilir
 
 ## <a name="audit-logs"></a>Denetim günlükleri
@@ -79,7 +79,7 @@ Daha ayrıntılı bilgi almak için liste görünümünde bir öğe seçin.
 Aşağıdaki alanlarda denetim verilerini filtreleyebilirsiniz:
 
 - Hizmet
-- Kategori
+- Category
 - Etkinlik
 - Durum
 - Hedef
@@ -98,7 +98,7 @@ Aşağıdaki alanlarda denetim verilerini filtreleyebilirsiniz:
 - B2C
 - Koşullu Erişim
 - Çekirdek Dizin
-- Yetkilendirme Yönetimi
+- Hak Yönetimi
 - Kimlik Koruması
 - Davetli Kullanıcılar
 - PIM
@@ -112,8 +112,8 @@ Aşağıdaki alanlarda denetim verilerini filtreleyebilirsiniz:
 - AdministrativeUnit
 - ApplicationManagement
 - Authentication
-- Yetkilendirme
-- İletişim
+- Authorization
+- İlgili kişi
 - Cihaz
 - DeviceConfiguration
 - DirectoryManagement

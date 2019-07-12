@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 928c943e21e7d00b87ac1e506b98d47107ac4348
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 904994134db28a8244f15ff42e0104e8565c68dd
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508569"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839793"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB ile yüksek kullanılabilirlik
 
@@ -42,7 +42,7 @@ Global olarak dağıtılmış bir veritabanı olarak Cosmos DB, aktarım hızı,
 
 ## <a name="high-availability-with-cosmos-db-in-the-event-of-regional-outages"></a>Bölgesel kesintiler yaşanması durumunda Cosmos DB ile yüksek kullanılabilirlik
 
-Bölgesel kesintiler nadir değildir ve Azure Cosmos DB her zaman veritabanınızı yüksek oranda kullanılabilir olmasını sağlar. Aşağıdaki ayrıntıları Cosmos hesabı yapılandırmanıza bağlı olarak bir kesinti sırasında Cosmos DB davranışı Yakala:
+Bölgesel kesintiler oldukça yaygındır ve Azure Cosmos DB veritabanınızın her zaman yüksek kullanılabilirliğe sahip olduğundan emin olur. Aşağıdaki ayrıntıları Cosmos hesabı yapılandırmanıza bağlı olarak bir kesinti sırasında Cosmos DB davranışı Yakala:
 
 - Bir yazma işlemi, istemci için Onaylandı önce Cosmos DB ile veri yazma işlemleri kabul eden bir bölgedeki bir çekirdeği tarafından dizinlendiğini.
 
@@ -93,7 +93,8 @@ Aşağıdaki tabloda, çeşitli hesap yapılandırmasını, yüksek kullanılabi
 |Aktarım hızı    |  Sağlanan aktarım hızı X RU/s      |  Sağlanan aktarım hızı X RU/s       |  RU/sn sağlanan aktarım hızı x 2 <br/><br/> Bu yapılandırma modunu iki kez tek bir bölge için kullanılabilirlik alanları ile karşılaştırıldığında iki bölgeleri olduğundan işleme miktarını gerektirir.   |
 
 > [!NOTE] 
-> Kullanılabilirlik alanı desteğini etkinleştirmek için Azure Cosmos DB hesabı etkin çok-ana/çok-region yazma olması gerekir. 
+> Bir Azure Cosmos hesabı çoklu bölge için kullanılabilirlik alanı desteği etkinleştirmek için hesabın çok yöneticili yazma etkinleştirilmiş olmalıdır.
+
 
 Yeni veya var olan Azure Cosmos hesapları bir bölge ekleme sırasında bölge yedekliliği etkinleştirebilirsiniz. Şu anda yalnızca bölge artıklığı Azure'u kullanarak etkinleştirebilirsiniz portal, PowerShell ve Azure Resource Manager şablonları. Azure Cosmos hesabınızda bölge yedekliliği etkinleştirmek için ayarlamalısınız `isZoneRedundant` bayrak `true` belirli bir konum. Bu bayrak konumları özelliği içinde ayarlayabilirsiniz. Örneğin, aşağıdaki powershell kod parçacığı "Güneydoğu Asya" bölgesi için bölge artıklığı sağlar:
 

@@ -2,31 +2,31 @@
 title: Görünüm kubelet günlüklerini Azure Kubernetes Service (AKS)
 description: Azure Kubernetes Service (AKS) düğümlerden kubelet günlüklerinde sorun giderme bilgilerini görüntüle öğrenin
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/05/2019
-ms.author: iainfou
-ms.openlocfilehash: b381145fef7e6fb399fac3387ab01fdc9a51b154
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 65b16b3ddc209ef5d2f6287a04cfe402c3b205c6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60465028"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615176"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Azure Kubernetes Service (AKS) kümesi düğümlerinden kubelet günlüklerini alma
 
-Bir AKS kümesi çalışan bir parçası olarak bir sorunu gidermek için günlükleri gözden geçirmek gerekebilir. Günlüklerini görüntüleme yeteneği Azure portalında yerleşiktir [AKS ana bileşenleri] [ aks-master-logs] veya [bir AKS kümesindeki kapsayıcılar][azure-container-logs]. Bazen, almanız gerekebilir *kubelet* bir AKS düğümü sorun giderme amacıyla günlükleri.
+Bir AKS kümesi çalışan bir parçası olarak bir sorunu gidermek için günlükleri gözden geçirmek gerekebilir. Günlüklerini görüntüleme yeteneği Azure portalında yerleşiktir [AKS ana bileşenleri][aks-master-logs] or [containers in an AKS cluster][azure-container-logs]. Bazen, almanız gerekebilir *kubelet* bir AKS düğümü sorun giderme amacıyla günlükleri.
 
 Bu makalede, nasıl kullanabileceğinizi gösterir. `journalctl` görüntülemek için *kubelet* bir AKS düğümde günlüğe kaydeder.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak] [ aks-quickstart-cli] veya [Azure portalını kullanarak][aks-quickstart-portal].
+Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
 ## <a name="create-an-ssh-connection"></a>Bir SSH bağlantısı oluşturun
 
-İlk olarak, bir SSH bağlantısı üzerinde görüntülemek için ihtiyacınız olan düğüm oluşturma *kubelet* günlükleri. Bu işlem, ayrıntılı [Azure Kubernetes Service (AKS) kümesi düğümleri içine SSH] [ aks-ssh] belge.
+İlk olarak, bir SSH bağlantısı üzerinde görüntülemek için ihtiyacınız olan düğüm oluşturma *kubelet* günlükleri. Bu işlem, ayrıntılı [Azure Kubernetes Service (AKS) kümesi düğümleri içine SSH][aks-ssh] belge.
 
 ## <a name="get-kubelet-logs"></a>Kubelet günlüklerini alma
 

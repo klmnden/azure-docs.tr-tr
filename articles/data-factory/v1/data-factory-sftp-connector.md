@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fe253feca6a22ee0177082e178f897c5b634bb3a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d35c4f410c29bba7848dde53d206cdd2ccd980ca
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61257206"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836163"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Azure Data Factory kullanarak bir SFTP sunucusundan veri taşıma
 > [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
@@ -44,14 +44,14 @@ Farklı araçlar/API'lerini kullanarak bir SFTP kaynaktan veri taşıyan kopyala
 
 - Bir işlem hattı oluşturmanın en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [Öğreticisi: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı bir kılavuz.
 
-- Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portalında**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**ve  **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. SFTP sunucusundan verileri Azure Blob Depolama'ya kopyalamak JSON örnekleri için bkz [JSON örneği: Verileri Azure blob için SFTP sunucusundan kopyalama](#json-example-copy-data-from-sftp-server-to-azure-blob) bu makalenin.
+- Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. SFTP sunucusundan verileri Azure Blob Depolama'ya kopyalamak JSON örnekleri için bkz [JSON örneği: Verileri Azure blob için SFTP sunucusundan kopyalama](#json-example-copy-data-from-sftp-server-to-azure-blob) bu makalenin.
 
 ## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
 Aşağıdaki tabloda, bağlı hizmet FTP özgü JSON öğeleri için açıklama sağlar.
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type | Type özelliği ayarlanmalıdır `Sftp`. |Evet |
+| türü | Type özelliği ayarlanmalıdır `Sftp`. |Evet |
 | host | SFTP sunucusunun adı veya IP adresi. |Evet |
 | port |SFTP sunucusunun dinlediği bağlantı noktası. Varsayılan değerdir: 21 |Hayır |
 | authenticationType |Kimlik doğrulama türünü belirtin. İzin verilen değerler: **Temel**, **SshPublicKey**. <br><br> Başvurmak [kullanarak temel kimlik doğrulaması](#using-basic-authentication) ve [kullanarak SSH ortak anahtarı kimlik doğrulaması](#using-ssh-public-key-authentication) daha fazla özellik ve JSON örneklerini sırasıyla bölümler. |Evet |
@@ -69,7 +69,7 @@ Temel kimlik doğrulaması kullanmak için ayarlanmış `authenticationType` ola
 | username | SFTP sunucusuna erişimi olan kullanıcı. |Evet |
 | password | (Kullanıcı adı) kullanıcı parolası. | Evet |
 
-#### <a name="example-basic-authentication"></a>Örnek: Temel kimlik doğrulama
+#### <a name="example-basic-authentication"></a>Örnek: Temel kimlik doğrulaması
 ```json
 {
     "name": "SftpLinkedService",
@@ -225,7 +225,7 @@ Oysa etkinliğin typeProperties bölümündeki özellikler her etkinlik türü i
 Bkz: [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-supported-file-and-compression-formats.md) ilişkin ayrıntıları.
 
 ## <a name="json-example-copy-data-from-sftp-server-to-azure-blob"></a>JSON örneği: Azure blob SFTP sunucusundan veri kopyalayın
-Aşağıdaki örnek kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md) veya [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bunlar Azure Blob depolama alanına SFTP kaynaktan veri kopyalama işlemini göstermektedir. Ancak, veriler kopyalanabilir **doğrudan** herhangi birinden herhangi birine belirtilen havuzlarını kaynakları [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopyalama etkinliğini kullanarak Azure Data Factory'de.
+Aşağıdaki örnek kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bunlar Azure Blob depolama alanına SFTP kaynaktan veri kopyalama işlemini göstermektedir. Ancak, veriler kopyalanabilir **doğrudan** herhangi birinden herhangi birine belirtilen havuzlarını kaynakları [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopyalama etkinliğini kullanarak Azure Data Factory'de.
 
 > [!IMPORTANT]
 > Bu örnek JSON parçacıklarını sağlar. Veri Fabrikası oluşturmaya yönelik adım adım yönergeler içermez. Bkz: [Bulut ve şirket içi konumlar arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale adım adım yönergeler için.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b3b896b2c423f2f9155ddb7803e59e719bd027cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 466d5eff27d9a8105fb840ce4ba79571b6207092
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510715"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835509"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Kullanıcı girişini doğrulama, Azure AD B2C kullanıcı yolculuğunun talep alışverişlerine REST API tümleştirme
 
@@ -64,11 +64,11 @@ Bölümündeki adımları tamamlamanız [özel ilkeleri kullanmaya başlama](act
 
 3. İçinde **adı** uygulama için bir ad yazın (örneğin, *Contoso.AADB2C.API*) ve ardından **Tamam**.
 
-    ![Yeni visual studio projesi oluşturma](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-create-project.png)
+    ![Visual Studio'da yeni bir Visual Studio projesi oluşturma](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-create-project.png)
 
 4. İçinde **yeni ASP.NET Web uygulaması** penceresinde bir **Web API** veya **Azure API uygulaması** şablonu.
 
-    ![Web API şablonu seçin](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-select-web-api.png)
+    ![Visual Studio'da bir web API şablonu seçme](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-select-web-api.png)
 
 5. Emin olun, kimlik doğrulamasının ayarlandığında **kimlik doğrulaması yok**.
 
@@ -138,15 +138,15 @@ Web API'si, bir _denetleyicisi_ HTTP isteklerini işleyen bir nesnedir. Denetley
 
 1. Çözüm Gezgini'nde **Denetleyiciler** klasörüne sağ tıklayın, **Ekle**'yi ve ardından **Denetleyici**'yi seçin.
 
-    ![Yeni denetleyici ekleyin](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-1.png)
+    ![Visual Studio'da yeni bir denetleyici ekleme](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-1.png)
 
 2. İçinde **İskele Ekle** penceresinde **Web API denetleyicisi – boş**ve ardından **Ekle**.
 
-    ![Select Web API 2 denetleyici - boş](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-2.png)
+    ![Denetleyici - boş Visual Studio'da Web API 2 seçme](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-2.png)
 
 3. İçinde **denetleyici Ekle** penceresi, denetleyici adı **IdentityController**ve ardından **Ekle**.
 
-    ![Denetleyici adı yazın](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-3.png)
+    ![Girme Visual Studio'da Denetleyici adı](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-3.png)
 
     Yapı iskelesi adlı bir dosya oluşturur *IdentityController.cs* içinde *denetleyicileri* klasör.
 
@@ -206,11 +206,11 @@ Web API'si, bir _denetleyicisi_ HTTP isteklerini işleyen bir nesnedir. Denetley
 ## <a name="step-3-publish-the-project-to-azure"></a>3\. adım: Projeyi Azure'da yayımlama
 1. Çözüm Gezgini'nde sağ **Contoso.AADB2C.API** proje ve ardından **Yayımla**.
 
-    ![Microsoft Azure App Service'e yayımlama](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
+    ![Visual Studio ile Microsoft Azure App Service'e yayımlama](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
 
 2. İçinde **Yayımla** penceresinde **Microsoft Azure App Service**ve ardından **Yayımla**.
 
-    ![Yeni Microsoft Azure App Service oluştur](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-2.png)
+    ![Visual Studio ile yeni Microsoft Azure App Service oluşturma](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-2.png)
 
     **App Service Oluştur** penceresi açılır. Öğreticide, ASP.NET web uygulamasını Azure'da çalıştırmak için tüm gerekli Azure kaynakları oluşturun.
 
@@ -219,9 +219,9 @@ Web API'si, bir _denetleyicisi_ HTTP isteklerini işleyen bir nesnedir. Denetley
 
 3. İçinde **Web uygulaması adı** benzersiz bir uygulama adı yazın (geçerli karakterler: a-z, 0-9 ve kısa çizgi (-). Web uygulamasının URL'si olan http://<app_name>.azurewebsites.NET, burada *app_name* web uygulamanızın adıdır. Otomatik oluşturulmuş benzersiz adı kabul edebilirsiniz.
 
-    ![App Service özellikleri sağlar](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-3.png)
+    ![App Service özelliklerini yapılandırma](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-3.png)
 
-4. Azure kaynaklarını oluşturmaya başlamak için seçim **Oluştur**.  
+4. Azure kaynaklarını oluşturmaya başlamak için seçim **Oluştur**.
     ASP.NET web uygulaması oluşturduktan sonra sihirbaz Azure'da yayımlar ve ardından uygulamayı varsayılan tarayıcıda başlatır.
 
 6. Web uygulamasının URL'sini kopyalayın.
@@ -262,7 +262,7 @@ Bulun `<ClaimsProviders>` düğümünü ve ardından altına aşağıdaki XML pa
 <ClaimsProvider>
   <DisplayName>REST APIs</DisplayName>
   <TechnicalProfiles>
-    
+
     <!-- Custom Restful service -->
     <TechnicalProfile Id="REST-API-SignUp">
       <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
@@ -347,14 +347,14 @@ Yeni Talep ekledikten sonra bağlı olan taraf kodu şöyle görünür:
 
 2. Açık **B2C_1A_signup_signin**, yüklenmiş ve ardından bağlı olan taraf (RP) özel ilke **Şimdi Çalıştır**.
 
-    ![B2C_1A_signup_signin penceresi](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-run.png)
+    ![Azure portalında B2C_1A_signup_signin özel ilke sayfası](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-run.png)
 
-3. İşlem yazarak test edin **Test** içinde **verilen ad** kutusu.  
+3. İşlem yazarak test edin **Test** içinde **verilen ad** kutusu.
     Azure AD B2C, pencerenin en üstünde bir hata iletisi görüntüler.
 
-    ![İlkenizi test](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
+    ![Oturum açma, kaydolma sayfasında belirtilen ada giriş doğrulama sınaması](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
 
-4. İçinde **verilen ad** ("Test" dışında) bir ad yazın.  
+4. İçinde **verilen ad** ("Test" dışında) bir ad yazın.
     Azure AD B2C kullanıcı oturum açtığında ve ardından uygulamanızı bir loyaltyNumber gönderir. Bu JWT sayısında unutmayın.
 
 ```

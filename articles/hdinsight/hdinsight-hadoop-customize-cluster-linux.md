@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 41a57d1ad5d216797fc60ea13acff346734fdef8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7885b03e9f92fc8e8c5b2c78049760cbed8d4dc7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433639"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703971"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Betik eylemlerini kullanarak Azure HDInsight kümelerinizi özelleştirebilirsiniz.
 
@@ -173,12 +173,12 @@ Bu bölümde, bir HDInsight kümesi oluştururken betik eylemleri kullanabilece�
 
     Aşağıdaki tabloda, formda öğeleri açıklanmıştır:
 
-    | Özellik | Değer |
+    | Özellik | Value |
     | --- | --- |
     | Bir komut dosyası seçin | Kendi betiğinizi kullanmayı tercih __özel__. Aksi takdirde, sağlanan betikleri birini seçin. |
     | Name |Betik eylemi için bir ad belirtin. |
     | Bash betiği URI'si |Betik URI'si belirtin. |
-    | HEAD/Worker/ZooKeeper |Betik üzerinde çalıştığı düğümleri belirtin: **HEAD**, **çalışan**, veya **ZooKeeper**. |
+    | HEAD/çalışan/ZooKeeper |Betik üzerinde çalıştığı düğümleri belirtin: **HEAD**, **çalışan**, veya **ZooKeeper**. |
     | Parametreler |Komut dosyası tarafından gerekli parametreleri belirtin. |
 
     Kullanım __bu betik eylemi kalıcı__ betik ölçeklendirme işlemleri sırasında uygulanır emin olmak için giriş.
@@ -310,7 +310,7 @@ Başlamadan önce Azure CLI'yı yüklediğinizde ve emin olun. Daha fazla bilgi 
 
     Bu komutun parametreleri atlarsanız, bunlar için istenir. Betik ile belirtirseniz `-u` parametrelerini kabul eden kullanarak belirtebilirsiniz `-p` parametresi.
 
-    Geçerli düğüm türleri `headnode`, `workernode`, ve `zookeeper`. Betik, birkaç düğüm türleri için uygulanması gereken, noktalı virgülle ayrılmış türlerini belirtmek `;`. Örneğin, `-n headnode;workernode`.
+    Geçerli düğüm türleri `headnode`, `workernode`, ve `zookeeper`. Betik, birkaç düğüm türleri için uygulanması gereken, noktalı virgülle ayrılmış türlerini belirtmek `;`. Örneğin: `-n headnode;workernode`.
 
     Betik kalıcı hale getirmek için ekleme `--persistOnSuccess`. Aynı zamanda betik daha sonra kullanarak kalıcı yapılabilir `azure hdinsight script-action persisted set`.
 

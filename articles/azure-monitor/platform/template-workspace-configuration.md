@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 07/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 39dbb504603544a468907d87d236338cb95e39a3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a55a4b2f3045aac8dfe9e46a50074585ab3ef491
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441624"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827785"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarını kullanarak Log Analytics çalışma alanını yönetme
 
@@ -40,6 +40,7 @@ Kullanabileceğiniz [Azure Resource Manager şablonları](../../azure-resource-m
 Bu makalede, şablonları ile gerçekleştirebileceğiniz yapılandırma bazılarını göstermeyi şablonu örnekleri sağlar.
 
 ## <a name="api-versions"></a>API sürümleri
+
 Aşağıdaki tabloda, bu örnekte kullanılan kaynaklar için API sürümü listeler.
 
 | Resource | Kaynak türü | API sürümü |
@@ -50,16 +51,8 @@ Aşağıdaki tabloda, bu örnekte kullanılan kaynaklar için API sürümü list
 | Çözüm    | çözümler     | 2015-11-01-Önizleme |
 
 ## <a name="create-a-log-analytics-workspace"></a>Log Analytics çalışma alanı oluşturma
-Aşağıdaki örnek, yerel makinenizden bir şablonu kullanarak bir çalışma alanı oluşturur. JSON şablonunu, çalışma alanının adı için yalnızca isteyecek şekilde yapılandırılmış ve büyük olasılıkla ortamınızdaki standart bir yapılandırma olarak kullanılacak diğer parametreler için varsayılan bir değer belirtir.  
 
-Aşağıdaki parametreleri varsayılan değeri ayarlayın:
-
-* Konum - Doğu ABD için varsayılanları
-* Nisan 2018'de yayınlanan yeni GB başına fiyatlandırma katmanına varsayılan fiyatlandırma modelinde SKU-
-
-> [!NOTE]
->Oluşturma veya yeni Nisan 2018 fiyatlandırma modelini tercih bir Abonelikteki Log Analytics çalışma alanını yapılandırma, yalnızca geçerli Log Analytics fiyatlandırma katmanı ise **PerGB2018**.  
->Bazı abonelikler varsa, [pre-Nisan 2018 fiyatlandırma modeline](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model), belirtebileceğiniz **tek başına** fiyatlandırma katmanı ve bu başarılı olur pre-Nisan 2018 fiyatlandırma modelinde iki abonelik için ve yeni abonelikler için fiyatlandırma. Fiyatlandırma katmanını yeni proicing modeli benimseyen Aboneliklerde çalışma alanları için ayarlanacak **PerGB2018**. 
+Aşağıdaki örnek, yerel makinenizden bir şablonu kullanarak bir çalışma alanı oluşturur. JSON şablonunu (fiyatlandırma katmanı ve elde tutma gibi diğer çalışma alanı parametreler için varsayılan değerleri kullanarak) yeni çalışma alanı konumunu ve adını yalnızca gerektirecek şekilde yapılandırılır.  
 
 ### <a name="create-and-deploy-template"></a>Şablon oluşturma ve dağıtma
 
@@ -79,26 +72,35 @@ Aşağıdaki parametreleri varsayılan değeri ayarlayın:
         "location": {
             "type": "String",
             "allowedValues": [
-              "eastus",
-              "westus"
+              "australiacentral", 
+              "australiaeast", 
+              "australiasoutheast", 
+              "brazilsouth",
+              "canadacentral", 
+              "centralindia", 
+              "centralus", 
+              "eastasia", 
+              "eastus", 
+              "eastus2", 
+              "francecentral", 
+              "japaneast", 
+              "koreacentral", 
+              "northcentralus", 
+              "northeurope", 
+              "southafricanorth", 
+              "southcentralus", 
+              "southeastasia", 
+              "uksouth", 
+              "ukwest", 
+              "westcentralus", 
+              "westeurope", 
+              "westus", 
+              "westus2" 
             ],
-            "defaultValue": "eastus",
             "metadata": {
               "description": "Specifies the location in which to create the workspace."
             }
-        },
-        "sku": {
-            "type": "String",
-            "allowedValues": [
-              "Standalone",
-              "PerNode",
-              "PerGB2018"
-            ],
-            "defaultValue": "PerGB2018",
-            "metadata": {
-            "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
         }
-          }
     },
     "resources": [
         {
@@ -107,9 +109,6 @@ Aşağıdaki parametreleri varsayılan değeri ayarlayın:
             "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
-                "sku": {
-                    "Name": "[parameters('sku')]"
-                },
                 "features": {
                     "searchVersion": 1
                 }
@@ -118,26 +117,28 @@ Aşağıdaki parametreleri varsayılan değeri ayarlayın:
        ]
     }
     ```
-2. Gereksinimlerinizi karşılayacak şekilde şablonunu düzenleyin.  Gözden geçirme [Microsoft.OperationalInsights/workspaces şablon](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) başvuru hangi özellikler ve değerler desteklendiğini öğrenin. 
+
+2. Gereksinimlerinizi karşılayacak şekilde şablonunu düzenleyin. Gözden geçirme [Microsoft.OperationalInsights/workspaces şablon](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) başvuru hangi özellikler ve değerler desteklendiğini öğrenin. 
 3. Bu dosyayı farklı Kaydet **deploylaworkspacetemplate.json** yerel bir klasöre.
-4. Bu şablonu dağıtmaya hazırsınız. Çalışma alanı oluşturmak için PowerShell veya komut satırı'nı kullanın.
+4. Bu şablonu dağıtmaya hazırsınız. Çalışma alanı adını ve konumunu komutunun bir parçası belirterek çalışma alanı oluşturmak için PowerShell veya komut satırı'nı kullanın.
 
    * PowerShell için şablonu içeren klasörden aşağıdaki komutları kullanın:
    
         ```powershell
-        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json -workspaceName <workspace-name> -location <location>
         ```
 
    * Komut satırı için şablonu içeren klasörden aşağıdaki komutları kullanın:
 
         ```cmd
         azure config mode arm
-        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
+        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json --workspaceName <workspace-name> --location <location>
         ```
 
 Dağıtımın tamamlanması birkaç dakika sürebilir. Tamamlandığında, sonuç içeren aşağıdakine benzer bir ileti görürsünüz:<br><br> ![Dağıtım tamamlandığında örnek sonucu](./media/template-workspace-configuration/template-output-01.png)
 
 ## <a name="configure-a-log-analytics-workspace"></a>Log Analytics çalışma alanını yapılandırma
+
 Aşağıdaki örnek şablonu göstermektedir nasıl yapılır:
 
 1. Çözüm çalışma alanına ekleme
@@ -161,19 +162,21 @@ Aşağıdaki örnek şablonu göstermektedir nasıl yapılır:
         "description": "Workspace name"
       }
     },
-    "serviceTier": {
+    "pricingTier": {
       "type": "string",
       "allowedValues": [
+        "PerGB2018",
         "Free",
         "Standalone",
         "PerNode",
-        "PerGB2018"
+        "Standard",
+        "Premium"
       ],
       "defaultValue": "PerGB2018",
       "metadata": {
-        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone or PerNode) which are not available to all customers"
-    }
-      },
+        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+      }
+    },
     "dataRetention": {
       "type": "int",
       "defaultValue": 30,
@@ -187,17 +190,40 @@ Aşağıdaki örnek şablonu göstermektedir nasıl yapılır:
     "immediatePurgeDataOn30Days": {
       "type": "bool",
       "metadata": {
-        "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. This only applies when retention is being set to 30 days."
+        "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
       }
     },
     "location": {
       "type": "string",
       "allowedValues": [
-        "East US",
-        "West Europe",
-        "Southeast Asia",
-        "Australia Southeast"
-      ]
+        "australiacentral", 
+        "australiaeast", 
+        "australiasoutheast", 
+        "brazilsouth",
+        "canadacentral", 
+        "centralindia", 
+        "centralus", 
+        "eastasia", 
+        "eastus", 
+        "eastus2", 
+        "francecentral", 
+        "japaneast", 
+        "koreacentral", 
+        "northcentralus", 
+        "northeurope", 
+        "southafricanorth", 
+        "southcentralus", 
+        "southeastasia", 
+        "uksouth", 
+        "ukwest", 
+        "westcentralus", 
+        "westeurope", 
+        "westus", 
+        "westus2"
+      ],
+      "metadata": {
+        "description": "Specifies the location in which to create the workspace."
+      }
     },
     "applicationDiagnosticsStorageAccountName": {
         "type": "string",
@@ -235,7 +261,10 @@ Aşağıdaki örnek şablonu göstermektedir nasıl yapılır:
       "location": "[parameters('location')]",
       "properties": {
         "sku": {
-          "Name": "[parameters('serviceTier')]"
+          "name": "[parameters('pricingTier')]"
+          "features": {
+            "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
+          }
         },
     "retentionInDays": "[parameters('dataRetention')]"
       },
@@ -494,6 +523,10 @@ Aşağıdaki örnek şablonu göstermektedir nasıl yapılır:
       "type": "int",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').retentionInDays]"
     },
+    "immediatePurgeDataOn30Days": {  
+      "type": "bool",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').features.immediatePurgeDataOn30Days]"
+    },
     "portalUrl": {
       "type": "string",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').portalUrl]"
@@ -503,6 +536,7 @@ Aşağıdaki örnek şablonu göstermektedir nasıl yapılır:
 
 ```
 ### <a name="deploying-the-sample-template"></a>Örnek şablonu dağıtma
+
 Örnek şablonu dağıtmak için:
 
 1. Bağlı örnek bir dosyaya, örneğin kaydedin `azuredeploy.json` 
@@ -510,17 +544,20 @@ Aşağıdaki örnek şablonu göstermektedir nasıl yapılır:
 3. Şablonu dağıtmak için PowerShell veya komut satırı'nı kullanın
 
 #### <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
 #### <a name="command-line"></a>Komut satırı
+
 ```cmd
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
 
 ## <a name="example-resource-manager-templates"></a>Örnek Resource Manager şablonları
+
 Azure hızlı başlangıç Şablon Galerisi de dahil olmak üzere Log Analytics için birkaç şablon içerir:
 
 * [Log Analytics VM uzantısı ile Windows çalıştıran bir sanal makine dağıtma](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
@@ -530,5 +567,7 @@ Azure hızlı başlangıç Şablon Galerisi de dahil olmak üzere Log Analytics 
 * [Mevcut bir depolama hesabı için Log Analytics Ekle](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * [Azure Resource Manager şablonu kullanarak sanal makinelere Windows aracısını dağıtmak](../../virtual-machines/extensions/oms-windows.md).
+
 * [Linux aracısını dağıtmak için Azure Resource Manager şablonu kullanarak Vm'leri](../../virtual-machines/extensions/oms-linux.md).

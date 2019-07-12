@@ -5,15 +5,15 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 06/18/2019
+ms.date: 07/11/2019
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 5358fe387d2a371d96d46d8546ce0f20b47ca54b
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 099bca7483100da1a4ee2f8f10057c416ad145b0
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206477"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67841472"
 ---
 Azure kaynaklarınızı bir taksonomi mantıksal olarak düzenlemek için meta verileri vererek etiketler. Her etiket bir ad ve değer çifti oluşur. Örneğin, "Ortam" adını ve "Üretim" değerini üretimdeki tüm kaynaklara uygulayabilirsiniz.
 
@@ -24,9 +24,9 @@ Taksonominizi stratejisi kullanıcılar üzerindeki yükü azaltmak ve doğrulu�
 Etiketler için aşağıdaki sınırlamalar geçerlidir:
 
 * Tüm kaynak türleri etiketleri destekler. Bir kaynak türü için bir etiket uygulamak, belirlemek için bkz: [etiket Azure kaynakları için destek](../articles/azure-resource-manager/tag-support.md).
-* Her kaynak veya kaynak grubu en fazla 15 etiket adı/değer çifti içerebilir. Bu sınırlama yalnızca kaynak grubu veya kaynağa doğrudan uygulanan etiketler için geçerlidir. Kaynak grupları, her biri 15 etiket adı/değer çiftine sahip çok sayıda kaynak içerebilir. Bir kaynak ile ilişkilendirmeniz gereken 15'ten fazla değer varsa, etiket değeri için JSON dizesi kullanın. JSON dizesi, tek etiket adına uygulanan birden fazla değer içerebilir. Bu makalede, etikete bir JSON dizesi atama örneği gösterilmektedir.
+* Her kaynak veya kaynak grubu en fazla 50 etiket adı/değer çiftleri olabilir. Şu anda 15 etiket yalnızca destek depolama hesapları, ancak bu sınırı 50 gelecek sürümlerden birinde gerçekleştirilecektir. İzin verilen en yüksek sayıdan daha fazla etiket uygulamak ihtiyacınız varsa etiket değeri için bir JSON dizesi kullanın. JSON dizesi, tek etiket adına uygulanan birden fazla değer içerebilir. Bir kaynak grubu, her 50 etiket adı/değer çiftine sahip çok sayıda kaynak içerebilir.
 * Etiket adı 512 karakter ile sınırlıdır ve etiket değeri 256 karakter ile sınırlıdır. Depolama hesapları için etiket adı 128 karakter ile sınırlıdır ve etiket değeri 256 karakter ile sınırlıdır.
-* Sanal makineler ve sanal makine ölçek kümeleri için tüm etiket adları ve değerleri için 2048 karakter toplam sınırlıdır. Etiketleri genelleştirilmiş sanal makineleri desteklemez.
+* Etiketleri genelleştirilmiş sanal makineleri desteklemez.
 * Kaynak grubuna uygulanan etiketler, bu kaynak grubundaki kaynaklar tarafından devralınmaz.
 * Bulut Hizmetleri gibi Klasik kaynakları için etiketler uygulanamaz.
 * Etiket adları şu karakterleri içeremez: `<`, `>`, `%`, `&`, `\`, `?`, `/`
