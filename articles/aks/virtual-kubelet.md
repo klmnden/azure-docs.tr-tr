@@ -2,18 +2,18 @@
 title: Bir Azure Kubernetes Service (AKS) kümesi içinde Virtual Kubelet çalıştırın
 description: Azure Container Instances üzerinde Linux ve Windows kapsayıcılarını çalıştırmaya yönelik, Virtual Kubelet Azure Kubernetes Service (AKS) kullanmayı öğrenin.
 services: container-service
-author: iainfoulds
+author: mlearned
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: cc0c3becf21cb54b97a88e9ba35b38308af81a85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: f18992be353d2d6cc739412d98ccd97d5e78d4c7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475414"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613870"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Service'i (AKS) ile sanal Kubelet kullanın
 
@@ -22,7 +22,7 @@ Azure Container Instances'a (ACI) Azure'da kapsayıcıları çalıştırmak içi
 Standart bir Kubernetes düğümü ise gibi hem Linux hem de Windows kapsayıcıları, Virtual Kubelet sağlayıcısı için Azure Container Instances kullanarak, bir kapsayıcı örneği üzerinde zamanlanabilir. Bu yapılandırma, Kubernetes yeteneklerini ve container Instances yönetim değeri ve maliyet avantajı yararlanmasına olanak sağlar.
 
 > [!NOTE]
-> AKS adlı ACI, kapsayıcıları zamanlamak için yerleşik destek sunuyor *sanal düğümü*. Bu sanal düğümü şu anda Linux kapsayıcı örneklerini destekler. Windows container Instances zamanlamak gerekiyorsa, Virtual Kubelet kullanmaya devam edebilirsiniz. Aksi takdirde, bu makalede belirtilen el ile Virtual Kubelet yönergeler yerine sanal düğümü kullanmanız gerekir. Sanal düğümleri kullanarak oluşturabileceğinize dair [Azure CLI] [ virtual-nodes-cli] veya [Azure portalında][virtual-nodes-portal].
+> AKS adlı ACI, kapsayıcıları zamanlamak için yerleşik destek sunuyor *sanal düğümü*. Bu sanal düğümü şu anda Linux kapsayıcı örneklerini destekler. Windows container Instances zamanlamak gerekiyorsa, Virtual Kubelet kullanmaya devam edebilirsiniz. Aksi takdirde, bu makalede belirtilen el ile Virtual Kubelet yönergeler yerine sanal düğümü kullanmanız gerekir. Sanal düğümleri kullanarak oluşturabileceğinize dair [Azure CLI][virtual-nodes-cli] or [Azure portal][virtual-nodes-portal].
 >
 > Sanal Kubelet, Deneysel bir açık kaynak bir projedir ve bu nedenle kullanılmalıdır. Katkıda bulunmak için dosya sorunları ve okuma sanal kubelet hakkında daha fazla bilgi bkz [sanal Kubelet GitHub projesini][vk-github].
 
@@ -32,11 +32,11 @@ Bu belge, bir AKS kümesi olduğunu varsayar. Bir AKS kümesi gerekirse bkz [Azu
 
 Ayrıca Azure CLI Sürüm ihtiyacınız **2.0.65** veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
 
-Virtual Kubelet yüklemek için yükleme ve yapılandırma [Helm] [ aks-helm] AKS kümenizde. Tiller olduğundan emin olun [Kubernetes RBAC ile kullanılmak üzere yapılandırılmış](#for-rbac-enabled-clusters), gerekirse.
+Virtual Kubelet yüklemek için yükleme ve yapılandırma [Helm][aks-helm] AKS kümenizde. Tiller olduğundan emin olun [Kubernetes RBAC ile kullanılmak üzere yapılandırılmış](#for-rbac-enabled-clusters), gerekirse.
 
 ### <a name="register-container-instances-feature-provider"></a>Container Instances özellik sağlayıcısını Kaydet
 
-Azure Container örneği (ACI) hizmeti daha önce kullanmadıysanız, hizmet sağlayıcısı, aboneliğiniz ile kaydedin. ACI sağlayıcı kaydı kullanarak durumu denetleyebilirsiniz [az sağlayıcı listesi] [ az-provider-list] aşağıdaki örnekte gösterildiği gibi komut:
+Azure Container örneği (ACI) hizmeti daha önce kullanmadıysanız, hizmet sağlayıcısı, aboneliğiniz ile kaydedin. ACI sağlayıcı kaydı kullanarak durumu denetleyebilirsiniz [az sağlayıcı listesi][az-provider-list] aşağıdaki örnekte gösterildiği gibi komut:
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -50,7 +50,7 @@ Namespace                    RegistrationState
 Microsoft.ContainerInstance  Registered
 ```
 
-Sağlayıcı olarak gösteriliyorsa *NotRegistered*, kullanarak sağlayıcısını kaydedin [az provider register] [ az-provider-register] aşağıdaki örnekte gösterildiği gibi:
+Sağlayıcı olarak gösteriliyorsa *NotRegistered*, kullanarak sağlayıcısını kaydedin [az provider register][az-provider-register] aşağıdaki örnekte gösterildiği gibi:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -81,7 +81,7 @@ subjects:
     namespace: kube-system
 ```
 
-Hizmet hesabını uygular ve ile bağlama [kubectl uygulamak] [ kubectl-apply] ve belirtin, *rbac sanal-kubelet.yaml* aşağıdaki örnekte gösterildiği gibi dosya:
+Hizmet hesabını uygular ve ile bağlama [kubectl uygulamak][kubectl-apply] ve belirtin, *rbac sanal-kubelet.yaml* aşağıdaki örnekte gösterildiği gibi dosya:
 
 ```console
 $ kubectl apply -f rbac-virtual-kubelet.yaml
@@ -99,7 +99,7 @@ helm init --service-account tiller
 
 ## <a name="installation"></a>Yükleme
 
-Kullanım [az aks yükleme-connector] [ aks-install-connector] Virtual Kubelet yüklemek için komutu. Aşağıdaki örnek Linux ve Windows bağlayıcı dağıtır.
+Kullanım [az aks yükleme-connector][aks-install-connector] Virtual Kubelet yüklemek için komutu. Aşağıdaki örnek Linux ve Windows bağlayıcı dağıtır.
 
 ```azurecli-interactive
 az aks install-connector \
@@ -109,7 +109,7 @@ az aks install-connector \
     --os-type Both
 ```
 
-Bu bağımsız değişkenler kullanılabilir [az aks yükleme-connector] [ aks-install-connector] komutu.
+Bu bağımsız değişkenler kullanılabilir [az aks yükleme-connector][aks-install-connector] komutu.
 
 | Bağımsız değişkeni: | Açıklama | Gerekli |
 |---|---|:---:|
@@ -126,7 +126,7 @@ Bu bağımsız değişkenler kullanılabilir [az aks yükleme-connector] [ aks-i
 
 ## <a name="validate-virtual-kubelet"></a>Sanal Kubelet doğrula
 
-Virtual Kubelet yüklendiğini doğrulamak için Kubernetes düğümleri kullanarak listesini döndürmek [kubectl alma düğümleri] [ kubectl-get] komutu:
+Virtual Kubelet yüklendiğini doğrulamak için Kubernetes düğümleri kullanarak listesini döndürmek [kubectl alma düğümleri][kubectl-get] komutu:
 
 ```console
 $ kubectl get nodes
@@ -139,7 +139,7 @@ virtual-kubelet-virtual-kubelet-windows-eastus   Ready    agent   37s   v1.13.1-
 
 ## <a name="run-linux-container"></a>Linux kapsayıcı çalıştırma
 
-Adlı bir dosya oluşturun `virtual-kubelet-linux.yaml` aşağıdaki YAML'ye kopyalayın. Bu Not bir [nodeSelector] [ node-selector] ve [toleration] [ toleration] düğümdeki kapsayıcı zamanlamak için kullanılır.
+Adlı bir dosya oluşturun `virtual-kubelet-linux.yaml` aşağıdaki YAML'ye kopyalayın. Bu Not bir [nodeSelector][node-selector] and [toleration][toleration] düğümdeki kapsayıcı zamanlamak için kullanılır.
 
 ```yaml
 apiVersion: apps/v1
@@ -172,13 +172,13 @@ spec:
         effect: NoSchedule
 ```
 
-Uygulamayı çalıştırın [kubectl oluşturma] [ kubectl-create] komutu.
+Uygulamayı çalıştırın [kubectl oluşturma][kubectl-create] komutu.
 
 ```console
 kubectl create -f virtual-kubelet-linux.yaml
 ```
 
-Kullanım [kubectl pod'ları alma] [ kubectl-get] komutunu `-o wide` zamanlanmış düğümle pod'ların bir listesini çıkarmak için bağımsız değişken. Dikkat `aci-helloworld` pod zamanlandı `virtual-kubelet-virtual-kubelet-linux` düğümü.
+Kullanım [kubectl pod'ları alma][kubectl-get] komutunu `-o wide` zamanlanmış düğümle pod'ların bir listesini çıkarmak için bağımsız değişken. Dikkat `aci-helloworld` pod zamanlandı `virtual-kubelet-virtual-kubelet-linux` düğümü.
 
 ```console
 $ kubectl get pods -o wide
@@ -189,7 +189,7 @@ aci-helloworld-7b9ffbf946-rx87g   1/1     Running   0          22s     52.224.14
 
 ## <a name="run-windows-container"></a>Windows kapsayıcısı çalıştırma
 
-Adlı bir dosya oluşturun `virtual-kubelet-windows.yaml` aşağıdaki YAML'ye kopyalayın. Bu Not bir [nodeSelector] [ node-selector] ve [toleration] [ toleration] düğümdeki kapsayıcı zamanlamak için kullanılır.
+Adlı bir dosya oluşturun `virtual-kubelet-windows.yaml` aşağıdaki YAML'ye kopyalayın. Bu Not bir [nodeSelector][node-selector] and [toleration][toleration] düğümdeki kapsayıcı zamanlamak için kullanılır.
 
 ```yaml
 apiVersion: apps/v1
@@ -222,13 +222,13 @@ spec:
         effect: NoSchedule
 ```
 
-Uygulamayı çalıştırın [kubectl oluşturma] [ kubectl-create] komutu.
+Uygulamayı çalıştırın [kubectl oluşturma][kubectl-create] komutu.
 
 ```console
 kubectl create -f virtual-kubelet-windows.yaml
 ```
 
-Kullanım [kubectl pod'ları alma] [ kubectl-get] komutunu `-o wide` zamanlanmış düğümle pod'ların bir listesini çıkarmak için bağımsız değişken. Dikkat `nanoserver-iis` pod zamanlandı `virtual-kubelet-virtual-kubelet-windows` düğümü.
+Kullanım [kubectl pod'ları alma][kubectl-get] komutunu `-o wide` zamanlanmış düğümle pod'ların bir listesini çıkarmak için bağımsız değişken. Dikkat `nanoserver-iis` pod zamanlandı `virtual-kubelet-virtual-kubelet-windows` düğümü.
 
 ```console
 $ kubectl get pods -o wide
@@ -239,7 +239,7 @@ nanoserver-iis-5d999b87d7-6h8s9   1/1     Running   0          47s     52.224.14
 
 ## <a name="remove-virtual-kubelet"></a>Sanal Kubelet Kaldır
 
-Kullanım [az aks remove-connector] [ aks-remove-connector] Virtual Kubelet kaldırmak için komutu. Bağımsız değişken değerlerini bağlayıcı, AKS kümesi ve AKS küme kaynak grubu adıyla değiştirin.
+Kullanım [az aks remove-connector][aks-remove-connector] Virtual Kubelet kaldırmak için komutu. Bağımsız değişken değerlerini bağlayıcı, AKS kümesi ve AKS küme kaynak grubu adıyla değiştirin.
 
 ```azurecli-interactive
 az aks remove-connector \
@@ -254,7 +254,7 @@ az aks remove-connector \
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Virtual Kubelet olası sorunlar için bkz: [bilinen quirks ve geçici çözümler][vk-troubleshooting]. Virtual Kubelet ile yaşayabileceğiniz sorunları [açık bir GitHub sorunu][vk-issues].
+Virtual Kubelet olası sorunlar için bkz: [bilinen quirks ve geçici çözümler][vk-troubleshooting]. To report problems with the Virtual Kubelet, [open a GitHub issue][vk-issues].
 
 Virtual Kubelet hakkında daha fazla bilgiyi [sanal Kubelet GitHub projesini][vk-github].
 

@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/17/2019
-ms.openlocfilehash: 61a208f3e84125acc2a3cb22d3abccf16587e581
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.date: 07/10/2019
+ms.openlocfilehash: dab4262e5412c8ef3cd1e0d2ef8203d7f289693f
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543687"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839179"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight'ın bir Azure sanal ağı kullanarak genişletme
 
@@ -25,7 +25,9 @@ HDInsight ile kullanmayı öğrenin bir [Azure sanal ağı](../virtual-network/v
 * Doğrudan erişim [Apache Hadoop](https://hadoop.apache.org/) genel internet üzerinden kullanılabilir olmayan hizmetler. Örneğin, [Apache Kafka](https://kafka.apache.org/) API'leri veya [Apache HBase](https://hbase.apache.org/) Java API'si.
 
 > [!IMPORTANT]  
-> 28 Şubat 2019'dan sonra bir sanal ağda oluşturulan yeni kümeleri için ağ kaynakları (örneğin, NIC, lb, vb.) aynı HDInsight küme kaynak grubunda sağlanır. Daha önce bu kaynaklar sanal ağ kaynağı grubunda sağlanan. Geçerli çalışan kümeler ve bu küme bir VNET oluşturduğunuzu değişiklik yoktur.
+> Sanal ağ içinde bir HDInsight kümesi oluşturma NIC gibi çeşitli ağ kaynakları oluşturma ve yük Dengeleyiciler. Yapmak **değil** kümenizin VNET ile doğru şekilde çalışması için gerektiği şekilde, bu ağ kaynakları silin.
+>
+> 28 Şubat 2019'dan sonra aynı HDInsight küme kaynak grubunda bu ağ kaynakları (örneğin, NIC, lb, vb.) bir sanal ağda oluşturulan yeni kümeler için sağlanır. Daha önce bu kaynaklar sanal ağ kaynağı grubunda sağlanan. Geçerli çalışan kümeler ve bu küme bir VNET oluşturduğunuzu değişiklik yoktur.
 
 ## <a name="prerequisites-for-code-samples-and-examples"></a>Kod örnekleri ve önkoşulları
 
@@ -270,8 +272,7 @@ Trafiği denetlemek için ağ güvenlik grupları veya kullanıcı tanımlı yol
     | ---- | ---- | ---- | ---- | ----- |
     | Asya | Doğu Asya | 23.102.235.122</br>52.175.38.134 | \*:443 | Gelen |
     | &nbsp; | Güneydoğu Asya | 13.76.245.160</br>13.76.136.249 | \*:443 | Gelen |
-    | Avustralya | Avustralya Orta | 20.36.36.33</br>20.36.36.196 | \*:443 | Gelen |
-    | &nbsp; | Avustralya Doğu | 104.210.84.115</br>13.75.152.195 | \*:443 | Gelen |
+    | Avustralya | Avustralya Doğu | 104.210.84.115</br>13.75.152.195 | \*:443 | Gelen |
     | &nbsp; | Avustralya Güneydoğu | 13.77.2.56</br>13.77.2.94 | \*:443 | Gelen |
     | Brezilya | Güney Brezilya | 191.235.84.104</br>191.235.87.113 | \*:443 | Gelen |
     | Kanada | Doğu Kanada | 52.229.127.96</br>52.229.123.172 | \*:443 | Gelen |
@@ -569,7 +570,7 @@ Bu örnek aşağıdaki varsayımların yapar:
     
     * Değeri Değiştir `192.168.0.1` ile şirket içi DNS sunucunuzun IP adresidir. Bu giriş, diğer tüm DNS istekleri şirket içi DNS sunucusuna yönlendirir.
 
-3. Yapılandırmayı kullanmak için bağlama yeniden başlatın. Örneğin, `sudo service bind9 restart`.
+3. Yapılandırmayı kullanmak için bağlama yeniden başlatın. Örneğin: `sudo service bind9 restart`.
 
 4. Koşullu ileticisi şirket içi DNS sunucusuna ekleyin. Adım 1'den özel DNS sunucusuna DNS soneki için istekleri göndermeye koşullu ileticisi yapılandırın.
 

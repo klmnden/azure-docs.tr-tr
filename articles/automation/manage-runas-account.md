@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6fceee819762e10809a94f72d944e7625cb7e67c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 49b8554f6064f036d4305cf7a5c1450c2f18c48d
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478559"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798502"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Otomasyonu farklı çalıştır hesaplarını yönetme
 
@@ -104,7 +104,7 @@ Bu PowerShell betiği aşağıdaki yapılandırmalar için destek içerir:
 
 1. Aşağıdaki betiği bilgisayarınıza kaydedin. Bu örnekte *New-RunAsAccount.ps1* dosya adıyla kaydedin.
 
-   Betik, kaynak oluşturmak için birden çok Azure Resource Manager cmdlet'lerini kullanır. Aşağıdaki tabloda, cmdlet'ler ve gerekli izinleri gösterilir.
+   Betik, kaynak oluşturmak için birden çok Azure Resource Manager cmdlet'lerini kullanır. Önceki [izinleri](#permissions) tablo, cmdlet'ler ve gerekli izinleri gösterir.
 
     ```powershell
     #Requires -RunAsAdministrator
@@ -370,13 +370,35 @@ Sertifikayı yenilemek için aşağıdakileri yapın:
 
 ## <a name="limiting-run-as-account-permissions"></a>Farklı Çalıştır hesabı izinleri sınırlama
 
-Kaynaklarda Azure Otomasyonu'nda Otomasyon hedefleyen kontrol etmek için farklı çalıştır hesabı varsayılan olarak abonelikte katılımcı hakları verilir. RunAs hizmet sorumlusu yapabileceklerini sınırlamak gerekiyorsa, hesabı aboneliğe katkıda bulunan rolünden kaldırmak ve belirtmek istediğiniz kaynak grupları için katkıda bulunan olarak ekleyin.
+Azure'daki kaynaklara karşı Otomasyon hedefleyen denetlemek için çalıştırabileceğiniz [güncelleştirme AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug8) komut dosyasında var olan farklı çalıştır hesabı hizmet sorumlunuzu değiştirmek için PowerShell Galerisi oluşturun ve bir özel rol tanımını kullanın. Bu rolü tüm kaynaklara izinlerinizin olacağı [Key Vault](https://docs.microsoft.com/azure/key-vault/). 
 
-Azure portalında **abonelikleri** ve Otomasyon hesabınızın aboneliği seçin. Seçin **erişim denetimi (IAM)** seçip **rol atamaları** sekmesi. Automation hesabınız için hizmet sorumlusu arayın (gibi görünüyor \<AutomationAccountName\>_unique tanımlayıcı). Hesabı seçin ve tıklayın **Kaldır** abonelikten kaldırmak için.
+> [!IMPORTANT]
+> Çalıştırdıktan sonra `Update-AutomationRunAsAccountRoleAssignments.ps1` betik, farklı çalıştır hesaplarını kullanarak anahtar kasası erişim runbook'lar artık çalışmayacaktır. Hesabınızdaki Azure KeyVault çağrıları için runbook'ları gözden geçirmeniz gerekir.
+>
+> Gelen gerekir ve Azure Otomasyonu runbook'ları için anahtar kasası erişimi etkinleştirmek için [KeyVault'ın izinleri olan farklı çalıştır hesabı ekleyin](#add-permissions-to-key-vault).
 
-![Abonelik Katkıda Bulunanlar](media/manage-runas-account/automation-account-remove-subscription.png)
+RunAs hizmet sorumlusu daha yapabileceklerini sınırlamak gerekiyorsa, diğer kaynak türlerine ekleyebilirsiniz `NotActions` özel rol tanımı. Aşağıdaki örnek erişimi kısıtlayan `Microsoft.Compute`. Bunun için eklerseniz **NotActions** rol tanımı, bu rol herhangi bir işlem kaynağı erişmek mümkün olmayacaktır. Rol tanımları hakkında daha fazla bilgi için bkz: [Azure kaynakları için rol tanımlarını anlamak](../role-based-access-control/role-definitions.md).
 
-Hizmet sorumlusu bir kaynak grubuna eklemek için Azure portal ve select kaynak grubunu seçin **erişim denetimi (IAM)** . Seçin **rol ataması Ekle**, bu açılır **rol ataması Ekle** sayfası. İçin **rol**seçin **katkıda bulunan**. İçinde **seçin** metin kutusuna farklı çalıştır hesabı için hizmet sorumlusu adını yazın ve listeden seçin. Değişiklikleri kaydetmek için **Kaydet**’e tıklayın. Kaynak grupları, Azure Otomasyonu Garklı Çalıştır hizmet sorumlusu erişimi vermek istediğiniz için bu adımları tamamlayın.
+```powershell
+$roleDefinition = Get-AzureRmRoleDefinition -Name 'Automation RunAs Contributor'
+$roleDefinition.NotActions.Add("Microsoft.Compute/*")
+$roleDefinition | Set-AzureRMRoleDefinition
+```
+
+Farklı Çalıştır hesabınız tarafından kullanılan hizmet sorumlusu içinde olup olmadığını belirlemek için **katkıda bulunan** veya özel bir rol tanımı Otomasyon hesabınıza gidin ve altında **hesap ayarları**seçin **Çalıştır hesapları** > **Azure farklı çalıştır hesabı**. Altında **rol** kullanılan rol tanımı bulabilirsiniz. 
+
+[![](media/manage-runas-account/verify-role.png "Farklı Çalıştır hesabı rolünü doğrulayın")](media/manage-runas-account/verify-role-expanded.png#lightbox)
+
+Otomasyon farklı çalıştır hesapları tarafından birden çok abonelik veya Otomasyon hesapları için kullanılan rol tanımını belirlemek için kullanabileceğiniz [onay AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) PowerShell galerisinde betik.
+
+### <a name="add-permissions-to-key-vault"></a>Key Vault'a izinleri ekleme
+
+Azure Key Vault yönetmek üzere Otomasyon altyapısını izin vermek istediğiniz ve farklı çalıştır hesabı hizmet sorumlusu özel bir rol tanımı kullanılıyorsa bu davranışı izin vermek için ek adımlar uygulamanız gerekir:
+
+* Key vault'a izin ver
+* Erişim ilkesini ayarlama
+
+Kullanabileceğiniz [Genişlet AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) betik KeyVault için farklı çalıştır hesabı izinleri vermek veya PowerShell galerisinde [uygulamalar bir anahtar kasasına erişim izni ](../key-vault/key-vault-group-permissions-for-apps.md) KeyVault izinlerini ayarlar hakkında daha fazla bilgi.
 
 ## <a name="misconfiguration"></a>Yanlış yapılandırma
 

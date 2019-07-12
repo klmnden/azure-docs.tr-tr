@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60eeb420c723e22b771b4b86b55c2ce7d6a23659
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 98b0ec2e1defc4701bff798b2fa93900ec8a9a64
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536825"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595154"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Nasıl yapılır: Azure AD uygulamanız için isteğe bağlı bir talep sağla
 
@@ -93,7 +93,7 @@ Bu talepler her zaman v1.0 Azure AD belirteçleri dahil, ancak v2.0 belirteçler
 | `nickname`    | Takma adı                        | İlk veya son adından ayrı kullanıcı için ek bir ad. | 
 | `family_name` | Soyadı                       | Son adını, soyadını veya kullanıcının aile adı kullanıcı nesnesinde tanımlanan sağlar. <br>"family_name": "Mert" | MSA ve Azure AD içinde desteklenir   |
 | `given_name`  | Ad                      | İlk sağlar veya "kullanıcı adını, kullanıcı nesnesindeki kümesi olarak verilen".<br>"given_name": "Ferdi"                   | MSA ve Azure AD içinde desteklenir  |
-| `upn`         | Kullanıcı Asıl Adı | Username_hint parametresiyle birlikte kullanılabilecek kullanıcı için bir tanımlayıcı.  Kullanıcı için kalıcı bir tanımlayıcı değil ve anahtar verileri kullanılmamalıdır. | Bkz: [ek özellikler](#additional-properties-of-optional-claims) aşağıda talep yapılandırma. |
+| `upn`         | Kullanıcı asıl adı | Username_hint parametresiyle birlikte kullanılabilecek kullanıcı için bir tanımlayıcı.  Kullanıcı için kalıcı bir tanımlayıcı değil ve anahtar verileri kullanılmamalıdır. | Bkz: [ek özellikler](#additional-properties-of-optional-claims) aşağıda talep yapılandırma. |
 
 ### <a name="additional-properties-of-optional-claims"></a>İsteğe bağlı taleplerin ek özellikler
 
@@ -193,7 +193,7 @@ Standart isteğe bağlı talep kümesine ek olarak, belirteçleri directory şem
 
 > [!Note]
 > - Uygulamanızı bildirim istekleri, özel uzantı ve bir MSA kullanıcısı oturum uygulamanıza directory şema uzantıları bir Azure yalnızca AD özelliği olduğundan, bu uzantıları döndürülmez.
-> - Azure AD isteğe bağlı talepleri yalnızca iş ile Azure AD uzantısı ve Microsoft Graph directory uzantısına sahip iş çalışmaz. Her iki API'leri gerektiren `Directory.ReadWriteAll` yalnızca yöneticiler tarafından onaylı izni.
+> - Azure AD isteğe bağlı talepleri yalnızca iş ile Azure AD uzantısı ve Microsoft Graph dizin uzantısı ile çalışmaz. Her iki API'leri gerektiren `Directory.ReadWriteAll` yalnızca yöneticiler tarafından onaylı izni.
 
 ### <a name="directory-extension-formatting"></a>Biçimlendirme dizini uzantısı
 
@@ -254,7 +254,7 @@ Bu bölüm, şirket içi Windows Active Directory'den eşitlenen öznitelikler i
    }
    ```
 
-   | İsteğe bağlı bir talep şeması | Değer |
+   | İsteğe bağlı bir talep şeması | Value |
    |----------|-------------|
    | **Adı:** | "Grupları" olmalıdır |
    | **Kaynak:** | Kullanılmıyor. Atlayın veya null |

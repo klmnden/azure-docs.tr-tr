@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8af927bee11d66c473707b603951fa693f6840e3
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 60a7a141cfcec3beced9e57baddebbc26e753141
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299024"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672170"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>"Bilişsel arama" Azure Search nedir?
 
@@ -39,7 +39,7 @@ Doğal dil ile görüntü işleme uygulanır veri alımı aşaması sırasında 
 
 Bilişsel arama işlem hattı dayanır [Azure Search *dizin oluşturucular* ](search-indexer-overview.md) gezinme veri kaynakları ve uçtan uca dizin işleme sağlar. Becerileri, artık kesintiye dizin oluşturucular için bağlı olan ve belgeleri becerilerine göre zenginleştirilmesi tanımlayın. Dizine sonra içerik arama istekleri aracılığıyla tüm erişebileceğiniz [sorgu türü Azure arama tarafından desteklenen](search-query-overview.md).  Dizin oluşturucular için yeni başladıysanız, bu bölümdeki adımlarda size yol gösterir.
 
-### <a name="step-1-connection-and-document-cracking-phase"></a>1. adım: Bağlantı ve belge aşaması çözme
+### <a name="step-1-connection-and-document-cracking-phase"></a>1\. adım: Bağlantı ve belge aşaması çözme
 
 İşlem hattı başlangıcında, sahip olduğunuz yapılandırılmamış metin veya metin olmayan içerik (örneğin, görüntü ve taranan belgeleri JPEG dosyaları). Verileri bir Azure veri depolama hizmetindeki bir dizin oluşturucu tarafından erişilebilen mevcut olması gerekir. Dizin oluşturucular "kaynak belgelerini veri kaynağından metin ayıklamak için çözebilir".
 
@@ -47,7 +47,7 @@ Bilişsel arama işlem hattı dayanır [Azure Search *dizin oluşturucular* ](se
 
  Azure blob depolama, Azure tablo depolama, Azure SQL veritabanı ve Azure Cosmos DB desteklenen kaynakları içerir. Aşağıdaki dosya türlerinden bir metin tabanlı içeriğin açılmasını: PDF, Word, PowerPoint, CSV dosyaları. Tam liste için bkz. [desteklenen biçimler](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
 
-### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>2. adım: Bilişsel beceriler ve zenginleştirme aşaması
+### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>2\. adım: Bilişsel beceriler ve zenginleştirme aşaması
 
 Zenginleştirme olduğunu adım *bilişsel beceriler* atomik işlemler gerçekleştirme. Örneğin, bir PDF gelen metin içeriğini aldıktan sonra varlık tanıma, dil algılama veya yerel olarak kaynak olarak mevcut olmayan yeni dizininize alanların üretmek için anahtar ifade ayıklama uygulayabilirsiniz. Tamamen becerileri, işlem hattında kullanılan koleksiyonu olarak da adlandırılır bir *beceri kümesi*.  
 
@@ -63,7 +63,7 @@ Dahili olarak, işlem hattı bir zenginleştirilmiş bir belge koleksiyonu oluş
 
 Bir beceri kümesi için bir Bilgi Bankası depolama ekleme senaryoları dışında tam metin araması, zenginleştirmelerinin gösterimini proje olanağı sağlar. Daha fazla bilgi için [ne bilgi deposudur](knowledge-store-concept-intro.md).
 
-### <a name="step-3-search-index-and-query-based-access"></a>3. adım: Arama dizini ve sorgu tabanlı erişim
+### <a name="step-3-search-index-and-query-based-access"></a>3\. adım: Arama dizini ve sorgu tabanlı erişim
 
 İşleme tamamlandığında, zenginleştirilmiş belgeler, metin-Azure Search'te arama yapılabilen oluşan bir arama dizini sahip. [Dizini sorgulama](search-query-overview.md) geliştiriciler ve kullanıcılar nasıl işlem hattı tarafından oluşturulan zenginleştirilmiş içeriğin eriştiği. 
 
@@ -101,7 +101,7 @@ Dizinler, alanların özniteliklerini tanımlayan bir dizin şemasını oluştur
 
 + [Hızlı Başlangıç (portal)](cognitive-search-quickstart-blob.md)
 + [Öğretici (HTTP istek)](cognitive-search-tutorial-blob.md)
-+ [Örnek özel becerileri (C#)](cognitive-search-create-custom-skill-example.md)
++ [Örnek: Bilişsel arama için özel bir yetenek oluşturma (C#)](cognitive-search-create-custom-skill-example.md)
 
 Öğrenme amacıyla ücretsiz hizmeti öneririz, ancak bu ücretsiz işlem sayısı günde 20 belgelere sınırlı olduğunu unutmayın. Hızlı Başlangıç ve öğretici bir gün içinde çalıştırmak için daha küçük bir dosya kullanın (10 belgeleri) her iki alıştırmalarda sığacak şekilde ayarlayın.
 

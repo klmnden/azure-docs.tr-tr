@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
-ms.openlocfilehash: 0d83bdc3fd3f644013a2d2b80128839658524db9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 629342e44af16b6d23f9ed85f8c5306c807b8bfc
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65864441"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621896"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Cihazınızı IOT hub'ı (.NET) ile buluttan iletiler gönderme
 
@@ -22,29 +22,29 @@ ms.locfileid: "65864441"
 
 ## <a name="introduction"></a>Giriş
 
-Azure IOT hub'ı yardımcı olan tam olarak yönetilen bir hizmet, milyonlarca cihaz arasında güvenilir ve güvenli çift yönlü iletişimi etkinleştirmek ve bir çözüm arka ucu ' dir. [Telemetri, bir CİHAZDAN bir IOT hub'ına gönderme... ](quickstart-send-telemetry-dotnet.md) IOT hub oluşturma, bir cihaz kimliği da sağlamak ve CİHAZDAN buluta iletiler gönderen bir cihaza kod gösterilmektedir.
+Azure IOT hub'ı yardımcı olan tam olarak yönetilen bir hizmet, milyonlarca cihaz arasında güvenilir ve güvenli çift yönlü iletişimi etkinleştirmek ve bir çözüm arka ucu ' dir. [Telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-dotnet.md) hızlı başlangıç, IOT hub oluşturma, bir cihaz kimliği da sağlamak ve CİHAZDAN buluta iletiler gönderen bir cihaza uygulama kodu nasıl gösterir.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Bu öğretici hızlı derlemeler [telemetri gönderir bir CİHAZDAN bir IOT hub'ına... ](quickstart-send-telemetry-dotnet.md). Bunu, aşağıdaki adımları uygulayın işlemini göstermektedir:
+Bu öğreticide yapılar [telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-dotnet.md). Bunu, aşağıdaki adımları uygulayın işlemini göstermektedir:
 
 * Çözüm arka ucunuz, tek bir cihaz IOT hub'ı aracılığıyla bulut-cihaz iletilerini gönderin.
 
 * Bir cihazda bulut-cihaz iletilerini alır.
 
-* Çözüm arka ucunuz, teslimat alındısı istek (*geri bildirim*) için bir cihaz IOT Hub'ından gönderilen iletileri.
+* Teslim alındı bildirimi, çözüm arka ucu istek (*geri bildirim*) için bir cihaz IOT Hub'ından gönderilen iletileri.
 
 Bulut-cihaz iletileri hakkında daha fazla bilgi bulabilirsiniz [D2C ve IOT Hub ile C2D Mesajlaşma](iot-hub-devguide-messaging.md).
 
 Bu öğreticinin sonunda iki .NET konsol uygulaması çalıştırın.
 
-* **SimulatedDevice**, oluşturulan uygulamayı değiştirilmiş bir sürümünü [telemetri gönderir bir CİHAZDAN bir IOT hub'ına... ](quickstart-send-telemetry-dotnet.md), IOT hub'ınıza bağlanır ve bulut-cihaz iletilerini alır.
+* **SimulatedDevice**, oluşturulan uygulamayı değiştirilmiş bir sürümünü [telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-dotnet.md), IOT hub'ınıza bağlanır ve bulut-cihaz iletilerini alır.
 
-* **SendCloudToDevice**, IOT hub'ı aracılığıyla cihaz uygulamasına bulut-cihaz ileti gönderir ve ardından, teslimat alındısı.
+* **SendCloudToDevice**, IOT hub'ı aracılığıyla cihaz uygulamasına bulut-cihaz ileti gönderir ve ardından kendi teslim alındı bildirimi alır.
 
 > [!NOTE]
 > IOT Hub aracılığıyla SDK desteği birçok cihaz platformlarını ve dilini (C, Java ve Javascript gibi) sahip [Azure IOT cihaz SDK'ları](iot-hub-devguide-sdks.md). Bu öğreticinin koda ve genellikle Azure IOT hub'a Cihazınızı bağlamak hakkında adım adım yönergeler için bkz. [IOT Hub Geliştirici kılavuzunun](iot-hub-devguide.md).
-> 
+>
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
@@ -54,7 +54,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 ## <a name="receive-messages-in-the-device-app"></a>Cihaz uygulamasında ileti alma
 
-Bu bölümde oluşturduğunuz cihaz uygulamasını değiştireceksiniz [telemetri gönderir bir CİHAZDAN bir IOT hub'ına... ](quickstart-send-telemetry-dotnet.md) IOT hub'ından bulut-cihaz iletilerini almak için.
+Bu bölümde oluşturduğunuz cihaz uygulamasını değiştireceksiniz [telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-dotnet.md) IOT hub'ından bulut-cihaz iletilerini almak için.
 
 1. Visual Studio içinde **SimulatedDevice** projesinde, aşağıdaki yöntemi ekleyin **Program** sınıfı.
 
@@ -138,7 +138,7 @@ Bu bölümde oluşturduğunuz cihaz uygulamasını değiştireceksiniz [telemetr
    static string connectionString = "{iot hub connection string}";
    ```
 
-6. **Program** sınıfına aşağıdaki yöntemi ekleyin. Cihazı tanımlarken kullandığınız için cihaz adını ayarlayın [telemetri gönderir bir CİHAZDAN bir IOT hub'ına... ](quickstart-send-telemetry-dotnet.md).
+6. **Program** sınıfına aşağıdaki yöntemi ekleyin. Cihazı tanımlarken kullandığınız için cihaz adını ayarlayın [telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-dotnet.md).
 
    ``` csharp
    private async static Task SendCloudToDeviceMessageAsync()
@@ -149,7 +149,7 @@ Bu bölümde oluşturduğunuz cihaz uygulamasını değiştireceksiniz [telemetr
    }
    ```
 
-   Bu yöntem cihazı kimliği ile yeni bir bulut-cihaz ileti gönderir `myFirstDevice`. Yalnızca kullanılan bir değişiklik varsa, bu parametreyi değiştirmek [telemetri gönderir bir CİHAZDAN bir IOT hub'ına... ](quickstart-send-telemetry-dotnet.md).
+   Bu yöntem cihazı kimliği ile yeni bir bulut-cihaz ileti gönderir `myFirstDevice`. Yalnızca kullanılan bir değişiklik varsa, bu parametreyi değiştirmek [telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-dotnet.md).
 
 7. Son olarak, aşağıdaki satırları ekleyin **ana** yöntemi.
 
@@ -171,7 +171,7 @@ Bu bölümde oluşturduğunuz cihaz uygulamasını değiştireceksiniz [telemetr
 
 ## <a name="receive-delivery-feedback"></a>Teslim geri bildirim alın
 
-İstek teslim (veya zaman aşımı) bildirimleri için IOT Hub'ından her bulut-cihaz ileti için mümkündür. Bu seçenek, kolayca yeniden deneyin ya da tazminat ödemeden mantıksal bildirmek çözüm arka ucu sağlar. Bulut-cihaz geri bildirim hakkında daha fazla bilgi için bkz. [D2C ve IOT Hub ile C2D Mesajlaşma](iot-hub-devguide-messaging.md).
+İstek teslim (veya zaman aşımı) bildirimler için IOT Hub'ından her bulut-cihaz ileti için mümkündür. Bu seçenek, kolayca yeniden deneyin ya da tazminat ödemeden mantıksal bildirmek çözüm arka ucu sağlar. Bulut-cihaz geri bildirim hakkında daha fazla bilgi için bkz. [D2C ve IOT Hub ile C2D Mesajlaşma](iot-hub-devguide-messaging.md).
 
 Bu bölümde, değişiklik **SendCloudToDevice** geri bildirim isteme ve IOT hub'ından almak için uygulama.
 
@@ -217,7 +217,7 @@ Bu bölümde, değişiklik **SendCloudToDevice** geri bildirim isteme ve IOT hub
    ![Uygulama alma iletisi](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
-> Basitlik'ın çok için bu öğreticiyi herhangi bir yeniden deneme ilkesi uygulamaz. Üretim kodunda yeniden deneme ilkelerini (üstel geri alma), örneğin makalesinde önerildiği uygulamalıdır [geçici hata işleme](/azure/architecture/best-practices/transient-faults).
+> Kolaylık olması için bu öğreticiyi herhangi bir yeniden deneme ilkesi uygulamaz. Üretim kodunda yeniden deneme ilkelerini (üstel geri alma), örneğin makalesinde önerildiği uygulamalıdır [geçici hata işleme](/azure/architecture/best-practices/transient-faults).
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar

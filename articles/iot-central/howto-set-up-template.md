@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 7fb0fba519a7833ac318c713dc9eb3c6ac7f8b5b
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: d27fd9460685c08a2b13936415935f5aaf893797
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509539"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622406"
 ---
 # <a name="set-up-a-device-template"></a>Cihaz şablonu ayarlama
 
@@ -65,7 +65,7 @@ Yeni bir telemetri ölçüm eklemek için seçin **+ yeni ölçüm**, seçin **T
 > Cihaz şablonu alan adlarını, karşılık gelen cihaz kodu sırada gerçek bir cihaz bağlandığında uygulamada görüntülenecek telemetri ölçüm için özellik adları eşleşmelidir. Aşağıdaki bölümlerde cihaz şablonlarını tanımlamak devam ederken ayarları, cihaz özellikleri ve komutları yapılandırırken de aynısını yapın.
 .PNG gibi yeni bir sıcaklık telemetri ölçüm ekleyebilirsiniz:
 
-| Görünen ad        | Alan Adı    |  Birimler    | Min   |Maks|
+| Görünen Ad        | Alan Adı    |  Birimler    | Min   |Maks|
 | --------------------| ------------- |-----------|-------|---|
 | Sıcaklık         | Temp          |  degC     |  0    |100|
 
@@ -86,7 +86,7 @@ Sağlamak **görünen ad**, **alan adı**, ve **önem derecesi** olayla ilgili a
 
 Örneğin, yeni bir ekleyebilirsiniz **Fan Motor hata** olay.
 
-| Görünen ad        | Alan Adı    |  Varsayılan önem derecesi |
+| Görünen Ad        | Alan Adı    |  Varsayılan önem derecesi |
 | --------------------| ------------- |-----------|
 | Fan Motoru Hatası     | fanmotorerror |  Hata    |
 
@@ -109,9 +109,9 @@ Yeni bir durum ölçüm eklemek için seçin **+ yeni ölçüm** düğmesini tı
 
 Örneğin, yeni bir ekleyebilirsiniz **fanı modu** cihaza gönderebilir, iki olası değerleri içeren durum **işletim** ve **durduruldu**.
 
-| Görünen ad | Alan Adı    |  1 değeri   | Görünen ad | Değer 2    |Görünen ad  | 
+| Görünen Ad | Alan Adı    |  1 değeri   | Görünen Ad | Değer 2    |Görünen Ad  | 
 | -------------| ------------- |----------- | -------------| -----------| -------------|
-| Fan Modu     | fanmode       |  1         | İşletim    |     0      | Durduruldu      |
+| Fan Modu     | fanmode       |  1\.         | İşletim    |     0      | Durduruldu      |
 
 ![Fan modu için Ayrıntıları "Düzenleme durumu" formu](./media/howto-set-up-template/statemeasurementsform.png)
 
@@ -128,7 +128,7 @@ Yeni bir konum ölçüm eklemek için seçin **+ yeni ölçüm**, seçin **konum
 
 Örneğin, yeni bir konum telemetri ölçüm ekleyebilirsiniz:
 
-| Görünen ad        | Alan Adı    |
+| Görünen Ad        | Alan Adı    |
 | --------------------| ------------- |
 | Varlık konumu      |  assetloc     |
 
@@ -150,7 +150,7 @@ assetloc: {
 
 ## <a name="settings"></a>Ayarlar
 
-Ayarları bir cihaz denetler. Bunlar cihaza girişleri olanak tanır. Birden çok ayarları kutucukları olarak görünür, cihaz şablonunuza ekleyebilirsiniz **ayarları** işleçleri kullanmak için sekmesinde. Birçok türde ayarlar ekleyebilirsiniz: sayı, metin, tarih, Değiştir, seçim listesini ve bölüm etiketi.
+Ayarları bir cihaz denetler. Bunlar cihaza girişleri olanak tanır. Birden çok ayarları kutucukları olarak görünür, cihaz şablonunuza ekleyebilirsiniz **ayarları** işleçleri kullanmak için sekmesinde. Birçok türde ayarlar ekleyebilirsiniz: sayı, metin, tarih, geçiş ve bölüm etiketi.
 
 Ayarları üç durumdan birinde olabilir. Cihaz bu durumu bildirir.
 
@@ -162,7 +162,7 @@ Ayarları üç durumdan birinde olabilir. Cihaz bu durumu bildirir.
 
 Seçerek yeni bir fanı hızı ayarı gibi ekleyebilirsiniz **ayarları** ve yeni girerek **numarası** ayarı:
 
-| Görünen ad  | Alan Adı    |  Birimler  | Ondalık sayı |İlk|
+| Görünen Ad  | Alan Adı    |  Birimler  | Ondalık sayı |İlk|
 | --------------| ------------- |---------| ---------|---- |
 | Fan hızı     | fanSpeed      | RPM     | 2        | 0   |
 
@@ -181,7 +181,7 @@ Seçtikten sonra **Kaydet**, **fanı hızı** ayarı bir kutucuk olarak görün�
 
 Örneğin, cihazın son hizmet verilen tarih yeni bir ekleyebilirsiniz **tarih** özelliği (uygulama özelliği) **özellikleri** sekmesinde:
 
-| Görünen ad  | Alan Adı | İlk Değer   |
+| Görünen Ad  | Alan Adı | İlk Değer   |
 | --------------| -----------|-----------------|
 | Son hizmet tarihi      | lastServiced        | 01/29/2019     |
 
@@ -213,7 +213,7 @@ IOT Central uygulamanızda Azure haritalar'ı kullanarak bir uygulama özelliği
 
 3. Yapılandırma **görünen ad**, **alan adı**ve (isteğe bağlı olarak) **başlangıç değeri** konumu için.
 
-    | Görünen ad  | Alan Adı | İlk Değer |
+    | Görünen Ad  | Alan Adı | İlk Değer |
     | --------------| -----------|---------|
     | Yükleme adresi | installAddress | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
 
@@ -235,7 +235,7 @@ Location özelliğini cihaz raporlarına bir cihaz özelliği oluşturabilirsini
 
 3. Alan adı ve görünen adı'nı yapılandırın ve seçin **konumu** veri türü olarak:
 
-    | Görünen ad  | Alan Adı | Veri Türü |
+    | Görünen Ad  | Alan Adı | Veri Türü |
     | --------------| -----------|-----------|
     | Cihaz konumu | deviceLocation | location  |
 
@@ -258,9 +258,9 @@ Bir komutu bir ayardan farklı mı?
 
 Örneğin, yeni bir ekleyebilirsiniz **Yankı** komutunu seçerek **komutları** sekmesini seçip, **+ yeni komut**ve yeni komut ayrıntıları girerek:
 
-| Görünen ad  | Alan Adı | Varsayılan Zaman Aşımı | Veri Türü |
+| Görünen Ad  | Alan Adı | Varsayılan Zaman Aşımı | Veri Türü |
 | --------------| -----------|---------------- | --------- |
-| Yankı Komutu  | echo       |  30             | metin      |
+| Yankı Komutu  | echo       |  30             | text      |
 
 ![Yankı ayrıntılarını "Komutunu yapılandırma" formu](./media/howto-set-up-template/commandsecho1.png)
 

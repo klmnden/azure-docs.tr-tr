@@ -10,14 +10,14 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 manager: craigg
-ms.date: 03/13/2019
+ms.date: 07/07/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 2ca2e4e98f56f7df5e81217bcda00179f05ff69e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6b0e10ce48088853090958dca9d8c1fad20780e7
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070349"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723248"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları
 
@@ -293,13 +293,13 @@ Daha fazla bilgi için [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/sta
   - SQL Server Analysis Services desteklenmez.
 - Bildirimleri kısmen desteklenir.
 - Veritabanı posta profili yapılandırma gerektirse de, e-posta bildirimi desteklenmektedir. SQL Server Agent, yalnızca bir veritabanı posta profili kullanabilir ve çağrılması gerekir `AzureManagedInstance_dbmail_profile`. 
-  - Çağrı desteklenmiyor. 
+  - Çağrı desteklenmiyor.
   - NetSend desteklenmez.
   - Uyarıları henüz desteklenmiyor.
-  - Proxy'leri desteklenmez. 
+  - Proxy'leri desteklenmez.
 - EventLog desteklenmez.
 
-Aşağıdaki özellikler şu anda desteklenmez ancak gelecekte etkinleştirilecek:
+Aşağıdaki SQL Aracısı özellikleri şu anda desteklenmemektedir:
 
 - Proxy'ler
 - Boş bir CPU üzerinde işlerini zamanlama
@@ -398,7 +398,13 @@ HDFS veya Azure Blob depolama alanındaki dosyalar, desteklenmeyen bu başvuruyu
 
 ### <a name="replication"></a>Çoğaltma
 
-Çoğaltma, yönetilen örneği için genel önizlemesi için kullanılabilir. Çoğaltma hakkında daha fazla bilgi için bkz. [SQL Server çoğaltma](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+[İşlem çoğaltma](sql-database-managed-instance-transactional-replication.md) bazı kısıtlamalar ile yönetilen örnek'te genel önizlemesi için kullanılabilir:
+- Yönetilen örneği'nde çoğaltma katılımcıları (yayımcı, dağıtımcı, abone çekme ve itme abone) türlerini Al yerleştirilebilir, ancak yayımcı ve dağıtıcı farklı örneklerinde yerleştirilemez.
+- İşlem, anlık görüntü ve iki yönlü çoğaltma türleri desteklenir. Birleştirme çoğaltması, eşler arası çoğaltma ve güncelleştirilebilir abonelikler desteklenmez.
+- Yönetilen örnek, SQL Server'ın yeni sürümleri ile iletişim kurabilir. Bkz desteklenen sürümler [burada](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
+- İşlem çoğaltma sahip bazı [ek ağ gereksinimlerini](sql-database-managed-instance-transactional-replication.md#requirements).
+
+Çoğaltma yapılandırma hakkında daha fazla bilgi için bkz: [çoğaltma öğretici](replication-with-sql-database-managed-instance.md).
 
 ### <a name="restore-statement"></a>GERİ bildirimi 
 
@@ -459,7 +465,7 @@ Sınırlamalar:
 
 ## <a name="Environment"></a>Ortam kısıtlamaları
 
-### <a name="subnet"></a>Alt ağ
+### <a name="subnet"></a>Subnet
 - Yönetilen Örneğiniz için ayrılan alt ağdaki diğer kaynakları (örneğin, sanal makineler) yerleştirilemiyor. Bu kaynakları diğer yerleştirin alt ağlar.
 - Alt ağ yeterli sayıda kullanılabilir olmalıdır [IP adresleri](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Alt ağda en az 32 IP adreslerine gerek öneri olarak en az 16 olmalıdır.
 - [Hizmet uç noktaları, yönetilen örneğin alt ağ ile ilişkili olamaz](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Sanal ağ oluşturduğunuzda, hizmet uç noktaları seçeneğini devre dışı bırakıldığından emin olun.
@@ -486,7 +492,7 @@ Aşağıdaki değişkenler, İşlevler ve görünümleri farklı sonuçlar dönd
 
 ### <a name="tempdb-size"></a>TEMPDB boyutu
 
-En büyük dosya boyutu `tempdb` genel amaçlı katmanında çekirdek başına 24 GB değerinden fazla olamaz. En fazla `tempdb` boyutu iş açısından kritik katmanında Örnek Depolama boyutuyla sınırlıdır. `tempdb` Veritabanı her zaman 12 veri dosyalarıyla bölünür. Bu maksimum boyutu dosya başına değiştirilemez ve yeni dosyalar için eklenemez `tempdb`. Bazı sorgular, çekirdek başına birden fazla 24 GB'a ihtiyacınız varsa bir hata döndürebilir `tempdb`. `tempdb` örnek başlatma veya yük devretme ve tüm içinde yapılan değiştirdiğinizde her zaman boş bir veritabanı yeniden oluşturulur `tempdb` korunmaz. 
+En büyük dosya boyutu `tempdb` genel amaçlı katmanında çekirdek başına 24 GB değerinden fazla olamaz. En fazla `tempdb` boyutu iş açısından kritik katmanında Örnek Depolama boyutuyla sınırlıdır. `tempdb` Günlük dosyası boyutunu hem genel amaçlı ve iş açısından kritik katmanları 120 GB ile sınırlıdır. `tempdb` Veritabanı her zaman 12 veri dosyalarıyla bölünür. Bu maksimum boyutu dosya başına değiştirilemez ve yeni dosyalar için eklenemez `tempdb`. Bazı sorgular, çekirdek başına birden fazla 24 GB'a ihtiyacınız varsa bir hata döndürebilir `tempdb` veya 120 GB'den fazla günlük ürettikleri. `tempdb` boş bir veritabanı örneği başlatıldığında veya yük devretme ve tüm içinde yapılan değiştikçe her zaman yeniden oluşturulana `tempdb` korunmaz. 
 
 ### <a name="cant-restore-contained-database"></a>Kapsanan veritabanı geri yüklenemiyor
 
@@ -585,6 +591,11 @@ Yönetilen örnek ve bağlı sunucular ya da geçerli bir örneği bazen başvur
 Kod yürütemez `BACKUP DATABASE ... WITH COPY_ONLY` hizmetle yönetilen şeffaf veri şifrelemesi (TDE ile) şifrelenmiş bir veritabanı. Hizmetle yönetilen TDE yedeklemelerinin bir iç TDE anahtarla şifrelenmesini zorlar. Yedeklemeyi geri yüklemek için anahtar dışarı aktarılamıyor.
 
 **Geçici çözüm:** Otomatik yedeklemeler ve zaman içinde nokta geri yükleme veya kullanın [müşteri tarafından yönetilen (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) yerine. Veritabanı şifreleme devre dışı bırakabilirsiniz.
+
+### <a name="point-in-time-restore-follows-time-by-the-time-zone-set-on-the-source-instance"></a>Belirli bir noktaya geri yükleme, kaynak örnekte ayarlanan saat dilimini tarafından saat izler.
+
+Şu anda zaman içinde nokta geri yükleme kaynağı örneği tarafından aşağıdaki saat dilimini bunun yerine aşağıdaki UTC geri yüklemek için zaman yorumlar.
+Denetleme [yönetilen örneği'saat dilimi bilinen sorunlar](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone#known-issues) daha fazla ayrıntı için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

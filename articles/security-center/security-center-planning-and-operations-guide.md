@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/11/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 04cfe489e9eea53bf58dd64e0eac3e5a95033bcc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca96ba4c6b0de8ad39866a0783e7091fb4755164
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966849"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706249"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure Güvenlik Merkezi planlama ve işlemler kılavuzu
 Bu kılavuz, kurumları Azure Güvenlik Merkezi'ni kullanmayı planlayan bilgi teknolojisi (BT) uzmanları, BT mimarları, bilgi güvenlik çözümleyicileri ve bulut yöneticilerine yöneliktir.
@@ -87,21 +87,21 @@ Yukarıda açıklanan Güvenlik Merkezi rolleri, Azure’un Depolama, Web ve Mob
 
 **Cem (İş Yükü Sahibi)**
 
-* Kaynak Grubu Sahibi/Ortak Çalışanı
+* Kaynak grubu sahibi/katkıda bulunan
 
 **Ali (BT Güvenliği)**
 
-* Abonelik Sahibi/Ortak Çalışan veya Güvenlik Yöneticisi
+* Abonelik sahibi/katkıda bulunanı veya Güvenlik Yöneticisi
 
 **Zehra (Güvenlik İşlemleri)**
 
 * Uyarıları görüntülemek için Abonelik Okuyucusu veya Güvenlik Okuyucusu
-* Uyarıları kapatmak için Abonelik Sahibi/Ortak Çalışanı veya Güvenlik Okuyucusu gerekir
+* Uyarıları kapatmak için abonelik sahibi/katkıda bulunanı veya Güvenlik Yöneticisi gerekli
 
 **Salih (Güvenlik Analisti)**
 
 * Uyarıları görüntülemek için Abonelik Okuyucusu
-* Uyarıları kapatmak Abonelik Sahibi/Ortak Çalışanı gerekir
+* Uyarıları kapatmak için abonelik sahibi/katkıda bulunan gerekli
 * Çalışma alanına erişim gerekli olabilir
 
 Dikkate alınması gereken bazı diğer önemli bilgiler:

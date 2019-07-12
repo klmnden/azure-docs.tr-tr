@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 06/28/2019
+ms.date: 07/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 3972f9f93cc6323601102f1a54bb067a8995d9e4
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: bc6b9662a5d67f6ed315c33444bcb061115fe6d4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484752"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701468"
 ---
 # <a name="what-is-azure-data-box-edge"></a>Azure Data Box Edge nedir? 
 
@@ -34,7 +34,7 @@ Azure Data Box Edge ağ veri aktarımı yetenekleri olan, AI özellikli bir uç 
     - Bulutta daha derin analiz için gereken verilerin alt kümesini oluşturma ve aktarma.
     - IoT Olaylarını analiz etme ve bunlara yanıt verme. 
 
-- **Çıkarım Azure Machine Learning** - Data Box Edge ile, veriler buluta gönderilmeden önce üzerinde işlem yapılabilecek hızlı sonuçlar almak için Machine Learning (ML) modellerini çalıştırabilirsiniz. Tam veri kümesi, ML modelleri yeniden eğitme ve devam etmek için aktarılabilir. Data Box sınır cihazı, hızlandırılmış modellerde Azure ML donanım kullanma hakkında daha fazla bilgi için bkz: [Data Box Edge üzerinde Azure ML dağıtma donanım hızlandırılmış modelleri](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Çıkarım Azure Machine Learning** - Data Box Edge ile, veriler buluta gönderilmeden önce üzerinde işlem yapılabilecek hızlı sonuçlar almak için Machine Learning (ML) modellerini çalıştırabilirsiniz. Tam veri kümesi, ML modelleri yeniden eğitme ve devam etmek için aktarılabilir. Azure ML donanım kullanma hakkında daha fazla bilgi için bkz: hızlandırılmış modellerde veri kutusu Edge cihazı [veri kutusu Edge üzerinde Azure ML dağıtma donanım hızlandırılmış modelleri](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Verileri ağ üzerinden Azure'a aktarma** - Daha fazla işlem ve analiz yapmak için veya arşiv amacıyla Data Box Edge kullanarak verileri kolayca ve hızla Azure'a aktarın. 
 
@@ -88,16 +88,9 @@ Data Box Edge çözümü Data Box Edge kaynağından, Data Box Edge fiziksel cih
 
 Data Box Edge fiziksel cihazı, Azure kaynağı ve verileri aktardığınız hedef depolama hesabının üçünün de aynı bölgede bulunması gerekmez.
 
-- **Kaynak kullanılabilirliği** - Bu sürümde, Data Box Edge kaynağı şu bölgelerde kullanılabilir:
-    - **Amerika Birleşik Devletleri** -Doğu ABD
-    - **Avrupa Birliği** - Batı Avrupa
-    - **Asya Pasifik** - Güneydoğu Asya
+- **Kaynak kullanılabilirliği** - gidin, kullanılabilir veri kutusu Edge kaynak olduğu bölgelerin listesi için [Azure bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Veri kutusu Edge ayrıca Azure kamu bulutunda dağıtılabilir. Daha fazla bilgi için [Azure Government nedir?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
     
-    Veri kutusu Edge ayrıca Azure kamu bulutunda dağıtılabilir. Daha fazla bilgi için [Azure Government nedir?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
-    
-- **Hedef Depolama hesapları**: Verilerin depolandığı depolama hesapları, tüm Azure bölgelerinde sağlanır. 
-
-    En iyi performansı elde etmek için, depolama hesaplarının Data Box verilerini depoladığı bölgeler cihazın bulunduğu yere yakın konumlandırılmalıdır. Cihazdan uzağa konumlandırılan depolama hesabı uzun gecikme sürelerine ve daha yavaş bir performansa yol açar. 
+- **Hedef Depolama hesapları**: Verilerin depolandığı depolama hesapları, tüm Azure bölgelerinde sağlanır. Depolama hesapları veri kutusu kenar verileri depoladığınız bölgeleri cihaz için en iyi performansı bulunduğu yeri yakın bulunması gerekir. Cihazdan uzağa konumlandırılan depolama hesabı uzun gecikme sürelerine ve daha yavaş bir performansa yol açar. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

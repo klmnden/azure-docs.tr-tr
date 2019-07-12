@@ -2,21 +2,21 @@
 title: Azure Kubernetes Service’in (AKS) hizmet sorumluları
 description: Azure Kubernetes Service’te bir küme için Azure Active Directory hizmet sorumlusu oluşturma ve yönetme
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: iainfou
-ms.openlocfilehash: 82ceb332ca377da1953908abba3f7c52874b995e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 304b9dae9f3a1e134809d8959a96dc4e3ec0edd3
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066800"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615119"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Hizmeti (AKS) ile hizmet sorumluları
 
-Bir AKS kümesi, Azure API’leri ile etkileşim kurmak için [Azure Active Directory (AD) hizmet sorumlusu][aad-service-principal] gerektirir. Azure yük dengeleyicisi veya kapsayıcı kayıt defteri (ACR) gibi diğer Azure kaynaklarını dinamik olarak oluşturmak ve yönetmek için hizmet sorumlusuna ihtiyaç vardır.
+Azure API'leri ile etkileşime geçmek için bir AKS kümesi gerektiren bir [Azure Active Directory (AD) hizmet sorumlusu][aad-service-principal]. Azure yük dengeleyicisi veya kapsayıcı kayıt defteri (ACR) gibi diğer Azure kaynaklarını dinamik olarak oluşturmak ve yönetmek için hizmet sorumlusuna ihtiyaç vardır.
 
 Bu makalede, AKS kümeleriniz için bir hizmet sorumlusunun nasıl oluşturulacağı ve kullanılacağı gösterilmektedir.
 
@@ -30,7 +30,7 @@ Ayrıca Azure CLI Sürüm 2.0.59 gerekir veya daha sonra yüklü ve yapılandır
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>Otomatik olarak bir hizmet sorumlusu oluşturma ve kullanma
 
-Azure portalda bir AKS kümesi oluşturduğunuzda veya [az aks create][az-aks-create] komutunu kullanarak, Azure otomatik olarak bir hizmet sorumlusu oluşturabilir.
+Oluşturduğunuzda, bir AKS kümesi Azure portal ya da kullanarak [az aks oluşturma][az-aks-create] komutu, Azure otomatik olarak bir hizmet sorumlusu oluşturun.
 
 Aşağıdaki Azure CLI örneğinde bir hizmet sorumlusu belirtilmemiştir. Bu senaryoda Azure CLI, AKS kümesi için bir hizmet sorumlusu oluşturur. İşlemi başarıyla tamamlamak için Azure hesabınızın gerekli hizmet sorumlusu oluşturma haklarına sahip olması gerekir.
 
@@ -40,7 +40,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup
 
 ## <a name="manually-create-a-service-principal"></a>El ile hizmet sorumlusu oluşturma
 
-El ile hizmet sorumlusunu Azure CLI ile oluşturmak için [az ad sp create-for-rbac][az-ad-sp-create] komutunu kullanın. Aşağıdaki örnekte, `--skip-assignment` parametresi, ek varsayılan atamaların atanmasını engellemektedir:
+El ile Azure CLI ile hizmet sorumlusu oluşturmak için kullanın [az ad sp create-for-rbac][az-ad-sp-create] komutu. Aşağıdaki örnekte, `--skip-assignment` parametresi, ek varsayılan atamaların atanmasını engellemektedir:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -60,7 +60,7 @@ az ad sp create-for-rbac --skip-assignment
 
 ## <a name="specify-a-service-principal-for-an-aks-cluster"></a>Bir AKS kümesi için hizmet sorumlusu belirtin
 
-[az aks create][az-aks-create] komutunu kullanarak bir AKS kümesi oluşturduğunuzda var olan bir hizmet sorumlusunu kullanmak üzere, [az ad sp create-for-rbac][az-ad-sp-create] komutunun çıktısından `appId` ve `password`’i belirtmek için `--service-principal` ve `--client-secret` parametrelerini kullanın:
+Mevcut bir hizmet sorumlusunu kullanarak bir AKS kümesi oluşturduğunuzda kullanılacak [az aks oluşturma][az-aks-create] komutu, kullanın `--service-principal` ve `--client-secret` belirtmek üzere parametreler `appId` ve `password` çıktısından [az ad sp create-for-rbac][az-ad-sp-create] komutu:
 
 ```azurecli-interactive
 az aks create \
@@ -81,7 +81,7 @@ Azure portalı kullanarak bir AKS kümesi dağıtırsanız, **Kubernetes kümesi
 
 Hizmet sorumlusu AKS kümesi, diğer kaynaklarına erişmek için kullanılabilir. Örneğin, mevcut bir Azure sanal ağ alt ağı, AKS kümesi dağıtmayı veya Azure Container Registry (ACR) bağlanmak istiyorsanız, hizmet sorumlusu için bu kaynaklara temsilci erişimi gerekir.
 
-Kullanarak bir rol atama izinleri için temsilci seçme için oluşturma [az rol ataması oluşturma] [ az-role-assignment-create] komutu. Ata `appId` bir kaynak grubu ya da sanal ağ kaynağı gibi belirli bir kapsamda. Bir rol, ardından aşağıdaki örnekte gösterildiği gibi kaynak, hizmet sorumlusu sahip izinleri tanımlar:
+Kullanarak bir rol atama izinleri için temsilci seçme için oluşturma [az rol ataması oluşturma][az-role-assignment-create] komutu. Ata `appId` bir kaynak grubu ya da sanal ağ kaynağı gibi belirli bir kapsamda. Bir rol, ardından aşağıdaki örnekte gösterildiği gibi kaynak, hizmet sorumlusu sahip izinleri tanımlar:
 
 ```azurecli
 az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
@@ -99,23 +99,23 @@ Kapsayıcı görüntüsünü deponuz olarak Azure Container Registry (ACR) kulla
 
 Gelişmiş Ağ, sanal ağ ve alt ağı veya genel IP adresleri başka bir kaynak grubunda olduğu kullanabilir. Rol izinleri aşağıdaki kümesinin atayın:
 
-- Oluşturma bir [özel rol] [ rbac-custom-role] ve aşağıdaki rol izinleri tanımlayın:
+- Oluşturma bir [özel rol][rbac-custom-role] ve aşağıdaki rol izinleri tanımlayın:
   - *Microsoft.Network/virtualNetworks/subnets/join/action*
   - *Microsoft.Network/virtualNetworks/subnets/read*
   - *Microsoft.Network/virtualNetworks/subnets/write*
   - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
-- Veya atama [ağ Katılımcısı] [ rbac-network-contributor] sanal ağ içindeki alt ağ üzerinde yerleşik rol
+- Veya atama [ağ Katılımcısı][rbac-network-contributor] sanal ağ içindeki alt ağ üzerinde yerleşik rol
 
 ### <a name="storage"></a>Depolama
 
 Başka bir kaynak grubunda mevcut Disk kaynaklarına erişmek gerekebilir. Rol izinleri aşağıdaki kümesinin atayın:
 
-- Oluşturma bir [özel rol] [ rbac-custom-role] ve aşağıdaki rol izinleri tanımlayın:
+- Oluşturma bir [özel rol][rbac-custom-role] ve aşağıdaki rol izinleri tanımlayın:
   - *Microsoft.Compute/disks/read*
   - *Microsoft.Compute/disks/write*
-- Veya atama [depolama hesabı Katılımcısı] [ rbac-storage-contributor] kaynak grubunda yerleşik rol
+- Veya atama [depolama hesabı Katılımcısı][rbac-storage-contributor] kaynak grubunda yerleşik rol
 
 ### <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -126,12 +126,12 @@ AKS ile tümleştirin ve kaynak grubunda AKS kümesi için ayrı Azure Container
 AKS ve Azure AD hizmet sorumlularını kullanılırken aşağıdaki noktalara dikkat edin.
 
 - Kubernetes için hizmet sorumlusu, küme yapılandırmasının bir parçasıdır. Ancak, kümeyi dağıtmak için kimlik kullanmayın.
-- Varsayılan olarak, hizmet sorumlusu kimlik bilgileri bir yıl süreyle geçerlidir. Yapabilecekleriniz [güncelleştirme veya hizmet sorumlusu kimlik bilgilerini döndürme] [ update-credentials] dilediğiniz zaman.
+- Varsayılan olarak, hizmet sorumlusu kimlik bilgileri bir yıl süreyle geçerlidir. Yapabilecekleriniz [güncelleştirme veya hizmet sorumlusu kimlik bilgilerini döndürme][update-credentials] dilediğiniz zaman.
 - Her hizmet sorumlusunun bir Azure AD uygulamasıyla ilişkilendirilmiş olması gerekir. Bir Kubernetes kümesinin hizmet sorumlusu, geçerli herhangi bir Azure AD uygulama adıyla ilişkilendirilebilir (örneğin: *https://www.contoso.org/example* ). Uygulama URL'sinin gerçek bir uç nokta olması gerekmez.
 - Hizmet sorumlusu **İstemci kimliğini** belirttiğinizde `appId` değerini kullanın.
 - Aracı düğümde Vm'leri Kubernetes kümesinde hizmet sorumlusu kimlik bilgileri dosyasında depolanır. `/etc/kubernetes/azure.json`
-- Hizmet sorumlusunu otomatik olarak oluşturmak için [az aks create][az-aks-create] komutunu kullandığınızda, hizmet sorumlusu kimlik bilgileri komutun çalıştırıldığı makinede `~/.azure/aksServicePrincipal.json` dosyasına yazılır.
-- [az aks create][az-aks-create] komutu tarafından oluşturulan bir AKS kümesini sildiğinizde, otomatik olarak oluşturulan hizmet sorumlusu silinmez.
+- Kullanırken [az aks oluşturma][az-aks-create] hizmet sorumlusunu otomatik olarak oluşturmak için hizmet sorumlusu kimlik bilgileri dosyasına yazılır komutu `~/.azure/aksServicePrincipal.json` komutun çalıştırıldığı makinede.
+- Tarafından oluşturulan bir AKS kümesi sildiğinizde [az aks oluşturma][az-aks-create], otomatik olarak oluşturulan hizmet sorumlusu silinmez.
     - Sorgu kümeniz için hizmet sorumlusu silmek için *servicePrincipalProfile.clientId* ve delete ile [az ad app delete][az-ad-app-delete]. Aşağıdaki kaynak grubu ve küme adlarını kendi değerlerinizle değiştirin:
 
         ```azurecli
@@ -140,7 +140,7 @@ AKS ve Azure AD hizmet sorumlularını kullanılırken aşağıdaki noktalara di
 
 ## <a name="troubleshoot"></a>Sorun giderme
 
-Azure CLI ile bir AKS kümesi için hizmet sorumlusu kimlik bilgileri önbelleğe alınır. Bu kimlik bilgilerinin kullanım süresi dolduğunda, AKS kümelerini dağıtma hatalarla karşılaşırsınız. Çalıştırırken aşağıdaki hata iletisini [az aks oluşturma] [ az-aks-create] önbelleğe alınan hizmet sorumlusu kimlik bilgileri bir sorun olduğunu gösteriyor olabilir:
+Azure CLI ile bir AKS kümesi için hizmet sorumlusu kimlik bilgileri önbelleğe alınır. Bu kimlik bilgilerinin kullanım süresi dolduğunda, AKS kümelerini dağıtma hatalarla karşılaşırsınız. Çalıştırırken aşağıdaki hata iletisini [az aks oluşturma][az-aks-create] önbelleğe alınan hizmet sorumlusu kimlik bilgileri bir sorun olduğunu gösteriyor olabilir:
 
 ```console
 Operation failed with status: 'Bad Request'.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dbe3039845b1c9160e4f4fa3007cad1f588f71e
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: ca6f79b5febdbf12c80ab85d07117bf937babef0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560752"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798202"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Mevcut NPS altyapınızı Azure multi-Factor Authentication ile tümleştirme
 
@@ -76,14 +76,14 @@ Uzantı yükleme sırasında Azure AD kiracınız için dizin kimliği ve yönet
 
 NPS sunucusu aşağıdaki URL'ler ile 80 ve 443 bağlantı noktaları üzerinden iletişim kurabilmesi gerekir.
 
-- [https://adnotifications.windowsazure.com](https://adnotifications.windowsazure.com)
-- [https://login.microsoftonline.com](https://login.microsoftonline.com)
+- https:\//adnotifications.windowsazure.com
+- https:\//login.microsoftonline.com
 
 Ayrıca, aşağıdaki URL'ler bağlantısını tamamlamak için gereken [PowerShell betiğini kullanarak bağdaştırıcısı Kurulumu](#run-the-powershell-script)
 
-- [https://login.microsoftonline.com](https://login.microsoftonline.com)
-- [https://provisioningapi.microsoftonline.com](https://provisioningapi.microsoftonline.com)
-- [https://aadcdn.msauth.net](https://aadcdn.msauth.net)
+- https:\//login.microsoftonline.com
+- https:\//provisioningapi.microsoftonline.com
+- https:\//aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>Ortamınızı hazırlama
 
@@ -221,7 +221,7 @@ MFA NPS uzantısı kullanarak bir RADIUS istemcisi için etkinleştirdikten sonr
 
 MFA için kayıtlı olmayan kullanıcılar varsa, kimlik doğrulaması çalıştıklarında ne belirleyebilirsiniz. Kayıt defteri ayarını kullanın *REQUIRE_USER_MATCH* kayıt defteri yolunda *HKLM\Software\Microsoft\AzureMFA* özellik davranışını denetlemek için. Bu ayar bir yapılandırma seçeneği vardır:
 
-| Anahtar | Değer | Varsayılan |
+| Anahtar | Value | Varsayılan |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | (TRUE eşdeğer) ayarlanmadı |
 
@@ -230,6 +230,14 @@ Bu ayar amacı bir kullanıcı için mfa'yı kayıtlı ne yapılacağını belir
 Bu anahtarı oluşturun ve bunu FALSE olarak ekleme, kullanıcılar ve tüm henüz Azure MFA için kaydedilebilir ancak ayarlama seçebilirsiniz. Ancak, anahtar ayarlama oturum açmak MFA için kayıtlı olmayan kullanıcılar verdiğinden üretime geçmeden önce bu anahtarı kaldırmanız gerekir.
 
 ## <a name="troubleshooting"></a>Sorun giderme
+
+### <a name="nps-extension-health-check-script"></a>NPS uzantısı sistem durumu Denetim betiği
+
+Aşağıdaki betiği TechNet galerisinde NPS uzantıyı gidermede temel sistem durumu onay adımları gerçekleştirmek için kullanılabilir.
+
+[MFA_NPS_Troubleshooter.ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+
+---
 
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>İstemci sertifikasının beklendiği gibi yüklü olduğunu nasıl doğrularım?
 

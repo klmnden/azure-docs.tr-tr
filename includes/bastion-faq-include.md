@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e29a9265e010c3f442b742faf62b16dae02739fa
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 29ab9b3c33aae6005510c34b207c7f87714149e5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191185"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67608398"
 ---
 ### <a name="preview"></a>Genel önizlemeye nasıl katılmak?
 
@@ -56,3 +56,7 @@ Bir bağlantı kurmak için aşağıdaki roller gereklidir:
 ### <a name="previewbill"></a>Fiyatlandırma - Önizleme'de katılmak için faturalandırılırım?
 
 Yalnızca kısmen genel Önizleme sırasında faturalandırılırsınız. Ancak, dağıtımınıza bağlı SLA yoktur. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://aka.ms/BastionHostPricing).
+
+### <a name="previewbill"></a>Neden "oturumunuzun süresi doldu" hatası alıyorum savunma oturumu başlamadan önce ileti?
+
+Yalnızca Azure Portalı'ndan bir oturumu yeniden başlatılması gerekir. Azure portalında oturum açın ve oturumunuz yeniden başlayın. Doğrudan başka bir tarayıcı oturumu veya sekme URL'sine gidin, bu hata beklenir. Oturumunuz daha güvenli olduğunu ve oturum yalnızca Azure portalı üzerinden erişilebildiğinden emin olun yardımcı olur.

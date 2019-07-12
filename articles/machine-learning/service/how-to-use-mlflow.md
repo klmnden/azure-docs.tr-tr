@@ -11,16 +11,16 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: d0bc4620d0c55d6e94a3d99c39ab405dab2743e5
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 2f3ec9792a7af0398da770286b805be4d1f25589
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461659"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657973"
 ---
 # <a name="use-mlflow-with-azure-machine-learning-service-preview"></a>Azure Machine Learning hizmeti (Önizleme) ile MLflow kullanın
 
-Bu makalede MLflow'ın URI izleme ve günlüğe kaydetme API'si, nasıl kullanılacağını gösterir. toplu olarak da bilinen MLflow izleme, izleme ve deneme ölçümleri ve yapıları oturum için Azure Machine Learning hizmeti ile kendi [Azure Machine Learning Hizmet çalışma](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace). Zaten MLflow izleme denemelerinizi için kullanıyorsanız, çalışma alanı eğitim ölçümleri ve modelleri depolamak için merkezi, güvenli ve ölçeklenebilir bir konum sağlar.
+Bu makalede MLflow'ın URI izleme ve günlüğe kaydetme API'si, nasıl kullanılacağını gösterir. toplu olarak da bilinen MLflow izleme, izleme ve deneme ölçümleri ve yapıları oturum için Azure Machine Learning hizmeti ile kendi [Azure Machine Learning Hizmet çalışma](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces). Zaten MLflow izleme denemelerinizi için kullanıyorsanız, çalışma alanı eğitim ölçümleri ve modelleri depolamak için merkezi, güvenli ve ölçeklenebilir bir konum sağlar.
 
 [MLflow](https://www.mlflow.org) makine öğrenimi denemelerini yaşam döngüsünü yönetmeye yönelik bir açık kaynak kitaplığı. [MLFlow izleme](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) günlükleri ve ölçümleri çalıştırma eğitim izler MLflow bileşenidir ve model yapıtları denemelerinizi yerel olarak çalışan bir sanal makine veya uzak bir işlem kümesi.
 ![azure machine learning diyagramıyla mlflow](media/how-to-use-mlflow/mlflow-diagram.png)

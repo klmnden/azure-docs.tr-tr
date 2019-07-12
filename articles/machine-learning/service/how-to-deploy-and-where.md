@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 05/31/2019
+ms.date: 07/08/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: dcb90eb8ee25b8b0c780006f3555a5a9b815ffdd
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: fb23e61142a639420d74c08e5a9a41324acab18b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514250"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706276"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -332,12 +332,9 @@ Aşağıdaki tabloda, her işlem hedefi için bir dağıtım yapılandırması o
 Aşağıdaki bölümlerde, dağıtım yapılandırması oluşturun ve web hizmeti dağıtmak için kullanmak nasıl ekleyebileceğiniz gösterilmektedir.
 
 ### <a name="optional-profile-your-model"></a>İsteğe bağlı: Modelinizi profil
-Modelinizi bir hizmeti dağıtmadan önce en iyi CPU ve bellek gereksinimlerini belirlemek için profil isteyebilirsiniz. CLI veya SDK'sını kullanarak modelinizi profili yapabilirsiniz.
+Modelinizi bir hizmeti dağıtmadan önce en iyi CPU ve bellek gereksinimlerini CLI veya SDK'sını kullanarak belirlemek için profil oluşturabilirsiniz.  Model profil oluşturma sonuçları olarak yayılan bir `Run` nesne. Tam ayrıntılarını [modeli profili şema API belgelerinde bulunabilir](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
 
-Daha fazla bilgi için SDK'sı belgelerimize burada kontrol edebilirsiniz: https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
-
-Model profil oluşturma sonuçları bir çalışma nesnesi olarak gönderilir.
-Modeli profili şemadaki ayrıntıları şurada bulunabilir: https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py
+Daha fazla bilgi [nasıl SDK'sını kullanarak modelinizi profil](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
 
 ## <a name="deploy-to-target"></a>Hedefe dağıtım
 
@@ -356,9 +353,27 @@ Yerel olarak dağıtmak için ihtiyacınız **Docker'ın yüklü** yerel makinen
 
 + **CLI kullanarak**
 
+    CLI kullanarak dağıtmak için aşağıdaki komutu kullanın. Değiştirin `mymodel:1` adı ve kayıtlı modeli sürümü:
+
   ```azurecli-interactive
-  az ml model deploy -m sklearn_mnist:1 -ic inferenceconfig.json -dc deploymentconfig.json
+  az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
   ```
+
+    Girdileri `deploymentconfig.json` parametreler için Belge Bağlantıları [LocalWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py). Aşağıdaki tabloda, yöntem parametreleri ile varlıkları JSON belgesinde arasında eşleme açıklanmaktadır:
+
+    | JSON varlık | Yöntem parametresi | Açıklama |
+    | ----- | ----- | ----- |
+    | `computeType` | NA | Bilgi işlem hedefi. Yerel için değer olmalıdır `local`. |
+    | `port` | `port` | Hizmetin HTTP uç noktasını açığa bağlanacağı yerel bağlantı noktası. |
+
+    Aşağıdaki JSON ile CLI'yı kullanmak için örnek bir dağıtım yapılandırma verilmiştir:
+
+    ```json
+    {
+        "computeType": "local",
+        "port": 32267
+    }
+    ```
 
 ### <a id="aci"></a> Azure Container Instances (DEVTEST)
 
@@ -379,10 +394,44 @@ ACI için kotaları ve bölge kullanılabilirliği görmek için bkz [kotaları 
 
 + **CLI kullanarak**
 
-  ```azurecli-interactive
-  az ml model deploy -m sklearn_mnist:1 -n aciservice -ic inferenceconfig.json -dc deploymentconfig.json
-  ```
+    CLI kullanarak dağıtmak için aşağıdaki komutu kullanın. Değiştirin `mymodel:1` ad ve kayıtlı modeli sürümüne sahip. Değiştirin `myservice` bu hizmet vermek için bu ada sahip:
 
+    ```azurecli-interactive
+    az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
+    ```
+
+    Girdileri `deploymentconfig.json` parametreler için Belge Bağlantıları [AciWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py). Aşağıdaki tabloda, yöntem parametreleri ile varlıkları JSON belgesinde arasında eşleme açıklanmaktadır:
+
+    | JSON varlık | Yöntem parametresi | Açıklama |
+    | ----- | ----- | ----- |
+    | `computeType` | NA | Bilgi işlem hedefi. ACI için değer olmalıdır `ACI`. |
+    | `containerResourceRequirements` | NA | Kapsayıcı için ayrılan bellek ve CPU için yapılandırma öğelerini içerir. |
+    | &emsp;&emsp;`cpu` | `cpu_cores` | Bu web hizmeti için ayrılacak CPU çekirdeği sayısı. Varsayılan olarak, `0.1` |
+    | &emsp;&emsp;`memoryInGB` | `memory_gb` | Bellek (GB cinsinden) miktarı bu web hizmeti için ayrılamıyor. Varsayılan, `0.5` |
+    | `location` | `location` | Bu Web hizmeti için dağıtılacağı Azure bölgesi. Belirtilmezse çalışma alanı konumu kullanılır. Kullanılabildiği bölgeler hakkında daha fazla bilgi burada bulunabilir: [ACI bölgeleri](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |
+    | `authEnabled` | `auth_enabled` | Kimlik doğrulama için bu Web hizmetini etkinleştirme gerekip gerekmediğini. Varsayılan değeri false'tur |
+    | `sslEnabled` | `ssl_enabled` | Bu Web hizmeti için SSL'yi gerekip gerekmediğini. Varsayılan değeri False'tur. |
+    | `appInsightsEnabled` | `enable_app_insights` | Bu Web hizmeti için Appınsights etkinleştirme gerekip gerekmediğini. Varsayılan değeri false'tur |
+    | `sslCertificate` | `ssl_cert_pem_file` | SSL etkinleştirilmişse gerekli sertifika dosyası |
+    | `sslKey` | `ssl_key_pem_file` | SSL etkinleştirilmişse gerekli anahtar dosyası |
+    | `cname` | `ssl_cname` | Cname boyunca SSL etkin |
+    | `dnsNameLabel` | `dns_name_label` | Puanlama uç nokta için dns ad etiketi. Puanlama uç nokta için benzersiz bir dns ad etiketi oluşturulacak belirtilmediği takdirde. |
+
+    Aşağıdaki JSON ile CLI'yı kullanmak için örnek bir dağıtım yapılandırma verilmiştir:
+
+    ```json
+    {
+        "computeType": "aci",
+        "containerResourceRequirements":
+        {
+            "cpu": 0.5,
+            "memoryInGB": 1.0
+        },
+        "authEnabled": true,
+        "sslEnabled": false,
+        "appInsightsEnabled": false
+    }
+    ```
 
 + **VS Code'u kullanarak**
 
@@ -414,9 +463,71 @@ Ekli bir AKS kümesi zaten varsa, kendisine dağıtabilirsiniz. Henüz oluşturd
 
 + **CLI kullanarak**
 
+    CLI kullanarak dağıtmak için aşağıdaki komutu kullanın. Değiştirin `myaks` AKS adı ile hedef işlem. Değiştirin `mymodel:1` ad ve kayıtlı modeli sürümüne sahip. Değiştirin `myservice` bu hizmet vermek için bu ada sahip:
+
   ```azurecli-interactive
-  az ml model deploy -ct myaks -m mymodel:1 -n aksservice -ic inferenceconfig.json -dc deploymentconfig.json
+  az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
   ```
+
+    Girdileri `deploymentconfig.json` parametreler için Belge Bağlantıları [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). Aşağıdaki tabloda, yöntem parametreleri ile varlıkları JSON belgesinde arasında eşleme açıklanmaktadır:
+
+    | JSON varlık | Yöntem parametresi | Açıklama |
+    | ----- | ----- | ----- |
+    | `computeType` | NA | Bilgi işlem hedefi. AKS için bir değer olmalıdır `aks`. |
+    | `autoScaler` | NA | Otomatik ölçeklendirme için yapılandırma öğelerini içerir. Otomatik ölçeklendiricinin tabloya bakın. |
+    | &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Web hizmeti için otomatik ölçeklendirmeyi etkinleştirmek gerekip gerekmediğini. Varsa `numReplicas`  =  `0`, `True`; Aksi takdirde `False`. |
+    | &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | Kapsayıcılar kullanmak üzere en az sayıda otomatik ölçeklendirme bu web hizmeti. Varsayılan `1`. |
+    | &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | Kullanılacak kapsayıcı sayısı otomatik ölçeklendirme bu web hizmeti. Varsayılan `10`. |
+    | &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Ne sıklıkta otomatik ölçeklendiricinin bu web hizmetini ölçeklendirme dener. Varsayılan `1`. |
+    | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Otomatik ölçeklendiricinin korumak için bu web hizmetini girişiminde hedef kullanımı (yüzde 100 dışında). Varsayılan `70`. |
+    | `dataCollection` | NA | Veri toplama için yapılandırma öğeleri içeriyor. |
+    | &emsp;&emsp;`storageEnabled` | `collect_model_data` | Kullanılıp kullanılmayacağını modeli web hizmeti için veri toplamayı etkinleştirin. Varsayılan `False`. |
+    | `authEnabled` | `auth_enabled` | Web hizmeti için kimlik doğrulamasını etkinleştirme gerekip gerekmediğini. Varsayılan `True`. |
+    | `containerResourceRequirements` | NA | Kapsayıcı için ayrılan bellek ve CPU için yapılandırma öğelerini içerir. |
+    | &emsp;&emsp;`cpu` | `cpu_cores` | Bu web hizmeti için ayrılacak CPU çekirdeği sayısı. Varsayılan olarak, `0.1` |
+    | &emsp;&emsp;`memoryInGB` | `memory_gb` | Bellek (GB cinsinden) miktarı bu web hizmeti için ayrılamıyor. Varsayılan, `0.5` |
+    | `appInsightsEnabled` | `enable_app_insights` | Web hizmeti için Application Insights günlüğe kaydetmeyi etkinleştirme gerekip gerekmediğini. Varsayılan `False`. |
+    | `scoringTimeoutMs` | `scoring_timeout_ms` | Puanlama web hizmeti çağrıları için zorunlu tutmak için bir zaman aşımı. Varsayılan `60000`. |
+    | `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Bu web hizmeti için düğüm başına en fazla eş zamanlı istek. Varsayılan `1`. |
+    | `maxQueueWaitMs` | `max_request_wait_time` | Bir istek üç rol bir 503 (milisaniye cinsinden) kuyrukta kalır en uzun süreyi, hata döndürülür. Varsayılan `500`. |
+    | `numReplicas` | `num_replicas` | Bu web hizmeti için ayırmak için kapsayıcı sayısı. Varsayılan değer yoktur. Otomatik ölçeklendiricinin, bu parametre ayarlanmazsa, varsayılan olarak etkindir. |
+    | `keys` | NA | Anahtarlar için yapılandırma öğelerini içerir. |
+    | &emsp;&emsp;`primaryKey` | `primary_key` | Bu Web hizmeti için kullanılacak bir birincil kimlik doğrulama anahtarı |
+    | &emsp;&emsp;`secondaryKey` | `secondary_key` | Bu Web hizmeti için kullanılacak bir ikincil kimlik doğrulama anahtarı |
+    | `gpuCores` | `gpu_cores` | Bu Web hizmeti için ayrılacak GPU çekirdeği sayısı. Varsayılan 1'dir. |
+    | `livenessProbeRequirements` | NA | Canlılık araştırması gereksinimleri için yapılandırma öğelerini içerir. |
+    | &emsp;&emsp;`periodSeconds` | `period_seconds` | Ne sıklıkla (saniye cinsinden) canlılık araştırması gerçekleştirilecek. Varsayılan olarak 10 saniye. En düşük değer 1'dir. |
+    | &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Canlılık araştırmaları başlatılmadan önce kapsayıcı başladıktan sonra saniye sayısı. Varsayılan olarak 310 |
+    | &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | Canlılık araştırması sonra zaman aşımına saniye sayısı. Varsayılan olarak 2 saniye. En düşük değer 1'dir |
+    | &emsp;&emsp;`successThreshold` | `success_threshold` | Başarısız sonra başarılı olarak kabul edilmesi kapsayıcısında eşdeğerlik araştırması için en düşük ardışık başarı. Varsayılan olarak 1. En düşük değer 1'dir. |
+    | &emsp;&emsp;`failureThreshold` | `failure_threshold` | Kubernetes, bir Pod başlar ve canlılık araştırması başarısız olduğunda, vazgeçmeden önce failureThreshold kez deneyecek. Varsayılan olarak 3. En düşük değer 1'dir. |
+    | `namespace` | `namespace` | Web hizmeti olarak dağıtılan Kubernetes ad alanı. En fazla 63 küçük alfasayısal ('a'-'z', '0'-'9') ve kısa çizgi ('-') karakter. İlk ve son karakter, kısa çizgi olamaz. |
+
+    Aşağıdaki JSON ile CLI'yı kullanmak için örnek bir dağıtım yapılandırma verilmiştir:
+
+    ```json
+    {
+        "computeType": "aks",
+        "autoScaler":
+        {
+            "autoscaleEnabled": true,
+            "minReplicas": 1,
+            "maxReplicas": 3,
+            "refreshPeriodInSeconds": 1,
+            "targetUtilization": 70
+        },
+        "dataCollection":
+        {
+            "storageEnabled": true
+        },
+        "authEnabled": true,
+        "containerResourceRequirements":
+        {
+            "cpu": 0.5,
+            "memoryInGB": 1.0
+        }
+    }
+    ```
 
 + **VS Code'u kullanarak**
 

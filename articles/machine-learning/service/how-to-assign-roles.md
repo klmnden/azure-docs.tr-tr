@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
-ms.date: 02/20/2019
+ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e062fd73f2baeb4948430b13e0caa1f5c0b3f066
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4a5723b2ffbd34fd7cf022bf747b4504b3bdac53
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341109"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797669"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Bir Azure Machine Learning çalışma alanı erişimi yönetme
 
@@ -26,7 +26,7 @@ Bu makalede, bir Azure Machine Learning çalışma alanına erişim yönetme kon
 
 Bir Azure Machine Learning çalışma alanı, bir Azure kaynağıdır. Yeni bir Azure Machine Learning çalışma alanı oluşturulduğunda, diğer Azure kaynakları gibi üç varsayılan rol ile gelir. Çalışma alanına kullanıcı ekleme ve bunları bu yerleşik rollerden birine atayın.
 
-| Rol | Erişim düzeyi |
+| Role | Erişim düzeyi |
 | --- | --- |
 | **Okuyucu** | Çalışma alanındaki Eylemler salt okunur. Okuyucular listelemek ve varlıklar bir çalışma alanında görüntülemek, ancak oluşturabilir veya bu varlıkları güncelleştirin. |
 | **Katılımcı** | (Uygunsa) Sil görüntülemek, oluşturmak, düzenlemek veya bir çalışma alanında varlıklar. Örneğin, Katkıda Bulunanlar bir deneme oluşturma, oluşturmak veya işlem kümesi ekleme, çalıştırma gönderin ve bir web hizmetini dağıtma. |

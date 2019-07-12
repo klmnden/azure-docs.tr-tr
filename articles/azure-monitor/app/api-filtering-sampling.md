@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 062b565369c3b6e877d36f883a152ca6c013e0cf
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d1c4005651518eb27eebde0005bd70b4adad6432
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479650"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798360"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtreleme ve telemetri, Application Insights SDK'sı ön işleme
 
@@ -96,7 +96,10 @@ public class SuccessfulDependencyFilter : ITelemetryProcessor
     }
 }
 ```
-3. Bunu Applicationınsights.config dosyasında ekleyin:
+
+3. İşlemci ekleyin
+
+**ASP.NET uygulamaları** bunu Applicationınsights.config dosyasında ekleyin:
 
 ```xml
 <TelemetryProcessors>
@@ -129,6 +132,26 @@ builder.Build();
 ```
 
 Bu noktadan sonra oluşturulan TelemetryClients, işlemci kullanır.
+
+**ASP.NET Core uygulamaları**
+
+> [!NOTE]
+> Ekleme Başlatıcısı kullanarak `ApplicationInsights.config` veya bu adı kullanıyor `TelemetryConfiguration.Active` ASP.NET Core uygulamaları için geçerli değil. 
+
+
+İçin [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) uygulamalar, yeni bir ekleme `TelemetryInitializer` aşağıda gösterildiği gibi bağımlılık ekleme kapsayıcısına ekleyerek yapılır. Bu yapılır `ConfigureServices` yöntemi, `Startup.cs` sınıfı.
+
+```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // ...
+        services.AddApplicationInsightsTelemetry();
+        services.AddApplicationInsightsTelemetryProcessor<SuccessfulDependencyFilter>();
+
+        // If you have more processors:
+        services.AddApplicationInsightsTelemetryProcessor<AnotherProcessor>();
+    }
+```
 
 ### <a name="example-filters"></a>Örnek filtreleri
 #### <a name="synthetic-requests"></a>Yapay istekler
@@ -237,7 +260,7 @@ namespace MvcWebRole.Telemetry
 }
 ```
 
-**Yük, başlatıcı**
+**ASP.NET uygulamaları: Yük, başlatıcı**
 
 Applicationınsights.config dosyasında:
 
@@ -257,15 +280,27 @@ Applicationınsights.config dosyasında:
 protected void Application_Start()
 {
     // ...
-    TelemetryConfiguration.Active.TelemetryInitializers
-    .Add(new MyTelemetryInitializer());
+    TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
 }
 ```
 
-
 [Bu örneğe ilişkin daha fazla bilgi bkz.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
 
-<a name="js-initializer"></a>
+**ASP.NET Core uygulamaları: Yük, başlatıcı**
+
+> [!NOTE]
+> Ekleme Başlatıcısı kullanarak `ApplicationInsights.config` veya bu adı kullanıyor `TelemetryConfiguration.Active` ASP.NET Core uygulamaları için geçerli değil. 
+
+İçin [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) uygulamalar, yeni bir ekleme `TelemetryInitializer` aşağıda gösterildiği gibi bağımlılık ekleme kapsayıcısına ekleyerek yapılır. Bu yapılır `ConfigureServices` yöntemi, `Startup.cs` sınıfı.
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+}
+```
 
 ### <a name="java-telemetry-initializers"></a>Java telemetri başlatıcıları
 

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 3611072759c62f42294730405f1dc402c496acce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad9bb5c135684c4573195298fb8e55a08208f6b6
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735015"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785816"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure Event Grid olay kaynakları
 
@@ -24,7 +24,7 @@ Bu makale, her bir olay kaynağı için içeriğe bağlantılar sağlar.
 
 İçin bir Azure aboneliği kaynakları değişikliklere yanıt Azure abonelikleri olaylara abone olma.
 
-|Unvan |Açıklama  |
+|Başlık |Açıklama  |
 |---------|---------|
 | [Öğretici: Event Grid ve Microsoft Teams ile Azure Otomasyonu](ensure-tags-exists-on-new-virtual-machines.md) |Bir olay gönderen bir sanal makine, oluşturun. Sanal Makine etiketleri ve bir Microsoft Teams kanalına gönderilen bir iletinin tetikleyen bir Otomasyon runbook'unu olayı tetikler. |
 | [Nasıl yapılır: için portal aracılığıyla olaylara abone olma](subscribe-through-portal.md) | Portalda bir Azure aboneliği için olaylara abone olmak için kullanın. |
@@ -36,7 +36,7 @@ Bu makale, her bir olay kaynağı için içeriğe bağlantılar sağlar.
 
 Görüntüleri değişikliklere yanıt vermek için kapsayıcı kayıt defteri olaylara abone olun.
 
-|Unvan |Açıklama  |
+|Başlık |Açıklama  |
 |---------|---------|
 | [Hızlı Başlangıç: kapsayıcı kayıt defteri olayları gönderme](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Kapsayıcı kayıt defteri olayları göndermek için Azure CLI kullanma işlemi gösterilmektedir. |
 | [Olay şeması](event-schema-container-registry.md) | Alanlar, kapsayıcı kayıt defteri olaylarını gösterir. |
@@ -45,7 +45,7 @@ Görüntüleri değişikliklere yanıt vermek için kapsayıcı kayıt defteri o
 
 Uygulama olaylarına yanıt vermek için özel konular için abone olun.
 
-|Unvan  |Açıklama  |
+|Başlık  |Açıklama  |
 |---------|---------|
 | [Hızlı Başlangıç: oluşturma ve Azure CLI ile özel olaylarını yönlendirme](custom-event-quickstart.md) | Özel olayları göndermek için Azure CLI kullanma işlemi gösterilmektedir. |
 | [Hızlı Başlangıç: oluşturma ve Azure PowerShell ile özel olaylarını yönlendirme](custom-event-quickstart-powershell.md) | Özel olayları göndermek için Azure PowerShell kullanmayı gösterir. |
@@ -65,7 +65,7 @@ Uygulama olaylarına yanıt vermek için özel konular için abone olun.
 
 Yanıt dosyası olaylarını yakalamak için Event Hubs olaylarına abone olun. Event Hubs bir olay kaynağı veya olay işleyicisi olarak görev yapabilir. Aşağıdaki makaleleri Event Hubs kaynağı olarak kullanma işlemini gösterir.
 
-|Unvan  |Açıklama  |
+|Başlık  |Açıklama  |
 |---------|---------|
 | [Öğretici: bir veri ambarına büyük veri akışı](event-grid-event-hubs-integration.md) | Event Grid, Event Hubs yakalama dosyası oluşturduğunda, bir işlev uygulaması için bir olay gönderir. Uygulama yakalama dosyasını alır ve bir veri ambarı'na veri geçirir. |
 | [Olay şeması](event-schema-event-hubs.md) | Event Hubs olay alanlarını gösterir. |
@@ -76,7 +76,7 @@ Yanıt dosyası olaylarını yakalamak için Event Hubs olaylarına abone olun. 
 
 Oluşturulan, silinen, bağlı, bağlantısı kesilmiş cihaza yanıt vermek için IOT Hub olaylarını ve telemetri olayları için abone olun.
 
-|Unvan  |Açıklama  |
+|Başlık  |Açıklama  |
 |---------|---------|
 | [Logic Apps kullanarak Azure IOT Hub olayları hakkında e-posta bildirimleri gönder](publish-iot-hub-events-to-logic-apps.md) | IOT Hub'ınıza her bir cihaz eklendiğinde bir mantıksal uygulama bir bildirim e-posta gönderir. |
 | [Tetikleyici eylemlere Event Grid kullanarak IOT Hub olaylarına tepki verme](../iot-hub/iot-hub-event-grid.md) | IOT Hub Event Grid ile tümleştirme genel bakış. |
@@ -87,7 +87,7 @@ Oluşturulan, silinen, bağlı, bağlantısı kesilmiş cihaza yanıt vermek iç
 
 Media Services olaylarını, iş durumu olaylara yanıt vermek için abone olun.
 
-|Unvan  |Açıklama  |
+|Başlık  |Açıklama  |
 |---------|---------|
 | [Genel Bakış: Media Services olaylara tepki verme](../media-services/latest/reacting-to-media-services-events.md) | Media Services Event Grid ile tümleştirme genel bakış. |
 | [Öğretici: CLI kullanarak bir özel web uç noktası için Azure Media Services olaylarını yönlendirme](../media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Media Services'dan olayları göndermek nasıl gösterir. |
@@ -97,7 +97,7 @@ Media Services olaylarını, iş durumu olaylara yanıt vermek için abone olun.
 
 Kaynak grubu olayları değişiklikleri kaynaklar bir kaynak grubu üzerinde yanıt vermek için abone olun.
 
-|Unvan  |Açıklama  |
+|Başlık  |Açıklama  |
 |---------|---------|
 | [Öğretici: Azure Event Grid ve Logic Apps ile sanal makine değişikliklerini izleme](monitor-virtual-machine-changes-event-grid-logic-app.md) | Mantıksal uygulama, bir sanal makine yapılan değişiklikleri izler ve bu değişiklikler hakkında e-posta gönderir. |
 | [Azure CLI: bir kaynak grubu için olaylara abone olma](./scripts/event-grid-cli-resource-group.md)| Örnek betik bir kaynak grubu için olaylara abone olur. Bu, bir Web kancası için olaylar gönderir. |
@@ -111,7 +111,7 @@ Kaynak grubu olayları değişiklikleri kaynaklar bir kaynak grubu üzerinde yan
 
 Etkin dinleyici olmadan iletilerini yanıtlamak için Service Bus olayları abone olmak.
 
-|Unvan  |Açıklama  |
+|Başlık  |Açıklama  |
 |---------|---------|
 | [Öğretici: Azure Service Bus-Azure Event Grid tümleştirmesi örnekleri](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid, işlev uygulaması ve mantıksal uygulama için hizmet veri yolu konusu'ndan iletileri gönderir. |
 | [Genel Bakış: Azure Service Bus-Event Grid tümleştirmesi](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Service Bus Event Grid ile tümleştirme genel bakış. |
@@ -121,7 +121,7 @@ Etkin dinleyici olmadan iletilerini yanıtlamak için Service Bus olayları abon
 
 Blob oluşturulur ve Silinen olayları yanıtlamak için Blob Depolama olaylarına abone olun.
 
-|Unvan  |Açıklama  |
+|Başlık  |Açıklama  |
 |---------|---------|
 | [Hızlı Başlangıç: Azure CLI ile bir özel web uç noktası için Blob Depolama olaylarını yönlendirme](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Blob Depolama olaylarını bir Web kancası'na göndermek için Azure CLI kullanma işlemi gösterilmektedir. |
 | [Hızlı Başlangıç: PowerShell ile bir özel web uç noktası için Blob Depolama olaylarını yönlendirme](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Blob Depolama olaylarını bir Web kancası'na göndermek için Azure PowerShell kullanmayı gösterir. |
@@ -135,7 +135,7 @@ Blob oluşturulur ve Silinen olayları yanıtlamak için Blob Depolama olayları
 ## <a name="maps"></a>Haritalar
 Azure haritalar olayları döndürürüz olaylara yanıt vermek için abone olun. Örneğin, bir cihaz girer ya da bir bölge sınırının çıkar her zaman bir uygulama bir e-posta bildirimi teslim edebilen.
 
-|Unvan  |Açıklama  |
+|Başlık  |Açıklama  |
 |---------|---------|
 | [Event Grid kullanarak Azure haritalar olaylarına tepki verme](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Azure haritalar'ı Event Grid ile tümleştirme genel bakış. |
 | [Öğretici: Bir bölge sınırının ayarlayın](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Bu öğreticide Azure haritalar'ı kullanarak döndürürüz ayarlamak için temel adımlarında size kılavuzluk eder. Azure Event Grid döndürürüz sonuçları akış ve bölge sınırının sonuçlarına dayalı bir bildirim ayarlamak için kullanın. |
@@ -144,11 +144,21 @@ Azure haritalar olayları döndürürüz olaylara yanıt vermek için abone olun
 ## <a name="app-configuration"></a>Uygulama Yapılandırması
 Azure uygulama yapılandırma olayları, anahtar-değer değişikliği olaylara yanıt vermek için abone olun.
 
-|Unvan | Açıklama |
+|Başlık | Açıklama |
 |---------|---------|
 | [Event Grid kullanarak Azure uygulama yapılandırma olaylarına tepki verme](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Uygulama yapılandırması Azure Event Grid ile tümleştirme genel bakış. |
 | [Hızlı Başlangıç: Azure CLI ile bir özel web uç noktası için Azure uygulama yapılandırma olaylarını yönlendirme](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Bir Web kancası için Azure uygulama yapılandırması olayları göndermek için Azure CLI kullanma işlemi gösterilmektedir. |
 | [Olay şeması](event-schema-app-configuration.md) | Alanları, Azure uygulama yapılandırması olayları gösterir. |
+
+## <a name="azure-signalr"></a>Azure SignalR
+Azure SignalR hizmeti olaylarını istemci bağlantı olaylara yanıt vermek için abone olun.
+
+|Başlık | Açıklama |
+|---------|---------|
+| [Event Grid kullanarak Azure SignalR hizmeti olaylarına tepki verme](../azure-signalr/signalr-concept-event-grid-integration.md) | Azure SignalR hizmeti Event Grid ile tümleştirme genel bakış. |
+| [Azure SignalR hizmeti olayları Event Grid'e göndermek nasıl](../azure-signalr/signalr-howto-event-grid-integration.md) | Azure SignalR hizmeti olayları Event Grid aracılığıyla uygulama gönderme işlemini gösterir. |
+| [Olay şeması](event-schema-azure-signalr.md) | Azure SignalR hizmeti olayları alanları gösterir. |
+
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

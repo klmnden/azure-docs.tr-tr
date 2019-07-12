@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82e6cbcd01c87ddffb7eac8d0ea0faef85f41a13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b7484b627d3bc3f26fa01d4c38ee96047c70d007
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254001"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785474"
 ---
 # <a name="web-app-that-signs-in-users---code-configuration"></a>Web uygulaması oturum açtığında kullanıcıların - kod yapılandırma
 
@@ -36,6 +36,8 @@ Bir Web uygulaması (ve bir Web API'si) korumak için kullanılan kitaplıklar �
 | ![.NET](media/sample-v2-code/logo_net.png) | [.NET kimlik modeli uzantıları](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Doğrudan ASP.NET ve ASP.NET Core tarafından kullanılan .NET için Microsoft kimlik uzantıları DLL'ler hem .NET Framework ve .NET Core üzerinde çalışan bir dizi önerir. Bir ASP.NET/ASP.NET çekirdek Web uygulamasından belirteci doğrulaması kullanarak denetleyebilirsiniz **tokenvalidationparameters değerini** sınıfta (ISV bazı senaryolarda belirli) |
 
 ## <a name="aspnet-core-configuration"></a>ASP.NET Core yapılandırma
+
+Bu makalede ve aşağıdaki kod parçacıkları ayıklanan [ASP.NET Core Web uygulaması artımlı Eğitmeni, bölüm 1](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg). Bu öğretici için tam uygulama ayrıntılarını başvurmak isteyebilirsiniz.
 
 ### <a name="application-configuration-files"></a>Uygulama yapılandırma dosyaları
 

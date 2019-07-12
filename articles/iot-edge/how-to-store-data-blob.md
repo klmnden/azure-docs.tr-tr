@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: dabaa06e224c6498c0080c4546c04f40e3919bb6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: bb6cd43c77c31874115250d13f8d4067b3db7b36
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448527"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67804981"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>IOT Edge (Önizleme) Azure Blob Depolama ile uçta veri Store
 
@@ -62,13 +62,14 @@ Bir Azure IoT Edge cihazı:
 
 - IOT Edge modülü Azure Blob Depolama, aşağıdaki cihaz yapılandırmalarını destekler:
 
-  | İşletim sistemi | Mimari |
-  | ---------------- | ----- | ----- |
-  | Ubuntu Server 16.04 | AMD64 |
-  | Ubuntu Server 18.04 | AMD64 |
-  | Windows 10 IoT Enterprise | AMD64 |
-  | Windows Server 2019 | AMD64 |
-  | Raspbian Uzat | ARM32 |
+  | İşletim sistemi | AMD64 | ARM32v7 | ARM64 |
+  | ---------------- | ----- | ----- | ---- |
+  | Raspbian Uzat | Hayır | Evet | Hayır |  
+  | Ubuntu Server 16.04 | Evet | Hayır | Evet |
+  | Ubuntu Server 18.04 | Evet | Hayır | Evet |
+  | Windows 10 IOT Enterprise, derleme 17763 | Evet | Hayır | Hayır |
+  | Windows Server 2019, derleme 17763 | Evet | Hayır | Hayır |
+  
 
 Bulut kaynakları:
 

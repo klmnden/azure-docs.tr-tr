@@ -2,17 +2,17 @@
 title: Dinamik olarak Azure Kubernetes Service (AKS) için birden çok podunuz bir Disk birimi oluşturma
 description: Dinamik olarak birden çok eş zamanlı pod Azure Kubernetes Service (AKS) ile kullanılmak üzere Azure diskleri olan bir kalıcı hacim oluşturmayı öğrenin
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: 334e56db97213206d9ab7ed5ef4d1d96ab9325d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 0641d613da86aeffa0c4abb0f82ce93c38283156
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956483"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616088"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Dinamik olarak oluşturabilen ve Azure diskleri Azure Kubernetes Service (AKS) ile kalıcı hacim kullanma
 
@@ -25,7 +25,7 @@ Kubernetes birimleri hakkında daha fazla bilgi için bkz. [AKS uygulamalar içi
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak] [ aks-quickstart-cli] veya [Azure portalını kullanarak][aks-quickstart-portal].
+Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
 Ayrıca Azure CLI Sürüm 2.0.59 gerekir veya daha sonra yüklü ve yapılandırılmış. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
 
@@ -42,7 +42,7 @@ Her bir AKS kümesi iki önceden oluşturulmuş depolama sınıfları içerir; h
     
 Bu varsayılan depolama sınıfları, oluşturulduktan sonra birim boyutu güncelleştirmeye izin vermez. Bu özelliği etkinleştirmek için eklemeniz *allowVolumeExpansion: true* satır varsayılan depolama sınıflardan birini veya kendi özel depolama sınıfı oluşturun. Mevcut bir depolama sınıfı kullanarak düzenleyebileceğiniz `kubectl edit sc` komutu. Depolama sınıfları ve kendi oluşturma youor hakkında daha fazla bilgi için bkz. [AKS uygulamalar için Depolama Seçenekleri][storage-class-concepts].
 
-Kullanım [kubectl alma sc] [ kubectl-get] önceden oluşturulmuş depolama sınıfları görmek için komutu. Aşağıdaki örnekte gösterildiği bir AKS kümesi içinde kullanılabilen depolama sınıfları önceden oluştur:
+Kullanım [kubectl alma sc][kubectl-get] önceden oluşturulmuş depolama sınıfları görmek için komutu. Aşağıdaki örnekte gösterildiği bir AKS kümesi içinde kullanılabilen depolama sınıfları önceden oluştur:
 
 ```console
 $ kubectl get sc
@@ -78,7 +78,7 @@ spec:
 > [!TIP]
 > Standart depolama kullanan bir disk oluşturmak için kullanın `storageClassName: default` yerine *premium yönetilen*.
 
-Kalıcı hacim taleple oluşturma [kubectl uygulamak] [ kubectl-apply] komut ve belirtin, *azure premium.yaml* dosyası:
+Kalıcı hacim taleple oluşturma [kubectl uygulamak][kubectl-apply] komut ve belirtin, *azure premium.yaml* dosyası:
 
 ```console
 $ kubectl apply -f azure-premium.yaml
@@ -117,7 +117,7 @@ spec:
         claimName: azure-managed-disk
 ```
 
-Pod ile oluşturma [kubectl uygulamak] [ kubectl-apply] aşağıdaki örnekte gösterildiği gibi komut:
+Pod ile oluşturma [kubectl uygulamak][kubectl-apply] aşağıdaki örnekte gösterildiği gibi komut:
 
 ```console
 $ kubectl apply -f azure-pvc-disk.yaml
@@ -163,7 +163,7 @@ NAME                 STATUS    VOLUME                                     CAPACI
 azure-managed-disk   Bound     pvc-faf0f176-8b8d-11e8-923b-deb28c58d242   5Gi        RWO            managed-premium   3m
 ```
 
-Bu birim adı, temel alınan Azure disk adı oluşturur. Disk kimliği ile sorgu [az disk listesi] [ az-disk-list] ve PVC birim adınızı, aşağıdaki örnekte gösterildiği gibi sağlayın:
+Bu birim adı, temel alınan Azure disk adı oluşturur. Disk kimliği ile sorgu [az disk listesi][az-disk-list] ve PVC birim adınızı, aşağıdaki örnekte gösterildiği gibi sağlayın:
 
 ```azurecli-interactive
 $ az disk list --query '[].id | [?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c58d242`)]' -o tsv
@@ -190,7 +190,7 @@ Bir disk ile oluşturduğunuzda diski geri yükleme ve bir Kubernetes pod ile ku
 az disk create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --source pvcSnapshot
 ```
 
-Geri yüklenen diski ile birlikte bir pod kullanmak için bildirimde disk kimliği belirtin. İle disk Kimliğini edinmek [az disk show] [ az-disk-show] komutu. Aşağıdaki örnekte disk kimliği alır *pvcRestored* önceki adımda oluşturduğunuz:
+Geri yüklenen diski ile birlikte bir pod kullanmak için bildirimde disk kimliği belirtin. İle disk Kimliğini edinmek [az disk show][az-disk-show] komutu. Aşağıdaki örnekte disk kimliği alır *pvcRestored* önceki adımda oluşturduğunuz:
 
 ```azurecli-interactive
 az disk show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --query id -o tsv
@@ -225,7 +225,7 @@ spec:
         diskURI: /subscriptions/<guid>/resourceGroups/MC_myResourceGroupAKS_myAKSCluster_eastus/providers/Microsoft.Compute/disks/pvcRestored
 ```
 
-Pod ile oluşturma [kubectl uygulamak] [ kubectl-apply] aşağıdaki örnekte gösterildiği gibi komut:
+Pod ile oluşturma [kubectl uygulamak][kubectl-apply] aşağıdaki örnekte gösterildiği gibi komut:
 
 ```console
 $ kubectl apply -f azure-restored.yaml

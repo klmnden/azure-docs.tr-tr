@@ -3,21 +3,20 @@ title: Azure bir şablon kullanarak Güvenlik Duvarı'nı dağıtma
 description: Azure bir şablon kullanarak Güvenlik Duvarı'nı dağıtma
 services: firewall
 author: vhorne
-manager: jpconnock
 ms.service: firewall
 ms.topic: article
-ms.date: 12/01/2018
+ms.date: 7/9/2018
 ms.author: victorh
-ms.openlocfilehash: e0fbec8b22993345114d8d6642e42095191d0b37
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b39174152e427e408e7dfbbc353baf5f96ec7c01
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115698"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657085"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Azure bir şablon kullanarak Güvenlik Duvarı'nı dağıtma
 
-[Oluşturma AzureFirewall korumalı alan kurulum şablon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox) ağ ortamı testi ile bir güvenlik duvarı oluşturur. Bir sanal ağ (VNet) ile üç alt ağ vardır: *AzureFirewallSubnet*, *ServersSubnet*, ve *JumpboxSubnet*. *ServersSubnet* ve *JumpboxSubnet* her alt ağa sahip bir tek, iki çekirdekli Windows Server sanal makinesi.
+[Oluşturma AzureFirewall korumalı alan kurulum şablon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox) ağ ortamı testi ile bir güvenlik duvarı oluşturur. Bir sanal ağ (VNet) ile üç alt ağ vardır: *AzureFirewallSubnet*, *ServersSubnet*, ve *JumpboxSubnet*. *ServersSubnet* ve *JumpboxSubnet* her alt ağa sahip bir tek, iki çekirdekli Windows Server sanal makinesi.
 
 Güvenlik Duvarı yer *AzureFirewallSubnet* alt ağ ve bir uygulama kuralı koleksiyonu erişimine izin veren tek bir kural *www.microsoft.com*.
 
@@ -34,7 +33,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 **Yükleme ve şablon kullanarak Azure güvenlik duvarı dağıtma hakkında bilgi için:**
 
-1. Şablon erişim [ https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox ](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox).
+1. Şablon erişim [ https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox ](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox).
    
 1. Tanıtımını okuyun ve hazır olduğunuzda dağıtılacağı seçin **azure'a Dağıt**.
    

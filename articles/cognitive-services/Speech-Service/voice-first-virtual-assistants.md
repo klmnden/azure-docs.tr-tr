@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 4055b474938e38f653021b46f18200f8e39dd69d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c9b85895e701ff74e025d6f7895bc32513bc29a1
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604755"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806897"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Özel ses öncelikli sanal Yardımcıları önizleme hakkında
 
@@ -43,6 +43,7 @@ Ses öncelikli sanal asistan oluşturmak için örnek kod, Github'da kullanılab
 * [Ses öncelikli sanal asistan örnekleri (SDK)](https://aka.ms/csspeech/samples)
 * [Hızlı Başlangıç: ilk ses sanal Yardımcıları (C#)](quickstart-virtual-assistant-csharp-uwp.md)
 * [Hızlı Başlangıç: ses öncelikli sanal Yardımcıları (Java)](quickstart-virtual-assistant-java-jre.md)
+* [Satır konuşma tanıma istemcisi doğrudan (C#, WPF)](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client)
 
 ## <a name="customization"></a>Özelleştirme
 
@@ -60,5 +61,5 @@ Azure konuşma Hizmetleri kullanılarak oluşturulan sanal Yardımcıları ses i
 
 * [Bir konuşma Hizmetleri abonelik anahtarı ücretsiz olarak edinin](get-started.md)
 * [Konuşma SDK'sı Al](speech-sdk.md)
-* [Temel robot oluşturup](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+* [Temel bot oluşturma ve dağıtma](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [Sanal Yardımcısı çözüm ve kurumsal şablon alma](https://github.com/Microsoft/AI)

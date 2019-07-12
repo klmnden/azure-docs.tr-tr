@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 6d11961f06a75341e633c7a8963e6b83ed37cf13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bc53fadfb622794703deaff560c9083ca6a1a10
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61341734"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656828"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Openapı 2.0 (Önizleme) Azure işlevleri'nde meta veri desteği
 Openapı 2.0 (eski adıyla Swagger) meta verileri desteği Azure işlevleri bir Openapı 2.0 tanımı bir işlev uygulaması içinde yazmak için kullanabileceğiniz bir önizleme özelliği değil. Ardından, işlev uygulamasını kullanarak bu dosyayı barındırabilirsiniz.
@@ -75,7 +75,7 @@ Oluşturulan bir Swagger çatı eşleştirildiğinden aşağıdaki tabloda Azure
    1. Ayarlama **API tanımı kaynağı** için **işlevi**.
    1. Tıklayın **API tanımı şablonu oluşturun** ardından **Kaydet** daha sonra değiştirmek için bir şablon tanımı oluşturmak için.
    1. API tanımı URL'si ve anahtarı not edin.
-1. [Sürekli Tümleştirme/sürekli dağıtım (CI/CD) ayarlayın](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#continuous-deployment-requirements).
+1. [Sürekli Tümleştirme/sürekli dağıtım (CI/CD) ayarlayın](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#requirements-for-continuous-deployment).
 2. Sürümünde kaynak denetiminde \site\wwwroot swagger.JSON değiştirme\.azurefunctions\swagger\swagger.json.
 
 Şimdi, swagger.json deponuzda yapılan API işlev uygulamanız tarafından barındırılan tanımı URL'si ve de not ettiğiniz anahtar adım 1.c.

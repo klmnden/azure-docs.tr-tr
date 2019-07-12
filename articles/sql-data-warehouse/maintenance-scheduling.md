@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 03/13/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: b97e27b86ecad1f7f87a6de4d43b09d69c167c6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab6efb858cc86495c687055ce3049cfc0cca7433
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61075344"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807906"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Hizmet güncelleştirmeleri ve Bakım yönetmek için bakım zamanlamaları kullanın
 
@@ -34,6 +34,9 @@ Bu özelliği kullanmak için birincil ve ikincil bir pencere içinde ayrı bir 
 Hizmet durumu bildirimi ve kaynak sistem durumu İzleyicisi denetleyin ile tümleştirme, müşterilerin yaklaşan bakım etkinliğini bilgilendirilmenizi sağlar. Yeni Otomasyon Azure İzleyici yararlanır. Yaklaşan bakım olayları almak istediğiniz karar verebilirsiniz. Ayrıca hangi otomatikleştirilmiş akışlar kapalı kalma süresi yönetmenize ve işlemlerinizi etkisini en aza yardımcı olabilir karar verin.
 
 Bir 24 saatlik sağladığımız ön bildirimi DW400c ve alt katmanları geçerli durumun tüm bakım olayları önce gelir. Örnek kapalı kalma süresini en aza indirmek için veri Ambarınızı seçilen bakım süreniz önce hiçbir uzun süre çalışan işlemler olduğundan emin olun. Bakım başladığında, tüm etkin oturumlar iptal edilir. Olmayan kaydedilen işlem geri alınacak ve veri ambarınız bir kısa bağlantı kaybı yaşar. Hemen bakım veri ambarınıza tamamlandığında size bildirilir.
+
+> [!NOTE]
+> Bir zaman kritik güncelleştirme dağıtımı için duyuyoruz olayda Gelişmiş bildirim zamanlarını önemli ölçüde azaltılabilir.
 
 Bakım gerçekleşir, ancak SQL veri ambarı, bu süre boyunca bakım gerçekleştiremiyor sağladığımız ön bildirimi aldıysanız, iptal bildirimi alırsınız. Bakım, ardından bir sonraki zamanlanmış bakım süresi boyunca devam edecek.
 

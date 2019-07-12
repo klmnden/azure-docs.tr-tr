@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
-ms.openlocfilehash: a16ed7134fc9f3c159715f58f116de3fb30e8aca
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1c5c38e9af58aa9468fb0e22491327d3a35f0dda
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481133"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656657"
 ---
 # <a name="back-up-an-sap-hana-database"></a>Bir SAP HANA veritabanını yedekleme
 
@@ -26,7 +26,7 @@ ms.locfileid: "67481133"
 
 **Destek** | **Ayrıntılar**
 --- | ---
-**Desteklenen coğrafi bölgeler** | Avustralya Güneydoğu, Doğu Avustralya <br> Güney Brezilya <br> Kanada Orta, Kanada Doğu <br> Güney Doğu Asya, Doğu Asya <br> Doğu ABD, Doğu ABD 2, Batı Orta ABD, Batı ABD, Batı ABD 2, Kuzey Orta ABD, Orta ABD, Güney Orta ABD<br> Hindistan Orta Hindistan, Güney Hindistan <br> Doğu Japonya, Batı Japonya<br> Kore Orta, Kore Güney <br> Kuzey Avrupa, Batı Avrupa <br> UK Güney, UK Batı
+**Desteklenen coğrafi bölgeler** | Avustralya Güneydoğu, Doğu Avustralya <br> Güney Brezilya <br> Kanada Orta, Kanada Doğu <br> Güney Doğu Asya, Doğu Asya <br> Doğu ABD, Doğu ABD 2, Batı Orta ABD, Batı ABD, Batı ABD 2, Kuzey Orta ABD, Orta ABD, Güney Orta ABD<br> Hindistan Orta Hindistan, Güney Hindistan <br> Doğu Japonya, Batı Japonya<br> Kore Orta, Kore Güney <br> Kuzey Avrupa, Batı Avrupa <br> UK Güney, UK Batı
 **Desteklenen VM işletim sistemleri** | SLES 12 SP2 veya SP3.
 **Desteklenen HANA sürümleri** | SDC on HANA 1.x, MDC on HANA 2.x <= SPS03
 

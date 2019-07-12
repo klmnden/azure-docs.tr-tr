@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d4321f8aef6e754d8a1c5b16ac82b4fa62c40949
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8d516cfd764f947bd2fe7fc25f6394c313c0d9a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873603"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595492"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda görünümleri
 Çözümleri geliştirme için Azure SQL veri ambarı'nda T-SQL görünümleri kullanma hakkında ipuçları. 
@@ -23,12 +23,18 @@ ms.locfileid: "65873603"
 ## <a name="why-use-views"></a>Görünümleri neden kullanmalısınız?
 Görünümler, bir birkaç farklı yolla çözümünüzün kalitesini artırmak için kullanılabilir.  Bu makalede göz önünde bulundurulması gereken sınırlamalar yanı sıra, görünümleri ile çözümünüzü zenginleştirmek birkaç örnekleri vurgulanır.
 
+
+> [!IMPORTANT]
+> Yeni gerçekleştirilmiş görünüm sözdizimine bakın [CREATE GERÇEKLEŞTİRİLMİŞ görünüm AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  Daha fazla bilgi için [sürüm notları](/azure/sql-data-warehouse/release-notes-10-0-10106-0).
+>
+
+
 > [!NOTE]
 > Söz dizimi görünümü oluşturmak için bu makalede ele alınmamıştır. Daha fazla bilgi için [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql) belgeleri.
 > 
-> 
 
 ## <a name="architectural-abstraction"></a>Mimari Özet
+
 Yaygın bir uygulama modeli tabloları CREATE TABLE AS SELECT (veri yükleme yaparken düzeni yeniden adlandırma, bir nesne tarafından izlenen CTAS) kullanarak yeniden oluşturmaktır.
 
 Aşağıdaki örnek bir tarih boyutu için yeni bir tarih kayıtları ekler. Nasıl DimDate_New, yeni bir tablo ilk oluşturulur ve özgün tablonun sürümünü değiştirmek için yeniden adlandırılmış unutmayın.

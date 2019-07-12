@@ -9,13 +9,14 @@ ms.service: azure-functions
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: tyleonha, glenga
-ms.openlocfilehash: 8e9e5b96eaf5a25661af721950029a670d0df5f1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: tyleonha
+ms.reviewer: glenga
+ms.openlocfilehash: fc30a2efb21d5b7f3168d9229ec5baf9a7f05eb1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063240"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706421"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>PowerShell Azure işlevleri yerel olarak hata ayıklama
 

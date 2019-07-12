@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 6911e06dc023027ab32b99387b9f7d3f5e708f86
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: fe4ecc237b56575f99844d3ec074225fadb69d3c
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67188050"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673557"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>Azure depolamaya erişmek için uygulamanızı yapılandırma
 Uygulamanızın depolama hizmetlerine erişmek için kimlik doğrulaması için iki yolu vardır:
@@ -38,11 +38,11 @@ Paylaşılan anahtar kimlik doğrulamasını kullanarak bağlantı dizesinin bir
 
 ### <a name="shared-access-signatures-sas"></a>Paylaşılan Erişim İmzaları (SAS)
 Bir mobil uygulama için bir paylaşılan erişim imzası (SAS) kullanarak Azure Depolama hizmetinden bir istemci tarafından bir istek kimliğini doğrulamak için önerilen yöntem olduğu. SAS süre boyunca belirtilen bir izin kümesi ile belirli bir süre için bir istemci bir kaynağa erişim izni vermenizi sağlar.
-Depolama hesabı sahibi olarak kullanmak, mobil istemciler için bir SAS oluşturmak gerekir. SAS oluşturmak için büyük olasılıkla istemcilerinize dağıtılması için bir SAS oluşturuyor ayrı bir hizmet yazmak isteyebilirsiniz. Test amacıyla kullanabilirsiniz [Microsoft Azure Depolama Gezgini](http://storageexplorer.com) veya [Azure portalı](https://portal.azure.com) bir SAS oluşturmak için. SAS'ı oluşturduğunuzda, SAS geçerli olacağı zaman aralığını ve istemciye SAS veren izinler belirtebilirsiniz.
+Depolama hesabı sahibi olarak kullanmak, mobil istemciler için bir SAS oluşturmak gerekir. SAS oluşturmak için büyük olasılıkla istemcilerinize dağıtılması için bir SAS oluşturuyor ayrı bir hizmet yazmak isteyebilirsiniz. Test amacıyla kullanabilirsiniz [Microsoft Azure Depolama Gezgini](https://storageexplorer.com) veya [Azure portalı](https://portal.azure.com) bir SAS oluşturmak için. SAS'ı oluşturduğunuzda, SAS geçerli olacağı zaman aralığını ve istemciye SAS veren izinler belirtebilirsiniz.
 
 Aşağıdaki örnek, Microsoft Azure Depolama Gezgini bir SAS oluşturmak için nasıl kullanılacağını gösterir.
 
-1. Henüz kaydolmadıysanız [Microsoft Azure Depolama Gezgini'ni yükleme](http://storageexplorer.com)
+1. Henüz kaydolmadıysanız [Microsoft Azure Depolama Gezgini'ni yükleme](https://storageexplorer.com)
 2. Aboneliğinize bağlanın.
 3. Depolama hesabınıza tıklayın ve sol altta "Eylemler" sekmesine tıklayın. "Paylaşılan erişim"bağlantı dizesi"için bir SAS oluşturmak için imzası Al"'a tıklayın.
 4. Burada, okuma ve yazma hizmeti, kapsayıcı ve depolama hesabının blob hizmeti için nesne düzeyi izinleri olduğunu bir SAS bağlantı dizesi örneği verilmiştir.

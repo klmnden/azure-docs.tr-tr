@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/10/2019
-ms.openlocfilehash: e9002b96467d6fa3a5c4fb03fb20bde4e1bf87a1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/10/2019
+ms.openlocfilehash: 8682baa961ca3270e76614702b51ac50f197e847
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059344"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795480"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Azure Machine Learning hizmeti için Kurumsal güvenlik
 
@@ -23,7 +23,7 @@ Bu makalede, Azure Machine learning hizmeti kullanılabilir güvenlik özellikle
 
 Bir bulut hizmeti kullanılırken, ihtiyaç duymayan kullanıcıların erişimini kısıtlamak için en iyi bir uygulamadır. Bu, hizmet tarafından kullanılan kimlik doğrulama ve yetkilendirme modeli anlayarak başlatır. Ayrıca ağ erişimi kısıtlamak istediğiniz veya güvenli bir şekilde bu bulut ile şirket içi ağınızdaki kaynaklara katılın. Veri şifreleme Ayrıca, hem beklerken hem de veri hizmetleri arasında taşırken önemlidir. Son olarak, hizmet izleme ve Denetim günlüğüne tüm etkinliklerin üretmek gerekir.
 
-## <a name="authentication"></a>Kimlik Doğrulaması
+## <a name="authentication"></a>Authentication
 Azure Active Directory (Azure AD) için yapılandırılmışsa, çok faktörlü kimlik doğrulaması desteklenir.
 * İstemci, Azure AD ile günlüğe kaydeder ve Azure Resource Manager belirtecini alır.  Kullanıcı ve hizmet sorumluları tam olarak desteklenir.
 * İstemci belirteci için Azure Resource Manager ve tüm Azure Machine Learning hizmetleri sunar.
@@ -51,7 +51,7 @@ print(primary)
 > Bir anahtarın yeniden oluşturulması gerekiyorsa kullanın [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
 
 
-## <a name="authorization"></a>Yetkilendirme
+## <a name="authorization"></a>Authorization
 
 Her bir çalışma alanı birden çok kişi tarafından paylaşılabilir ve birden çok çalışma alanı oluşturabilirsiniz. Bir çalışma alanı paylaştığınızda, kullanıcılara aşağıdaki rolleri atayarak erişim iznini kontrol edebilirsiniz:
 * Sahip

@@ -7,15 +7,15 @@ author: DrEsteban
 ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: conceptual
-manager: yuvalm
+manager: gwallace
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, kapsayıcılar
-ms.openlocfilehash: 983af0dd75e6ae62630c85d04ac3819c7e260439
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 01e1401c5054eb56d4e2313b5e03ce5a36d1b301
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60687376"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704076"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Azure geliştirme alanları ile CI/CD kullanın
 
@@ -79,7 +79,7 @@ Bu dosyadan bir işlem hattı oluşturmak için:
 1. Oluşturma seçeneğini bir **yeni** işlem hattı oluşturma.
 1. Seçin **GitHub** gerekli ve seçin, kaynak olarak GitHub hesabınızı yetki _azds_updates_ geliştirme alanları örnek uygulaması depo çatalı sürümünüz daldan.
 1. Seçin **yapılandırmayı kod olarak**, veya **YAML**, şablonunuzu olarak.
-1. Artık, derleme işlem hattı için bir yapılandırma sayfasıyla da sunulur. Gezinmek için dile özgü yolunu yukarıda belirtildiği gibi **YAML dosyası yolu** kullanarak **...**  düğmesi. Örneğin, `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
+1. Artık, derleme işlem hattı için bir yapılandırma sayfasıyla da sunulur. Gezinmek için dile özgü yolunu yukarıda belirtildiği gibi **YAML dosyası yolu** kullanarak **...**  düğmesi. Örneğin: `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
 1. Git **değişkenleri** sekmesi.
 1. El ile eklemeniz _dockerId_ bir değişken olarak olan kullanıcı adını, [Azure Container Registry yönetici hesabı](../../container-registry/container-registry-authentication.md#admin-account). (Makale önkoşullarda belirtildiği)
 1. El ile eklemeniz _dockerPassword_ bir değişken olarak olduğu parolasını, [Azure Container Registry yönetici hesabı](../../container-registry/container-registry-authentication.md#admin-account). Belirttiğinizden emin olun _dockerPassword_ (kilit simgesini seçerek) bir gizli dizi olarak güvenlik amacıyla.
@@ -95,13 +95,13 @@ Artık otomatik olarak oluşturacak bir CI çözüm sahip *mywebapi* ve *webfron
 1. Bir yayın tanımına henüz içermeyen yeni bir DevOps projesi içinde çalışıyorsanız, önce devam etmeden önce bir boş yayın tanımı oluşturmak gerekir. Var olan bir yayın tanımına sahip kadar içeri aktarma seçeneği kullanıcı Arabiriminde görüntülemez.
 1. Sol tarafta, tıklayın **+ yeni** düğmesine ve ardından'a tıklayın **bir işlem hattı alma**.
 1. Tıklayın **Gözat** seçip `samples/release.json` projenizden.
-1. **Tamam**'ı tıklatın. Bildirim ardışık düzen Bölmesi ile yayın tanımı düzenleme sayfası yüklendi. Ayrıca unutmayın, yine de yapılandırılmalıdır kümeye özgü ayrıntıları gösteren bazı kırmızı uyarı simgeleri olur.
+1. **Tamam** düğmesine tıklayın. Bildirim ardışık düzen Bölmesi ile yayın tanımı düzenleme sayfası yüklendi. Ayrıca unutmayın, yine de yapılandırılmalıdır kümeye özgü ayrıntıları gösteren bazı kırmızı uyarı simgeleri olur.
 1. Ardışık Düzen bölmesi sol tarafta tıklayın **bir yapıt ekleme** Kabarcık.
 1. İçinde **kaynak** açılır menüsünde, yapı seçin, daha önce oluşturduğunuz kanal.
 1. İçin **varsayılan sürüm**, seçin **etiketlerle derleme işlem hattı varsayılan daldan en son**.
 1. Bırakın **etiketleri** boş.
 1. Ayarlama **kaynak diğer adı** için `drop`. **Kaynak diğer adı** değeri, önceden tanımlanmış sürüm görevler tarafından kullanılır, ayarlamanız gerekir.
-1. **Ekle**'yi tıklatın.
+1.           **Ekle**'yi tıklatın.
 1. Şimdi yeni oluşturulan ışık Şimşek simgesine tıklayın `drop` yapıt kaynağı, aşağıda gösterildiği gibi:
 
     ![Yayın yapıtı sürekli dağıtım kurulumu](../media/common/release-artifact-cd-setup.png)
@@ -121,7 +121,7 @@ Artık otomatik olarak oluşturacak bir CI çözüm sahip *mywebapi* ve *webfron
 1. Tıklayın **Kaydet** üst sağ ve **Tamam**.
 1. Tıklayın **+ yayın** (Kaydet düğmesinin yanındaki), ve **yayınlamaya**.
 1. Altında **Yapıtları**, en son derlemeden, derleme işlem hattı seçildiğini doğrulayın.
-1. **Oluştur**’a tıklayın.
+1.           **Oluştur**'a tıklayın.
 
 Dağıtımı, otomatik sürüm işlemi hemen başlar *mywebapi* ve *webfrontend* grafikler için Kubernetes kümesi _geliştirme_ en üst düzey alanı. Azure DevOps web portalında sürümünüzün ilerleme durumunu izleyebilirsiniz:
 

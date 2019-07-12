@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1d415686e4d8a10043df59aa6bf58a5ed4be0149
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: a9eadabcedc9d5fd1baedb6cd893e6f7829c5ca8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154023"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835729"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de OAuth 2.0 örtük akışını kullanarak tek sayfalı oturum açar
 
@@ -31,7 +31,7 @@ Azure AD B2C, standart OAuth 2.0 örtük akışını birden çok basit kimlik do
 
 Örtük oturum açma akışını aşağıdaki şekilde şöyle görünür. Her adım, makalenin ilerleyen bölümlerinde ayrıntılı açıklanmıştır.
 
-![Openıd Connect Kulvarlar](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
+![Openıd Connect örtük akış gösteren Kulvar stili diyagram](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## <a name="send-authentication-requests"></a>Kimlik doğrulama isteği gönder
 
@@ -263,5 +263,5 @@ p=b2c_1_sign_in
 
 > [!NOTE]
 > Kullanıcıya yönlendiren `end_session_endpoint` bazı Azure AD B2C ile kullanıcının çoklu oturum açma durumunu temizler. Ancak, kullanıcının sosyal kimlik sağlayıcısı oturum dışında kullanıcı oturum değil. Kullanıcının seçtiği aynı sağlayıcısı bir sonraki oturum açma sırasında tanımlamak, kullanıcı, kimlik bilgilerini girmesini olmadan kimlik doğrulaması yeniden yapılır. Bir kullanıcı Azure AD B2C uygulamanızdan oturum isterse, bunu mutlaka tamamen kendi Facebook hesabınız dışında örneğin oturum istedikleri anlamına gelmez. Ancak, yerel hesaplar için kullanıcının oturumunu düzgün sonlandırılır.
-> 
+>
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/6/2019
+ms.date: 7/8/2019
 ms.author: raiye
-ms.openlocfilehash: bdb3d0af93a69c1d15bd34a4badef5915ec0f01f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88c3cd0e07e207a8b5ae1c07d39c8829a531c743
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743024"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721128"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi
 En son Azure konuk işletim sistemi hakkında güncel bilgiler ile bulut Hizmetleri için sürümleri sağlar. Bu bilgiler bir konuk işletim sistemi devre dışı bırakılmasına sıranız yükseltme yolunuza planlamanıza yardımcı olur. Kullanılacak rollerinizi yapılandırırsanız *otomatik* konuk işletim sistemi güncelleştirmeleri açıklandığı [Azure konuk işletim sistemi güncelleştirme ayarları][Azure Guest OS Update Settings], bu sayfayı okuyun önemli değildir.
@@ -39,9 +39,12 @@ En son Azure konuk işletim sistemi hakkında güncel bilgiler ile bulut Hizmetl
 >
 >
 
-Konuk işletim sisteminizi güncelleştirin konusunda emin değilseniz? Denetleme [bu] [ cloud updates] uğradı.
+Konuk işletim sisteminizi güncelleştirin konusunda emin değilseniz? Denetleme [bu][cloud updates] uğradı.
 
 ## <a name="news-updates"></a>Haber güncelleştirmeleri
+
+###### <a name="july-8-2019"></a>**8 Temmuz 2019**
+Haziran konuk işletim sistemi kullanıma sundu.
 
 ###### <a name="june-6-2019"></a>**6 Haziran 2019**
 Olabilir konuk işletim sistemi kullanıma sundu.
@@ -78,7 +81,7 @@ Eylül konuk işletim sistemi kullanıma sundu.
 ## <a name="family-6-releases"></a>Aile 6 yayınlar
 **Windows Server 2019**
 
-.NET framework yüklü: 3.5, 4.7.2
+.NET framework yüklü: 3.5, 4.7.2, 4.8
 
 > [!NOTE]
 > Windows Azure SDK - .NET 3.0 indirilebilir [burada][Windows Azure SDK].
@@ -95,8 +98,9 @@ Eylül konuk işletim sistemi kullanıma sundu.
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
+| WA-GUEST-OS-6.8_201906-01 |8 Temmuz 2019 |POST 6.10 |
 | WA-GUEST-OS-6.7_201905-01 |6 Haziran 2019 |POST 6.9 |
-| WA-GUEST-OS-6.6_201904-01 |7 Mayıs 2019 |POST 6,8 |
+|~~WA-GUEST-OS-6.6_201904-01~~ |7 Mayıs 2019 |8 Temmuz 2019 |
 |~~WA-GUEST-OS-6.5_201903-01~~ |26 Mart 2019 |6 Haziran 2019 |
 |~~WA-GUEST-OS-6.4_201902-01~~ |12 Mart 2019 |7 Mayıs 2019 |
 |~~WA-GUEST-OS-6.3_201901-01~~ |5 Şubat 2019 |26 Mart 2019 |
@@ -106,7 +110,7 @@ Eylül konuk işletim sistemi kullanıma sundu.
 ## <a name="family-5-releases"></a>Ailesi 5 yayınlar
 **Windows Server 2016**
 
-.NET framework yüklü: 3.5, 4.6.2
+.NET framework yüklü: 3.5, 4.6.2, 4.7.2, 4.8
 
 > [!NOTE]
 > İşletim sistemi ailesi 5 RDP parolasını en az 10 karakter uzunluğunda olmalıdır.
@@ -115,8 +119,9 @@ Eylül konuk işletim sistemi kullanıma sundu.
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
+| WA-GUEST-OS-5.32_201906-01 |8 Temmuz 2019 |POST 5.34 |
 | WA-GUEST-OS-5.31_201905-01 |6 Haziran 2019 |POST 5.33 |
-| WA-GUEST-OS-5.30_201904-01 |7 Mayıs 2019 |POST 5.32 |
+|~~WA-GUEST-OS-5.30_201904-01~~ |7 Mayıs 2019 |8 Temmuz 2019 |
 |~~WA-GUEST-OS-5.29_201903-01~~ |26 Mart 2019 |6 Haziran 2019 |
 |~~WA-GUEST-OS-5.28_201902-01~~ |12 Mart 2019 |7 Mayıs 2019 |
 |~~WA-GUEST-OS-5.27_201901-01~~ |5 Şubat 2019 |26 Mart 2019 |
@@ -128,12 +133,13 @@ Eylül konuk işletim sistemi kullanıma sundu.
 ## <a name="family-4-releases"></a>Ailesi 4 yayınlar
 **Windows Server 2012 R2**
 
-.NET framework yüklü: 3.5, 4.5.1
+.NET framework yüklü: 3.5, 4.5.1, 4.5.2
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
+| WA-GUEST-OS-4.67_201906-01 |8 Temmuz 2019 |POST 4.69 |
 | WA-GUEST-OS-4.66_201905-01 |6 Haziran 2019 |POST 4.68 |
-| WA-GUEST-OS-4.65_201904-01 |7 Mayıs 2019 |POST 4.67 |
+|~~WA-GUEST-OS-4.65_201904-01~~ |7 Mayıs 2019 |8 Temmuz 2019 |
 |~~WA-GUEST-OS-4.64_201903-01~~ |26 Mart 2019 |6 Haziran 2019 |
 |~~WA-GUEST-OS-4.63_201902-01~~ |12 Mart 2019 |7 Mayıs 2019 |
 |~~WA-GUEST-OS-4.62_201901-01~~ |5 Şubat 2019 |26 Mart 2019 |
@@ -149,8 +155,9 @@ Eylül konuk işletim sistemi kullanıma sundu.
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
-| WA-GUEST-OS-3.73_201905-01 |Haziran 67, 2019 |POST 3,75 |
-| WA-GUEST-OS-3.72_201904-01 |7 Mayıs 2019 |POST 3.74 |
+| WA-GUEST-OS-3.74_201906-01 |8 Temmuz 2019 |POST 3.76 |
+| WA-GUEST-OS-3.73_201905-01 |6 Haziran 2019 |POST 3,75 |
+|~~WA-GUEST-OS-3.72_201904-01~~ |7 Mayıs 2019 |8 Temmuz 2019 |
 |~~WA-GUEST-OS-3.71_201903-01~~ |26 Mart 2019 |6 Haziran 2019 |
 |~~WA-GUEST-OS-3.70_201902-01~~ |12 Mart 2019 |7 Mayıs 2019 |
 |~~WA-GUEST-OS-3.69_201901-01~~ |5 Şubat 2019 |26 Mart 2019 |
@@ -162,12 +169,13 @@ Eylül konuk işletim sistemi kullanıma sundu.
 ## <a name="family-2-releases"></a>Ailesi 2 yayınlar
 **Windows Server 2008 R2 SP1**
 
-.NET framework yüklü: 3.5 (2.0 ve 3.0 içerir)
+.NET framework yüklü: 3.5 (2.0 ve 3.0 içerir), 4.5
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
+| WA-GUEST-OS-2.87_201906-01 |8 Temmuz 2019 |POST 2.89 |
 | WA-GUEST-OS-2.86_201905-01 |6 Haziran 2019 |POST 2.88 |
-| WA-GUEST-OS-2.85_201904-01 |7 Mayıs 2019 |POST 2.87 |
+|~~WA-GUEST-OS-2.85_201904-01~~ |7 Mayıs 2019 |8 Temmuz 2019 |
 |~~WA-GUEST-OS-2.84_201903-01~~ |26 Mart 2019 |6 Haziran 2019 |
 |~~WA-GUEST-OS-2.83_201902-01~~ |12 Mart 2019 |7 Mayıs 2019 |
 |~~WA-GUEST-OS-2.82_201901-01~~ |5 Şubat 2019 |26 Mart 2019 |
@@ -180,7 +188,7 @@ Eylül konuk işletim sistemi kullanıma sundu.
 Aylık her konuk işletim sistemi sürüm ile birlikte gelen düzeltme eklerinin listesini kullanılabilir [burada][patches].
 
 ## <a name="sdk-support"></a>SDK desteği
-Olsa da [Azure SDK'sı için kullanımdan kaldırma İlkesi] [ retire policy sdk] sürümleri 2.2 yukarıda yalnızca desteklenen, belirli konuk işletim sistemi ailelerini önceki sürümlerinde kullanmanıza izin gösterir. Her zaman en son desteklenen SDK kullanmanız gerekir.
+Olsa da [Azure SDK'sı için kullanımdan kaldırma İlkesi][retire policy sdk] sürümleri 2.2 yukarıda yalnızca desteklenen, belirli konuk işletim sistemi ailelerini önceki sürümlerinde kullanmanıza izin gösterir. Her zaman en son desteklenen SDK kullanmanız gerekir.
 
 | Konuk işletim sistemi ailesi | Uyumlu SDK sürümleri |
 | --- | --- |
@@ -189,7 +197,7 @@ Olsa da [Azure SDK'sı için kullanımdan kaldırma İlkesi] [ retire policy sdk
 | 4 |2\.1 + sürümü |
 | 3 |Sürüm 1.8 + |
 | 2 |1\.3 + sürümü |
-| 1 |Sürüm 1.0 + |
+| 1\. |Sürüm 1.0 + |
 
 ## <a name="guest-os-release-information"></a>Konuk işletim sistemi sürüm bilgileri
 Konuk işletim sistemi sürümleri için önemli olan üç tarihleri vardır: **yayın** tarihi **devre dışı** tarihi ve **sona erme** tarih. Bu portalda ve konuk işletim sistemi hedefi olarak seçilebilir bir konuk işletim sistemi kullanılabilir olarak kabul edilir. Bir konuk işletim sistemi ulaştığında **devre dışı** tarih, Azure'dan kaldırılır. Ancak, bu konuk işletim sistemi hedefleyen herhangi bir bulut hizmeti hala normal şekilde çalışır.
@@ -204,7 +212,7 @@ Konuk işletim sistemi ailesi, yayımlanan Microsoft Windows Server sürümlerin
 * **Konuk işletim sistemi ailesi**  
   Bir konuk işletim sistemi temel alan bir Windows Server işletim sistemi sürümü. Örneğin, *aile 3* Windows Server 2012'de bağlıdır.
 * **Konuk işletim sistemi sürümü**  
-  Belirli bir konuk işletim sistemi ailesi görüntüsüne yanı sıra ilgili [Microsoft Güvenlik Yanıt Merkezi (MSRC)] [ msrc] yeni konuk işletim sistemi sürümü oluşturulur tarihte kullanılabilir olan düzeltme eklerinin. Tüm düzeltme eklerini dahil edilebilir.
+  Belirli bir konuk işletim sistemi ailesi görüntüsüne yanı sıra ilgili [Microsoft Güvenlik Yanıt Merkezi (MSRC)][msrc] yeni konuk işletim sistemi sürümü oluşturulur tarihte kullanılabilir olan düzeltme eklerinin. Tüm düzeltme eklerini dahil edilebilir.
 
     Sayı 0'da başlar ve 1 ile yeni bir güncelleştirme kümesi eklenen her zaman artırın. Sondaki sıfırlar yalnızca gösterilen önemli değilse. Diğer bir deyişle, 2.10 sürüm 2.1 farklı, daha sonraki bir sürümden sürümüdür.
 * **Konuk işletim sistemi sürüm**  
@@ -225,9 +233,9 @@ Microsoft Azure, sürekli güncelleştirmeler yayımlamaktadır. Konuk işletim 
 
 Konuk işletim Sisteminin yeni bir sürümü yayımlandığında, Azure'da tamamen yayılması zaman alabilir. Yeni konuk işletim sistemi için hizmet olarak bunlar güncelleştirme etki alanına göre yeniden başlatılır. "Otomatik" güncelleştirmeleri kullanacak şekilde Hizmetleri bir yayın ilk alırsınız. Güncelleştirme tamamlandıktan sonra hizmetinizin Azure portalında listelenen yeni konuk işletim sistemi sürümü görürsünüz. Yeniden yayımlama, bu süre boyunca ortaya çıkabilir. Bazı sürümler uzun süreler boyunca dağıtılabilir ve Otomatik yükseltme yeniden başlatma resmi sürüm tarihinden sonra birçok hafta boyunca gerçekleşmeyebilir. Bir konuk işletim sistemi kullanılabilir duruma geldikten sonra daha sonra açıkça bu sürümü portalından veya yapılandırma dosyanızdan seçebilirsiniz.
 
-Yeniden başlatılır ve Konuk ve konak işletim sistemi güncelleştirmeleri hakkında daha fazla bilgi teknik ayrıntı işaretçileri değerli bilgilere aşırı için post başlıklı MSDN gönderisine bakın [rol örneği yeniden nedeniyle işletim sistemi yükseltmelerini] [ restarts].
+Yeniden başlatılır ve Konuk ve konak işletim sistemi güncelleştirmeleri hakkında daha fazla bilgi teknik ayrıntı işaretçileri değerli bilgilere aşırı için post başlıklı MSDN gönderisine bakın [rol örneği yeniden nedeniyle işletim sistemi yükseltmelerini][restarts].
 
-El ile konuk işletim sistemi güncelleştirme olup [konuk işletim sistemi kullanımdan kaldırma İlkesi] [ retirepolicy] ek bilgi için.
+El ile konuk işletim sistemi güncelleştirme olup [konuk işletim sistemi kullanımdan kaldırma İlkesi][retirepolicy] ek bilgi için.
 
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Konuk işletim sistemi desteklenebilirliği ve kullanımdan kaldırma İlkesi
 Konuk işletim sistemi desteklenebilirliği ve kullanımdan kaldırma İlkesi açıklanan [burada][retirepolicy].

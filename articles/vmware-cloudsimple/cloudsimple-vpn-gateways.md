@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a91d0f75b7e27065bd2ee0ea430a859d265afacb
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 2eae81f357904bd5034d7409ef42b681d1085930
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332044"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695231"
 ---
 # <a name="vpn-gateways-overview"></a>VPN ağ geçitleri genel bakış
 
@@ -44,8 +44,6 @@ Siteden siteye VPN için kullanım örnekleri şunlardır:
 
 ### <a name="cryptographic-parameters"></a>Şifreleme parametreleri
 
-Siteden siteye VPN bağlantısı, güvenli bir bağlantı kurmak için aşağıdaki varsayılan şifreleme parametreleri kullanır.  Şirket içi VPN CİHAZDAN bir bağlantı oluşturduğunuzda, parametreleriyle aynı olmalıdır.
-
 Siteden siteye VPN bağlantısı, güvenli bir bağlantı kurmak için aşağıdaki varsayılan şifreleme parametreleri kullanır.  Şirket içi VPN CİHAZDAN bir bağlantı oluşturduğunuzda, şirket içi VPN ağ geçidi tarafından desteklenen aşağıdaki parametreleri kullanın.
 
 #### <a name="phase-1-proposals"></a>1\. Aşama teklifleri
@@ -66,7 +64,7 @@ Siteden siteye VPN bağlantısı, güvenli bir bağlantı kurmak için aşağıd
 |-----------|------------|------------|------------|
 | Şifreleme | AES 128 | AES 256 | AES 256 |
 | Karma algoritması| SHA 256 | SHA 256 | SHA 1 |
-| Mükemmel Forward Secrecy grubu (PFS grubu) | None | Yok. | None |
+| Mükemmel Forward Secrecy grubu (PFS grubu) | None | Yok. | Yok. |
 | Yaşam süresi | 1800 saniye | 1800 saniye | 1800 saniye |
 | Veri boyutu | 4 GB | 4 GB | 4 GB |
 

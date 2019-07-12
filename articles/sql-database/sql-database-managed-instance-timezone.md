@@ -10,13 +10,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 05/22/2019
-ms.openlocfilehash: 8499d99ab82fa89062d74c7dc5db5d7dd11e770c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/05/2019
+ms.openlocfilehash: 05ec49c98c5bcfe40346550f5570c03a8fb3f881
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66016386"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657984"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Saat dilimlerinde Azure SQL veritabanı yönetilen örneği
 
@@ -30,7 +30,9 @@ Kullanım [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zo
 
 ## <a name="supported-time-zones"></a>Desteklenen saat dilimleri
 
-Yönetilen örnek temel işletim sistemi desteklenen saat dilimlerini birtakım devralınır. Ayrıca, yeni saat dilimi tanımlarını alın ve mevcut değişiklikleri yansıtacak şekilde düzenli olarak güncelleştirilir. 
+Yönetilen örnek temel işletim sistemi desteklenen saat dilimlerini birtakım devralınır. Ayrıca, yeni saat dilimi tanımlarını alın ve mevcut değişiklikleri yansıtacak şekilde düzenli olarak güncelleştirilir.
+
+[Gün ışığından yararlanma saat dilimi ilke değişiklikleri](https://aka.ms/time) İleri 2010'dan geçmiş doğruluğu garanti eder.
 
 Desteklenen saat dilimlerini adlarıyla bir liste aracılığıyla kullanıma [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) sistem görünümü.
 
@@ -43,7 +45,7 @@ Yönetilen örnek, bir saat dilimi örnek oluşturma sırasında ayarlanabilir. 
 
 ### <a name="set-the-time-zone-through-the-azure-portal"></a>Azure portalı üzerinden saat dilimini ayarlayın
 
-Parametreler için yeni bir örnek girdiğinizde, bir saat dilimi desteklenen saat dilimlerini listesinden seçin. 
+Parametreler için yeni bir örnek girdiğinizde, bir saat dilimi desteklenen saat dilimlerini listesinden seçin.
   
 ![Örnek oluşturma sırasında bir saat dilimi ayarlama](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
@@ -82,7 +84,10 @@ Bir yedekleme dosyası geri yükleme ya da veri bir yönetilen örnek için bir 
 
 ### <a name="point-in-time-restore"></a>Belirli bir noktaya geri yükleme
 
-Belirli bir noktaya geri yükleme işlemi gerçekleştirdiğinizde, geri yüklemek için zaman UTC saati yorumlanır. Bu ayarın belirsizlik nedeniyle Yaz Saati ve olası değişikliklerin önler.
+<del>Belirli bir noktaya geri yükleme işlemi gerçekleştirdiğinizde, geri yüklemek için zaman UTC saati yorumlanır. Bu ayarın belirsizlik nedeniyle Yaz Saati ve olası değişikliklerin önler.<del>
+
+ >[!WARNING]
+  > Şu anki davranışı, yukarıdaki deyimi ayarlarına uygun olarak değil ve geri yüklemek için gereken zamanı saat dilimini otomatik veritabanı yedeklemelerini burada alınmıştır kaynak yönetilen örneğine göre yorumlanır. UTC saati olarak zaman içinde belirli bir nokta yorumlamak için bu davranışı düzeltmeye çalışıyoruz. Bkz: [bilinen sorunlar](sql-database-managed-instance-timezone.md#known-issues) daha fazla ayrıntı için.
 
 ### <a name="auto-failover-groups"></a>Otomatik yük devretme grupları
 
@@ -95,6 +100,21 @@ Bir yük devretme grubunda birincil ve ikincil bir örneği arasında aynı saat
 
 - Mevcut yönetilen örnek saat dilimini değiştirilemez.
 - SQL Server Aracısı işlerini dış işlem örneğinin saat dilimini mümkün değildir.
+
+## <a name="known-issues"></a>Bilinen sorunlar
+
+Belirli bir noktaya geri yükleme (PITR) işlemi gerçekleştirilir, geri yüklemek için zaman saati UTC yorumlanır PITR portal sayfasındaki önerir olsa da burada otomatik veritabanı yedeklerini, alınmıştır yönetilen örneğinde ayarlanan saat dilimini göre yorumlanır.
+
+Örnek:
+
+Örneğin otomatik yedeklemeler burada alınmıştır bu örneğe Doğu Standart Saati (UTC-5) saat dilimi kümesine sahiptir.
+Belirli bir noktaya geri yükleme için Portal sayfasında, geri yüklemek için seçme zamanının UTC saati olduğunu önerir:
+
+![Portalı kullanarak yerel saat ile PITR](media/sql-database-managed-instance-timezone/02-pitr-with-nonutc-timezone.png)
+
+Ancak, geri yüklemek için zaman gerçekten Doğu Standart Saati yorumlanır ve bu belirli örnekte veritabanı 9'da Doğu Standart Saati ve UTC saati duruma geri yüklenir.
+
+UTC saat belirli bir noktaya geri yükleme noktası zamanında yapmak istiyorsanız, önce kaynak örneğinin saat diliminde eşdeğer süreyi hesaplamak ve bu süre portal veya PowerShell/CLI betiği kullanın.
 
 ## <a name="list-of-supported-time-zones"></a>Desteklenen zaman bölgelerinin listesi
 

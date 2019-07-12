@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39f38af601888f847cd1a82da9e2e03e6893c28e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60591564"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607292"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure sanal makinelerinde SQL Server Yük devretme kümesi örneğini yapılandırma
 
@@ -54,7 +54,7 @@ Azure sanal Makineler'de Kullandıkça Öde (PAYG) kullanarak SQL Server Lisans�
 
 PAYG lisansı ile Azure Virtual Machines'de SQL Server Yük devretme kümesi örneği (FCI) FCI pasif düğümler dahil olmak üzere, tüm düğümlerinin ücreti alınmaz. Daha fazla bilgi için [SQL Server Enterprise sanal makineleri fiyatlandırması](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
 
-Kurumsal Anlaşma Yazılım Güvencesi olan müşteriler ücretsiz pasif FCI düğüm etkin her düğüm için kullanılacak doğru olması. Azure bu Avantajdan yararlanmak için KLG VM görüntülerini kullanmak ve ardından her iki etkin ve Pasif düğümde FCI'ın aynı lisans'ı kullanın. Daha fazla bilgi için [Kurumsal Anlaşma](https://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+Kurumsal Anlaşma Yazılım Güvencesi olan müşteriler ücretsiz pasif FCI düğüm etkin her düğüm için kullanılacak doğru olması. Azure bu Avantajdan yararlanmak için KLG VM görüntülerini kullanmak ve ardından her iki etkin ve Pasif düğümde FCI'ın aynı lisans'ı kullanın. Daha fazla bilgi için [Kurumsal Anlaşma](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
 
 Azure Virtual Machines'de SQL Server için lisanslama PAYG ve KLG Karşılaştırılacak bakın [SQL Vm'lerini kullanmaya başlayın](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
 
@@ -111,7 +111,7 @@ Bu önkoşulları yerine getirilince, yük devretme kümeniz oluşturmaya devam 
 
    - Azure portalında **+** Azure Marketi'nde açın. Arama **kullanılabilirlik kümesi**.
    - Tıklayın **kullanılabilirlik kümesi**.
-   - **Oluştur**’a tıklayın.
+   -           **Oluştur**'a tıklayın.
    - Üzerinde **kullanılabilirlik kümesi oluştur** dikey penceresinde aşağıdaki değerleri ayarlayın:
       - **Ad**: Kullanılabilirlik kümesi için bir ad.
       - **Abonelik**: Azure aboneliğiniz.
@@ -158,7 +158,7 @@ Bu önkoşulları yerine getirilince, yük devretme kümeniz oluşturmaya devam 
 
 1. Azure sanal makinelerinizi oluşturduktan sonra her bir sanal makine ile RDP bağlanın.
 
-   RDP ile sanal makine için ilk kez bağlandığınızda, bilgisayarın ağda bulunabilir olması bu bilgisayar izin vermek isteyip istemediğinizi sorar. **Evet**'e tıklayın.
+   RDP ile sanal makine için ilk kez bağlandığınızda, bilgisayarın ağda bulunabilir olması bu bilgisayar izin vermek isteyip istemediğinizi sorar. Yordamı tamamlamak için **Evet**yüklemesini desteklemesi gerekir.
 
 1. SQL Server tabanlı sanal makine görüntülerinden birini kullanıyorsanız, SQL Server örneğini kaldırın.
 
@@ -239,14 +239,14 @@ Küme kullanıcı Arabirimi ile doğrulamak için sanal makinelerin birinden aş
 
 1. İçinde **Sunucu Yöneticisi'ni**, tıklayın **Araçları**, ardından **yük devretme kümesi Yöneticisi**.
 1. İçinde **yük devretme kümesi Yöneticisi**, tıklayın **eylem**, ardından **yapılandırmayı doğrula...** .
-1. **İleri**’ye tıklayın.
+1.           **İleri**'ye tıklayın.
 1. Üzerinde **seçin sunucuları veya kümeyi**, her iki sanal makine adını yazın.
-1. Üzerinde **seçeneği belirlenerek**, seçin **yalnızca seçtiğim Testleri Çalıştır**. **İleri**’ye tıklayın.
+1. Üzerinde **seçeneği belirlenerek**, seçin **yalnızca seçtiğim Testleri Çalıştır**.           **İleri**'ye tıklayın.
 1. Üzerinde **Test seçimi**, dışındaki tüm testleri dahil **depolama**. Aşağıdaki resme bakın:
 
    ![Doğrulama testleri](./media/virtual-machines-windows-portal-sql-create-failover-cluster/10-validate-cluster-test.png)
 
-1. **İleri**’ye tıklayın.
+1.           **İleri**'ye tıklayın.
 1. Üzerinde **onay**, tıklayın **sonraki**.
 
 **Yapılandırma Doğrulama Sihirbazı** doğrulama testleri çalıştırır.
@@ -361,7 +361,7 @@ Yük Dengeleyici oluşturmak için:
 
 1. **+ Ekle**'ye tıklayın. Markette Ara **yük dengeleyici**. Tıklayın **yük dengeleyici**.
 
-1. **Oluştur**’a tıklayın.
+1.           **Oluştur**'a tıklayın.
 
 1. Yük Dengeleyici ile yapılandırın:
 
@@ -423,7 +423,7 @@ Yük Dengeleyici oluşturmak için:
    - **Boşta kalma zaman aşımı (dakika)** : 4.
    - **Kayan IP (doğrudan sunucu dönüşü)** : Enabled
 
-1. **Tamam**'ı tıklatın.
+1.           **Tamam**'ı tıklatın.
 
 ## <a name="step-6-configure-cluster-for-probe"></a>6\. Adım: Araştırma için küme yapılandırma
 

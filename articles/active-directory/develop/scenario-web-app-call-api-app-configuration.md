@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd7f393f889facf147cf25625d5c3b20f886ddf5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c78a951258e3c279f96f44ceac469e4c38cf22c
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784935"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785566"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>Web uygulaması web API'leri - kod yapılandırma çağrıları
 
@@ -44,7 +44,7 @@ Yetkilendirme kod akışı, Web uygulamaları için destek kitaplıkları şunla
 
 ASP.NET Core, olacaklar `Startup.cs` dosya. Abone olmak istediğiniz `OnAuthorizationCodeReceived` kimliği açık olay bağlanmak ve bu olaydan MSAL çağırın. NET'in yöntem `AcquireTokenFromAuthorizationCode` belirteç önbelleği ve istenen kapsamlar için erişim belirteci süre sonu yaklaştığında olduğunda erişim belirtecini yenilemek için ya da aynı kullanıcı adına bir belirteç almak için kullanılacak bir yenileme belirteci depolamak etkisi vardır , ancak farklı bir kaynak için.
 
-Aşağıdaki kod açıklamaları, MSAL.NET ve ASP.NET Core weaving beceri gerektiren bazı yönlerini anlamanıza yardımcı olur
+Aşağıdaki kod açıklamaları MSAL.NET ve ASP.NET Core weaving beceri gerektiren bazı yönlerini anlamanıza yardımcı olur. Tüm Ayrıntılar sağlanır [ASP.NET Core Web uygulaması artımlı Eğitmeni, bölüm 2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
 
 ```CSharp
   services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
@@ -151,9 +151,7 @@ private void ConfigureAuth(IAppBuilder app)
   Scope = Globals.BasicSignInScopes, // a basic set of permissions for user sign in & profile access
   TokenValidationParameters = new TokenValidationParameters
   {
-  // We'll inject our own issuer validation logic below.
-  ValidateIssuer = false,
-  NameClaimType = "name",
+   NameClaimType = "name",
   },
   Notifications = new OpenIdConnectAuthenticationNotifications()
   {

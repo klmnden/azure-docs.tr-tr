@@ -9,12 +9,12 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 50eb62b20be66337c819372fa3d97eae4d7214b8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 43a673621aa3c114f99479a6da97153dae44990d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435751"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696091"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob Depolama yaşam döngüsünü yönetme
 
@@ -31,7 +31,7 @@ Burada veri alır sık erişim erken aşamalarında ancak yaşam döngüsü sır
 
 ## <a name="storage-account-support"></a>Depolama hesabı desteği
 
-Yaşam döngüsü yönetim ilkesi hem genel amaçlı v2 ile kullanılabilir (GPv2) hesapları ve Blob Depolama hesapları. Azure portalında, varolan genel amaçlı (GPv1) hesabını GPv2 hesabına yükseltebilirsiniz. Depolama hesapları hakkında daha fazla bilgi için bkz. [Azure depolama hesabına genel bakış](../common/storage-account-overview.md).  
+Yaşam döngüsü yönetim ilkesi genel amaçlı v2 ile kullanılabilir (GPv2) hesapları, Blob Depolama hesapları ve Premium blok Blob Depolama hesapları. Azure portalında, varolan genel amaçlı (GPv1) hesabını GPv2 hesabına yükseltebilirsiniz. Depolama hesapları hakkında daha fazla bilgi için bkz. [Azure depolama hesabına genel bakış](../common/storage-account-overview.md).  
 
 ## <a name="pricing"></a>Fiyatlandırma
 
@@ -39,7 +39,7 @@ Yaşam döngüsü yönetimi özelliği ücretsizdir. Müşteriler normal işlem 
 
 ## <a name="regional-availability"></a>Bölgesel kullanılabilirlik
 
-Yaşam döngüsü yönetimi özelliği tüm genel Azure bölgelerinde kullanılabilir.
+Yaşam döngüsü yönetimi özelliği tüm genel Azure ve Azure kamu bölgelerinde kullanılabilir.
 
 ## <a name="add-or-remove-a-policy"></a>Bir ilke ekleyip
 
@@ -199,10 +199,10 @@ Her bir kural ilke içinde çeşitli parametrelere sahiptir:
 
 | Parametre adı | Parametre türü | Notlar | Gerekli |
 |----------------|----------------|-------|----------|
-| `name`         | String |Kural adı, alfasayısal en fazla 256 karakter içerebilir. Kural adı büyük/küçük harf duyarlıdır.  Bir ilke içinde benzersiz olmalıdır. | True |
-| `enabled`      | Boolean | Bir kural geçici olarak izin vermek için isteğe bağlı bir boolean devre dışı. Bunu ayarlanmamışsa varsayılan değer True'dur. | False | 
-| `type`         | Bir sabit listesi değeri | Geçerli geçerli tür `Lifecycle`. | True |
-| `definition`   | Yaşam döngüsü kuralı tanımlayan bir nesne | Her tanım, bir filtre kümesi ve bir eylem kümesinden oluşur. | True |
+| `name`         | Dize |Kural adı, alfasayısal en fazla 256 karakter içerebilir. Kural adı büyük/küçük harf duyarlıdır.  Bir ilke içinde benzersiz olmalıdır. | Doğru |
+| `enabled`      | Boole değeri | Bir kural geçici olarak izin vermek için isteğe bağlı bir boolean devre dışı. Bunu ayarlanmamışsa varsayılan değer True'dur. | False | 
+| `type`         | Bir sabit listesi değeri | Geçerli geçerli tür `Lifecycle`. | Doğru |
+| `definition`   | Yaşam döngüsü kuralı tanımlayan bir nesne | Her tanım, bir filtre kümesi ve bir eylem kümesinden oluşur. | Doğru |
 
 ## <a name="rules"></a>Kurallar
 
@@ -262,7 +262,7 @@ Filtreler aşağıdakileri içerir:
 
 Yaşam döngüsü yönetimi, katmanlama ve silme BLOB ve blob anlık görüntüleri silme işlemi destekler. BLOB'ları veya blob anlık görüntüleri, her kural için en az bir eylem tanımlayın.
 
-| Eylem        | Temel Blob                                   | Anlık Görüntü      |
+| Action        | Temel Blob                                   | Anlık Görüntü      |
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Sık erişimli katmanı şu anda bloblarını destekler         | Desteklenmiyor |
 | tierToArchive | Seyrek veya sık erişimli katmanı şu anda bloblarını destekler | Desteklenmiyor |

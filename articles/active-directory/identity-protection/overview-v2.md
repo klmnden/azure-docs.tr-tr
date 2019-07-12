@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b4f8caf03aad339cea3c3fcc732fc1af6086ea7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f6c2f36e1061243851b37da47659aaf7a18e8d6
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108897"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673018"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Azure Active Directory kimlik koruması nedir (yenilenebilecek)?
 
@@ -119,7 +119,7 @@ Kullanıcı riski kullanıcıyla ilişkili tüm riskleri göz önünde bulunduru
 
 ## <a name="how-identity-protection-detects-risk"></a>Kimlik koruması, risk nasıl algılar?  
 
-Azure AD, anormallikleri ve şüpheli etkinlikleri algılamak için makine öğrenimini kullanıyor, algılandı. her iki sinyalleri kullanarak gerçek zamanlı sırasında oturum açma işlemleri de gerçek olmayan süresi sinyalleri gibi kullanıcı ve oturum açma etkinlikleriyle ilgili. Bu verileri kullanarak, kimlik koruması bir kullanıcının kimlik, erişim kullanıcı için genel bir kullanıcı risk düzeyi belirleyen yanı sıra her zaman gerçek zamanlı bir oturum açma riski hesaplar. Kimlik koruması otomatik olarak bu risk algılamalar üzerinde yapılandırma kimlik koruması kullanıcı riski ve oturum açma riski ilkeleri tarafından harekete geçmenizi sağlar.  
+Azure AD, anormallikleri ve şüpheli etkinlikleri algılamak için makine öğrenimini kullanıyor, algılandı. her iki sinyalleri kullanarak gerçek zamanlı sırasında oturum açma işlemleri de gerçek olmayan süresi sinyalleri gibi kullanıcı ve oturum açma etkinlikleriyle ilgili. Bu verileri kullanarak, kimlik koruması, her kullanıcı için genel bir kullanıcı risk düzeyi belirleyen yanı sıra bir kullanıcının kimlik her zaman gerçek zamanlı bir oturum açma riski hesaplar. Kimlik koruması otomatik olarak bu risk algılamalar üzerinde yapılandırma kimlik koruması kullanıcı riski ve oturum açma riski ilkeleri tarafından harekete geçmenizi sağlar.  
 
  
 
@@ -194,7 +194,7 @@ Kimlik koruması ile çalışmaya başlamak için öncelikle bir kullanıcı ris
 
 Kimlik koruması, dağıtımınızı etrafında yönetimi etkinlikleri dengelemek için Azure AD'de 3 rollerini destekler: 
 
-| Rol | Yapabilirsiniz | Bunu yapamazsınız |
+| Role | Yapabilirsiniz | Bunu yapamazsınız |
 | --- | --- | --- |
 | Genel yönetici | Kimlik koruması, yerleşik kimlik koruması tam erişim | |
 | Güvenlik yöneticisi | Kimlik koruması tam erişim | Yerleşik kimlik koruması, kullanıcı parolalarını sıfırlama |

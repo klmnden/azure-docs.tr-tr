@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 07/10/2018
 ms.author: juliako
-ms.openlocfilehash: fd5bf9f7bca9c667191d0d3f83be6e29a96c8dbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c599bc2bba27a3b3603d8d67e2c6049dc2a8b08b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926523"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840149"
 ---
 # <a name="azure-media-player-overview"></a>Azure Media Player genel bakış
 
@@ -30,7 +30,7 @@ Microsoft Azure Media Services içerik yürütürken HLS, DASH, kesintisiz akı�
 
 ### <a name="start-using"></a>Kullanmaya başlayın
 
-Kullanabileceğiniz [Azure Media Player tanıtımını sayfa](https://aka.ms/amp) Azure Media Services örnekleri veya kendi akış yürütülecek.  
+Kullanabileceğiniz [Azure Media Player tanıtımını sayfa](http://aka.ms/azuremediaplayer) Azure Media Services örnekleri veya kendi akış yürütülecek.  
 
 Yeni bir videoyu oynatmak için farklı bir URL ve ENTER tuşuna yapıştırın **güncelleştirme**.
 
@@ -40,7 +40,7 @@ Yeni bir videoyu oynatmak için farklı bir URL ve ENTER tuşuna yapıştırın 
 
 ### <a name="monitor-diagnostics-of-a-video-stream"></a>Video akışının Tanılama izleme
 
-Kullanabileceğiniz [Azure Media Player tanıtımını sayfa](https://aka.ms/amp) tanılama video akışının izlemek için. 
+Kullanabileceğiniz [Azure Media Player tanıtımını sayfa](http://aka.ms/azuremediaplayer) tanılama video akışının izlemek için. 
 
 ![Azure Media Player tanılama](./media/azure-media-player/diagnostics.png)
 

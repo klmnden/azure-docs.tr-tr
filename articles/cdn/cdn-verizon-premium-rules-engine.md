@@ -3,16 +3,16 @@ title: Azure CDN from Verizon Premium kurallar altyapısı kullanarak HTTP davra
 description: Kural altyapısı nasıl HTTP isteklerini Azure CDN from Verizon Premium tarafından belirli türlerdeki içerik teslimini engelleme gibi işleneme şeklini özelleştirmenizi, önbelleğe alma ilkesi tanımlama ve HTTP üst bilgilerini değiştirme sağlar.
 services: cdn
 author: mdgattuso
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 81af3073d64e4379972568a57907a7fb2f82356d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa08f59f3b69395d548649bb131e04c5071c053d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66481737"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593170"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Azure CDN from Verizon Premium kurallar altyapısı kullanarak HTTP davranışı geçersiz kılma
 

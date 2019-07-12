@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: tyfox
-ms.openlocfilehash: 459de569916af14b0efea0ff08b92e5c93ed2369
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 195999ba685828042fc958e8aed7e67bad694657
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718893"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786553"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Ambari Azure İzleyici ile küme kullanılabilirliği izleme günlükleri
 
@@ -123,7 +123,7 @@ Azure İzleyici günlük tümleştirmesi etkinleştirildiğinde (Bu işlem birka
 > [!NOTE] 
 > Kümenizi doğru kullanılabilirlik fiyatları üzerinden görmeden önce en az 24 saat için çalıştırmanız gerekir böylece kullanılabilirlik ücretinin bir 24 saatlik dönem boyunca ölçülür.
 
-Tıklayarak, bu tabloda paylaşılan bir panoya sabitleyebilirsiniz **PIN** sağ üst köşedeki. Yazılabilir panoları yoksa nasıl oluşturulacağını görebilirsiniz burada: [Azure portalında panolarını oluşturma ve paylaşma](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-a-dashboard-and-manage-access-control).
+Tıklayarak, bu tabloda paylaşılan bir panoya sabitleyebilirsiniz **PIN** sağ üst köşedeki. Yazılabilir panoları yoksa nasıl oluşturulacağını görebilirsiniz burada: [Azure portalında panolarını oluşturma ve paylaşma](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
 
 ### <a name="azure-monitor-alerts"></a>Azure uyarıları izleme
 

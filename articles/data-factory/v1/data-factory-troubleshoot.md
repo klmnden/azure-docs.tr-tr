@@ -14,12 +14,12 @@ ms.author: gamal
 ms.reviewer: maghan
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 5f2627932eb2fd427d934eba322230222b5e6958
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc880885777cbca67d6fb39b90feadc889339f76
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002943"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836169"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Data Factory'de sorun giderme
 > [!NOTE]
@@ -119,14 +119,14 @@ Bkz: [özel etkinliği ile işlem hattı hata ayıklama](data-factory-use-custom
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Sorun gidermek için Azure portalını kullanma
 ### <a name="using-portal-blades"></a>Portal dikey penceresi kullanılarak
-Bkz: [işlem hattını izleme](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) adımlar.
+Bkz: [işlem hattını izleme](data-factory-monitor-manage-pipelines.md) adımlar.
 
 ### <a name="using-monitor-and-manage-app"></a>İzleme ve Yönetme Uygulamasını kullanma
 Bkz [İzleyicisi ve izleme ve yönetme uygulaması'nı kullanarak data factory işlem hatlarını yönetmek](data-factory-monitor-manage-app.md) Ayrıntılar için.
 
 ## <a name="use-azure-powershell-to-troubleshoot"></a>Sorun gidermek için Azure PowerShell kullanma
 ### <a name="use-azure-powershell-to-troubleshoot-an-error"></a>Bir hatayı gidermek için Azure PowerShell'i kullanma
-Bkz: [İzleyici Data Factory işlem hatları Azure PowerShell kullanarak](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline) Ayrıntılar için.
+Bkz: [İzleyici Data Factory işlem hatları Azure PowerShell kullanarak](data-factory-monitor-manage-pipelines.md) Ayrıntılar için.
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md

@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
+ms.subservice: load-data
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 39d0fe06ee0e0230411024833cac7c88308f86c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec85bcc764ba7a7ae6341e0490530c31fdb5a02b
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66225378"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595472"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Satır grubu kaliteli columnstore için en üst düzeye çıkarma
 
@@ -33,7 +33,7 @@ En iyi sorgu performansı için hedef bir columnstore dizini, satır grubu baş�
 
 Toplu yük veya columnstore dizini yeniden oluşturma sırasında bazen hiç her satır için belirlenen tüm satırları sıkıştırma için yeterli bellek yok. Bellek baskısı olduğunda, columnstore dizinleri halinde columnstore sıkıştırması başarılı satır grubu boyutları kesim. 
 
-10\. 000'en az bir satır her satır sıkıştırmak için bellek yetersiz olduğunda, SQL veri ambarı, bir hata oluşturur.
+10. 000'en az bir satır her satır sıkıştırmak için bellek yetersiz olduğunda, SQL veri ambarı, bir hata oluşturur.
 
 Toplu yükleme hakkında daha fazla bilgi için bkz. [toplu yükleme kümelenmiş columnstore dizinine](https://msdn.microsoft.com/library/dn935008.aspx#Bulk ).
 

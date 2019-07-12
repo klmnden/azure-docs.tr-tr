@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 2f0b01601dfb28b2b6b8ee8ca53398ec3dccb803
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7aef7eb2e3d88bef7d2700d9945b9ff343c17536
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787297"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812808"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) HTTP API'leri
 
@@ -45,12 +45,13 @@ Her biri bu HTTP API'lerini doğrudan dayanıklı görev uzantısı tarafından 
 Bu örnek işlevleri aşağıdaki JSON yanıt verilerini oluşturur. Tüm alanlar veri türü `string`.
 
 | Alan                   |Açıklama                           |
-|-------------------------|--------------------------------------|
-| **`id`**                |Orchestration örneği kimliği. |
-| **`statusQueryGetUri`** |Orchestration örneği durumu URL'si. |
-| **`sendEventPostUri`**  |Orchestration örneği "raise olay" URL'si. |
-| **`terminatePostUri`**  |Orchestration örneği "sonlandırma" URL'si. |
-| **`rewindPostUri`**     |Orchestration örneği "geri" URL'si. |
+|-----------------------------|--------------------------------------|
+| **`id`**                    |Orchestration örneği kimliği. |
+| **`statusQueryGetUri`**     |Orchestration örneği durumu URL'si. |
+| **`sendEventPostUri`**      |Orchestration örneği "raise olay" URL'si. |
+| **`terminatePostUri`**      |Orchestration örneği "sonlandırma" URL'si. |
+| **`purgeHistoryDeleteUri`** |Orchestration örneği "Geçmişi Temizle" URL'si. |
+| **`rewindPostUri`**         |(Önizleme) Orchestration örneği "geri" URL'si. |
 
 Bir yanıt örneği aşağıda verilmiştir:
 
@@ -65,6 +66,7 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
     "statusQueryGetUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
     "sendEventPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
     "terminatePostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "purgeHistoryDeleteUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
     "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
@@ -134,7 +136,7 @@ Aşağıdaki benzersiz parametreleri yanı sıra daha önce bahsedilen varsayıl
 
 | Alan                   | Parametre türü  | Açıklama |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | URL'si             | Orchestration örneği kimliği. |
+| **`instanceId`**        | URL             | Orchestration örneği kimliği. |
 | **`showInput`**         | Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `false`, işlev giriş dahil edilmeyecek yanıt yükünde.|
 | **`showHistory`**       | Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `true`, orchestration yürütme geçmişini yanıt yükünde dahil edilir.|
 | **`showHistoryOutput`** | Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `true`, çıkışları işlevi dahil edilecek düzenleme yürütme geçmişi.|
@@ -156,12 +158,12 @@ Yanıt yükü **HTTP 200** ve **HTTP 202** durumda şu alanlara sahip bir JSON n
 
 | Alan                 | Veri türü | Açıklama |
 |-----------------------|-----------|-------------|
-| **`runtimeStatus`**   | string    | Örnek çalışma zamanı durumu. Değerler *çalıştıran*, *bekleyen*, *başarısız*, *iptal*, *kesildi*, *Tamamlandı*. |
+| **`runtimeStatus`**   | dize    | Örnek çalışma zamanı durumu. Değerler *çalıştıran*, *bekleyen*, *başarısız*, *iptal*, *kesildi*, *Tamamlandı*. |
 | **`input`**           | JSON      | Örneği başlatmak için kullanılan JSON verileri. Bu alan `null` varsa `showInput` sorgu dizesi parametresi ayarlandığında `false`.|
 | **`customStatus`**    | JSON      | Özel düzenleme durumu için kullanılan JSON verileri. Bu alan `null` değilse ayarlayın. |
 | **`output`**          | JSON      | Örnek JSON çıkışı. Bu alan `null` örneği tamamlanmış durumda değilse. |
-| **`createdTime`**     | string    | Örneği oluşturulduğu zaman. ISO 8601 genişletilmiş gösterimi kullanır. |
-| **`lastUpdatedTime`** | string    | Hangi örneğinin son kalıcı saat. ISO 8601 genişletilmiş gösterimi kullanır. |
+| **`createdTime`**     | dize    | Örneği oluşturulduğu zaman. ISO 8601 genişletilmiş gösterimi kullanır. |
+| **`lastUpdatedTime`** | dize    | Hangi örneğinin son kalıcı saat. ISO 8601 genişletilmiş gösterimi kullanır. |
 | **`historyEvents`**   | JSON      | Orchestration yürütme geçmişini içeren bir JSON dizisi. Bu alan `null` sürece `showHistory` sorgu dizesi parametresi ayarlandığında `true`. |
 
 Orchestration yürütme geçmişini ve etkinlik çıktıları (okunabilmesi için biçimlendirilmiştir) dahil olmak üzere bir örnek yanıt yükü şu şekildedir:
@@ -262,7 +264,7 @@ Aşağıdaki benzersiz parametreleri yanı sıra daha önce bahsedilen varsayıl
 
 | Alan                   | Parametre türü  | Açıklama |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | URL'si             | Orchestration örneği kimliği. |
+| **`instanceId`**        | URL             | Orchestration örneği kimliği. |
 | **`showInput`**         | Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `false`, işlev giriş dahil edilmeyecek yanıt yükünde.|
 | **`showHistory`**       | Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `true`, orchestration yürütme geçmişini yanıt yükünde dahil edilir.|
 | **`showHistoryOutput`** | Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `true`, çıkışları işlevi dahil edilecek düzenleme yürütme geçmişi.|
@@ -360,7 +362,7 @@ Aşağıdaki benzersiz parametreleri yanı sıra daha önce bahsedilen varsayıl
 
 | Alan             | Parametre türü  | Açıklama |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | URL'si             | Orchestration örneği kimliği. |
+| **`instanceId`**  | URL             | Orchestration örneği kimliği. |
 
 #### <a name="response"></a>Yanıt
 
@@ -473,8 +475,8 @@ Aşağıdaki benzersiz parametreleri yanı sıra daha önce bahsedilen varsayıl
 
 | Alan             | Parametre türü  | Açıklama |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | URL'si             | Orchestration örneği kimliği. |
-| **`eventName`**   | URL'si             | Hedef düzenleme örneği bekleniyor olayın adı. |
+| **`instanceId`**  | URL             | Orchestration örneği kimliği. |
+| **`eventName`**   | URL             | Hedef düzenleme örneği bekleniyor olayın adı. |
 | **`{content}`**   | İstek içeriği | JSON biçimli bir olay yükü. |
 
 #### <a name="response"></a>Yanıt
@@ -528,7 +530,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
 
 | Alan             | Parametre türü  | Açıklama |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | URL'si             | Orchestration örneği kimliği. |
+| **`instanceId`**  | URL             | Orchestration örneği kimliği. |
 | **`reason`**      | Sorgu dizesi    | İsteğe bağlı. Orchestration örneği sonlandırılıyor nedeni. |
 
 #### <a name="response"></a>Yanıt
@@ -547,11 +549,11 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 
 Bu API için yanıtlar herhangi bir içerik içermez.
 
-## <a name="rewind-instance-preview"></a>Geri Sar örneği (Önizleme)
+### <a name="rewind-instance-preview"></a>Geri Sar örneği (Önizleme)
 
 En son başarısız işlemleri yeniden yürüterek çalışır duruma başarısız düzenleme örneğine yükler.
 
-### <a name="request"></a>İstek
+#### <a name="request"></a>İstek
 
 Sürüm için istek işlevler çalışma zamanının 1.x, (netlik için birden fazla satır gösterilir) aşağıdaki gibi biçimlendirildiğinde:
 
@@ -577,10 +579,10 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
 
 | Alan             | Parametre türü  | Açıklama |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | URL'si             | Orchestration örneği kimliği. |
+| **`instanceId`**  | URL             | Orchestration örneği kimliği. |
 | **`reason`**      | Sorgu dizesi    | İsteğe bağlı. Orchestration örneği geri sarma nedeni. |
 
-### <a name="response"></a>Yanıt
+#### <a name="response"></a>Yanıt
 
 Birkaç olası durum kodu değeri döndürülür.
 
@@ -595,6 +597,89 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 ```
 
 Bu API için yanıtlar herhangi bir içerik içermez.
+
+### <a name="signal-entity-preview"></a>Sinyal varlık (Önizleme)
+
+Tek yönlü işlem ileti gönderen bir [dayanıklı Entity](durable-functions-types-features-overview.md#entity-functions). Varlık mevcut değilse otomatik olarak oluşturulur.
+
+#### <a name="request"></a>İstek
+
+HTTP isteği, (netlik için birden fazla satır gösterilir) aşağıdaki gibi biçimlendirilir:
+
+```http
+POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &op={operationName}
+```
+
+Aşağıdaki benzersiz parametreleri yanı sıra daha önce bahsedilen varsayılan belirlenen parametreler bu API için istek:
+
+| Alan             | Parametre türü  | Açıklama |
+|-------------------|-----------------|-------------|
+| **`entityType`**  | URL             | Varlık türü. |
+| **`entityKey`**   | URL             | Varlığın benzersiz adıdır. |
+| **`op`**          | Sorgu dizesi    | İsteğe bağlı. Çağırmak için kullanıcı tanımlı işlemin adı. |
+| **`{content}`**   | İstek içeriği | JSON biçimli bir olay yükü. |
+
+Kullanıcı tanımlı "Ekle" ileti gönderen bir örnek istek İşte bir `Counter` adlı varlık `steps`. İleti içeriğini değerdir `5`. Varlık zaten mevcut değilse, bu isteği tarafından oluşturulacak:
+
+```http
+POST /runtime/webhooks/durabletask/entities/Counter/steps?op=Add
+Content-Type: application/json
+
+5
+```
+
+#### <a name="response"></a>Yanıt
+
+Bu işlem birkaç olası yanıtlar sahiptir:
+
+* **202 (kabul edildi) HTTP**: Sinyal işlemi zaman uyumsuz işleme için kabul edildi.
+* **HTTP 400 (Hatalı istek)** : İstek içeriği türünde değildi `application/json`, geçerli bir JSON değildi veya geçersiz olduğu `entityKey` değeri.
+* **HTTP 404 (bulunamadı)** : Belirtilen `entityType` bulunamadı.
+
+Başarılı bir HTTP isteği yanıtına herhangi bir içerik içermiyor. Başarısız bir HTTP istek, yanıt içeriği JSON biçimli hata bilgileri içeriyor olabilir.
+
+### <a name="query-entity-preview"></a>Sorgu varlığı (Önizleme)
+
+Belirtilen varlık durumunu alır.
+
+#### <a name="request"></a>İstek
+
+HTTP isteği, (netlik için birden fazla satır gösterilir) aşağıdaki gibi biçimlendirilir:
+
+```http
+GET /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+```
+
+#### <a name="response"></a>Yanıt
+
+Bu işlem, iki olası yanıtlar sahiptir:
+
+* **200 (TAMAM) HTTP**: Belirtilen varlık yok.
+* **HTTP 404 (bulunamadı)** : Belirtilen varlık bulunamadı.
+
+Başarılı bir yanıt içeriği olarak varlık JSON ile seri hale getirilmiş durumunu içerir.
+
+#### <a name="example"></a>Örnek
+Mevcut bir durumunu alır bir HTTP isteğinin bir örneği verilmiştir `Counter` adlı varlık `steps`:
+
+```http
+GET /runtime/webhooks/durabletask/entities/Counter/steps
+```
+
+Varsa `Counter` varlık yalnızca birkaç adım kayıtlı yer alan bir `currentValue` alan, yanıt içeriği (okunabilmesi için biçimlendirilmiştir) aşağıdaki gibi görünebilir:
+
+```json
+{
+    "currentValue": 5
+}
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

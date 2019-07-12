@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0913e1877c63ed1a8e960676be02a12b45a34a7d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12fd1b03e58d1c62157c6652ce96d8f0172dadb2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240086"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606119"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure Dosya Eşitleme’yi dağıtma
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -25,7 +25,7 @@ Okumanızı öneririz [bir Azure dosyaları dağıtımını planlama](storage-fi
     - [Bölge kullanılabilirliği](storage-sync-files-planning.md#region-availability) Azure dosya eşitleme için.
     - [Dosya paylaşımı oluşturma](storage-how-to-create-file-share.md) bir dosya paylaşımı oluşturma adım adım bir açıklaması.
 * Azure dosya eşitleme ile eşitlenecek Windows Server veya Windows Server kümesinin desteklenen en az bir örnek. Windows Server'ın desteklenen sürümleri hakkında daha fazla bilgi için bkz. [Windows Server ile birlikte çalışabilirlik](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
-* Az PowerShell modülü, PowerShell 5.1 veya PowerShell 6 + ile kullanılabilir. Sunucu kaydı cmdlet'i her zaman doğrudan kaydettirmekte olduğunuz Windows Server örneği üzerinde çalıştırmanız gerekir ancak Windows olmayan sistemleri dahil olmak üzere, desteklenen bir sistemde, Azure dosya eşitleme için Az PowerShell modülünü kullanabilirsiniz. Windows Server 2012 R2 üzerinde en az çalıştığını doğrulayabilirsiniz PowerShell 5.1. \* değerinde bakarak **PSVersion** özelliği **$PSVersionTable** nesnesi:
+* Az PowerShell modülü, PowerShell 5.1 veya PowerShell 6 + ile kullanılabilir. Azure dosya eşitleme için sunucu kayıt cmdlet'ini her zaman Windows Server örneğinde, çalıştırılması gerekir ancak Windows olmayan sistemleri dahil olmak üzere tüm desteklenen sisteminde Az PowerShell modülünü kullanabilir misiniz (bu yapılabilir doğrudan veya PowerShell aracılığıyla kaydetme Uzaktan iletişimini). Windows Server 2012 R2 üzerinde en az çalıştığını doğrulayabilirsiniz PowerShell 5.1. \* değerinde bakarak **PSVersion** özelliği **$PSVersionTable** nesnesi:
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -39,17 +39,25 @@ Okumanızı öneririz [bir Azure dosyaları dağıtımını planlama](storage-fi
     > Powershell'den doğrudan kayıt yerine sunucu kayıt UI kullanmayı planlıyorsanız, PowerShell 5.1 kullanmanız gerekir.
 
 * Abone olanların PowerShell 5.1 kullanın, bu emin olmak için en az .NET 4.7.2 yüklenir. Daha fazla bilgi edinin [.NET Framework sürümleri ve bağımlılıkları](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) sisteminize.
-* Buradaki yönergeleri izleyerek yüklenebilir Az PowerShell Modülü: [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
-* Bağımsız olarak Az Modülü yüklü Az.StorageSync Modülü:
 
-    ```PowerShell
-    Install-Module Az.StorageSync -AllowClobber
-    ```
+    > [!Important]  
+    > Windows Server Core'da .NET 4.7.2+ yüklüyorsanız, ile yüklemelisiniz `quiet` ve `norestart` bayrakları ya da yüklemesi başarısız olur. Örneğin, .NET 4.8 yüklüyorsanız, komut aşağıdaki gibi görünür:
+    > ```PowerShell
+    > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
+    > ```
+
+* Buradaki yönergeleri izleyerek yüklenebilir Az PowerShell Modülü: [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+     
+    > [!Note]  
+    > Az PowerShell modülünü yüklediğinizde Az.StorageSync modülü artık otomatik olarak yüklenir.
 
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Windows Server’ı Azure Dosya Eşitleme ile kullanmaya hazırlama
 Yük devretme kümesinde, her sunucu düğümü dahil olmak üzere, Azure dosya eşitleme ile kullanmayı planladığınız her sunucu için devre dışı **Internet Explorer Artırılmış Güvenlik Yapılandırması**. Bu, yalnızca ilk sunucu kaydı için gereklidir. Sunucu kaydedildikten sonra özelliği yeniden etkinleştirebilirsiniz.
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+> [!Note]  
+> Windows Server core'da Azure dosya eşitleme dağıtımı yapıyorsanız, bu adımı atlayabilirsiniz.
+
 1. Sunucu Yöneticisi'ni açın.
 2. Tıklayın **yerel sunucu**:  
     !["Yerel sunucuda" sol tarafındaki Sunucu Yöneticisi kullanıcı Arabirimi](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
@@ -62,18 +70,23 @@ Yük devretme kümesinde, her sunucu düğümü dahil olmak üzere, Azure dosya 
 Internet Explorer Artırılmış Güvenlik Yapılandırması devre dışı bırakmak için yükseltilmiş bir PowerShell oturumunda aşağıdakileri yürütün:
 
 ```powershell
-# Disable Internet Explorer Enhanced Security Configuration 
-# for Administrators
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+$installType = (Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\").InstallationType
 
-# Disable Internet Explorer Enhanced Security Configuration 
-# for Users
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
-
-# Force Internet Explorer closed, if open. This is required to fully apply the setting.
-# Save any work you have open in the IE browser. This will not affect other browsers,
-# including Microsoft Edge.
-Stop-Process -Name iexplore -ErrorAction SilentlyContinue
+# This step is not required for Server Core
+if ($installType -ne "Server Core") {
+    # Disable Internet Explorer Enhanced Security Configuration 
+    # for Administrators
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+    
+    # Disable Internet Explorer Enhanced Security Configuration 
+    # for Users
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+    
+    # Force Internet Explorer closed, if open. This is required to fully apply the setting.
+    # Save any work you have open in the IE browser. This will not affect other browsers,
+    # including Microsoft Edge.
+    Stop-Process -Name iexplore -ErrorAction SilentlyContinue
+}
 ``` 
 
 ---
@@ -100,7 +113,14 @@ Açılan bölmeye aşağıdaki bilgileri girin:
 Değiştirin **< Az_Region >** , **< RG_Name >** , ve **< my_storage_sync_service >** kendi değerlerinizle oluşturmak ve dağıtmak için aşağıdaki komutları ardından kullanın. bir Depolama eşitleme hizmeti:
 
 ```powershell
-Connect-AzAccount
+$hostType = (Get-Host).Name
+
+if ($installType -eq "Server Core" -or $hostType -eq "ServerRemoteHost") {
+    Connect-AzAccount -UseDeviceAuthentication
+}
+else {
+    Connect-AzAccount
+}
 
 # this variable holds the Azure region you want to deploy 
 # Azure File Sync into

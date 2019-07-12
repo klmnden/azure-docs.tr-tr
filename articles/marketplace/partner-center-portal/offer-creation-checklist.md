@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 904058c2c98c8ded2ea9c91e8aa7ec595aa49b05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb824eb67e84ec4bdb93bc355ac6a6afa844ceb9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66481452"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701162"
 ---
 # <a name="offer-creation-checklist"></a>Teklif oluşturma denetim listesi
 
@@ -38,12 +38,12 @@ Sağlamak veya belirtmek için gerekli olan öğeler aşağıda belirtilmiştir.
 
 ## <a name="new-offer-modal"></a>Yeni Teklif kalıcı 
 
-İlk bilgileri sağlamanız istenir bir ad ve teklifinizi Kimliğini parçalarıdır. 
+İlk bilgileri sağlamanız istenir bir kimliği ve teklife ilişkin diğer ad parçalarıdır. 
 
 | **Alan adı**    | **Notlar**   |  
 | :---------------- | :-----------| 
 | Teklif kimliği  | Gerekli, oluşturulduktan sonra değiştirilemez. En fazla 50 karakter ve yalnızca küçük harf, alfasayısal karakter, kısa çizgi veya alt çizgi oluşmalıdır. |
-| Teklif adı  | Gereklidir. |
+| Teklif diğer adı  | Gerekli. |
 
 ## <a name="offer-setup-page"></a>Teklif kurulum sayfası
 
@@ -51,7 +51,7 @@ Teklif Kurulum Burada, farklı Kanallar ve satış hareketlerin iyileştirilmiş
 
 | **Alan adı**    | **Notlar**   | 
 | :---------------- | :-----------|  
-| Microsoft satış yapmak ister misiniz?  | Gereklidir. Varsayılan: Evet |
+| Microsoft satış yapmak ister misiniz?  | Gerekli. Varsayılan: Evet |
 | Nasıl potansiyel müşterilerin teklife etkileşime girerek listeleme istiyorsunuz? (Eylem çağrısı)  | Microsoft satış değil gereklidir. Varsayılan: Ücretsiz deneme, seçenekleri: "Şimdi edinin", "Ücretsiz deneme", "benimle iletişim kurun." |
 | Deneme URL'si  | Yol müşteriler teklifi dökümüyle etkileşime geçtiğimiz sırada "Ücretsiz deneme" seçilirse, gerekli. |
 | Teklif URL'si  | Teklif listesi ile etkileşimde şekilde müşteriler "Alma şimdi" seçilirse, gerekli |
@@ -84,7 +84,7 @@ Müşteriler teklife ilişkin liste Market'te görüntülerken bkz görüntüler
 | Başlarken yönergeleri  | Gerekli, en fazla 3000 karakter. |
 | Başlarken yönergeleri  | Gerekli, en fazla 3000 karakter. |
 | Arama anahtar sözcükleri  | İsteğe bağlı, önerilen, en fazla 3 anahtar sözcükleri. |
-| Gizlilik İlkesi URL'si  | Gereklidir. |
+| Gizlilik İlkesi URL'si  | Gerekli. |
 | CSP programı pazarlama malzemeleri URL'si  | İsteğe bağlı. |
 | Başlık ve URL faydalı bağlantılar  | İsteğe bağlı. |
 | Destekleyici belgeler başlık + dosyası  | Gerekli, en az 1 ve en fazla 3. PDF dosyası biçiminde olmalıdır. |
@@ -92,7 +92,7 @@ Müşteriler teklife ilişkin liste Market'te görüntülerken bkz görüntüler
 | Store logolar (küçük, Orta, büyük, geniş, Hero)  | (48 X 48) küçük ve büyük (216 X 216) gerekli; diğer boyutları isteğe bağlı ancak önerilen: Orta (90 x 90) geniş (255 x 115), Hero (815 x 290). PNG biçiminde olması gerekir. |
 | Video adı, URL + küçük resmi  | İsteğe bağlı, önerilen, en fazla 4 videolar. Küçük Resim 1280 x 720 PNG biçiminde olması gerekir. YouTube veya Vimeo video barındırılması gerekir. |
 | Kişiler (mühendislik, CSP programı, destek)  | Mühendislik ve destek ilgili kişisi (adı, e-posta ve telefon numarası) gerekli; İsteğe bağlı ancak önerilen CSP programı başvurun. |
-| Destek URL'si  | Gereklidir. |
+| Destek URL'si  | Gerekli. |
 
 ## <a name="preview-page"></a>Önizleme sayfası
 
@@ -137,9 +137,9 @@ Plan fiyatlandırması ve kullanılabilirlik iş özelliklerini, hedef kitle ve 
 | **Alan adı**    | **Notlar**   | 
 | :---------------- | :-----------| 
 | Pazar kullanılabilirlik  | Gerekli, en az 1 ve 141 max. |
-| Fiyatlandırma Modeli  | Gereklidir. Varsayılan: Sabit fiyat. Seçenekler: Kullanıcı başına sabit fiyat. |
+| Fiyatlandırma Modeli  | Gerekli. Varsayılan: Sabit fiyat. Seçenekler: Kullanıcı başına sabit fiyat. |
 | Minimum ve maksimum bilgisayar lisansı  | Seçili isteğe bağlı, bilgisayar başına yalnızca kullanılabilir fiyatlandırma modeli. |
-| Faturalama dönemi  | Gereklidir. Varsayılan: Aylık. Seçenekler: Aylık, yıllık. |
+| Faturalama dönemi  | Gerekli. Varsayılan: Aylık. Seçenekler: Aylık, yıllık. |
 | Fiyat  | Gerekli ABD Doları seçilen Terime aylık faturalandırma, ay başına; veya yıllık, yıl başına ABD Doları seçilen Terime faturalama. |
 | Hedef kitle planlama  | İsteğe bağlı. Varsayılan: Genel-planı. Seçenekler: Genel, özel Kiracı Kimliğine göre |
 | Kısıtlı planlama İzleyici (Kiracı kimliği + açıklaması)  | Özel plan seçtiyseniz gereklidir. En az 1 ve en fazla 10 kimlikleri el ile girdiyseniz Kiracı. En fazla CSV içeri aktarma dosyasının 20000. |
@@ -150,7 +150,7 @@ Yalnızca bir test sürüşüne teklifiniz için teklif seçerseniz kullanılabi
 
 | **Alan adı**    | **Notlar**   | 
 | :---------------- | :-----------| 
-| Açıklama  | Gereklidir. |
+| Açıklama  | Gerekli. |
 | El ile kullanıcı adı + dosyası  | Gerekli, en fazla 1 belge. PDF biçiminde olmalıdır. |
 | Video adı, URL + küçük resmi  | İsteğe bağlı, önerilen. Küçük resim 533 x 324 JPGP veya PNG biçiminde olması gerekir. YouTube veya Vimeo video barındırılması gerekir. |
 

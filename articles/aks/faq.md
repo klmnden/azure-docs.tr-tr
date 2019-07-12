@@ -2,18 +2,18 @@
 title: Sık sorulan sorular için Azure Kubernetes Service (AKS)
 description: Azure Kubernetes Service (AKS) hakkında sık sorulan sorulara yanıtlar bulun.
 services: container-service
-author: iainfoulds
+author: mlearned
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/03/2019
-ms.author: iainfou
-ms.openlocfilehash: d4fa365e1ed055fa8ddeb8fd475e152af84a3b71
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.date: 07/08/2019
+ms.author: mlearned
+ms.openlocfilehash: 495f182ed450d0fac69b31ea2996bacc60863fea
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560445"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672769"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) hakkında sık sorulan sorular
 
@@ -62,30 +62,28 @@ Kured kullanma hakkında daha fazla bilgi için bkz. [AKS düğümleri için gü
 Her bir AKS dağıtımı iki kaynak grubu içinde barındırıyor:
 
 1. İlk kaynak grubu oluşturun. Bu Grup yalnızca Kubernetes Hizmet kaynağı içeriyor. AKS kaynak sağlayıcısı, dağıtım sırasında otomatik olarak ikinci bir kaynak grubu oluşturur. İkinci kaynak grubu örneğidir *MC_myResourceGroup_myAKSCluster_eastus*. Bu ikinci bir kaynak grubu adını belirtme hakkında daha fazla bilgi için sonraki bölüme bakın.
-1. İkinci kaynak grubu, gibi *MC_myResourceGroup_myAKSCluster_eastus*, kümeyle ilişkili altyapı kaynaklarını içerir. Bu kaynaklar, Kubernetes düğüm Vm'leri, sanal ağ ve depolama alanı içerir. Bu kaynak grubu amacı, kaynak temizleme kolaylaştırmaktır.
+1. İkinci kaynak grubu olarak bilinen, *kaynak grubu düğümü*, kümeyle ilişkili altyapı kaynaklarını içerir. Bu kaynaklar, Kubernetes düğüm Vm'leri, sanal ağ ve depolama alanı içerir. Varsayılan olarak, düğüm kaynak grubu gibi bir adı vardır. *MC_myResourceGroup_myAKSCluster_eastus*. Küme silindiğinde, yalnızca küme yaşam döngüsünü paylaşan kaynaklar için kullanılması gereken şekilde AKS düğümü kaynak otomatik olarak siler.
 
-Depolama hesapları veya ayrılmış genel IP adresleri gibi bir AKS kümesi ile kullanılacak kaynaklar oluşturma, bunları otomatik olarak oluşturulan kaynak grubunda koyun.
+## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>Ben kendi AKS düğümü kaynak grubunun adını verebilir misiniz?
 
-## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>Ben AKS altyapı kaynak grubu için kendi ad verebilir misiniz?
-
-Evet. Varsayılan olarak, AKS kaynak sağlayıcısı otomatik olarak ikincil bir kaynak grubu oluşturur. (gibi *MC_myResourceGroup_myAKSCluster_eastus*) dağıtımı sırasında. Şirket ilkesi ile uyum sağlamak için bu yönetilen kümesi için kendi ad sağlayabilirsiniz (*MC_* ) kaynak grubu.
+Evet. Varsayılan olarak, AKS düğümü kaynak grubu adını vereceğiz *MC_clustername_resourcegroupname_location*, ancak kendi adınızı de sağlayabilirsiniz.
 
 Kendi kaynak grubu adı belirtmek için yükleme [aks önizlemesini][aks-preview-cli] Azure CLI uzantısı sürüm *0.3.2* veya üzeri. Kullanarak bir AKS kümesi oluşturduğunuzda [az aks oluşturma][az-aks-create] komutu, kullanın *--düğümü-resource-group* parametre ve kaynak grubu için bir ad belirtin. Varsa, [bir Azure Resource Manager şablonu kullanma][aks-rm-template] bir AKS kümesi dağıtmak için kaynak grubu adını kullanarak tanımlayabilirsiniz *nodeResourceGroup* özelliği.
 
 * İkincil kaynak grubu, kendi aboneliğinizdeki Azure kaynak sağlayıcısı tarafından otomatik olarak oluşturulur.
 * Kümeyi oluştururken, bir özel kaynak grubu adı belirtebilirsiniz.
 
-İle çalışırken *MC_* kaynak grubu, bunu yapamazsınız unutmayın:
+Düğüm kaynak grubuyla çalışması, bunu yapamazsınız göz önünde bulundurun:
 
-* Mevcut bir kaynak grubu belirtin *MC_* grubu.
-* İçin farklı bir abonelik belirtin *MC_* kaynak grubu.
-* Değişiklik *MC_* Küme oluşturulduktan sonra kaynak grubu adı.
-* İçinde yönetilen kaynakların adlarını belirtin *MC_* kaynak grubu.
-* Değiştirme veya silme etiketleri içindeki yönetilen kaynaklar *MC_* kaynak grubu. (Sonraki bölümde ek bilgi bakın.)
+* Kaynak grubu düğümü için mevcut bir kaynak grubunu belirtin.
+* Düğüm kaynak grubu için farklı bir abonelik belirtin.
+* Küme oluşturulduktan sonra düğüm kaynak grubu adını değiştirin.
+* Düğüm kaynak grubu içinde yönetilen kaynakların adlarını belirtin.
+* Değiştirme veya düğüm kaynak grubu içinde yönetilen kaynak etiketleri silin. (Sonraki bölümde ek bilgi bakın.)
 
-## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>Etiketleri ve AKS kaynakların MC_ kaynak grubundaki diğer özelliklerini değiştirebilir?
+## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>Etiketleri ve diğer özellikleri AKS kaynak düğüm kaynak grubunda değişiklik yapabilirsiniz?
 
-Değiştirmek veya Azure tarafından oluşturulmuş etiketleri ve diğer kaynak özellikleri'nde Sil *MC_* kaynak grubu, ölçekleme ve yükseltme hataları gibi beklenmeyen sonuçlar alma. AKS oluşturmak ve özel etiketler değiştirmenize olanak sağlar. Oluşturma veya özel etiketler, örneğin değiştirmek için bir iş birimi veya maliyet merkezi atamak isteyebilirsiniz. Geçirilmekte olan kaynaklar değiştirerek *MC_* AKS kümesinde hizmet düzeyi hedefi (SLO) bölün. Daha fazla bilgi için [mu AKS bir hizmet düzeyi sözleşmesi sunar?](#does-aks-offer-a-service-level-agreement)
+Değiştirdiğinizde ya da Azure tarafından oluşturulmuş etiketleri ve diğer düğümü kaynak grubundaki kaynak özellikleri sildiğinizde, ölçekleme ve yükseltme hataları gibi beklenmeyen sonuçlar alabilir. AKS oluşturmak ve özel etiketler değiştirmenize olanak sağlar. Oluşturma veya özel etiketler, örneğin değiştirmek için bir iş birimi veya maliyet merkezi atamak isteyebilirsiniz. AKS kümesi düğümü kaynak grubundaki kaynakları değiştirerek, hizmet düzeyi hedefi (SLO) bölün. Daha fazla bilgi için [mu AKS bir hizmet düzeyi sözleşmesi sunar?](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Hangi Kubernetes giriş denetleyicileri AKS destekliyor mu? Giriş denetleyicileri eklendiğinde veya kaldırıldığında?
 

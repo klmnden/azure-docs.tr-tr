@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 7925f3aef4123fddd3a96c6e62971b881ae4cbc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c9dfa6af4fb13018051c06783e5ae2bc3f49c0da
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021868"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672101"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>İçerik zenginleştirme (Azure Search) için önceden tanımlanmış beceriler
 
@@ -45,7 +45,7 @@ Birkaç becerileri ne bunlar kullanma veya üretmek esnektir. Genel olarak, ço�
 | [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md) | Özel bir Web API'de HTTP çağrısı yaparak bilişsel arama işlem hattının genişletilebilirlik sağlar. |
 
 
-Oluşturma yönergeleri için bir [özel bir yetenek](cognitive-search-custom-skill-web-api.md), bkz: [özel arabirim tanımlama](cognitive-search-custom-skill-interface.md) ve [örnek: özel bir yetenek oluşturma](cognitive-search-create-custom-skill-example.md).
+Oluşturma yönergeleri için bir [özel bir yetenek](cognitive-search-custom-skill-web-api.md), bkz: [özel arabirim tanımlama](cognitive-search-custom-skill-interface.md) ve [örneği: Bilişsel arama için özel bir yetenek oluşturma](cognitive-search-create-custom-skill-example.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

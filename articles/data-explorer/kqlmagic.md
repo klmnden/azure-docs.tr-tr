@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 12/19/2018
-ms.openlocfilehash: 896a5d13279c15f0035f214da3d5a7d7e6f1861f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/10/2019
+ms.openlocfilehash: a894052e54bd1ca9f8316342f714074c92753448
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60758424"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806334"
 ---
 # <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>Azure veri Gezgini'nde verileri çözümlemek için bir Jupyter not defteri ve Kqlmagic uzantısı kullanma
 
@@ -164,6 +164,9 @@ Birçok analiz senaryolarda, çok sayıda sorgu içeren ve sonuçları bir sorgu
     ```python
     %kql --help "help"
     ```
+
+> [!TIP]
+> Tüm kullanılabilir yapılandırmaların kullanımı hakkında bilgi almak için `%config KQLmagic`. Sorun giderme ve bağlantı sorunları ve yanlış sorgular gibi Kusto hataları yakalamak için kullanma `%config Kqlmagic.short_errors=False`
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

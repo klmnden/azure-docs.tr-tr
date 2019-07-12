@@ -4,7 +4,7 @@ description: Infiniband ile SR-IOV etkinleştirme konusunda bilgi edinin.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,27 +12,26 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 879b1eed7bf4778d4d49f6f991d6d74214d33823
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 2e28627359f339a3bf818a15d6a5c8e456fb554a
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537664"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797535"
 ---
 # <a name="enable-infiniband-with-sr-iov"></a>SR-IOV ile InfiniBand etkinleştir
-
 
 Infiniband (IB) ile özel bir VM görüntüsü yapılandırmak için basit ve önerilen yol, dağıtımınıza InfiniBandDriverLinux veya InfiniBandDriverWindows VM uzantısı eklemektir.
 Bu VM uzantıları ile kullanmayı öğrenin [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) ve [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
 
-Özellikli VM'ler (şu anda HB ve HC serisi) InfiniBand SR-IOV el ile yapılandırmak için aşağıdaki adımları izleyin. Bu adımlar yalnızca RHEL/CentOS içindir. Ubuntu (16.04 ve 18.04) ve SLES (12 SP4 ve 15) için gelen sürücüler de çalışır. Ubuntu için 
-
+Özellikli VM'ler (şu anda HB ve HC serisi) InfiniBand SR-IOV el ile yapılandırmak için aşağıdaki adımları izleyin. Bu adımlar yalnızca RHEL/CentOS içindir. Ubuntu (16.04 ve 18.04) ve SLES (12 SP4 ve 15) için gelen sürücüler de çalışır.
 
 ## <a name="manually-install-ofed"></a>OFED el ile yükleyin
 
 En son MLNX_OFED sürücüleri ConnectX-5'ten için yükleme [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=26).
 
 RHEL/CentOS için (Örneğin aşağıda 7.6):
+
 ```bash
 sudo yum install -y kernel-devel python-devel
 sudo yum install -y redhat-rpm-config rpm-build gcc-gfortran gcc-c++

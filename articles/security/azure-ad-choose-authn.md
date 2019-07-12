@@ -4,17 +4,17 @@ description: Bu kılavuz, şirket, CIO, CISOs, baş kimlik mimarları, Kurumsal 
 services: active-directory
 keywords: ''
 author: martincoetzer
-ms.author: martincoetzer
+ms.author: martinco
 ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 26fca12060363f4ad05baaeceb6fb800a0d76216
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c0faeb211860391c93563200f509d60876a504b9
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449261"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786688"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory karma kimlik çözümünüz için doğru kimlik doğrulama yöntemini seçin 
 
@@ -94,7 +94,7 @@ Karar sorular hakkında ayrıntılar:
 
 * **Gelişmiş senaryolar**. Kuruluşlar için seçerseniz, Azure AD Premium P2 ile Azure AD kimlik koruması raporlarla kimlikleri ınsights'tan kullanmak da mümkündür. Sızan kimlik bilgileri rapor buna bir örnektir. Windows iş için Hello sahip [parola karması eşitleme kullandığınızda belirli gereksinimleri](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD etki alanı Hizmetleri](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) sağlama kullanıcılar yönetilen etki alanında Kurumsal kimlik bilgileriyle parola karma eşitlemesini gerektirir.
 
-    Çok faktörlü kimlik doğrulaması parola karması eşitleme ile Azure AD ile çok faktörlü kimlik doğrulaması kullanmalıdır gerektiren kuruluşlar veya [koşullu erişim özel denetimler](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Kuruluşlar, üzerinde Federasyon kullanır üçüncü taraf veya şirket içinde çok faktörlü kimlik doğrulama yöntemleri kullanamazsınız.
+    Çok faktörlü kimlik doğrulaması parola karması eşitleme ile Azure AD ile çok faktörlü kimlik doğrulaması kullanmalıdır gerektiren kuruluşlar veya [koşullu erişim özel denetimler](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview). Kuruluşlar, üzerinde Federasyon kullanır üçüncü taraf veya şirket içinde çok faktörlü kimlik doğrulama yöntemleri kullanamazsınız.
 
 > [!NOTE]
 > Azure AD koşullu erişim gerektiren [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/) lisansları.
@@ -118,7 +118,7 @@ Başvurmak [parola karması eşitlemeyi uygulama](https://docs.microsoft.com/azu
 
 * **Gelişmiş senaryolar**. Geçişli kimlik doğrulaması, oturum açma zaman şirket içi hesap ilkeleri uygular. Örneğin, bir şirket içi kullanıcı hesabının durumu devre dışıysa, kilitli, zaman erişim reddedildi veya [parolasının süresi doldu](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) veya kullanıcının ne zaman izin oturum açmak için saatleri dışında kalan. 
 
-    Geçişli kimlik doğrulaması ile çok faktörlü kimlik doğrulaması, Azure multi-Factor Authentication (MFA) kullanmalıdır gerektiren kuruluşlar veya [koşullu erişim özel denetimler](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Kuruluşlar, üzerinde Federasyon kullanan bir üçüncü taraf veya şirket içinde çok faktörlü kimlik doğrulaması yöntemi olarak kullanamazsınız. Gelişmiş Özellikler, geçişli kimlik doğrulaması seçtiğiniz olup olmadığını parola karması eşitleme dağıtıldığını gerektirir. Kimlik koruması, sızan kimlik bilgileri rapor buna bir örnektir.
+    Geçişli kimlik doğrulaması ile çok faktörlü kimlik doğrulaması, Azure multi-Factor Authentication (MFA) kullanmalıdır gerektiren kuruluşlar veya [koşullu erişim özel denetimler](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview). Kuruluşlar, üzerinde Federasyon kullanan bir üçüncü taraf veya şirket içinde çok faktörlü kimlik doğrulaması yöntemi olarak kullanamazsınız. Gelişmiş Özellikler, geçişli kimlik doğrulaması seçtiğiniz olup olmadığını parola karması eşitleme dağıtıldığını gerektirir. Kimlik koruması, sızan kimlik bilgileri rapor buna bir örnektir.
 
 * **İş sürekliliği**. İki ek doğrudan kimlik doğrulama aracılarının dağıtmanızı öneririz. Azure AD Connect sunucusu ilk aracıda yanı sıra bu ek özellikler şunlardır. Bu ek dağıtım kimlik doğrulama isteklerini yüksek kullanılabilirliğini sağlar. Dağıtılan üç aracınız varsa, bakım için başka bir aracı kapalı olduğunda, bir aracı yine de başarısız olabilir. 
 
@@ -177,7 +177,7 @@ Aşağıdaki diyagramlarda, Azure AD karma kimlik çözümü ile kullandığın�
 |Önemli noktalar|Parola Karması eşitleme + sorunsuz çoklu oturum açma|Geçişli kimlik doğrulaması + sorunsuz çoklu oturum açma|AD FS ile Federasyon|
 |:-----|:-----|:-----|:-----|
 |Burada kimlik doğrulaması gerçekleşir?|Bulutta|Bulutta güvenli parola doğrulaması exchange şirket içi kimlik doğrulama Aracısı ile sonra|Şirket içi|
-|Ne sağlama sistemin dışında şirket içi sunucu gereksinimleri şunlardır: Azure AD Connect?|None|Her ek kimlik doğrulama aracısı için bir sunucu|İki veya daha fazla AD FS sunucuları<br><br>İki veya daha fazla WAP sunucularını çevre/çevre ağındaki|
+|Ne sağlama sistemin dışında şirket içi sunucu gereksinimleri şunlardır: Azure AD Connect?|Yok.|Her ek kimlik doğrulama aracısı için bir sunucu|İki veya daha fazla AD FS sunucuları<br><br>İki veya daha fazla WAP sunucularını çevre/çevre ağındaki|
 |Gereksinimlerini şirket içi Internet ve ağ sağlama sistem ötesinde nelerdir?|None|[Giden Internet erişimi](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) kimlik doğrulama aracılarının sunuculardan çalıştırma|[Gelen Internet erişimi](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) WAP sunucularını çevre için<br><br>AD FS sunucuları için çevre WAP sunuculardan gelen ağ erişimini<br><br>Ağ yük dengeleme|
 |Bir SSL sertifikası gereksinimi var mı?|Hayır|Hayır|Evet|
 |Sistem durumu izleme çözümü var mı?|Gerekli değil|Aracı durumu tarafından sağlanan [Azure Active Directory Yönetim Merkezi](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-pass-through-authentication)|[Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)|

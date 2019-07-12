@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
-ms.author: martincoetzer
+ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff59b93603af61fd8ea571966a3c43a06929ae04
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 831ba47ea4e999219a6d8cf34cb5fb0fdcd1ead8
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113483"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594950"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory ile esnek erişim denetimi yönetim stratejisi oluşturma
 
@@ -143,7 +143,7 @@ Aşağıdaki örnekte: **Örnek bir - erişimi için Görev açısından kritik 
   * Ad: EM001 - ACİL DURUMDA ETKİNLEŞTİR: MFA kesintisi [1/4] - Exchange, SharePoint - hibrit Azure AD'ye katılma gerektirir
   * Kullanıcılar ve gruplar: ContingencyAccess içerir. CoreAdmins ve EmergencyAccess hariç tut
   * Bulut uygulamaları: Exchange Online ve SharePoint Online
-  * Koşullar: Tüm
+  * Koşullar: Any
   * İzin verme denetimi: Etki alanına katılmış gerektirir
   * Durum: Devre dışı
 * İlke 2: Windows dışındaki blok platformları
@@ -185,7 +185,7 @@ Bu sonraki örnekte **örnek B - Salesforce mobil erişmesine izin vermek için 
   * Ad: EM001 - ACİL DURUMDA ETKİNLEŞTİR: Cihaz uyumluluk kesintisi [1/2] - Salesforce - SalesforceContingency dışında blok tüm kullanıcılar
   * Kullanıcılar ve gruplar: Tüm kullanıcıları dahil edin. SalesAdmins ve SalesforceContingency hariç tut
   * Bulut uygulamaları: Salesforce.
-  * Koşullar: None
+  * Koşullar: Yok.
   * İzin verme denetimi: Engelle
   * Durum: Devre dışı
 * İlke 2: Mobile (saldırı yüzey alanını azaltmak için) dışındaki herhangi bir platform satış ekibinin engelle

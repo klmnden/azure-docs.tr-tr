@@ -1,21 +1,21 @@
 ---
-title: Azure Cosmos DB’nin sınırları
-description: Bu makalede, Azure Cosmos DB'de sınırları açıklanır.
+title: Azure Cosmos DB hizmet kotaları
+description: Azure Cosmos DB hizmet kotaları ve sınırları farklı kaynak türlerinin varsayılan.
 author: arramac
 ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2019
-ms.openlocfilehash: 28eb7c6a11f71fa87835bcfe78e635753965bac3
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.date: 07/10/2019
+ms.openlocfilehash: 74df0038676e8459028084890da569ed3b75a682
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561227"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797296"
 ---
-# <a name="limits-in-azure-cosmos-db"></a>Azure Cosmos DB’nin sınırları
+# <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB hizmet kotaları
 
-Bu makalede, Azure Cosmos DB hizmetini sınırları genel bir bakış sağlar.
+Bu makalede, Azure Cosmos DB'de farklı kaynaklar için önerilen varsayılan kotaları genel bir bakış sağlar.
 
 ## <a name="storage-and-throughput"></a>Depolama ve aktarım hızı
 
@@ -154,7 +154,7 @@ Aşağıdaki tabloda yönelik sınırlar listelenir [Azure Cosmos DB'yi ücretsi
 | Resource | Varsayılan limit |
 | --- | --- |
 | Deneme süresi | 30 gün (olabilir herhangi sayıda yenilenir) |
-| Abonelik (SQL, Gremlin, tablo API'si) başına en fazla kapsayıcılar | 1 |
+| Abonelik (SQL, Gremlin, tablo API'si) başına en fazla kapsayıcılar | 1\. |
 | Abonelik (MongoDB API'SİYLE) başına en fazla kapsayıcılar | 3 |
 | Kapsayıcı başına en fazla aktarım hızı | 5000 |
 | İşleme düzeyi paylaşılan veritabanı başına en fazla aktarım hızı | 20000 |

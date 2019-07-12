@@ -4,7 +4,7 @@ description: Zamanlanmış olaylar Azure meta veri hizmeti için Windows sanal m
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: e6a376803d8617e01ee279e40a33f6c1c3b748fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddd34147848ecb3a964eac3d618b452f5eb43f19
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65508189"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710297"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure meta veri hizmeti: Windows Vm'leri için zamanlanmış olaylar
 
@@ -50,7 +50,7 @@ Zamanlanmış olaylar, olayları aşağıdaki kullanım örnekleri sağlar:
 - Kullanıcı tarafından başlatılan Bakım (örneğin kullanıcı yeniden başlatır veya bir sanal makine yeniden dağıtır)
 - [Düşük öncelikli VM çıkarma](https://azure.microsoft.com/blog/low-priority-scale-sets) içinde ölçek kümeleri
 
-## <a name="the-basics"></a>Temel bilgileri  
+## <a name="the-basics"></a>Temeller  
 
 Azure meta veri hizmeti REST uç noktasını VM içinden erişilebilir kullanarak sanal makineleri çalıştırma hakkında bilgi gösterir. Böylece VM dışında gösterilmeyen bilgileri yönlendirilemeyen bir IP kullanılabilir.
 
@@ -64,7 +64,7 @@ Sanal makineyi bir sanal ağdaki bulut Hizmetleri ve klasik VM'ler için varsay�
 ### <a name="version-and-region-availability"></a>Sürümü ve bölge kullanılabilirliği
 Zamanlanmış olaylar tutulan hizmetidir. Sürümleri zorunludur ve geçerli sürümü `2017-11-01`.
 
-| Version | Yayın türü | Bölgeler | Sürüm Notları | 
+| Version | Yayın türü | Regions | Sürüm Notları | 
 | - | - | - | - |
 | 2017-11-01 | Genel Erişilebilirlik | Tümü | <li> Düşük öncelikli VM çıkarma EventType 'Preempt' desteği eklendi<br> | 
 | 2017-08-01 | Genel Erişilebilirlik | Tümü | <li> Iaas Vm'leri için kaynak adları alt çizgi başına kaldırıldı<br><li>Tüm istekler için zorlanan meta veri üst bilgisi gereksinimi | 

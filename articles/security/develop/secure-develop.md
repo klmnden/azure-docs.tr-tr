@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f68f6c366571b8f0f04f8507606c1a4008ab0405
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f4add4bf07178aa616e86f8a64b313630466824f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443254"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653276"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Azure'da güvenli uygulamalar geliştirin
 Bu makalede güvenlik etkinliklerini ve bulut için uygulamalar geliştirirken dikkate alınması gereken denetimler sunar. Güvenlik sorularını ve Microsoft uygulama ve doğrulama aşamaları sırasında dikkate alınması gereken kavramlar [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) ele alınmaktadır. Etkinlikleri ve daha güvenli bir uygulama geliştirmek için kullanabileceğiniz Azure Hizmetleri tanımlamanıza yardımcı olmaktır.
@@ -88,7 +88,7 @@ Bu, daha az sayıda, saldırı yüzeyini azaltan gerçek veri erişimi anlamına
 
 Deneme yanılma ve sözlük tabanlı tahmin karşı korumak için kullanıcılar (örneğin, en az 12 karakter uzunluğu ve alfasayısal ve özel karakterler gerektiren) karmaşık bir parola oluşturduğunuzdan emin olmak için güçlü bir parola ilkesi uygulamalıdır.
 
-Bir kimlik çerçevesi oluşturmak ve parola ilkelerini zorlamak için kullanabilirsiniz. Azure AD B2C yardımcı olur, parola yönetimi ile sağlayarak [yerleşik ilkeleri](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-password-reset-policy), [Self Servis parola sıfırlama](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr)ve daha fazlası.
+Bir kimlik çerçevesi oluşturmak ve parola ilkelerini zorlamak için kullanabilirsiniz. Azure AD B2C yardımcı olur, parola yönetimi ile sağlayarak [yerleşik ilkeleri](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows#create-a-password-reset-user-flow), [Self Servis parola sıfırlama](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr)ve daha fazlası.
 
 Varsayılan hesapları saldırılarına karşı korumak için tüm anahtarları ve parolaları değiştirilebilir ve bunlar oluşturulan veya kaynakları yükledikten sonra değiştirilen olduğunu doğrulayın.
 

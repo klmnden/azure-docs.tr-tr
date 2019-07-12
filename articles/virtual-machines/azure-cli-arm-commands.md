@@ -4,7 +4,7 @@ description: Resource Manager dağıtım modelinde kaynaklarınızı yönetmek i
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
 documentationcenter: ''
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: be37da5b-72fe-41a1-9fa0-8937b69464ec
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: ac1a6136eae79700c427b27c8869bc9241c62abc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4a155159759a4b817842087bff7d4167ed8ed0c5
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64717792"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722838"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Resource Manager modunda Azure CLI komutları
 Bu makalede, Azure komut satırı arabirimi (CLI) komutlarını Azure Resource Manager dağıtım modelinde Azure kaynaklarını oluşturmak ve yönetmek için yaygın olarak kullanacağınız için sözdizimini ve seçenekleri sağlar. Bu komutlar, CLI'yı Resource Manager (arm) modunda çalıştırarak erişin. Bu tam bir başvuru değildir ve CLI sürümünüzü biraz farklı komutları ya da parametreler gösterebilir. Azure kaynaklarını ve kaynak gruplarını genel bir bakış için bkz. [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md).  

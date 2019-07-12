@@ -4,7 +4,7 @@ description: Azure tanılama uzantısı ile yeni bir Windows sanal makine oluşt
 services: virtual-machines-windows
 documentationcenter: ''
 author: sbtron
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 00b4a145da9104cab410c5a07f6d7ec5ded5c45d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d1c5598bd7ea5b3f35d5447935953d4cd55664a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60800006"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706767"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>İzleme ve tanılama bir Windows VM ve Azure Resource Manager şablonları ile kullanma
 Azure tanılama uzantısı, bir Windows tabanlı Azure sanal makinesinde izleme ve tanılama özellikleri sağlar. Bu özellikler sanal makinede uzantı Azure Resource Manager şablonunun bir parçası dahil ederek etkinleştirebilirsiniz. Bkz: [VM uzantıları içeren Azure Resource Manager şablonları yazma](../windows/template-description.md#extensions) uzantıyı, bir sanal makine şablonunun bir parçası dahil olmak üzere daha fazla bilgi için. Bu makalede, Azure tanılama uzantısını bir windows sanal makine şablonu nasıl ekleyebileceğinizi açıklar.  

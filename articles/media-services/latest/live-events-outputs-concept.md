@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/19/2019
 ms.author: juliako
-ms.openlocfilehash: f26467a250314fa8a6fe401f4ec1d6a999b6bb4d
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: a951ebd46335ad4639b8499283ddd30f13edd64e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296205"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605645"
 ---
 # <a name="live-events-and-live-outputs"></a>Canlı Etkinlikler ve Canlı Çıkışlar
 
@@ -109,7 +109,7 @@ Gösterim amaçlı olmayan URL'leri veya gösterim URL'lerini kullanabilirsiniz.
 ### <a name="live-ingest-url-naming-rules"></a>Canlı URL adlandırma kuralları alma
 
 * Aşağıdaki *rastgele* dize, 128 bit bir onaltılık sayıdır (0-9 a-f arası 32 karakterden oluşur).
-* *erişim belirtecinizi* -gösterim modunu kullanırken ayarladığınız geçerli GUID dize. Örneğin, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *erişim belirtecinizi* -gösterim modunu kullanırken ayarladığınız geçerli GUID dize. Örneğin: `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
 * *Akış adı* -belirli bir bağlantı için akış adını belirtir. Akış adı değeri, genellikle kullandığınız gerçek zamanlı Kodlayıcı tarafından eklenir. Bağlantı, örneğin açıklamak için herhangi bir ad kullanmak için gerçek zamanlı Kodlayıcı yapılandırabilirsiniz: "video1_audio1", "video2_audio1", "stream".
 
 #### <a name="non-vanity-url"></a>Gösterim olmayan URL'si
@@ -142,7 +142,7 @@ Gösterim amaçlı olmayan URL'leri veya gösterim URL'lerini kullanabilirsiniz.
 
 ## <a name="live-event-preview-url"></a>Canlı olay Önizleme URL'si
 
-Bir kez **canlı olay** başlatır, akış katkı alma, bir önizleme uç noktası Önizleme ve daha fazla yayımlamadan önce Canlı akışı aldığını doğrulamak için kullanabilirsiniz. Önizleme akışı iyi olduğuna iade ettikten sonra canlı akış bir veya daha fazla (önceden oluşturulmuş) aracılığıyla teslimi için kullanılabilir hale getirmek için canlı olay kullanabilirsiniz **akış uç noktalarını**. Bunu yapmak için yeni oluşturduğunuz [Canlı çıkış](https://docs.microsoft.com/rest/api/media/liveoutputs) üzerinde **canlı olay**. 
+Canlı olay akışı katkı almaya başladıktan sonra Önizleme uç noktası, Önizleme ve daha fazla yayımlamadan önce Canlı akışı aldığını doğrulamak için kullanabilirsiniz. Önizleme akışı iyi olduğuna iade ettikten sonra canlı akış bir veya daha fazla (önceden oluşturulmuş) akış uç noktaları aracılığıyla teslim için kullanılabilir hale getirmek için canlı olay kullanabilirsiniz. Bunu yapmak için yeni oluşturduğunuz [Canlı çıkış](https://docs.microsoft.com/rest/api/media/liveoutputs) canlı olay. 
 
 > [!IMPORTANT]
 > Video önizleme URL'sine devam etmeden önce akan emin olun!
@@ -158,11 +158,11 @@ Canlı olay giden akış oluşturduktan sonra oluşturarak akış olayını baş
 > [!NOTE]
 > Oluşturma çıkışları başlangıç canlı ve silindiğinde sona erer. Canlı çıkış sildiğinizde, temel alınan varlık veya varlık içeriği silmekte olduğunuz değil. 
 
-Arasındaki ilişkiyi bir **canlı olay** ve kendi **Canlı çıkışları** benzer geleneksel televizyon yayın verebileceğiniz bir kanaldır (**canlı olay**) bir sabiti temsil eder Stream, video ve bir kayıt (**Canlı çıkış**) belirli bir zaman kesimine (örneğin, akşam haber 18:30:00 19:00:00 için) kapsamlıdır. Televizyonu bir Dijital Video Kaydedici (DVR) kullanarak kaydedebileceğiniz gibi Canlı Etkinliklerde de bu durumu **ArchiveWindowLength** özelliğiyle yönetebilirsiniz. Bu, DVR kapasitesini belirtir ve en az 3 dakika, en çok 25 saat için ayarlanabilir bir ISO 8601 zaman aralığı süresi (örneğin, PTHH:MM:SS) olur.
+Arasındaki ilişkiyi bir **canlı olay** ve kendi **Canlı çıkışları** için geleneksel televizyon yayın, bir kanal (canlı olay) sabit video ve bir kayıt (Canlı akışını temsil eden gerçekleştirilmesine benzer Çıkış) için belirli bir zaman segment (örneğin, akşam haber 18:30:00 19:00:00 için) kapsama alınır. Televizyon bir Dijital Video Kaydedici DVR kullanarak kaydedebilirsiniz: Canlı olayları eşdeğer özelliği aracılığıyla yönetilen **archiveWindowLength** özelliği. Bu, DVR kapasitesini belirtir ve en az 3 dakika, en çok 25 saat için ayarlanabilir bir ISO 8601 zaman aralığı süresi (örneğin, PTHH:MM:SS) olur.
 
-**Canlı çıkış** catch ve Media Services hesabınızda bir varlığa canlı akış kayıt bant Kaydedici gibi nesnedir. Varlık kaynağı tarafından tanımlı kapsayıcı içine hesabınıza bağlı Azure depolama hesabına kaydedilen içeriği kalıcı. **Canlı çıkış** Ayrıca, bazı akışın ne kadar arşiv kaydı (örneğin, bulut DVR Kapasite) tutulur ve görüntüleyiciler olup olmadığını başlayabilirsiniz gibi giden canlı akış özellikleri denetlemenize olanak tanır Canlı akış izleme. Döngüsel bir arşiv "penceresinin" arşividir diskte belirtilen içerik miktarını yalnızca tutan **archiveWindowLength** özelliği **Canlı çıkış**. Bu pencere dışında kalan içerik depolama kapsayıcısından otomatik olarak atılır ve kurtarılabilir durumda değil. Birden çok oluşturabilirsiniz **Canlı çıkışları** (yukarı üç en) üzerinde bir **canlı olay** farklı arşiv uzunlukları ve ayarları.  
+Bir bant Kaydedici, yakalar ve kayıt Media Services hesabınızda bir varlığa canlı akış gibi canlı çıkış nesnedir. Varlık kaynağı tarafından tanımlı kapsayıcı içine hesabınıza bağlı Azure depolama hesabına kaydedilen içeriği kalıcı. Canlı çıkış bazı giden canlı akış akışın ne kadar arşiv kaydı (örneğin, bulut DVR Kapasite) tutulur ve canlı akış izleme görüntüleyiciler olup olmadığını başlayabilirsiniz gibi özellikleri denetlemenize olanak verir. Döngüsel bir arşiv "penceresinin" arşividir diskte dinamik çıkışın archiveWindowLength özelliğinde belirtilen içerik miktarını yalnızca tutar. Bu pencere dışında kalan içerik depolama kapsayıcısından otomatik olarak atılır ve kurtarılabilir durumda değil. Birden çok çıktı (en fazla üç maksimum) canlı bir canlı olay farklı arşiv uzunlukları ve ayarlarla oluşturabilirsiniz.  
 
-Yayımladıysanız **Canlı çıkış**'s **varlık** kullanarak bir **akış Bulucu**, **canlı olay** olur (DVR pencere uzunluğunun en fazla) Akış Bulucu'nın süre sonu veya silme kadar görüntülenebilir devam, hangisinin önce geldiğine.
+Dinamik çıkışın yayımladıysanız **varlık** kullanarak bir **akış Bulucu**, canlı olay (en fazla DVR pencere uzunluğunun) akış Bulucu'nın süre sonu veya silme kadar görüntülenebilir olmaya devam edecek hangisi önce gelirse.
 
 Daha fazla bilgi için [kullanılarak bir bulut DVR](live-event-cloud-dvr.md).
 

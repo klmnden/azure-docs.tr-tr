@@ -7,20 +7,21 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: a3b63cfa-b5fe-4aff-b105-b22b424c418a
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 07/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5d8d97aefa2efadae70c976b8a1876b2c7d8f1c1
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 9f64497cdf27729cebc243deca1def9ff1e5c680
+ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921929"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673849"
 ---
 # <a name="connect-data-sources"></a>Veri kaynaklarını bağlama
 
@@ -32,7 +33,18 @@ ms.locfileid: "65921929"
 
 Yerleşik Azure Gözcü, ilk veri kaynaklarınıza bağlanması gerekir. Azure Sentinel Microsoft çözümleri, kutunun ve Microsoft tehdit koruması çözümlerinin yanı sıra, Office 365, Azure AD, Azure ATP dahil olmak üzere, Microsoft 365 kaynakları dahil olmak üzere, gerçek zamanlı tümleştirme sağlayan dışında kullanılabilir bağlayıcılar sayısı ile birlikte sunulur ve Microsoft Cloud App Security ve daha fazlası. Ayrıca, Microsoft olmayan çözümler için daha geniş güvenlik ekosistemine yerleşik bağlayıcılar vardır. Ayrıca ortak olay biçimi, veri kaynaklarınızı Azure Gözcü ile de bağlanmak için Syslog veya REST API de kullanabilirsiniz.  
 
-![Veri toplayıcılar](./media/collect-data/collect-data-page.png)
+1. Menüsünde **veri bağlayıcıları**. Bu sayfa, Azure Gözcü sağlayan bağlayıcılar ve durumlarını tam listesini görmenizi sağlar. Bağlamayı seçin ve istediğiniz bağlayıcıyı seçin **açık Bağlayıcısı sayfasının**. 
+
+   ![Veri toplayıcılar](./media/collect-data/collect-data-page.png)
+
+1. Özel bağlayıcı sayfasında, tüm önkoşulların yerine getirilmesini ve Azure Gözcü için verileri bağlanma yönergeleri emin olun. Bu, Azure Gözcü ile eşitlemeye başlamak günlükleri için biraz zaman alabilir. Bağlandıktan sonra verileri bir özetini görmek **alınan veriler** graph ve bağlantı durumunu veri türleri.
+
+   ![Toplayıcıları bağlanma](./media/collect-data/opened-connector-page.png)
+  
+1. Tıklayın **sonraki adımlar** Azure Gözcü sağlar özel veri türü için kullanıma hazır içerik listesini almak için sekmesinde.
+
+   ![Veri toplayıcılar](./media/collect-data/data-insights.png)
+ 
 
 ## <a name="data-connection-methods"></a>Veri bağlantı yöntemi
 

@@ -4,7 +4,7 @@ description: Yüksek kullanılabilirlik mimarisi ve senaryolar için Azure sanal
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 37f5040585681a53743fb3426b7f7ffac36de51c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6c329a2b50c946e873391db431c1cd5ff30ab4f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60936285"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709080"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Yüksek kullanılabilirlik mimarisi ve senaryolar için SAP NetWeaver
 
@@ -254,7 +254,7 @@ Azure'da SAP yüksek kullanılabilirlik, üç tür olarak ayrılabilir:
     * Yedekli SAP uygulama sunucuları.
     * Benzersiz bileşenleri. Bir örnek, tek bir SAP ASCS/SCS örneği veya veritabanı yönetim sistemi (DBMS) gibi başarısız (SPOF) bileşeni noktası olabilir.
 
-Azure'da yüksek kullanılabilirlik SAP, SAP yüksek kullanılabilirlik, bir şirket içi fiziksel veya sanal ortamda farklıdır. Aşağıdaki incelemeyi [SAP NetWeaver-yüksek kullanılabilirlik ve VMware ve Microsoft Windows Hyper-V sanal ortamları'nda iş sürekliliği] [ sap-ha-bc-virtual-env-hyperv-vmware-white-paper] standart SAP yüksek kullanılabilirlik açıklar Windows üzerinde sanallaştırılmış ortamlarda yapılandırmalar.
+Azure'da yüksek kullanılabilirlik SAP, SAP yüksek kullanılabilirlik, bir şirket içi fiziksel veya sanal ortamda farklıdır. Aşağıdaki incelemeyi [SAP NetWeaver-yüksek kullanılabilirlik ve VMware ve Microsoft Windows Hyper-V sanal ortamları'nda iş sürekliliği][sap-ha-bc-virtual-env-hyperv-vmware-white-paper] standart SAP yüksek kullanılabilirlik yapılandırmaları açıklar, sanallaştırılmış Windows üzerinde ortamları.
 
 Windows için de Linux için sapinst tümleşik SAP yüksek kullanılabilirlik yapılandırma yoktur. Linux ile SAP yüksek oranda kullanılabilir şirket içi hakkında bilgi için bkz. [yüksek kullanılabilirlik iş ortağı bilgileri][sap-ha-partner-information].
 
@@ -359,7 +359,7 @@ Konak SAP uygulama sunucusu örneklerinin aynı Azure kullanılabilirlik kümesi
 * Tüm sanal makineler aynı güncelleme etki alanı'nın bir parçasıdır.  
     Sanal makineler planlı bakım kapalı kalma süresinde aynı zamanda güncelleştirilmemiş bir güncelleme etki alanı sağlar.
 
-    Farklı güncelleştirme ve hata etki alanları içindeki bir Azure ölçek birimi oluşturur, temel işlevleri de tanıtılan [güncelleştirme etki alanı] [ planning-guide-3.2.2] bölümü.
+    Farklı güncelleştirme ve hata etki alanları içindeki bir Azure ölçek birimi oluşturur, temel işlevleri de tanıtılan [güncelleştirme etki alanı][planning-guide-3.2.2] bölümü.
 
 * Tüm sanal makineler aynı hata etki alanı'nın bir parçasıdır.  
     Hata etki alanı, böylece hiç tek hata noktası tüm sanal makinelerin kullanılabilirliğini etkileyen dağıtılan sanal makineler, sağlar.
@@ -373,7 +373,7 @@ Birkaç SAP uygulama sunucusu örneklerinde adanmış Vm'lerini dağıtma, biz b
 
 Daha fazla bilgi için [azure'daki Windows sanal makinelerin kullanılabilirliğini yönetme][azure-virtual-machines-manage-availability].
 
-Daha fazla bilgi için [Azure kullanılabilirlik kümeleri] [ planning-guide-3.2.3] planlama Azure sanal makineleri ve SAP NetWeaver belge için uygulama bölümü.
+Daha fazla bilgi için [Azure kullanılabilirlik kümeleri][planning-guide-3.2.3] planlama Azure sanal makineleri ve SAP NetWeaver belge için uygulama bölümü.
 
 **Yalnızca yönetilmeyen diskler:** Azure depolama hesabı, olası bir tek hata noktası olduğundan, en az iki Azure depolama hesapları, en az iki sanal makine dağıtılmasını sağlamak önemlidir. İdeal bir Kurulum, SAP iletişim örneği çalıştıran her sanal makinenin diskleri farklı depolama hesabında dağıtılabilir.
 
@@ -396,7 +396,7 @@ SAP ASCS/SCS örneği korumak için bir WSFC çözümü kullanabilirsiniz. Çöz
 
 > ![Linux][Logo_Linux] Linux
 > 
-> SLES küme çerçevesini kullanarak SAP ASCS/SCS örneği Kümelemesi hakkında daha fazla bilgi için bkz. [uygulamalar SAP için SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde SAP NetWeaver için yüksek kullanılabilirlik] [ sap-suse-ascs-ha]. SLES alternatif HA mimarisi için hangi gerektirmez yüksek oranda kullanılabilir bir NFS bkz [SUSE Linux Enterprise Server, SAP uygulamalarını Azure NetApp dosyaları üzerinde SAP NetWeaver için yüksek kullanılabilirlik Kılavuzu] [ sap-suse-ascs-ha-anf].
+> SLES küme çerçevesini kullanarak SAP ASCS/SCS örneği Kümelemesi hakkında daha fazla bilgi için bkz. [uygulamalar SAP için SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde SAP NetWeaver için yüksek kullanılabilirlik][sap-suse-ascs-ha]. For alternative HA architecture on SLES, which doesn't require highly available NFS see [High-availability guide for SAP NetWeaver on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications][sap-suse-ascs-ha-anf].
 
 Red Hat küme çerçevesini kullanarak SAP ASCS/SCS örneği Kümelemesi hakkında daha fazla bilgi için bkz. [Azure sanal makineler Red Hat Enterprise Linux üzerinde SAP NetWeaver için yüksek kullanılabilirlik](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
 

@@ -2,17 +2,17 @@
 title: Azure Kubernetes Service (AKS) pod'ları için statik bir birim oluşturun
 description: El ile bir pod Azure Kubernetes Service (AKS) ile kullanılmak üzere Azure diskleri olan bir birim oluşturmayı öğrenin
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: b166f70186b063782fb2c2245e351d6dfca6f978
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 9017c8cf721fbb9c493dc18da769b9d6e83ddf05
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072150"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616129"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>El ile oluşturma ve birim Azure diskleri Azure Kubernetes Service (AKS) kullanma
 
@@ -25,7 +25,7 @@ Kubernetes birimleri hakkında daha fazla bilgi için bkz. [AKS uygulamalar içi
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak] [ aks-quickstart-cli] veya [Azure portalını kullanarak][aks-quickstart-portal].
+Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
 Ayrıca Azure CLI Sürüm 2.0.59 gerekir veya daha sonra yüklü ve yapılandırılmış. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
 
@@ -33,7 +33,7 @@ Ayrıca Azure CLI Sürüm 2.0.59 gerekir veya daha sonra yüklü ve yapılandır
 
 AKS ile kullanmak için bir Azure diskinin oluşturduğunuzda, disk kaynak oluşturabilirsiniz **düğüm** kaynak grubu. Bu yaklaşım erişmek ve disk kaynağı yönetmek AKS kümesi sağlar. Bunun yerine ayrı kaynak grubunda disk oluşturursanız, kümeniz için Azure Kubernetes Service (AKS) hizmet sorumlusu vermelisiniz `Contributor` rolüne diskin kaynak grubu.
 
-Bu makalede, düğüm kaynak grubunda disk oluşturun. İlk olarak, kaynak grubu adını alın [az aks show] [ az-aks-show] komut ve ekleme `--query nodeResourceGroup` sorgu parametresi. Aşağıdaki örnek, düğüm kaynak grubu için AKS kümesinin adını alır. *myAKSCluster* kaynak grubu adında *myResourceGroup*:
+Bu makalede, düğüm kaynak grubunda disk oluşturun. İlk olarak, kaynak grubu adını alın [az aks show][az-aks-show] komut ve ekleme `--query nodeResourceGroup` sorgu parametresi. Aşağıdaki örnek, düğüm kaynak grubu için AKS kümesinin adını alır. *myAKSCluster* kaynak grubu adında *myResourceGroup*:
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -41,7 +41,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Şimdi bir diski kullanarak oluşturmak [az disk oluşturma] [ az-disk-create] komutu. Önceki komutta ve ardından disk kaynağı için bir ad gibi elde düğüm kaynak grubunu adını belirtmelisiniz *myAKSDisk*. Aşağıdaki örnek, oluşturur bir *20*GiB disk ve oluşturulduktan sonra disk çıkışlarını kimliği. Windows Server kapsayıcıları (şu anda önizlemede aks'deki) ile kullanmak için bir disk oluşturmak gerekiyorsa, ekleyin `--os-type windows` doğru diski biçimlendirmek için parametre.
+Şimdi bir diski kullanarak oluşturmak [az disk oluşturma][az-disk-create] komutu. Önceki komutta ve ardından disk kaynağı için bir ad gibi elde düğüm kaynak grubunu adını belirtmelisiniz *myAKSDisk*. Aşağıdaki örnek, oluşturur bir *20*GiB disk ve oluşturulduktan sonra disk çıkışlarını kimliği. Windows Server kapsayıcıları (şu anda önizlemede aks'deki) ile kullanmak için bir disk oluşturmak gerekiyorsa, ekleyin `--os-type windows` doğru diski biçimlendirmek için parametre.
 
 ```azurecli-interactive
 az disk create \

@@ -7,12 +7,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
-ms.openlocfilehash: 6c0fa0a3166dce5aa6adc71a46555a24d899c96b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 86f8c6e527f58a7c4cfca6233165f0ab05426409
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441354"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672564"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IOT Hub cihaz akışları (Önizleme)
 
@@ -82,7 +82,7 @@ Hem cihaz hem de cihaz akışını hizmet tarafında, IOT hub'ı ve kendi akış
 
 !["Cihaz akış uç noktaları"](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
 
-Alternatif olarak, uç bilgi hub'ının özellikler bölümü altında Azure CLI'yı kullanarak, özellikle kullanım alınabilir `property.hostname` ve `property.deviceStreams` anahtarları.
+Alternatif olarak, uç bilgi hub'ının özellikler bölümü altında özellikle, Azure CLI kullanarak alınabilir `property.hostname` ve `property.deviceStreams` anahtarları.
 
 ```azurecli-interactive
 az iot hub devicestream show --name <YourIoTHubName>

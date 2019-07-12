@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/13/2019
 ms.author: victorh
-ms.openlocfilehash: 6aad0502b5739906d1fa8fa896f8d0af8cc38e30
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8e79fd1a839113cad5a3a36c01855d98793d7032
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205006"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655304"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Otomatik ölçeklendirme ve bölgesel olarak yedekli Application Gateway v2 
 
@@ -35,7 +35,7 @@ Yeni v2 SKU aşağıdaki geliştirmeleri içerir:
 
 ## <a name="supported-regions"></a>Desteklenen bölgeler
 
-WAF_v2 SKU ve Standard_v2 aşağıdaki bölgelerde kullanılabilir: Kuzey Orta ABD, Güney Orta ABD, Batı ABD, Batı ABD 2, Doğu ABD, Doğu ABD 2, Orta ABD, Kuzey Avrupa, Batı Avrupa, Güneydoğu Asya, Fransa Orta, Birleşik Krallık Batı, Japonya Doğu, Japonya Batı. Ek bölgeler gelecekte eklenecektir.
+WAF_v2 SKU ve Standard_v2 aşağıdaki bölgelerde kullanılabilir: Kuzey Orta ABD, Güney Orta ABD, Batı ABD, Batı ABD 2, Doğu ABD, Doğu ABD 2, Orta ABD, Kuzey Avrupa, Batı Avrupa, Güneydoğu Asya, Fransa Orta, Birleşik Krallık Batı, Japonya Doğu Batı, Japonya Doğu, Avustralya Güneydoğu, Kanada Orta, Kanada Doğu ve Doğu Asya, Kore Orta, Kore Güney, Hindistan Güney, UK Güney, Orta Hindistan, Batı Hindistan, Güney Hindistan.
 
 ## <a name="pricing"></a>Fiyatlandırma
 

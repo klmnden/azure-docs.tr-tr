@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: feccaea0451ae36d841aae95ed0baf54f90c2700
-ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
+ms.openlocfilehash: 37acd88dbfe8ed1790f1bfa68d5e9762a861ddc7
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67568252"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626400"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Havacılıkta Tahmine dayalı bakım için Cortana Intelligence çözüm şablonları için teknik kılavuz
 
@@ -103,7 +103,7 @@ Azure Stream Analytics sorgu tarafından bulunabilir:
   * ***Sorgu*** sorguyu görüntülemek için
   * ***ÇIKARAN*** farklı çıktılarını görüntülemek için
 
-Azure Stream Analytics sorgu oluşturma hakkında daha fazla bilgi bulunabilir [Stream Analytics sorgu başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx) MSDN'de.
+Azure Stream Analytics sorgu oluşturma hakkında daha fazla bilgi bulunabilir [Stream Analytics sorgu başvurusu](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) MSDN'de.
 
 Bu çözümde, bu çözüm şablonunun bir parçası olarak sunulan bir Power BI panosuna gelen veri akışını gerçek zamanlı analiz bilgilerini neredeyse üç kümeleriyle sorguları çıktı. Gelen veri biçimi hakkında örtük bilgiye olduğundan, bu sorgular, veri biçimi göre değiştirilmesi gerekir.
 

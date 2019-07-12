@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 7bc7f3631748f4ac74a76e9e67aa2aef2c8f9a71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1241a6ee5a49504619c377fa3f7006320def14ec
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480312"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805915"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows Azure dosyaları sorunlarını giderme
 
 Bu makalede Windows istemcilerinden bağlandığınızda, Microsoft Azure dosyaları'na ilgili genel sorunları listeler. Ayrıca olası nedenleri ve çözümlemeleri için bu sorunları sağlar. Bu makalede sorun giderme adımlarını ek olarak da kullanabilirsiniz [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) Windows istemci ortam önkoşulları doğru olduğundan emin olmak için. En iyi performansı elde etmek için ortamınızı ayarlama yardımcı olur ve bu makalede değinilen belirtileri çoğunu algılanması AzFileDiagnostics otomatikleştirir. Bu bilgiler de bulabilirsiniz [Azure dosyaları paylaşımlarını sorun giderici](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) bağlama/eşleme/bağlama Azure dosyaları paylaşımlarını sorunlara yardımcı olmak için adımları sağlar.
 
-<a id="error5"></a>
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
+<a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Bir Azure dosya paylaşımını bağladığınızda 5 hatası
 
 Bir dosya paylaşımını bağlayabilmeniz çalıştığınızda şu hatayı alabilirsiniz:
@@ -108,7 +108,6 @@ Bir VPN belirli depolama hesabınıza ayarlayarak, trafik olarak güvenli bir t�
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>4 - çözüm tabanlı REST API kullanma araçları gibi Depolama Gezgini/Powershell
 Azure dosyaları SMB yanı sıra REST da destekler. REST erişim bağlantı noktası 443 (standart tcp) üzerinde çalışır. Zengin UI deneyimi sağlayan REST API kullanılarak yazılan çeşitli araçları vardır. [Depolama Gezgini](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) , bunlardan biridir. [İndirme ve yükleme, Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) ve Azure dosyaları tarafından desteklenen dosya paylaşımına bağlanın. Ayrıca [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) , ayrıca kullanıcı REST API.
 
-
 ### <a name="cause-2-ntlmv1-is-enabled"></a>2\. neden: NTLMv1 etkin
 
 NTLMv1 iletişim istemcide etkinse, sistem hatası 53 veya sistem hatası 87 ortaya çıkabilir. Azure dosyaları yalnızca NTLMv2 kimlik doğrulamasını destekler. NTLMv1 etkin olması daha az güvenli bir istemci oluşturur. Bu nedenle, iletişim, Azure dosyaları için engellenir. 
@@ -136,6 +135,13 @@ Dosya paylaşımının nerede bağlı bilgisayar için bir dosya izin verilen e�
 
 Bazı işler kapatarak eşzamanlı açık tanıtıcı sayısını azaltın ve yeniden deneyin. Daha fazla bilgi için [Microsoft Azure depolama performansı ve ölçeklenebilirlik denetim listesi](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
+Dosya Paylaşımı, dizin veya dosya tanıtıcıları görüntülemek için kullanın [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet'i.  
+
+Dosya Paylaşımı, dizin veya dosya tanıtıcıları kapatmak için [Kapat AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet'i.
+
+> [!Note]  
+> Get-AzStorageFileHandle ve Kapat AzStorageFileHandle cmdlet'leri Az PowerShell modülü 2.4 veya sonraki bir sürümü dahil edilir. En son Az PowerShell modülünü yüklemek için bkz: [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
 <a id="authorizationfailureportal"></a>
 ## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>"Yetkilendirme hatası" hata portalında bir Azure dosya paylaşımına göz atarken
 
@@ -155,6 +161,23 @@ Azure dosya paylaşımının bulunduğu depolama hesabına Gözat'a tıklayın *
 ### <a name="solution-for-cause-2"></a>Neden 2 çözümü
 
 Sanal ağ ve güvenlik duvarı kuralları depolama hesabı düzgün şekilde yapılandırıldığından doğrulayın. Sanal ağ veya güvenlik duvarı kuralları neden sorun varsa test etmek için geçici olarak depolama hesabı için ayarı değiştirmeniz **tüm ağlardan erişime izin ver**. Daha fazla bilgi için bkz. [yapılandırma Azure depolama güvenlik duvarlarını ve sanal ağlar](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+
+<a id="open-handles"></a>
+## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Bir dosya veya dizinde bir Azure dosya paylaşımı silinemedi
+
+### <a name="cause"></a>Nedeni
+Dosya veya dizin açık bir tanıtıcısı olması durumunda bu sorun genellikle oluşur. 
+
+### <a name="solution"></a>Çözüm
+
+Tüm açık tanıtıcıları SMB istemcileri kapatıldı ve Sorun oluşmaya devam, aşağıdakileri gerçekleştirin:
+
+- Kullanım [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) açık tanıtıcıları görüntülemek için PowerShell cmdlet'i.
+
+- Kullanım [Kapat AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) açık tanıtıcıları kapatmak için PowerShell cmdlet'i. 
+
+> [!Note]  
+> Get-AzStorageFileHandle ve Kapat AzStorageFileHandle cmdlet'leri Az PowerShell modülü 2.4 veya sonraki bir sürümü dahil edilir. En son Az PowerShell modülünü yüklemek için bkz: [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Dosya ve Windows Azure dosyalarından kopyalamak yavaş
@@ -183,7 +206,7 @@ Düzeltme yüklü değilse, aşağıdaki çıktıyı görüntülenir:
 > Windows Server 2012 R2 görüntüleri Azure Market'te düzeltme aralık 2015'ten başlayarak varsayılan olarak yüklenen KB3114025 vardır.
 
 <a id="shareismissing"></a>
-## <a name="no-folder-with-a-drive-letter-in-my-computer"></a>Bir sürücü harfiyle klasör **Bilgisayarım**
+## <a name="no-folder-with-a-drive-letter-in-my-computer-or-this-pc"></a>Bir sürücü harfi "Bilgisayarım" veya "Bu bilgisayar" olan bir klasörü yok
 
 Net kullanım kullanarak yönetici olarak bir Azure dosya paylaşımı eşlerseniz, paylaşım eksik gibi görünüyor.
 

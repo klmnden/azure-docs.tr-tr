@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 5299437dea18510fa5f85ee27240c8afc434d125
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95ad2ba4798d41f2e5e49ca33735b997859af23f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61477272"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67658134"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure'da Windows sanal makineler üzerinde çalışan SQL Server için sık sorulan sorular
 
@@ -37,7 +37,7 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
 
 ## <a id="images"></a> Görüntüleri
 
-1. **Hangi SQL Server sanal makine galeri görüntüleri kullanılabilir mi?**
+1. **Hangi SQL Server sanal makine galeri görüntüleri kullanılabilir mi?** 
 
    Azure, hem Windows hem de Linux için sanal makine görüntüleri için tüm sürümleri üzerinde SQL Server'ın tüm desteklenen ana sürümler tutar. Daha fazla bilgi için tam listesi görmek [Windows VM görüntüleri](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo) ve [Linux VM görüntüleri](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create).
 
@@ -77,8 +77,7 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
 
 1. **Lisanslı SQL Server kopyamı bir Azure sanal makinesine nasıl yükleyebilirim?**
 
-   Bunu yapmanın iki yolu vardır. [Lisansları destekleyen sanal makine görüntülerinden](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) birini (kendi lisansını getir (KLG) olarak da bilinir) sağlayabilirsiniz. Diğer seçenek SQL Server yükleme medyasını bir Windows Server sanal makinesine kopyalamak ve sonra sanal makineye SQL Server'ı yüklemektir. Öte yandan SQL Server'ı kendiniz yüklerseniz portal tümleştirmesi olmaz ve SQL Server IaaS Aracı Uzantısı desteklenmez; dolayısıyla Otomatik Yedekleme ve Otomatik Düzeltme Eki Uygulama gibi özellikler bu senaryoda çalışmaz. Bu nedenle KLG galeri görüntülerinden birini kullanmanızı öneririz. KLG veya kendi SQL Server medya, bir Azure sanal makinesinde kullanmak için olmalıdır [azure'de Yazılım Güvencesiyle lisans taşınabilirliği](https://azure.microsoft.com/pricing/license-mobility/). Daha fazla bilgi için bkz. [SQL Server Azure VM’leri için fiyatlandırma kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md).
-
+   Bunu yapmanın iki yolu vardır. [Lisansları destekleyen sanal makine görüntülerinden](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) birini (kendi lisansını getir (KLG) olarak da bilinir) sağlayabilirsiniz. Diğer seçenek SQL Server yükleme medyasını bir Windows Server sanal makinesine kopyalamak ve sonra sanal makineye SQL Server'ı yüklemektir. Öte yandan SQL Server'ı kendiniz yüklerseniz portal tümleştirmesi olmaz ve SQL Server IaaS Aracı Uzantısı desteklenmez; dolayısıyla Otomatik Yedekleme ve Otomatik Yama Uygulama gibi özellikler bu senaryoda çalışmaz. Bu nedenle KLG galeri görüntülerinden birini kullanmanızı öneririz. KLG veya kendi SQL Server medya, bir Azure sanal makinesinde kullanmak için olmalıdır [azure'de Yazılım Güvencesiyle lisans taşınabilirliği](https://azure.microsoft.com/pricing/license-mobility/). Daha fazla bilgi için bkz. [SQL Server Azure VM’leri için fiyatlandırma kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md).
 
 1. **Yalnızca bekleme/yük devretme için kullanılıyorsa Azure sanal makinesindeki SQL Server'ı lisanslamak için ödeme yapmam gerekir mi?**
 
@@ -147,9 +146,10 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
    
 ## <a name="updating-and-patching"></a>Güncelleştirme ve düzeltme eki uygulama
 
-1. **Azure VM'de SQL Server'ın yeni bir sürümü/yayını için nasıl değiştirebilirim?**
+1. **Azure VM'de SQL Server'ın farklı bir sürümü/yayını için nasıl değiştirebilirim?**
 
-   Yazılım Güvencesine sahip müşteriler yerinde yükseltme toplu lisans portalında yükleme medyasını kullanarak bir Azure sanal makinesinde çalışan kendi SQL Server olanağına sahip olursunuz. Ancak, şu anda, SQL Server örneği sürümünü değiştirmek için hiçbir yolu yoktur. İstenen SQL Server sürümü ile yeni bir Azure sanal makine oluşturma ve veritabanlarınızı yeni sunucuya standardını kullanarak geçirmenize [veri taşıma tekniklerini](virtual-machines-windows-migrate-sql.md).
+   Müşteriler, kendi sürümü SQL Server'ın, istenen sürüm veya SQL Server sürümünü içeren Kurulum medyası kullanarak değiştirebilirsiniz. Sürüm değiştirilmişse, VM için fatura bilgilerini doğru bir şekilde yansıtmak için sanal edition özelliği değiştirmek için Azure portalını kullanın. Daha fazla bilgi için [bir SQL Server VM sürümünü değiştirme](virtual-machines-windows-sql-change-edition.md). 
+
 
 1. **Güncelleştirmelerin ve hizmet paketlerinin nasıl bir SQL Server sanal makinesinde uygulanır?**
 
@@ -170,7 +170,7 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
 
 1. **SQL veri araçları Azure VM'deki uygulamalarımdan birine nasıl yüklerim?**
 
-    SQL veri Araçları'ndan yükleyip [Microsoft SQL Server veri araçları - Visual Studio 2013 için iş zekası](https://www.microsoft.com/en-us/download/details.aspx?id=42313).
+    SQL veri Araçları'ndan yükleyip [Microsoft SQL Server veri araçları - Visual Studio 2013 için iş zekası](https://www.microsoft.com/download/details.aspx?id=42313).
 
 1. **SQL Server Vm'leri üzerinde desteklenen MSDTC ile dağıtılmış işlemler misiniz?**
    

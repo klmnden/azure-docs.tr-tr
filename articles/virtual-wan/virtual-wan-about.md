@@ -5,21 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 06/11/2019
+ms.date: 06/28/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 7ee6b2dd07a89de4f5347e82bde19990dbb6c995
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 46f3f87fac5b65229e03ee91d8f2b93b1a1590e8
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077536"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795274"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Azure Sanal WAN nedir?
 
 Azure sanal WAN en iyi duruma getirilmiş ve otomatik Dal bağlantısı için ve Azure üzerinden sağlayan bir ağ hizmetidir. Azure bölgeleri, dallarınız için bağlanmayı seçebilirsiniz hub'ları görür. Ayrıca dalları bağlanmak ve dal-VNet bağlantısı keyfini çıkarmak için Azure omurgası yararlanabilirsiniz. Bir Azure sanal WAN VPN bağlantısı otomasyonla destekleyen iş ortaklarının listesi sahibiz. Daha fazla bilgi için [sanal WAN iş ortakları ve konumları](virtual-wan-locations-partners.md) makalesi.
 
-Azure sanal WAN siteden siteye VPN (genel kullanıma sunuldu) ExpressRoute (Önizleme), tek bir işletimsel arabirim uygulamasına noktadan siteye kullanıcı (Önizleme) VPN gibi birçok Azure bulut Bağlantı Hizmetleri getirmektedir. Sanal ağ bağlantıları kullanarak Azure Sanal Ağları için bağlantı kurulur.
+Azure sanal WAN birlikte noktadan siteye kullanıcı VPN siteden siteye VPN ve ExpressRoute gibi pek çok Azure bulut Bağlantı Hizmetleri tek bir işletimsel arabirim getirir. Sanal ağ bağlantıları kullanarak Azure Sanal Ağları için bağlantı kurulur.
+
+ExpressRoute ve siteden siteye noktası kullanıcı VPN sanal WAN için'şu anda Önizleme aşamasındadır.
 
 ![Sanal WAN diyagramı](./media/virtual-wan-about/virtualwan1.png)
 

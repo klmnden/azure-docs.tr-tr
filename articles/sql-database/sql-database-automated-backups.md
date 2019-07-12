@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 06/27/2019
-ms.openlocfilehash: 1eeb37ce74b3e2f57588197d6bb88f59944c61cf
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: ce16450f7f25e5703cf283c4babb2a935aad21de
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460675"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813061"
 ---
 # <a name="automated-backups"></a>Otomatik yedeklemeler
 
@@ -109,7 +109,11 @@ Veritabanınız ile TDE şifrelenmişse, yedeklemeleri otomatik olarak LTR yedek
 
 ## <a name="how-does-microsoft-ensure-backup-integrity"></a>Microsoft, yedekleme tutarlılığı nasıl emin
 
-Sürekli olarak, Azure SQL veritabanı mühendislik ekibi, veritabanlarının otomatik veritabanı yedeklerini geri otomatik olarak hizmet arasında sınar. Geri yükleme sonrasında veritabanları DBCC CHECKDB kullanarak bütünlük denetimi de alır. Bütünlük denetimi sırasında bulunan tüm sorunları mühendislik ekibine bir uyarıya neden olur. Azure SQL veritabanında veri bütünlüğü hakkında daha fazla bilgi için bkz: [Azure SQL veritabanında veri bütünlüğü](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
+Sürekli olarak, mühendislik ekibinin otomatik olarak Azure SQL veritabanı, testleri yerleştirilmiş mantıksal sunucuları ve elastik havuzlar (Bu yönetilen örneği'nde kullanılabilir değil) otomatik veritabanı yedeklerini geri yükleme veritabanları. Belirli bir noktaya geri yükleme sonrasında veritabanları DBCC CHECKDB kullanarak bütünlük denetimi de alır.
+
+Yönetilen örnek alan ile ilk otomatik yedekleme `CHECKSUM` yerel kullanılarak geri veritabanlarının `RESTORE` komut veya geçiş tamamlandıktan sonra veri geçiş hizmeti.
+
+Bütünlük denetimi sırasında bulunan tüm sorunları mühendislik ekibine bir uyarıya neden olur. Azure SQL veritabanında veri bütünlüğü hakkında daha fazla bilgi için bkz: [Azure SQL veritabanında veri bütünlüğü](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 
 ## <a name="how-do-automated-backups-impact-compliance"></a>Otomatik yedekleri uyumluluk nasıl etkilediği
 

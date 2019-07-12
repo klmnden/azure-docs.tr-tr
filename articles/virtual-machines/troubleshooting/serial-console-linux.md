@@ -4,7 +4,7 @@ description: Azure sanal makineler ve sanal makine ölçek kümeleri için iki y
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 4fb2fd9503dad4113609b35dbe66496a03272f85
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: f3fa646fcca99d5762f480b3fd12c5e249eabaf8
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137219"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710573"
 ---
 # <a name="azure-serial-console-for-linux"></a>Linux için Azure seri konsol
 
@@ -98,7 +98,7 @@ SUSE        | Azure'da sunulan yeni SLES görüntüleri, varsayılan olarak etki
 Oracle Linux        | Seri konsol erişimi varsayılan olarak etkindir.
 
 ### <a name="custom-linux-images"></a>Özel Linux görüntüleri
-Seri konsol özel Linux VM görüntünüz için etkinleştirmek için konsol erişimi dosyasındaki etkinleştirme */etc/inittab* bir terminal çalıştırılacak `ttyS0`. Örneğin: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`.
+Seri konsol özel Linux VM görüntünüz için etkinleştirmek için konsol erişimi dosyasındaki etkinleştirme */etc/inittab* bir terminal çalıştırılacak `ttyS0`. Örneğin: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`
 
 Seri çıkışı için hedef olarak ttys0 eklemek isteyeceksiniz. Seri konsol ile çalışmak için özel bir görüntü yapılandırma hakkında daha fazla bilgi için bkz: Genel sistem gereksinimlerine [azure'da bir Linux VHD'si oluşturup yükleme](https://aka.ms/createuploadvhd#general-linux-system-requirements).
 

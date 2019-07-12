@@ -2,17 +2,17 @@
 title: Dinamik olarak Azure Kubernetes Service (AKS) için birden çok podunuz dosyaları birim oluşturma
 description: Dinamik olarak eşzamanlı birden çok podunuz Azure Kubernetes Service (AKS) ile kullanmak için Azure dosyaları ile kalıcı hacim oluşturmayı öğrenin
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: ed9be9f3ecc7a14a0aa0210ee34f9323126be085
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/08/2019
+ms.author: mlearned
+ms.openlocfilehash: 580363973afd918351931edfb187a1a8d38d6985
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061089"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67665980"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dinamik olarak oluşturabilen ve Azure dosyaları Azure Kubernetes Service (AKS) ile kalıcı hacim kullanma
 
@@ -22,13 +22,13 @@ Kubernetes birimleri hakkında daha fazla bilgi için bkz. [AKS uygulamalar içi
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak] [ aks-quickstart-cli] veya [Azure portalını kullanarak][aks-quickstart-portal].
+Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
 Ayrıca Azure CLI Sürüm 2.0.59 gerekir veya daha sonra yüklü ve yapılandırılmış. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
 
 ## <a name="create-a-storage-class"></a>Bir depolama sınıfı oluşturma
 
-Bir depolama sınıfı, bir Azure dosya paylaşımı nasıl oluşturulduğunu tanımlamak için kullanılır. Bir depolama hesabı otomatik olarak oluşturulan *_MC* Azure dosya paylaşımlarını tutmak için depolama sınıfı ile kullanmak için kaynak grubu. Aşağıdakilerden seçin [Azure depolama yedekliliği] [ storage-skus] için *skuName*:
+Bir depolama sınıfı, bir Azure dosya paylaşımı nasıl oluşturulduğunu tanımlamak için kullanılır. Bir depolama hesabı otomatik olarak oluşturulan [kaynak grubu düğümü][node-resource-group] for use with the storage class to hold the Azure file shares. Choose of the following [Azure storage redundancy][storage-skus] için *skuName*:
 
 * *Standard_LRS* -standart yerel olarak yedekli depolama (LRS)
 * *Standard_GRS* -standart coğrafi olarak yedekli depolama (GRS)
@@ -39,7 +39,7 @@ Bir depolama sınıfı, bir Azure dosya paylaşımı nasıl oluşturulduğunu ta
 
 Azure dosyaları için Kubernetes depolama sınıfları hakkında daha fazla bilgi için bkz. [Kubernetes depolama sınıfları][kubernetes-storage-classes].
 
-Adlı bir dosya oluşturun `azure-file-sc.yaml` ve aşağıdaki örnek bildirimde kopyalayın. Daha fazla bilgi için *mountOptions*, bkz: [bağlama seçenekleri] [ mount-options] bölümü.
+Adlı bir dosya oluşturun `azure-file-sc.yaml` ve aşağıdaki örnek bildirimde kopyalayın. Daha fazla bilgi için *mountOptions*, bkz: [bağlama seçenekleri][mount-options] bölümü.
 
 ```yaml
 kind: StorageClass
@@ -56,7 +56,7 @@ parameters:
   skuName: Standard_LRS
 ```
 
-Depolama sınıfı ile oluşturma [kubectl uygulamak] [ kubectl-apply] komutu:
+Depolama sınıfı ile oluşturma [kubectl uygulamak][kubectl-apply] komutu:
 
 ```console
 kubectl apply -f azure-file-sc.yaml
@@ -93,7 +93,7 @@ subjects:
   namespace: kube-system
 ```
 
-Atama izinleri olan [kubectl uygulamak] [ kubectl-apply] komutu:
+Atama izinleri olan [kubectl uygulamak][kubectl-apply] komutu:
 
 ```console
 kubectl apply -f azure-pvc-roles.yaml
@@ -101,7 +101,7 @@ kubectl apply -f azure-pvc-roles.yaml
 
 ## <a name="create-a-persistent-volume-claim"></a>Kalıcı hacim talep oluşturma
 
-Kalıcı hacim talep (PVC), dinamik olarak Azure dosya paylaşımını sağlamak için depolama sınıfı nesnesini kullanır. Kalıcı hacim talep oluşturmak için aşağıdaki YAML kullanılabilir *5GB* boyutu *ReadWriteMany* erişim. Erişim modları hakkında daha fazla bilgi için bkz. [Kubernetes kalıcı hacim] [ access-modes] belgeleri.
+Kalıcı hacim talep (PVC), dinamik olarak Azure dosya paylaşımını sağlamak için depolama sınıfı nesnesini kullanır. Kalıcı hacim talep oluşturmak için aşağıdaki YAML kullanılabilir *5GB* boyutu *ReadWriteMany* erişim. Erişim modları hakkında daha fazla bilgi için bkz. [Kubernetes kalıcı hacim][access-modes] belgeleri.
 
 Artık adlı bir dosya oluşturun `azure-file-pvc.yaml` aşağıdaki YAML'ye kopyalayın. Emin olun *storageClassName* son adımda oluşturduğunuz depolama sınıfı ile eşleşen:
 
@@ -119,13 +119,13 @@ spec:
       storage: 5Gi
 ```
 
-Kalıcı hacim taleple oluşturma [kubectl uygulamak] [ kubectl-apply] komutu:
+Kalıcı hacim taleple oluşturma [kubectl uygulamak][kubectl-apply] komutu:
 
 ```console
 kubectl apply -f azure-file-pvc.yaml
 ```
 
-Tamamlandığında, dosya paylaşımı oluşturulur. Kubernetes gizli bağlantı bilgilerini ve kimlik bilgilerini içeren da oluşturulur. Kullanabileceğiniz [kubectl alma] [ kubectl-get] PVC durumunu görüntülemek için komut:
+Tamamlandığında, dosya paylaşımı oluşturulur. Kubernetes gizli bağlantı bilgilerini ve kimlik bilgilerini içeren da oluşturulur. Kullanabileceğiniz [kubectl alma][kubectl-get] PVC durumunu görüntülemek için komut:
 
 ```console
 $ kubectl get pvc azurefile
@@ -165,7 +165,7 @@ spec:
         claimName: azurefile
 ```
 
-Pod ile oluşturma [kubectl uygulamak] [ kubectl-apply] komutu.
+Pod ile oluşturma [kubectl uygulamak][kubectl-apply] komutu.
 
 ```console
 kubectl apply -f azure-pvc-files.yaml
@@ -264,3 +264,4 @@ Azure dosyaları'nı kullanarak Kubernetes kalıcı birimleri hakkında daha faz
 [kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
+[node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks

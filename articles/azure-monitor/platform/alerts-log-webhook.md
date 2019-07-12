@@ -1,6 +1,6 @@
 ---
 title: Azure Uyarıları'te günlük uyarıları için Web kancası eylemleri
-description: Bu makalede, nasıl bir günlük uyarı kuralı kullanarak log analytics çalışma alanı ya da uygulama öngörüleri, gönderir veri HTTP Web kancası ve farklı özelleştirmeler ayrıntılarını olası açıklanır.
+description: Bu makalede Log Analytics çalışma alanı veya Application Insights'ı kullanarak günlük uyarı kuralı oluşturmak nasıl bir HTTP Web kancası ve olası farklı özelleştirmeler ayrıntılarını uyarı verilerini nasıl gönderen.
 author: msvijayn
 services: monitoring
 ms.service: azure-monitor
@@ -8,58 +8,58 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: cad1b0ab484d172000bd62146a88a27bfab1e9f2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6aa007c621e76cb0c188a7dab6279fd9e387b2b3
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448779"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705182"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Günlük uyarı kuralları için Web kancası eylemleri
-Olduğunda bir [günlük uyarı Azure'da oluşturulan](alerts-log.md), seçeneğiniz vardır [Eylem grupları kullanarak yapılandırma](action-groups.md) bir veya daha fazla eylem gerçekleştirmek için.  Bu makalede, özel JSON tabanlı Web kancası yapılandırma hakkında ayrıntıları ve mevcut olan farklı bir Web kancası eylemleri açıklar.
+Olduğunda bir [günlük uyarı Azure'da oluşturulan](alerts-log.md), seçeneğiniz vardır [Eylem grupları kullanarak yapılandırmayı](action-groups.md) bir veya daha fazla eylem gerçekleştirmek için. Bu makale, mevcut olan farklı bir Web kancası eylemleri açıklar ve özel JSON tabanlı Web kancası yapılandırma işlemi gösterilmektedir.
 
 > [!NOTE]
-> Ayrıca [ortak uyarı şeması](https://aka.ms/commonAlertSchemaDocs), Genişletilebilir tek bir avantajı sağlar ve birleşik uyarı yük boyunca tüm uyarı Hizmetleri Azure İzleyici'de, Web kancası tümleştirmeleri için. [Ortak uyarı şema tanımları hakkında bilgi edinin.](https://aka.ms/commonAlertSchemaDefinitions)
+> Ayrıca [ortak uyarı şeması](https://aka.ms/commonAlertSchemaDocs) , Web kancası tümleştirmeleri için. Ortak uyarı şema, tek bir genişletilebilir ve birleşik uyarı yükü Azure İzleyici uyarı tüm hizmetlerde avantajı sağlar. [Ortak uyarı şema tanımları hakkında bilgi edinin.](https://aka.ms/commonAlertSchemaDefinitions)
 
 ## <a name="webhook-actions"></a>Web kancası eylemleri
 
-Web kancası eylemleri, bir dış işlem tek bir HTTP POST isteği üzerinden çağrılacak sağlar.  Çağrılan hizmet ve Web kancalarını destekleyen hiçbir yük kullanma belirlemek aldığı.    
+Web kancası işlemleri, bir dış işlem tek bir HTTP POST isteği üzerinden çağırabilirsiniz. Çağrılan hizmet, Web kancalarını destekleyen ve nasıl aldığı herhangi bir yükü kullanacağınızı belirleyin.
 
-Web kancası eylemleri özellikler aşağıdaki tabloda gerektirir:
+Web kancası eylemleri aşağıdaki tabloda özelliklerini gerektirir.
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| Web kancası URL'si |Web kancası URL'si. |
-| Özel JSON yükü |Uyarı oluşturulurken bu seçenek seçildiğinde, Web kancası ile göndermek için özel bir yükü. Ayrıntılar kullanılabilir [günlük Uyarıları Yönet](alerts-log.md) |
+| **Web kancası URL'si** |Web kancası URL'si. |
+| **Özel JSON yükü** |Uyarı oluşturulurken bu seçenek seçildiğinde, Web kancası ile göndermek için özel yükü. Daha fazla bilgi için [Yönet günlük uyarıları](alerts-log.md).|
 
 > [!NOTE]
-> Görünümü Web kancası düğmesini yanı sıra *Web kancası Ekle özel JSON yükü* günlük uyarı seçeneğinin, sağlanan özelleştirme için örnek Web kancası yükü görüntülenir. Gerçek veri ve günlük uyarıları için kullanılan JSON şeması temsilcisi içermiyor. 
+> **Görünümü Web kancası** yanı sıra düğmesini **Web kancası Ekle özel JSON yükü** sağlanan özelleştirme için örnek Web kancası yük günlüğü uyarısı görüntüler için seçenek. Gerçek veri içermiyor, ancak günlük uyarıları için kullanılan JSON şema temsilcisidir. 
 
-Web kancaları, bir URL ve dış hizmete gönderilen veriler JSON biçimli bir yükü içerir.  Varsayılan olarak, yük aşağıdaki tabloda değerler içerir:  Bu yükü ile kendi özel bir değiştirilecek seçebilirsiniz.  Bu durumda, değişkenleri tablodaki her parametre için özel yükünüzü değerlerine dahil etmek için kullanabilirsiniz.
+Web kancaları, bir URL ve veriler dış hizmete gönderilen JSON biçimli bir yükü içerir. Varsayılan olarak, yük aşağıdaki tabloda değerlerini içerir. Bu yükü ile kendi özel bir değiştirilecek seçebilirsiniz. Bu durumda, değişkenleri tabloda her parametreleri için değerleri özel yükünüzü eklemek için kullanın.
 
 
 | Parametre | Değişken | Açıklama |
 |:--- |:--- |:--- |
-| AlertRuleName |#alertrulename |Uyarı kuralı adı. |
-| Severity |#severity |Önem derecesi için tetiklenme günlük uyarı ayarlama. |
-| AlertThresholdOperator |#thresholdoperator |Eşik işleci için uyarı kuralı.  *Büyüktür* veya *küçüktür*. |
-| AlertThresholdValue |#thresholdvalue |Uyarı kuralı için eşik değer. |
-| LinkToSearchResults |#linktosearchresults |Uyarıyı oluşturan sorgudan kayıtlar döndüren analiz portalı bağlayın. |
-| ResultCount |#searchresultcount |Arama sonuçlarında kayıt sayısı. |
-| Arama aralığı bitiş zamanı |#searchintervalendtimeutc |Bitiş zamanı, UTC sorguda format - aa/gg/yyyy ss: dd: ss AM/PM. |
-| Arama aralığı |#searchinterval |Zaman penceresi için uyarı kuralı, biçimi - SS. |
-| Arama aralığı StartTime |#searchintervalstarttimeutc |UTC olarak başlangıç zamanı sorgu için format - aa/gg/yyyy ss: dd: ss AM/PM.. 
-| SearchQuery |#searchquery |Uyarı kuralı tarafından kullanılan günlük arama sorgusu. |
-| SearchResults |"IncludeSearchResults": true|İlk 1.000 kayıtlara sınırlı bir JSON tablo olarak sorgu tarafından döndürülen kayıtları; varsa "IncludeSearchResults": true, özel JSON Web kancası tanımında en üst düzey bir özellik olarak eklenir. |
-| Uyarı türü| #alerttype | Günlük uyarı kuralı yapılandırıldı - türünü [ölçüm ölçüsü](alerts-unified-log.md#metric-measurement-alert-rules) veya [numarası sonuçlarını](alerts-unified-log.md#number-of-results-alert-rules).|
-| Çalışma alanı kimliği |#workspaceid |Log Analytics çalışma alanınızın kimliği. |
-| Uygulama Kimliği |#applicationid |Kimliği, Application Insight uygulama. |
-| Abonelik Kimliği |#subscriptionid |Kullanılan Azure aboneliğinizin kimliği. 
+| *AlertRuleName* |#alertrulename |Uyarı kuralı adı. |
+| *Önem derecesi* |#severity |Önem derecesi için tetiklenme günlük uyarı ayarlama. |
+| *AlertThresholdOperator* |#thresholdoperator |Büyük veya küçük kullanan bir uyarı kuralı eşiğini işleci daha. |
+| *AlertThresholdValue* |#thresholdvalue |Uyarı kuralı için eşik değer. |
+| *LinkToSearchResults* |#linktosearchresults |Uyarıyı oluşturan sorgudan kayıtlar döndüren Analytics portalını bağlayın. |
+| *ResultCount* |#searchresultcount |Arama sonuçlarında kayıt sayısı. |
+| *Arama aralığı bitiş zamanı* |#searchintervalendtimeutc |Bitiş saati UTC, sorgu ile biçimini aa/gg/yyyy ss: dd: ss AM/PM. |
+| *Arama aralığı* |#searchinterval |Ss biçiminde bir uyarı kuralı zaman penceresi. |
+| *Arama aralığı StartTime* |#searchintervalstarttimeutc |Aa/gg/yyyy biçimindeki ile ss: dd UTC olarak başlangıç zamanı sorgu: ss AM/PM. 
+| *SearchQuery* |#searchquery |Uyarı kuralı tarafından kullanılan günlük arama sorgusu. |
+| *SearchResults* |"IncludeSearchResults": true|Varsa ilk 1.000 kayıtlarını sınırlı JSON tablo olarak sorgu tarafından döndürülen kayıtları "IncludeSearchResults": true, özel bir JSON Web kancası tanımında en üst düzey bir özellik olarak eklenir. |
+| *Uyarı türü*| #alerttype | Günlük uyarı kuralı olarak yapılandırılmış türünü [ölçüm ölçüsü](alerts-unified-log.md#metric-measurement-alert-rules) veya [sonuç sayısı](alerts-unified-log.md#number-of-results-alert-rules).|
+| *Çalışma alanı kimliği* |#workspaceid |Log Analytics çalışma alanınızın kimliği. |
+| *Uygulama Kimliği* |#applicationid |Application ınsights'ı kimliği uygulama. |
+| *Abonelik kimliği* |#subscriptionid |Kullanılan Azure aboneliğinizin kimliği. 
 
 > [!NOTE]
-> LinkToSearchResults SearchQuery, arama aralığının StartTime & arama aralığının bitiş saati gibi parametreleri Analytics bölümünde izleme için Azure portalı URL'sini geçirir. Azure portalında sahip olur ve yaklaşık 2000 karakter sınırını boyut URI *değil* parametrelerin değerleri söz konusu sınırı aşarsa Uyarıları ' sağlanan bağlantıyı aç. Kullanıcıları el ile Analytics portalında sonuçları görüntülemek veya kullanmak için ayrıntıları giriş [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) veya [Log Analytics REST API](/rest/api/loganalytics/) programlı olarak sonuçlar almak için 
+> *LinkToSearchResults* gibi parametrelerini geçirir *SearchQuery*, *arama aralığı StartTime*, ve *arama aralığının bitiş zamanı* azure'a URL Analytics bölümünde izleme için portalı. Azure portalında yaklaşık 2.000 karakterle URI boyut sınırı vardır. Portal olacak *değil* parametre değerlerini sınırı aşarsa uyarıları sağlanan bağlantılar. Analiz portalında sonuçlarını görüntülemek için ayrıntıları el ile girebilirsiniz. Ya da kullanabileceğinizi [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) veya [Log Analytics REST API](/rest/api/loganalytics/) sonuçları programlı olarak alınacak. 
 
-Örneğin, adında tek bir parametre içeren aşağıdaki özel yükü belirtebilirsiniz *metin*.  Bu Web kancasını çağırır hizmet, bu parametre bekleniyor.
+Örneğin, adında tek bir parametre içeren aşağıdaki özel yükü belirtebilirsiniz *metin*. Bu Web kancasını çağırır hizmet, bu parametre bekliyor.
 
 ```json
 
@@ -67,25 +67,25 @@ Web kancaları, bir URL ve dış hizmete gönderilen veriler JSON biçimli bir y
         "text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue."
     }
 ```
-Bu örnek yükü Web kancası'na gönderildiğinde aşağıdaki gibi bir şey çözümlemek.
+Web kancası'na gönderildiğinde aşağıdaki gibi bir şey bu örnek yükü çözer:
 
 ```json
     {
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
-Özel bir Web kancası tüm değişkenlerinde belirtilen "#searchinterval" gibi JSON kutu içinde olduğundan, sonuçta elde edilen Web kancası gibi kutu içinde değişken veri de bulunur "00: 05:00".
+Özel bir Web kancası tüm değişkenleri "#searchinterval," gibi bir JSON kutu içinde belirtilmesi gerektiğinden sonuç Web kancası ayrıca kasalarındaki içinde değişken veri gibi sahip "00: 05:00."
 
-Özel bir yükte arama sonuçları dahil etmek için emin olun **IncludeSearchResults** json yükü en üst düzey özelliği olarak ayarlanır. 
+Özel bir yükte arama sonuçları dahil etmek için emin olun **IncludeSearchResults** JSON yükü en üst düzey özelliği olarak ayarlanır. 
 
 ## <a name="sample-payloads"></a>Örnek yükler
-Bu bölümde, yükü standart olduğunda ve ne zaman gibi günlük uyarıları için Web kancası için örnek yük gösterilir, özel.
+Bu bölümde, örnek yüklerini günlük uyarıları için Web kancaları için gösterilir. Standart ve özel olduğunda yükü olduğunda, örnek yüklerini örnek olarak verilebilir.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Günlük uyarıları için standart bir Web kancası 
-Bu örneklerin her ikisi, yalnızca iki sütun ve iki satır işlevsiz bir yükü açıklamıştır.
+Bu örneklerin her ikisi yalnızca iki sütun ve iki satır işlevsiz bir yükü var.
 
-#### <a name="log-alert-for-azure-log-analytics"></a>Azure Log Analytics için günlük Uyarısı
-Standart Web kancası eylemi için bir örnek yük aşağıdadır *özel Json seçeneği olmadan* log analytics tabanlı uyarılar için kullanılıyor.
+#### <a name="log-alert-for-log-analytics"></a>Log Analytics için günlük Uyarısı
+Aşağıdaki örnek için bir standart Web kancası eylemi yüktür *özel bir JSON seçeneği olmadan* Log Analytics temelinde bağlı uyarılar için kullanılır:
 
 ```json
 {
@@ -124,11 +124,11 @@ Standart Web kancası eylemi için bir örnek yük aşağıdadır *özel Json se
  ```
 
 > [!NOTE]
-> Önem derecesi alanını değeri varsa değişebilir [API tercihinizi anahtarlı](alerts-log-api-switch.md) Log Analytics günlük uyarıları için.
+> Seçtiğiniz "Önem" alan değeri değiştirebilirsiniz [API tercihinizi anahtarlı](alerts-log-api-switch.md) Log Analytics günlük uyarıları için.
 
 
-#### <a name="log-alert-for-azure-application-insights"></a>Azure Application Insights için günlük Uyarısı
-Bir örnek yük için standart bir Web kancası aşağıdadır *özel Json seçeneği olmadan* application ınsights tabanlı günlük-uyarılar için kullanıldığında.
+#### <a name="log-alert-for-application-insights"></a>Application Insights için günlük Uyarısı
+Aşağıdaki örnek için standart bir Web kancası yüktür *özel bir JSON seçeneği olmadan* Application Insights tabanlı günlük uyarıları için kullanıldığında:
     
 ```json
 {
@@ -179,7 +179,7 @@ Bir örnek yük için standart bir Web kancası aşağıdadır *özel Json seçe
     }
 ```
 
-Aşağıdaki, tüm günlük uyarısı için bir özel Web kancası eylemi için bir örnek yüktür.
+Aşağıdaki örnek yük herhangi bir günlük uyarı için bir özel Web kancası eylemi içindir:
     
 ```json
     {
@@ -206,9 +206,9 @@ Aşağıdaki, tüm günlük uyarısı için bir özel Web kancası eylemi için 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Hakkında bilgi edinin [oturum uyarılar Azure uyarıları](alerts-unified-log.md)
-- Anlamak [azure'da günlük uyarıları yönetme](alerts-log.md)
-- Oluşturma ve yönetme [Azure Eylem grupları](action-groups.md)
-- Daha fazla bilgi edinin [Application Insights](../../azure-monitor/app/analytics.md)
+- Hakkında bilgi edinin [uyarılar Azure Uyarıları ' oturum](alerts-unified-log.md).
+- Anlamak için nasıl [Azure günlük uyarılarını Yönet](alerts-log.md).
+- Oluşturma ve yönetme [Azure Eylem grupları](action-groups.md).
+- Daha fazla bilgi edinin [Application Insights](../../azure-monitor/app/analytics.md).
 - Daha fazla bilgi edinin [oturum sorguları](../log-query/log-query-overview.md). 
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop; kumud
-ms.openlocfilehash: 07c8087043526a8eb0bf7a1963a761c40c11a925
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 383282aedd83f8f3e673444354bf17fdbf3f453c
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202863"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798966"
 ---
 # <a name="virtual-network-traffic-routing"></a>Sanal ağ trafiğini yönlendirme
 
@@ -34,13 +34,13 @@ Azure, sistem yollarını otomatik olarak oluşturur ve bir sanal ağ içindeki 
 
 Her yol, bir adres ön eki ve sonraki atlama türünü içerir. Alt ağdan ayrılan trafik, bir yolun adres ön eki içinde IP adresine gönderildiğinde ön eki içeren yol, Azure’ın kullandığı yoldur. Birden fazla yolun aynı ön eki içermesi veya ön eklerin çakışması durumunda [Azure’ın nasıl yol seçtiği](#how-azure-selects-a-route) hakkında daha fazla bilgi edinin. Bir sanal ağ oluşturulduğunda Azure, sanal ağ içindeki her alt ağ için aşağıdaki varsayılan sistem yollarını otomatik olarak oluşturur:
 
-|source |Adres ön ekleri                                        |Sonraki atlama türü  |
+|Source |Adres ön ekleri                                        |Sonraki atlama türü  |
 |-------|---------                                               |---------      |
 |Varsayılan|Sanal ağa özel                           |Sanal ağ|
 |Varsayılan|0.0.0.0/0                                               |Internet       |
 |Varsayılan|10.0.0.0/8                                              |None           |
-|Varsayılan|192.168.0.0/16                                          |None           |
-|Varsayılan|100.64.0.0/10                                           |None           |
+|Varsayılan|192.168.0.0/16                                          |Yok.           |
+|Varsayılan|100.64.0.0/10                                           |Yok.           |
 
 Önceki tabloda listelenen sonraki atlama türleri, Azure’ın listelenen adres ön ekine yönelik giden trafiği nasıl yönlendirdiğini göstermektedir. Sonraki atlama türlerinin açıklamaları:
 
@@ -57,7 +57,7 @@ Her yol, bir adres ön eki ve sonraki atlama türünü içerir. Alt ağdan ayrı
 
 Azure, farklı Azure özellikleri için ek olarak varsayılan sistem yolları ekler. Ancak bunun için ilgili özellikleri etkinleştirmiş olmanız gerekir. Özelliğe bağlı olarak Azure, sanal ağ içindeki belirli alt ağlara veya sanal ağ içindeki tüm alt ağlara isteğe bağlı varsayılan yollar ekler. Farklı özellikleri etkinleştirdiğinizde Azure’ın ekleyebileceği ek sistem yolları ve sonraki atlama türleri şunlardır:
 
-|source                 |Adres ön ekleri                       |Sonraki atlama türü|Yolun eklendiği sanal ağ içindeki alt ağ|
+|Source                 |Adres ön ekleri                       |Sonraki atlama türü|Yolun eklendiği sanal ağ içindeki alt ağ|
 |-----                  |----                                   |---------                    |--------|
 |Varsayılan                |Benzersiz sanal ağa, örneğin: 10.1.0.0/16|VNet eşlemesi                 |Tümü|
 |Sanal ağ geçidi|Şirket içinden BGP aracılığıyla tanıtılan veya yerel ağ geçidinde yapılandırılan ön ekler     |Sanal ağ geçidi      |Tümü|
@@ -98,7 +98,7 @@ Kullanıcı tanımlı bir yol oluştururken belirtebileceğiniz sonraki atlama t
 
 Kullanıcı tanımlı yollarda sonraki atlama türü olarak **VNet eşlemesi** veya **VirtualNetworkServiceEndpoint** seçeneğini belirtemezsiniz. Sonraki atlama türü **VNet eşlemesi** veya **VirtualNetworkServiceEndpoint** olan yollar yalnızca bir sanal ağ eşlemesi ya da hizmet uç noktası yapılandırdığınızda Azure tarafından oluşturulur.
 
-## <a name="next-hop-types-across-azure-tools"></a>**Azure araçlarında sonraki atlama türleri**
+## <a name="next-hop-types-across-azure-tools"></a>Sonraki atlama türleri arasında Azure Araçları
 
 Sonraki atlama türleri için gösterilen ve başvurulan ad, Azure portalı ile komut satırı araçları ve Azure Resource Manager ile klasik dağıtım modelleri arasında farklıdır. Aşağıdaki tabloda farklı araçlar ve [dağıtım modelleri](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ile her bir sonraki atlama türüne başvurmak için kullanılan adlar listelenir:
 
@@ -108,7 +108,7 @@ Sonraki atlama türleri için gösterilen ve başvurulan ad, Azure portalı ile 
 |Sanal ağ                 |VNetLocal                                       |VNETLocal (asm modunda klasik CLI’de kullanılamaz)|
 |Internet                        |Internet                                        |İnternet (asm modunda klasik CLI’de kullanılamaz)|
 |Sanal gereç               |VirtualAppliance                                |VirtualAppliance|
-|None                            |None                                            |Null (asm modunda klasik CLI’de kullanılamaz)|
+|Yok.                            |Yok.                                            |Null (asm modunda klasik CLI’de kullanılamaz)|
 |Sanal ağ eşleme         |VNet eşlemesi                                    |Geçerli değil|
 |Sanal ağ hizmet uç noktaları|VirtualNetworkServiceEndpoint                   |Geçerli değil|
 
@@ -139,7 +139,7 @@ Birden fazla yol aynı adres ön ekini içeriyorsa, Azure aşağıdaki öncelik 
 Örneğin, bir yol tablosu aşağıdaki yolları içerir:
 
 
-|source   |Adres ön ekleri  |Sonraki atlama türü           |
+|Source   |Adres ön ekleri  |Sonraki atlama türü           |
 |---------|---------         |-------                 |
 |Varsayılan  | 0.0.0.0/0        |Internet                |
 |Kullanıcı     | 0.0.0.0/0        |Sanal ağ geçidi |
@@ -209,14 +209,14 @@ Oklar trafik akışını gösterir.
 
 Resimdeki *Subnet1* için yol tablosu aşağıdaki yolları içerir:
 
-|Kimlik  |source |Eyalet  |Adres ön ekleri    |Sonraki atlama türü          |Sonraki atlama IP adresi|Kullanıcı tanımlı yol adı| 
+|id  |Source |Durum  |Adres ön ekleri    |Sonraki atlama türü          |Sonraki atlama IP adresi|Kullanıcı tanımlı yol adı| 
 |----|-------|-------|------              |-------                |--------           |--------      |
-|1   |Varsayılan|Geçersiz|10.0.0.0/16         |Sanal ağ        |                   |              |
+|1\.   |Varsayılan|Geçersiz|10.0.0.0/16         |Sanal ağ        |                   |              |
 |2   |Kullanıcı   |Etkin |10.0.0.0/16         |Sanal gereç      |10.0.100.4         |VNet1 içinde  |
 |3   |Kullanıcı   |Etkin |10.0.0.0/24         |Sanal ağ        |                   |Subnet1 içinde|
 |4   |Varsayılan|Geçersiz|10.1.0.0/16         |VNet eşlemesi           |                   |              |
 |5   |Varsayılan|Geçersiz|10.2.0.0/16         |VNet eşlemesi           |                   |              |
-|6   |Kullanıcı   |Etkin |10.1.0.0/16         |None                   |                   |ToVNet2-1-Bırak|
+|6   |Kullanıcı   |Etkin |10.1.0.0/16         |Yok.                   |                   |ToVNet2-1-Bırak|
 |7   |Kullanıcı   |Etkin |10.2.0.0/16         |None                   |                   |ToVNet2-2-Bırak|
 |8   |Varsayılan|Geçersiz|10.10.0.0/16        |Sanal ağ geçidi|[X.X.X.X]          |              |
 |9   |Kullanıcı   |Etkin |10.10.0.0/16        |Sanal gereç      |10.0.100.4         |Şirket-İçine    |
@@ -243,7 +243,7 @@ Her bir yol kimliğinin açıklaması aşağıdaki gibidir:
 
 Resimdeki *Subnet2* için yol tablosu aşağıdaki yolları içerir:
 
-|source  |Eyalet  |Adres ön ekleri    |Sonraki atlama türü             |Sonraki atlama IP adresi|
+|Source  |Durum  |Adres ön ekleri    |Sonraki atlama türü             |Sonraki atlama IP adresi|
 |------- |-------|------              |-------                   |--------           
 |Varsayılan |Etkin |10.0.0.0/16         |Sanal ağ           |                   |
 |Varsayılan |Etkin |10.1.0.0/16         |VNet eşlemesi              |                   |
@@ -251,8 +251,8 @@ Resimdeki *Subnet2* için yol tablosu aşağıdaki yolları içerir:
 |Varsayılan |Etkin |10.10.0.0/16        |Sanal ağ geçidi   |[X.X.X.X]          |
 |Varsayılan |Etkin |0.0.0.0/0           |Internet                  |                   |
 |Varsayılan |Etkin |10.0.0.0/8          |None                      |                   |
-|Varsayılan |Etkin |100.64.0.0/10       |None                      |                   |
-|Varsayılan |Etkin |192.168.0.0/16      |None                      |                   |
+|Varsayılan |Etkin |100.64.0.0/10       |Yok.                      |                   |
+|Varsayılan |Etkin |192.168.0.0/16      |Yok.                      |                   |
 
 *Subnet2* yol tablosu Azure tarafından oluşturulan tüm varsayılan yolları ve isteğe bağlı VNet eşlemesi ile Sanal ağ geçidi isteğe bağlı yollarını içerir. Sanal ağa ağ geçidi ve eşleme eklendiğinde Azure, sanal ağ içindeki tüm alt ağlara isteğe bağlı yollar eklemiştir. Azure, 10.0.0.0/8, 192.168.0.0/16 ve 100.64.0.0/10 adres ön ekleri için rotalar kaldırıldı *Subnet1* 0.0.0.0/0 adres ön eki kullanıcı tanımlı yol eklendiğinde yol tablosu *Subnet1*.  
 

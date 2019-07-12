@@ -9,43 +9,43 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 9032a6903833ba819e09fd1ca11cd6b43d5485cb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a74058c509c8031d0ac53c0d9cdf91e6f933ea1f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60399496"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620140"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>IOT hub'ı (Java) ile bulut buluttan cihaza iletileri gönderme
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Azure IOT hub'ı yardımcı olan tam olarak yönetilen bir hizmet, milyonlarca cihaz arasında güvenilir ve güvenli çift yönlü iletişimi etkinleştirmek ve bir çözüm arka ucu ' dir. [Telemetri bir CİHAZDAN bir merkeze gönderme (Java)](quickstart-send-telemetry-java.md) öğretici, IOT hub oluşturma, bir cihaz kimliği da sağlamak ve CİHAZDAN buluta iletiler gönderen bir sanal cihaz uygulamasının kodu nasıl gösterir.
+Azure IOT hub'ı yardımcı olan tam olarak yönetilen bir hizmet, milyonlarca cihaz arasında güvenilir ve güvenli çift yönlü iletişimi etkinleştirmek ve bir çözüm arka ucu ' dir. [Telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-java.md) hızlı başlangıç, IOT hub oluşturma, bir cihaz kimliği da sağlamak ve CİHAZDAN buluta iletiler gönderen bir sanal cihaz uygulamasının kodu nasıl gösterir.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Bu öğreticide yapılar [telemetri gönderir bir CİHAZDAN IOT hub'a (Java)](quickstart-send-telemetry-java.md). Aşağıdakilerin nasıl gerçekleştirileceği gösterilmektedir:
+Bu öğreticide yapılar [telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-java.md). Aşağıdakilerin nasıl gerçekleştirileceği gösterilmektedir:
 
 * Çözüm arka ucunuz, tek bir cihaz IOT hub'ı aracılığıyla bulut-cihaz iletilerini gönderin.
 
 * Bir cihazda bulut-cihaz iletilerini alır.
 
-* Çözüm arka ucunuz, teslimat alındısı istek (*geri bildirim*) için bir cihaz IOT Hub'ından gönderilen iletileri.
+* Teslim alındı bildirimi, çözüm arka ucu istek (*geri bildirim*) için bir cihaz IOT Hub'ından gönderilen iletileri.
 
 Daha fazla bilgi bulabilirsiniz [IOT Hub Geliştirici Kılavuzu'nda bulut-cihaz iletilerini](iot-hub-devguide-messaging.md).
 
 Bu öğreticinin sonunda iki Java konsol uygulaması çalıştırın:
 
-* **simulated-device**, oluşturulan uygulamayı değiştirilmiş bir sürümünü [telemetri bir CİHAZDAN bir merkeze gönderme (Java)](quickstart-send-telemetry-java.md), IOT hub'ınıza bağlanır ve bulut-cihaz iletilerini alır.
+* **simulated-device**, oluşturulan uygulamayı değiştirilmiş bir sürümünü [telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-java.md), IOT hub'ınıza bağlanır ve bulut-cihaz iletilerini alır.
 
-* **Send-c2d-messages**, IOT hub'ı aracılığıyla sanal cihaz uygulaması için bir bulut buluttan cihaza ileti gönderir ve ardından, teslimat alındısı.
+* **Send-c2d-messages**, IOT hub'ı aracılığıyla sanal cihaz uygulaması için bir bulut buluttan cihaza ileti gönderir ve sonra onun teslim alındı bildirimi alır.
 
 > [!NOTE]
 > IOT Hub SDK desteği birçok cihaz platformlarını ve Azure IOT cihaz SDK'ları aracılığıyla diller (C, Java ve Javascript dahil) sahiptir. Bu öğreticinin koda ve genellikle Azure IOT hub'a Cihazınızı bağlamak hakkında adım adım yönergeler için bkz. [Azure IOT Geliştirici Merkezi](https://azure.microsoft.com/develop/iot).
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-* Çalışan bir bir tam sürümü [telemetri bir CİHAZDAN bir merkeze gönderme (Java)](quickstart-send-telemetry-java.md) veya [IOT Hub ile ileti yönlendirmeyi yapılandırma](tutorial-routing.md) öğretici.
+* Çalışan bir bir tam sürümü [telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-java.md) hızlı başlangıç veya [IOT Hub ile ileti yönlendirmeyi yapılandırma](tutorial-routing.md) öğretici.
 
 * En güncel [Java SE Development Kit 8](https://aka.ms/azure-jdks)
 
@@ -55,7 +55,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>Sanal cihaz uygulamasında ileti alma
 
-Bu bölümde, oluşturduğunuz sanal cihaz uygulaması değiştirme [telemetri bir CİHAZDAN bir merkeze gönderme (Java)](quickstart-send-telemetry-java.md) IOT hub'ından bulut-cihaz iletilerini almak için.
+Bu bölümde, oluşturduğunuz sanal cihaz uygulaması değiştirme [telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-java.md) IOT hub'ından bulut-cihaz iletilerini almak için.
 
 1. Bir metin düzenleyicisi kullanarak simulated-device\src\main\java\com\mycompany\app\App.java dosyasını açın.
 
@@ -66,16 +66,17 @@ Bu bölümde, oluşturduğunuz sanal cihaz uygulaması değiştirme [telemetri b
       public IotHubMessageResult execute(Message msg, Object context) {
         System.out.println("Received message from hub: "
           + new String(msg.getBytes(), Message.DEFAULT_IOTHUB_MESSAGE_CHARSET));
-    
+
         return IotHubMessageResult.COMPLETE;
       }
     }
     ```
+
 3. Değiştirme **ana** yöntemi oluşturmak için bir **AppMessageCallback** örneği ve çağrı **setMessageCallback** gibi istemci açılmadan önce yöntemi:
 
     ```java
     client = new DeviceClient(connString, protocol);
-   
+
     MessageCallback callback = new AppMessageCallback();
     client.setMessageCallback(callback, null);
     client.open();
@@ -92,7 +93,7 @@ Bu bölümde, oluşturduğunuz sanal cihaz uygulaması değiştirme [telemetri b
 
 ## <a name="send-a-cloud-to-device-message"></a>Bulut buluttan cihaza ileti gönderme
 
-Bu bölümde, sanal cihaz uygulaması için bulut-cihaz iletilerini gönderen bir Java konsol uygulaması oluşturun. Cihazın kimliği, eklediğiniz ihtiyacınız [telemetri bir CİHAZDAN bir merkeze gönderme (Java)](quickstart-send-telemetry-java.md) hızlı başlangıç. IOT Hub bağlantı dizesine, bulabileceğiniz hub'ınız için etmeniz [Azure portalında](https://portal.azure.com).
+Bu bölümde, sanal cihaz uygulaması için bulut-cihaz iletilerini gönderen bir Java konsol uygulaması oluşturun. Cihazın kimliği, eklediğiniz ihtiyacınız [telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-java.md) hızlı başlangıç. IOT Hub bağlantı dizesine, bulabileceğiniz hub'ınız için etmeniz [Azure portalında](https://portal.azure.com).
 
 1. Adlı bir Maven projesi oluşturun **c2d iletileri gönderme** komut isteminizde aşağıdaki komutu kullanarak. Bu komut, tek ve uzun bir komut olduğunu unutmayın:
 
@@ -137,31 +138,31 @@ Bu bölümde, sanal cihaz uygulaması için bulut-cihaz iletilerini gönderen bi
     ```
 
 8. Değiştirin **ana** yöntemini aşağıdaki kod ile. Bu kod, IOT hub'ınıza bağlanır, cihazınıza bir ileti gönderir ve sonra cihaz aldı ve iletiyi işlenen bir bildirim bekler:
-   
+
     ```java
     public static void main(String[] args) throws IOException,
         URISyntaxException, Exception {
       ServiceClient serviceClient = ServiceClient.createFromConnectionString(
         connectionString, protocol);
-   
+
       if (serviceClient != null) {
         serviceClient.open();
         FeedbackReceiver feedbackReceiver = serviceClient
           .getFeedbackReceiver();
         if (feedbackReceiver != null) feedbackReceiver.open();
-   
+
         Message messageToSend = new Message("Cloud to device message.");
         messageToSend.setDeliveryAcknowledgement(DeliveryAcknowledgement.Full);
-   
+
         serviceClient.send(deviceId, messageToSend);
         System.out.println("Message sent to device");
-   
+
         FeedbackBatch feedbackBatch = feedbackReceiver.receive(10000);
         if (feedbackBatch != null) {
           System.out.println("Message feedback received, feedback time: "
             + feedbackBatch.getEnqueuedTimeUtc().toString());
         }
-   
+
         if (feedbackReceiver != null) feedbackReceiver.close();
         serviceClient.close();
       }
@@ -169,8 +170,7 @@ Bu bölümde, sanal cihaz uygulaması için bulut-cihaz iletilerini gönderen bi
     ```
 
     > [!NOTE]
-    > Basitlik'ın çok için bu öğreticiyi herhangi bir yeniden deneme ilkesi uygulamaz. Üretim kodunda yeniden deneme ilkelerini (üstel geri alma), örneğin makalesinde önerildiği uygulamalıdır [geçici hata işleme](/azure/architecture/best-practices/transient-faults).
-
+    > Kolaylık olması için bu öğreticiyi herhangi bir yeniden deneme ilkesi uygulamaz. Üretim kodunda yeniden deneme ilkelerini (üstel geri alma), örneğin makalesinde önerildiği uygulamalıdır [geçici hata işleme](/azure/architecture/best-practices/transient-faults).
 
 9. Maven kullanarak **simulated-device** uygulamasını oluşturmak için, simulated-device klasöründeki komut isteminde aşağıdaki komutu yürütün:
 
@@ -185,7 +185,7 @@ Bu bölümde, sanal cihaz uygulaması için bulut-cihaz iletilerini gönderen bi
 1. Simulated-device klasöründeki komut isteminde IOT hub'ınıza telemetri göndermeye başlamak ve bulut-cihaz iletilerini hub'ından gönderilen dinlemek için aşağıdaki komutu çalıştırın:
 
     ```cmd/sh
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
     ![Sanal cihaz uygulaması çalıştırma](./media/iot-hub-java-java-c2d/receivec2d.png)
@@ -200,7 +200,7 @@ Bu bölümde, sanal cihaz uygulaması için bulut-cihaz iletilerini gönderen bi
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bulut-cihaz iletilerini gönderip öğrendiniz. 
+Bu öğreticide, bulut-cihaz iletilerini gönderip öğrendiniz.
 
 IOT hub'ı kullanan tam uçtan uca çözümler örneklerini görmek için bkz: [Azure IOT Çözüm Hızlandırıcıları](https://azure.microsoft.com/documentation/suites/iot-suite/).
 

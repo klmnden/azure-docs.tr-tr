@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: yizhon
-ms.openlocfilehash: dd3b693271326c85688a275a65b67ad6257220e3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ff766375dd9ad7cb3bbdf1ef686abb77d1206099
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400703"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797862"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>C – sı: Iothubclient hakkında daha fazla bilgi için Azure IOT cihaz SDK'sı
 
@@ -264,7 +264,7 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 Birkaç yaygın olarak kullanılan bir seçenek vardır:
 
-* **SetBatching** (Boole) – varsa **true**, ardından IOT Hub'ına gönderilen veriler, toplu olarak gönderilir. Varsa **false**, sonra iletileri ayrı olarak gönderilir. Varsayılan değer **false**. Unutmayın **SetBatching** seçeneği yalnızca HTTPS protokolünü ve MQTT veya AMQP iletişim kuralları için geçerlidir.
+* **SetBatching** (Boole) – varsa **true**, ardından IOT Hub'ına gönderilen veriler, toplu olarak gönderilir. Varsa **false**, sonra iletileri ayrı olarak gönderilir. Varsayılan değer **false**. AMQP üzerinden toplu işleme / AMQP WS yanı sıra Sistem özellikleri D2C iletilerde ekleme desteklenir.
 
 * **Zaman aşımı** (işaretsiz int) – bu değeri, milisaniye cinsinden gösterilir. Bir HTTPS isteği veya bir yanıt alma bu süreden daha uzun sürer, ardından bağlantı zaman aşımına gönderiliyorsa.
 

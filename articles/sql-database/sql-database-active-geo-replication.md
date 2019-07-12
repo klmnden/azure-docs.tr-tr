@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 06/18/2019
-ms.openlocfilehash: 826944fd3713f5cc3e99f20cb140055bfdb11a14
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.date: 07/09/2019
+ms.openlocfilehash: 4b525c3cbea600859106062ed34dc6df9622dec5
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341440"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807309"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Oluşturma ve etkin coğrafi çoğaltma kullanma
 
@@ -43,7 +43,6 @@ Etkin coğrafi çoğaltma, tek veritabanlarını bölgesel bir olağanüstü dur
 - [Transact-SQL: Tek veritabanı'nı veya elastik Havuzu'nu](/sql/t-sql/statements/alter-database-azure-sql-database)
 - [REST API: Tek veritabanı](https://docs.microsoft.com/rest/api/sql/replicationlinks)
 
-Yük devretme işleminden sonra yeni birincil sunucu ve veritabanı için kimlik doğrulama gereksinimleri yapılandırıldığından emin olun. Ayrıntılar için bkz [olağanüstü durum kurtarma sonrasında SQL veritabanı güvenlik](sql-database-geo-replication-security-config.md).
 
 Etkin coğrafi çoğaltma yararlanır [Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) zaman uyumsuz olarak kaydedilen işlem sayısı birincil veritabanında anlık görüntü yalıtımı kullanarak ikincil bir veritabanı çoğaltma için SQL Server teknolojisi. Otomatik Yük devretme grupları üzerinde etkin coğrafi çoğaltma grubu semantiği sağlar ancak aynı zaman uyumsuz çoğaltma mekanizması kullanılır. Herhangi bir anda ederken, ikincil veritabanı birincil veritabanının gerisinde biraz olabilir, ikincil veri kısmi hareket hiçbir zaman olması garanti edilir. Bölgeler arası yedeklilik uygulamaları hızlı bir şekilde veri merkezinin tamamı veya doğal afetler, geri dönülemez bir insan hatalarına veya kötü amaçlı davranışlara neden bir veri merkezinin bölümleri kalıcı kaybı kurtarmanıza olanak sağlar. Belirli RPO verileri şu yolda bulunabilir: [iş Sürekliliğine genel bakış](sql-database-business-continuity.md).
 
@@ -83,12 +82,12 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
 - **Planlı yük devretme**
 
-  Planlı yük devretme, birincil ve ikincil veritabanlarını birincil role ikincil anahtarlar önce arasında tam eşitleme gerçekleştirir. Bu, veri kaybı olmadan garanti eder. Planlı yük devretme kullanılan aşağıdaki senaryolar: (a) DR gerçekleştirmek ayrıntılı açıklanmıştır üretimde veri kaybı kabul edilebilir; olmadığında veritabanını farklı bir bölgeye; dışında yeniden konumlandırmakta (b) ve (yeniden çalışma) (c) kesinti sonra veritabanı birincil bölgeye geri dönmek için azaltılabilir.
+  Yük devretme anahtarları rolleri birincil ve ikincil veritabanlarının tam eşitleme tamamlandıktan sonra planlanan. Veri kaybına neden olmayan çevrimiçi bir işlemdir. İşlemin zaman işlem günlüğünün eşitlenmesi gereken birincil boyutuna bağlıdır. Planlı yük devretme, aşağıdaki senaryolar için tasarlanmıştır: (a) DR gerçekleştirmek ayrıntılı açıklanmıştır üretimde veri kaybı kabul edilebilir; olmadığında veritabanını farklı bir bölgeye; dışında yeniden konumlandırmakta (b) ve (yeniden çalışma) (c) kesinti sonra veritabanı birincil bölgeye geri dönmek için azaltılabilir.
 
 - **Planlanmamış yük devretme**
 
-  Planlanmamış veya zorlamalı yük devretme hemen ikincil birincil ile herhangi bir eşitleme olmadan birincil role geçirir. Bu işlem veri kaybına yol açar. Birincil erişilebilir olmadığı durumlarda, planlanmamış yük devretme kesintiler sırasında kurtarma yöntemi olarak kullanılır. Özgün birincil yeniden çevrimiçi olduğunda, bunu otomatik olarak eşitleme yeniden bağlanma ve yeni ikincil olur.
-
+  Planlanmamış veya zorlamalı yük devretme hemen ikincil birincil ile herhangi bir eşitleme olmadan birincil role geçirir. Birincil siteye kaydedilmiş, ancak ikincil veritabanına çoğaltılmamış tüm işlemleri kaybolur. Bu işlemi birincil erişilebilir değil, ancak veritabanı kullanılabilirlik hızlı bir şekilde geri yüklenmelidir kesintiler sırasında kurtarma yöntemi olarak tasarlanmıştır. Özgün birincil tekrar çevrimiçi olduğunda, otomatik olarak yeniden bağlanma ve yeni ikincil olur. Yük devretmeden önce tüm eşitlenmemiş işlemleri yedekleme dosyasında korunur ancak çakışmaları önlemek için yeni birincil ile eşitlenmez. Bu işlem, birincil veritabanını en son sürümü ile el ile birleştirilecek gerekir.
+ 
 - **Birden çok okunabilir ikincil veritabanı**
 
   En fazla 4 ikincil veritabanları için her birincil oluşturulabilir. Yeni bir ikincil veritabanı oluşturulana kadar uygulamayı yalnızca bir ikincil veritabanı yoktur ve yine başarısız olursanız, daha yüksek risklere açıktır. Birden fazla ikincil veritabanı yoksa, ikincil veritabanlarından biri başarısız olsa bile uygulama korumalı olarak kalır. Ek ikinciller de kullanılabilir genişleme salt okunur iş yükleri için
@@ -105,21 +104,26 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
   İkincil bir veritabanı açıkça birincil role herhangi bir zamanda uygulama veya kullanıcı tarafından değiştirilebilir. Gerçek bir kesinti sırasında "planlanmamış" seçeneği, hangi hemen ikincil yükseltir birincil olarak kullanılmalıdır. Başarısız birincil kurtarır ve yeniden kullanılabilir olduğunda, sistem otomatik olarak kurtarılan birincil ikincil olarak işaretler ve yeni birincil ile güncel getirin. Birincil ikincil en son değişiklikleri çoğaltır önce başarısız olursa zaman uyumsuz çoğaltma yapısı nedeniyle, az miktarda veriniz planlanmamış yük devretme sırasında kaybolur. Birden çok ikincilleriyle birincil yük devrettiğinde, sistem otomatik olarak çoğaltma ilişkilerini yeniden yapılandırır ve kalan ikincil veritabanı herhangi bir kullanıcı müdahalesi gerektirmeden yeni yükseltilen birincil siteye bağlar. Yük devretme neden oldu kesinti giderildikten sonra uygulamayı birincil bölgeye geri istenebilir. Bunu yapmak için yük devretme komut "planlanmış" seçeneği ile çağrılmalıdır.
 
-- **Kimlik bilgileri ve güvenlik duvarı kuralları eşitlenmiş durumda tutma**
+## <a name="preparing-secondary-database-for-failover"></a>İkincil veritabanına yük devretme hazırlığı yapılıyor
 
-Kullanmanızı öneririz [veritabanı düzeyinde güvenlik duvarı kuralları IP](sql-database-firewall-configure.md) bu kurallar, tüm ikincil veritabanlarını birincil olarak aynı IP güvenlik duvarı kuralları olduğundan emin olmak için veritabanı kullanılarak çoğaltılabilir. Bu nedenle coğrafi çoğaltmalı veritabanı. Bu yaklaşım el ile yapılandırmak ve hem birincil ve ikincil veritabanlarını barındıran sunucu güvenlik duvarı kurallarını sağlamak müşterilerin ihtiyacını ortadan kaldırır. Benzer şekilde, kullanarak [kapsanan veritabanı kullanıcıları](sql-database-manage-logins.md) veriler için birincil ve ikincil veritabanları her zaman sahip aynı erişim sağlar. kullanıcı kimlik bilgilerini bir yük devretme sırasında bu yüzden hiçbir kesinti nedeniyle oturum açma ve parolaları ile uyuşmuyor. Ek olarak [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), müşteriler, hem birincil hem de ikincil veritabanları için kullanıcı erişimini yönetebilir ve yönetme gereksinimini ortadan kimlik bilgileri veritabanlarında tamamen.
+Yük devretmeden sonra yeni birincil, uygulamanızı hemen erişebildiğinden emin olmak için ikincil sunucu ve veritabanı için kimlik doğrulama gereksinimleri düzgün şekilde yapılandırıldığından emin olun. Ayrıntılar için bkz [olağanüstü durum kurtarma sonrasında SQL veritabanı güvenlik](sql-database-geo-replication-security-config.md). Yük devretme sonrasında uyumluluğu sağlamak için ikincil veritabanındaki yedekleme bekletme ilkesi, birincil eşleştiğinden emin olun. Bu ayarlar, veritabanı parçası değildir ve değil çoğaltılır. Varsayılan olarak, ikincil bir varsayılan PITR saklama süresi yedi gün ile yapılandırılır. Ayrıntılar için bkz [SQL veritabanı otomatik yedeklerinde](sql-database-automated-backups.md).
 
 ## <a name="configuring-secondary-database"></a>İkincil veritabanı yapılandırılıyor
 
-Birincil ve ikincil veritabanları aynı hizmet katmanı için gereklidir. Aynı işlem boyutu (Dtu veya sanal çekirdekler) olarak birincil ile ikincil veritabanı oluşturulan de önemle tavsiye edilir. Birincil veritabanı ağır yazma iş yükü yaşanıyorsa, ikincil bir alt işlem boyutu ile birlikte kalmasını sağlamak mümkün olmayabilir. İkincil, olası kullanılamazlık Yinele lag neden olur ve bu nedenle bir yük devretme sonrasında önemli veri kaybı riski. Sonuç olarak, yayımlanan RPO = 5 sn olamaz garanti edilir. Hataları veya diğer iş yüklerinin birincil bekletilen da neden olabilir. 
-
-Yük devretmeden sonra nedeniyle yeterli işlem kapasitesine yeni birincil uygulama performansını olumsuz bir sonuç imbalanced ikincil yapılandırmasının olur. Daha yüksek bir işlem kesinti kalkana kadar mümkün olmayacak gerekli düzeyine yükseltmek için gerekli olacaktır. 
-
-> [!NOTE]
-> Şu anda, birincil veritabanını yükseltmeden ikincil çevrimdışıysa mümkün değildir. 
+Birincil ve ikincil veritabanları aynı hizmet katmanı için gereklidir. Aynı işlem boyutu (Dtu veya sanal çekirdekler) olarak birincil ile ikincil veritabanı oluşturulan de önemle tavsiye edilir. Birincil veritabanı ağır yazma iş yükü yaşanıyorsa, ikincil bir alt işlem boyutu ile birlikte kalmasını sağlamak mümkün olmayabilir. İkincil ve potansiyel olarak kullanım dışı kalması üzerinde Yinele lag neden olur. İkincil veritabanının birincil veritabanının gerisinde kalması, zorlamalı yük devretme gerekmesi halinde büyük bir veri kaybı yaşanması riskini de taşır. Bu riskleri azaltmak için etkin etkin coğrafi çoğaltma bilgi edinmek, ikincil veritabanı izin vermek için birincil ait günlük oran kısıtlama. Yük devretmeden sonra nedeniyle yeterli işlem kapasitesine yeni birincil uygulama performansını olumsuz bir sonuç imbalanced ikincil yapılandırmasının olur. Daha yüksek bir işlem kesinti kalkana kadar mümkün olmayacak gerekli düzeyine yükseltmek için gerekli olacaktır. 
 
 
-Alt işlem boyutu ile ikincil oluşturmaya karar verirseniz, Azure portalında günlük g/ç yüzdesi grafik ikincil çoğaltma yükü sürdürebilmek için gereken en düşük işlem boyutunu tahmin etmek için iyi bir yol sağlar. Örneğin, birincil veritabanınız P6 ise (1000 DTU) ve kendi günlük g/ç yüzdesi 50 ikincil en az olması gerekir % P4 (500 DTU). Kullanarak günlük GÇ veri de alabilirsiniz [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) veya [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) veritabanı görünümleri.  SQL veritabanı işlem boyutları hakkında daha fazla bilgi için bkz. [SQL veritabanı hizmet katmanları nelerdir](sql-database-purchase-models.md).
+> [!IMPORTANT]
+> Yayımlanan RPO = 5 sn kullanılamaz garanti ikincil veritabanı ile aynı işlem boyutu birincil olarak yapılandırılmadığı sürece. 
+
+
+Alt işlem boyutu ile ikincil oluşturmaya karar verirseniz, Azure portalında günlük g/ç yüzdesi grafik ikincil çoğaltma yükü sürdürebilmek için gereken en düşük işlem boyutunu tahmin etmek için iyi bir yol sağlar. Örneğin, birincil veritabanınız P6 ise (1000 DTU) ve kendi günlük g/ç yüzdesi 50 ikincil en az olması gerekir % P4 (500 DTU). Kullanarak günlük GÇ veri de alabilirsiniz [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) veya [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) veritabanı görünümleri.  Azaltma HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO bekleme durumunda olarak bildirilen [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) ve [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) veritabanı görünümleri. 
+
+SQL veritabanı işlem boyutları hakkında daha fazla bilgi için bkz. [SQL veritabanı hizmet katmanları nelerdir](sql-database-purchase-models.md).
+
+## <a name="keeping-credentials-and-firewall-rules-in-sync"></a>Kimlik bilgileri ve güvenlik duvarı kuralları eşitlenmiş durumda tutma
+
+Kullanmanızı öneririz [veritabanı düzeyinde güvenlik duvarı kuralları IP](sql-database-firewall-configure.md) bu kurallar, tüm ikincil veritabanlarını birincil olarak aynı IP güvenlik duvarı kuralları olduğundan emin olmak için veritabanı kullanılarak çoğaltılabilir. Bu nedenle coğrafi çoğaltmalı veritabanı. Bu yaklaşım el ile yapılandırmak ve hem birincil ve ikincil veritabanlarını barındıran sunucu güvenlik duvarı kurallarını sağlamak müşterilerin ihtiyacını ortadan kaldırır. Benzer şekilde, kullanarak [kapsanan veritabanı kullanıcıları](sql-database-manage-logins.md) veriler için birincil ve ikincil veritabanları her zaman sahip aynı erişim sağlar. kullanıcı kimlik bilgilerini bir yük devretme sırasında bu yüzden hiçbir kesinti nedeniyle oturum açma ve parolaları ile uyuşmuyor. Ek olarak [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), müşteriler, hem birincil hem de ikincil veritabanları için kullanıcı erişimini yönetebilir ve yönetme gereksinimini ortadan kimlik bilgileri veritabanlarında tamamen.
 
 ## <a name="upgrading-or-downgrading-primary-database"></a>Yükseltme veya birincil veritabanı önceki sürüme indirme
 

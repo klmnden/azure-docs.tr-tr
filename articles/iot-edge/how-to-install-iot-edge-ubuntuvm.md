@@ -7,14 +7,14 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 07/09/2019
 ms.author: gregman
-ms.openlocfilehash: 7062bd2dbd8c375b8dd3fad348e5cc26de8f36d2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8275bceca1a18f49eb7eeece66a3866d77c47635
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595121"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796170"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Azure IOT Edge Ubuntu sanal makineler üzerinde çalıştırın
 
@@ -45,11 +45,7 @@ Azure IOT Edge çalışma zamanı bir Ubuntu 16.04 önceden yapılandırılmış
 "Azure IOT Edge için" Azure portalından arayın ve seçin **Ubuntu Server 16.04 LTS + Azure IOT Edge çalışma zamanı** VM oluşturma iş akışı başlatmak için. Buradan, adım 3 ve 4. Yukarıdaki "Dağıtma gelen Azure Market" yönergeleri tamamlayın.
 
 ## <a name="deploy-from-azure-cli"></a>Azure CLI üzerinden dağıtma
-1. Bu CLI bir sanal makineden dağıtımı ilk defa ise, Azure aboneliğiniz için programlamalı dağıtımını etkinleştirmek gerekir:
-   1. Açık [Azure IOT Edge üzerinde Ubuntu'da](https://aka.ms/azure-iot-edge-ubuntuvm) Market teklifi
-   1. Seçin **almak artık BT** ve **devam** sonraki iletişim
-   1. Seçin **programlı bir şekilde dağıtmak istiyorsunuz? Başlama** portalındaki iletişim kutusunun alt kısmındaki
-   1. Tıklayarak **etkinleştirme** düğmesine **Programlamalı dağıtımı Yapılandır** sayfasında'e tıklayın **Kaydet**
+
 1. Sizin masaüstünüzde Azure CLI kullanıyorsanız, oturum açarak başlatın:
 
    ```azurecli-interactive
@@ -63,8 +59,9 @@ Azure IOT Edge çalışma zamanı bir Ubuntu 16.04 önceden yapılandırılmış
       az account list --output table
       ```
     
-   1. Kopyalama için kullanmak istediğiniz aboneliği Subscriptionıd alanı
-   1. Az önce kopyaladığınız Kimliğiyle şu komutu çalıştırın:
+   1. Kullanmak istediğiniz aboneliği Subscriptionıd alanını kopyalayın.
+
+   1. Çalışma aboneliğinizle kopyaladığınız kimliği ayarlayın:
     
       ```azurecli-interactive 
       az account set -s {SubscriptionId}
@@ -75,11 +72,17 @@ Azure IOT Edge çalışma zamanı bir Ubuntu 16.04 önceden yapılandırılmış
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
    ```
-    
+
+1. Sanal makine için kullanım koşullarını kabul edin. Koşulları önce gözden geçirmek istiyorsanız, adımları [dağıtma Azure Market](#deploy-from-the-azure-marketplace).
+
+   ```azurecli-interactive
+   az vm image accept-terms --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
+   ```
+
 1. Yeni bir sanal makine oluşturun:
 
    ```azurecli-interactive
-   az vm create --resource-group IoTEdgeResources --name EdgeVM –-image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
    ```
 
 1. Cihaz bağlantı dizesini ayarlayalım (izleyebilirsiniz [Azure CLI ile yeni bir Azure IOT Edge cihazı kaydetme](how-to-register-device-cli.md) bu işlemle ilgili bilgi sahibi değilseniz, nasıl yapılır kılavuzunda):

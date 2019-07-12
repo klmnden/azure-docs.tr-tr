@@ -2,17 +2,17 @@
 title: İşleç en iyi uygulamalar - Azure Kubernetes Hizmetleri (AKS) kümesini ayırma
 description: Azure Kubernetes Service (AKS) yalıtım küme işleci en iyi uygulamaları öğrenin
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 8150e184f0c7533d5a6e7e4847bf126206f5e6c6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60465315"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614923"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) kümesi yalıtımı için en iyi uygulamalar
 
@@ -26,7 +26,7 @@ Bu en iyi yöntemler makalesi küme operatörleri için yalıtım odaklanır. Bu
 
 ## <a name="design-clusters-for-multi-tenancy"></a>Çoklu kiracı tasarımı kümeleri
 
-Kubernetes gruplamanıza olanak tanıyan özellikler, takımlar ve aynı küme iş yüklerini yalıtmak sağlar. En az sağlamak için hedef olmalıdır ayrıcalıklar, her takım gereken kaynakları için kapsamlı sayısı. A [Namespace] [ k8s-namespaces] Kubernetes'te mantıksal yalıtım sınırı oluşturur. Ek kubernetes özelliklerini ve konularını yalıtım ve çok kiracılılık için aşağıdaki alanları içerir:
+Kubernetes gruplamanıza olanak tanıyan özellikler, takımlar ve aynı küme iş yüklerini yalıtmak sağlar. En az sağlamak için hedef olmalıdır ayrıcalıklar, her takım gereken kaynakları için kapsamlı sayısı. A [Namespace][k8s-namespaces] Kubernetes'te mantıksal yalıtım sınırı oluşturur. Ek kubernetes özelliklerini ve konularını yalıtım ve çok kiracılılık için aşağıdaki alanları içerir:
 
 * **Zamanlama** kaynak kotaları ve pod kesintisi bütçelerini gibi temel özellikleri içerir. Bu özellikler hakkında daha fazla bilgi için bkz. [aks'deki temel Zamanlayıcı özellikleri için en iyi yöntemler][aks-best-practices-scheduler].
   * Daha gelişmiş Zamanlayıcı özellikler taints ve tolerations, düğüm seçicileri ve düğüm ve pod benzeşim veya benzeşim karşıtlığı içerir. Bu özellikler hakkında daha fazla bilgi için bkz. [aks'deki Gelişmiş Zamanlayıcı özellikleri için en iyi yöntemler][aks-best-practices-advanced-scheduler].
@@ -38,7 +38,7 @@ Kubernetes gruplamanıza olanak tanıyan özellikler, takımlar ve aynı küme i
 
 **En iyi uygulama kılavuzunu** -takımlara ve projelere ayırmak için mantıksal yalıtım kullanın. Dağıtım için fiziksel AKS küme sayısını en aza indirmeye çalışmanız takımlar veya uygulamaları ayırmak.
 
-Birden çok iş yükleri, takımlar veya ortamlar için mantıksal yalıtım ile tek bir AKS kümesi kullanılabilir. Kubernetes [ad alanları] [ k8s-namespaces] iş yüklerini ve kaynakları için mantıksal yalıtım sınırı oluşturur.
+Birden çok iş yükleri, takımlar veya ortamlar için mantıksal yalıtım ile tek bir AKS kümesi kullanılabilir. Kubernetes [ad alanları][k8s-namespaces] iş yüklerini ve kaynakları için mantıksal yalıtım sınırı oluşturur.
 
 ![Aks'deki bir Kubernetes kümesinin mantıksal yalıtım](media/operator-best-practices-cluster-isolation/logical-isolation.png)
 

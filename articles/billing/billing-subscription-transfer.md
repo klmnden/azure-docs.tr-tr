@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cff3c57c31526119ab81225a1c70b163173be937
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 7d41e32065e3de37eb8f01ab1b836040e7f57b12
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514430"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657918"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Bir Azure aboneliğinin faturalandırma sahipliğini başka bir hesaba aktarma
 
@@ -38,7 +38,7 @@ Bir kurumsal Agreement(EA) müşterisiyseniz, kuruluş yöneticileri hesapları 
 
 1. Seçin **abonelikleri** sol bölmesinden. Erişiminizi bağlı olarak, fatura bir kapsam seçin ve ardından gerekebilir **abonelikleri** veya **Azure abonelikleri**.
 
-1. Seçin **başka bir hesaba aktarma** aktarmak istediğiniz abonelik için. 
+1. Seçin **fatura sahipliğini aktarmam** aktarmak istediğiniz abonelik için. 
 
    ![Aktarım için abonelik seçin](./media/billing-subscription-transfer/billing-select-subscription-to-transfer.png)
 

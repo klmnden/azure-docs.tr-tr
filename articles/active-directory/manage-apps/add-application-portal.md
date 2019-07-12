@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/09/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1688cc9317306e7f524536754854b6147ad3dd5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3de6a2cbdfe7a6d006a3bbfab16792376eda0d07
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108776"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702530"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Hızlı Başlangıç: Azure Active Directory kiracınız için uygulama ekleme
 
@@ -43,27 +43,21 @@ Bu öğreticideki adımları test etmek için üretim ortamı harici bir ortam k
 Azure AD kiracınıza galeri uygulaması eklemek için:
 
 1. İçinde [Azure portalında](https://portal.azure.com), sol gezinti panelinde seçin **Azure Active Directory**.
-
 1. İçinde **Azure Active Directory** bölmesinde **kurumsal uygulamalar**.
+1. **Tüm uygulamaları** rastgele oluşturulmuş bir örnek uygulamaları Azure AD kiracınızda gösterilecek bölme açılır. Seçin **yeni uygulama** en üstündeki **tüm uygulamaları** galeride kiracınıza eklemek için bölmesi.
 
-    ![Kurumsal uygulamaları açın](media/add-application-portal/open-enterprise-apps.png)
+    ![Galeride kiracınıza eklemek için yeni bir uygulama seçin](media/add-application-portal/new-application.png)
 
-1. **Tüm uygulamaları** rastgele oluşturulmuş bir örnek uygulamaları Azure AD kiracınızda gösterilecek bölme açılır. Seçin **yeni uygulama** en üstündeki **tüm uygulamaları** bölmesi.
+1. İçinde **kategorileri** bölmesinde simgeleri altında görürsünüz **özellikli uygulamalara** galeri uygulamalarının bir rastgele örnek alan. Daha fazla uygulama görmek için seçebilirsiniz **daha fazla Göster** ancak galeri uygulamalarında binlerce olduğundan bu şekilde arama önermemekteyiz.
 
-    ![Yeni uygulama](media/add-application-portal/new-application.png)
-
-1. İçinde **kategorileri** bölmesinde simgeleri altında görürsünüz **özellikli uygulamalara** galeri uygulamalarının bir rastgele örnek alan.  Daha fazla uygulama görmek için seçebilirsiniz **daha fazla Göster**. Ancak, uygulama galerisinde bulunan binlerce olduğundan bu şekilde arama önermemekteyiz.
-
-    ![Ada veya kategoriye göre arama](media/add-application-portal/categories.png)
+    ![Uygulama adına veya kategoriye göre arayın](media/add-application-portal/categories.png)
 
 1. Bir uygulama için altında aranacak **Galeriden Ekle**, eklemek istediğiniz uygulamanın adını girin. Uygulama sonuçları ve select seçin **Ekle**. Aşağıdaki örnekte gösterildiği **uygulama Ekle** github.com için aradıktan sonra görünen form.
 
-    ![Uygulama ekleme](media/add-application-portal/add-an-application.png)
+    ![Galeriden bir uygulama ekleme işlemi açıklanır](media/add-application-portal/add-an-application.png)
 
 1. Uygulamaya özgü formda özellik bilgilerini değiştirebilirsiniz. Örneğin uygulamanızın adını kuruluşunuzun gereksinimlerine göre düzenleyebilirsiniz. Bu örnekte **GitHub-test** adı kullanılmıştır.
-
 1. Özelliklerine değişiklikleri yapmayı bitirdiğinizde, seçin **Ekle**.
-
 1. Uygulamayı kuruluşunuza göre yapılandırmak için kullanabileceğiniz seçeneklerin bulunduğu bir başlangıç sayfası açılır.
 
 Uygulamanızı ekleme işlemi tamamlandı. Şimdi biraz ara verebilirsiniz. Aşağıdaki bölümlerde uygulamanızın logosunu değiştirme ve diğer özelliklerini düzenleme adımları gösterilmektedir.
@@ -73,17 +67,12 @@ Uygulamanızı ekleme işlemi tamamlandı. Şimdi biraz ara verebilirsiniz. Aşa
 İşlemi burada bırakmak zorunda kaldığınızı ve uygulamayı yapılandırmaya devam etmek için daha sonra tekrar geldiğinizi düşünelim. Yapılacak ilk şey, uygulamanızın bulmaktır.
 
 1. İçinde  **[Azure portalında](https://portal.azure.com)** , sol gezinti panelinde seçin **Azure Active Directory**.
-
 1. İçinde **Azure Active Directory** bölmesinde **kurumsal uygulamalar**.
-
 1. Gelen **uygulama türü** açılan menüsünde, select **tüm uygulamaları**ve ardından **Uygula**. Görüntüleme seçenekleri hakkında daha fazla bilgi edinmek için bkz. [Kiracı uygulamalarını görüntüleme](view-applications-portal.md).
-
 1. Burada Azure AD kiracınızdaki tüm uygulamaların listesini görebilirsiniz. Bu listedeki uygulamalar rastgele seçilmiştir. Daha fazla uygulama görmek için seçin **daha fazla Göster** bir veya daha fazla kez.
-
 1. Bir uygulama kiracınızda hızlıca bulmak için arama kutusuna uygulama adını girin ve seçin **Uygula**. Bu örnek, daha önce eklediğiniz test GitHub uygulama bulur.
 
-    ![Uygulama arama](media/add-application-portal/find-application.png)
-
+    ![Arama kutusunu kullanarak bir uygulamanın nasıl gösterir](media/add-application-portal/find-application.png)
 
 ## <a name="configure-user-sign-in-properties"></a>Kullanıcı oturum açma özelliklerini yapılandırma
 
@@ -94,7 +83,7 @@ Uygulama özelliklerini düzenlemek için:
 1. Uygulamayı açmak için seçin.
 1. Seçin **özellikleri** düzenlemek için Özellikler bölmesi açmak için.
 
-    ![Özellikler bölmesinde Düzenle](media/add-application-portal/edit-properties.png)
+    ![Özellikleri ekran ve düzenlenebilir uygulama özellikleri gösterir](media/add-application-portal/edit-properties.png)
 
 1. Birkaç dakikanızı ayırarak oturum açma seçeneklerini inceleyin. Atanan veya uygulamaya atanmamış kullanıcılar uygulamaya nasıl kaydolabilirsiniz seçenekleri belirleyin. Ayrıca, bir kullanıcı, uygulamayı erişim panelinde görüyorsanız, aynı zamanda seçenekleri belirleyin.
 
@@ -144,8 +133,7 @@ Uygulama özelliklerini düzenlemek için:
 1. Logoyu yükleyin.
 1. İşlemi tamamladığınızda, seçin **Kaydet**.
 
-    ![Logoyu değiştirme](media/add-application-portal/change-logo.png)
-
+    ![Uygulama özellikleri sayfasında logosunu değiştirmek nasıl gösterir](media/add-application-portal/change-logo.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -155,5 +143,3 @@ Artık uygulamayı çoklu oturum açma için yapılandırmaya hazırsınız.
 
 > [!div class="nextstepaction"]
 > [Çoklu oturum açmayı yapılandırma](configure-single-sign-on-portal.md)
-
-

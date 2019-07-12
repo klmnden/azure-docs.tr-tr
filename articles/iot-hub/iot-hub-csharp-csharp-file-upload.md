@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
-ms.openlocfilehash: cdc0f189daebcda592338b463954efab4fc2db96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79288f2204030790b2308905d90ff8e035fe2dd9
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65864426"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621860"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>.NET kullanarak IOT Hub'la cihazınızdan dosyaları buluta yükleyin
 
@@ -22,11 +22,11 @@ ms.locfileid: "65864426"
 
 Bu öğreticide kodda geliştirir [IOT Hub ile bulut buluttan cihaza ileti gönderme](iot-hub-csharp-csharp-c2d.md) dosya karşıya yükleme özellikleri IOT hub'ı kullanmak nasıl gösteren öğretici. Bunun nasıl yapılacağı anlatılmaktadır için:
 
-- Bir cihaz Azure ile güvenli bir şekilde sağlayan bir dosya karşıya yükleme için URI blob.
+* Bir cihaz Azure ile güvenli bir şekilde sağlayan bir dosya karşıya yükleme için URI blob.
 
-- IOT hub'ı dosya karşıya yükleme bildirimlerini, uygulama arka ucu dosyasında bir işlem tetiklemek için kullanın.
+* IOT hub'ı dosya karşıya yükleme bildirimlerini, uygulama arka ucu dosyasında bir işlem tetiklemek için kullanın.
 
-[Telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-dotnet.md) ve [IOT Hub ile bulut buluttan cihaza ileti gönderme](iot-hub-csharp-csharp-c2d.md) makaleler, IOT Hub'ın temel CİHAZDAN buluta ve bulut-cihaz Mesajlaşma işlevlerini gösterir. [IOT Hub ile ileti yönlendirme yapılandırma](tutorial-routing.md) Öğreticisi, CİHAZDAN buluta iletileri Azure blob depolama alanında güvenilir bir şekilde depolamak için bir yol açıklar. Ancak, bazı senaryolarda cihazlarınızı IOT hub'ı kabul görece küçük bir CİHAZDAN buluta ileti gönderme verileri kolayca eşlenemiyor. Örneğin:
+[Telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-dotnet.md) hızlı ve [IOT Hub ile bulut buluttan cihaza ileti gönderme](iot-hub-csharp-csharp-c2d.md) öğretici, IOT temel CİHAZDAN buluta ve bulut-cihaz Mesajlaşma işlevleri Göster Hub'ı. [IOT Hub ile ileti yönlendirme yapılandırma](tutorial-routing.md) Öğreticisi, CİHAZDAN buluta iletileri Azure blob depolama alanında güvenilir bir şekilde depolamak için bir yol açıklar. Ancak, bazı senaryolarda cihazlarınızı IOT hub'ı kabul görece küçük bir CİHAZDAN buluta ileti gönderme verileri kolayca eşlenemiyor. Örneğin:
 
 * Görüntüleri içeren büyük dosyaları
 * Videolar
@@ -47,6 +47,7 @@ Bu öğreticinin sonunda iki .NET konsol uygulaması çalıştırın:
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Visual Studio
+
 * Etkin bir Azure hesabı. (Hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.)
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
@@ -144,7 +145,7 @@ Bu bölümde, IOT Hub'ından dosya karşıya yükleme bildirim iletileri alan bi
 
             await notificationReceiver.CompleteAsync(fileUploadNotification);
         }
-    }   
+    }
     ```
 
     Bu alma Düzen cihaz uygulamasından bulut-cihaz iletilerini almak için kullanılan aynı olduğuna dikkat edin.
@@ -174,10 +175,11 @@ Bu bölümde, IOT Hub'ından dosya karşıya yükleme bildirim iletileri alan bi
 Bu öğreticide, cihazlardan karşıya dosya yükleme işlemleri basitleştirmek için dosya karşıya yükleme özellikleri IOT hub'ı kullanmayı öğrendiniz. IOT hub özelliklerini ve aşağıdaki makalelerde senaryolarını keşfetmeye devam edebilirsiniz:
 
 * [Programlamalı IOT hub oluşturma](iot-hub-rm-template-powershell.md)
+
 * [C SDK'ya giriş](iot-hub-device-sdk-c-intro.md)
+
 * [Azure IoT SDK’ları](iot-hub-devguide-sdks.md)
 
 Daha fazla IOT Hub'ın özelliklerini keşfetmek için bkz:
 
 * [Yapay ZEKA, Azure IOT Edge ile uç cihazlarına dağıtma](../iot-edge/tutorial-simulate-device-linux.md)
-

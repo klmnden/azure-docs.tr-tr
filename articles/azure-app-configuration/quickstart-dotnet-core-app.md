@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 0bf4aff8e0bae3e84e6383ec560dbfe67e30b994
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c42066b3ac02264ee357bac7ed3fdd360e9d5d4a
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408716"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798407"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Hızlı Başlangıç: Oluşturma bir .NET Core uygulaması ile uygulama yapılandırması
 
@@ -39,9 +39,9 @@ Bu hızlı başlangıç yapmak için yükleme [.NET Core SDK'sı](https://dotnet
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Seçin **yapılandırması Gezgini** > **+ Oluştur** aşağıdaki anahtar-değer çiftlerini eklemek için:
+6. Seçin **yapılandırması Gezgini** >  **+ Oluştur** aşağıdaki anahtar-değer çiftlerini eklemek için:
 
-    | Anahtar | Değer |
+    | Anahtar | Value |
     |---|---|
     | TestApp:Settings:Message | Azure uygulama yapılandırma verileri |
 
@@ -53,15 +53,15 @@ Kullandığınız [.NET Core komut satırı arabirimi (CLI)](https://docs.micros
 
 1. Projeniz için yeni bir klasör oluşturun.
 
-2. Yeni klasörde yeni bir ASP.NET Core MVC web uygulaması projesi oluşturmak için aşağıdaki komutu çalıştırın:
+2. Yeni klasörde yeni bir ASP.NET Core konsol uygulaması projesi oluşturmak için aşağıdaki komutu çalıştırın:
 
         dotnet new console
 
 ## <a name="connect-to-an-app-configuration-store"></a>Bir uygulama yapılandırma deposuna bağlanın
 
-1. Bir başvuru ekleyin `Microsoft.Extensions.Configuration.AzureAppConfiguration` aşağıdaki komutu çalıştırarak NuGet paketi:
+1. Bir başvuru ekleyin `Microsoft.Azure.AppConfiguration.AspNetCore` aşağıdaki komutu çalıştırarak NuGet paketi:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
+        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
 
 2. Projeniz için paketler geri yüklemek için aşağıdaki komutu çalıştırın:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: magoedte
-ms.openlocfilehash: fda79a7ea361a6b44798d18b79ffd763055087a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf06004c70609dbea59a47b207e3568299260a82
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122652"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594439"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-by-using-azure-policy"></a>Azure İzleyici (Önizleme) VM'ler için Azure İlkesi'ni kullanarak etkinleştirme
 
@@ -82,35 +82,35 @@ Azure ilkesi atama hakkında daha fazla bilgi için bkz. [Azure ilkesine genel b
 
 İlke tanımları bir Azure VM için aşağıdaki tabloda listelenmiştir.
 
-|Ad |Açıklama |Tür |
+|Ad |Açıklama |Type |
 |-----|------------|-----|
-|[Önizleme]: Sanal makineler için Azure İzleyicisi'ni etkinleştirme |Azure İzleyici, belirtilen kapsam (Yönetim grubu, abonelik veya kaynak grubu) sanal makineler için etkinleştirin. Log Analytics çalışma alanı, bir parametre olarak alır. |Girişim |
-|[Önizleme]: Bağımlılık Aracısı dağıtımı – sanal makine görüntüsü (OS) listelenmemiş denetleme |Vm'leri uyumsuz olarak bir VM görüntüsü (OS) listesinde tanımlı değil ve aracı yüklü değil bildirir. |İlke |
-|[Önizleme]: Log Analytics Aracısı dağıtımı – sanal makine görüntüsü (OS) listelenmemiş denetleme |Vm'leri uyumsuz olarak bir VM görüntüsü (OS) listesinde tanımlı değil ve aracı yüklü değil bildirir. |İlke |
-|[Önizleme]: Linux sanal makineleri için bağımlılık Aracısı dağıtma |Bağımlılık aracısını Linux VM'ler için VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil dağıtın. |İlke |
-|[Önizleme]: Windows sanal makineleri için bağımlılık Aracısı dağıtma |Bağımlılık Aracısı Windows Vm'leri için VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil dağıtın. |İlke |
-|[Önizleme]: Linux VM'ler için log Analytics aracısını dağıtmayı |Log Analytics aracısını Linux VM'ler için VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil dağıtın. |İlke |
-|[Önizleme]: Windows Vm'leri için log Analytics aracısını dağıtma |Log Analytics aracısını Windows Vm'leri için VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil dağıtın. |İlke |
+|\[Önizleme\]: Sanal makineler için Azure İzleyicisi'ni etkinleştirme |Azure İzleyici, belirtilen kapsam (Yönetim grubu, abonelik veya kaynak grubu) sanal makineler için etkinleştirin. Log Analytics çalışma alanı, bir parametre olarak alır. |Girişim |
+|\[Önizleme\]: Bağımlılık Aracısı dağıtımı – sanal makine görüntüsü (OS) listelenmemiş denetleme |Vm'leri uyumsuz olarak bir VM görüntüsü (OS) listesinde tanımlı değil ve aracı yüklü değil bildirir. |İlke |
+|\[Önizleme\]: Log Analytics Aracısı dağıtımı – sanal makine görüntüsü (OS) listelenmemiş denetleme |Vm'leri uyumsuz olarak bir VM görüntüsü (OS) listesinde tanımlı değil ve aracı yüklü değil bildirir. |İlke |
+|\[Önizleme\]: Linux sanal makineleri için bağımlılık Aracısı dağıtma |Bağımlılık aracısını Linux VM'ler için VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil dağıtın. |İlke |
+|\[Önizleme\]: Windows sanal makineleri için bağımlılık Aracısı dağıtma |Bağımlılık Aracısı Windows Vm'leri için VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil dağıtın. |İlke |
+|\[Önizleme\]: Linux VM'ler için log Analytics aracısını dağıtmayı |Log Analytics aracısını Linux VM'ler için VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil dağıtın. |İlke |
+|\[Önizleme\]: Windows Vm'leri için log Analytics aracısını dağıtma |Log Analytics aracısını Windows Vm'leri için VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil dağıtın. |İlke |
 
 ### <a name="policies-for-azure-virtual-machine-scale-sets"></a>İlkeleri için Azure sanal makine ölçek kümeleri
 
 Bir Azure sanal makine ölçek kümesi için İlke tanımları aşağıdaki tabloda listelenmiştir.
 
-|Ad |Açıklama |Tür |
+|Ad |Açıklama |Type |
 |-----|------------|-----|
-|[Önizleme]: Sanal makine ölçek kümeleri için Azure İzleyicisi'ni etkinleştirme |Belirtilen kapsamda (Yönetim grubu, abonelik veya kaynak grubu) sanal makine ölçek kümeleri için Azure İzleyici'yi etkinleştirin. Log Analytics çalışma alanı, bir parametre olarak alır. Not: Ölçek kümesinin yükseltme İlkesi el ile olarak ayarlanırsa, uzantı kümesindeki tüm sanal makineler yükseltme bunlara çağrı yaparak uygulanır. CLI, az vmss update-instances budur. |Girişim |
-|[Önizleme]: Bağımlılık Aracısı dağıtımı'sanal makine ölçek kümelerinde – sanal makine görüntüsü (OS) listelenmemiş denetleme |Sanal makine ölçek VM görüntüsü (OS) listesinde tanımlı değil ve aracı yüklü değil, uyumsuz olarak kümesi bildirir. |İlke |
-|[Önizleme]: Log Analytics Aracısı dağıtımı'sanal makine ölçek kümelerinde – sanal makine görüntüsü (OS) listelenmemiş denetleme |Sanal makine ölçek VM görüntüsü (OS) listesinde tanımlı değil ve aracı yüklü değil, uyumsuz olarak kümesi bildirir. |İlke |
-|[Önizleme]: Linux sanal makine ölçek kümeleri için bağımlılık Aracısı dağıtma |Linux VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil, sanal makine ölçek kümeleri için bağımlılık Aracısı'nı dağıtın. |İlke |
-|[Önizleme]: Windows sanal makine ölçek kümeleri için bağımlılık Aracısı dağıtma |Windows VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil, sanal makine ölçek kümeleri için bağımlılık Aracısı'nı dağıtın. |İlke |
-|[Önizleme]: Linux sanal makine ölçek kümeleri için log Analytics aracısını dağıtma |Linux VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil, sanal makine ölçek kümeleri için log Analytics aracısını dağıtın. |İlke |
-|[Önizleme]: Windows sanal makine ölçek kümeleri için log Analytics aracısını dağıtma |Windows VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil, sanal makine ölçek kümeleri için log Analytics aracısını dağıtın. |İlke |
+|\[Önizleme\]: Sanal makine ölçek kümeleri için Azure İzleyicisi'ni etkinleştirme |Belirtilen kapsamda (Yönetim grubu, abonelik veya kaynak grubu) sanal makine ölçek kümeleri için Azure İzleyici'yi etkinleştirin. Log Analytics çalışma alanı, bir parametre olarak alır. Not: Ölçek kümesinin yükseltme İlkesi el ile olarak ayarlanırsa, uzantı kümesindeki tüm sanal makineler yükseltme bunlara çağrı yaparak uygulanır. CLI, az vmss update-instances budur. |Girişim |
+|\[Önizleme\]: Bağımlılık Aracısı dağıtımı'sanal makine ölçek kümelerinde – sanal makine görüntüsü (OS) listelenmemiş denetleme |Sanal makine ölçek VM görüntüsü (OS) listesinde tanımlı değil ve aracı yüklü değil, uyumsuz olarak kümesi bildirir. |İlke |
+|\[Önizleme\]: Log Analytics Aracısı dağıtımı'sanal makine ölçek kümelerinde – sanal makine görüntüsü (OS) listelenmemiş denetleme |Sanal makine ölçek VM görüntüsü (OS) listesinde tanımlı değil ve aracı yüklü değil, uyumsuz olarak kümesi bildirir. |İlke |
+|\[Önizleme\]: Linux sanal makine ölçek kümeleri için bağımlılık Aracısı dağıtma |Linux VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil, sanal makine ölçek kümeleri için bağımlılık Aracısı'nı dağıtın. |İlke |
+|\[Önizleme\]: Windows sanal makine ölçek kümeleri için bağımlılık Aracısı dağıtma |Windows VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil, sanal makine ölçek kümeleri için bağımlılık Aracısı'nı dağıtın. |İlke |
+|\[Önizleme\]: Linux sanal makine ölçek kümeleri için log Analytics aracısını dağıtma |Linux VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil, sanal makine ölçek kümeleri için log Analytics aracısını dağıtın. |İlke |
+|\[Önizleme\]: Windows sanal makine ölçek kümeleri için log Analytics aracısını dağıtma |Windows VM görüntüsü (OS) listede tanımlanır ve aracı yüklü değil, sanal makine ölçek kümeleri için log Analytics aracısını dağıtın. |İlke |
 
 Tek başına ilke (girişimle yer almaz) aşağıda açıklanmıştır:
 
-|Ad |Açıklama |Tür |
+|Ad |Açıklama |Type |
 |-----|------------|-----|
-|[Önizleme]: Log Analytics çalışma alanı VM rapor uyuşmazlığı denetleme |Vm'lere ilke veya girişim atamasını belirtilen Log Analytics çalışma alanına oturum olmayan uyumsuz olarak bildirin. |İlke |
+|\[Önizleme\]: Log Analytics çalışma alanı VM rapor uyuşmazlığı denetleme |Vm'lere ilke veya girişim atamasını belirtilen Log Analytics çalışma alanına oturum olmayan uyumsuz olarak bildirin. |İlke |
 
 ### <a name="assign-the-azure-monitor-initiative"></a>Azure İzleyici girişim Ata
 İlke oluşturmak için **Vm'leri ilke Kapsamınız için Azure İzleyici** sayfasında, aşağıdaki adımları izleyin. Bu adımları tamamlamak nasıl anlamak için bkz: [Azure portalından bir ilke ataması oluşturma](../../governance/policy/assign-policy-portal.md).
@@ -180,19 +180,19 @@ Girişimle dahil ilke sonuçları temelinde, VM'ler, aşağıdaki senaryolarda u
 
 * Log Analytics aracısını veya bağımlılık aracısını dağıtılan değil.  
     Bu senaryo, var olan Vm'leri bir kapsamla tipik bir durumdur. Bunu azaltmak için gereken aracıları tarafından dağıtma [düzeltme görevler oluşturma](../../governance/policy/how-to/remediate-resources.md) uyumsuz İlkesi üzerinde yapılamaz.  
-    - [Önizleme]: Deploy Dependency agent for Linux VMs
-    - [Önizleme]: Deploy Dependency agent for Windows VMs
-    - [Önizleme]: Deploy Log Analytics agent for Linux VMs
-    - [Önizleme]: Deploy Log Analytics agent for Windows VMs
+    - \[Önizleme\]: Linux sanal makineleri için bağımlılık Aracısı dağıtma
+    - \[Önizleme\]: Windows sanal makineleri için bağımlılık Aracısı dağıtma
+    - \[Önizleme\]: Linux VM'ler için log Analytics aracısını dağıtmayı
+    - \[Önizleme\]: Windows Vm'leri için log Analytics aracısını dağıtma
 
 * Sanal makine görüntüsü (OS) ilke tanımında tanımlanan değildir.  
     Dağıtım ilkesi ölçütlerini iyi bilinen bir Azure VM görüntülerinden dağıtılan Vm'leri içerir. VM işletim sistemi desteklenip desteklenmediğini görmek için belgelere bakın. Desteklenmiyorsa, güncelleştirme ve dağıtım ilkesi yinelenen veya görüntü uyumlu hale getirmek için değiştirebilirsiniz.  
-    - [Önizleme]: Bağımlılık Aracısı dağıtımı – sanal makine görüntüsü (OS) listelenmemiş denetleme
-    - [Önizleme]: Log Analytics Aracısı dağıtımı – sanal makine görüntüsü (OS) listelenmemiş denetleme
+    - \[Önizleme\]: Bağımlılık Aracısı dağıtımı – sanal makine görüntüsü (OS) listelenmemiş denetleme
+    - \[Önizleme\]: Log Analytics Aracısı dağıtımı – sanal makine görüntüsü (OS) listelenmemiş denetleme
 
 * Sanal makineleri belirtilen Log Analytics çalışma alanına oturum değildir.  
     Bazı VM'ler girişim kapsamda bir ilke atamasında belirtilen başka bir Log Analytics çalışma açtığı, mümkündür. Bu ilke, VM'ler, uyumlu olmayan bir çalışma alanına raporlama yapmayan tanımlamak için kullanılan bir araçtır.  
-    - [Önizleme]: Audit Log Analytics workspace for VM – Report mismatch
+    - \[Önizleme\]: Log Analytics çalışma alanı VM rapor uyuşmazlığı denetleme
 
 ## <a name="edit-an-initiative-assignment"></a>Bir girişim atamasını Düzenle
 

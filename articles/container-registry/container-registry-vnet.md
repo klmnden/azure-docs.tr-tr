@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: danlep
-ms.openlocfilehash: 06e45127f940e01de5f3ceeefc354014a88014db
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: e6e0cdd73a5a2999f78599a06cc7ee397ecc3b4b
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514403"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806603"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Bir Azure sanal ağ veya güvenlik duvarı kurallarını kullanarak bir Azure container registry'ye erişimi kısıtlama
 
@@ -39,6 +39,14 @@ Bu makale bir Azure kapsayıcı kayıt defteri erişimi sınırlamak için ağ e
 * Azure'ı kullanmak için CLI adımlar bu makalede, Azure CLI Sürüm 2.0.58 veya üstü gereklidir. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme][azure-cli].
 
 * Bir kapsayıcı kayıt defterinde yoksa (Premium gerekli SKU) oluşturun ve bir örnek görüntü gibi anında iletme `hello-world` Docker hub'dan. Örneğin, [Azure portalında][quickstart-portal] or the [Azure CLI][quickstart-cli] bir kayıt defteri oluşturmak için. 
+
+* Farklı bir Azure aboneliğinde bir sanal ağ kullanarak kayıt defteri erişimini kısıtlamak istiyorsanız, bu abonelikte Azure Container Registry kaynak Sağlayıcı'ı kaydetmeniz gerekir. Örneğin:
+
+  ```azurecli
+  az account set --subscription <Name or ID of subscription of virtual network>
+
+  az provider register --namespace Microsoft.ContainerRegistry
+  ``` 
 
 ## <a name="about-network-rules-for-a-container-registry"></a>Kapsayıcı kayıt defteri için ağ kuralları hakkında
 

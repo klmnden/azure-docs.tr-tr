@@ -9,37 +9,38 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: kgremban
-ms.openlocfilehash: 7ac668bdbc3698be3ed2aa50a428cef84e68369a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00f639ec57f3d29dff1993bbc664477b8648ce9a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61441414"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612557"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>IOT hub'ı (Python) ile bulut buluttan cihaza iletileri gönderme
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## <a name="introduction"></a>Giriş
-Azure IOT hub'ı yardımcı olan tam olarak yönetilen bir hizmet, milyonlarca cihaz arasında güvenilir ve güvenli çift yönlü iletişimi etkinleştirmek ve bir çözüm arka ucu ' dir. [IOT Hub ile çalışmaya başlama](quickstart-send-telemetry-python.md) hızlı başlangıç, IOT hub oluşturma, bir cihaz kimliği da sağlamak ve CİHAZDAN buluta iletiler gönderen bir sanal cihaz uygulamasının kodu nasıl gösterir.
+
+Azure IOT hub'ı yardımcı olan tam olarak yönetilen bir hizmet, milyonlarca cihaz arasında güvenilir ve güvenli çift yönlü iletişimi etkinleştirmek ve bir çözüm arka ucu ' dir. [Telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-python.md) hızlı başlangıç, IOT hub oluşturma, bir cihaz kimliği da sağlamak ve CİHAZDAN buluta iletiler gönderen bir sanal cihaz uygulamasının kodu nasıl gösterir.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Bu öğreticide yapılar [IOT Hub ile çalışmaya başlama](quickstart-send-telemetry-python.md). Bunun nasıl yapılacağı anlatılmaktadır için:
+Bu öğreticide yapılar [telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-python.md). Bunun nasıl yapılacağı anlatılmaktadır için:
 
 * Çözüm arka ucunuz, tek bir cihaz IOT hub'ı aracılığıyla bulut-cihaz iletilerini gönderin.
 
 * Bir cihazda bulut-cihaz iletilerini alır.
 
-* Çözüm arka ucunuz, teslimat alındısı istek (*geri bildirim*) için bir cihaz IOT Hub'ından gönderilen iletileri.
+* Teslim alındı bildirimi, çözüm arka ucu istek (*geri bildirim*) için bir cihaz IOT Hub'ından gönderilen iletileri.
 
 Bulut-cihaz iletileri hakkında daha fazla bilgi bulabilirsiniz [IOT Hub Geliştirici kılavuzunun](iot-hub-devguide-messaging.md).
 
 Bu öğreticinin sonunda iki Python konsol uygulaması çalıştırın:
 
-* **SimulatedDevice.py**, oluşturulan uygulamayı değiştirilmiş bir sürümünü [IOT Hub ile çalışmaya başlama](quickstart-send-telemetry-python.md), IOT hub'ınıza bağlanır ve bulut-cihaz iletilerini alır.
+* **SimulatedDevice.py**, oluşturulan uygulamayı değiştirilmiş bir sürümünü [telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-python.md), IOT hub'ınıza bağlanır ve bulut-cihaz iletilerini alır.
 
-* **SendCloudToDeviceMessage.py**, IOT hub'ı aracılığıyla sanal cihaz uygulaması için bir bulut buluttan cihaza ileti gönderir ve ardından, teslimat alındısı.
+* **SendCloudToDeviceMessage.py**, IOT hub'ı aracılığıyla sanal cihaz uygulaması için bir bulut buluttan cihaza ileti gönderir ve sonra onun teslim alındı bildirimi alır.
 
 > [!NOTE]
 > IOT Hub SDK desteği birçok cihaz platformlarını ve Azure IOT cihaz SDK'ları aracılığıyla diller (C, Java ve Javascript dahil) sahiptir. Bu öğreticinin koda ve genellikle Azure IOT hub'a Cihazınızı bağlamak hakkında adım adım yönergeler için bkz. [Azure IOT Geliştirici Merkezi](https://www.azure.com/develop/iot).
@@ -78,7 +79,7 @@ Bu bölümde, bir cihazın benzetimini gerçekleştirme ve IOT hub'ından bulut-
     RECEIVE_CALLBACKS = 0
     ```
 
-3. Aşağıdaki kodu ekleyin **SimulatedDevice.py** dosya. "{DeviceConnectionString}" yer tutucu değerini, oluşturduğunuz cihaz için cihaz bağlantı dizesiyle değiştirin [IOT Hub ile çalışmaya başlama](quickstart-send-telemetry-python.md) hızlı başlangıç:
+3. Aşağıdaki kodu ekleyin **SimulatedDevice.py** dosya. "{DeviceConnectionString}" yer tutucu değerini, oluşturduğunuz cihaz için cihaz bağlantı dizesiyle değiştirin [telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-python.md) hızlı başlangıç:
 
     ```python
     # choose AMQP or AMQP_WS as transport protocol
@@ -170,7 +171,7 @@ Bu bölümde, bir cihazın benzetimini gerçekleştirme ve IOT hub'ından bulut-
 
 ## <a name="send-a-cloud-to-device-message"></a>Bulut buluttan cihaza ileti gönderme
 
-Bu bölümde, sanal cihaz uygulaması için bulut-cihaz iletilerini gönderen bir Python konsol uygulaması oluşturun. Cihazın kimliği, eklediğiniz ihtiyacınız [IOT Hub ile çalışmaya başlama](quickstart-send-telemetry-python.md) hızlı başlangıç. IOT Hub bağlantı dizesine, bulabileceğiniz hub'ınız için etmeniz [Azure portalında](https://portal.azure.com).
+Bu bölümde, sanal cihaz uygulaması için bulut-cihaz iletilerini gönderen bir Python konsol uygulaması oluşturun. Cihazın kimliği, eklediğiniz ihtiyacınız [telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-python.md) hızlı başlangıç. IOT Hub bağlantı dizesine, bulabileceğiniz hub'ınız için etmeniz [Azure portalında](https://portal.azure.com).
 
 1. Bir metin düzenleyicisi kullanarak oluşturduğunuz bir **SendCloudToDeviceMessage.py** dosya.
 
@@ -189,7 +190,7 @@ Bu bölümde, sanal cihaz uygulaması için bulut-cihaz iletilerini gönderen bi
     MSG_TXT = "{\"service client sent a message\": %.2f}"
     ```
 
-3. Aşağıdaki kodu ekleyin **SendCloudToDeviceMessage.py** dosya. "{IoTHubConnectionString}" yer tutucu değerini hub için oluşturduğunuz, IOT Hub bağlantı dizesiyle değiştirin [IOT Hub ile çalışmaya başlama](quickstart-send-telemetry-python.md) hızlı başlangıç. Eklediğiniz cihazın cihaz kimliği "{DeviceID}" yer tutucusunu değiştirin [IOT Hub ile çalışmaya başlama](quickstart-send-telemetry-python.md) hızlı başlangıç:
+3. Aşağıdaki kodu ekleyin **SendCloudToDeviceMessage.py** dosya. "{IoTHubConnectionString}" yer tutucu değerini hub için oluşturduğunuz, IOT Hub bağlantı dizesiyle değiştirin [telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-python.md) hızlı başlangıç. Eklediğiniz cihazın cihaz kimliği "{DeviceID}" yer tutucusunu değiştirin [telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-python.md) hızlı başlangıç:
 
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
@@ -268,7 +269,7 @@ Bu bölümde, sanal cihaz uygulaması için bulut-cihaz iletilerini gönderen bi
 
 1. Bir komut istemi açın ve yükleme **Python için Azure IOT Hub cihazı SDK**.
 
-    ```
+    ```shell
     pip install azure-iothub-device-client
     ```
 
@@ -282,7 +283,7 @@ Bu bölümde, sanal cihaz uygulaması için bulut-cihaz iletilerini gönderen bi
 
 3. Yeni bir komut istemi açın ve yükleme **Python için Azure IOT Hub hizmeti SDK**.
 
-    ```
+    ```shell
     pip install azure-iothub-service-client
     ```
 

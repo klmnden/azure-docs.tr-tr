@@ -10,13 +10,13 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
-ms.author: mahender
-ms.openlocfilehash: 0942d5ba7b31ddb2c0dec5fe979f1331d1bf3bfd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mahender, yevbronsh
+ms.openlocfilehash: b18d5ba303d1cf7ab637638043f9e0727437c232
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66136957"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827854"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service ve Azure işlevleri için yönetilen kimliklerini kullanma
 
@@ -181,7 +181,7 @@ Uygulama bir kullanıcı tarafından atanan kimliği oluşturma, kimlik oluştur
 
 5. İçinde **kullanıcı (Önizleme) atanmış** sekmesinde **Ekle**.
 
-6. Daha önce oluşturduğunuz kimlik için arama yapın ve seçin. **Ekle**'yi tıklatın.
+6. Daha önce oluşturduğunuz kimlik için arama yapın ve seçin.           **Ekle**'yi tıklatın.
 
 ![App Service içindeki yönetilen kimlik](media/app-service-managed-service-identity/msi-blade-user.png)
 
@@ -275,6 +275,34 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 ```
 
 Microsoft.Azure.Services.AppAuthentication ve kullanıma sunduğu işlemleri hakkında daha fazla bilgi için bkz: [Microsoft.Azure.Services.AppAuthentication başvurusu] ve [App Service ve Azure anahtar kasası MSI .NET ile örnek](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+
+
+### <a name="using-the-azure-sdk-for-java"></a>Java için Azure SDK'yı kullanma
+
+Java uygulamalarını ve işlevleri için aracılığıyla yönetilen bir kimlik ile çalışmak için en kolay yolu olan [Java için Azure SDK'sı](https://github.com/Azure/azure-sdk-for-java). Bu bölümde, kitaplığı kodunuza kullanmaya başlama işlemini göstermektedir.
+
+1. Bir başvuru ekleyin [Azure SDK'sı Kitaplığı](https://mvnrepository.com/artifact/com.microsoft.azure/azure). Maven projeleri için bu kod parçacığını ekleyebilirsiniz `dependencies` projenin POM dosyası bölümünü:
+
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure</artifactId>
+    <version>1.23.0</version>
+</dependency>
+```
+
+2. Kullanım `AppServiceMSICredentials` kimlik doğrulaması için nesne. Bu örnek, Azure anahtar kasası ile çalışmak için bu mekanizma nasıl kullanılabilir gösterir:
+
+```java
+import com.microsoft.azure.AzureEnvironment;
+import com.microsoft.azure.management.Azure;
+import com.microsoft.azure.management.keyvault.Vault
+//...
+Azure azure = Azure.authenticate(new AppServiceMSICredentials(AzureEnvironment.AZURE))
+        .withSubscription(subscriptionId);
+Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName);
+
+```
 
 ### <a name="using-the-rest-protocol"></a>REST protokolü kullanarak
 

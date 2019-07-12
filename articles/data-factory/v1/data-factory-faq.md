@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 518e3fa842c5283dc20a6111773bd55451f026b6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f33a59105d1be94ccd4fb24ae3d962b36c2efbdd
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486876"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839349"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - sık sorulan sorular
 > [!NOTE]
@@ -35,7 +35,7 @@ Veri fabrikası, hem şirket içi ve bulut veri depolarının yanı sıra Azure 
 Daha fazla bilgi için [genel bakış ve temel kavramlar](data-factory-introduction.md).
 
 ### <a name="where-can-i-find-pricing-details-for-azure-data-factory"></a>Nereden bulabilirim fiyatlandırma ayrıntıları için Azure Data Factory?
-Bkz: [Data Factory fiyatlandırma ayrıntıları sayfasına] [ adf-pricing-details] Azure Data Factory için fiyatlandırma ayrıntıları.  
+Bkz: [Data Factory fiyatlandırma ayrıntıları sayfasına][adf-pricing-details] Azure Data Factory için fiyatlandırma ayrıntıları.  
 
 ### <a name="how-do-i-get-started-with-azure-data-factory"></a>Azure Data factory'yi kullanmaya nasıl başlayabilirim?
 * Azure Data Factory'ye genel bakış için bkz. [Azure Data Factory'ye giriş](data-factory-introduction.md).
@@ -51,11 +51,10 @@ Bkz: **Azure veri fabrikası sınırları** bölümünü [Azure aboneliği ve hi
 ### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>Azure Data Factory hizmetiyle yazma geliştirici deneyimi nedir?
 Yazar/aşağıdaki araçlardan/Sdk'lardan birini kullanarak veri fabrikaları oluşturabilirsiniz:
 
-* **Azure portalında** Azure Portal'daki Data Factory dikey pencereleri veri fabrikaları ad bağlantılı hizmetler oluşturmak için zengin kullanıcı arabirimi sağlar. **Data Factory düzenleyici**, ayrıca Portalı'nın parçası olduğu kolayca bağlı hizmetler, tablolar, veri kümeleri ve işlem hatlarını bu yapılar için JSON tanımları belirterek oluşturmanıza imkan tanır. Bkz: [Azure portalını kullanarak ilk veri işlem hattınızı](data-factory-build-your-first-pipeline-using-editor.md) oluşturmak ve veri fabrikası dağıtmak için portal/Düzenleyicisi'ni kullanarak bir örnek için.
 * **Visual Studio** bir Azure veri fabrikası oluşturmak için Visual Studio'yu kullanabilirsiniz. Bkz: [Visual Studio kullanarak ilk veri işlem hattınızı](data-factory-build-your-first-pipeline-using-vs.md) Ayrıntılar için.
-* **Azure PowerShell** bkz [oluşturma ve Azure PowerShell kullanarak Azure Data factory'yi izleme](data-factory-build-your-first-pipeline-using-powershell.md) PowerShell kullanarak veri fabrikası oluşturmak için öğretici/kılavuz. Bkz: [Data Factory Cmdlet başvurusu] [ adf-powershell-reference] kapsamlı belgeler Data Factory cmdlet'leri için MSDN Kitaplığı içeriği.
-* **.NET sınıf kitaplığı** Data Factory .NET SDK'sını kullanarak programlama yoluyla veri fabrikaları oluşturabilirsiniz. Bkz [oluşturma, izleme ve yönetme .NET SDK kullanarak veri fabrikaları](data-factory-create-data-factories-programmatically.md) kılavuz .NET SDK kullanarak veri fabrikası oluşturma. Bkz: [Data Factory sınıf kitaplığı başvurusu] [ msdn-class-library-reference] Data Factory .NET SDK'ın kapsamlı belgeler için.
-* **REST API** oluşturup veri fabrikaları dağıtmak için Azure Data Factory hizmeti tarafından kullanıma sunulan REST API de kullanabilirsiniz. Bkz: [Data Factory REST API Başvurusu] [ msdn-rest-api-reference] Data Factory REST API, kapsamlı belgeler için.
+* **Azure PowerShell** bkz [oluşturma ve Azure PowerShell kullanarak Azure Data factory'yi izleme](data-factory-build-your-first-pipeline-using-powershell.md) PowerShell kullanarak veri fabrikası oluşturmak için öğretici/kılavuz. Bkz: [Data Factory Cmdlet başvurusu][adf-powershell-reference] kapsamlı belgeler Data Factory cmdlet'leri için MSDN Kitaplığı içeriği.
+* **.NET sınıf kitaplığı** Data Factory .NET SDK'sını kullanarak programlama yoluyla veri fabrikaları oluşturabilirsiniz. Bkz [oluşturma, izleme ve yönetme .NET SDK kullanarak veri fabrikaları](data-factory-create-data-factories-programmatically.md) kılavuz .NET SDK kullanarak veri fabrikası oluşturma. Bkz: [Data Factory sınıf kitaplığı başvurusu][msdn-class-library-reference] Data Factory .NET SDK'ın kapsamlı belgeler için.
+* **REST API** oluşturup veri fabrikaları dağıtmak için Azure Data Factory hizmeti tarafından kullanıma sunulan REST API de kullanabilirsiniz. Bkz: [Data Factory REST API Başvurusu][msdn-rest-api-reference] Data Factory REST API, kapsamlı belgeler için.
 * **Azure Resource Manager şablonu** bkz [Öğreticisi: Azure Resource Manager şablonu kullanarak ilk Azure data factory'nizi derleme](data-factory-build-your-first-pipeline-using-arm.md) fo ayrıntıları.
 
 ### <a name="can-i-rename-a-data-factory"></a>Veri Fabrikası yeniden adlandırabilir miyim?
@@ -178,7 +177,7 @@ Bir dilim aşağıdaki yollardan birinde çalıştırabilirsiniz:
     ```powershell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-  Bkz: [kümesi AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status] cmdlet'i hakkında daha fazla ayrıntı için.
+  Bkz: [kümesi AzDataFactorySliceStatus][set-azure-datafactory-slice-status] cmdlet'i hakkında daha fazla ayrıntı için.
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>Ne kadar bir dilimi işlemesi için sürer?
 Veri dilimi işlemesi için ne kadar sürdüğünü öğrenmek için etkinlik penceresi Gezgini'nde izleme ve yönetme uygulamasını kullanın. Bkz: [etkinlik penceresi Gezgini](data-factory-monitor-manage-app.md#activity-window-explorer) Ayrıntılar için.

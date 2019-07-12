@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: e63937cedf44b1642e091a4744d898a26422be10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 587304968cdf3a3763e47b9f8b614fe67aebf534
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393683"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798043"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics Önizleme özellikleri
 
@@ -23,7 +23,10 @@ Bu makalede, Azure Stream Analytics için şu anda önizlemede tüm özellikler 
 
 Aşağıdaki özellikler, genel Önizleme aşamasındadır. Bu özelliklerin bugün yararlanabilirsiniz, ancak bunları üretim ortamında kullanmayın.
 
-### <a name="visual-studio-code-for-azure-stream-analytics-released-may-2019"></a>Visual Studio Code için Azure Stream Analytics (Mayıs 2019'da yayımlanan)
+### <a name="one-click-integration-with-event-hubs"></a>Event Hubs ile tek tıklamayla tümleştirme 
+Bu tümleştirme sayesinde, artık gelen verileri görselleştirmek ve olay hub'ı portaldan tek bir tıklamayla bir Stream Analytics sorgu yazmaya başlayın mümkün olacaktır. Sorgunuzu hazır hale geldikten sonra yalnızca birkaç tıklamayla productize ve gerçek zamanlı öngörüleri almak başlatmak mümkün olacaktır. Bu, zaman ve maliyet gerçek zamanlı analiz çözümleri geliştirmek için önemli ölçüde azaltır. Belgelere [burada](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics).
+
+### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code için Azure Stream Analytics
 
 Azure Stream Analytics işleri, Visual Studio Code'da yazılabilir. Bkz. bizim [VS Code ile çalışmaya başlama Öğreticisi](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code).
 
@@ -49,19 +52,13 @@ Azure Stream Analytics için Visual Studio Araçları, olay hub'ı veya IOT hub 
 
 ## <a name="other-previews"></a>Diğer önizlemeleri
 
-Aşağıdaki özellikler de önizleme mevcuttur.
+Aşağıdaki özellikleri, ayrıca isteğinde önizleme modunda kullanılabilir.
 
-### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge-and-cloud-announced-may-2019"></a>C#IOT Edge ve (Announced Mayıs 2019) bulut üzerinde Azure Stream Analytics için özel seri durumdan çıkarıcının
+### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge-and-cloud"></a>C#IOT Edge ve bulut üzerinde Azure Stream Analytics için özel seri durumdan çıkarıcının
 
 Geliştiriciler, özel deserializers uygulayabilirsiniz C# Azure Stream Analytics tarafından alınan olayları seri durumdan çıkarılacak. Parquet, Protobuf, XML veya herhangi bir ikili biçimi seri durumdan çıkarılabiliyorsa biçimleri örnekleridir. Bu önizleme için kaydolun [burada](https://aka.ms/asapreview1).
 
-### <a name="parquet-output-announced-may-2019"></a>Parquet çıkış (Mayıs 2019'da duyurulan)
-Parquet verimli büyük veri işleme etkinleştirme sütunlu bir biçimidir. Verileri Parquet biçiminde bir veri gölü'nde çıktısı tarafından power büyük ölçekte ETL akış için Azure Stream Analytics yararlanın ve toplu işlem çalıştırabilir, makine öğrenimi algoritmalarını eğitmek veya geçmiş verileriniz üzerinde etkileşimli sorguları çalıştırma. Bu önizleme için kaydolun [burada](https://aka.ms/asapreview1).
-
-### <a name="one-click-integration-with-event-hubs-announced-may-2019"></a>Event hubs'ı (Announced Mayıs 2019) ile tek tıklamayla tümleştirme 
-Bu tümleştirme sayesinde, artık gelen verileri görselleştirmek ve olay hub'ı portaldan tek bir tıklamayla bir Stream Analytics sorgu yazmaya başlayın mümkün olacaktır. Sorgunuzu hazır hale geldikten sonra yalnızca birkaç tıklamayla productize ve gerçek zamanlı öngörüleri almak başlatmak mümkün olacaktır. Bu, zaman ve maliyet gerçek zamanlı analiz çözümleri geliştirmek için önemli ölçüde azaltır. Bu önizleme için kaydolun [burada](https://aka.ms/asapreview1).
-
-### <a name="support-for-azure-stack-announced-may-2019"></a>Azure Stack (Mayıs 2019'da duyurulan) için destek
+### <a name="support-for-azure-stack"></a>Azure Stack desteği
 Azure IOT Edge çalışma zamanı bu özellik, yerel girişleri için yerel destek gibi özel Azure Stack özelliklerini yararlanır ve Azure Stack (örneğin, Event Hubs, IOT Hub, Blob Depolama) üzerinde çalışan çıkartır. Bu yeni tümleştirme, verilerinizin nerede oluşturulduğunu ve gecikme süresini azaltmayı ınsights en üst düzeye yakın çözümleyebilirsiniz karma mimariler oluşturmanızı sağlar.
 Bu önizleme için kaydolun [burada](https://aka.ms/asapreview1).
 

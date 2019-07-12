@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 225ac86efba8a32b085a5fb7fc41bed48c499eab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41637fae5592ac292da22303071d51b43116c78b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65022175"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671902"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>Bilişsel arama iş yükleri için belge kaynakları
 
@@ -27,7 +27,7 @@ Bilişsel arama için kapsamlı belgeler makaleleridir.
 + [Bilişsel arama nedir?](cognitive-search-concept-intro.md)
 + [Hızlı Başlangıç: Portalında bilişsel aramayı deneme](cognitive-search-quickstart-blob.md)
 + [Öğretici: Bilişsel arama API'leri öğrenin](cognitive-search-tutorial-blob.md)
-+ [Örnek: özel bir beceri oluşturma](cognitive-search-create-custom-skill-example.md)
++ [Örnek: Bilişsel arama için özel bir yetenek oluşturma](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>Nasıl yapılır kılavuzları
 + [Bir beceri kümesi tanımlama](cognitive-search-defining-skillset.md)

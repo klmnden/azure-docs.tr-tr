@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 562ce8a4267370be9b049e3b56f213f82deb89c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e63d935b3c11766c4981ffb035dd45ad4019797c
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734998"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807078"
 ---
-# <a name="status-monitor-v2-api-set-applicationinsightsmonitoringconfig-v021-alpha"></a>Durum İzleyicisi'ni v2 API'si: Set-ApplicationInsightsMonitoringConfig (v0.2.1-alpha)
+# <a name="status-monitor-v2-api-set-applicationinsightsmonitoringconfig-v040-alpha"></a>Durum İzleyicisi'ni v2 API'si: Set-ApplicationInsightsMonitoringConfig (v0.4.0-alpha)
 
 Bu belgede bir üyesi olan bir cmdlet açıklanmaktadır [Az.ApplicationMonitor PowerShell Modülü](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -94,7 +94,7 @@ Birkaç bilgisayar için bir tek bir yükleme betiği ayarlayarak oluşturabilec
 **Ortak parametresi.** Ayrıntılı günlükleri görüntülemek için bu anahtarı kullanın.
 
 
-## <a name="output"></a>Çıktı
+## <a name="output"></a>Output
 
 Varsayılan olarak, çıkış yok.
 

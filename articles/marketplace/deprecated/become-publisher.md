@@ -8,25 +8,25 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5e691dde92ac05b653cdafb22db9276c7a566008
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd9aa28703003d2e286197d57e9f00361e2b460d
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258962"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653995"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bulut Market yayımcısı olur
 
 Bu makale, bir bulut Market yayımcısı kaydetme kapsar. Seçilen yayımlama seçeneğinizi ve Microsoft iş ortağı ağı, geçerli üyeliğine bağlı olarak aşağıdaki adımlardan bazıları gerekli olmayabilir. Bir kez kayıtlı şunları yapabileceksiniz Market teklifleri için Azure Market veya Appsource'ta oluşturmak.
 
 
-|  | Kayıt adımı | Süre | Ayrıntılar |  
+|  | Kayıt adımı | Duration | Ayrıntılar |  
 |:--- |:--- |:--- |:--- |  
-| 1 | Microsoft İş Ortağı Ağı'kaydetme | 15 dakika | [Microsoft İş Ortağı Ağı'kaydetme](https://docs.microsoft.com/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
-| 2 | Bir Microsoft hesabı oluşturun <ul>(teklifleri Azure Marketi transact için gerekli; diğerleri için önerilir)</ul> | 15 dakika | [Microsoft kimliği oluşturma](https://docs.microsoft.com/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
-| 3 | Bir iş ortağı merkezi hesabı oluşturun | 15 dakika | [Bir iş ortağı merkezi hesabı oluşturun](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) |  
-| 4 |  Bulut iş ortağı Portalı'nda oturum açın | 1 ila 3 gün | [Bulut iş ortağı Portalı'nda oturum açın](https://docs.microsoft.com/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
-| 5 | Microsoft Developer Center'da (Dev Merkezi) (Azure Marketi'nde transact teklifleri için) kaydetme | 5-10 gün | [Geliştirme Merkezi'ne Kaydolma](https://docs.microsoft.com/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
+| 1\. | Microsoft İş Ortağı Ağı'kaydetme | 15 dakika | [Microsoft İş Ortağı Ağı'kaydetme](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#register-for-an-account-using-the-enrollment-page) |  
+| 2 | Bir Microsoft hesabı oluşturun <ul>(teklifleri Azure Marketi transact için gerekli; diğerleri için önerilir)</ul> | 15 dakika | [Microsoft kimliği oluşturma](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) |  
+| 3 | Bir iş ortağı merkezi hesabı oluşturun | 15 dakika | [İş Ortağı Merkezi hesabı oluşturma](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) |  
+| 4 |  Bulut iş ortağı Portalı'nda oturum açın | 1 ila 3 gün | [Bulut iş ortağı Portalı'nda oturum açın](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#sign-in-with-a-work-account) |  
+| 5 | Microsoft Developer Center'da (Dev Merkezi) (Azure Marketi'nde transact teklifleri için) kaydetme | 5-10 gün | [Geliştirme Merkezi'ne Kaydolma](/azure/marketplace/deprecated/register-dev-center) |  
 
 
 ## <a name="1-register-in-microsoft-partner-network"></a>1. Microsoft İş Ortağı Ağı'kaydetme  
@@ -50,9 +50,9 @@ Bir Microsoft hesabı, örneğin  *\@outlook.com veya \@live.com*, birçok Micro
 [! İş e-postanız ile ilişkili Microsoft hesabınız portalına erişmek izin vermez, önemli] lütfen unutmayın.
 
 > [!Note]
-> Zaten bir Microsoft hesabınız varsa gözden [marketplace hesabı yönetmek için a Microsoft ID oluşturma yönergeleri](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) Market yayımlama için kullanılabilir olmadığını belirlemek için. 
+> Zaten bir Microsoft hesabınız varsa gözden [marketplace hesabı yönetmek için a Microsoft ID oluşturma yönergeleri](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#manage-tenants) Market yayımlama için kullanılabilir olmadığını belirlemek için. 
 > 
-> Kullanıcılar Azure Active Directory Federasyon Kurumsal hesap ile kimler [bu makalede](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) oluşturmayı veya mevcut Microsoft Account kullanmayı denemeden önce.
+> Kullanıcılar Azure Active Directory Federasyon Kurumsal hesap ile kimler [bu makalede](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#manage-users) oluşturmayı veya mevcut Microsoft Account kullanmayı denemeden önce.
 
 *   Oluşturma veya Microsoft hesabınızı yönetme konusunda yardım için ziyaret [Microsoft hesabı Yardım desteği sayfaları](https://support.microsoft.com/products/microsoft-account?category=manage-account).
 

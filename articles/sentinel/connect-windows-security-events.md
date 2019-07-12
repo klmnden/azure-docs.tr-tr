@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: d51d2e09-a073-41c8-b396-91d60b057e6a
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 36d38aa82b4f0ec8d7d9ef6ebb1145b1fcc334df
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 188febf090ddb3f685f9d3c3b94d822f15bbcfcb
+ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190581"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673773"
 ---
 # <a name="connect-windows-security-events"></a>Windows güvenlik olaylarını bağlama 
 
@@ -30,10 +31,10 @@ ms.locfileid: "67190581"
 Tüm güvenlik olayları Azure Gözcü çalışma alanınıza bağlı Windows sunucularından akışını yapabilirsiniz. Bu bağlantı, panoları görüntülemesine, özel uyarıları oluşturma ve araştırma geliştirmek sağlar. Bu, kuruluşunuzun ağ daha fazla öngörü sağlar ve güvenlik işlemi yeteneklerinizi geliştirir.  Hangi olayların akışı seçebilirsiniz:
 
 - **Tüm olaylar** -tüm Windows Güvenlik ve AppLocker olayları.
-- **Ortak** -olayları denetim amacıyla standart bir dizi. Tam kullanıcı denetim kaydı bu kümesindeki dahil edilir. Örneğin, bu ayarla, hem kullanıcı oturum açma bilgileri ve kullanıcı oturum kapatma (olay kimliği 4634) içerir. Güvenlik grubu değişikliklerini, anahtar etki alanı denetleyicisi Kerberos işlemleri ve sektör kuruluşlar tarafından önerilen diğer olaylar gibi eylemleri denetimi ekliyoruz.
+- **Ortak** -olayları denetim amacıyla standart bir dizi. Tam kullanıcı denetim kaydı bu kümesindeki dahil edilir. Örneğin, bu, hem kullanıcı oturum açma ve kullanıcı oturumunuzu olayları (olay kimliği 4634) içerir. Güvenlik grubu değişikliklerini, anahtar etki alanı denetleyicisi Kerberos işlemleri ve sektör kuruluşlar tarafından önerilen diğer olaylar gibi eylemleri denetimi ekliyoruz.
 
 Tüm olayları üzerine miktarının azaltılmasını ve belirli olay filtre için olduğunu seçin için ana motivasyon olarak ortak çok düşük bir birime sahip olayları dahil edilmişti.
-- **En az** -küçük bir olayların olası tehditleri gösterebilir. Bu seçenek etkinleştirildiğinde, tam denetim kaydı mümkün olmayacaktır.  Bu, başarılı bir ihlal işaret eden olayları ve çok düşük bir birime sahip önemli olayları kapsar. Örneğin, bu kullanıcının başarılı ve başarısız oturum açma (olay kimliği 4624 4625) içerir, ancak denetim için önemlidir, ancak algılama için anlamlı ve görece yüksek hacimli olan oturum kapatma içermiyor. Bu veri hacmini çoğunu, oturum açma olayları ve işlem oluşturma olayı (olay kimliği 4688) olur.
+- **En az** -küçük bir olayların olası tehditleri gösterebilir. Bu seçenek etkinleştirildiğinde, tam denetim kaydı mümkün olmayacaktır.  Bu, başarılı bir ihlal işaret eden olayları ve çok düşük bir birime sahip önemli olayları kapsar. Örneğin, bu kullanıcı başarılı ve başarısız oturum açma (olay kimliği 4624 4625) içerir, ancak oturum denetimi için önemlidir, ancak algılama için anlamlı ve görece yüksek hacimli olan bilgi içermiyor. Çoğu veri hacmi bu kümenin oturum açma olayları ve işlem oluşturma olayı (olay kimliği 4688) olur.
 - **Hiçbiri** -hiçbir güvenlik veya AppLocker olayı.
 
 > [!NOTE]

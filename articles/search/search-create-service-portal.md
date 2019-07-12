@@ -6,19 +6,19 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/29/2019
+ms.date: 07/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: fd81115f4e811366b6b115d1c73a9be7ca26698b
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d0d1dbb81f00f500f3eb95c605ed0c15c634f624
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485630"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706820"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Portalda Azure Search hizmeti oluşturma
 
-Azure arama, bir arama deneyimi özel uygulamalarda takın için kullanılan tek başına bir kaynaktır. Diğer Azure Hizmetleri ile Azure Search bir kolayca tümleşir olsa da, kendisi tarafından Ayrıca ağ sunucularında uygulamaları veya diğer bulut platformlarında çalışan yazılımı ile kullanabilirsiniz.
+Azure arama, bir arama deneyimi özel uygulamalarda takın için kullanılan tek başına bir kaynaktır. Diğer Azure Hizmetleri ile Azure Search bir kolayca tümleşir olsa da, ayrıca tek başına bileşeni olarak kullanın, veya ağ sunucuları uygulamaları veya diğer bulut platformlarında çalışan yazılımı ile tümleştirin.
 
 Bu makalede, bir Azure Search kaynağı oluşturmayı öğrenin [Azure portalında](https://portal.azure.com/).
 
@@ -73,10 +73,10 @@ Azure hizmeti olarak Azure Search, dünyanın dört bir yanındaki veri merkezle
 
 Başka bir Azure tarafından sağlanan veri sıralıyorsanız hizmeti (Azure depolama, Azure Cosmos DB, Azure SQL veritabanı), bant genişliği ücretleri önlemek için aynı bölgede Azure Search hizmetinizi oluşturma öneririz. Hizmetler aynı bölgede çalışırken giden veriler için herhangi bir ücreti yoktur.
 
-Bilişsel arama AI zenginleştirmelerinin kullanıyorsanız, Bilişsel hizmetler kaynağınızı aynı bölgede hizmetinizi oluşturun. Hizmetlerin birlikte bulundurma, yapay ZEKA zenginleştirme için bir gereksinimdir.
+Bilişsel arama AI zenginleştirmelerinin kullanıyorsanız, Bilişsel hizmetler kaynağınızı aynı bölgede hizmetinizi oluşturun. *Azure Search ve Bilişsel hizmetler ile aynı bölgede birlikte bulundurma AI zenginleştirme için bir gereksinimdir*.
 
 > [!Note]
-> Orta Hindistan, yeni hizmetler için şu anda kullanılamıyor. Orta Hindistan zaten Hizmetleri, kısıtlama olmadan ölçeği artırabilirsiniz ve hizmetiniz bu bölgeye tam olarak desteklenir. Bu bölge kısıtlaması geçicidir ve uzun, geçerli olduğu durumlarda bu notta kaldıracağız.
+> Orta Hindistan, yeni hizmetler için şu anda kullanılamıyor. Orta Hindistan zaten Hizmetleri, kısıtlama olmadan ölçeği artırabilirsiniz ve hizmetiniz bu bölgeye tam olarak desteklenir. Bu bölge sınırlaması geçici ve yalnızca yeni hizmetleri sınırlıdır. Kısıtlama Artık uygulanmadığında bu notta kaldıracağız.
 
 ## <a name="select-a-pricing-tier-sku"></a>Fiyatlandırma katmanı (SKU) seçme
 
@@ -88,27 +88,29 @@ Hizmet oluşturulduktan sonra fiyatlandırma katmanı değiştirilemez. Daha yü
 
 ## <a name="create-your-service"></a>Sitenizi oluşturma
 
-Her oturum açtığınızda kolay erişim için hizmetinizi panoya sabitlemeyi unutmayın.
+Bir hizmet oluşturmak için gerekli girişleri girin. 
 
-![Panoya Sabitle](./media/search-create-service-portal/new-service3.png "kaynak rahat bir erişim için panonuza sabitleyin")
+![Gözden geçirin ve hizmet oluşturma](./media/search-create-service-portal/new-service3.png "gözden geçirme ve hizmet oluşturma")
+
+Hizmetinizi Azure bildirimler izleyebilirsiniz dakika içinde dağıtılır. Panonuz için hizmet kolay erişim için gelecekte sabitleme göz önünde bulundurun.
+
+![İzleme ve hizmet sabitleme](./media/search-create-service-portal/monitor-notifications.png "İzleyici ve PIN hizmeti")
 
 ## <a name="get-a-key-and-url-endpoint"></a>Bir anahtarı ve URL uç noktasını alın
 
-Birkaç özel durum ile birlikte kullanarak yeni hizmetinizin URL uç nokta ve yetkilendirme api anahtarı sağlamanızı gerektirir. Hızlı Başlangıçlar, öğreticiler gibi [Azure Search REST API'lerini keşfetme (Postman)](search-get-started-postman.md) ve [net'ten Azure Search kullanma](search-howto-dotnet-sdk.md), örnekler ve bir uç nokta gerekir ve anahtar belirli kaynağınız üzerinde çalıştırmak için özel kod.
+Portal kullanmıyorsanız, yeni hizmetinize erişmek URL uç noktasını ve kimlik doğrulaması api anahtarı sağlamanızı gerektirir.
 
 1. Hizmet genel bakış sayfasında bulun ve sayfanın sağ tarafındaki URL uç noktasını kopyalayın.
 
-   ![Hizmet genel bakış sayfasında URL uç noktası ile](./media/search-create-service-portal/url-endpoint.png "URL uç noktasını ve diğer hizmet ayrıntıları")
-
 2. Sol gezinti bölmesinde seçin **anahtarları** (bunlar eşdeğerdir) yönetici anahtarlarından birini kopyalayın. Yönetici API anahtarları oluşturma, güncelleştirme, hizmetinizde nesneleri silme için gereklidir.
 
-   ![Anahtarlar sayfasında birincil ve ikincil anahtarları gösteren](./media/search-create-service-portal/admin-api-keys.png "yönetici api anahtarlarından için yetkilendirme")
+   ![Hizmet genel bakış sayfasında URL uç noktası ile](./media/search-create-service-portal/get-url-key.png "URL uç noktasını ve diğer hizmet ayrıntıları")
 
-Bir uç noktasını ve anahtarı portal tabanlı görevler için gerekli değildir. Portalda Azure Search kaynağınıza yönetici haklarıyla zaten bağlı. Portal öğreticisi için başlayın [Öğreticisi: İçeri aktarma ve dizini Azure Search'te sorgu](search-get-started-portal.md).
+Bir uç noktasını ve anahtarı portal tabanlı görevler için gerekli değildir. Portalda Azure Search kaynağınıza yönetici haklarıyla zaten bağlı. Bir portal kılavuzu için başlayın [hızlı başlangıç: Portalda Azure Search dizini oluşturma](search-get-started-portal.md).
 
 ## <a name="scale-your-service"></a>Hizmetinizi ölçeklendirme
 
-Bir hizmetin oluşturulması birkaç dakika (katmana bağlı olarak 15 dakika veya daha fazla) sürebilir. Hizmetiniz sağlandıktan sonra ihtiyaçlarınızı karşılayacak şekilde ölçeklendirilebilir. Azure Search hizmetiniz için Standart katmanı seçtiğinizden hizmetinizi iki boyutta ölçeklendirebilirsiniz: çoğaltmalar ve bölümler. Temel katmanı seçtiyseniz yalnızca çoğaltmalar ekleyebilirsiniz. Ücretsiz hizmeti sağladıysanız ölçek kullanılamaz.
+Hizmetiniz sağlandıktan sonra ihtiyaçlarınızı karşılayacak şekilde ölçeklendirilebilir. Azure Search hizmetiniz için standart katmanı seçerseniz, hizmetinizi iki boyutta ölçeklendirebilirsiniz: çoğaltmalar ve bölümler. Temel katmanı seçtiyseniz yalnızca çoğaltmalar ekleyebilirsiniz. Ücretsiz hizmeti sağladıysanız ölçek kullanılamaz.
 
 ***Bölümler***, hizmetinizin daha fazla belge depolamasına ve daha fazla belgede arama yapmasına olanak sağlar.
 
@@ -126,7 +128,7 @@ Kaynak eklemek aylık faturanız artırır. [Fiyatlandırma hesaplayıcısı](ht
 ![Kapasite eklemek](./media/search-create-service-portal/settings-scale.png "çoğaltmalar ve bölümler aracılığıyla kapasite ekleyin")
 
 > [!Note]
-> Her katmanın, tek bir hizmette izin verilen toplam Arama Birimi sayısı üzerinde farklı [sınırları](search-limits-quotas-capacity.md) vardır (Çoğaltmalar * Bölümler = Toplam Arama Birimleri).
+> Bölüm başına daha yüksek bir katmanda depolama ve hızı artar. Daha fazla bilgi için [kapasitesi ve sınırları](search-limits-quotas-capacity.md).
 
 ## <a name="when-to-add-a-second-service"></a>Ne zaman ikinci bir hizmet eklenir?
 
@@ -148,4 +150,4 @@ Yüksek düzeyde kullanılabilirlik için ikinci bir hizmet gerekmez. Aynı hizm
 Azure Search Hizmeti sağlandıktan sonra portalda ilk dizininizi oluşturmaya devam edebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Öğretici: Verileri içeri aktarma, dizin ve Portalı'nda sorgu çalıştırma](search-get-started-portal.md)
+> [Hızlı Başlangıç: Portalda Azure Search dizini oluşturma](search-get-started-portal.md)

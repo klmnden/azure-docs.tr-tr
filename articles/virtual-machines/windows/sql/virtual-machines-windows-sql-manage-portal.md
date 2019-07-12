@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e2a807bbd6baeb2f14a6d36f5d98a28d48725449
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59a85e855c9fab9f2a3437c83c867b8076f55049
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082722"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607217"
 ---
 # <a name="manage-sql-server-vms-in-azure-using-the-azure-portal"></a>Azure portalını kullanarak azure'da SQL Server Vm'leri yönetme
 
@@ -33,7 +33,7 @@ Kullanarak Azure üzerinde SQL Server VM'nize yönetmek için yeni bir erişim n
 ## <a name="remarks"></a>Açıklamalar
 
 - **SQL sanal makineleri** görüntüleyin ve yönetin, SQL Server Vm'leri için önerilen yöntem bir kaynaktır. Ancak, şu anda **SQL sanal makineleri** kaynak yönetimini desteklemez [(EOS) destek sonu](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server Vm'leri. SQL Server sanal makineleriniz EOS ayarlarını yönetmek için kullanım dışı kullanın [SQL Server yapılandırma sekmesinde](#access-sql-server-configuration-tab) yerine. 
-- **SQL sanal makineleri** kaynak, yalnızca SQL Server Vm'leri için olan kullanılabilir [SQL VM kaynak sağlayıcısına kayıtlı](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider). 
+- **SQL sanal makineleri** kaynak, yalnızca SQL Server Vm'leri için olan kullanılabilir [SQL VM kaynak sağlayıcısına kayıtlı](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
 
 ## <a name="access-sql-virtual-machine-resource"></a>Erişim SQL sanal makine kaynağı
@@ -60,7 +60,7 @@ SQL Server VM'nize seçme açılır **SQL sanal makineleri** kaynak:
   > **SQL sanal makineleri** adanmış SQL Server ayarlarını bir kaynaktır. VM adını seçin **sanal makine** alan belirli VM, ancak SQL Server için özel ayarları'na gidin. 
 
 ## <a name="access-sql-server-configuration-tab"></a>Erişim SQL Server yapılandırma sekmesi
-SQL Server yapılandırma sekmesinde kullanım dışıdır. İsteğe bağlı olarak şu anda yönetmek için tek yöntem olan [(EOS) destek sonu](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server Vm'leri ve olmayan bir SQL Server Vm'leri [SQL VM kaynak sağlayıcısına kayıtlı](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider).
+SQL Server yapılandırma sekmesinde kullanım dışıdır. İsteğe bağlı olarak şu anda yönetmek için tek yöntem olan [(EOS) destek sonu](virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL Server Vm'leri ve olmayan bir SQL Server Vm'leri [SQL VM kaynak sağlayıcısına kayıtlı](virtual-machines-windows-sql-register-with-resource-provider.md).
 
 Kullanım dışı SQL server yapılandırma sekmesine erişmek için giderek gerekecektir **sanal makineler** kaynak. Bunu yapmak için aşağıdakileri yapın:
 

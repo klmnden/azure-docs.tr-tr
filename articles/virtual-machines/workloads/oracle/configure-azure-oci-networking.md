@@ -3,7 +3,7 @@ title: Azure ExpressRoute Oracle bulut altyapısına bağlamak | Microsoft Docs
 description: Azure ExpressRoute, Bulutlar arası Oracle uygulama çözümleri etkinleştirmek için Oracle bulut altyapısı (OCI) FastConnect ile bağlanma
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/24/2019
 ms.author: rogirdh
-ms.openlocfilehash: ce1f86f7594692c797aaca5008b211b96ba81fbe
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 671d7c8eb9f10e346b49056e1cc117c9882bb6e8
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67453157"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707644"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Azure ile Oracle bulut altyapısı arasında doğrudan bir bağlantısı ayarlama  
 
@@ -66,7 +66,7 @@ Aşağıdaki resimde, bağlantısı üst düzey bir genel bakış gösterilmekte
     * İçinde **sağlayıcısı hizmet anahtarı**, ExpressRoute hizmet anahtarını yapıştırın.
     * Kullanmak için önceki bir adımda özel IP adres alanı gerekmez birinci/30 **birincil BGP IP adresi** ve ikinci/30 için özel IP adresi alanını **ikincil BGP IP'sini** adresi.
         * İki aralığın ilk kullanım adresini Oracle BGP IP adresi (birincil ve ikincil) ve ikinci adresini (FastConnect açısından bakıldığında) müşterinin BGP IP adresi atayın. İlk kullanılabilir IP adresi olan ikinci IP adresini/30 adres alanı (Microsoft tarafından ilk IP adresi ayrılmış).
-    * **Oluştur**’a tıklayın.
+    *           **Oluştur**'a tıklayın.
 1. Bulut sanal ağ dinamik yönlendirme rota tablosunu kullanarak ağ geçidi üzerinden, Oracle kiracınız altında FastConnect bağlanma tamamlayın.
 1. Azure'a gidin ve emin **sağlayıcısı durumu** için ExpressRoute bağlantı hattı için değişti **sağlanan** ve türünde bir eşlemeye **Azure özel** kaldırıldı sağlanan. Aşağıdaki adımlar için önkoşul budur.
 
