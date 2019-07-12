@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: bcbdd5fd8395cb0a47038595127e9b20118bdf1b
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 1c62fb466774a3599972d6a9cc340cca300eee59
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147717"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696199"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>İşlem çoğaltma, tek bir havuzda ve Azure SQL veritabanı'nda veritabanları örnek
 
@@ -50,7 +50,7 @@ ms.locfileid: "67147717"
 
 **Abone** bir örneği veya yayımcı üzerinde yapılan değişiklikleri alan bir sunucu. Aboneleri veya havuza alınmış, tek ve Azure SQL veritabanı veya SQL Server veritabanları örneği olabilir. Abone tek veya havuza alınmış bir veritabanı üzerinde anında iletme abonesi olarak yapılandırılması gerekir. 
 
-| Rol | Tek ve havuza alınmış veritabanları | Örnek veritabanları |
+| Role | Tek ve havuza alınmış veritabanları | Örnek veritabanları |
 | :----| :------------- | :--------------- |
 | **Yayımcı** | Hayır | Evet | 
 | **Dağıtıcı** | Hayır | Evet|
@@ -92,7 +92,7 @@ Vardır farklı [çoğaltma türleri](https://docs.microsoft.com/sql/relational-
 
 ## <a name="requirements"></a>Gereksinimler
 
-- Bağlantı çoğaltma katılımcılar SQL kimlik doğrulaması kullanır. 
+- Bağlantı, çoğaltma katılımcıları arasında SQL Kimlik Doğrulaması kullanır. 
 - Çoğaltma tarafından kullanılan çalışma dizini için bir Azure depolama hesabı paylaşımı. 
 - Bağlantı noktası 445 (TCP Giden) Azure dosya paylaşımına erişmek için yönetilen örnek alt güvenlik kurallarında açık olması gerekir. 
 - Bağlantı noktası 1433 (TCP Giden) yayımcı/dağıtıcı bağlantılarının yönetilen örneği'nde ve şirket içi abone ise açılması gerekir.
@@ -139,7 +139,7 @@ Bu yapılandırmada, Azure SQL veritabanı (tek bir havuzda ve veritabanı örne
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-1. [İşlem çoğaltma için bir yönetilen örnek yapılandırma](replication-with-sql-database-managed-instance.md). 
+1. [İki yönetilen örnekleri arasında çoğaltmayı yapılandırma](replication-with-sql-database-managed-instance.md). 
 1. [Yayın oluşturma](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Gönderme temelli bir abonelik oluşturmak](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) abonesi olarak Azure SQL veritabanı sunucu adını kullanarak (örneğin `N'azuresqldbdns.database.windows.net` ve hedef veritabanı olarak Azure SQL veritabanı adı (örneğin **Adventureworks**. )
 

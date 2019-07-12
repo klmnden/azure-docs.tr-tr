@@ -4,7 +4,7 @@ description: N serisi NVIDIA GPU sürücülerini yüklemek için Microsoft Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 004d6125de6762303db91f3a5ef9ffa16e6e501f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388684"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705948"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Windows için NVIDIA GPU sürücüsünün uzantısı
 
@@ -27,6 +27,7 @@ ms.locfileid: "60388684"
 
 Bu uzantı, Windows N serisi Vm'lerde NVIDIA GPU sürücüleri yükler. VM ailesi bağlı olarak, uzantı CUDA veya kılavuz sürücüleri de yükler. NVIDIA yüklediğinizde bu uzantıyı kullanan sürücüler, kabul etme ve koşullarını kabul etmiş [NVIDIA son kullanıcı lisans sözleşmesi](https://go.microsoft.com/fwlink/?linkid=874330). Yükleme işlemi sırasında sürücü kurulumu tamamlamak için VM yeniden başlatılabilir.
 
+El ile yükleme yönergeleri sürücüleri ve geçerli desteklenen sürümler kullanılabilir [burada](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup).
 Bir uzantı NVIDIA GPU sürücüleri yüklemek de kullanılabilir [Linux N serisi Vm'lerde](hpccompute-gpu-linux.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -37,7 +38,7 @@ Bu uzantı şu OSs destekler:
 
 | Dağıtım | Version |
 |---|---|
-| Windows 10 (en fazla sürüm 1803)| Core |
+| Windows 10 | Core |
 | Windows Server 2016 | Core |
 | Windows Server 2012R2 | Core |
 
@@ -74,8 +75,8 @@ Aşağıdaki JSON şema uzantısı gösterir.
 | Ad | Değer / örnek | Veri Türü |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | string |
-| type | NvidiaGpuDriverWindows | string |
+| publisher | Microsoft.HpcCompute | dize |
+| type | NvidiaGpuDriverWindows | dize |
 | typeHandlerVersion | 1.2 | int |
 
 
@@ -162,7 +163,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | Hata Kodu | Anlamı | Olası eylemi |
 | :---: | --- | --- |
 | 0 | İşlem başarılı |
-| 1 | İşlem başarılı. Yeniden başlatma gerekiyor. |
+| 1\. | İşlem başarılı. Yeniden başlatma gerekiyor. |
 | 100 | İşlem değil, desteklenen veya tamamlanamadı. | Olası nedenler: PowerShell sürümü desteklenmiyor, VM boyutu, veri indirme hatası bir N-serisi VM değil. Hatanın nedenini belirlemek için günlük dosyalarına bakın. |
 | 240, 840 | İşlem zaman aşımı. | İşlemi yeniden deneyin. |
 | -1 | Özel durum oluştu. | Özel durumun nedenini belirlemek için günlük dosyalarına bakın. |

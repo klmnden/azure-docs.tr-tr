@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0a3adbd082c68121e762fd03c2221a0c800f0bc5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b098aaf2df5e04983aa53563d5e0203f3287b42
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60823989"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839958"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Azure Data Factory kullanarak şirket içi Cassandra veritabanındaki veri taşıma
 > [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
@@ -49,7 +49,7 @@ Ağ geçidini yüklerken Cassandra veritabanına bağlanmak için kullanılan bi
 Farklı araçlar/API'lerini kullanarak bir şirket içi Cassandra veri deposundan veri taşıyan kopyalama etkinliği ile işlem hattı oluşturabilirsiniz.
 
 - Bir işlem hattı oluşturmanın en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [Öğreticisi: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı bir kılavuz.
-- Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portalında**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**ve  **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+- Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
 
 API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için bir kaynak veri deposundan veri taşıyan bir işlem hattı oluşturmak için aşağıdaki adımları gerçekleştirin:
 
@@ -66,7 +66,7 @@ Aşağıdaki tabloda, JSON öğeleri Cassandra bağlantılı hizmete özgü aç�
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type |Type özelliği ayarlanmalıdır: **OnPremisesCassandra** |Evet |
+| türü |Type özelliği ayarlanmalıdır: **OnPremisesCassandra** |Evet |
 | host |Bir veya daha fazla IP adresleri veya Cassandra sunucusunun ana bilgisayar adını.<br/><br/>IP adreslerini veya aynı anda tüm sunuculara bağlanmak için ana bilgisayar adlarını virgülle ayrılmış listesini belirtin. |Evet |
 | port |Cassandra sunucusunun istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası. |Hayır, varsayılan değer: 9042 |
 | authenticationType |Temel veya anonim |Evet |
@@ -101,7 +101,7 @@ Kaynak türü olduğunda **CassandraSource**, typeProperties bölümünde aşağ
 | consistencyLevel |Tutarlılık düzeyi, istemci uygulamasına veri döndürmeden önce kaç çoğaltmalar için Okuma isteği yanıtlamalıdır belirtir. Cassandra Okuma isteği karşılamak veriler için çoğaltmaları belirtilen sayısını denetler. |BİR, İKİ, ÜÇ SANAL ÇEKİRDEK, TÜMÜ LOCAL_QUORUM EACH_QUORUM, LOCAL_ONE. Bkz: [veri tutarlılığını yapılandırma](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) Ayrıntılar için. |Hayır. Varsayılan değer biridir. |
 
 ## <a name="json-example-copy-data-from-cassandra-to-azure-blob"></a>JSON örneği: Azure Blob için veri cassanra'dan kopyalama
-Bu örnekte kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md) veya [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bu, verileri bir şirket içi Cassandra veritabanındaki verileri Azure Blob Depolama'ya kopyalamak nasıl gösterir. Ancak, veriler belirtilen havuzlarını birine kopyalanabilir [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopyalama etkinliğini kullanarak Azure Data Factory'de.
+Bu örnekte kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bu, verileri bir şirket içi Cassandra veritabanındaki verileri Azure Blob Depolama'ya kopyalamak nasıl gösterir. Ancak, veriler belirtilen havuzlarını birine kopyalanabilir [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopyalama etkinliğini kullanarak Azure Data Factory'de.
 
 > [!IMPORTANT]
 > Bu örnek JSON parçacıklarını sağlar. Veri Fabrikası oluşturmaya yönelik adım adım yönergeler içermez. Bkz: [Bulut ve şirket içi konumlar arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale adım adım yönergeler için.
@@ -262,20 +262,20 @@ Bkz: [RelationalSource türü özellikleri](#copy-activity-properties) Relationa
 ### <a name="type-mapping-for-cassandra"></a>Cassandra için tür eşlemesi
 | Cassandra türü | .NET türüne göre |
 | --- | --- |
-| ASCII |String |
+| ASCII |Dize |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| BOOLEAN |Boolean |
+| BOOLEAN |Boole değeri |
 | DECIMAL |Decimal |
 | DOUBLE |Double |
 | FLOAT |Single |
-| INET |String |
+| INET |Dize |
 | INT |Int32 |
-| TEXT |String |
-| TIMESTAMP |DateTime |
+| TEXT |Dize |
+| TIMESTAMP |Datetime |
 | TIMEUUID |Guid |
 | UUID |Guid |
-| VARCHAR |String |
+| VARCHAR |Dize |
 | VARINT |Decimal |
 
 > [!NOTE]
@@ -300,18 +300,18 @@ Kullanabileceğiniz [Kopyalama Sihirbazı'nı](data-factory-data-movement-activi
 ### <a name="example"></a>Örnek
 Örneğin, aşağıdaki "ExampleTable", "pk_int", değer adlı bir metin sütunu, bir liste sütunu, sütun eşleme ve ("StringSet" adlı) bir kümesi sütunu adlı bir tamsayı birincil anahtar sütunu içeren bir Cassandra veritabanı tablosu olur.
 
-| pk_int | Değer | Liste | Eşleme | StringSet |
+| pk_int | Value | List | Eşleme | StringSet |
 | --- | --- | --- | --- | --- |
-| 1 |"örnek değeri 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
+| 1\. |"örnek değeri 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"örnek value 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
 
 Sürücü bu tek tabloda temsil etmek için birden çok sanal tablolar oluşturur. Sanal tablolarındaki yabancı anahtar sütunları gerçek tablosundaki birincil anahtar sütunlarını başvuru ve sanal tablo satırı karşılık gelen gerçek tablosu satırı belirtmenize.
 
 İlk sanal "ExampleTable" adlı temel tablo aşağıdaki tabloda gösterilen bir tablodur. Temel tablo, bu tablodan atlanmış ve diğer sanal tablolarında genişletilmiş koleksiyonları dışında özgün veritabanı tablosunu aynı verileri içerir.
 
-| pk_int | Değer |
+| pk_int | Value |
 | --- | --- |
-| 1 |"örnek değeri 1" |
+| 1\. |"örnek değeri 1" |
 | 3 |"örnek value 3" |
 
 Aşağıdaki tablolar, liste ve eşleme StringSet sütundaki verileri normalleştirebilir sanal tabloları gösterir. "_Index" veya "_anahtarı" ile biten sütunları verilerin özgün liste veya harita içinde konumunu belirtin. Koleksiyon genişletilmiş verileri "_Değeri" ile biten sütunları içerir.
@@ -319,9 +319,9 @@ Aşağıdaki tablolar, liste ve eşleme StringSet sütundaki verileri normalleş
 #### <a name="table-exampletablevtlist"></a>Tablo "ExampleTable_vt_List":
 | pk_int | List_index | List_value |
 | --- | --- | --- |
-| 1 |0 |1\. |
+| 1\. |0 |1\. |
 | 1\. |1\. |2 |
-| 1 |2 |3 |
+| 1\. |2 |3 |
 | 3 |0 |100 |
 | 3 |1 |101 |
 | 3 |2 |102 |
@@ -330,16 +330,16 @@ Aşağıdaki tablolar, liste ve eşleme StringSet sütundaki verileri normalleş
 #### <a name="table-exampletablevtmap"></a>Tablo "ExampleTable_vt_Map":
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
-| 1 |S1 |A |
-| 1 |S2 |b |
+| 1\. |S1 |A |
+| 1\. |S2 |b |
 | 3 |S1 |t |
 
 #### <a name="table-exampletablevtstringset"></a>Table “ExampleTable_vt_StringSet”:
 | pk_int | StringSet_value |
 | --- | --- |
-| 1 |A |
-| 1 |B |
-| 1 |C |
+| 1\. |A |
+| 1\. |B |
+| 1\. |C |
 | 3 |A |
 | 3 |E |
 

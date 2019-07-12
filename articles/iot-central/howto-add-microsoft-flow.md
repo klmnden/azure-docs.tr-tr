@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: c50271e28db104522c0e8811508fa882dc316eab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8bc8b8d4e3585ea4c0505f2e36abc6d1da7f8eb
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235818"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797715"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>IOT Central Bağlayıcısı Microsoft Flow ile iş akışları oluşturun
 
@@ -31,7 +31,8 @@ Kullanıma [bu Microsoft Flow şablonları](https://aka.ms/iotcentralflowtemplat
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Bir Kullandıkça Öde uygulama
-- Microsoft, kişisel veya iş veya Okul hesabı Flow'da oturum açmayı ([Microsoft Flow planları hakkında daha fazla bilgi](https://aka.ms/microsoftflowplans))
+- Microsoft, kişisel veya iş veya Okul hesabı Microsoft Flow kullanmak için ([Microsoft Flow planları hakkında daha fazla bilgi](https://aka.ms/microsoftflowplans))
+- Azure IOT Central bağlayıcıyı kullanmak üzere bir iş veya Okul hesabı
 
 ## <a name="trigger-a-workflow"></a>Bir iş akışı tetikleyicisi
 
@@ -45,7 +46,12 @@ Bu bölümde, IOT Central bir kural tetiklendiğinde, Flow mobil uygulamasında 
 
     ![Kullanılabilir Microsoft Flow şablonları](media/howto-add-microsoft-flow/flowtemplates1.png)
 
-1. Seçtiğiniz şablon bağlayıcılarında oturum açmanız istenir. Bağlayıcılar oturum açtıktan sonra iş akışınızı oluşturmak için Tasarımcısı'nda ulaşırsınız. İş akışı, uygulamanızı ve kural zaten doldurulmuş olan bir IOT Central tetikleyicisine sahiptir.
+1. Seçtiğiniz şablon bağlayıcılarında oturum açmanız istenir. 
+
+    > [!NOTE]
+    > Azure IOT Central Bağlayıcısı'nı kullanmak için bir Azure Active Directory hesabı (iş veya Okul hesabı) kullanarak oturum açmanız gerekir. Gibi bir kişisel hesap abc@outlook.com veya abc@live.com Azure IOT Central Bağlayıcısı tarafından desteklenmez.
+
+    Bağlayıcılar açtıktan sonra iş akışınızı oluşturmak için Tasarımcısı'nda ulaşırsınız. İş akışı, uygulamanızı ve kural zaten doldurulmuş olan bir IOT Central tetikleyicisine sahiptir.
 
 1. Ekleme yeni eylemler ve eylem için geçirilen bilgileri özelleştirerek, iş akışını özelleştirebilirsiniz. Bu örnekte, eylem ise **bildirimler - bana Mobil Bildirim Gönder**. Ekleyebileceğiniz *dinamik içerik* , IOT Central kuraldan boyunca cihaz adı ve zaman damgası gibi önemli bilgiler için bildirim geçirme.
 

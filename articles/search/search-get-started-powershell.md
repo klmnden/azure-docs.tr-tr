@@ -1,7 +1,7 @@
 ---
 title: "PowerShell hızlı başlangıç: Kullanarak Azure Search REST API'lerini - Azure Search dizinlerini sorgulamanız oluşturma ve yükleme"
 description: Dizin oluşturma, veri yükleme ve PowerShell'in kullanarak sorguları çalıştırma açıklanmaktadır Invoke-RestMethod ve Azure Search REST API'si.
-ms.date: 06/10/2019
+ms.date: 07/11/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: afd73ee3461fff11019be887dbf3078963644c5b
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c8a49fe5d334b5752b9272e480fb2502a980b0a4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485494"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840165"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-powershell-using-rest-apis"></a>Hızlı Başlangıç: REST API'lerini kullanarak PowerShell'de Azure Search dizini oluşturma
 > [!div class="op_single_selector"]
@@ -26,9 +26,9 @@ ms.locfileid: "67485494"
 > * [Portal](search-create-index-portal.md)
 > 
 
-Bu makalede PowerShell kullanarak Azure Search dizini sorgulama oluşturma ve yükleme sürecinde yardımcı olur ve [Azure Search REST API'lerini](https://docs.microsoft.com/rest/api/searchservice/). Bu makalede, PowerShell komutlarını etkileşimli olarak çalışacak şekilde açıklanmaktadır. Alternatif olarak, tamamlanmış bir betik çalıştırabilir. Bir kopyasını indirmek için Git [azure arama powershell örnekleri](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) depo.
+Bu makalede PowerShell kullanarak Azure Search dizini sorgulama oluşturma ve yükleme sürecinde yardımcı olur ve [Azure Search REST API'lerini](https://docs.microsoft.com/rest/api/searchservice/). Bu makalede, PowerShell komutlarını etkileşimli olarak çalışacak şekilde açıklanmaktadır. Alternatif olarak, [karşıdan yükleyip bir Powershell betiği çalıştırmanız](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) , aynı işlemleri gerçekleştirir.
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun ve [Azure Search hizmetine kaydolun](search-create-service-portal.md).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -64,7 +64,7 @@ Tüm istekleri hizmete gönderilen her istekte bir API anahtarı gerektirir. İs
 2. Oluşturma bir **$url** hizmetin belirten nesne dizinler koleksiyonu. Hizmet adı (YOUR-SEARCH-hizmet-adı), geçerli bir arama hizmeti ile değiştirin.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06"
+    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name"
     ```
 
 3. Çalıştırma **Invoke-RestMethod** hizmetine bir GET isteği gönderir ve bağlantıyı doğrulamak için. Ekleme **ConvertTo-Json** böylece gönderilen geri hizmetinden yanıtları görüntüleyebilirsiniz.
@@ -394,15 +394,11 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quicksta
 ```
 ## <a name="clean-up"></a>Temizleme 
 
-Artık ihtiyacınız kalmadığında, dizin silmeniz gerekir. Ücretsiz bir hizmet için üç dizin sınırlıdır. Diğer öğreticileri geçebilirsiniz, etkin olarak kullanmadığınız tüm dizinleri silmek isteyebilirsiniz.
+Kendi aboneliğinizde çalışırken, oluşturduğunuz kaynakları hala gerekip gerekmediğini belirlemek için iyi bir fikir sonunda, bir proje var. Kaynakları sol çalışan can para maliyeti. Kaynakları tek tek silmek ya da tüm kaynak kümesini silmek için kaynak grubunu silin.
 
-```powershell
-# Set the URI to the hotel index
-$url = 'https://mydemo.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06'
+Bulabilir ve Portalı'nda kaynaklarını yönetme kullanarak **tüm kaynakları** veya **kaynak grupları** sol gezinti bölmesindeki bağlantıyı.
 
-# Delete the index
-Invoke-RestMethod -Uri $url -Headers $headers -Method Delete
-```
+Ücretsiz bir hizmet kullanıyorsanız, üç dizin, dizin oluşturucular ve veri kaynağı için sınırlı olduğunu unutmayın. Bireysel öğeleri limiti altında kalmak için portalda silebilirsiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

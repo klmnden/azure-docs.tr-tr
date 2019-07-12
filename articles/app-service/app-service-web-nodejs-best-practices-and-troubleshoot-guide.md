@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: 321dbf891c77007952f01b32bb509a15c2ac3e6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5dae268e2c659bcd39c7b274f2f12c64b4504353
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60853080"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719788"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>En iyi uygulamalar ve Azure App Service Windows üzerinde node.js uygulamaları için sorun giderme kılavuzu
 
@@ -274,14 +274,14 @@ Win32 hata kodu görmek uygulamanızın FREB etkinleştir (performansı artırma
 | 503 |1002 |Gerçek bir nedenle – isteği onay win32 hata kodu için bir node.exe dağıtılamadı. |
 | 503 |1003 |Adlandırılmış kanal çok meşgul – node.exe aşırı CPU kullanmadığına doğrulayın |
 
-NODE.exe adlı bir ayar olan `NODE_PENDING_PIPE_INSTANCES`. Azure App Service, bu değer 5000 olarak ayarlanır. Bu node.exe kabul edebilir 5000 istekleri adlandırılmış kanal üzerinde bir seferde anlamına gelir. Bu değer, Azure App Service üzerinde çalışan düğümü uygulamalarının çoğu için yeterince iyi olmalıdır. 503\.1003 üzerinde Azure App Service'te yüksek değeri nedeniyle görmelisiniz değil `NODE_PENDING_PIPE_INSTANCES`
+NODE.exe adlı bir ayar olan `NODE_PENDING_PIPE_INSTANCES`. Azure App Service, bu değer 5000 olarak ayarlanır. Bu node.exe kabul edebilir 5000 istekleri adlandırılmış kanal üzerinde bir seferde anlamına gelir. Bu değer, Azure App Service üzerinde çalışan düğümü uygulamalarının çoğu için yeterince iyi olmalıdır. 503.1003 üzerinde Azure App Service'te yüksek değeri nedeniyle görmelisiniz değil `NODE_PENDING_PIPE_INSTANCES`
 
 ## <a name="more-resources"></a>Daha fazla kaynak
 
 Azure App Service'te node.js uygulamaları hakkında daha fazla bilgi için aşağıdaki bağlantıları izleyin.
 
 * [Azure App Service’te Node.js web uygulamalarını kullanmaya başlama](app-service-web-get-started-nodejs.md)
-* [Azure Uygulama Hizmeti’ndeki bir Node.js web uygulamasına hata ayıklama](app-service-web-tutorial-nodejs-mongodb-app.md)
+* [Azure Uygulama Hizmeti’ndeki bir Node.js web uygulamasına hata ayıklama](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
 * [Azure uygulamalarıyla Node.js Modüllerini kullanma](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web uygulamaları: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js Geliştirici Merkezi](../nodejs-use-node-modules-azure-apps.md)

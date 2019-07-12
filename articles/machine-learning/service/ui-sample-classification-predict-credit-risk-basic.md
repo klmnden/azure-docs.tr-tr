@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: f37c945758cfbd03889d79acf764e7f67022267a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6ec91ca83d7aa1bc5e6c290d35b573a60cc0ed19
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789409"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605765"
 ---
 # <a name="sample-3---classification-predict-credit-risk"></a>3 - sınıflandırma. örnek: Kredi riski tahmini
 
@@ -39,7 +39,7 @@ Bu deneme için tamamlanan grafiği aşağıda verilmiştir:
 
 [4 - sınıflandırma. örnek: Kredi riski tahmini (maliyeti gizli)](ui-sample-classification-predict-credit-risk-cost-sensitive.md) Bu deney olarak aynı sorunu çözdü Gelişmiş bir deneme sunar. Nasıl gerçekleştirileceğini gösterir _maliyet hassas_ kullanarak sınıflandırma bir **Python betiği yürütme** modülü ve iki ikili sınıflandırma algoritmaların performansını karşılaştırın. Sınıflandırma denemeleri oluşturma hakkında daha fazla bilgi edinmek istiyorsanız buna bakın.
 
-## <a name="data"></a>Veriler
+## <a name="data"></a>Data
 
 UC Irvine depodan Almanca kredi kartı veri kümesi kullanıyoruz.
 Veri kümesi 20 özellikleri ve 1 etiket 1.000 örnekleri içerir. Her örnek, bir kişiyi temsil eder. Özellikler, sayısal ve kategorik özelliklerini içerir. Bkz: [UCI Web sitesi](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) kategorik özelliklerinin anlamını için. Kredi riski gösterir ve yalnızca iki olası değerler içeren etiket son sütundur: yüksek kredi riski = 2 ve düşük kredi riski = 1.
@@ -78,3 +78,4 @@ Görsel bir arabirim için kullanılabilir diğer örneklerini keşfedin:
 - [2 - regresyon. örnek: Otomobil fiyat tahmini için algoritmalar karşılaştırın](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [4 - sınıflandırma. örnek: (Maliyet hassas) kredi riskini tahmin](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [5 - sınıflandırma. örnek: Dalgalanmasını tahmin](ui-sample-classification-predict-churn.md)
+- [Örnek 6 - sınıflandırma: Uçuş gecikme tahmin edin](ui-sample-classification-predict-flight-delay.md)

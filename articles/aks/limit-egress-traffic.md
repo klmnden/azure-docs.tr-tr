@@ -2,17 +2,17 @@
 title: Azure Kubernetes Service (AKS) çıkış trafiği kısıtlama
 description: Hangi bağlantı noktalarını ve adresi denetimi çıkış trafiği Azure Kubernetes Service (AKS) için gerekli olduğunu öğrenin
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
-ms.author: iainfou
-ms.openlocfilehash: 52a9ba20b60e8ef6cdb743546cd842e4ee24b3fd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: mlearned
+ms.openlocfilehash: 12922496bc97ad51d1cc96f7ffe8df05c1fd66ea
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441928"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614955"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Önizleme - sınırı çıkış trafiği için küme düğümlerini ve erişimi denetlemek için gerekli bağlantı noktaları ve hizmetler Azure Kubernetes Service (AKS)
 
@@ -77,7 +77,7 @@ AKS, iki bağlantı noktaları ve adresleri kümesi vardır:
 
 Aşağıdaki FQDN / uygulama kuralları gereklidir:
 
-| FQDN                       | Port      | Kullanım      |
+| FQDN                       | Port      | Bir yönetim grubuna bağlanmak veya bağlı bir yönetim grubunun özelliklerini düzenlemek için Yönetim çalışma alanında      |
 |----------------------------|-----------|----------|
 | *.hcp.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | API sunucusu uç adresidir. Değiştirin *\<konumu\>* AKS kümenizi dağıtıldığı bölge ile. |
 | *.tun.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | API sunucusu uç adresidir. Değiştirin *\<konumu\>* AKS kümenizi dağıtıldığı bölge ile. |
@@ -97,7 +97,7 @@ Aşağıdaki FQDN / uygulama kuralları gereklidir:
 
 Aşağıdaki FQDN / uygulama kuralları düzgün çalışması AKS kümeleri için önerilir:
 
-| FQDN                                    | Port      | Kullanım      |
+| FQDN                                    | Port      | Bir yönetim grubuna bağlanmak veya bağlı bir yönetim grubunun özelliklerini düzenlemek için Yönetim çalışma alanında      |
 |-----------------------------------------|-----------|----------|
 | *.ubuntu.com                            | HTTP:80   | Bu adres, güncelleştirmeleri ve gerekli güvenlik düzeltme ekleri indirmek Linux küme düğümleri sağlar. |
 | Packages.microsoft.com                  | HTTPS:443 | Bu adres kullanılan Microsoft paketleri depodur önbelleğe için *apt-get* operations. |

@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: 79d4254de40ef787b30eb4f483c86383a928ee1f
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 6a748031f9d35e26eeb544f154477ea3449903f5
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566218"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796091"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET kullanarak Azure Key Vault hizmetten hizmete kimlik doğrulaması
 
@@ -209,11 +209,16 @@ Hizmet sorumlusu kimlik doğrulaması için bir istemci sertifikası kullanmak i
 
 1. Değiştirin `{KeyVaultCertificateSecretIdentifier}` Bu bağlantı dizesine, sertifika tanımlayıcısı:
 
-```
-RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
-```
+    ```
+    RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
+    ```
 
-'My' adlı bir sertifika oluşturan ve anahtar kasanıza "myKeyVault" örneği için çağrıldı, sertifika tanımlayıcısı olacaktır `https://myKeyVault.vault.azure.net/secrets/myCert`, ve bağlantı dizesini `RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert`.
+    Sertifika tanımlayıcısı, 'My' adlı bir sertifika oluşturan ve anahtar kasanıza "myKeyVault" örneği için çağrıldı olacaktır:
+
+    ```
+    RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert
+    ```
+
 
 ## <a name="connection-string-support"></a>Bağlantı dizesi desteği
 

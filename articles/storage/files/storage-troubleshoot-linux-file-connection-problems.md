@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 97f737c8d1228bd03baf59f2ebe830f715241299
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 232b4ca2ee4f3137069ed155cc82a5c5e3251420
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449849"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807268"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Linux'ta Azure dosyaları sorunlarını giderme
 
@@ -94,19 +94,30 @@ Tek bir dosya çubuğunda 2.000 açık tanıtıcıları kotası yoktur. 2\.000 a
 
 Bazı işler kapatarak eşzamanlı açık işleyicilerin sayısını azaltın ve sonra işlemi yeniden deneyin.
 
+Dosya Paylaşımı, dizin veya dosya tanıtıcıları görüntülemek için kullanın [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet'i.  
+
+Dosya Paylaşımı, dizin veya dosya tanıtıcıları kapatmak için [Kapat AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet'i.
+
+> [!Note]  
+> Get-AzStorageFileHandle ve Kapat AzStorageFileHandle cmdlet'leri Az PowerShell modülü 2.4 veya sonraki bir sürümü dahil edilir. En son Az PowerShell modülünü yüklemek için bkz: [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Dosya ve Linux'ta Azure dosyalarından kopyalamak yavaş
 
 - Belirli bir en düşük g/ç boyutu gereksinimi yoksa, en iyi performans için 1 MiB g/ç boyutu kullanmanızı öneririz.
-- Yazma işlemleri kullanarak genişletme bir dosyanın son boyutu bildiğiniz ve dosya çubuğunda yazılı bir kuyruk sıfır içerdiğinde yazılımınızı uyumluluk sorunları yaşıyorsanız değil, ardından önceden her bir genişletme yazma yapmak yerine dosya boyutunu ayarlayın.
 - Doğru kopyalama yöntemi kullanın:
     - Kullanım [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) iki dosya paylaşımları arasındaki tüm aktarımları için.
-    - CP ile paralel kullanarak kopyalama hızını artırmak, iş parçacığı sayısını, kullanım örneği ve iş yüküne bağlıdır. Bu örnek, altı kullanır: `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - CP ya da dd ile paralel kullanarak kopyalama hızını artırmak, iş parçacığı sayısını, kullanım örneği ve iş yüküne bağlıdır. Aşağıdaki örnekler altı kullanın: 
+    - cp örnek (cp kullanacağı varsayılan blok boyutu dosya sisteminin öbek boyutu): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - dd örnek: (Bu komut açıkça öbek boyutu 1 MiB için ayarlar) `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
     - Kaynak üçüncü taraf araçları gibi açın:
         - [GNU paralel](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) - dosyaları sıralar ve bunları bölümlere paketleri.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) -için dst_url src_dir verileri geçirmeye Fpart kullanır ve bir kopyalama aracı birden çok örneği üretme.
         - [Çoklu](https://github.com/pkolano/mutil) -çok iş parçacıklı cp ve md5sum göre GNU coreutils üzerinde.
+- Her bir genişletme yazma yapmak yerine dosya boyutunu önceden ayarlama dosya boyutu olduğu bilinir senaryolarda kopyalama hızı artırılmasına yardım eder. Yazma kaçınılması gerek genişletme, bir hedef dosya boyutu ayarlayabileceğiniz `truncate - size <size><file>` komutu. Bundan sonra `dd if=<source> of=<target> bs=1M conv=notrunc`komut kopyalar bir kaynak dosyası hedef dosya boyutunu sürekli güncelleştirmek zorunda kalmadan. Örneğin, kopyalamak istediğiniz her dosya için hedef dosya boyutu ayarlayabileceğiniz (bir paylaşım/mnt/paylaşım altında bağlı olduğunu varsayın):
+    - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
+    - ve ardından - dosya yazma paralel genişletmeden kopyalayın: `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
 ## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>"Error(115) bağlayın: İşlem Sürüyor"olduğunda, bağlama Azure dosyaları SMB 3.0 kullanarak
@@ -140,6 +151,23 @@ Azure dosya paylaşımının bulunduğu depolama hesabına Gözat'a tıklayın *
 ### <a name="solution-for-cause-2"></a>Neden 2 çözümü
 
 Sanal ağ ve güvenlik duvarı kuralları depolama hesabı düzgün şekilde yapılandırıldığından doğrulayın. Sanal ağ veya güvenlik duvarı kuralları neden sorun varsa test etmek için geçici olarak depolama hesabı için ayarı değiştirmeniz **tüm ağlardan erişime izin ver**. Daha fazla bilgi için bkz. [yapılandırma Azure depolama güvenlik duvarlarını ve sanal ağlar](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+
+<a id="open-handles"></a>
+## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Bir dosya veya dizinde bir Azure dosya paylaşımı silinemedi
+
+### <a name="cause"></a>Nedeni
+Dosya veya dizin açık bir tanıtıcısı olması durumunda bu sorun genellikle oluşur. 
+
+### <a name="solution"></a>Çözüm
+
+Tüm açık tanıtıcıları SMB istemcileri kapatıldı ve Sorun oluşmaya devam, aşağıdakileri gerçekleştirin:
+
+- Kullanım [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) açık tanıtıcıları görüntülemek için PowerShell cmdlet'i.
+
+- Kullanım [Kapat AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) açık tanıtıcıları kapatmak için PowerShell cmdlet'i. 
+
+> [!Note]  
+> Get-AzStorageFileHandle ve Kapat AzStorageFileHandle cmdlet'leri Az PowerShell modülü 2.4 veya sonraki bir sürümü dahil edilir. En son Az PowerShell modülünü yüklemek için bkz: [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Azure dosya paylaşımını yavaş performans Linux sanal makinesine bağlı
@@ -191,40 +219,6 @@ Depolama hesabı kullanıcı dosyalarını kopyalamak için kullanın:
 - `Passwd [storage account name]`
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
-
-## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Bağlanamadığını ya da bir Azure dosya paylaşımını bağlama
-
-### <a name="cause"></a>Nedeni
-
-Bu sorunun sık karşılaşılan nedenleri şunlardır:
-
-- Uyumsuz bir Linux dağıtımı istemcisi kullanıyorsunuz. Bir Azure dosya paylaşımına bağlanmak için aşağıdaki Linux dağıtımlarını kullanmanızı öneririz:
-
-    |   | SMB 2.1 <br>(Aynı Azure bölgesindeki VM'ler üzerinde başlatmalar) | SMB 3.0 <br>(Şirket içinde ve bölgeler arası başlatmalar) |
-    | --- | :---: | :---: |
-    | Ubuntu Server | 14.04+ | 16.04+ |
-    | RHEL | 7+ | 7.5+ |
-    | CentOS | 7+ |  7.5+ |
-    | Debian | 8+ |   |
-    | openSUSE | 13.2+ | 42.3+ |
-    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
-
-- CIFS hizmet programları (CIFS-utils) istemcide yüklü değil.
-- En düşük SMB/CIFS sürüm 2.1, istemcide yüklü değil.
-- SMB 3.0 şifreleme istemcide desteklenmiyor. SMB 3.0 şifreleme 16,4 Ubuntu ve SUSE 12.3 ve sonraki sürümleri ile birlikte sonraki sürümlerinde kullanılabilir. Diğer dağıtımları çekirdek 4.11 ve sonraki sürümleri gerektirir.
-- Desteklenmeyen TCP bağlantı noktası 445, bir depolama hesabına bağlanmak çalışıyorsunuz.
-- Bir Azure dosya paylaşımı için bir Azure VM'den bağlanmaya çalıştığınız ve VM, depolama hesabıyla aynı bölgede değil.
-- Varsa [güvenli aktarım gerekli]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) ayarı, depolama hesabında etkinleştirildiğinde, Azure dosyaları SMB 3.0 şifreleme ile kullanan bağlantılar sağlayacaktır.
-
-### <a name="solution"></a>Çözüm
-
-Sorunu gidermek için [Azure dosyaları Linux'ta bağlama hataları için sorun giderme aracı](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Bu aracı:
-
-* Ortam çalıştıran istemci doğrulamaya yardımcı olur.
-* Azure dosyaları için erişim hataya neden uyumlu istemci yapılandırmasında algılar.
-* Kendi kendine düzeltme üzerinde normatif bir Rehber sağlar.
-* Tanılama izlemeleri toplanır.
-
 
 ## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: erişemiyor '&lt;yolu&gt;': Giriş/Çıkış hatası
 

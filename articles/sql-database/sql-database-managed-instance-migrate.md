@@ -11,27 +11,31 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 02/11/2019
-ms.openlocfilehash: 9fe6ab797eaa325ad802702e95f5a0e5b8e4fef4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 11/07/2019
+ms.openlocfilehash: 7cf54b79fac87905117e321574571890c59315e6
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070421"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827075"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server örneği geçiş Azure SQL veritabanı yönetilen örneği
 
 Bu makalede, bir SQL Server 2005 veya üzeri sürümü örneğine geçirmek için yöntemler hakkında bilgi [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md). Bir tek veritabanı veya elastik Havuzu'nu geçirme hakkında daha fazla bilgi için bkz: [tek veya havuza alınmış bir veritabanı geçiş](sql-database-cloud-migrate.md). Diğer platformlardan geçirme hakkında geçiş için bilgi [Azure veritabanı Geçiş Kılavuzu](https://datamigration.microsoft.com/).
 
+> [!NOTE]
+> Hızlı Başlat ve yönetilen örneği deneyin istiyorsanız, Git isteyebilirsiniz [Hızlı Başlangıç Kılavuzu](/sql-database-managed-instance-quickstart-guide.md) bu sayfası yerine. 
+
 Yüksek düzeyde, veritabanı geçiş işlemi aşağıdaki gibi görünür:
 
 ![Geçiş işlemi](./media/sql-database-managed-instance-migration/migration-process.png)
 
-- [Yönetilen örnek uyumluluğunu değerlendirmek](#assess-managed-instance-compatibility)
-- [Uygulama bağlantı seçeneğini belirleme](sql-database-managed-instance-connect-app.md)
-- [En iyi şekilde boyutlandırılmış yönetilen örneğine dağıtma](#deploy-to-an-optimally-sized-managed-instance)
-- [Geçiş yöntemi seçin ve geçirme](#select-migration-method-and-migrate)
-- [Uygulama izleme](#monitor-applications)
+- [Yönetilen örnek uyumluluğunu değerlendirmek](#assess-managed-instance-compatibility) burada emin olmanız gerekir, geçişler engelleyebilir hiçbir engelleme sorunu vardır.
+  - Bu adım ayrıca oluşturulmasını içerir [performans taban çizgisi](#create-performance-baseline) , kaynak SQL Server örneğinde kaynak kullanımını belirlemek için. O istiyorsanız bu adım gerekli doğru boyutta yönetilen örneği dağıtmak ve performanslarını geçişten sonra etkilenmez doğrulayın.
+- [Uygulama bağlantı seçenekleri seçin](sql-database-managed-instance-connect-app.md)
+- [En iyi şekilde boyutlandırılmış yönetilen örneğine dağıtma](#deploy-to-an-optimally-sized-managed-instance) seçtiğiniz Teknik Özellikleri (sanal çekirdek sayısı, bellek miktarı) ve yönetilen örneğinizin performans katmanını (iş açısından kritik, genel amaçlı).
+- [Geçiş yöntemi seçin ve geçirme](#select-migration-method-and-migrate) çevrimdışı geçiş (yerel yedekleme/geri yükleme, veritabanı importe/dışarı aktarma) veya çevrimiçi geçiş (veri geçiş hizmeti, işlem çoğaltma) kullanarak veritabanlarınızı geçirme burada.
+- [Uygulamaları izleme](#monitor-applications) performans beklenen emin olmak için.
 
 > [!NOTE]
 > Tek bir veritabanını tek veritabanı veya elastik havuzun geçirmek için bkz [bir SQL Server veritabanını Azure SQL veritabanı'na geçirme](sql-database-single-database-migrate.md).
@@ -58,7 +62,11 @@ Bu özellikler tarafından neden yükünü devre dışı bile senaryolarda kriti
 
 ### <a name="create-performance-baseline"></a>Performans taban çizgisi oluşturma
 
-SQL sunucusu üzerinde çalışan, özgün iş yükü ile yönetilen örneği, bir iş yükü performansını karşılaştırmak gerekiyorsa, karşılaştırma için kullanılacak olan performans taban çizgisi oluşturmak gerekir. Bazı ölçmek için SQL Server örneğinde gereken Parametreler şunlardır: 
+SQL sunucusu üzerinde çalışan, özgün iş yükü ile yönetilen örneği, bir iş yükü performansını karşılaştırmak gerekiyorsa, karşılaştırma için kullanılacak olan performans taban çizgisi oluşturmak gerekir. 
+
+Performans taban çizgisi olduğu gibi ortalama/en yüksek CPU kullanımı, ortalama/en yüksek disk g/ç gecikme süresi, aktarım hızı, parametreleri kümesini IOPS, ortalama/en fazla sayfa yaşam beklentisinin ortalama tempdb en büyük boyutu. Ölçün ve bu parametrelerin taban çizgisi değerlerini kaydetmek önemlidir, geçişten sonra aynı veya daha da iyi parametrelere sahip ister misiniz? Sistem parametreleri ek olarak, iş yükü ve ölçü en düşük/ortalama/en yüksek süre, seçilen sorgular için CPU kullanımını temsili sorgular veya en önemli sorguları bir dizi seçin gerekecektir. Bu değerler, yönetilen örneği'nde özgün değerlerine, kaynak SQL Server çalıştıran bir iş yükü performansını karşılaştırmak etkinleştirir.
+
+Bazı ölçmek için SQL Server örneğinde gereken Parametreler şunlardır: 
 - [CPU kullanımı, SQL Server örneğinde izleme](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) ortalama kaydetmek ve en yüksek CPU kullanımı.
 - [SQL Server örneğinde bellek kullanımını izleyecek](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) ve arabellek havuzu gibi başka bileşenleri kullandığı bellek miktarını belirlemek önbellek, sütun depolama havuzu planlama [bellek içi OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)vb. Ayrıca, sayfa yaşam beklentisinin bellek performans sayacının ortalama ve en üst seviyeye değerleri bulmanız gerekir.
 - Kaynak SQL Server örneği kullanarak disk GÇ kullanım izleme [sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) görünümü veya [performans sayaçları](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
@@ -72,9 +80,10 @@ Bu etkinliğin sonucu, ortalama ve en yüksek değerler için CPU, bellek ve GÇ
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>En iyi şekilde boyutlandırılmış yönetilen örneğine dağıtma
 
 Yönetilen örnek buluta taşımak için planlama şirket içi iş yükleri için uygun hale getirilir. Tanıttığı bir [yeni satın alma modeli](sql-database-service-tiers-vcore.md) seçerken doğru düzeyde kaynakları iş yükleriniz için büyük esneklik sağlar. Şirket içi dünyasında, fiziksel çekirdek ve g/ç bant genişliği'ni kullanarak bu iş yükleri boyutlandırma için büyük olasılıkla alışkın olduğunuz. Yönetilen örnek için satın alma modeli temel sanal çekirdek ya da "Şununla," ek depolama alanı ve kullanılabilir GÇ ayrı olarak temel alır. VCore modeli bir basittir ve kullandığınız bulut işlem gereksinimlerinizi anlamak için şirket içi bugün. Bu yeni modeli, hedef ortamınızda bulut için doğru boyutu sağlar. Doğru hizmet katmanı ve özelliklerini seçmek için yardımcı olabilecek bazı genel yönergeleri aşağıda açıklanmıştır:
-- [CPU kullanımı, SQL Server örneğinde izleme](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) ve ne kadar işlem şu anda kullandığınız (Dinamik Yönetim görünümleri, SQL Server Management Studio veya diğer izleme araçları kullanarak) güç denetimi. CPU özelliklerine uygun şekilde ölçeklendirilmesine gerekebileceğini aklınızda sahip SQL Server'da kullandığınız çekirdek eşleşen yönetilen örneğe sağlayabileceğiniz [yönetilen örneğin yüklendiği VM özelliklerine](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics).
-- Kullanılabilir bellek miktarı, SQL Server örneğinde işaretleyin ve [eşleşen belleğe sahip hizmet katmanı](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics). Sayfa yaşam beklentisinin belirlemek için SQL Server örneğinde ölçmek yararlı olabilecek [ek bellek ihtiyacınız](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
-- Genel amaçlı ve iş açısından kritik hizmet katmanı arasında tercih yapma dosya alt sisteminin g/ç gecikme süresini ölçme.
+- ' % S'temeli CPU kullanımı, SQL Server'da kullandığınız çekirdek eşleşen yönetilen örneğe sağlayabilirsiniz bağlı olarak, göz önünde, CPU özelliklerine sahip uygun şekilde ölçeklendirilmesine gerekebilir [burada yönetilen örneği, sanal makine özellikleri yüklü](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
+- Taban çizgisi bellek kullanımına göre seçin [eşleşen belleğe sahip hizmet katmanı](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics). Bellek, eşleşen belleğe (örneğin 5.1 GB/sanal çekirdek, 5. nesil) sahip sanal çekirdek miktarı ile yönetilen örneğe seçin gerek doğrudan seçilemez. 
+- Temel taban g/ç gecikme süresi dosya alt sisteminin seçin (gecikme süresi 5 MSN büyük) genel amaçlı ve iş açısından kritik hizmet katmanları arasında (gecikme süresi 3 MS'den kısa).
+- Taban çizgisi aktarım hızına göre önceden veri boyutunu tahsis edin ya da günlük dosyalarını almak için beklenen GÇ performansı.
 
 İşlem seçebilirsiniz ve depolama kaynakları dağıtım süresi ve daha sonra Tanıtımı kullanarak uygulamanızı için kapalı kalma süresi olmadan değiştirin [Azure portalında](sql-database-scale-resources.md):
 
@@ -169,6 +178,13 @@ Performans karşılaştırma sonucunu olabilir:
 Parametrelerden biri değişikliği yapın veya hizmet katmanları için en uygun yapılandırma gereksinimlerinize en uygun iş yükü performansı elde edene kadar yakınsanmasını yükseltin.
 
 ### <a name="monitor-performance"></a>Performansı izleme
+
+Yönetilen örnek çok sayıda izleme ve sorun giderme için Gelişmiş araçlar sağlar ve bunları Örneğinizde performansını izlemek için kullanmanız gerekir. Bazı parametreler, izlemek gereken şunlardır:
+- İş yükünüz için doğru eşleşme, sağlanan sanal çekirdek sayı örneğinde belirlemek için CPU kullanımını desteklemez.
+- Sayfa yaşam beklentisinin, yönetilen belirlemek için örneği [ek bellek ihtiyacınız](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
+- Gibi istatistikleri bekleyin `INSTANCE_LOG_GOVERNOR` veya `PAGEIOLATCH` , yapmak sahip depolama g/ç sorunlarını, özellikle gerek duyduğunuz daha iyi g/ç performansı elde etmek için dosyaları önceden ayırmak için genel amaçlı katmanında söyleyin.
+
+## <a name="leverage-advanced-paas-features"></a>PaaS Gelişmiş özelliklerden yararlanın
 
 Tam olarak yönetilen bir platformda ve iş yükü performanslarını SQL Server iş yükü performansı değişkenler doğruladıktan sonra SQL veritabanı hizmetinin bir parçası olarak otomatik olarak sağlanan avantajlar yararlanın. 
 

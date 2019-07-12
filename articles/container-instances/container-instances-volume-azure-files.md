@@ -6,22 +6,22 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 07/08/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 365264d40554f45533e2ddf0aeb9d85f3e8f8d2d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc09aa500743d608c0a3a7a379fe9584c9c55e9b
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60564030"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657634"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Azure Container ınstances'da bir Azure dosya paylaşımını bağlama
 
 Varsayılan olarak, Azure Container Instances, durum bilgisi bulunmaz. Kapsayıcı kilitleniyor veya durdurur, durumuna kaybolur. Kapsayıcı ömür ötesinde durumunu kalıcı hale getirmek için bir dış depodan bir birimi bağlamak gerekir. Bu makalede ile oluşturulmuş bir Azure dosya paylaşımını bağlama işlemi gösterilmektedir [Azure dosyaları](../storage/files/storage-files-introduction.md) Azure Container Instances ile kullanım için. Azure Dosyaları bulutta tamamen yönetilen dosya paylaşımları sunar. Bu dosyalara sektör standardı olan Sunucu İleti Bloğu (SMB) protokolü aracılığıyla erişilebilir. Azure Container Instances ile bir Azure dosya paylaşımı kullanarak bir Azure dosya paylaşımı ile Azure sanal makinelerini kullanmaya benzer dosya paylaşım özellikleri sağlar.
 
 > [!NOTE]
-> Azure dosyaları paylaşımı bağlayarak, Linux kapsayıcıları için şu anda sınırlıdır. Tüm özellikleri Windows kapsayıcılarına getirmek için çalışmamız esnasında, geçerli platform farklılıklarını [Azure Kapsayıcı Örnekleri için kotalar ve bölge kullanılabilirliği](container-instances-quotas.md) bölümünde bulabilirsiniz.
+> Azure dosyaları paylaşımı bağlayarak, Linux kapsayıcıları için şu anda sınırlıdır. Tüm özellikleri Windows kapsayıcılarına getirmek için çalışıyoruz, ancak geçerli platform farklılıklarını içinde bulabilirsiniz [genel bakış](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="create-an-azure-file-share"></a>Azure dosya paylaşımı oluşturma
 
@@ -62,9 +62,9 @@ STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_G
 echo $STORAGE_KEY
 ```
 
-## <a name="deploy-container-and-mount-volume"></a>Birim kapsayıcısı ve bağlama dağıtma
+## <a name="deploy-container-and-mount-volume---cli"></a>Kapsayıcı dağıtın ve birimi - CLI
 
-Bir kapsayıcıdaki bir birimi olarak Azure dosya paylaşımını bağlayabilmeniz için paylaşım ve birim bağlama noktası kapsayıcı ile oluşturduğunuzda belirtin [az kapsayıcı oluşturma][az-container-create]. Önceki adımları izlediyseniz bir kapsayıcı oluşturmak için aşağıdaki komutu kullanarak daha önce oluşturduğunuz paylaşımı bağlayabilir:
+Azure CLI kullanarak bir kapsayıcıdaki bir birim olarak Azure dosya paylaşımını bağlayabilmeniz için paylaşım ve birim bağlama noktası kapsayıcı ile oluşturduğunuzda belirtin [az kapsayıcı oluşturma][az-container-create]. Önceki adımları izlediyseniz bir kapsayıcı oluşturmak için aşağıdaki komutu kullanarak daha önce oluşturduğunuz paylaşımı bağlayabilir:
 
 ```azurecli-interactive
 az container create \
@@ -79,23 +79,160 @@ az container create \
     --azure-file-volume-mount-path /aci/logs/
 ```
 
-`--dns-name-label` değeri, kapsayıcı örneğini oluşturduğunuz Azure bölgesi içinde benzersiz olmalıdır. Alırsanız önceki komutta değeri güncelleştirin bir **DNS ad etiketi** komutu yürütürken bir hata iletisi.
+`--dns-name-label` Değer kapsayıcı örneğini oluşturduğunuz Azure bölgesi içinde benzersiz olmalıdır. Alırsanız önceki komutta değeri güncelleştirin bir **DNS ad etiketi** komutu yürütürken bir hata iletisi.
 
 ## <a name="manage-files-in-mounted-volume"></a>Takılan birimin dosyalarını yönetme
 
-Kapsayıcı başlatıldığında sonra Microsoft dağıtılan basit web uygulaması kullanabilirsiniz [Acı hellofiles] [ aci-hellofiles] küçük metin dosyaları, belirtilen bağlama yolu Azure dosya paylaşımını oluşturmak için görüntü. Web uygulaması'nın tam etki alanı adı (FQDN) ile elde [az container show] [ az-container-show] komutu:
+Kapsayıcı başlatıldığında sonra Microsoft dağıtılan basit web uygulaması kullanabilirsiniz [Acı hellofiles][aci-hellofiles] image to create small text files in the Azure file share at the mount path you specified. Obtain the web app's fully qualified domain name (FQDN) with the [az container show][az-container-show] komutu:
 
 ```azurecli-interactive
-az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn --output tsv
 ```
 
-Kullanabileceğiniz [Azure portalında] [ portal] veya bir aracı gibi [Microsoft Azure Depolama Gezgini] [ storage-explorer] alıp yazılan dosyasını inceleyin Dosya Paylaşımı.
+Kullanabileceğiniz uygulamayı kullanarak metin kaydettikten sonra [Azure portalında][portal] or a tool like the [Microsoft Azure Storage Explorer][storage-explorer] almak ve dosya paylaşımına yazılıp dosyasını inceleyin.
+
+## <a name="deploy-container-and-mount-volume---yaml"></a>Kapsayıcı dağıtın ve birim - YAML bağlama
+
+Ayrıca bir kapsayıcı grubu dağıtmak ve Azure CLI ile bir kapsayıcıdaki bir birimi bağlamak ve bir [YAML şablonu](container-instances-multi-container-yaml.md). YAML şablonu tarafından dağıtma tercih edilen kapsayıcı grupları birden çok kapsayıcılardan oluşan dağıtırken yöntemidir.
+
+Aşağıdaki YAML şablonu ile oluşturulan bir kapsayıcısı ile kapsayıcı grubunu tanımlar `aci-hellofiles` görüntü. Azure dosya paylaşımının kapsayıcı bağlar *acishare* birim olarak önceden oluşturulmuş. Belirtilen yerlerde, dosya paylaşımı barındıran depolama hesabının adını ve depolama anahtarını girin. 
+
+CLI örneği olduğu gibi `dnsNameLabel` değer kapsayıcı örneğini oluşturduğunuz Azure bölgesi içinde benzersiz olmalıdır. YAML dosyası değeri gerekirse güncelleştirin.
+
+```yaml
+apiVersion: '2018-10-01'
+location: eastus
+name: file-share-demo
+properties:
+  containers:
+  - name: hellofiles
+    properties:
+      environmentVariables: []
+      image: mcr.microsoft.com/azuredocs/aci-hellofiles
+      ports:
+      - port: 80
+      resources:
+        requests:
+          cpu: 1.0
+          memoryInGB: 1.5
+      volumeMounts:
+      - mountPath: /aci/logs/
+        name: filesharevolume
+  osType: Linux
+  restartPolicy: Always
+  ipAddress:
+    type: Public
+    ports:
+      - port: 80
+    dnsNameLabel: aci-demo
+  volumes:
+  - name: filesharevolume
+    azureFile:
+      sharename: acishare
+      storageAccountName: <Storage account name>
+      storageAccountKey: <Storage account key>
+tags: {}
+type: Microsoft.ContainerInstance/containerGroups
+```
+
+YAML şablonu ile dağıtmak için önceki YAML adlı bir dosyaya kaydedin `deploy-aci.yaml`, ardından yürütme [az kapsayıcı oluşturma][az-container-create] komutunu `--file` parametresi:
+
+```azurecli
+# Deploy with YAML template
+az container create --resource-group myResourceGroup --file deploy-aci.yaml
+```
+## <a name="deploy-container-and-mount-volume---resource-manager"></a>Birim kapsayıcısı ve takma - Resource Manager dağıtma
+
+CLI ve YAML dağıtım ek olarak, bir kapsayıcı grubu dağıtma ve Azure'ı kullanarak bir kapsayıcıdaki bir birimi [Resource Manager şablonu](/azure/templates/microsoft.containerinstance/containergroups).
+
+İlk olarak, doldurmak `volumes` kapsayıcı grubu dizisinde `properties` şablon bölümü. 
+
+Sonra istediğiniz bir birimi bağlamak için her kapsayıcı doldurmanız `volumeMounts` içindeki dizi `properties` kapsayıcı tanımının bölümü.
+
+Aşağıdaki Resource Manager şablonu ile oluşturulan bir kapsayıcı ile kapsayıcı grubunu tanımlar `aci-hellofiles` görüntü. Azure dosya paylaşımının kapsayıcı bağlar *acishare* birim olarak önceden oluşturulmuş. Belirtilen yerlerde, dosya paylaşımı barındıran depolama hesabının adını ve depolama anahtarını girin. 
+
+Önceki örneklerde olduğu gibi `dnsNameLabel` değer kapsayıcı örneğini oluşturduğunuz Azure bölgesi içinde benzersiz olmalıdır. Şablon değeri gerekirse güncelleştirin.
+
+```JSON
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "container1name": "hellofiles",
+    "container1image": "mcr.microsoft.com/azuredocs/aci-hellofiles"
+  },
+  "resources": [
+    {
+      "name": "file-share-demo",
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2018-10-01",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "containers": [
+          {
+            "name": "[variables('container1name')]",
+            "properties": {
+              "image": "[variables('container1image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
+                }
+              },
+              "ports": [
+                {
+                  "port": 80
+                }
+              ],
+              "volumeMounts": [
+                {
+                  "name": "filesharevolume",
+                  "mountPath": "/aci/logs"
+                }
+              ]
+            }
+          }
+        ],
+        "osType": "Linux",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "protocol": "tcp",
+              "port": "80"
+            }
+          ],
+          "dnsNameLabel": "aci-demo"
+        },
+        "volumes": [
+          {
+            "name": "filesharevolume",
+            "azureFile": {
+                "shareName": "acishare",
+                "storageAccountName": "<Storage account name>",
+                "storageAccountKey": "<Storage account key>"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+Resource Manager şablonu ile dağıtmak için önceki JSON adlı bir dosyaya Kaydet `deploy-aci.json`, ardından yürütme [az grubu dağıtımı oluşturmak][az-group-deployment-create] komutunu `--template-file` parametresi:
+
+```azurecli
+# Deploy with Resource Manager template
+az group deployment create --resource-group myResourceGroup --template-file deploy-aci.json
+```
+
 
 ## <a name="mount-multiple-volumes"></a>Birden çok birim bağlama
 
-Birden çok birim bir kapsayıcı örneğine bağlanacak kullanarak dağıtmalısınız bir [Azure Resource Manager şablonu](/azure/templates/microsoft.containerinstance/containergroups) veya bir YAML dosyası.
+Birden çok birim bir kapsayıcı örneğine bağlanacak kullanarak dağıtmalısınız bir [Azure Resource Manager şablonu](/azure/templates/microsoft.containerinstance/containergroups) veya bir YAML dosyası. Bir şablon veya YAML dosyası kullanmak için paylaşım ayrıntılarını sağlayın ve doldurarak birimleri tanımlama `volumes` içindeki dizi `properties` şablon bölümü. 
 
-Bir şablonu kullanmak için paylaşım ayrıntılarını sağlayın ve doldurarak birimleri tanımlama `volumes` içindeki dizi `properties` şablon bölümü. Örneğin, adlı iki Azure dosya paylaşımlarını oluşturduysanız *share1* ve *share2* depolama hesabındaki *myStorageAccount*, `volumes` dizi görüneceği aşağıdakine benzer:
+Örneğin, adlı iki Azure dosya paylaşımını oluşturduğunuz *share1* ve *share2* depolama hesabındaki *myStorageAccount*, `volumes` dizi bir Kaynak Yöneticisi'nde Şablon aşağıdaki gibi görünür:
 
 ```JSON
 "volumes": [{
@@ -129,8 +266,6 @@ Ardından, içine istediğiniz bağlama birimleri kapsayıcı grubundaki her kap
 }]
 ```
 
-Kapsayıcı örneği dağıtımıyla bir Azure Resource Manager şablonu ile bir örneğini görmek için bkz: [bir kapsayıcı grubu dağıtma](container-instances-multi-container-group.md). Bir YAML dosyası kullanarak bir örnek için bkz [YAML ile çok kapsayıcılı bir grup dağıtma](container-instances-multi-container-yaml.md)
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Azure Container ınstances'da diğer birim türleri bağlama işlemleri gerçekleştirmeyi öğreneceksiniz:
@@ -147,3 +282,4 @@ Azure Container ınstances'da diğer birim türleri bağlama işlemleri gerçekl
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
 [az-container-show]: /cli/azure/container#az-container-show
+[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create

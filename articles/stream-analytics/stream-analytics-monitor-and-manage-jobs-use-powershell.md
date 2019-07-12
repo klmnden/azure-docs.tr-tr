@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: b7e6201d75556908cc16d97734d1c074efd0a587
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdc09973a192924c5b9a81cd4ed49b9f36fc0eb1
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148426"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612311"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>İzleme ve Stream Analytics işlerini Azure PowerShell cmdlet'leriyle yönetme
 İzleme ve Azure PowerShell cmdlet'leri ve powershell betikleri ile temel bir Stream Analytics görevleri yürütme Stream Analytics kaynaklarını yönetme hakkında bilgi edinin.
@@ -228,7 +228,7 @@ Zaten bir girdi belirtin ve belirtmeyin Force parametresini cmdlet var olan gird
 
 Belirtirseniz Force parametresini ve var olan bir giriş adı, giriş onaysız değiştirilecek belirtin.
 
-JSON dosya yapısı ve içeriği hakkında ayrıntılı bilgi için başvurmak [giriş oluşturma (Azure Stream Analytics)] [ msdn-rest-api-create-stream-analytics-input] bölümünü [Stream Analytics Yönetimi REST API Başvurusu Kitaplık][stream.analytics.rest.api.reference].
+JSON dosya yapısı ve içeriği hakkında ayrıntılı bilgi için başvurmak [giriş oluşturma (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-input] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
 
 **Örnek 1**
 
@@ -287,7 +287,7 @@ Zaten bir iş adı belirtin ve belirtmeyin Force parametresini cmdlet var olan b
 
 Belirtirseniz Force parametresini ve varolan bir proje adı belirtirseniz iş tanımı onaysız değiştirilecektir.
 
-JSON dosya yapısı ve içeriği hakkında ayrıntılı bilgi için başvurmak [Stream Analytics işi oluşturma] [ msdn-rest-api-create-stream-analytics-job] bölümünü [Stream Analytics Yönetimi REST API Başvurusu Kitaplığı] [stream.analytics.rest.api.reference].
+JSON dosya yapısı ve içeriği hakkında ayrıntılı bilgi için başvurmak [Stream Analytics işi oluşturma][msdn-rest-api-create-stream-analytics-job] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
 
 **Örnek 1**
 
@@ -330,7 +330,7 @@ Zaten bir çıktı belirtin ve belirtmeyin Force parametresini cmdlet'i mevcut �
 
 Belirtirseniz Force parametresini ve var olan bir çıktı adı, çıktı onaysız değiştirilecek belirtin.
 
-JSON dosya yapısı ve içeriği hakkında ayrıntılı bilgi için başvurmak [çıktı oluşturma (Azure Stream Analytics)] [ msdn-rest-api-create-stream-analytics-output] bölümünü [Stream Analytics Yönetimi REST API Başvurusu Kitaplık][stream.analytics.rest.api.reference].
+JSON dosya yapısı ve içeriği hakkında ayrıntılı bilgi için başvurmak [çıktı oluşturma (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-output] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
 
 **Örnek 1**
 
@@ -373,7 +373,7 @@ Zaten bir dönüştürme belirtin ve belirtmeyin Force parametresini cmdlet'i me
 
 Belirtirseniz Force parametresini ve varolan bir dönüştürme adı belirtirseniz dönüşümü onaysız değiştirilecektir.
 
-JSON dosya yapısı ve içeriği hakkında ayrıntılı bilgi için başvurmak [dönüştürme oluşturma (Azure Stream Analytics)] [ msdn-rest-api-create-stream-analytics-transformation] bölümünü [Stream Analytics Yönetimi REST API'si Referans kitaplığında][stream.analytics.rest.api.reference].
+JSON dosya yapısı ve içeriği hakkında ayrıntılı bilgi için başvurmak [dönüştürme oluşturma (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-transformation] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
 
 **Örnek 1**
 
@@ -550,7 +550,7 @@ Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https
 * [Azure Stream analytics'e giriş](stream-analytics-introduction.md)
 * [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
 * [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
-* [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Akış Analizi Sorgu Dili Başvurusu](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Akış Analizi Yönetimi REST API'si Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 [msdn-switch-azuremode]: https://msdn.microsoft.com/library/dn722470.aspx

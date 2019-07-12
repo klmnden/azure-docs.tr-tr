@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 433a8b2f9fb1f4c4599afbb807e9270992a98a52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7a84d74e1bda6de8549c79dab1bec8c2515e213
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824193"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839074"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Azure Data Factory kullanarak MongoDB gelen veri taşıma
 > [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
@@ -49,7 +49,7 @@ Farklı araçlar/API'lerini kullanarak bir şirket içi MongoDB veri deposundan 
 
 Bir işlem hattı oluşturmanın en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [Öğreticisi: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı bir kılavuz.
 
-Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portalında**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**ve  **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
 
 API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için bir kaynak veri deposundan veri taşıyan bir işlem hattı oluşturmak için aşağıdaki adımları gerçekleştirin:
 
@@ -66,7 +66,7 @@ Aşağıdaki tabloda verilmiştir JSON öğelerinin özgü açıklama **OnPremis
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type |Type özelliği ayarlanmalıdır: **OnPremisesMongoDb** |Evet |
+| türü |Type özelliği ayarlanmalıdır: **OnPremisesMongoDb** |Evet |
 | server |IP adresi veya ana bilgisayar adı MongoDB sunucusunun. |Evet |
 | port |MongoDB sunucusunun istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası. |İsteğe bağlı, varsayılan değer: 27017 |
 | authenticationType |Temel veya anonim. |Evet |
@@ -75,7 +75,7 @@ Aşağıdaki tabloda verilmiştir JSON öğelerinin özgü açıklama **OnPremis
 | authSource |Kimlik doğrulaması için kimlik bilgilerinizi denetlemek için kullanmak istediğiniz MongoDB veritabanının adı. |(Temel kimlik doğrulaması kullanılıyorsa) isteğe bağlı. Varsayılan: yönetici hesabı ve databaseName özelliği kullanılarak belirtilen veritabanı kullanır. |
 | databaseName |Erişmek istediğiniz MongoDB veritabanının adı. |Evet |
 | gatewayName |Veri deposu erişen bir ağ geçidi adı. |Evet |
-| encryptedCredential |Ağ Geçidi tarafından şifrelenmiş kimlik bilgileri. |İsteğe bağlı |
+| encryptedCredential |Ağ Geçidi tarafından şifrelenmiş kimlik bilgileri. |İsteğe Bağlı |
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 Bölümleri ve veri kümeleri tanımlamak için kullanılabilir özellikleri tam listesi için bkz [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. Bölümler bir veri kümesi JSON İlkesi yapısı ve kullanılabilirlik gibi tüm veri kümesi türleri (Azure SQL, Azure blob, Azure tablo, vs.) için benzer.
@@ -100,7 +100,7 @@ Kaynak türü olduğunda **MongoDbSource** typeProperties bölümünde aşağıd
 
 
 ## <a name="json-example-copy-data-from-mongodb-to-azure-blob"></a>JSON örneği: Azure Blob Mongodb'deki verileri kopyalama
-Bu örnekte kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md) veya [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bu, bir Azure Blob depolama alanına bir şirket içi Mongodb'deki verileri kopyalamak nasıl gösterir. Ancak, veriler belirtilen havuzlarını birine kopyalanabilir [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopyalama etkinliğini kullanarak Azure Data Factory'de.
+Bu örnekte kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bu, bir Azure Blob depolama alanına bir şirket içi Mongodb'deki verileri kopyalamak nasıl gösterir. Ancak, veriler belirtilen havuzlarını birine kopyalanabilir [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopyalama etkinliğini kullanarak Azure Data Factory'de.
 
 Örnek, aşağıdaki data factory varlıklarını sahiptir:
 
@@ -295,14 +295,14 @@ Verileri, Mongodb'ye taşırken şu eşlemeler MongoDB türlerinden .NET türler
 
 | MongoDB türü | .NET framework türü |
 | --- | --- |
-| binary |Byte[] |
-| Boolean |Boolean |
-| Tarih |DateTime |
+| Binary |Byte[] |
+| Boole değeri |Boole değeri |
+| Date |Datetime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |String |
-| Dize |String |
+| Nesne Kimliği |Dize |
+| String |Dize |
 | UUID |Guid |
 | Object |Renormalized içine sütunları içeren iç içe geçmiş ayırıcı olarak "_" düzleştirme |
 
@@ -324,17 +324,17 @@ Kullanabileceğiniz [Kopyalama Sihirbazı'nı](data-factory-data-movement-activi
 ### <a name="example"></a>Örnek
 Örneğin, aşağıdaki "ExampleTable" nesneleri içeren bir dizi içeren bir sütun her hücre – faturaları ve skaler türler – derecelendirmeleri bir dizi içeren bir sütun içeren bir MongoDB tablodur.
 
-| _id | Müşteri Adı | Faturalar | Hizmet Düzeyi | Derecelendirme |
+| _id | Müşteri adı | Faturalar | Hizmet Düzeyi | Derecelendirme |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id: "123" öğesi: "toaster", price: "456" indirim: "0.2"}, {invoice_id: "124" öğesi: "fırın", price: indirim "1235": "0.2"}] |Gümüş |[5,6] |
-| 2222 |XYZ |[{invoice_id: "135" öğesi: "fridge", price: "12543" indirim: "0.0"}] |Altın |[1,2] |
+| 1111 |ABC |[{invoice_id: "123" öğesi: "toaster", price: "456" indirim: "0.2"}, {invoice_id: "124" öğesi: "fırın", price: indirim "1235": "0.2"}] |Silver |[5,6] |
+| 2222 |XYZ |[{invoice_id: "135" öğesi: "fridge", price: "12543" indirim: "0.0"}] |Gold |[1,2] |
 
 Sürücü bu tek tabloda temsil etmek için birden çok sanal tablolar oluşturur. İlk sanal "aşağıda gösterilen ExampleTable" adlı temel tablo tablosudur. Temel tablo özgün tablonun tüm verileri içerir, ancak dizileri verilerden çıkarıldı ve sanal tablolarında genişletilir.
 
-| _id | Müşteri Adı | Hizmet Düzeyi |
+| _id | Müşteri adı | Hizmet Düzeyi |
 | --- | --- | --- |
-| 1111 |ABC |Gümüş |
-| 2222 |XYZ |Altın |
+| 1111 |ABC |Silver |
+| 2222 |XYZ |Gold |
 
 Aşağıdaki tablolar, özgün diziler örnekte temsil eden sanal tablolar gösterir. Bu tablolar arasında aşağıdakiler yer alır:
 
@@ -347,7 +347,7 @@ Tablo "ExampleTable_Invoices":
 | _id | ExampleTable_Invoices_dim1_idx | invoice_id | Öğesi | price | İndirim |
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |toaster |456 |0.2 |
-| 1111 |1 |124 |Fırın |1235 |0.2 |
+| 1111 |1\. |124 |Fırın |1235 |0.2 |
 | 2222 |0 |135 |fridge |12543 |0.0 |
 
 Tablo "ExampleTable_Ratings":
@@ -355,9 +355,9 @@ Tablo "ExampleTable_Ratings":
 | _id | ExampleTable_Ratings_dim1_idx | ExampleTable_Ratings |
 | --- | --- | --- |
 | 1111 |0 |5 |
-| 1111 |1 |6 |
-| 2222 |0 |1 |
-| 2222 |1 |2 |
+| 1111 |1\. |6 |
+| 2222 |0 |1\. |
+| 2222 |1\. |2 |
 
 ## <a name="map-source-to-sink-columns"></a>Sütunları havuz için kaynak eşlemesi
 Kaynak veri kümesindeki sütunları havuz veri kümesi için eşleme sütunları hakkında bilgi edinmek için bkz. [Azure Data factory'de veri kümesi sütunlarını eşleme](data-factory-map-columns.md).

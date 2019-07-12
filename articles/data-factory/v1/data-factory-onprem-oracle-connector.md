@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51fae63b6db99f28a5b3bed056dadc0c2513ff0f
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462420"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839926"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Oracle şirket içi veri kopyalayın
 
@@ -83,7 +83,7 @@ Kopyalama etkinliği içeren işlem hattı oluşturabilirsiniz. İşlem hattı f
 
 Bir işlem hattı oluşturmanın en kolay yolu kopyalama Sihirbazı'nı kullanmaktır. Bkz: [Öğreticisi: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı bir kılavuz.
 
-Ayrıca aşağıdaki araçlardan birini bir işlem hattı oluşturmak için kullanabilirsiniz: **Azure portalında**, **Visual Studio**, **Azure PowerShell**e **Azure Resource Manager Şablon**, **.NET API**, veya **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği içeren işlem hattı oluşturma konusunda adım adım yönergeler için.
+Ayrıca aşağıdaki araçlardan birini bir işlem hattı oluşturmak için kullanabilirsiniz: **Visual Studio**, **Azure PowerShell**e **Azure Resource Manager şablonu**, **.NET API**, veya **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği içeren işlem hattı oluşturma konusunda adım adım yönergeler için.
 
 API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için bir kaynak veri deposundan veri taşıyan bir işlem hattı oluşturmak için aşağıdaki adımları tamamlayın:
 
@@ -187,7 +187,7 @@ Kopya etkinlikteki kaynak olduğunda, **OracleSource** türü, aşağıdaki öze
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>JSON örnekler ve Oracle veritabanından veri kopyalamak için
 
-Aşağıdaki örnekler kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlamak [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Örnekler öğesinden veya bir Oracle veritabanına ya da Azure Blob depolamadan/depolamaya veri kopyalama işlemini göstermektedir. Ancak, veriler herhangi bir listelenen havuzlarını kopyalanabilir [desteklenen veri depoları ve biçimler](data-factory-data-movement-activities.md#supported-data-stores-and-formats) Azure veri fabrikasında kopyalama etkinliği kullanarak.
+Aşağıdaki örnekler kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlamak [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Örnekler öğesinden veya bir Oracle veritabanına ya da Azure Blob depolamadan/depolamaya veri kopyalama işlemini göstermektedir. Ancak, veriler herhangi bir listelenen havuzlarını kopyalanabilir [desteklenen veri depoları ve biçimler](data-factory-data-movement-activities.md#supported-data-stores-and-formats) Azure veri fabrikasında kopyalama etkinliği kullanarak.
 
 **Örnek: Oracle'dan Azure Blob depolama alanına veri kopyalama**
 
@@ -599,27 +599,27 @@ Verileri Oracle'dan taşıdığınızda, aşağıdaki eşlemeler Oracle veri tü
 | --- | --- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(Microsoft sürücüsü kullandığınızda yalnızca Oracle 10 g ve sonraki sürümlerde desteklenir) |
-| CHAR |String |
-| CLOB |String |
-| DATE |DateTime |
+| CHAR |Dize |
+| CLOB |Dize |
+| DATE |Datetime |
 | FLOAT |Decimal, String (olursa hassasiyet > 28) |
 | INTEGER |Decimal, String (olursa hassasiyet > 28) |
 | YIL AY ARALIĞI |Int32 |
 | İKİNCİ GÜN ARALIĞI |TimeSpan |
-| LONG |String |
+| LONG |Dize |
 | LONG RAW |Byte[] |
-| NCHAR |String |
-| NCLOB |String |
+| NCHAR |Dize |
+| NCLOB |Dize |
 | NUMBER |Decimal, String (olursa hassasiyet > 28) |
-| NVARCHAR2 |String |
+| NVARCHAR2 |Dize |
 | RAW |Byte[] |
-| ROWID |String |
-| TIMESTAMP |DateTime |
-| TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
-| TIMESTAMP WITH TIME ZONE |DateTime |
+| ROWID |Dize |
+| TIMESTAMP |Datetime |
+| TIMESTAMP WITH LOCAL TIME ZONE |Datetime |
+| TIMESTAMP WITH TIME ZONE |Datetime |
 | UNSIGNED INTEGER |Number |
-| VARCHAR2 |String |
-| XML |String |
+| VARCHAR2 |Dize |
+| XML |Dize |
 
 > [!NOTE]
 > Veri türleri **ARALIĞI Yıl Bitiş ayı** ve **ARALIĞINI gün için ikinci** Microsoft sürücüsü kullandığınızda desteklenmez.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 976724a40b604bcdc3c83ef1b3d2e95268f75304
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4d31a134ae15e4ddbda0cc60a741f8780fec8d12
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432711"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838108"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Azure Data Factory ile Data Factory sürüm 1'in karşılaştırılması
 Bu makale Data Factory ile Data Factory sürüm 1’i karşılaştırır. Data Factory hakkında giriş bilgileri için bkz. [Data Factory'ye giriş](introduction.md).Data Factory sürüm 1 hakkında giriş bilgileri için bkz. [Azure Data Factory'ye Giriş](v1/data-factory-introduction.md). 
@@ -130,7 +130,7 @@ Geçerli sürüm için güncelleştirilmiş olan SDK'lar V1 istemcileriyle uyuml
 
 | &nbsp; | V2 | V1 |
 | ------ | -- | -- | 
-| Azure portal | [Evet](quickstart-create-data-factory-portal.md) | [Evet](data-factory-build-your-first-pipeline-using-editor.md) |
+| Azure portal | [Evet](quickstart-create-data-factory-portal.md) | Hayır |
 | Azure PowerShell | [Evet](quickstart-create-data-factory-powershell.md) | [Evet](data-factory-build-your-first-pipeline-using-powershell.md) |
 | .NET SDK | [Evet](quickstart-create-data-factory-dot-net.md) | [Evet](data-factory-build-your-first-pipeline-using-vs.md) |
 | REST API | [Evet](quickstart-create-data-factory-rest-api.md) | [Evet](data-factory-build-your-first-pipeline-using-rest-api.md) |

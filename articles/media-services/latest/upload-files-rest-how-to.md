@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: a241f66adecbab1d0b1462f379d3765d6c1de252
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a6f872880b61a5bd9510abda2f15e2edea16e940
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466808"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703870"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>REST kullanarak bir Media Services hesabına dosya yükleme
 
 Media Services'de dijital dosyalar bir varlık ile ilişkili blob kapsayıcısına yükleyin. [Varlık](https://docs.microsoft.com/rest/api/media/operations/asset) varlığı video, ses, görüntüler, küçük resim koleksiyonları, metin parçaları ve kapalı açıklamalı alt yazı dosyaları (ve bu dosyalar hakkındaki meta veriler) içerebilir. Varlık kapsayıcısının içine dosyalar yüklendiğinde, içeriğiniz sonraki işleme ve akışla için bulutta güvenli bir şekilde depolanır.
 
-Bu makalede REST suing yerel bir dosya karşıya yükleme gösterilmektedir.
+Bu makalede REST kullanarak yerel bir dosya karşıya yükleme gösterilmektedir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

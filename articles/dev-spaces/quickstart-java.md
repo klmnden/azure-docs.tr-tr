@@ -4,26 +4,25 @@ titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 ms.author: zarhoads
-ms.date: 03/22/2019
+ms.date: 07/08/2019
 ms.topic: quickstart
 description: Kapsayıcılar, mikro hizmetler ve Azure üzerinde Java hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Java, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s
-manager: jeconnoc
-ms.openlocfilehash: b3074fc280098d0aa55292c48a1562b8dfeb3cc0
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+manager: gwallace
+ms.openlocfilehash: b3e199f38f6f57cf10991f7e03757b8b603f74ad
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503090"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706873"
 ---
 # <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>Hızlı Başlangıç: Azure geliştirme alanları kullanarak Kubernetes üzerinde Java ile geliştirme
 
 Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 
 - Azure’da yönetilen bir Kubernetes ile Azure Dev Spaces’ı ayarlayın.
-- Yinelemeli olarak Visual Studio Code ve komut satırını kullanarak kapsayıcılardaki kod geliştirin.
+- Visual Studio Code kullanarak kapsayıcıları kodda yinelemeli olarak geliştirin.
 - Visual Studio Code geliştirme alanınızdan kodunda hata ayıklayın.
 
 
@@ -70,96 +69,31 @@ Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready 
 
 Bu makalede, kullandığınız [Azure geliştirme alanları örnek uygulama](https://github.com/Azure/dev-spaces) Azure geliştirme alanları göstermek için.
 
-Github'dan uygulama kopyalamak ve gidin *geliştirme-alanları/samples/java/alma-çalışmaya/webfrontend* dizini:
+Uygulamasını github'dan kopyalayın.
 
 ```cmd
 git clone https://github.com/Azure/dev-spaces
-cd dev-spaces/samples/java/getting-started/webfrontend
 ```
 
-## <a name="prepare-the-application"></a>Uygulama hazırlama
-
-Kubernetes kullanarak uygulamayı çalıştırmak için Docker ve Helm grafiği varlıkları oluşturmak `azds prep` komutu:
-
-```cmd
-azds prep --public
-```
-
-Çalıştırmalısınız `prep` komutunu *geliştirme-alanları/samples/java/alma-çalışmaya/webfrontend* doğru Docker ve Helm grafiği varlıkları oluşturmak için dizin.
-
-## <a name="build-and-run-code-in-kubernetes"></a>Kubernetes'de kodu oluşturma ve çalıştırma
-
-Derleme ve AKS kullanarak kodunuzu çalıştırmak `azds up` komutu:
-
-```cmd
-$ azds up
-Using dev space 'default' with target 'MyAKS'
-Synchronizing files...3s
-Installing Helm chart...8s
-Waiting for container image build...28s
-Building container image...
-Step 1/8 : FROM maven:3.5-jdk-8-slim
-Step 2/8 : EXPOSE 8080
-Step 3/8 : WORKDIR /usr/src/app
-Step 4/8 : COPY pom.xml ./
-Step 5/8 : RUN /usr/local/bin/mvn-entrypoint.sh     mvn package -Dmaven.test.skip=true -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true --fail-never
-Step 6/8 : COPY . .
-Step 7/8 : RUN mvn package -Dmaven.test.skip=true -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true
-Step 8/8 : ENTRYPOINT ["java","-jar","target/webfrontend-0.1.0.jar"]
-Built container image in 37s
-Waiting for container...57s
-Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
-Service 'webfrontend' port 80 (http) is available at http://localhost:54256
-...
-```
-
-Çıktıda gösterilen ortak URL'yi açarak çalışan hizmeti gördüğünüz `azds up` komutu. Bu örnekte genel URL: *http://webfrontend.1234567890abcdef1234.eus.azds.io/* .
-
-Durdurursanız `azds up` komutunu kullanarak *Ctrl + c*, hizmet, AKS içinde çalışmaya devam eder ve genel URL sunulmaya devam edecektir.
-
-## <a name="update-code"></a>Kodu güncelleştirme
-
-Hizmetinizi güncelleştirilmiş bir sürümünü dağıtmak için projenizdeki herhangi bir dosyayı güncelleştirmek ve yeniden `azds up` komutu. Örneğin:
-
-1. Varsa `azds up` hala, çalışıyor basın *Ctrl + c*.
-1. Güncelleştirme [satır 19 ' `src/main/java/com/ms/sample/webfrontend/Application.java` ](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) için:
-    
-    ```java
-    return "Hello from webfrontend in Azure!";
-    ```
-
-1. Yaptığınız değişiklikleri kaydedin.
-1. Yeniden çalıştırılan `azds up` komutu:
-
-    ```cmd
-    $ azds up
-    Using dev space 'default' with target 'MyAKS'
-    Synchronizing files...1s
-    Installing Helm chart...3s
-    Waiting for container image build...
-    ...    
-    ```
-
-1. Çalışan hizmetinize gidin ve yaptığınız değişiklikleri gözlemleyin.
-1. Tuşuna *Ctrl + c* durdurmak için `azds up` komutu.
-
-## <a name="enable-visual-studio-code-to-debug-in-kubernetes"></a>Kubernetes'te hata ayıklamak Visual Studio Code etkinleştir
+## <a name="prepare-the-sample-application-in-visual-studio-code"></a>Örnek uygulamayı Visual Studio Code hazırlayın
 
 Visual Studio Code'u açın, *dosya* ardından *Aç...* , gitmek *geliştirme-alanları/samples/java/alma-çalışmaya/webfrontend* dizin seçeneğine tıklayıp *açık*.
 
-Artık *webfrontend* proje Visual Studio kullanarak çalıştırdığınız aynı hizmet olan Code'da açık `azds up` komutu. Bu hizmeti kullanmak yerine Visual Studio Code kullanarak AKS hata ayıklamak için `azds up` doğrudan geliştirme alanınızı ile iletişim kurmak için Visual Studio Code'u kullanmak için bu projeyi hazırlamanız gerekir.
+Artık *webfrontend* proje Visual Studio Code'da açın. Uygulama geliştirme alanınızda çalıştırmak için komut paletinden Azure geliştirme alanları uzantısını kullanarak Docker ve Helm grafiği varlıklar oluşturun.
 
 Komut paletini Visual Studio Code'da açmak için *görünümü* ardından *komut paleti*. Yazmaya başlayın `Azure Dev Spaces` tıklayın `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 
 ![Azure geliştirme alanları için yapılandırma dosyalarını hazırlama](./media/common/command-palette.png)
 
-Visual Studio Code ayrıca temel görüntüleri ve kullanıma sunulan bağlantı noktası yapılandırmanızı istediğinde seçin `Azul Zulu OpenJDK for Azure (Free LTS)` temel görüntü ve `8080` kullanıma sunulan bağlantı noktası.
+Visual Studio Code Ayrıca, temel görüntüleri, kullanıma sunulan bağlantı noktası ve genel bir uç nokta yapılandırma istediğinde seçin `Azul Zulu OpenJDK for Azure (Free LTS)` temel görüntü `8080` kullanıma sunulan bağlantı noktası ve `Yes` genel bir uç noktayı etkinleştirme.
 
 ![Temel görüntü seçin](media/get-started-java/select-base-image.png)
 
 ![Kullanıma sunulan bağlantı noktası seçin](media/get-started-java/select-exposed-port.png)
 
-Bu komut, Azure geliştirme alanlarında doğrudan Visual Studio Code'dan çalıştırmak üzere projenizi hazırlar. Ayrıca oluşturur bir *.vscode* projenizin kökünde yapılandırmasını hata ayıklama dizin.
+![Genel bir uç nokta seçin](media/get-started-java/select-public-endpoint.png)
+
+Bu komut bir docker dosyası ve Helm grafiği oluşturarak Azure geliştirme alanlarında çalıştırmak üzere projenizi hazırlar. Ayrıca oluşturur bir *.vscode* projenizin kökünde yapılandırmasını hata ayıklama dizin.
 
 ## <a name="build-and-run-code-in-kubernetes-from-visual-studio"></a>Derleme ve kod Kubernetes'te Visual Studio'dan çalıştırma
 
@@ -167,16 +101,34 @@ Tıklayarak *hata ayıklama* simgesine tıklayın ve sol *başlatma Java program
 
 ![Java Program başlatma](media/get-started-java/debug-configuration.png)
 
-Bu komut, yapılar ve hizmetinizi Azure geliştirme alanlarında hata ayıklama modunda çalıştırır. *Terminal* penceresinin altındaki hizmetiniz için Azure geliştirme alanları çalıştıran yapı çıkışını ve URL'leri gösterir. *Hata ayıklama konsolunu* günlük çıktısını gösterir.
+Bu komut, oluşturur ve hizmetinizi Azure geliştirme alanlarında çalıştırır. *Terminal* penceresinin altındaki hizmetiniz için Azure geliştirme alanları çalıştıran yapı çıkışını ve URL'leri gösterir. *Hata ayıklama konsolunu* günlük çıktısını gösterir.
 
 > [!Note]
 > Tüm Azure geliştirme alanları komutlarında görmüyorsanız, *komut paleti*, yüklediğinizden emin olun [Azure geliştirme alanları için Visual Studio Code uzantısı](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Ayrıca, açtığınız doğrulayın *geliştirme-alanları/samples/java/alma-çalışmaya/webfrontend* Visual Studio code'da dizin.
 
+Genel URL açarak çalışan hizmeti görebilirsiniz.
+
 Tıklayın *hata ayıklama* ardından *hata ayıklamayı Durdur* hata ayıklayıcıyı durdurmak için.
+
+## <a name="update-code"></a>Kodu güncelleştirme
+
+Hizmetinizi güncelleştirilmiş bir sürümünü dağıtmak için projenizdeki herhangi bir dosyayı güncelleştirmek ve yeniden *başlatma Java programı'nı (AZDS)* . Örneğin:
+
+1. Uygulamanızı hala çalışıyorsa tıklayın *hata ayıklama* ardından *hata ayıklamayı Durdur* durdurmak ister.
+1. Güncelleştirme [satır 19 ' `src/main/java/com/ms/sample/webfrontend/Application.java` ](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) için:
+    
+    ```java
+    return "Hello from webfrontend in Azure!";
+    ```
+
+1. Yaptığınız değişiklikleri kaydedin.
+1. Yeniden çalıştırılan *başlatma Java Program (AZDS)* .
+1. Çalışan hizmetinize gidin ve yaptığınız değişiklikleri gözlemleyin.
+1. Tıklayın *hata ayıklama* ardından *hata ayıklamayı Durdur* uygulamanızı durdurmak için.
 
 ## <a name="setting-and-using-breakpoints-for-debugging"></a>Ayarlama ve hata ayıklama için kesme noktaları kullanma
 
-Hata ayıklama modunu kullanarak hizmetinizi başlatın *başlatma Java programı'nı (AZDS)* .
+Hizmeti kullanmaya başlayın *başlatma Java programı'nı (AZDS)* . Bu ayrıca, hizmet hata ayıklama modunda çalıştırır.
 
 Geri gidin *Gezgini* tıklayarak görünümü *görünümü* ardından *Gezgini*. Açık `src/main/java/com/ms/sample/webfrontend/Application.java` ve imlecinizi buraya koymanız-19. satırda bir yere tıklayın. Bir kesme noktası ayarlamak için isabet *F9* veya *hata ayıklama* ardından *iki durumlu kesme noktası*.
 

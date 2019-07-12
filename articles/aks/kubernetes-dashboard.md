@@ -2,17 +2,17 @@
 title: Web panosu ile bir Azure Kubernetes Service kümesini yönetme
 description: Azure Kubernetes Service (AKS) kümesini yönetmek için yerleşik Kubernetes web kullanıcı Arabirimi Panosu kullanmayı öğrenin
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
-ms.author: twhitney
-ms.openlocfilehash: 80c0bd630ba2263696b72b003e27c53f1e457704
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 0de2f285b5eca88a098a2d7cfe1608ad2f0db71b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304536"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615232"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) Kubernetes web panosuna erişme
 
@@ -28,7 +28,7 @@ Ayrıca Azure CLI sürüm 2.0.46 veya üzerini yüklemiş ve yapılandırmış o
 
 ## <a name="start-the-kubernetes-dashboard"></a>Kubernetes panosunu başlatmak
 
-Kubernetes panosunu başlatmak için [az aks Gözat] [ az-aks-browse] komutu. Aşağıdaki örnekte adlı Küme için Pano açılır *myAKSCluster* adlı kaynak grubunda *myResourceGroup*:
+Kubernetes panosunu başlatmak için [az aks Gözat][az-aks-browse] komutu. Aşağıdaki örnekte adlı Küme için Pano açılır *myAKSCluster* adlı kaynak grubunda *myResourceGroup*:
 
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
@@ -42,7 +42,7 @@ Bu komut, Kubernetes API ile geliştirme sisteminizde arasındaki bir proxy olu�
 
 AKS kümenizi RBAC, kullanıyorsa bir *ClusterRoleBinding* Pano doğru bir şekilde erişebilmeniz için önce oluşturulması gerekir. Varsayılan olarak, Kubernetes panosunu en az okuma erişimi ile dağıtılır ve RBAC erişim hataları görüntüler. Kubernetes panosuna erişim düzeyini belirlemek için kullanıcı tarafından sağlanan kimlik bilgileri şu anda desteklemiyor, bunun yerine hizmet hesabına verilen rolleri kullanır. Ek erişim izni vermek bir Küme Yöneticisi seçebilirsiniz *kubernetes panosunu* hizmet hesabı, ancak bu ayrıcalık yükseltme için vektör olabilir. Daha ayrıntılı bir düzeyde erişim sağlamak için Azure Active Directory kimlik doğrulaması tümleştirebilirler.
 
-Bağlama oluşturmak için kullanın [kubectl oluşturma clusterrolebinding] [ kubectl-create-clusterrolebinding] komutu aşağıdaki örnekte gösterildiği gibi. 
+Bağlama oluşturmak için kullanın [kubectl oluşturma clusterrolebinding][kubectl-create-clusterrolebinding] komutu aşağıdaki örnekte gösterildiği gibi. 
 
 > [!WARNING]
 > Bu örnek bağlama herhangi bir ek kimlik doğrulama bileşeni geçerli değildir ve güvensiz kullanımına neden olabilir. Kubernetes panosunu herkese açık erişim URL'si. Kubernetes panosunu genel olarak açığa çıkarmayın.
@@ -53,7 +53,7 @@ Bağlama oluşturmak için kullanın [kubectl oluşturma clusterrolebinding] [ k
 kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
 ```
 
-Kubernetes panosunu RBAC özellikli kümenizde artık erişebilirsiniz. Kubernetes panosunu başlatmak için [az aks Gözat] [ az-aks-browse] önceki adımda açıklandığı komutu.
+Kubernetes panosunu RBAC özellikli kümenizde artık erişebilirsiniz. Kubernetes panosunu başlatmak için [az aks Gözat][az-aks-browse] önceki adımda açıklandığı komutu.
 
 ## <a name="create-an-application"></a>Uygulama oluşturma
 

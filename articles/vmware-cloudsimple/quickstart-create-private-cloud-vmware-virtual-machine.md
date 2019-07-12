@@ -3,17 +3,17 @@ title: Hızlı Başlangıç - özel Bulutu bir VMware VM oluşturma
 description: Nasıl oluşturulacağını ve bir VMware VM CloudSimple özel bulut üzerinde açıklar.
 author: sharaths-cs
 ms.author: b-shsury
-ms.date: 06/03/19
+ms.date: 06/03/2019
 ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 217154578ad11755cd658ff3b106cfbe266277ab
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 33354ce09ad6ba1a9a7c08a8cd3b945f3788011a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154627"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595694"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>VMware sanal makinelerini özel Bulutunuzda oluşturma
 
@@ -219,7 +219,7 @@ netstat -an | grep 80
 python2.7 -m SimpleHTTPServer 80
 ```
 
-or
+veya
 
 ```
 python3 -m http.server 80

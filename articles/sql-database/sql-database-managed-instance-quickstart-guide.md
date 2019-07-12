@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 manager: craigg
-ms.date: 03/25/2019
-ms.openlocfilehash: ec0007e2d53a3fd3cae158375b696379d923b4b3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 07/11/2019
+ms.openlocfilehash: c2a468507c598c38b0b6b3b9f9c6a58a6ef4eff2
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447762"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67826977"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Yönetilen örnek Azure SQL veritabanı ile çalışmaya başlama
 
@@ -33,12 +33,14 @@ ms.locfileid: "67447762"
 
 - [Azure portalını kullanarak yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md). Azure portalında, gerekli parametreleri (kullanıcı adı/parola, en fazla depolama alanı miktarı ve çekirdek sayısı) yapılandırma ve otomatik olarak Azure ağ ortamında Ağ ayrıntıları ve altyapı gereksinimleri hakkında bilmek zorunda kalmadan oluşturun. Yalnızca sahip olduğunuzdan emin olun bir [abonelik türü](sql-database-managed-instance-resource-limits.md#supported-subscription-types) , şu anda izin verilmiştir yönetilen örnek oluşturma. Kullanmak istediğiniz kendi ağ varsa veya istediğiniz ağ özelleştirmek bkz [Azure SQL veritabanı yönetilen örneği için mevcut bir sanal ağ yapılandırma](sql-database-managed-instance-configure-vnet-subnet.md) veya [Azure SQL veritabanı için sanal ağ oluşturma Yönetilen örnek](sql-database-managed-instance-create-vnet-subnet.md).
 - Yönetilen örnek genel bir uç nokta ile kendi sanal ağ oluşturulur. İstemci uygulama erişimi için aşağıdakilerden birini yapabilirsiniz **(farklı bir alt ağ) aynı sanal ağda VM oluşturma** veya **istemci bilgisayarınızdan Vnet'e noktadan siteye VPN bağlantısı oluşturma** bunlardan birini kullanma Hızlı başlangıçlar:
-
+  - Etkinleştirme [genel uç nokta](sql-database-managed-instance-public-endpoint-configure.md) , yönetilen doğrudan ortamınızdan verilerinize erişmek için örneği.
   - Oluşturma [Azure sanal makinesi yönetilen örneğinde VNet](sql-database-managed-instance-configure-vm.md) istemci uygulama bağlantısı için SQL Server Management Studio dahil olmak üzere.
   - Ayarlanan [noktadan siteye VPN bağlantısı yönetilen Örneğinize](sql-database-managed-instance-configure-p2s.md) üzerinde sahip olduğunuz SQL Server Management Studio ve diğer istemci bağlantı uygulamaları istemci bilgisayardan. Diğer yönetilen Örneğinize ve kendi sanal ağa bağlantı için iki seçenek budur.
 
   > [!NOTE]
   > Express route veya siteden siteye bağlantı yerel ağınızdan de kullanabilirsiniz, ancak bu yaklaşımların şu hızlı başlangıçlardan biriyle kapsamı dışında olan.
+
+Yönetilen örnek el ile oluşturulması için alternatif olarak, kullandığınız [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), [PowerShell Resource Manager şablonu ile](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md), veya [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) betik ve otomatik hale getirmek için Bu işlem.
 
 ### <a name="migrate-your-databases"></a>Veritabanlarınızı geçirme
 
@@ -59,20 +61,17 @@ Alternatif olarak, kullandığınız [PowerShell Betiği](https://www.powershell
 
 Alternatif olarak, bu kullanabilirsiniz [PowerShell Betiği](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) ağ oluşturulmasını otomatik hale getirmek için.
 
-Zaten bir sanal ağ ve alt ağ, yönetilen örnek dağıtmak istediğiniz varsa, ağ ve alt sağladığını emin olmanız gerekir [gereksinimlerinde](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Bunu kullanın [alt ağınızın düzgün yapılandırıldığını doğrulamak için PowerShell Betiği](sql-database-managed-instance-configure-vnet-subnet.md). Bu betik, ağ ve rapor ve sorunları bildirir, değişiklikler ve sonra VNet/alt ağda gerekli değişiklikleri yapmak için teklifleri doğrular. VNet/alt ağınızın el ile yapılandırmak istemiyorsanız, bu betiği çalıştırın. Ayrıca tüm önemli yeniden yapılandırma ağ altyapınızın sonra çalıştırabilirsiniz. Oluşturup kendi ağ yapılandırmak istiyorsanız, okuma [bağlantı mimarisi](sql-database-managed-instance-connectivity-architecture.md) ve bu[oluşturup bir yönetilen örnek ortamı yapılandırmaya yönelik kılavuz](https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01).
+Zaten bir sanal ağ ve alt ağ, yönetilen örnek dağıtmak istediğiniz varsa, ağ ve alt sağladığını emin olmanız gerekir [gereksinimlerinde](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Bunu kullanın [alt ağınızın düzgün yapılandırıldığını doğrulamak için PowerShell Betiği](sql-database-managed-instance-configure-vnet-subnet.md). Bu betik, ağ ve rapor ve sorunları bildirir, değişiklikler ve sonra VNet/alt ağda gerekli değişiklikleri yapmak için teklifleri doğrular. VNet/alt ağınızın el ile yapılandırmak istemiyorsanız, bu betiği çalıştırın. Ayrıca tüm önemli yeniden yapılandırma ağ altyapınızın sonra çalıştırabilirsiniz. Oluşturup kendi ağ yapılandırmak istiyorsanız, okuma [bağlantı mimarisi](sql-database-managed-instance-connectivity-architecture.md) ve bu [oluşturup bir yönetilen örnek ortamı yapılandırmaya yönelik kılavuz](https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01).
 
-## <a name="automating-creation-of-a-managed-instance"></a>Yönetilen bir örneğinin oluşturulmasını otomatik hale getirme
+## <a name="migrate-to-a-managed-instance"></a>Bir yönetilen örneğe geçiş
 
- Önceki adımda açıklandığı gibi ağ ortamını oluşturmadıysanız, Azure portalı, sizin için neler yapabileceğini – tek dezavantajı, bunu daha sonra değiştiremezsiniz bazı varsayılan parametreler yapılandırır gerçeğidir. Alternatif olarak kullanabilirsiniz:
+Bu hızlı başlangıç makalelerinde hızlı bir şekilde bir yönetilen örneği ve veritabanlarınızı yerel taşımak etkinleştirme `RESTORE` yeteneği. Hızlı sağlama, kavramlar ve çözümünüzü yönetilen örneği'nde çalıştığını doğrulamak istiyorsanız, iyi bir başlangıç noktası budur. 
 
-- [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)
-- [PowerShell Resource Manager şablonu ile](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)
-- [Azure CLI](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/).
-- [Resource Manager Şablonu](sql-database-single-database-get-started-template.md)
+Ancak, üretim veritabanınızı veya bazı performans testi için kullanmak istediğiniz bile geliştirme/test veritabanlarını geçirmek için bazı ek teknikleri gibi kullanmayı gerekecektir:
+- Performans testi - kaynak SQL Server Örneğinizde taban çizgisi performansını ölçme ve bunları nerede geçişiniz veritabanı yönetilen örneği hedefte performansını karşılaştırır. Daha fazla bilgi edinin [performans karşılaştırma için en iyi yöntemler](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
+- Çevrimiçi geçişi - native ile `RESTORE` geri (ve Azure Blob depolama alanına kopyalandığından değilse zaten var. depolanan) veritabanları için beklemek zorunda bu makalede açıklandığı gibi. Bu, bazı kapalı kalma süresi, uygulamanızın daha büyük veritabanları için özellikle neden olur. Üretim veritabanınız taşımak için kullanın [veri geçiş hizmeti (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) veritabanınızı en düşük kapalı kalma süresi ile geçirilecek. DMS bunu, kaynak veritabanınızı geri yüklenen yönetilen örnek veritabanına yapılan değişiklikleri artımlı olarak ileterek gerçekleştirir. Bu şekilde uygulamanızı kaynaktan hedef veritabanına en az kapalı kalma süresiyle hızlı bir şekilde geçiş yapabilirsiniz.
 
-## <a name="migrating-to-a-managed-instance-with-minimal-downtime"></a>En düşük kapalı kalma süresi ile bir yönetilen örneğe geçirme
-
-Bu hızlı başlangıç makalelerinde hızlı bir şekilde bir yönetilen örneği ve veritabanlarınızı yerel taşımak etkinleştirme `RESTORE` yeteneği. Bununla birlikte, yerel `RESTORE`, geri (ve Azure Blob depolama alanına kopyalandığından değilse zaten var. depolanan) veritabanları için beklemeniz gerekir. Bu, bazı kapalı kalma süresi, uygulamanızın daha büyük veritabanları için özellikle neden olur. Üretim veritabanınız taşımak için kullanın [veri geçiş hizmeti (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) veritabanınızı en düşük kapalı kalma süresi ile geçirilecek. DMS bunu, kaynak veritabanınızı geri yüklenen yönetilen örnek veritabanına yapılan değişiklikleri artımlı olarak ileterek gerçekleştirir. Bu şekilde uygulamanızı kaynaktan hedef veritabanına en az kapalı kalma süresiyle hızlı bir şekilde geçiş yapabilirsiniz.
+Daha fazla bilgi edinin [geçiş işlemi önerilen](sql-database-managed-instance-migrate.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

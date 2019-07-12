@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: e0d5363e253e89b32b5eca14366504f0ace39043
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1e5a4ac9f159ce238149d44127fd63dcf3279623
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479635"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807110"
 ---
-# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v031-alpha"></a>Durum İzleyicisi'ni v2 API'si: Etkinleştir-ApplicationInsightsMonitoring (v0.3.1-alpha)
+# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v040-alpha"></a>Durum İzleyicisi'ni v2 API'si: Etkinleştir-ApplicationInsightsMonitoring (v0.4.0-alpha)
 
 Bu makalede bir üyesi olan bir cmdlet [Az.ApplicationMonitor PowerShell Modülü](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -93,9 +93,9 @@ Birkaç bilgisayar için bir tek bir yükleme betiği ayarlayarak oluşturabilec
 - **MachineFilter** gerekli bir C# regex bilgisayar veya VM adı.
     - '. *' tüm eşleşir
     - 'ComputerName' yalnızca bilgisayarlar belirtilen tam adıyla eşleşir.
-- **AppFilter** gerekli bir C# regex bilgisayar veya VM adı.
+- **AppFilter** gerekli bir C# regex IIS Site adı. Komutunu çalıştırarak, sunucunuzdaki sitelerin bir listesini alabilirsiniz [get-iissite](https://docs.microsoft.com/powershell/module/iisadministration/get-iissite).
     - '. *' tüm eşleşir
-    - 'ApplicationName' yalnızca IIS uygulamaları belirtilen tam adıyla eşleşir.
+    - 'SiteName' yalnızca IIS sitesini belirtilen tam adıyla eşleşir.
 - **Instrumentationkey** önceki iki filtrelerle eşleşen uygulamaları izlemeyi etkinleştirmek için gereklidir.
     - Bu değeri izleme hariç tutmak için kurallar tanımlamak istiyorsanız boş bırakın.
 

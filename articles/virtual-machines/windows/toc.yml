@@ -132,6 +132,8 @@
       href: backup-recovery.md
     - name: Altyapı örneği
       href: infrastructure-example.md
+    - name: Güvenlik öznitelikleri
+      href: virtual-machines-windows-security-attributes.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: VM oluşturma

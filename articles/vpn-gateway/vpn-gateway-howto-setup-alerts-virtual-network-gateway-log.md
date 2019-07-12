@@ -4,15 +4,15 @@ description: VPN ağ geçidi tanılama günlüğü olayları uyarılarını yap�
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptional
+ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 6c85f47a2e3691306d59c5c44856fd08c07f2d36
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4f18581b9ca5770b89be8ca37529c09d635dfb25
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202885"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607109"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>VPN ağ geçidinden tanılama günlüğü olayları uyarıları ayarlama
 
@@ -20,7 +20,7 @@ Bu makale, Azure Log Analytics kullanarak Azure VPN Gateway'i tanılama günlü�
 
 Azure'da aşağıdaki günlüklere kullanılabilir:
 
-|***Ad*** | ***Açıklama*** |
+|***Name*** | ***Açıklama*** |
 |---        | ---               |
 |GatewayDiagnosticLog | Ağ geçidi yapılandırma olayları, birincil değişiklikleri ve Bakım olayları için tanı günlüklerinin bulunduğu |
 |TunnelDiagnosticLog | Tünel durum değişikliği olayları içerir. Tünel olayları bağlama/bağlantısını kes durum değişikliği için Özet bir neden varsa |

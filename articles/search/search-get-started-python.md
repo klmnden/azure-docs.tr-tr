@@ -1,7 +1,7 @@
 ---
 title: "Python hızlı başlangıç: Kullanarak Azure Search REST API'lerini - Azure Search dizinlerini sorgulamanız oluşturma ve yükleme"
 description: Dizin oluşturma, veri yükleme ve Python, Jupyter not defterleri ve Azure Search REST API'sini kullanarak sorguları çalıştırma açıklanmaktadır.
-ms.date: 06/20/2019
+ms.date: 07/11/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 613879abd4c5c09450b690b793500a99428cff29
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 123afa2452c3e492b85292514e64f84d3baec390
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485467"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840296"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>Hızlı Başlangıç: Jupyter not defterlerini kullanarak Python'da bir Azure Search dizini oluşturma
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "67485467"
 > * [Portal](search-create-index-portal.md)
 > 
 
-Jupyter not defteri oluşturur, yükler ve Python kullanarak Azure Search dizini sorgular oluşturun ve [Azure Search REST API'lerini](https://docs.microsoft.com/rest/api/searchservice/). Bu makalede, sıfırdan başlayarak adım adım bir not defteri oluşturmak açıklanmaktadır. Alternatif olarak, tamamlanmış bir not defteri çalıştırabilirsiniz. Bir kopyasını indirmek için Git[azure-search-python-samples deposuna](https://github.com/Azure-Samples/azure-search-python-samples).
+Jupyter not defteri oluşturur, yükler ve Python kullanarak Azure Search dizini sorgular oluşturun ve [Azure Search REST API'lerini](https://docs.microsoft.com/rest/api/searchservice/). Bu makalede, adım adım bir not defteri oluşturmak açıklanmaktadır. Alternatif olarak, [indirme ve çalıştırma tamamlanmış bir Jupyter Python not defteri](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -295,26 +295,13 @@ Bu adım bir dizin kullanarak nasıl sorgulanacağını gösterir [arama belgele
    searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
    ```
 
-## <a name="clean-up"></a>Temizleme 
+## <a name="clean-up"></a>Temizleme
 
-Artık ihtiyacınız kalmadığında, dizin silmeniz gerekir. Ücretsiz bir hizmet için üç dizin sınırlıdır. Etkin bir şekilde diğer öğreticiler için yer açmak için kullandığınız değil tüm dizinlerin silmeniz gerekir.
+Kendi aboneliğinizde çalışırken, oluşturduğunuz kaynakları hala gerekip gerekmediğini belirlemek için iyi bir fikir sonunda, bir proje var. Kaynakları sol çalışan can para maliyeti. Kaynakları tek tek silmek ya da tüm kaynak kümesini silmek için kaynak grubunu silin.
 
-Nesneleri silmek için en kolay yolu portalı kullanmaktır, ancak bu bir Python hızlı olduğundan, aşağıdaki sözdizimini aynı sonucu verir:
+Bulabilir ve Portalı'nda kaynaklarını yönetme kullanarak **tüm kaynakları** veya **kaynak grupları** sol gezinti bölmesindeki bağlantıyı.
 
-   ```python
-  url = endpoint + "indexes/hotels-quickstart" + api_version
-  response  = requests.delete(url, headers=headers)
-   ```
-
-Dizin silme işlemi mevcut dizinler listesini isteyerek doğrulayabilirsiniz. Hotels-quickstart yoksa, istek başarılı bildirin.
-
-```python
-url = endpoint + "indexes" + api_version + "&$select=name"
-
-response  = requests.get(url, headers=headers)
-index_list = response.json()
-pprint(index_list)
-```
+Ücretsiz bir hizmet kullanıyorsanız, üç dizin, dizin oluşturucular ve veri kaynağı için sınırlı olduğunu unutmayın. Bireysel öğeleri limiti altında kalmak için portalda silebilirsiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

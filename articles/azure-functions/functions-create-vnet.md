@@ -7,13 +7,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: article
 ms.date: 5/03/2019
-ms.author: alkarche, glenga
-ms.openlocfilehash: 55cce60ab3d1cda3cb870afd2f6214f917a04189
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: alkarche
+ms.reviewer: glenga
+ms.openlocfilehash: 0a31b58a3c843a2add0c84dc1a3ad4ab6417815e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063269"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612878"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Öğretici: İşlevleri bir Azure sanal ağı ile tümleştirin.
 
@@ -70,7 +71,7 @@ Ardından, sanal ağ içinde çalıştırılan WordPress önceden yapılandırı
     | **Sanal makine adı** | VNET Wordpress | VM adı kaynak grubu içinde benzersiz olması gerekir |
     | **[Bölge](https://azure.microsoft.com/regions/)** | (Avrupa) Batı Avrupa | Size yakın veya sanal Makineye erişmek işlevleri yakın bir bölge seçin. |
     | **Boyut** | B1s | Seçin **değiştirme boyutu** ve ardından 1 vCPU ve 1 GB bellek B1s standart görüntüsünü seçin. |
-    | **Kimlik doğrulaması türü** | Parola | Parola kimlik doğrulaması kullanmak için de belirtmeniz gerekir bir **kullanıcıadı**, güvenli **parola**, ardından **parolayı onayla**. Bu öğreticide, gidermeye ihtiyaç duyan sürece VM oturum gerekmez. |
+    | **Kimlik doğrulaması türü** | istemcisiyle yönetilen bir cihaz için) | Parola kimlik doğrulaması kullanmak için de belirtmeniz gerekir bir **kullanıcıadı**, güvenli **parola**, ardından **parolayı onayla**. Bu öğreticide, gidermeye ihtiyaç duyan sürece VM oturum gerekmez. |
 
 1. Seçin **ağ** altında sanal ağları yapılandırma sekmenize **Yeni Oluştur**.
 
@@ -80,7 +81,7 @@ Ardından, sanal ağ içinde çalıştırılan WordPress önceden yapılandırı
 
     | Ayar      | Önerilen değer  | Açıklama      |
     | ------------ | ---------------- | ---------------- |
-    | **Ad** | vnet myResourceGroup | Sanal ağınız için oluşturulan varsayılan adı kullanabilirsiniz. |
+    | **Name** | vnet myResourceGroup | Sanal ağınız için oluşturulan varsayılan adı kullanabilirsiniz. |
     | **Adres aralığı** | 10.10.0.0/16 | Sanal ağ için bir tek adres aralığı kullanın. |
     | **Alt ağ adı** | Öğretici-Net | Alt ağın adı. |
     | **Adres aralığı** (alt ağ) | 10.10.1.0/24   | Alt ağ boyutu, kaç arabirimleri alt ağa eklenebilir tanımlar. Bu alt ağ WordPress sitesi tarafından kullanılır.  A `/24` alt ağ, 254 ana bilgisayar adresi sağlar. |
@@ -143,7 +144,7 @@ Sanal ağ ile tümleştirme, etkin işlev uygulamanız sanal ağ içinde çalı�
 
     | Ayar  | Önerilen değer  | Açıklama      |
     | -------- | ---------------- | ---------------- |
-    | **Ad** | Tesis | Ad, herhangi bir değer olabilir. Proxy tanımlamak için kullanılır. |
+    | **Name** | Tesis | Ad, herhangi bir değer olabilir. Proxy tanımlamak için kullanılır. |
     | **Rota şablonu** | /plant | Bir VM kaynağına haritalar rota. |
     | **Arka uç URL'si** | http://<YOUR_VM_IP>/WP-Content/Themes/twentyseventeen/Assets/images/header.jpg | Değiştirin `<YOUR_VM_IP>` WordPress, daha önce oluşturduğunuz sanal makinenizin IP adresiyle. Bu eşleme, site veritabanından tek bir dosyayı döndürür. |
 

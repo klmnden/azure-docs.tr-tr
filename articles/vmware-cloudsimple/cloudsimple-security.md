@@ -3,17 +3,17 @@ title: CloudSimple Hizmetleri için güvenlik
 description: Paylaşılan sorumluluk modelleri için CloudSimple hizmetlerinin güvenliğini açıklanmaktadır
 author: sharaths-cs
 ms.author: b-shsury
-ms.date: 4/27/19
+ms.date: 04/27/2019
 ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: db093f6aef4f1bdb28a96bf89b3013d359a7b796
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 325915aae43c905236910382f650730a6daa127a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154114"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595334"
 ---
 # <a name="cloudsimple-security-overview"></a>CloudSimple güvenliğine genel bakış
 

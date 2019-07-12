@@ -10,19 +10,20 @@ ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: laobri
 ms.custom: seodec2018
-ms.openlocfilehash: 98ca455fd92b0c9ed276082413734c6bc063f310
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 2a4d7435383f740dc386a740062e66cd2d3585b0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671965"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798839"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak bir Azure Search dizini oluşturma
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
-> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [PowerShell](search-get-started-powershell.md)
 > * [Postman](search-get-started-postman.md)
-> * [C#](search-create-index-dotnet.md)
+> * [Python](search-get-started-python.md)
+> * [C#](search-get-started-dotnet.md)
 
 Bir hızlı mvc'deki için Azure Search kavramları, Azure portalında yerleşik araçları deneyebilirsiniz. Sihirbazlar ve düzenleyicileri .NET ve REST API'leri ile tam eşlik sağlamaz, ancak hızlı bir şekilde kod gerektirmeyen bir giriş, dakika içinde örnek veriler ilgi çekici sorguları yazma başlayabilirsiniz.
 
@@ -33,9 +34,9 @@ Bir hızlı mvc'deki için Azure Search kavramları, Azure portalında yerleşik
 > * Varolan bir dizini ve onu değiştirmek için seçenekleri görüntüleme
 > * Tam metin arama, filtreler, modeller, belirsiz arama ve ile coğrafi aramayı keşfedin **arama Gezgini**
 
-Araçları çok sınırlama, önünde bir [. NET'te Azure Search programlamaya kod tabanlı giriş](search-howto-dotnet-sdk.md) veya [Postman veya fiddler'ı REST API çağrıları yapmak için](search-get-started-postman.md).
+Araçları çok sınırlama, önünde bir [. NET'te Azure Search programlamaya kod tabanlı giriş](search-howto-dotnet-sdk.md) veya [REST API çağrıları yapmak için Postman](search-get-started-postman.md). Bu [Azure Search’e Genel Bakış videosunun](https://channel9.msdn.com/Events/Connect/2016/138) üçüncü dakikasından izlemeye başlayarak bu öğreticideki adımların 6 dakikalık bir gösterimini izleyebilirsiniz.
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. Bu [Azure Search’e Genel Bakış videosunun](https://channel9.msdn.com/Events/Connect/2016/138) üçüncü dakikasından izlemeye başlayarak bu öğreticideki adımların 6 dakikalık bir gösterimini izleyebilirsiniz.
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -210,7 +211,7 @@ Model filtreleri arama isteklerine dahil edilir. Sağladığınız model değeri
 
 * Yalnızca filtrelenebilir alanlardan görünüm oluşturulabilir. Yalnızca getirilebilir alanlar sonuçlarda döndürülebilir.
 
-* *Derecelendirme* çift duyarlıklı kayan nokta bir alandır ve kesin değerine göre gruplandırma olacaktır. Aralığa göre gruplama hakkında daha fazla bilgi için (örneğin, "3 yıldız değerlendirmelerinde," "4 yıldız değerlendirmelerinde," vb.), bkz: [Azure Arama'da çok yönlü navigasyon uygulamak nasıl](https://docs.microsoft.com/en-us/azure/search/search-faceted-navigation#filter-based-on-a-range).
+* *Derecelendirme* çift duyarlıklı kayan nokta bir alandır ve kesin değerine göre gruplandırma olacaktır. Aralığa göre gruplama hakkında daha fazla bilgi için (örneğin, "3 yıldız değerlendirmelerinde," "4 yıldız değerlendirmelerinde," vb.), bkz: [Azure Arama'da çok yönlü navigasyon uygulamak nasıl](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
 
 
 ### <a name="highlight-query"></a> Arama sonuçlarını vurgulama
@@ -267,7 +268,11 @@ Portalda dizin, dizin oluşturucular ve veri kaynaklarını bulma ayrıca öğre
 
 ## <a name="clean-up"></a>Temizleme
 
-Bu öğreticide ilk Azure Search hizmetini kullanımınız, Azure Search Hizmeti içeren kaynak grubunu silin. Değilse hizmet listesinden doğru kaynak grubunu bulun ve silin.
+Kendi aboneliğinizde çalışırken, oluşturduğunuz kaynakları hala gerekip gerekmediğini belirlemek için iyi bir fikir sonunda, bir proje var. Kaynakları sol çalışan can para maliyeti. Kaynakları tek tek silmek ya da tüm kaynak kümesini silmek için kaynak grubunu silin.
+
+Bulabilir ve Portalı'nda kaynaklarını yönetme kullanarak **tüm kaynakları** veya **kaynak grupları** sol gezinti bölmesindeki bağlantıyı.
+
+Ücretsiz bir hizmet kullanıyorsanız, üç dizin, dizin oluşturucular ve veri kaynağı için sınırlı olduğunu unutmayın. Bireysel öğeleri limiti altında kalmak için portalda silebilirsiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

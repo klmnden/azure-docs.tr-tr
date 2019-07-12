@@ -11,16 +11,16 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c39c585d9947422260868734ec89814d8a510089
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60658329"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836962"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Azure API Management örneği kapasitesi
 
-**Kapasite** tek en önemli olan [Azure İzleyici ölçüm](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) daha fazla yük uyum sağlamak için API Management örneği ölçeklendirme yapılıp bilinçli bir karar almadan için. Kendi yapı karmaşıktır ve belirli bir davranış uygular.
+**Kapasite** en önemlisi [Azure İzleyici ölçüm](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) daha fazla yük uyum sağlamak için API Management örneği ölçeklendirme yapılıp bilinçli bir karar almadan için. Kendi yapı karmaşıktır ve belirli bir davranış uygular.
 
 Bu makalede ne açıklanır **kapasite** olduğu ve nasıl davranacağını. Nasıl erişeceğinizi gösterir **kapasite** Azure portalında ölçümleri ve ne zaman ölçeklendirme veya API Management örneğinizin yükseltme önerir.
 
@@ -40,12 +40,14 @@ Bu makalede adımları takip etmek için şunlara sahip olmalısınız:
 
 ![Kapasite ölçümü](./media/api-management-capacity/capacity-ingredients.png)
 
-**Kapasite** yük APIM örneği üzerinde bir göstergesidir. Bunu, kaynak kullanımı (CPU, bellek) ve ağ sıra uzunlukları yansıtır. CPU ve bellek kullanımı, kaynakların tüketimini gösterir:
+**Kapasite** yük API Management örneği üzerinde bir göstergesidir. Bunu, kaynak kullanımı (CPU, bellek) ve ağ sıra uzunlukları yansıtır. CPU ve bellek kullanımı, kaynakların tüketimini gösterir:
 
-+ İstekleri iletmek veya bir ilkesi çalıştırmaktan içerebilen yönetim eylemleri veya istek işleme gibi APIM Hizmetleri
++ İstekleri iletmek veya bir ilkesi çalıştırmaktan içerebilen yönetim eylemleri veya istek işleme gibi API Management Hizmetleri
 + yeni bağlantılar SSL el sıkışmaları maliyetini gerektiren işlemler de dahil olmak üzere seçili işletim sistemi işlemler.
 
 Toplam **kapasite** her birim bir API Management örneğinin kendi değerlerini bir ortalamasıdır.
+
+Ancak **kapasite ölçüm** olan API Management örneğinizin yüzeyi sorunları için tasarlanan durumlar vardır sorunları içindeki değişiklikler yansıtılmaz, **kapasite ölçüm**.
 
 ## <a name="capacity-metric-behavior"></a>Kapasite ölçüm davranışı
 
@@ -63,6 +65,8 @@ Gerçek Hayatta, yapı nedeniyle **kapasite** tarafından birçok değişkenleri
 ![Kapasite ölçüm ani](./media/api-management-capacity/capacity-spikes.png)
 
 **Kapasite** ayrıca aralıklı olarak çıkmasına veya işlenmekte olan istek olsa bile, sıfırdan büyük olması. Sistem veya platforma özgü eylemleri nedeniyle olur ve bir örnek karar verirken dikkate alınmamalıdır.
+
+Düşük **kapasite ölçüm** mutlaka API Management örneğinizin herhangi bir sorun yaşayan değil anlamına gelmez.
   
 ## <a name="use-the-azure-portal-to-examine-capacity"></a>Kapasite incelemek için Azure Portal'ı kullanın
   

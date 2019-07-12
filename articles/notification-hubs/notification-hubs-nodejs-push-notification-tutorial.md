@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: bc5266bc37a0b58913feb08452e173949b64c112
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 129127a2a43cd9a86e0a1e1cf538358b62381257
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061605"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706222"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Azure Notification Hubs ve Node.js ile anında iletme bildirimleri gönderme
 
@@ -46,7 +46,7 @@ Azure Notification Hubs, mobil cihazlara anında iletme bildirimleri göndermek 
 
 ## <a name="create-a-nodejs-application"></a>Node.js uygulaması oluşturma
 
-Bu öğreticide ilk adım, yeni ve boş bir Node.js uygulaması oluşturmaktır. Bir Node.js uygulaması oluşturma ile ilgili yönergeler için bkz: [oluşturun ve bir Node.js uygulamasını Azure Web sitesini dağıtma][nodejswebsite], [Node.js bulut hizmeti] [ Node.js Cloud Service] Windows PowerShell kullanarak veya [WebMatrix ile Web sitesi][webmatrix].
+Bu öğreticide ilk adım, yeni ve boş bir Node.js uygulaması oluşturmaktır. Bir Node.js uygulaması oluşturma ile ilgili yönergeler için bkz: [oluşturma ve bir Node.js uygulaması için Azure Web sitesine dağıtma][nodejswebsite] , [Node.js Cloud Service][Node.js Cloud Service] Windows PowerShell kullanarak veya [WebMatrix ile Web sitesi] [webmatrix].
 
 ## <a name="configure-your-application-to-use-notification-hubs"></a>Uygulamanızı bildirim hub'ları kullanacak şekilde yapılandırma
 
@@ -106,7 +106,7 @@ Bağlantı elde `connectionstring` değerini [Azure Portal] aşağıdaki adımla
 - **Yükü** -ileti JSON veya ham dize yükü.
 - **Geri çağırma** -geri çağırma işlevi.
 
-Yük biçimi hakkında daha fazla bilgi için bkz. **yükü** bölümünü [uygulama GCM Server](https://developers.google.com/cloud-messaging/) belge.
+Yük biçimi hakkında daha fazla bilgi için bkz. [yükü belgelerine](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload).
 
 Aşağıdaki kod `GcmService` örneği tarafından açığa çıkarılan `NotificationHubService` tüm kayıtlı istemcilere anında iletme bildirimi göndermek için.
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aed341c50332b424a1149c129629cd451a4e5133
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0c4f961dda273c7f3885159818dabf228abced42
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66146923"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839477"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure tablo gelen ve giden veri taşıma
 > [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
@@ -39,7 +39,7 @@ Farklı araçlar/API'lerini kullanarak bir Azure tablo depolama içine/dışına
 
 Bir işlem hattı oluşturmanın en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [Öğreticisi: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı bir kılavuz.
 
-Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portalında**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**ve  **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
+Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
 
 API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için bir kaynak veri deposundan veri taşıyan bir işlem hattı oluşturmak için aşağıdaki adımları gerçekleştirin: 
 
@@ -131,7 +131,7 @@ DivisionID bölüm anahtarı olarak belirtilir.
 }
 ```
 ## <a name="json-examples"></a>JSON örnekleri
-Aşağıdaki örnekler kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlamak [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md) veya [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bunlar, Azure tablo depolama ve Azure Blob veritabanı ve veri kopyalamak nasıl gösterir. Ancak, veriler kopyalanabilir **doğrudan** herhangi birinden herhangi birine desteklenen kaynakları başlatır. Daha fazla bilgi için bkz: "desteklenen veri depoları ve biçimler" bölümündeki [kopyalama etkinliğiyle veri taşıma](data-factory-data-movement-activities.md).
+Aşağıdaki örnekler kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlamak [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bunlar, Azure tablo depolama ve Azure Blob veritabanı ve veri kopyalamak nasıl gösterir. Ancak, veriler kopyalanabilir **doğrudan** herhangi birinden herhangi birine desteklenen kaynakları başlatır. Daha fazla bilgi için bkz: "desteklenen veri depoları ve biçimler" bölümündeki [kopyalama etkinliğiyle veri taşıma](data-factory-data-movement-activities.md).
 
 ## <a name="example-copy-data-from-azure-table-to-azure-blob"></a>Örnek: Azure Blob için veri Azure tablodan kopyalama
 Aşağıdaki örnek, gösterir:
@@ -479,12 +479,12 @@ Taşınırken veri & Azure tablosundan aşağıdaki [Azure tablo hizmeti tarafı
 | --- | --- | --- |
 | Edm.Binary |byte[] |Bir bayt dizisi en fazla 64 KB. |
 | Edm.Boolean |bool |Bir Boole değeri. |
-| Edm.DateTime |DateTime |Eşgüdümlü Evrensel Saat (UTC) olarak ifade edilen bir 64-bit değeri. Desteklenen tarih/saat aralığı 1 Ocak 1601 M.S. 12:00 gece ' başlar (C.E.), UTC. Aralık 9999 31 Aralık sona erer. |
+| Edm.DateTime |Datetime |Eşgüdümlü Evrensel Saat (UTC) olarak ifade edilen bir 64-bit değeri. Desteklenen tarih/saat aralığı 1 Ocak 1601 M.S. 12:00 gece ' başlar (C.E.), UTC. Aralık 9999 31 Aralık sona erer. |
 | Edm.Double |double |Bir 64-bit kayan nokta değeri. |
 | Edm.Guid |Guid |128 bit genel benzersiz tanımlayıcı. |
 | Edm.Int32 |Int32 |Bir 32 bit tamsayı. |
 | Edm.Int64 |Int64 |Bir 64-bit tamsayı. |
-| Edm.String |String |UTF-16 kodlu bir değer. Dize değerleri, en fazla 64 KB olabilir. |
+| Edm.String |Dize |UTF-16 kodlu bir değer. Dize değerleri, en fazla 64 KB olabilir. |
 
 ### <a name="type-conversion-sample"></a>Tür dönüştürme örnek
 Aşağıdaki örnek, verileri Azure Blob'tan Azure tablo ile tür dönüştürmeleri kopyalamak için ' dir.

@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 07/10/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 078c62913b903eafe9e0fcfcef4189f5ca735d0f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4b9e913363938f98999c6a769ba83efbd625b69
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002817"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798333"
 ---
 # <a name="azure-storage-redundancy"></a>Azure depolama yedekliliği
 
@@ -46,12 +46,14 @@ Aşağıdaki tabloda, dayanıklılık ve kullanılabilirlik her çoğaltma strat
 | Okuma istekleri için kullanılabilirlik SLA'sı | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,99 oranında (seyrek erişimli katman için % 99,9) |
 | Yazma isteklerine ilişkin kullanılabilirlik SLA'sı | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,9 (seyrek erişimli katman için % 99) |
 
+Depolama hesabınızdaki tüm veri çoğaltıldığında, blok blobları ve blobları, sayfa blobları, kuyruklar, tablolar ve dosyalar ekleme dahil olmak üzere. Tüm türlerde depolama hesapları, genel amaçlı v2 depolama hesabı ZRS gerektirse de çoğaltılır.
+
 Fiyatlandırma bilgileri her yedekliliği seçeneği için bkz: [Azure depolama fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/). 
 
 Azure depolama hakkında bilgi için dayanıklılık ve kullanılabilirlik garanti eder için bkz: [Azure depolama SLA'sı](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
-> Premium depolama yalnızca yerel olarak yedekli depolama (LRS) destekler.
+> Azure Premium depolama yalnızca yerel olarak yedekli depolama (LRS) destekler.
 
 ## <a name="changing-replication-strategy"></a>Çoğaltma stratejisi değiştirme
 Kullanarak, depolama hesabınızın çoğaltma stratejinizi değiştirebilirsiniz [Azure portalında](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), veya biri [Azure istemcisi kitaplıkları](https://docs.microsoft.com/azure/index#pivot=sdkstools). Depolama hesabınızın çoğaltma türünü değiştirme, süresini sonuçlanmaz.

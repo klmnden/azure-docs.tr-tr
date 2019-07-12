@@ -3,19 +3,19 @@ title: Mevcut Azure SQL veri ambarı Gen2'ye için geçirme | Microsoft Docs
 description: Var olan bir veri ambarı Gen2'ye ve geçiş için geçirilmesine yönelik yönergeler, bölgeye göre planlayın.
 services: sql-data-warehouse
 author: mlee3gsd
-ms.author: anumjs
+ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 3141f3a1d6a9f09261dee4113276af72168e35e8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cef3036b01709847016d9523a5770febb8ff1134
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444699"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839667"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Veri ambarınız için Gen2'ye yükseltme
 
@@ -39,13 +39,13 @@ Aşağıdaki tabloda, bölgeye göre daha düşük 2. nesil işlem katmanını k
 | Doğu Kanada |\* |\* |
 | Orta ABD |Kullanılabilir |1 Haziran 2019 |
 | Çin Doğu |\* |\* |
-| Çin Doğu 2 |\* |Gen2'ye yalnızca |
+| Çin Doğu 2 |Kullanılabilir |Gen2'ye yalnızca |
 | Çin Kuzey |\* |\* |
 | Çin Kuzey 2 |Kullanılabilir |Gen2'ye yalnızca |
 | Doğu Asya |Kullanılabilir |1 Haziran 2019 |
 | East US |Kullanılabilir |1 Haziran 2019 |
 | Doğu ABD 2 |Kullanılabilir |1 Haziran 2019 |
-| Fransa Orta |\* |1 Haziran 2019 |
+| Fransa Orta |Kullanılabilir |1 Haziran 2019 |
 | Almanya Orta |\* |\* |
 | Almanya Orta Batı |1 Eylül 2019|2 Ocak 2020 |
 | Hindistan Orta |Kullanılabilir |1 Haziran 2019 |
@@ -56,10 +56,12 @@ Aşağıdaki tabloda, bölgeye göre daha düşük 2. nesil işlem katmanını k
 | Kore Güney |Kullanılabilir |1 Mayıs 2019 |
 | Orta Kuzey ABD |Kullanılabilir |1 Mayıs 2019 |
 | Kuzey Avrupa |Kullanılabilir |1 Haziran 2019 |
+| Güney Afrika Kuzey |12 Temmuz 2019 |Gen2'ye yalnızca |
 | Orta Güney ABD |Kullanılabilir |1 Haziran 2019 |
 | Güneydoğu Asya |Kullanılabilir |1 Haziran 2019 |
-| Birleşik Krallık Güney |Kullanılabilir, 2019 |1 Haziran 2019 |
-| Birleşik Krallık Batı |\*|\* |
+| BAE Kuzey |20 Temmuz 2019 |Gen2'ye yalnızca |
+| Birleşik Krallık Güney |Kullanılabilir |1 Haziran 2019 |
+| Birleşik Krallık Batı |Kullanılabilir |Gen2'ye yalnızca |
 | Batı Orta ABD |2 Eylül 2019 |2 Ocak 2020|
 | Batı Avrupa |Kullanılabilir |1 Haziran 2019 |
 | Batı ABD |Kullanılabilir |1 Haziran 2019 |

@@ -4,7 +4,7 @@ description: Bulma ve Azure CLI ile VM ekli değil Azure NIC Sil
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: cynthn
-ms.openlocfilehash: d3fd807dcd920a951dcc5083022d4d264b5bdab7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dd4fcfe80818bd8e1e87851f4b5131aac73ceeb5
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60649409"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671517"
 ---
 # <a name="how-to-find-and-delete-unattached-network-interface-cards-nics-for-azure-vms"></a>Azure Vm'leri için nasıl bulup silmesine eklenmemiş ağ arabirimi kartları (NIC)
 Ağ arabirim kartı (NIC), Azure sanal makineler'de (VM) sildiğinizde, varsayılan olarak silinmez. Oluşturma ve birden çok VM'yi silin, kullanılmayan NIC iç IP adresi kiraları kullanmaya devam edin. Diğer VM NIC oluşturma gibi bir alt ağın adres alanındaki IP kira alınamıyor olabilir. Bu makalede bulup silmesine eklenmemiş NIC'leri gösterilmektedir.

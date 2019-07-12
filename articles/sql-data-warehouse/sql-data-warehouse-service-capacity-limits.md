@@ -10,28 +10,28 @@ ms.subservice: design
 ms.date: 11/14/2018
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 62213ca1910ff26287bcd398d89fe7f8caf3cfac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8f4412861eeaf2cbec360b13c0fe75e99d4fc1d
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514675"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839639"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapasite sınırları
 Azure SQL veri ambarı çeşitli bileşenler için izin verilen en yüksek değerleri.
 
 ## <a name="workload-management"></a>İş yükü yönetimi
-| Kategori | Açıklama | Maksimum |
+| Category | Açıklama | Maksimum |
 |:--- |:--- |:--- |
 | [Veri ambarı birimi (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Tek bir SQL veri ambarı için en fazla DWU | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [Veri ambarı birimi (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Sunucu başına varsayılan DTU |54,000<br></br>Varsayılan olarak, her bir SQL server (örn. myserver.database.windows.net) kadar DW6000c izin veren bir DTU kota olarak 54.000, vardır. Bu kota yalnızca bir güvenlik sınırıdır. Tarafından kotanızı artırabilirsiniz [bir destek bileti oluşturma](sql-data-warehouse-get-started-create-support-ticket.md) seçerek *kota* istek türü olarak.  DTU'yu hesaplama, DWU gereken toplam 7,5 ile çarpın veya 9.0 gereken toplam cDWU tarafından Çarp gerekir. Örneğin:<br></br>7\.5 = 45,000 x DW6000 Dtu<br></br>DW6000c 9.0 = olarak 54.000 x dtu'ları.<br></br>SQL server seçeneği geçerli DTU tüketiminizi portalında görüntüleyebilirsiniz. DTU kotasında hem duraklatılmış hem de duraklatılmamış veritabanları sayılır. |
-| Veritabanı bağlantısı |En fazla eşzamanlı oturum açın |1024<br/><br/>Eş zamanlı açık oturum sayısı, seçilen DWU göre değişir. DWU600c ve en çok 1024 desteği üzerinde oturum açın. DWU500c ve en fazla eş zamanlı açık oturum sınırı 512, aşağıdaki özellikleri destekler. Unutmayın, eşzamanlı olarak yürütebilir sorguların sayısına yönelik sınırlar vardır. Eşzamanlılık sınırı aşıldığında, istek bir iç kuyruğuna burada işlenmeyi bekleyen gider. |
+| Veritabanı bağlantısı |En fazla eşzamanlı oturum açın |1024<br/><br/>Eş zamanlı açık oturum sayısı, seçilen DWU göre değişir. DWU600c ve en çok 1024 desteği üzerinde oturum açın. DWU500c ve aşağıda, en fazla eş zamanlı açık oturum sınırı 512 destekler. Unutmayın, eşzamanlı olarak yürütebilir sorguların sayısına yönelik sınırlar vardır. Eşzamanlılık sınırı aşıldığında, istek bir iç kuyruğuna burada işlenmeyi bekleyen gider. |
 | Veritabanı bağlantısı |Hazırlanmış deyimleri için en fazla belleği |20 MB |
 | [İş yükü yönetimi](resource-classes-for-workload-management.md) |En fazla eş zamanlı sorguları |128<br/><br/> SQL veri ambarı, en fazla 128 eş zamanlı sorguları ve sorguları kalan kuyrukları yürütebilir.<br/><br/>Kullanıcılar daha yüksek kaynak sınıfları veya SQL veri ambarı düşük olduğunda atandığında eş zamanlı sorgu sayısını azaltabilir [veri ambarı birimi](memory-and-concurrency-limits.md) ayarı. DMV sorgu gibi bazı sorgular çalıştırın ve her zaman izin eş zamanlı sorgu sınırı etkisi yok. Eş zamanlı sorgu yürütme hakkında daha fazla bilgi için bkz. [eşzamanlılık sınırları](memory-and-concurrency-limits.md#concurrency-maximums) makalesi. |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |En fazla GB |Değeri DW100 399 GB. Bu nedenle DWU1000 sırasında tempdb 3,99 TB boyutlandırılır. |
 
 ## <a name="database-objects"></a>Veritabanı nesneleri
-| Kategori | Açıklama | Maksimum |
+| Category | Açıklama | Maksimum |
 |:--- |:--- |:--- |
 | Database |En büyük boyutu | Gen1: 240 TB disk üzerinde sıkıştırılır. Bu alanı, tempdb veya günlük alanının bağımsızdır ve bu nedenle bu alanı kalıcı tablolara ayrılmış.  Kümelenmiş columnstore sıkıştırması, 5 X tahmin edilir.  Bu sıkıştırma sağlar veritabanına yaklaşık 1 büyütme tüm tablolarda kümelenmiş columnstore (varsayılan tablo türü) olduğunda PB. <br/><br/> Gen2: 240TB rowstore ve columnstore tabloları için sınırsız depolama |
 | Tablo |En büyük boyutu |Diskte sıkıştırılmış 60 TB |
@@ -39,10 +39,10 @@ Azure SQL veri ambarı çeşitli bileşenler için izin verilen en yüksek değe
 | Tablo |Her tablo sütunları |1024 sütunları |
 | Tablo |Sütun başına bayt |Sütun bağımlı [veri türü](sql-data-warehouse-tables-data-types.md). Karakter veri türleri için 8000 nvarchar için 4000 veya en fazla veri türleri için 2 GB sınırdır. |
 | Tablo |Satır, tanımlanmış boyut başına bayt |Açıklama 8060 baytlık<br/><br/>SQL Server için sayfa sıkıştırmayı ile olduğu gibi aynı şekilde satır başına bayt sayısı hesaplanır. SQL Server gibi SQL veri ambarı sağlayan satır taşma depolama destekler **değişken uzunluğu sütununa** satır dışı gönderilecek. Değişken uzunluklu satır satır dışı itildiğinde yalnızca 24 bayt kök ana kayıt içinde depolanır. Daha fazla bilgi için [veri satırı taşma aşan 8 KB'lık](https://msdn.microsoft.com/library/ms186981.aspx). |
-| Tablo |Tablo başına bölüm |15\.000<br/><br/>Yüksek performans için sayısını en aza olan öneririz bölümler, yine de iş gereksinimlerinizi destekleyen while. Bölüm sayısı arttıkça, veri tanımlama dili (DDL) ve veri işleme dili (DML) işlemleri için ek yükü artar ve daha yavaş performans neden olur. |
+| Tablo |Tablo başına bölüm |15.000<br/><br/>Yüksek performans için sayısını en aza olan öneririz bölümler, yine de iş gereksinimlerinizi destekleyen while. Bölüm sayısı arttıkça, veri tanımlama dili (DDL) ve veri işleme dili (DML) işlemleri için ek yükü artar ve daha yavaş performans neden olur. |
 | Tablo |Karakter başına bölüm sınırının değeri. |4000 |
 | Dizin oluşturma |Tablo başına olmayan kümelenmiş dizin. |50<br/><br/>Yalnızca rowstore tablolar için geçerlidir. |
-| Dizin oluşturma |Tablo başına Kümelenmiş dizinler. |1<br><br/>Rowstore hem columnstore tablolarına uygulanır. |
+| Dizin oluşturma |Tablo başına Kümelenmiş dizinler. |1\.<br><br/>Rowstore hem columnstore tablolarına uygulanır. |
 | Dizin oluşturma |Dizin anahtarı boyutu. |900 baytı.<br/><br/>Yalnızca rowstore dizini için geçerlidir.<br/><br/>Dizin oluştururken sütunlardaki var olan verilerin 900 baytı aşmıyorsa, birden fazla 900 bayt maksimum boyutu ile varchar sütunları dizinleri oluşturulabilir. Ancak, daha sonra Ekle veya toplam boyutu 900 baytı aşmasına neden sütunlarda güncelleştirme eylemleri başarısız olur. |
 | Dizin oluşturma |Anahtar sütunları dizin başına. |16<br/><br/>Yalnızca rowstore dizini için geçerlidir. Kümelenmiş columnstore dizinleri, tüm sütunlarını ekleyin. |
 | İstatistikler |Birleştirilmiş sütun değerlerini boyutu. |900 baytı. |
@@ -52,12 +52,12 @@ Azure SQL veri ambarı çeşitli bileşenler için izin verilen en yüksek değe
 | Görünüm |Sütunları görüntüleme başına |1,024 |
 
 ## <a name="loads"></a>Yükleri
-| Kategori | Açıklama | Maksimum |
+| Category | Açıklama | Maksimum |
 |:--- |:--- |:--- |
-| Polybase yükleri |Satır başına MB |1<br/><br/>Polybase, 1 MB'den daha küçük olan satırları yükler. LOB veri türleri ile bir kümelenmiş Columnstore dizini (CCI) tablolara yüklenmesi desteklenmez.<br/><br/> |
+| Polybase yükleri |Satır başına MB |1\.<br/><br/>Polybase, 1 MB'den daha küçük olan satırları yükler. LOB veri türleri ile bir kümelenmiş Columnstore dizini (CCI) tablolara yüklenmesi desteklenmez.<br/><br/> |
 
 ## <a name="queries"></a>Sorgular
-| Kategori | Açıklama | Maksimum |
+| Category | Açıklama | Maksimum |
 |:--- |:--- |:--- |
 | Sorgu |Sıraya alınan kullanıcı tabloları sorguları. |1000 |
 | Sorgu |Sistem görünümleri eş zamanlı sorguları. |100 |
@@ -70,7 +70,7 @@ Azure SQL veri ambarı çeşitli bileşenler için izin verilen en yüksek değe
 | SELECT |GROUP BY sütunları başına bayt sayısı. |8060<br/><br/>GROUP BY yan tümcesindeki sütun Açıklama 8060 baytlık en fazla olabilir. |
 | SELECT |ORDER BY sütunları başına bayt |Açıklama 8060 baytlık<br/><br/>ORDER BY yan tümcesindeki sütun Açıklama 8060 baytlık en fazla olabilir. |
 | İfade başına tanımlayıcıları |Başvurulan tanımlayıcı sayısı |65,535<br/><br/>SQL veri ambarı, bir tek bir sorgu ifadesinde bulunan tanımlayıcı sayısını sınırlar. Bu numara sonuçları SQL Server hatası 8632 aşılıyor. Daha fazla bilgi için [iç hata: Deyim Hizmetleri sınırına ulaşıldı](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
-| Dize değişmez değerleri | Dize sabit bir ifade sayısı | 20\.000 <br/><br/>SQL veri ambarı, sorgu tek bir ifade içinde dize sabitleri sayısını sınırlar. Bu numara sonuçları SQL Server hatası 8632 aşılıyor.|
+| Dize değişmez değerleri | Dize sabit bir ifade sayısı | 20.000 <br/><br/>SQL veri ambarı, sorgu tek bir ifade içinde dize sabitleri sayısını sınırlar. Bu numara sonuçları SQL Server hatası 8632 aşılıyor.|
 
 ## <a name="metadata"></a>Meta Veriler
 | Sistem Görünümü | En fazla satır |

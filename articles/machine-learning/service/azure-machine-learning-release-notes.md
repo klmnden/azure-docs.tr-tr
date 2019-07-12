@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: d43bef902b66976c32735b6d45029f41bb5e3264
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 7aedb0804626d1204121568904763bec5e83e858
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514046"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786262"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
@@ -25,7 +25,70 @@ Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.  
 
 Bkz: [bilinen sorunların listesi](resource-known-issues.md) bilinen hataların ve geçici çözümleri hakkında bilgi edinmek için.
 
+## <a name="2019-07-09"></a>2019-07-09
 
+### <a name="visual-interface"></a>Görsel arabirim
++ **Önizleme özellikleri**
+  + Görsel arabirim eklendi "Yürütme R betiği" modülü.
+
+### <a name="azure-machine-learning-sdk-for-python-v1048"></a>Azure Machine SDK için Python v1.0.48 Learning
+
++ **Yeni Özellikler**
+  + **azureml opendatasets**
+    + **azureml contrib opendatasets** olarak artık kullanıma sunuldu **azureml opendatasets**. Eski paketi çalışmaya devam, ancak kullanarak öneririz **azureml opendatasets** daha zengin özellikleri ve geliştirmeleri için geçmeden.
+    + Bu yeni paketi, açık veri kümeleri AML çalışma alanındaki veri kümesi olarak Kaydet ve veri kümesi sunar. hangi işlevleri yararlanarak olanak tanır.
+    + Konum, hava durumu gibi bazı veri kümesi için birleştirir ve ayrıca Pandas/SPARK veri çerçevelerini olarak açık veri kümelerini kullanma gibi var olan yetenekleri içerir.
+
++ **Önizleme özellikleri**
+    + HyperDriveConfig kullanarak bir işlem hattı, Hiper parametre ayarı desteklemek için parametre olarak işlem hattı nesne artık kabul edebilir.
+
++ **Hata düzeltmeleri ve geliştirmeleri**
+  + **azureml-train-automl**
+    + Dönüştürme işleminin ardından sütun türleri kaybetmeden ilgili hata düzeltildi.
+    + Hiçbiri (s) başında içeren bir nesne türü olmasını y_query izin vermek için hata düzeltildi. 
+    + Puanları sabit kaldığını olmasa bile, sonuçta elde edilen topluluğu gereksiz yere büyümekte topluluğu seçimi yordamda sorunu düzeltildi.
+    + AutoMLStep whitelist_models ve blacklist_models ayarlarla sorun düzeltildi.
+    + Azure ML işlem hatları bağlamında AutoML kullanılmış olduğunda ön işleme kullanımı önleyen bir sorun düzeltildi.
+  + **azureml opendatasets**
+    + Taşınan azureml-contrib-opendatasets azureml opendatasets için.
+    + İzin verilen açık veri kümesi sınıflarını AML çalışma alanına kayıtlı olması ve AML veri kümesi özellikleri sorunsuz bir biçimde yararlanın.
+    + Geliştirilmiş NoaaIsdWeather SPARK olmayan sürümü performansı önemli ölçüde zenginleştirin.
+  + **azureml-explain-model**
+    + İnterpretability nesneler için çevrimiçi belgeleri güncelleştirildi.
+    + Eklenen açıklama taklit edecek şekilde batch_size olduğunda include_local genel açıklamaları DecisionTreeExplainableModel yürütme süresini artırmak için toplu akış için = False.
+    + Sorun düzeltildi burada `explanation.expected_values` kayan noktalı bir listesi yerine bir float içinde bazen döndürecektir.
+    + Modeli kitaplığı içinde mimic açıklama için çıkış automl eklenen beklenen değerleri açıklanmaktadır.
+    + Raw özelliği önem almak için dönüşümleri bağımsız değişken sağlandığında permütasyon özellik önem düzeltildi.
+    + Eklenen açıklama taklit edecek şekilde batch_size olduğunda include_local genel açıklamaları DecisionTreeExplainableModel modeli explainability kitaplığı için yürütme süresini artırmak için toplu akış için = False.
+  + **azureml-core**
+    + AzureML CLI DBFS veri depoları ekleme özelliği eklendi.
+    + Boş bir klasör varsa oluşturulduğu veri deposu karşıya yükleme ile sorunu düzeltildi `target_path` kullanmaya `/`.
+    + İki veri kümesi etkin karşılaştırması.
+    + Model ve görüntü silme artık bir Yukarı Akış bağımlılık nedeniyle silme başarısız olursa bunlara bağımlı yukarı akış nesneleri alma hakkında daha fazla bilgi sağlar.
+    + Kullanılmayan auto_prepare_environment RunConfiguration ayarı kullanım dışı.
+  + **azureml-mlflow**
+    + Geliştirilmiş kaynak kullanımı azureml.mlflow kullanan uzaktan çalıştırmalar.
+    + Azureml mlflow paket belgeleri geliştirdik.
+    + Yapıtları "my_dir/yapıt-yolları" yerine "yolları yapıt" altında mlflow.log_artifacts("my_dir") kaydetmek neden olan sorun düzeltildi.
+  + **azureml-dataprep**
+    + Veri akışı nesneleri artık bir dizi kayıtları oluşturan üzerinden yinelenir.
+    + Sorun düzeltildi burada `Dataflow.read_pandas_dataframe` ne zaman başarısız olacağı `in_memory` bağımsız değişkenini True olarak ayarlayın.
+    + Pandas DataFrames dize olmayan sütun dizinleri ile Gelişmiş şekilde işlenmesi.
+    + Kullanıma sunulan `set_diagnostics_collection()` programlı etkinleştirme/devre dışı bırakmak için telemetri toplama izin vermek için.
+    + Eklenen topValues ve bottomValues özetler.
+  + **azureml işlem hattı çekirdek**
+    + Tüm işlem hattı adımlar için parametre hash_paths kullanım dışıdır ve gelecekte kaldırılacaktır. Kaynak_dizin varsayılan içeriklerini (dışında .amlignore listede veya .gitignore dosyaları) karma
+    + Devam eden iyileştirme modülü ve ModuleStep desteklemek için işlem hatları, bunların kullanımını kilidini açmak için RunConfiguration tümleştirme ve ilerideki değişiklikler için hazırlık türü belirli modüller işlem.
+  + **azureml işlem hattı adımları**
+    + AzureBatchStep: Girdiler/çıktılar bakımından iyileştirilmiş belgeleri.
+    + AzureBatchStep: Delete_batch_job_after_finish varsayılan değerini true olarak değiştirdi.
+  + **azureml train çekirdek**
+    + Dizeleri artık işlem hedefi için hiper parametre ayarı otomatik olarak kabul edilir.
+    + Kullanılmayan auto_prepare_environment RunConfiguration ayarı kullanım dışı.
+    + Kullanım dışı parametreler `conda_dependencies_file_path` ve `pip_requirements_file_path` sunulmasıyla `conda_dependencies_file` ve `pip_requirements_file` sırasıyla.
+  + **azureml opendatasets**
+    + NoaaIsdWeather geliştirmek SPARK olmayan sürümü performansı önemli ölçüde zenginleştirin.
+    
 ## <a name="2019-07-01"></a>2019-07-01
 
 ### <a name="azure-machine-learning-data-prep-sdk-v117"></a>Azure Machine Learning veri hazırlama SDK v1.1.7

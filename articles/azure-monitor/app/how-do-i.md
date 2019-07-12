@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5e22a3f3b362811fd87460ec41b61a990f4d83fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f80edf18a531d6c2850658ddef9c7007edb350f
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60902115"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795520"
 ---
 # <a name="how-do-i--in-application-insights"></a>Application Insights’ta nasıl ... yapabilirim?
 ## <a name="get-an-email-when-"></a>E-posta...
@@ -137,16 +137,25 @@ Daha fazla bilgi edinin [fiyatlandırma ve kotaları](../../azure-monitor/app/pr
 ## <a name="disable-telemetry"></a>Telemetri devre dışı bırak
 İçin **dinamik olarak durdurmak ve başlatmak** sunucudan telemetri iletimini ve koleksiyon:
 
-```
+### <a name="aspnet-classic-applications"></a>ASP.NET Klasik uygulamaları
 
+```csharp
     using  Microsoft.ApplicationInsights.Extensibility;
 
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
+### <a name="other-applications"></a>Diğer uygulamalar
+Kullanılacak önerilmez `TelemetryConfiguration.Active` tekil konsol veya ASP.NET Core uygulamaları.
+oluşturduysanız `TelemetryConfiguration` kendiniz - örnek ayarlamak `DisableTelemetry` için `true`.
 
+ASP.NET Core uygulamaları için erişim `TelemetryConfiguration` kullanarak [ASP.NET Core bağımlılık ekleme](/aspnet/core/fundamentals/dependency-injection/). Daha fazla bilgi edinmek [ASP.NET Core uygulamaları için Applicationınsights](../../azure-monitor/app/asp-net-core.md) makalesi.
 
-İçin **seçili standart Toplayıcı devre dışı** - örnek, performans sayaçları, HTTP istekleri ve bağımlılıkları - silin veya ilgili satırları açıklama [Applicationınsights.config](../../azure-monitor/app/api-custom-events-metrics.md). Örneğin, kendi TrackRequest veri göndermek istiyorsanız bunu.
+## <a name="disable-selected-standard-collectors"></a>Seçili standart Toplayıcı devre dışı bırak
+Standart Toplayıcı (örneğin, performans sayaçları, HTTP isteklerini veya bağımlılıkları) devre dışı bırakabilirsiniz
+
+* **ASP.NET uygulamaları** - silin veya ilgili satırları açıklama [Applicationınsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
+* **ASP.NET Core uygulamaları** -izleyin telemetri modülleri yapılandırma seçeneklerinde [Applicationınsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
 
 ## <a name="view-system-performance-counters"></a>Görünümü sistem performans sayaçları
 Ölçüm Gezgini'nde gösterebilirsiniz ölçümler arasında sistem performans sayaçları kümesidir. Adlı önceden tanımlanmış bir dikey pencere yoktur **sunucuları** birkaç tanesinin görüntüler.

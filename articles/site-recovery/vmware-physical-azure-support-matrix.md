@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 07/07/2019
 ms.author: raynew
-ms.openlocfilehash: 5dc98048099264942552862498b5137b4954c200
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 1d54f2847f7c37631374653bf291aadf091f3328
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491639"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805943"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için destek matrisi
 
@@ -83,15 +83,15 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 
 **Desteklenen sürüm** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
-14.04 LTS | [9.24][9.25 UR]  | 3.13.0-24-Generic 3.13.0-169-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-21-Generic 4.4.0-146-generic için<br/>4.15.0-1023-Azure 4.15.0-1042-azure için |
+14.04 LTS | [9.26][9.26 UR]| 3.13.0-24-Generic 3.13.0-170-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-21-Generic 4.4.0-148-generic için<br/>4.15.0-1023-Azure 4.15.0-1045-azure için |
+14.04 LTS | [9.25][9.25 UR]  | 3.13.0-24-Generic 3.13.0-169-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-21-Generic 4.4.0-146-generic için<br/>4.15.0-1023-Azure 4.15.0-1042-azure için |
 14.04 LTS | [9.24][9.24 UR] | 3.13.0-24-Generic 3.13.0-167-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-21-Generic 4.4.0-143-generic için<br/>4.15.0-1023-Azure 4.15.0-1040-azure için |
 14.04 LTS | [9.23][9.23 UR] | 3.13.0-24-Generic 3.13.0-165-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-21-Generic 4.4.0-142-generic için<br/>4.15.0-1023-Azure 4.15.0-1037-azure için |
-14.04 LTS | [9.22][9.22 UR] | 3.13.0-24-Generic 3.13.0-164-generic için<br/>3.16.0-25-Generic 3.16.0-77-generic için<br/>3.19.0-18-Generic 3.19.0-80-generic için<br/>4.2.0-18-Generic 4.2.0-42-generic için<br/>4.4.0-21-Generic 4.4.0-140-generic için<br/>4.15.0-1023-Azure 4.15.0-1036-azure için |
 |||
+16.04 LTS | [9.26][9.26 UR] | 4.4.0-21-Generic 4.4.0-148-generic için<br/>4.8.0-34-Generic 4.8.0-58-generic için<br/>4.10.0-14-Generic 4.10.0-42-generic için<br/>4.11.0-13-Generic 4.11.0-14-generic için<br/>4.13.0-16-Generic 4.13.0-45-generic için<br/>4.15.0-13-Generic 4.15.0-50-generic için<br/>4.11.0-1009-Azure 4.11.0-1016-azure için<br/>4.13.0-1005-Azure 4.13.0-1018-azure için <br/>4.15.0-1012-Azure 4.15.0-1045-azure için|
 16.04 LTS | [9.25][9.25 UR] | 4.4.0-21-Generic 4.4.0-146-generic için<br/>4.8.0-34-Generic 4.8.0-58-generic için<br/>4.10.0-14-Generic 4.10.0-42-generic için<br/>4.11.0-13-Generic 4.11.0-14-generic için<br/>4.13.0-16-Generic 4.13.0-45-generic için<br/>4.15.0-13-Generic 4.15.0-48-generic için<br/>4.11.0-1009-Azure 4.11.0-1016-azure için<br/>4.13.0-1005-Azure 4.13.0-1018-azure için <br/>4.15.0-1012-Azure 4.15.0-1042-azure için|
 16.04 LTS | [9.24][9.24 UR] | 4.4.0-21-Generic 4.4.0-143-generic için<br/>4.8.0-34-Generic 4.8.0-58-generic için<br/>4.10.0-14-Generic 4.10.0-42-generic için<br/>4.11.0-13-Generic 4.11.0-14-generic için<br/>4.13.0-16-Generic 4.13.0-45-generic için<br/>4.15.0-13-Generic 4.15.0-46-generic için<br/>4.11.0-1009-Azure 4.11.0-1016-azure için<br/>4.13.0-1005-Azure 4.13.0-1018-azure için <br/>4.15.0-1012-Azure 4.15.0-1040-azure için|
 16.04 LTS | [9.23][9.23 UR] | 4.4.0-21-Generic 4.4.0-142-generic için<br/>4.8.0-34-Generic 4.8.0-58-generic için<br/>4.10.0-14-Generic 4.10.0-42-generic için<br/>4.11.0-13-Generic 4.11.0-14-generic için<br/>4.13.0-16-Generic 4.13.0-45-generic için<br/>4.15.0-13-Generic 4.15.0-45-generic için<br/>4.11.0-1009-Azure 4.11.0-1016-azure için<br/>4.13.0-1005-Azure 4.13.0-1018-azure için <br/>4.15.0-1012-Azure 4.15.0-1037-azure için|
-16.04 LTS | [9.22][9.22 UR] | 4.4.0-21-Generic 4.4.0-140-generic için<br/>4.8.0-34-Generic 4.8.0-58-generic için<br/>4.10.0-14-Generic 4.10.0-42-generic için<br/>4.11.0-13-Generic 4.11.0-14-generic için<br/>4.13.0-16-Generic 4.13.0-45-generic için<br/>4.15.0-13-Generic 4.15.0-43-generic için<br/>4.11.0-1009-Azure 4.11.0-1016-azure için<br/>4.13.0-1005-Azure 4.13.0-1018-azure için <br/>4.15.0-1012-Azure 4.15.0-1036-azure için|
 
 ### <a name="debian-kernel-versions"></a>Debian çekirdek sürümleri
 
@@ -108,10 +108,10 @@ Debian 8 | [9.22][9.22 UR],[9.23][9.23 UR], [9,24][9.24 URL] | 3.16.0-4-AMD64 3.
 
 **Yayın** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
+SUSE Linux Enterprise Server (SP1, SP2, SP3, SP4) 12 | [9.26][9.26 UR] | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.110-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.109-default için</br></br>SP3 4.4.73-5-default 4.4.178-94.91-default için</br></br>SP3 4.4.138-4.7-azure 4.4.178-4.28-azure için</br></br>SP4 4.12.14-94.41-default 4.12.14-95.16-default için</br>SP4 4.12.14-6.3-azure 4.12.14-6.9-azure için |
 SUSE Linux Enterprise Server (SP1, SP2, SP3, SP4) 12 | [9.25][9.25 UR] | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.104-default için</br></br>SP3 4.4.73-5-default 4.4.176-94.88-default için</br></br>SP3 4.4.138-4.7-azure 4.4.176-4.25-azure için</br></br>SP4 4.12.14-94.41-default 4.12.14-95.13-default için</br>SP4 4.12.14-6.3-azure 4.12.14-6.9-azure için |
 SUSE Linux Enterprise Server (SP1, SP2, SP3, SP4) 12 | [9.24][9.24 UR] | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.101-default için</br></br>SP3 4.4.73-5-default 4.4.175-94.79-default için</br></br>SP4 4.12.14-94.41-default 4.12.14-95.6-default için |
 SUSE Linux Enterprise Server (SP1, SP2, SP3, SP4) 12 | [9.23][9.23 UR] | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.101-default için</br></br>SP3 4.4.73-5-default 4.4.162-94.69-default için</br></br>SP4 4.12.14-94.41-default 4.12.14-95.6-default için |
-SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | [9.22][9.22 UR] | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.98-default için</br></br>SP3 4.4.73-5-default 4.4.162-94.72-default için |
 
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux dosya sistemleri/Konuk depolama
@@ -193,8 +193,8 @@ Konuk/sunucu - depolama alanları | Hayır
 Konuk/sunucu sık erişimli Ekle/Kaldır disk | Hayır
 Konuk/sunucu - disk dışlama | Evet
 Konuk/sunucu çok yollu (MPIO) | Hayır
-Konuk/sunucu GPT bölüm | Beş bölümler desteklenen [güncelleştirme paketi 37](https://support.microsoft.com/help/4508614/) (sürüm 9,25 Mobility hizmetinin) ve sonraki sürümler. Dört daha önce desteklenen.
-Konuk/server EFI/UEFI'ye önyükleme | -Mobility hizmeti sürümü 9.13 veya üstü çalıştırırken desteklenmiyor.<br/> -VMware Vm'lerini veya fiziksel sunucuları Windows Server 2012 çalıştıran geçiş yaparken ya da daha sonra Azure'a desteklenir.<br/> -Sanal makineleri geçiş için yalnızca çoğaltabilirsiniz. Şirket içine yeniden çalışma desteklenmez.<br/> -Yalnızca NTFS destekli & güvenli UEFI önyükleme türü desteklenmiyor. <br/> -Disk sektör boyutu 512 bayt / kesim fiziksel olmalıdır.
+Konuk/sunucu GPT bölüm | Beş bölümler desteklenen [güncelleştirme paketi 37](https://support.microsoft.com/help/4508614/) (sürüm 9,25 Mobility hizmetinin) ve sonraki sürümler. Daha önce dört bölüm destekleniyordu.
+Konuk/server EFI/UEFI'ye önyükleme | -Mobility hizmeti sürümü 9.13 veya üstü çalıştırırken desteklenmiyor.<br/> -VMware Vm'lerini veya fiziksel sunucuları Windows Server 2012 çalıştıran geçiş yaparken ya da daha sonra Azure'a desteklenir.<br/> -Sanal makineleri geçiş için yalnızca çoğaltabilirsiniz. Şirket içine yeniden çalışma desteklenmez.<br/> -Yalnızca NTFS desteklenmiyor <br/> -Güvenli UEFI önyükleme türü desteklenmiyor. <br/> -Disk sektör boyutu 512 bayt / kesim fiziksel olmalıdır.
 
 ## <a name="replication-channels"></a>Çoğaltma kanallar
 
@@ -238,7 +238,7 @@ Azure'a çoğaltılan VM'ler bu tabloda özetlenen Azure VM gereksinimleri karş
 Konuk işletim sistemi | Doğrulama [desteklenen işletim sistemleri](#replicated-machines) çoğaltılan makineler için. | Onay desteklenmeyen başarısız olur.
 Konuk işletim sistemi mimarisi | 64-bit. | Onay desteklenmeyen başarısız olur.
 İşletim sistemi disk boyutu | 2\.048 GB. | Onay desteklenmeyen başarısız olur.
-İşletim sistemi disk sayısı | 1 | Onay desteklenmeyen başarısız olur.
+İşletim sistemi disk sayısı | 1\. | Onay desteklenmeyen başarısız olur.
 Veri diski sayısı | 64 veya daha az. | Onay desteklenmeyen başarısız olur.
 Veri diski boyutu | 4\.095 GB'a kadar | Onay desteklenmeyen başarısız olur.
 Ağ bağdaştırıcıları | Birden çok bağdaştırıcı desteklenir. |
@@ -297,6 +297,7 @@ Mobility hizmeti | VMware VM veya fiziksel sunucuları çoğaltmak istediğiniz 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Bilgi nasıl](tutorial-prepare-azure.md) Azure VMware vm'lerinin olağanüstü durum kurtarmasına hazırlanmak için.
 
+[9.26 UR]: https://support.microsoft.com/en-in/help/4508614/update-rollup-37-for-azure-site-recovery
 [9.25 UR]: https://support.microsoft.com/en-in/help/4508614/update-rollup-37-for-azure-site-recovery
 [9.24 UR]: https://support.microsoft.com/en-in/help/4503156
 [9.23 UR]: https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery

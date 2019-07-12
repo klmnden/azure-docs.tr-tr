@@ -2,17 +2,17 @@
 title: API sunucusu yetkili IP aralıkları Azure Kubernetes Service (AKS)
 description: Azure Kubernetes Service (AKS) API sunucusuna erişim için bir IP adresi aralığı kullanarak kümenizin güvenliğini sağlama hakkında bilgi edinin
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: d425fc3e037b43321a278fb16781e86dfafef15c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: mlearned
+ms.openlocfilehash: 6516bbcb4ea879279812d61d9fe31f1ea4268280
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441524"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616250"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Önizleme - IP adresi aralıklarını Azure Kubernetes Service (AKS) kullanarak API sunucusu için güvenli erişim yetkili
 

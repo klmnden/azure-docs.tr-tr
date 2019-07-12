@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 3f19668cc4fb4f4f4a900c157aa79de83ad1b79b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 791779bfc2262bb13dc2c3a192d9c74ae69cb30e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163718"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722542"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB'de dizinleme ilkeleri
 
@@ -73,6 +73,8 @@ Tüm dizin oluşturma ilkesini kök yolunu içermek zorundadır `/*` bir dahil v
 - Seçmeli olarak sıralanması gereken yolları dahil etmek için kök yolu hariç tutun.
 
 - İçeren normal karakterler içeren yolların: alfasayısal karakterler ve _ (alt çizgi), çift tırnak (örneğin, "/ path /?") etrafında yolu dizeyi atlatmaya zorunda değilsiniz. Diğer özel karakterleri içeren yolları için çift tırnak işareti geçici yol dizesi atlamanız gerekir (örneğin, "/\"yolu abc\"/?"). Özel karakterler yolunuzda bekliyorsanız, güvenliği her yolun çizgilerden kaçınabilirsiniz. İşlevsel olarak her yolun Vs özel karakterlere sahip olanları kaçış olmadığını fark yapmaz.
+
+- Etag dizin oluşturma için dahil edilen yoluna eklenene kadar sistem özelliği "etag" varsayılan olarak, dizine elmadan hariç.
 
 Bkz: [Bu bölümde](how-to-manage-indexing-policy.md#indexing-policy-examples) ilkesi örnekleri dizinini oluşturmak için.
 

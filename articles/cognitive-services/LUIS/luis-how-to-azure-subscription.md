@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 07/10/2019
 ms.author: diberry
-ms.openlocfilehash: 7f82bf5a40df0554d4f98b2d835fcbd69279be43
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: dedc498ebc910b448b1684136c288b2045780e00
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204153"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797944"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>LUIS uygulamanız ile abonelik anahtarlarını kullanma
 
@@ -32,6 +32,8 @@ Test ve yalnızca prototip için ücretsiz katman (F0) kullanın. Üretim sistem
 
 Oluşturduğunuz [tahmin uç nokta kaynağı](get-started-portal-deploy-app.md#create-the-endpoint-resource) Azure portalında. Bu kaynak, yalnızca uç nokta tahmin sorguları için kullanılmalıdır. Bu kaynak, uygulama geliştirme değişiklikler için kullanmayın.
 
+Language Understanding kaynak veya Bilişsel hizmetler kaynağı oluşturabilirsiniz. Language Understanding kaynak oluşturuyorsanız, bir kaynak türü için kaynak adı postpend alışkanlıktır. 
+
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
 <a name="endpoint-key" ></a>
@@ -45,6 +47,15 @@ Oluşturduğunuz [tahmin uç nokta kaynağı](get-started-portal-deploy-app.md#c
 <a name="assign-endpoint-key"></a>
 <a name="assign-resource"></a>
 
+### <a name="using-resource-from-luis-portal"></a>Kaynak LUIS portalından kullanma
+
+LUIS portalından kaynak kullanıyorsanız, konum ve anahtar bilmeniz gerekmez. Bunun yerine, kaynak Kiracı, abonelik ve kaynak adını bilmeniz gerekir.
+
+Sonra [atama](#assign-resource-key-to-luis-app-in-luis-portal) kaynağınıza LUIS uygulamanızı LUIS portal, anahtar ve konumda Yönet bölümünün içinde sorgu tahmin uç nokta URL'SİNİN bir parçası olarak sağlanan **anahtarları ve uç nokta ayarları** sayfası.
+ 
+### <a name="using-resource-from-rest-api-or-sdk"></a>Kaynak REST API veya SDK'sını kullanma
+
+SDK'sını ve REST API(s) kaynak kullanıyorsanız, konum ve anahtar bilmeniz gerekir. Bu bilgiler Yönet bölümünün içinde sorgu tahmin uç nokta URL'SİNİN bir parçası olarak sağlanan **anahtarları ve uç nokta ayarları** de Azure portalı, kaynağın genel bakış ve anahtarları sayfalarında olduğu gibi sayfa.
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Kaynak anahtarı LUIS Portalı'nda LUIS uygulama atama
 

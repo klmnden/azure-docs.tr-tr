@@ -4,7 +4,7 @@ description: VM uzantısı dağıtımları kısıtlamak için Azure İlkesi'ni k
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 1f71276c25e3ec1e5791d9b35f89aa95190c6afd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5a885637aa2321e12953a72754eed42c91b5b201
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60543266"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706719"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Uzantıları Yükleme Linux vm'lerinde kısıtlamak için Azure İlkesi'ni kullanın
 
@@ -173,4 +173,4 @@ az policy definition delete --name 'not-allowed-vmextension-linux'
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla bilgi için [Azure İlkesi](../../governance/policy/overview.md).
+Daha fazla bilgi için bkz. [Azure İlkesi](../../governance/policy/overview.md).

@@ -8,17 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 07/10/2019
 ms.author: wellsi
-ms.openlocfilehash: 93272520434ea43a94af9441a947239e983c216f
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 1ca6b5265cf97ef551ec0b13b46ac934a372d2c7
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606693"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797921"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Bilişsel hizmetler konuşma cihazları SDK sürüm notları
 Aşağıdaki bölümlerde listesi değişiklikleri en son sürümlerde.
+
+## <a name="speech-devices-sdk-160"></a>Konuşma cihaz SDK'sı 1.6.0:
+
+*   Destek [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) Windows ve Linux ile ortak [örnek uygulama](https://aka.ms/sdsdk-download)
+*   Güncelleştirilmiş [Speech SDK'sı](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) sürüm 1.6.0 bileşeni. Daha fazla bilgi için kendi [sürüm notları](https://aka.ms/csspeech/whatsnew).
 
 ## <a name="speech-devices-sdk-151"></a>Konuşma cihaz SDK'sı 1.5.1:
 

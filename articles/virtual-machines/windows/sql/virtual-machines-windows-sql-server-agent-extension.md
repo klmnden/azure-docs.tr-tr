@@ -1,10 +1,10 @@
 ---
-title: (Resource Manager) SQL vm'lerdeki yönetim görevlerini otomatik hale getirin | Microsoft Docs
+title: SQL Server Iaas Aracısı uzantısı ile Azure sanal Makineler'de yönetim görevlerini otomatik hale getirin | Microsoft Docs
 description: Bu makalede belirli SQL Server yönetim görevlerini otomatikleştiren SQL Server Aracısı uzantısı yönetmek açıklar. Bunlar, otomatik yedekleme, otomatik düzeltme eki uygulama ve Azure anahtar kasası tümleştirmeyi içerir.
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
-manager: craigg
+manager: jroth
 editor: ''
 tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
@@ -13,26 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/12/2018
+ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d3e9b3b2db4a4adc01ad3b1f348b66496658f0f5
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 41023103dc30d16f599e847f9d324bc7bb4be11c
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190944"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798046"
 ---
-# <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>SQL Server Aracısı uzantısı (Resource Manager) ile Azure sanal Makineler'de yönetim görevlerini otomatikleştirin
+# <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-iaas-agent-extension"></a>SQL Server Iaas Aracısı uzantısı ile Azure sanal Makineler'de yönetim görevlerini otomatikleştirin
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-server-agent-extension.md)
 > * [Klasik](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
 
-SQL Server IaaS Aracı Uzantısı Extension (SqlIaasExtension) Azure sanal makinelerinde yönetim görevlerini otomatikleştirmek için çalıştırılır. Bu makalede, yükleme, durum ve kaldırma yönergeleri yanı sıra uzantı tarafından desteklenen hizmetleri genel bir bakış sağlar.
+SQL Server IaaS Aracı Uzantısı Extension (SqlIaasExtension) Azure sanal makinelerinde yönetim görevlerini otomatikleştirmek için çalıştırılır. Bu makalede, bir genel bakış ve yükleme, durum ve kaldırma yönergeleri yanı sıra uzantı tarafından desteklenen hizmetleri sağlar.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
 Bu makalede klasik sürümünü görüntülemek için bkz: [SQL Server Aracısı uzantısı için SQL Server Vm'leri Klasik](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md).
+
+SQL Iaas uzantısı üç SQL yönetilebilirlik mod vardır: **Tam**, **basit**, ve **NoAgent**. 
+
+- **Tam** modu tüm işlevselliği sunar, ancak SQL Server ve SA izinleri yeniden başlatılmasını gerektirir. Varsayılan olarak yüklenir ve tek bir örneği ile bir SQL Server VM'si yönetmek için kullanılması gereken seçenek budur. 
+
+- **Basit** SQL Server'ın bir yeniden başlatma gerektirmez, ancak yalnızca SQL Server sürümü ve lisans türünü değiştirmeyi destekler. Bu seçenek, birden çok örnek ile SQL Server Vm'leri için kullanılan veya bir yük devretme kümesi örneği (FCI), katılımcı olması gerekir. 
+
+- **NoAgent** adanmış SQL Server 2008 ve Windows Server 2008'de SQL Server 2008 R2. Kullanan bilgi `NoAgent` görmek için Windows Server 2008 görüntü modu [Windows Server 2008 kayıt](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008r2-on-windows-server-2008-vms). 
 
 ## <a name="supported-services"></a>Desteklenen hizmetler
 SQL Server Iaas Aracısı uzantısı, aşağıdaki yönetim görevlerini destekler:
@@ -71,28 +79,67 @@ Sanal makinenizde SQL Server Iaas Aracısı uzantısı kullanmak için gereksini
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
-> [!IMPORTANT]
-> Şu anda [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md) azure'da SQL Server FCI için desteklenmiyor. İçinde bir FCI katılan vm'lerden uzantı kaldırmanızı öneririz. Aracı kaldırıldıktan sonra uzantı tarafından desteklenen özellikler SQL Vm'lerine kullanılamaz.
 
-## <a name="installation"></a>Yükleme
-SQL Server sanal makine galeri görüntüleri sağlarken, SQL Server Iaas Aracısı uzantısı otomatik olarak yüklenir. SQL Iaas uzantısı için tek bir SQL Server VM örneğinde yönetilebilirlik sunar. Varsayılan bir örnek ise, sonra uzantıyı varsayılan bir örnek ile çalışır ve diğer örneklerin yönetiminde desteklemez. Varsayılan örneği yok, ancak yalnızca bir adlandırılmış örnek varsa, adlandırılmış örnek yönetecektir. Varsayılan örnek yok ve birden fazla adlandırılmış örneklerde, uzantıyı yüklemek başarısız olur. 
+## <a name="change-management-modes"></a>Değişiklik Yönetimi modları
 
+PowerShell kullanarak, SQL Iaas Aracısı geçerli modunu görüntüleyebilirsiniz: 
 
+  ```powershell-interactive
+     //Get the SqlVirtualMachine
+     $sqlvm = Get-AzResource -Name $vm.Name  -ResourceGroupName $vm.ResourceGroupName  -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines
+     $sqlvm.Properties.sqlManagement
+  ```
 
-Bu SQL Server Vm'leri birinde uzantıyı el ile yeniden gerekiyorsa, aşağıdaki PowerShell komutunu kullanın:
+SQL Server Vm'leri için *NoAgent* veya *basit* Iaas uzantısı, yüklü moduna yükseltebilirsiniz *tam* Azure portalını kullanarak. -SQL Iaas uzantısı tamamen kaldırıp yeniden yüklemeniz gerekecek bunun yüklemek mümkün değildir. 
 
-```powershell
-Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension" -Version "2.0" -Location "East US 2"
-```
+Yükseltme Aracı modu *tam*, aşağıdakileri yapın: 
+
+1. [Azure portal](https://portal.azure.com) oturum açın.
+1. Gidin, [SQL sanal makineleri](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) kaynak. 
+1. SQL Server sanal makinenizi seçip **genel bakış**. 
+1. SQL Vm'lerini kullanmaya için *NoAgent* veya *basit* Iaas modları için iletiyi seçin **yalnızca lisans türü ve sürümü Güncelleştirmeler ile SQL Iaas uzantısı kullanılabilir**.
+
+    ![Modu değiştirme Portalı'ndan Başlat](media/virtual-machines-windows-sql-server-agent-extension/change-sql-iaas-mode-portal.png)
+
+1. Kabul **SQL Server hizmetini başlatın** onay kutusunu seçerek ve ardından **Onayla** Iaas modunuzu 'Full' yükseltmek için. 
+
+    ![Iaas uzantısı için tam yönetimini etkinleştirme](media/virtual-machines-windows-sql-server-agent-extension/enable-full-mode-iaas.png)
+
+##  <a name="installation"></a>Yükleme
+SQL Server VM'nize ile kaydettiğinizde SQL Iaas uzantısı yüklü [SQL VM kaynak sağlayıcısı](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider). Ancak, gerekirse SQL Iaas Aracısı'nı da kullanarak el ile yüklenebilir *tam* veya *basit* modu yükleme. 
+
+*Tam* SQL Server Iaas Aracısı uzantısı Azure portalını kullanarak SQL Server sanal makine galeri görüntüleri sağladığınızda otomatik olarak yüklenir. 
+
+### <a name="full-mode-installation"></a>Tam modda yükleme
+*Tam* SQL Iaas uzantısı, SQL Server VM üzerinde tek bir örnek için tam yönetilebilirlik sunar. Varsayılan bir örnek ise, sonra uzantıyı varsayılan bir örnek ile çalışır ve diğer örneklerin yönetiminde desteklemez. Varsayılan örneği yok, ancak yalnızca bir adlandırılmış örnek varsa, adlandırılmış örnek yönetecektir. Varsayılan örnek yok ve birden fazla adlandırılmış örneklerde, uzantıyı yüklemek başarısız olur. 
+
+Yükleme *tam* SQL Iaas modu, SQL Server hizmetini yeniden başlatılacak. SQL Server hizmetini yeniden başlatmayı önlemek için yükleme *basit* moduyla yönetilebilirlik yerine sınırlı. 
+
+SQL Iaas Aracısı ile *tam* modunu PowerShell kullanarak:
+
+  ```powershell-interactive
+     // Get the existing  Compute VM
+     $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+          
+     // Register SQL VM with 'Full' SQL IaaS agent
+     New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+        -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
+        -Properties @{virtualMachineResourceId=$vm.Id;sqlServerLicenseType='AHUB';sqlManagement='Full'}  
+  
+  ```
+
+| Parametre | Kabul edilebilir değerler                        |
+| :------------------| :-------------------------------|
+| **sqlServerLicenseType** | `'AHUB'`, veya `'PAYG'`     |
+| &nbsp;             | &nbsp;                          |
+
 
 > [!WARNING]
-> Uzantı zaten yüklü değilse, uzantının yüklenmesi, SQL Server hizmetini yeniden başlatır. Ancak, SQL Iaas uzantısı güncelleştirme SQL Server hizmetini yeniden başlatmaz. 
+> - Uzantı zaten yüklü değilse, yükleme **tam** uzantısı, SQL Server hizmetini yeniden başlatır. Kullanım **basit** modu, SQL Server hizmetini yeniden başlatılmasını önlemek için. 
+> - SQL Iaas uzantısı güncelleştiriliyor, SQL Server hizmetini yeniden başlatmaz. 
 
-> [!NOTE]
-> SQL Server Iaas Aracısı uzantısı için özel bir SQL Server görüntüleri yüklemek mümkün olsa da, şu anda sınırlı işlevdir [lisans türü değiştirme](virtual-machines-windows-sql-ahb.md). SQL Iaas uzantısı tarafından sunulan diğer özellikleri yalnızca çalışır [SQL Server sanal makine galeri görüntüleri](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (Kullandıkça Öde veya Getir-kendi lisansını).
-
-### <a name="use-a-single-named-instance"></a>Tek bir adlandırılmış örnek kullanın
-SQL Iaas uzantısı adlandırılmış bir örnekle, varsayılan örneği düzgün kaldırdıysanız ve Iaas uzantısı yüklenirse bir SQL Server görüntüsü üzerinde çalışır.
+#### <a name="install-on-a-vm-with-a-single-named-sql-server-instance"></a>Tek bir adlandırılmış SQL Server örneği ile bir VM üzerinde yükleme
+SQL Iaas uzantısı varsayılan örneği kaldırılır ve Iaas uzantısı yeniden yüklerseniz, bir SQL Server'da adlandırılmış bir örnekle çalışır.
 
 Adlandırılmış bir SQL Server örneğini kullanmak için aşağıdakileri yapın:
    1. Market'ten bir SQL Server VM dağıtın. 
@@ -101,20 +148,48 @@ Adlandırılmış bir SQL Server örneğini kullanmak için aşağıdakileri yap
    1. SQL Server, SQL Server VM içinde adlandırılmış bir örnekle yükleyin. 
    1. Azure portalındaki Iaas uzantısını yükleyin.  
 
-## <a name="status"></a>Durum
+
+### <a name="install-in-lightweight-mode"></a>Basit modda yükleme
+Basit mod, SQL Server hizmetini yeniden başlatmaz, ancak sınırlı işlevsellik sunar. 
+
+SQL Iaas Aracısı ile *basit* modunu PowerShell kullanarak:
+
+
+  ```powershell-interactive
+     // Get the existing  Compute VM
+     $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+          
+     // Register SQL VM with 'Lightweight' SQL IaaS agent
+     New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+        -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
+        -Properties @{virtualMachineResourceId=$vm.Id;sqlServerLicenseType='AHUB';sqlManagement='LightWeight'}  
+  
+  ```
+
+| Parametre | Kabul edilebilir değerler                        |
+| :------------------| :-------------------------------|
+| **sqlServerLicenseType** | `'AHUB'`, veya `'PAYG'`     |
+| &nbsp;             | &nbsp;                          |
+
+
+## <a name="get-status-of-sql-iaas-extension"></a>SQL Iaas uzantısı durumunu alın
 Uzantı yüklendiğini doğrulamak için bir aracı durumunu Azure portalında görüntülemek için yoludur. Seçin **tüm ayarlar** sanal makine penceresinde ve ardından şirket **uzantıları**. Görmelisiniz **SqlIaasExtension** listelenen uzantısı.
 
 ![Azure portalında SQL Server Iaas Aracısı uzantısı](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)
 
 Ayrıca **Get-AzVMSqlServerExtension** Azure PowerShell cmdlet'i.
 
-    Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
+   ```powershell-interactive
+   Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
+   ```
 
 Önceki komut, aracının yüklü olduğundan ve genel durum bilgilerini sağlar onaylar. Aşağıdaki komutlarla otomatik yedekleme ve düzeltme eki uygulama hakkında özel durum bilgilerini de alabilirsiniz.
 
+   ```powershell-interactive
     $sqlext = Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
     $sqlext.AutoPatchingSettings
     $sqlext.AutoBackupSettings
+   ```
 
 ## <a name="removal"></a>Temizleme
 Azure portalında, üç nokta simgesine tıklayarak uzantıyı kaldırabilirsiniz **uzantıları** , sanal makine özellikleri penceresi. Sonra **Sil**’e tıklayın.
@@ -123,10 +198,12 @@ Azure portalında, üç nokta simgesine tıklayarak uzantıyı kaldırabilirsini
 
 Ayrıca **Remove-AzVMSqlServerExtension** PowerShell cmdlet'i.
 
+   ```powershell-interactive
     Remove-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension"
+   ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Uzantı tarafından desteklenen hizmetlerinden birini kullanmaya başlayın. Başvurulan makaleleri daha fazla ayrıntı için bkz. [desteklenen Hizmetleri](#supported-services) bu makalenin.
+Uzantı tarafından desteklenen hizmetlerinden birini kullanmaya başlayın. Daha fazla bilgi için başvurulan makalelere bakın [desteklenen Hizmetleri](#supported-services) bu makalenin.
 
 Azure sanal Makineler'de SQL Server çalıştırma hakkında daha fazla bilgi için bkz. [SQL Server Azure sanal makinelerine genel bakış](virtual-machines-windows-sql-server-iaas-overview.md).
 

@@ -4,21 +4,20 @@ titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 ms.author: zarhoads
 ms.date: 03/22/2019
 ms.topic: quickstart
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s
-manager: jeconnoc
+manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 110962c03f0236ebb26c9ed586981b51f36c635f
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: bb23de0dfe2d717ee2e41d69eec211f1fde26687
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399218"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707192"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio"></a>Hızlı Başlangıç: Azure geliştirme alanları (Visual Studio) ile Kubernetes üzerinde .NET Core ile geliştirin
 
@@ -44,7 +43,7 @@ Bir AKS kümesinde oluşturmalısınız bir [bölge desteklenen][supported-regio
     ![Azure portalında AKS oluşturma](media/get-started-netcore-visualstudio/create-aks-portal.png)
 
 1. *Gözden geçir ve oluştur*’a tıklayın.
-1. *Oluştur*’a tıklayın.
+1.           *Oluştur*'a tıklayın.
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Azure geliştirme alanları AKS kümenizde etkinleştirme
 
@@ -57,10 +56,10 @@ Azure portalında AKS kümenizin gelin ve tıklayın *geliştirme alanları*. De
 1. Visual Studio'yu açın.
 1. Yeni bir proje oluşturma.
 1. Seçin *ASP.NET Core Web uygulaması* ve projenizi adlandırın *webfrontend*.
-1. *Tamam* düğmesine tıklayın.
+1.           *Tamam*'ı tıklatın.
 1. İstendiğinde, *Web uygulaması (Model-View-Controller)* şablonu için.
 1. Seçin *.NET Core* ve *ASP.NET Core 2.0* en üstünde.
-1. *Tamam*'ı tıklatın.
+1.           *Tamam*'ı tıklatın.
 
 ## <a name="connect-your-project-to-your-dev-space"></a>Geliştirme alanınıza projenizi bağlama
 
@@ -68,11 +67,11 @@ Projenizde, seçin **Azure geliştirme alanları** aşağıda gösterildiği gib
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
-Azure geliştirme alanları iletişim kutusunda seçin, *abonelik* ve *Azure Kubernetes kümesi*. Bırakın *alanı* kümesine *varsayılan* ve etkinleştirme *genel olarak erişilebilir* onay kutusu. *Tamam*'ı tıklatın.
+Azure geliştirme alanları iletişim kutusunda seçin, *abonelik* ve *Azure Kubernetes kümesi*. Bırakın *alanı* kümesine *varsayılan* ve etkinleştirme *genel olarak erişilebilir* onay kutusu.           *Tamam*'ı tıklatın.
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
 
-Bu işlem, hizmetinize dağıtır *varsayılan* genel olarak erişilebilir bir URL ile geliştirme alanı. Azure Dev Spaces ile çalışacak şekilde yapılandırılmamış bir küme seçerseniz, yapılandırmak isteyip istemediğinizi soran bir ileti görürsünüz. *Tamam*'ı tıklatın.
+Bu işlem, hizmetinize dağıtır *varsayılan* genel olarak erişilebilir bir URL ile geliştirme alanı. Azure Dev Spaces ile çalışacak şekilde yapılandırılmamış bir küme seçerseniz, yapılandırmak isteyip istemediğinizi soran bir ileti görürsünüz. *Tamam* düğmesine tıklayın.
 
 ![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 

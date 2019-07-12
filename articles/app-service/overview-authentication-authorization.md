@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
-ms.author: mahender,cephalin
+ms.author: cephalin
+ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: d914e3ad3043b2671e154d1616c6800f34415c11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42d925a77de20392459081e6669706da330ba7fa
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60835609"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836726"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure Uygulama Hizmeti’nde kimlik doğrulaması ve yetkilendirme
 
@@ -55,7 +56,7 @@ Modül, uygulama kodunuz içinden ayrı olarak çalışır ve uygulama ayarları
 
 ### <a name="user-claims"></a>Kullanıcı talepleri
 
-Tüm dil çerçeveleri için App Service kullanıcı talepleri istek üst bilgileri düzeyine ekleyerek kodunuzu kullanılmasını sağlar. ASP.NET 4.6 apps için App Service doldurur [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) kimliği doğrulanmış kullanıcının talepleri ile standart .NET kod desenini izleyebilmeniz dahil olmak üzere `[Authorize]` özniteliği. Benzer şekilde, App Service için PHP uygulamaları, doldurur `_SERVER['REMOTE_USER']` değişkeni.
+Tüm dil çerçeveleri için App Service kullanıcı talepleri istek üst bilgileri düzeyine ekleyerek kodunuzu kullanılmasını sağlar. ASP.NET 4.6 apps için App Service doldurur [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) kimliği doğrulanmış kullanıcının talepleri ile standart .NET kod desenini izleyebilmeniz dahil olmak üzere `[Authorize]` özniteliği. Benzer şekilde, App Service için PHP uygulamaları, doldurur `_SERVER['REMOTE_USER']` değişkeni. Java uygulamaları için taleplerdir [Tomcat servlet erişilebilir](containers/configure-language-java.md#authenticate-users).
 
 İçin [Azure işlevleri](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` .NET kodu için aktarıldıktan değildir ancak yine de kullanıcı taleplerini istek üst bilgilerinde bulabilirsiniz.
 
@@ -153,8 +154,8 @@ Sağlayıcıya özgü nasıl yapılır kılavuzları:
 * [Uygulamanızı Azure Active Directory oturum açma bilgilerini kullanacak şekilde yapılandırma][AAD]
 * [Uygulamanızı Facebook oturum açma bilgilerini kullanacak şekilde yapılandırma][Facebook]
 * [Uygulamanızı Google oturum açma bilgilerini kullanacak şekilde yapılandırma][Google]
-* [Microsoft Account login kullanmak için uygulamanızı yapılandırma][MSA]
-* [Uygulamanızı twitter oturum açma bilgilerini kullanacak şekilde yapılandırma][Twitter]
+* [Uygulamanızı Microsoft Hesabı oturum açma bilgilerini kullanacak şekilde yapılandırma][MSA]
+* [Uygulamanızı Twitter oturum açma bilgilerini kullanacak şekilde yapılandırma][Twitter]
 * [Nasıl yapılır: Uygulamanız için özel kimlik doğrulaması kullan][custom-auth]
 
 [AAD]: configure-authentication-provider-aad.md
