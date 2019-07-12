@@ -4,7 +4,7 @@ description: Şirket içi lisanslarını Azure'a taşımalarına olanak, Windows
 services: virtual-machines-windows
 documentationcenter: ''
 author: xujing
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: 7f43528c55cd22c2649ca0f1208da6f41695b98e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b99ae2abdc4e062588174b6d945b6592ae8e58ed
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61485524"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707850"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Çok müşterili barındırma hakları ile azure'da Windows 10 dağıtma 
 Müşteriler için Windows 10 Enterprise E3/E5 ile Windows sanal masaüstü erişimi ya da kullanıcı başına kullanıcı (kullanıcı Abonelik lisansı veya eklenti kullanıcı Abonelik Lisansı), çok Kiracılı barındırma hakları Windows 10 için Windows 10 lisanslarınızı buluta getirmenize olanak sağlar ve Windows 10 sanal makineleri başka bir lisans için ödeme yapmadan Azure üzerinde çalıştırın. Daha fazla bilgi için lütfen bkz [Windows 10 için çok Kiracılı barındırma](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -33,7 +33,7 @@ Müşteriler için Windows 10 Enterprise E3/E5 ile Windows sanal masaüstü eri�
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Windows 10 Azure Market görüntüsünden dağıtma 
 PowerShell, CLI ve Azure Resource Manager şablon dağıtımları için Windows 10 görüntüsü bulunabilir aşağıdaki publishername, teklif, sku.
 
-| İşletim Sistemi  |      PublisherName      |  Sunduğu | Sku |
+| OS  |      PublisherName      |  Sunduğu | Sku |
 |:----------|:-------------:|:------|:------|
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows 10  | RS2-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows 10  | RS2-ProN  |

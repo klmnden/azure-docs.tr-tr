@@ -5,38 +5,16 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/24/2018
+ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7a37c9d51541c279a6b820641b6eb46175aa8413
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 6cbda7d9be1617617e173c68c3d2a4a95c255ae0
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67188342"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673554"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium Depolama: yüksek performans tasarımı
-
-Bu makalede, Azure Premium depolama kullanan yüksek performanslı uygulamalar oluşturmak için yönergeler sağlar. Performansı en iyi uygulamaları, uygulamanız tarafından kullanılan teknolojiler için geçerli bir araya geldiğinde bu belgede sağlanan yönergeleri kullanabilirsiniz. Yönergeler göstermek için bu belge boyunca örnek olarak Premium depolama üzerinde çalışan SQL Server kullandınız.
-
-Biz bu makalede depolama katmanı için performans senaryosu, ancak uygulama katmanına en iyi duruma getirmek gerekir. Örneğin, Azure Premium depolama bir SharePoint Çiftliğini barındırıyorsanız, veritabanı sunucusu en iyi duruma getirmek için bu makalede SQL Server örneklerinden kullanabilirsiniz. Ayrıca, SharePoint grubunun Web sunucusu ve uygulama sunucusu çoğu performansı elde etmek için iyileştirin.
-
-Bu makalede, Azure Premium depolama üzerinde uygulama performansını iyileştirme hakkında sık sorulan sorular aşağıdaki yanıt yardımcı olur,
-
-* Uygulama performansını ölçmek nasıl?  
-* Neden beklenen yüksek performanslı görmediğinizden?  
-* Hangi faktörlerin Premium depolama, uygulama performansınızı etkileyen?  
-* Nasıl bu faktörlerin Premium depolama, uygulamanızın performansını etkileyen?  
-* Nasıl, IOPS, bant genişliği ve gecikme süresi için en iyi duruma getirebilirsiniz?  
-
-Premium depolama alanında çalışan iş yükleri yüksek performans duyarlı olduğu için özel olarak Premium depolama için bu yönergeleri sağladık. Uygun yerlerde örnek sağladık. Ayrıca standart depolama diskleri ile Iaas Vm'lerinde çalışan uygulamaları bu yönergeleri bazıları uygulayabilirsiniz.
-
-> [!NOTE]
-> Bazen, bir disk performans sorunu görünüyor ne aslında bir ağ sorunu olabilir. Bu gibi durumlarda, iyileştirmek, [ağ performansı](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
-> Hızlandırılmış ağ, sanal Makinenizin destekliyorsa, etkin olduğundan emin olun. Etkinleştirilmezse, hem de zaten dağıtılmış vm'lerde etkinleştirebilirsiniz [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) ve [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
-
-Premium depolamaya bilginiz yoksa, başlamadan önce okumanız [Iaas sanal makineleri için Azure disk türü seçin](../articles/virtual-machines/windows/disks-types.md) ve [Azure Storage ölçeklenebilirlik ve performans hedefleri](../articles/storage/common/storage-scalability-targets.md) makaleler.
-
 ## <a name="application-performance-indicators"></a>Uygulama performans göstergeleri
 
 Bir uygulama performans göstergeleri gibi iyi ya da olmasın kullanarak gerçekleştiriyor olup olmadığını biz değerlendirme, ne kadar hızlı bir uygulama, kullanıcı isteği, istek başına bir uygulama işleme ne kadar veri işleme, kaç uygulamanın belirli bir işleme istekleri bir kullanıcının kendi İsteği gönderdikten sonra bir yanıt almak için beklenecek zaman, ne kadar süre. Bu performans göstergelerini teknik koşulları olan, IOPS, üretilen işi veya bant genişliği ve gecikme süresi.
@@ -278,7 +256,7 @@ Veri diskleri için önerilen disk önbellek ayarları verilmiştir,
 
 | **Disk önbellek ayarı** | **Bu ayarı kullanmak ne zaman öneriye** |
 | --- | --- |
-| None |Konak önbelleği salt yazılır ve yazma yoğunluklu disklerin hiçbiri olarak yapılandırın. |
+| Yok. |Konak önbelleği salt yazılır ve yazma yoğunluklu disklerin hiçbiri olarak yapılandırın. |
 | ReadOnly |Konak önbelleği salt okunur ve okuma-yazma diskleri için salt okunur olarak yapılandırın. |
 | ReadWrite |Yalnızca uygulamanızın düzgün bir şekilde önbelleğe alınmış verileri gerektiğinde kalıcı disk yazma işliyorsa, konak önbelleği ReadWrite yapılandırın. |
 
@@ -413,4 +391,4 @@ Kullanılabilir disk türleri hakkında daha fazla bilgi edinin:
 SQL Server kullanıcıları için SQL Server için en iyi performans uygulamaları makalelerini okuyun:
 
 * [Azure sanal makineler'de SQL Server için en iyi performans](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
-* [Azure Premium depolama, Azure VM'deki SQL Server için yüksek performans sağlar.](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
+* [Azure Premium depolama, Azure VM'deki SQL Server için yüksek performans sağlar.](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

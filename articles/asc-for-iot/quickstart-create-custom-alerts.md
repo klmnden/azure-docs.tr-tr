@@ -2,24 +2,25 @@
 title: IOT Önizleme için Azure Güvenlik Merkezi'nde özel uyarı oluşturma | Microsoft Docs
 description: Oluşturun ve IOT için Azure Güvenlik Merkezi için özel cihaz uyarıları atayın.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: d1757868-da3d-4453-803a-7e3a309c8ce8
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 3b4c5e4700b0ef718a6b079ecc6ab3ad80f4eab6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 12559af013d49e557ba0132bef24867867745c16
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786176"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618037"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Hızlı Başlangıç: Özel uyarılar oluşturabilirsiniz
 
@@ -35,7 +36,7 @@ IOT cihazlarınızı en iyi bildiğiniz.
 
 Müşteriler, tam olarak beklenen cihaz davranışlarını anlamak için herhangi bir sapma uyarısında bekleniyordu, normal davranış ve IOT için Azure Güvenlik Merkezi (ASC) bu anlayış bir cihaz davranışı ilke Çevir sağlar.
 
-## <a name="security-groups"></a>Güvenlik Grupları
+## <a name="security-groups"></a>Güvenlik grupları
 
 Güvenlik grupları, cihazların mantıksal gruplar tanımlamanıza olanak sağlar ve güvenlik durumunu merkezi bir biçimde yönetin.
 

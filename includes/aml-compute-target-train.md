@@ -9,13 +9,15 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 05/30/2019
-ms.openlocfilehash: 50905eb987defac612f1055b450b682726f0a56f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b62d4b2ac1bb69e2270c3202d29eb595df7aac4
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752965"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806045"
 ---
+**Hedefleri yeniden kullanılabilir bir eğitim işleminden sonraki işlem**. Örneğin, uzak bir VM çalışma alanınıza eklediğiniz sonra birden çok iş için kullanabilirsiniz.
+
 |Eğitim &nbsp;hedefleri| GPU desteği |[Otomatik ML](../articles/machine-learning/service/concept-automated-ml.md) | [ML işlem hatları](../articles/machine-learning/service/concept-ml-pipelines.md) | [Görsel arabirim](../articles/machine-learning/service/ui-concept-visual-interface.md)
 |----|:----:|:----:|:----:|:----:|
 |[Yerel bilgisayar](../articles/machine-learning/service/how-to-set-up-training-targets.md#local)| Belki de | evet | &nbsp; | &nbsp; |
@@ -25,5 +27,3 @@ ms.locfileid: "66752965"
 |[Azure Data Lake Analytics'i](../articles/machine-learning/service/how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | evet | &nbsp; |
 |[Azure HDInsight](../articles/machine-learning/service/how-to-set-up-training-targets.md#hdinsight)| &nbsp; | &nbsp; | evet | &nbsp; |
 |[Azure Batch](../articles/machine-learning/service/how-to-set-up-training-targets.md#azbatch)| &nbsp; | &nbsp; | evet | &nbsp; |
-
-**Tüm hedefler için birden fazla eğitim işleri yeniden kullanılabilir işlem**. Örneğin, uzak bir VM çalışma alanınıza eklediğiniz sonra birden çok iş için kullanabilirsiniz.

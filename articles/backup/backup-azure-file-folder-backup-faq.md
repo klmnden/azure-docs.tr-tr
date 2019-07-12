@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: d4d1044a30d4ebc551cf1305993aba2a201c4c94
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: dd800c0eeb18fe45b44a72aeb58b500623b2b366
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514454"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705087"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Dosya ve klasör yedekleme hakkında sık sorulan sorular
 
@@ -89,8 +89,18 @@ Bu uyarı, yerel sunucuda depolanan yedekleme zamanlaması ayarları yedekleme k
 - Önbellek klasörü birimleri, yedekleme verilerinin toplam boyutunun en az 5-%10 eşittir boş alan olması gerekir.
 - Birim % 5'ten az boş alan varsa, birim boyutunu artırın veya önbellek klasörünü yeterli alana sahip bir birime taşıyın.
 - Windows sistem durumu yedekleme, bir ek 30-35 GB önbellek klasörü içeren birimin içindeki boş alan gerekir.
-### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>MARS aracısı için Önbellek konumunu nasıl değiştiririm?
 
+### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>Karalama klasörünü geçerli ve erişilebilir olup olmadığını denetlemek nasıl?
+
+1. Varsayılan olarak, karalama klasörünün bulunduğu `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+2. Karalama klasörünü konum eşleşmelerinizi yolu kayıt defteri anahtar girişlerini aşağıda gösterilen değerleri sağlayın:
+
+  | Kayıt defteri yolu | Kayıt Defteri Anahtarı | Değer |
+  | --- | --- | --- |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Yeni önbellek klasörü konumu* |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Yeni önbellek klasörü konumu* |
+
+### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>MARS aracısı için Önbellek konumunu nasıl değiştiririm?
 
 1. Yedekleme Altyapısı durdurmak için yükseltilmiş bir komut isteminde şu komutu çalıştırın:
 

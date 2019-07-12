@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3e1f64aa00ea0d78eca8a994814a91600b91239f
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 9d25996db9c13a12781d369327f2b43a41fb4115
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190703"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786527"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight üzerinde üçüncü taraf Apache Hadoop uygulamaları yükleme
 
@@ -38,7 +38,7 @@ Aşağıdaki liste, yayımlanan uygulamalara gösterir:
 |[Azure HDInsight için Presto Yıldız Yağmuru](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/starburst.starburst-presto) |Hadoop |Bir hızlı ve ölçeklenebilir dağıtılmış SQL sorgu presto altyapısıdır. Depolama ve işlem ayrımı için tasarlanmış, Presto Azure Data Lake Storage, Azure Blob Depolama, SQL ve NoSQL veritabanları ve diğer veri kaynaklarından veri sorgulamak için idealdir. |
 |[HDInsight bulut için StreamSets Data Collector](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/streamsets.streamsets-data-collector-hdinsight) |Hadoop,HBase,Spark,Kafka |StreamSets Data Collector, gerçek zamanlı veri akışları basit, güçlü bir altyapısıdır. Veri Toplayıcı, veri akışlarını rota ve işlem verileri için kullanın. Bu, 30 günlük deneme sürümü lisansı ile birlikte gelir. |
 |[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/trifacta.tr01) |Hadoop, Spark, HBase |HDInsight için Trifacta Wrangler kurumsal verilerin herhangi bir ölçekte denetimi Kurumsal çapta veri destekler. Trifacta Azure'da çalıştırmanın maliyeti, Trifacta abonelik maliyetleri ve sanal makineler için Azure altyapı maliyetleri birleşimidir. |
-|[Unifi veri platformu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/unifi-software.unifi-data-platform) |Hadoop,HBase,Storm,Spark |Unifi veri platformu sorunsuz bir şekilde tümleşik bir veri sorunlarını gidermek için iş kullanıcısı bu sürücü gelirlerinizi güç katın, maliyetler veya işletim karmaşıklığını azaltmak üzere tasarlanan bir Self Servis veri araçları paketidir. |
+|[Unifi veri platformu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/unifi-software.unifi-data-catalog) |Hadoop,HBase,Storm,Spark |Unifi veri platformu sorunsuz bir şekilde tümleşik bir veri sorunlarını gidermek için iş kullanıcısı bu sürücü gelirlerinizi güç katın, maliyetler veya işletim karmaşıklığını azaltmak üzere tasarlanan bir Self Servis veri araçları paketidir. |
 |[Unraveldata APM](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |HDInsight Spark kümesi için uygulama verileri aydınlatmak. |
 |[Waterline yapay ZEKA tabanlı veri Kataloğu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/waterline_data.waterline_data) |Spark |Waterline kataloglar, düzenler ve veri iş terimlerini otomatik etiketi verilerle yapay ZEKA kullanarak yönetir. Waterline'nın iş literate Kataloğu, Self Servis analizler, uyumluluk ve idare ve BT yönetimi girişimleri için önemli bir başarı bileşenidir. |
 

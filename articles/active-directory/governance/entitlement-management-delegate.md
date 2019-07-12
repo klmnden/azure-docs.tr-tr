@@ -3,8 +3,8 @@ title: Azure AD hak yönetimi (Önizleme) - Azure Active Directory içinde göre
 description: Azure Active Directory Hak Yönetimi'nde Görevler için temsilci atadığınız rolleri hakkında bilgi edinin.
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 06/07/2019
-ms.author: rolyon
+ms.date: 07/10/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fa0be8e2af7644564ba27e6d58fda09b1ae7bc7
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: d4c4933847a39a56084894e5bbd40e166e6b73b6
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191505"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798630"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Azure AD hak yönetimi (Önizleme) içinde görevler için temsilci seçme
 
@@ -38,7 +38,7 @@ Yönetici olmayanlar için sınırsız izinleri vermek yerine, kullanıcıların
 
 Hak Yönetimi'nde Görevler nasıl temsilci anlamak için bu örneği göz önünde bulundurun yardımcı olur. Aşağıdaki beş kullanıcılar, kuruluşunuzun sahip olduğunu varsayın:
 
-| Kullanıcı | Departman | Notlar |
+| Kullanıcı | Bölüm | Notlar |
 | --- | --- | --- |
 | Alice | BT | Genel yönetici |
 | Bob | Araştırma | Bob ayrıca bir araştırma grubunun sahibi değil |
@@ -64,7 +64,7 @@ Araştırma ve pazarlama departmanları kullanıcıları için hak yönetimi kul
 
 Hak Yönetimi, hak yönetimi için özel olan aşağıdaki rol yok.
 
-| Rol | Açıklama |
+| Role | Açıklama |
 | --- | --- |
 | Katalog Oluşturucusu | Oluşturun ve kataloglarını yönetin. Bir genel yönetici veya bir kaynak koleksiyonu için bir kaynak sahibi olmayan genellikle BT yöneticisi. Katalog otomatik olarak oluşturan kişinin Kataloğu'nun ilk katalog sahibi olur ve ek katalog sahipleri ekleyebilirsiniz. |
 | Katalog sahibi | Düzenle ve mevcut kataloglarını yönetin. Genellikle BT yöneticisi veya kaynak sahiplerinin veya katalog sahibinin atadığı bir kullanıcı. |
@@ -84,7 +84,7 @@ Aşağıdaki tabloda, bu rolleri gerçekleştirebileceğiniz görevler listelenm
 | [Katalog Düzenle](entitlement-management-catalog-create.md#edit-a-catalog) |  | :heavy_check_mark: |  |  |
 | [Katalog silme](entitlement-management-catalog-create.md#delete-a-catalog) |  | :heavy_check_mark: |  |  |
 | [Katalog sahibi veya bir erişim Paket Yöneticisi Kataloğu'na ekleyin.](#add-a-catalog-owner-or-an-access-package-manager) |  | :heavy_check_mark: |  |  |
-| [Bir katalogda yeni erişim paketi oluştur](entitlement-management-access-package-create.md) |  | :heavy_check_mark: |  |  |
+| [Bir katalogda yeni erişim paketi oluştur](entitlement-management-access-package-create.md) |  | :heavy_check_mark:  | :heavy_check_mark:  |  |
 | [Bir erişim pakette kaynak rolleri yönetme](entitlement-management-access-package-edit.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Kimin bir erişim paketini talep edebilir belirtin](entitlement-management-access-package-edit.md#add-a-new-policy) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Doğrudan bir erişim paketi için kullanıcı atama](entitlement-management-access-package-edit.md#directly-assign-a-user) |  | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -124,11 +124,11 @@ Katalog oluşturma temsilci seçmek istiyorsanız, katalog Oluşturucu rolüne k
 
 1. Soldaki menüde içinde **hak yönetimi** bölümünde **ayarları**.
 
-1. **Düzenle**‘ye tıklayın.
+1.           **Düzenle**‘ye tıklayın.
 
 1. İçinde **temsilci yetkilendirme Yönetim** bölümünde **Kataloğu oluşturucular ekleme** kullanıcıları veya üyeleri için bu yetkilendirme yönetim rolü grupları seçin.
 
-1. **Seç**'e tıklayın.
+1. Tıklayın **seçin**.
 
 1. **Kaydet**’e tıklayın.
 

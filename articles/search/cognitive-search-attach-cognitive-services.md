@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 44f16b3334b991e071fa85ca4cffbc0837f0a6ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ffce8a2bd8a04e73acdeac037be0b10ba1a9a887
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244422"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672381"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Azure Search'te bir beceri kümesi ile bir Bilişsel hizmetler kaynağı ekleme 
 
@@ -42,7 +42,7 @@ Bilişsel arama öğretici ve hızlı başlangıç alıştırmalar tamamlamak i�
 
 1. Veri İçeri Aktarma sihirbazını açın:
 
-   ![Veri İçeri Aktarma sihirbazını açın](media/search-get-started-portal/import-data-cmd2.png "veri içeri aktarma sihirbazını açın")
+   ![Veri İçeri Aktarma sihirbazını açın](media/search-get-started-portal/import-data-cmd.png "veri içeri aktarma sihirbazını açın")
 
 1. Veri kaynağı seçin ve devam **Ekle bilişsel arama (isteğe bağlı)** . Bu sihirbaz hakkında adım adım kılavuz için bkz: [içeri aktarma, dizin ve portal araçlarını kullanarak sorgu](search-get-started-portal.md).
 

@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: dc086bc1252c084b717807213b5ba4c7f9d7bb97
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: db1074046adc52ad859a325c2b875da84dbdb0cd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514059"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701377"
 ---
 # <a name="create-a-new-saas-offer"></a>Yeni bir SaaS teklifi oluşturma
 
@@ -20,7 +20,7 @@ Hizmet (SaaS) sunduğu yazılım oluşturmaya başlamak için olun, ilk [bir iş
 
 ![Market iş ortağı merkezi Panoda ticari](./media/new-offer-overview.png)
 
-Seçin + **yeni oluştur...** düğmesini ve ardından **hizmet olarak yazılım** menü öğesi. 
+Seçin + **yeni teklif...** düğmesini ve ardından **hizmet olarak yazılım** menü öğesi. 
 
 Bir teklif türlerinden birini seçerseniz, eski yönlendirilecek [bulut iş ortağı portalı](https://cloudpartner.azure.com/).  SaaS teklifleri yalnızca şu anda ticari Market iş ortağı merkezi portalında kullanılabilir. 
 
@@ -31,13 +31,14 @@ Bir teklif türlerinden birini seçerseniz, eski yönlendirilecek [bulut iş ort
 ![Yeni Teklif iletişim kutusu](./media/new-offer-popup.png)
 
 
-## <a name="offer-id-and-name"></a>Teklif kimliği ve adı
+## <a name="offer-id-and-alias"></a>Teklif kimliği ve diğer adı
 
-- **Teklif kimliği**: Her teklif için benzersiz bir tanımlayıcı hesabınızı oluşturun. Bu kimliği, URL adresinin Market teklifi ve Azure Resource Manager şablonları (varsa) müşteriler için görünmez. Teklif kimliği, küçük harf, alfasayısal (kısa çizgi ve alt çizgi, ancak hiçbir boşluk dahil) olmalıdır. 50 karakterle sınırlıdır ve seçtikten sonra güncelleştirilemiyor oluşturun.  
+- **Teklif kimliği**: Hesabınızdaki her bir teklifin benzersiz tanımlayıcısı. Bu kimliği, URL adresinin Market teklifi ve Azure Resource Manager şablonları (varsa) müşteriler için görünmez. Teklif kimliği, küçük harf, alfasayısal (kısa çizgi ve alt çizgi, ancak hiçbir boşluk dahil) olmalıdır. 50 karakterle sınırlıdır ve seçtikten sonra değiştirilemez *Oluştur*.  
 Örnek: test-Teklif-1
 <br>URL'de ortaya çıkarıyordu: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
-- **Teklif adı**: SaaS uygulama teklifinizi, yayın, reklamları ve web siteleri arasında tutarlı resmi adı.  Bu ad trademarked.  (Simge ticari marka veya telif hakkı olmadıkları sürece) adı boşluk, emoji içermemelidir sunar ve 50 karakter uzunluğunda olmalıdır.
+- **Diğer ad teklif**: İş ortağı merkezi portalında teklif başvurmak için kullanılan ad. Bu ad Market'te kullanılmayacak ve farklı *teklif adı* ve müşterilere gösterilir diğer değerler. Seçtikten sonra bu değer değiştirilemez *Oluştur*.
+
 <br>Örnek: Test teklifini 1&#8482;
 
 **Oluştur**’u seçin.  Bir **genel bakış sunan** sayfası, bu teklif için oluşturulur.  
@@ -115,8 +116,8 @@ Market kaydı oluşturarak Microsoft ile işletmenizi yükseltin. Seçme yalnız
 ##### <a name="get-it-now-free"></a>Bunu şimdi (ücretsiz)
 Teklifinizin müşteriler ücretsiz, uygulamanızın erişebildiği geçerli bir URL (http veya https ile başlayan) sağlayarak listeleyin.  Örneğin, `https://contoso.com/saas-app`
 
-##### <a name="free-trial"></a>Ücretsiz deneme sürümü
-Teklifinizin müşteriler ücretsiz bir deneme süresi boyunca, uygulamanızın erişebildiği geçerli bir URL (http veya https ile başlayan) sağlayarak listeleyin.  Örneğin, `https://contoso.com/trial/saas-app`
+##### <a name="free-trial-listing"></a>Ücretsiz deneme sürümü (listelemek)
+Teklifinizle müşterilere bir ücretsiz deneme sürümü için bir bağlantı, uygulamanızın erişebildiği geçerli bir URL (http veya https ile başlayan) sağlayarak listeleyin.  Örneğin: `https://contoso.com/trial/saas-app` Ve musunuz olan abonelikleri yönetilmeyen Microsoft tarafından yönetilen ve hizmetiniz tarafından yapılandırılan ücretsiz deneme teklif oluşturulur.
 
 ##### <a name="contact-me"></a>Benimle iletişim kurun
 Müşteri İlişkileri Yönetimi (CRM) sisteminizi bağlanarak müşteri iletişim bilgilerini toplayın. Müşteri bilgilerini paylaşmak için izin istenecektir. Teklif adı, Kimliğini ve teklifinizi bulunduğu Market kaynağı yanı sıra bu müşteri ayrıntıları, yapılandırdığınız CRM sistemine gönderilir. CRM'İNİZE yapılandırma hakkında daha fazla bilgi için bkz. [Connect sağlama Yönetimi](#connect-lead-management). 
@@ -205,6 +206,9 @@ Unutmayın **Kaydet** sonraki bölüme geçmeden önce!
 
 Teklif sekmesini görüntüler teklifinizi kullanılabilir olduğu dilleri (ve pazarlara) listesi, şu anda Turkish (Turkey) yalnızca mevcut konumdur. Ayrıca, bu sayfa, dile özgü listeleme ve eklendiği tarih/saat durumunu görüntüler. Her dil için (teklif adı, açıklama, arama terimleri, vb.) Market ayrıntıları tanımlamak ihtiyacınız olacak / pazarlayın.
 
+> [!NOTE]
+> İçerik (örneğin, teklif açıklaması, belgeler, ekran görüntüleri, kullanım ve gizlilik ilkesi koşulları) Teklif Teklif açıklaması deyim ile başlayan sürece İngilizce "Bu uygulama yalnızca [-İngilizce dilinde] mevcut değil." olması gerekli değildir Ayrıca sağlamak için kabul edilebilir bir *yararlı bağlantı URL'si* teklif içeriği listesi kullanılan dışında bir dil içeriği sunmak için.
+
 ### <a name="offer-listings"></a>Teklif listeleri
 
 Market'te teklifinizi açıklamaları da dahil olmak üzere ve varlıkları pazarlama görüntülenecek ayrıntılarını sağlayın.
@@ -268,9 +272,9 @@ En çok on (10) e-posta adreslerini el ile ekleyin veya canlı yirmi (var olan M
 
 - **Bağlantı Web kancası** (gerekli): Microsoft, müşteri adına göndermek için gereken tüm zaman uyumsuz olaylar için (örnek: SaaS abonelik geçmiş geçersiz), bağlantı Web kancası girmenizi isteriz. Yerinde bir Web kancası sistemine sahip değilseniz, en basit yapılandırmadır, kendisine gönderilmesini meydana gelen olayları dinler ve ardından uygun şekilde işlemesine bir HTTP uç noktası mantıksal uygulama sağlamaktır (örneğin, https:\//prod-1westus.logic.azure.com:443/work). Daha fazla bilgi için [çağrı, tetikleyici veya iç içe iş akışları ile HTTP uç noktalarını logic apps'teki](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
-- **Azure AD Kiracı kimliği** (gerekli): Azure portalı içinde biz gerektiren, [Azure Active Directory (AD) uygulama oluşturma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) bir kimliği doğrulanmış iletişim, böylelikle bağlantı iki hizmetlerimiz arasında doğrulayabilirsiniz. Bulmak için [Kiracı kimliği](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id), Azure Active Directory'ye gidip seçin **özellikleri**, ardından Ara **dizin kimliği** numarası listelenen (örn.) 50c464d3-4930-494c-963c-1e951d15360e).
+- **Azure AD Kiracı kimliği** (gerekli): Azure portalı içinde biz gerektiren, [Azure Active Directory (AD) uygulama oluşturma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) bir kimliği doğrulanmış iletişim, böylelikle bağlantı iki hizmetlerimiz arasında doğrulayabilirsiniz. Bulmak için [Kiracı kimliği](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), Azure Active Directory'ye gidip seçin **özellikleri**, ardından Ara **dizin kimliği** numarası listelenen (örn.) 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Azure AD uygulama kimliği** (gerekli): Ayrıca gerekir, [uygulama kimliği](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) ve kimlik doğrulama anahtarı. Bu değerleri almak için Azure Active Directory'ye gidin ve seçin **uygulama kayıtları**, ardından Ara **uygulama kimliği** numarasını (ör. 50c464d3-4930-494c-963c-1e951d15360e) listelenir. Kimlik doğrulama anahtarı bulmak için Git **ayarları** seçip **anahtarları**. Bir açıklama ve süre ve ardından olacak bir sayı değeri sağlanmalıdır sağlamanız gerekir.
+- **Azure AD uygulama kimliği** (gerekli): Ayrıca gerekir, [uygulama kimliği](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) ve kimlik doğrulama anahtarı. Bu değerleri almak için Azure Active Directory'ye gidin ve seçin **uygulama kayıtları**, ardından Ara **uygulama kimliği** numarasını (ör. 50c464d3-4930-494c-963c-1e951d15360e) listelenir. Kimlik doğrulama anahtarı bulmak için Git **ayarları** seçip **anahtarları**. Bir açıklama ve süre ve ardından olacak bir sayı değeri sağlanmalıdır sağlamanız gerekir.
 
  Azure uygulama kimliği yayımcı Kimliğiniz ile ilişkili olduğunu unutmayın; bu nedenle, aynı uygulama kimliği tüm tekliflerin kullanıldığından emin olun.
 
@@ -306,6 +310,22 @@ Seçin **Kaydet** bu alanlar tamamladıktan sonra.
 #### <a name="plan-pricing-and-availability"></a>Fiyatlandırma ve kullanılabilirlik planlama
 
 **Fiyatlandırma ve kullanılabilirlik** sekmesinde Bu plan, kullanılabilir pazarlara yapılandırmanıza olanak sağlar istenen kazanç elde etme modeli, fiyat ve fatura dönemi. Ayrıca, herkesin veya yalnızca belirli müşterilere (özel bir hedef kitle) planı görünür yapmak belirtebilirsiniz.
+
+##### <a name="enabling-free-trials"></a>Ücretsiz deneme sürümleri etkinleştirme
+
+SaaS teklifleri ticari Market aracılığıyla bir aylık ücretsiz deneme yoluyla Microsoft'a satılırken sağlamak etkinleştirin. Tüm faturalandırma modelleri ve tarifeli planları dışında koşulları için ücretsiz deneme sürümleri desteklenir. Bu seçenek, bir ay boyunca ücretsiz erişim aracılığıyla girişe düşük engel müşterilerimizin sağlar.  Ücretsiz deneme teklifinizi içinde planları için etkinleştirmeyi seçerseniz, müşteri ilk bir aylık süresi bitmeden önce Ücretli bir aboneliğe dönüştürmek mümkün olmayacaktır.  Teklifinizi satın alan müşteriler bu süre boyunca, tüm etkin ücretsiz deneme sürümü lisansları desteklenen planlar deneyin ve bunlar arasında Dönüştür.  Ücretli aboneliğe dönüştürme dönem sonunda otomatik olarak gerçekleştirilir.
+
+>[!Note]
+>Müşteri, bir plan olmadan ücretsiz denemeler dönüştürmek seçerse, dönüştürme olmayacak, ancak ücretsiz deneme sürümünü hemen kaybolur.  Bir müşteri bir plan için ödeme başladıktan sonra ücretsiz deneme sürümleri destekleyen bir SKU'ya dönüştürürseniz bile Ayrıca, bunlar artık ücretsiz deneme sürümü yeniden aynı abonelikte alabilirsiniz.
+
+Ücretsiz deneme yapılandırma becerisi her planda teklifiniz için kullanılabilir. Yalnızca fiyatlandırma ve kullanılabilirlik için her bir teklifin gidin ve bir aylık deneme izin vermek için onay kutusunu işaretleyin.
+
+![Bir aylık ücretsiz deneme onay kutusu](./media/free-trial-enable.png)
+
+Abonelikler şu anda ücretsiz bir deneme katılan müşteri hakkında bilgi edinmek için yeni API özelliğini kullanın `isFreeTrial`, hangi işaretlenir true veya false olarak. Bkz: [SaaS alma abonelik API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) daha fazla bilgi için.
+
+>[!Note]
+>Ücretsiz deneme sürümleri yararlanan Market ölçüm hizmeti planları için desteklenmez.
 
 #### <a name="markets"></a>Pazarlar
 
@@ -434,13 +454,13 @@ Test Sürüşü sizin adınıza dağıtmak için lütfen oluşturun ve ayrı ve 
 
 - **Azure abonelik kimliği** (Azure Resource Manager ve Logic apps için gerekli): Raporlama ve faturalama kaynak kullanımı, bir Azure hesabı hizmetlerini erişim vermek için abonelik Kimliğini girin. Ele almanızı öneririz [ayrı bir Azure aboneliği oluşturma](https://docs.microsoft.com/azure/billing/billing-create-subscription) zaten yoksa, test sürüşleri için kullanılacak. Azure abonelik Kimliğinizi açarak bulabilirsiniz [Azure portalında](https://portal.azure.com/) giderek **abonelikleri** sol taraftaki menüyü sekmesi. Sekmeyi seçerek, abonelik kimliği (örneğin "a83645ac-1234-5ab6-6789-1h234g764ghty") görüntüler.
 
-- **Azure AD Kiracı kimliği** (gerekli): Azure Active Directory (AD) girin [Kiracı kimliği](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id). Bu Kimliğini bulmak için oturum açın [Azure portalında](https://portal.azure.com/), soldaki menüde Active Directory sekmesini seçin, **özellikleri** , ardından Ara **dizin kimliği** numarası listelenen (örn.) 50c464d3-4930-494c-963c-1e951d15360e). Kuruluşunuzun Kiracı kimliği, etki alanı adı URL'de kullanarak da arayabilirsiniz: [ https://www.whatismytenantid.com ](https://www.whatismytenantid.com).
+- **Azure AD Kiracı kimliği** (gerekli): Azure Active Directory (AD) girin [Kiracı kimliği](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Bu Kimliğini bulmak için oturum açın [Azure portalında](https://portal.azure.com/), soldaki menüde Active Directory sekmesini seçin, **özellikleri** , ardından Ara **dizin kimliği** numarası listelenen (örn.) 50c464d3-4930-494c-963c-1e951d15360e). Kuruluşunuzun Kiracı kimliği, etki alanı adı URL'de kullanarak da arayabilirsiniz: [ https://www.whatismytenantid.com ](https://www.whatismytenantid.com).
 
 - **Azure AD Kiracı adı** (için Dynamic 365 gerekli): Azure Active Directory (AD) adınızı girin. Bu adı bulmak için oturum açın [Azure portalında](https://portal.azure.com/), sağ üst köşedeki Kiracı adınızın hesap adınızın altında listelenir.
 
-- **Azure AD uygulama kimliği** (gerekli): Azure Active Directory (AD) girin [uygulama kimliği](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). Bu Kimliğini bulmak için oturum açın [Azure portalında](https://portal.azure.com/), soldaki menüde Active Directory sekmesini seçin, **uygulama kayıtları**, ardından Ara **uygulama kimliği** numarası (örneğin 50c464d3-4930-494c-963c-1e951d15360e) listelenir.
+- **Azure AD uygulama kimliği** (gerekli): Azure Active Directory (AD) girin [uygulama kimliği](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Bu Kimliğini bulmak için oturum açın [Azure portalında](https://portal.azure.com/), soldaki menüde Active Directory sekmesini seçin, **uygulama kayıtları**, ardından Ara **uygulama kimliği** numarası (örneğin 50c464d3-4930-494c-963c-1e951d15360e) listelenir.
 
-- **Azure AD uygulaması gizli** (gerekli): Azure AD uygulamanız girin [gizli](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). Bu değeri bulmak için oturum açın [Azure portalında](https://portal.azure.com/). Seçin **Azure Active Directory** sekmesini seçin soldaki menüde **uygulama kayıtları**, ardından test sürücü uygulamanızı seçin. Ardından, **sertifikalarını ve gizli dizilerini**seçin **yeni gizli**, bir açıklama girin, seçin **hiçbir zaman** altında **Expires**, ardından seçin **Ekle**. Değeri kopyalamak emin olun. (Bunu, aksi takdirde önce değeri erişemezsiniz sayfadan çıkmak yoktur.)
+- **Azure AD uygulaması gizli** (gerekli): Azure AD uygulamanız girin [gizli](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets). Bu değeri bulmak için oturum açın [Azure portalında](https://portal.azure.com/). Seçin **Azure Active Directory** sekmesini seçin soldaki menüde **uygulama kayıtları**, ardından test sürücü uygulamanızı seçin. Ardından, **sertifikalarını ve gizli dizilerini**seçin **yeni gizli**, bir açıklama girin, seçin **hiçbir zaman** altında **Expires**, ardından seçin **Ekle**. Değeri kopyalamak emin olun. (Bunu, aksi takdirde önce değeri erişemezsiniz sayfadan çıkmak yoktur.)
 
 Unutmayın **Kaydet** sonraki bölüme geçmeden önce!
 

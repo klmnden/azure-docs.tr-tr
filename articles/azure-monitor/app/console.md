@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: 602cd9696271931babad9aa962638c5b646c80ac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c2a28462633d47ad1d3f247793e3fcf6f4d40c0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60901861"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795459"
 ---
 # <a name="application-insights-for-net-console-applications"></a>.NET için Application Insights konsol uygulamaları
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) web uygulamanızın kullanılabilirliğini, performansını ve kullanımını izlemenize olanak tanır.
@@ -27,14 +27,16 @@ Bir aboneliğe ihtiyacınız [Microsoft Azure](https://azure.com). Windows, Xbox
 
 ## <a name="getting-started"></a>Başlarken
 
-* [Azure portalında](https://portal.azure.com) [bir Application Insights kaynağı oluşturun](../../azure-monitor/app/create-new-resource.md ). Uygulama türü olarak seçin **genel**.
+* [Azure portalında](https://portal.azure.com) [bir Application Insights kaynağı oluşturun](../../azure-monitor/app/create-new-resource.md). Uygulama türü olarak seçin **genel**.
 * İzleme Anahtarının bir kopyasını oluşturun. Anahtarı bulma **Essentials** oluşturduğunuz yeni kaynağın açılır. 
 * Son yükleme [Microsoft.applicationınsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) paket.
 * Hiç telemetri izlemeden önce izleme anahtarını kodunuzda ayarlayın (veya set appınsıghts_ınstrumentatıonkey ortam değişkeni). Bundan sonra el ile telemetri izlemek ve Azure portalında görme olanağına olmalıdır
 
 ```csharp
-TelemetryConfiguration.Active.InstrumentationKey = " *your key* ";
-var telemetryClient = new TelemetryClient();
+// you may use different options to create configuration as shown later in this article
+TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+configuration.InstrumentationKey = " *your key* ";
+var telemetryClient = new TelemetryClient(configuration);
 telemetryClient.TrackTrace("Hello World!");
 ```
 
@@ -46,7 +48,6 @@ Başlat ve koddan konfigurovat Application Insights veya bu adı kullanıyor `Ap
 > Başvuru yönergeleri **Applicationınsights.config** .NET Framework hedefleme ve .NET Core uygulamaları için geçerli değildir uygulamalar yalnızca geçerlidir.
 
 ### <a name="using-config-file"></a>Yapılandırma dosyası kullanma
-
 Varsayılan olarak, Application Insights SDK'sı arar `ApplicationInsights.config` çalışma dizininde dosya olduğunda `TelemetryConfiguration` oluşturuluyor
 
 ```csharp
@@ -94,6 +95,8 @@ En son sürümünü yükleyerek, yapılandırma dosyasının tam bir örnek alab
 ```
 
 ### <a name="configuring-telemetry-collection-from-code"></a>Koddan telemetri toplamayı yapılandırma
+> [!NOTE]
+> Okuma yapılandırma dosyası, .NET Core üzerinde desteklenmiyor. Kullanma fikrini değerlendirebilirsiniz [ASP.NET Core için Application Insights SDK'sı](../../azure-monitor/app/asp-net-core.md)
 
 * Uygulama başlatma sırasında oluşturma ve yapılandırma `DependencyTrackingTelemetryModule` örneği - tekil olmalıdır ve uygulama ömrü boyunca korunmalıdır.
 
@@ -118,14 +121,18 @@ module.Initialize(configuration);
 * Sık kullanılan telemetri başlatıcılar Ekle
 
 ```csharp
-// stamps telemetry with correlation identifiers
-TelemetryConfiguration.Active.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
-
 // ensures proper DependencyTelemetry.Type is set for Azure RESTful API calls
-TelemetryConfiguration.Active.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
+configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-* .NET Framework Windows uygulaması için de yükleyebilir ve performans sayacı Toplayıcı modülü açıklandığı Başlat [burada](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+Yapılandırma ile düz oluşturduysanız `TelemetryConfiguration()` oluşturucusu, ayrıca bağıntı desteğini etkinleştirmek için ihtiyacınız. **Gerekli olmadığı** yapılandırma dosyasından okuma, kullanılan `TelemetryConfiguration.CreateDefault()` veya `TelemetryConfiguration.Active`.
+
+```csharp
+configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
+```
+
+* Yükleme ve performans sayacı Toplayıcı modülü açıklandığı başlatmak isteyebilirsiniz [burada](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+
 
 #### <a name="full-example"></a>Tam örnek
 
@@ -142,10 +149,9 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            TelemetryConfiguration configuration = TelemetryConfiguration.Active;
+            TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
 
             configuration.InstrumentationKey = "removed";
-            configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
             configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 
             var telemetryClient = new TelemetryClient();

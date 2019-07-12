@@ -4,7 +4,7 @@ description: Depolama, bir Linux VM, sanal ağ ve alt ağ, yük dengeleyici, bir
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 04c1d69fc46b9a918038e93c4fc56681f225d365
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5fbcbc63b3038151a7d45a70ce88eb7ca9829fe5
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60328723"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668019"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Klasik Azure CLI'de eksiksiz bir Linux ortamı oluşturma
 Bu makalede, bir yük dengeleyici ve bir çift geliştirme ve basit bilgi işlem için yararlı olan Vm'leri içeren basit bir ağ ekleriz. İki çalışma, güvenli, gelen herhangi bir Internet'te bağlanabileceği sanal makineleri bulunana kadar komutu komut sürecinde inceleyeceğiz. Ardından, daha karmaşık ağlar ve ortam geçebilirsiniz.

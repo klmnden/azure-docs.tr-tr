@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.openlocfilehash: b0f513462f1e09718dc18e9ce454b82e8978961f
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 88df7ae0d4e6054d82302ad5f0adabcf656cb0f5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329602"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620815"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Örnekler için sık kullanılan Stream Analytics kullanım desenlerini sorgulama
 
@@ -35,7 +35,7 @@ Azure Stream Analytics, olayları işlemeyi CSV, JSON ve Avro veri biçimlerini 
 
 **Giriş**:
 
-| Yapın | Zaman | Ağırlık |
+| Yapın | Time | Ağırlık |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |"1000" |
 | Honda |2015-01-01T00:00:02.0000000Z |"2000" |
@@ -68,7 +68,7 @@ Azure Stream Analytics, olayları işlemeyi CSV, JSON ve Avro veri biçimlerini 
 
 **Giriş**:
 
-| Yapın | LicensePlate | Zaman |
+| Yapın | LicensePlate | Time |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -76,7 +76,7 @@ Azure Stream Analytics, olayları işlemeyi CSV, JSON ve Avro veri biçimlerini 
 
 **Çıkış**:
 
-| Yapın | LicensePlate | Zaman |
+| Yapın | LicensePlate | Time |
 | --- | --- | --- |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
@@ -100,7 +100,7 @@ Azure Stream Analytics, olayları işlemeyi CSV, JSON ve Avro veri biçimlerini 
 
 **Giriş**:
 
-| Yapın | Zaman |
+| Yapın | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
@@ -108,7 +108,7 @@ Azure Stream Analytics, olayları işlemeyi CSV, JSON ve Avro veri biçimlerini 
 
 **Çıkış**:
 
-| CarsPassed | Zaman |
+| CarsPassed | Time |
 | --- | --- |
 | 1 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 Toyotas |2015-01-01T00:00:10.0000000Z |
@@ -137,7 +137,7 @@ Azure Stream Analytics, olayları işlemeyi CSV, JSON ve Avro veri biçimlerini 
 
 **Giriş**:
 
-| Yapın | Zaman |
+| Yapın | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -147,7 +147,7 @@ Azure Stream Analytics, olayları işlemeyi CSV, JSON ve Avro veri biçimlerini 
 
 **Output1**:
 
-| Yapın | Zaman |
+| Yapın | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -157,7 +157,7 @@ Azure Stream Analytics, olayları işlemeyi CSV, JSON ve Avro veri biçimlerini 
 
 **Output2**:
 
-| Yapın | Zaman | Sayı |
+| Yapın | Time | Count |
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -211,7 +211,7 @@ Not ortak tablo ifadeleri (Cte'lerin) sonuçlarını da kullanabilirsiniz (gibi 
 
 **Giriş**:
 
-| Yapın | Zaman |
+| Yapın | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -221,10 +221,10 @@ Not ortak tablo ifadeleri (Cte'lerin) sonuçlarını da kullanabilirsiniz (gibi 
 
 **Çıkış:**
 
-| CountMake | Zaman |
+| CountMake | Time |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
-| 1 |2015-01-01T00:00:04.000Z |
+| 1\. |2015-01-01T00:00:04.000Z |
 
 **Çözüm:**
 
@@ -247,14 +247,14 @@ GROUP BY
 
 **Giriş**:
 
-| Yapın | Zaman |
+| Yapın | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
 **Çıkış**:
 
-| Yapın | Zaman |
+| Yapın | Time |
 | --- | --- |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
@@ -278,7 +278,7 @@ GROUP BY
 
 **Giriş**:
 
-| LicensePlate | Yapın | Zaman |
+| LicensePlate | Yapın | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -290,7 +290,7 @@ GROUP BY
 
 **Çıkış**:
 
-| LicensePlate | Yapın | Zaman |
+| LicensePlate | Yapın | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | QYF 9358 |Honda |2015-07-27T00:12:02.0000000Z |
@@ -310,7 +310,7 @@ GROUP BY
 
 Şimdi şimdi sorun değiştirin ve her 10 dakikalık zaman aralığını belirli olun, ilk araba bulun.
 
-| LicensePlate | Yapın | Zaman |
+| LicensePlate | Yapın | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -337,7 +337,7 @@ GROUP BY
 
 **Giriş**:
 
-| LicensePlate | Yapın | Zaman |
+| LicensePlate | Yapın | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -349,7 +349,7 @@ GROUP BY
 
 **Çıkış**:
 
-| LicensePlate | Yapın | Zaman |
+| LicensePlate | Yapın | Time |
 | --- | --- | --- |
 | VFE 1616 |Toyota |2015-07-27T00:09:31.0000000Z |
 | MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
@@ -386,7 +386,7 @@ GROUP BY
 
 **Giriş**:
 
-| Yapın | LicensePlate | Zaman |
+| Yapın | LicensePlate | Time |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -395,7 +395,7 @@ GROUP BY
 
 **Çıkış**:
 
-| Yapın | Zaman | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
+| Yapın | Time | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
 | --- | --- | --- | --- | --- |
 | Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 
@@ -422,14 +422,14 @@ GROUP BY
 
 **Giriş**:  
 
-| Kullanıcı | Özellik | Olay | Zaman |
+| Kullanıcı | Özellik | Olay | Time |
 | --- | --- | --- | --- |
-| user@location.com |RightMenu |Başlatma |2015-01-01T00:00:01.0000000Z |
+| user@location.com |RightMenu |Start |2015-01-01T00:00:01.0000000Z |
 | user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
 
 **Çıkış**:  
 
-| Kullanıcı | Özellik | Süre |
+| Kullanıcı | Özellik | Duration |
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 
@@ -456,7 +456,7 @@ GROUP BY
 
 **Giriş**:
 
-| Yapın | Zaman | Ağırlık |
+| Yapın | Time | Ağırlık |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |2000 |
 | Toyota |2015-01-01T00:00:02.0000000Z |25000 |
@@ -504,7 +504,7 @@ GROUP BY
 
 | t | value |
 | --- | --- |
-| "2014-01-01T06:01:00" |1 |
+| "2014-01-01T06:01:00" |1\. |
 | "2014-01-01T06:01:05" |2 |
 | "2014-01-01T06:01:10" |3 |
 | "2014-01-01T06:01:15" |4 |
@@ -619,13 +619,13 @@ WHERE
 
 **Giriş**:
 
-| LicensePlate | Yapın | Zaman | TollID |
+| LicensePlate | Yapın | Time | TollID |
 | --- | --- | --- | --- |
-| DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
-| YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1 |
+| DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1\. |
+| YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1\. |
 | QYF 9358 |Honda |2015-07-27T00:00:01.0000000Z | 2 |
 | GXF 9462 |BMW |2015-07-27T00:00:04.0000000Z | 2 |
-| VFE 1616 |Toyota |2015-07-27T00:00:10.0000000Z | 1 |
+| VFE 1616 |Toyota |2015-07-27T00:00:10.0000000Z | 1\. |
 | RMV 8282 |Honda |2015-07-27T00:00:03.0000000Z | 3 |
 | MDR 6128 |BMW |2015-07-27T00:00:11.0000000Z | 2 |
 | YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
@@ -634,12 +634,12 @@ WHERE
 
 | TollID | Count |
 | --- | --- |
-| 1 | 2 |
+| 1\. | 2 |
 | 2 | 2 |
-| 1 | 1 |
-| 3 | 1 |
-| 2 | 1 |
-| 3 | 1 |
+| 1\. | 1\. |
+| 3 | 1\. |
+| 2 | 1\. |
+| 3 | 1\. |
 
 **Çözüm**:
 
@@ -660,12 +660,12 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **Giriş**:  
 
-| DeviceId | Zaman | Öznitelik | Value |
+| DeviceId | Time | Öznitelik | Value |
 | --- | --- | --- | --- |
-| 1 |2018-07-27T00:00:01.0000000Z |Sıcaklık |50 |
-| 1 |2018-07-27T00:00:01.0000000Z |Sıcaklık |50 |
+| 1\. |2018-07-27T00:00:01.0000000Z |Sıcaklık |50 |
+| 1\. |2018-07-27T00:00:01.0000000Z |Sıcaklık |50 |
 | 2 |2018-07-27T00:00:01.0000000Z |Sıcaklık |40 |
-| 1 |2018-07-27T00:00:05.0000000Z |Sıcaklık |60 |
+| 1\. |2018-07-27T00:00:05.0000000Z |Sıcaklık |60 |
 | 2 |2018-07-27T00:00:05.0000000Z |Sıcaklık |50 |
 | 1 |2018-07-27T00:00:10.0000000Z |Sıcaklık |100 |
 
@@ -718,6 +718,6 @@ Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https
 * [Azure Stream analytics'e giriş](stream-analytics-introduction.md)
 * [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
 * [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
-* [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Akış Analizi Sorgu Dili Başvurusu](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Akış Analizi Yönetimi REST API'si Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

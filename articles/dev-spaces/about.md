@@ -4,19 +4,18 @@ titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 ms.author: zarhoads
 ms.date: 05/07/2019
 ms.topic: overview
 description: Azure geliştirme alanları giriş
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, kubectl, k8s
-manager: jeconnoc
-ms.openlocfilehash: 3e887409518f5cc97238a0168213a7918e318c04
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+manager: gwallace
+ms.openlocfilehash: 33ac5a7aa6d823105b87325ba52aa77cd9b9b3a3
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66394016"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706295"
 ---
 # <a name="azure-dev-spaces"></a>Azure Dev Spaces
 

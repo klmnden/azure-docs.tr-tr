@@ -4,7 +4,7 @@ description: Azure portal veya Azure PowerShell kullanarak bir hesap parolası v
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 45c69812-d3e4-48de-a98d-39a0f5675777
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 0a12cbabc28640283f5a28eb7a83c7d7717e0882
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: caa0066f8020c19cecccaa0421f90188260c644b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60921227"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710632"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Uzak Masaüstü Hizmetleri veya bir Windows VM'de yönetici parolasını sıfırlama
 Bir Windows sanal makinesi (VM) bağlanamıyorsanız, yerel Yönetici parolanızı sıfırlayın ya da (Windows etki alanı denetleyicilerinde desteklenmez) Uzak Masaüstü Hizmetleri yapılandırmasını sıfırlayın. Parolayı sıfırlamak için Azure portalı veya Azure PowerShell'deki VM Erişimi uzantısını kullanın. VM'de oturum açtıktan sonra yerel yönetici parolasını sıfırlayın.  

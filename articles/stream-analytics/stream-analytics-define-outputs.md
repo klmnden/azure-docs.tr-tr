@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 17214bb4904cc540de0a7d6f753b7e70abfa564c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ef2a55b377c2ca48b9417310926a014a82f679d7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443639"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621890"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics çıkışları anlama
 
 Bu makalede, Azure Stream Analytics işi için çıktıların türlerini açıklar. Çıkış, depolamak ve Stream Analytics işi sonuçlarını kaydetmek olanak tanır. Yapabileceğiniz çıktı verilerini kullanarak, İş analizi ve veri depolama verilerinizi daha fazla.
 
-Stream Analytics sorgunuz tasarlarken kullanarak çıktının adına başvurmak [yan tümcesi içinde](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). İş başına tek bir çıkış veya (gerekiyorsa), birden çok INTO yan tümceleri sorguda sağlayarak iş akışı başına birden çok çıkış kullanabilirsiniz.
+Stream Analytics sorgunuz tasarlarken kullanarak çıktının adına başvurmak [yan tümcesi içinde](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). İş başına tek bir çıkış veya (gerekiyorsa), birden çok INTO yan tümceleri sorguda sağlayarak iş akışı başına birden çok çıkış kullanabilirsiniz.
 
 Test Stream Analytics işi oluşturmak ve düzenlemek için çıkışları kullanabileceğiniz [Azure portalında](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), ve [Visual Studio](stream-analytics-quick-create-vs.md).
 
@@ -37,7 +37,7 @@ Stream analytics'ten Azure Data Lake depolama çıkışı şu anda Azure Çin 21
 | Özellik adı | Açıklama |
 | --- | --- |
 | Çıktı diğer adı | Sorgular, Data Lake Store sorgu çıkışı yönlendirmek için kullanılan kolay bir ad. |
-| Abonelik | Azure Data Lake Storage hesabını içeren aboneliği. |
+| Subscription | Azure Data Lake Storage hesabını içeren aboneliği. |
 | Hesap adı | Çıkış burada gönderiyorsanız Data Lake Store hesabının adıdır. Aşağı açılan listesini aboneliğinizde mevcut bir Data Lake Store hesapları ile sunulur. |
 | Yol ön eki deseni | Belirtilen Data Lake Store hesabındaki dosyaları yazmak için kullanılan dosya yolu. {Değişkenleri time} ve {date} bir veya daha fazla örneğini belirtin:<br /><ul><li>Örnek 1: klasör1/günlükler / {tarih} / {time}</li><li>Örnek 2: klasör1/günlükler / {tarih}</li></ul><br />Oluşturulan klasör yapısını zaman damgasını UTC ve yerel saat izler.<br /><br />Dosya yolu deseni sonunda eğik çizgi (/) içermiyorsa, son deseni dosya yolunda dosya adı ön eki olarak kabul edilir. <br /><br />Bu durumlarda, yeni dosyalar oluşturulur:<ul><li>Çıkış şemayı değiştirme</li><li>Harici veya dahili bir işi yeniden başlatın.</li></ul> |
 | Tarih biçimi | İsteğe bağlı. Ön ek yolu tarih belirteci kullandıysanız, dosyalarınızı düzenlenmiş tarih biçimi seçebilirsiniz. Örnek: YYYY/AA/GG |
@@ -59,8 +59,8 @@ Aşağıdaki tabloda özellik adları ve SQL veritabanı çıktı oluşturmak i�
 | Çıktı diğer adı |Sorgular, bu veritabanı sorgusu çıkışı yönlendirmek için kullanılan kolay bir ad. |
 | Database | Çıkış burada gönderiyorsanız veritabanının adı. |
 | Sunucu adı | SQL veritabanı sunucu adı. |
-| Kullanıcı adı | Veritabanına yazma erişimi olan kullanıcı adı. Stream Analytics, yalnızca SQL kimlik doğrulamasını destekler. |
-| Parola | Veritabanına bağlanmak için parola. |
+| Kullanıcı Adı | Veritabanına yazma erişimi olan kullanıcı adı. Stream Analytics, yalnızca SQL kimlik doğrulamasını destekler. |
+| istemcisiyle yönetilen bir cihaz için) | Veritabanına bağlanmak için parola. |
 | Tablo | Çıkış yazıldığı tablo adı. Tablo adı büyük/küçük harfe duyarlıdır. Bu tablonun şeması, alanları ve bunların türlerini, iş çıktısı üreten sayısı tam olarak eşleşmelidir. |
 |Bölüm düzeni devral| Tablo için birden çok yazarları içeren tam olarak paralel topolojisi etkinleştirmek için önceki bir sorgu adımına bölümleme düzeni devralma seçeneği. Daha fazla bilgi için [Azure SQL veritabanı için Azure Stream Analytics çıkış](stream-analytics-sql-output-perf.md).|
 |En yüksek toplu iş sayısı| Önerilen üst sınırı gönderilen her toplu ile kayıtlarının sayısı üzerinde işlem ekleyin.|
@@ -149,7 +149,7 @@ Power BI, ilk giren ilk çıkar (FIFO) bekletme ilkesi kullanır. Bunu 200.000 s
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Bir veri türü, Stream Analytics'ten Power BI'a Dönüştür.
 Çıkış şema değişirse azure Stream Analytics veri modeli zamanında dinamik olarak güncelleştirir. Sütun adı değişiklikleri, sütun türü değişikliklerini ve eklenmesi veya kaldırılmasını sütunları tüm izlenir.
 
-Bu tablo veri türü dönüştürme gelen kapsayan [Stream Analytics veri türleri](https://msdn.microsoft.com/library/azure/dn835065.aspx) Power bı'a [varlık veri modeli (EDM) türleri](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model), Power BI veri kümesine ve tablo mevcut değilse.
+Bu tablo veri türü dönüştürme gelen kapsayan [Stream Analytics veri türleri](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics) Power bı'a [varlık veri modeli (EDM) türleri](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model), Power BI veri kümesine ve tablo mevcut değilse.
 
 Stream Analytics'ten | Power BI
 -----|-----
@@ -169,8 +169,8 @@ Stream Analytics, olay çıktıdaki ilk kümesini göre veri modeli şemayı alg
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | Dize | Dize | çift
 çift | çift | Dize | Dize | çift
-Dize | Dize | Dize | Dize | Dize 
-Tarih saat | Dize | Dize |  Tarih saat | String
+Dize | String | String | String | Dize 
+Tarih saat | Dize | Dize |  Tarih saat | Dize
 
 ## <a name="table-storage"></a>Table Storage
 
@@ -295,7 +295,7 @@ Bölüm destek ve çıkış yazarların her çıkış türü sayısı aşağıda
 | Çıkış türü | Bölümleme desteği | Bölüm anahtarı  | Çıkış yazıcılar sayısı |
 | --- | --- | --- | --- |
 | Azure Data Lake Store | Evet | Kullanım: {date} ve {time} belirteçleri yol ön eki deseni. YYYY/MM/DD, GG/AA/YYYY veya AA-GG-YYYY gibi tarih biçimi seçin. SS saat biçimi için kullanılır. | Giriş bölümleme için aşağıdaki [tamamen paralelleştirilebilir sorguları](stream-analytics-scale-jobs.md). |
-| Azure SQL Veritabanı | Evet, etkin gerekir. | Sorgusunda PARTITION BY yan tümcesi temel. | Giriş bölümleme için bölümleme devralma seçeneği etkin olduğunda, aşağıdaki [tamamen paralelleştirilebilir sorguları](stream-analytics-scale-jobs.md). Elde hakkında daha fazla daha iyi yazma verimliliği performansından Azure SQL veritabanı'na veri yükleme zaman bilgi edinmek için [Azure SQL veritabanı için Azure Stream Analytics çıkış](stream-analytics-sql-output-perf.md). |
+| Azure SQL Database | Evet, etkin gerekir. | Sorgusunda PARTITION BY yan tümcesi temel. | Giriş bölümleme için bölümleme devralma seçeneği etkin olduğunda, aşağıdaki [tamamen paralelleştirilebilir sorguları](stream-analytics-scale-jobs.md). Elde hakkında daha fazla daha iyi yazma verimliliği performansından Azure SQL veritabanı'na veri yükleme zaman bilgi edinmek için [Azure SQL veritabanı için Azure Stream Analytics çıkış](stream-analytics-sql-output-perf.md). |
 | Azure Blob depolama | Evet | Kullanım {date} ve {time} belirteçleri, olay alanlarından yol deseni. YYYY/MM/DD, GG/AA/YYYY veya AA-GG-YYYY gibi tarih biçimi seçin. SS saat biçimi için kullanılır. BLOB çıkış bölümlenebilir tek bir özel olay özniteliğiyle {fieldname} veya {datetime:\<belirticisi >}. | Giriş bölümleme için aşağıdaki [tamamen paralelleştirilebilir sorguları](stream-analytics-scale-jobs.md). |
 | Azure Event Hubs | Evet | Evet | Bölüm hizalama bağlı olarak değişir.<br /> Olay hub'ı çıkışı için bölüm anahtarı eşit Yukarı Akış (önceki) sorgu adımı hizalandığında yazıcılar sayısı olay hub'ı çıkışında bölüm sayısı ile aynıdır. Her yazıcı kullanan [EventHubSender sınıfı](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) bölüme olayları göndermek için. <br /> Olay hub'ı çıkışı için bölüm anahtarı Yukarı Akış (önceki) sorgu adımı hizalanmadığında yazıcılar sayısı, önceki adımda bölüm sayısı ile aynıdır. Her yazıcı kullanan [SendBatchAsync sınıfı](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) içinde **EventHubClient** çıkış bölümlere tüm olayları göndermek için. |
 | Power BI | Hayır | None | Geçerli değildir. |
@@ -315,7 +315,7 @@ Aşağıdaki tabloda bazı toplu işleme çıktısı için dikkat edilecek nokta
 | Çıkış türü | En büyük mesaj boyutu | Toplu iş boyutu en iyi duruma getirme |
 | :--- | :--- | :--- |
 | Azure Data Lake Store | Bkz: [Data Lake Storage sınırlar](../azure-subscription-service-limits.md#data-lake-store-limits). | Yazma işlemi başına en fazla 4 MB'ı kullanın. |
-| Azure SQL Veritabanı | En büyük toplu iş sayısı kullanılarak yapılandırılabilir. 10.000 en fazla ve 100 en az satır başına tek bir toplu varsayılan olarak ekleyin.<br />Bkz: [Azure SQL sınırlar](../sql-database/sql-database-resource-limits.md). |  Her batch başlangıçta toplu en yüksek toplu iş sayısı ile eklenmiş olur. Toplu işlem yeniden denenebilir hatayla SQL göre ikiye (kadar en düşük toplu iş sayısı) ayrılır. |
+| Azure SQL Database | En büyük toplu iş sayısı kullanılarak yapılandırılabilir. 10.000 en fazla ve 100 en az satır başına tek bir toplu varsayılan olarak ekleyin.<br />Bkz: [Azure SQL sınırlar](../sql-database/sql-database-resource-limits.md). |  Her batch başlangıçta toplu en yüksek toplu iş sayısı ile eklenmiş olur. Toplu işlem yeniden denenebilir hatayla SQL göre ikiye (kadar en düşük toplu iş sayısı) ayrılır. |
 | Azure Blob depolama | Bkz: [Azure depolama sınırlarını](../azure-subscription-service-limits.md#storage-limits). | En yüksek blob blok boyutu 4 MB'dir.<br />En yüksek blob bock sayısı 50. 000 ' dir. |
 | Azure Event Hubs  | 256 KB veya ileti başına 1 MB. <br />Bkz: [Event Hubs sınırlar](../event-hubs/event-hubs-quotas.md). |  Giriş/Çıkış bölümleme hizalı değil, her olay, tek tek paketlenmiş `EventData` ve en büyük ileti boyutu en fazla toplu olarak gönderilir. Ayrıca, böyle [özel meta veri özelliklerini](#custom-metadata-properties-for-output) kullanılır. <br /><br />  Birden çok olay tek bir giriş/çıkış bölümleme hizalandığında paketlenir `EventData` , en büyük ileti boyutu en fazla örnek ve gönderilir. |
 | Power BI | Bkz: [Power BI Rest API'si sınırlar](https://msdn.microsoft.com/library/dn950053.aspx). |

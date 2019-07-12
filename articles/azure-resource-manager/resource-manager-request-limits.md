@@ -4,19 +4,19 @@ description: Abonelik sınırlarına ulaşıldı, Azure Resource Manager istekle
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 07/09/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: b382b9ae35d492b4c779b8f7ee360fb378d54e08
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36e881fb9ba3ab81611b94a36ef0beed8748d5b1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399707"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705112"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager istekleri azaltma
 
-Her Azure aboneliği ve Kiracı için Resource Manager kadar saat başına istek 12.000 okuma ve yazma istekleri saatte 1.200 sağlar. Bu limitler istekleri yapabilen sorumlu kimliği ve abonelik kimliği için kapsamlı veya Kiracı kimliği. İsteklerinizi birden fazla asıl kimliği geliyorsa, abonelik veya Kiracı genelinde sınırınızı 12.000 ve saatte 1.200 büyüktür.
+Her Azure aboneliği ve Kiracı için Resource Manager kadar saat başına istek 12.000 okuma ve yazma istekleri saatte 1.200 sağlar. Bu sınırlar, güvenlik sorumlusunu (kullanıcı veya uygulama) kapsamındaki istekleri ve abonelik kimliği veya Kiracı kimliği. İsteklerinizi güvenlik sorumlusu birden fazla geliyorsa, abonelik veya Kiracı genelinde sınırınızı 12.000 ve saatte 1.200 büyüktür.
 
 İstekleri aboneliğiniz veya kiracınız için uygulanır. Abonelik, aboneliğinizdeki kaynak gruplarını almak gibi abonelik Kimliğinizi geçirme ilgili isteklerdir. Kiracı isteklerini, geçerli Azure konumlarının alma gibi abonelik Kimliğinizi dahil değildir.
 

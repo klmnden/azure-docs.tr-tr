@@ -4,7 +4,7 @@ description: Azure Windows Vm'lerinde SAC CMD ve PowerShell komutlarını kullan
 services: virtual-machines-windows
 documentationcenter: ''
 author: alsin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 55b7e45bb9e600267e1dad0e36e9a97eca9a7d40
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f286881341e527d3f01e57768cd48405c85a9a69
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306892"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710606"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Windows komutları - CMD ve PowerShell
 
@@ -71,13 +71,13 @@ Eşittir işaretinden sonra boşluk gereklidir.
 ### <a name="start-service"></a>Hizmeti Başlat
 `net start termservice`
 
-or
+veya
 
 `sc start termservice`
 ### <a name="stop-service"></a>Hizmeti Durdur
 `net stop termservice`
 
-or
+veya
 
 `sc stop termservice`
 ## <a name="manage-networking-features"></a>Ağ özelliklerini yönetme
@@ -211,11 +211,11 @@ Yolun kullanırken `/restore` kullanırken belirttiğiniz klasörün üst klasö
 ### <a name="show-os-version"></a>İşletim sistemi sürümü göster
 `ver`
 
-or 
+veya 
 
 `wmic os get caption,version,buildnumber /format:list`
 
-or 
+veya 
 
 `systeminfo  find /i "os name"`
 
@@ -223,7 +223,7 @@ or
 ### <a name="view-os-install-date"></a>Görünüm işletim sistemi yükleme tarihi
 `systeminfo | find /i "original"`
 
-or 
+veya 
 
 `wmic os get installdate`
 ### <a name="view-last-boot-time"></a>Görünümü son önyükleme zamanı
@@ -231,7 +231,7 @@ or
 ### <a name="view-time-zone"></a>Görünüm saat dilimi
 `systeminfo | find /i "time zone"`
 
-or
+veya
 
 `wmic timezone get caption,standardname /format:list`
 ### <a name="restart-windows"></a>Windows yeniden başlatma
@@ -296,7 +296,7 @@ Bir hizmet hesabı dışındaki kullanırken `NT AUTHORITY\LocalService`, `NT AU
 ### <a name="show-nic-properties"></a>NIC özellikleri göster
 `get-netadapter | where {$_.ifdesc.startswith('Microsoft Hyper-V Network Adapter')} |  format-list status,name,ifdesc,macadDresS,driverversion,MediaConNectState,MediaDuplexState`
 
-or 
+veya 
 
 `get-wmiobject win32_networkadapter -filter "servicename='netvsc'" |  format-list netenabled,name,macaddress`
 
@@ -306,7 +306,7 @@ or
 ### <a name="enable-nic"></a>NIC etkinleştir
 `get-netadapter | where {$_.ifdesc.startswith('Microsoft Hyper-V Network Adapter')} | enable-netadapter`
 
-or
+veya
 
 `(get-wmiobject win32_networkadapter -filter "servicename='netvsc'").enable()`
 
@@ -320,7 +320,7 @@ or
 ### <a name="ping"></a>Ping
 `test-netconnection`
 
-or
+veya
 
 `get-wmiobject Win32_PingStatus -Filter 'Address="8.8.8.8"' | format-table -autosize IPV4Address,ReplySize,ResponseTime`
 
@@ -328,7 +328,7 @@ or
 ### <a name="port-ping"></a>Bağlantı noktası Ping
 `test-netconnection -ComputerName bing.com -Port 80`
 
-or
+veya
 
 `(new-object Net.Sockets.TcpClient).BeginConnect('bing.com','80',$null,$null).AsyncWaitHandle.WaitOne(300)`
 
@@ -336,7 +336,7 @@ or
 ### <a name="test-dns-name-resolution"></a>DNS ad çözümlemesini test
 `resolve-dnsname bing.com` 
 
-or 
+veya 
 
 `[System.Net.Dns]::GetHostAddresses('bing.com')`
 
@@ -346,7 +346,7 @@ or
 ### <a name="show-windows-firewall-rule-by-port"></a>Windows Güvenlik duvarı kuralı tarafından bağlantı noktası Göster
 `get-netfirewallportfilter | where {$_.localport -eq 3389} | foreach {Get-NetFirewallRule -Name $_.InstanceId} | format-list Name,Enabled,Profile,Direction,Action`
 
-or
+veya
 
 `(new-object -ComObject hnetcfg.fwpolicy2).rules | where {$_.localports -eq 3389 -and $_.direction -eq 1} | format-table Name,Enabled`
 
@@ -361,7 +361,7 @@ or
 ### <a name="verify-user-account-is-enabled"></a>Kullanıcı hesabı etkinleştirildiğini doğrulama
 `(get-localuser | where {$_.SID -like "S-1-5-21-*-500"}).Enabled`
 
-or 
+veya 
 
 `(get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'").Disabled`
 
@@ -375,7 +375,7 @@ Bu örnekte her zaman SID'ye sahip olduğu yerleşik yerel yönetici hesabını 
 ### <a name="view-user-account-properties"></a>Kullanıcı hesabı özellikleri görüntüle
 `get-localuser | where {$_.SID -like "S-1-5-21-*-500"} | format-list *`
 
-or 
+veya 
 
 `get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'" |  format-list Name,Disabled,Status,Lockout,Description,SID`
 

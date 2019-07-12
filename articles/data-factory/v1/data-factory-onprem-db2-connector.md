@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e473858ed02afce89313c0bfeffd95c785120d40
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824023"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839027"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory kopyalama etkinliği'ni kullanarak DB2 verileri taşıma
 > [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
@@ -64,7 +64,7 @@ Data Factory DB2 Bağlayıcısı aşağıdaki IBM DB2 platformlara ve sürümler
 Farklı araç ve API'leri kullanarak bir şirket içi DB2 veri deposundan veri taşımak için bir kopyalama etkinlikli bir işlem hattı oluşturabilirsiniz: 
 
 - Bir işlem hattı oluşturmanın en kolay yolu, Azure Data Factory Kopyalama Sihirbazı'nı kullanmaktır. Hızlı bir kılavuz Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hakkında bilgi için bkz: [Öğreticisi: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md). 
-- Azure portalı, Visual Studio, Azure PowerShell, Azure Resource Manager şablonu, .NET API ve REST API dahil olmak üzere bir işlem hattı oluşturmak için araçlar da kullanabilirsiniz. Kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+- Araçları, Visual Studio, Azure PowerShell, Azure Resource Manager şablonu, .NET API ve REST API dahil olmak üzere bir işlem hattı oluşturmak için de kullanabilirsiniz. Kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için bir kaynak veri deposundan veri taşıyan bir işlem hattı oluşturmak için aşağıdaki adımları gerçekleştirin:
 
@@ -112,7 +112,7 @@ Kopyalama etkinliği kaynak türü olduğunda için **RelationalSource** (DB2 i�
 > Şema ve tablo adları büyük/küçük harfe duyarlıdır. Sorgu deyiminde özellik adları kullanarak alın "" (çift tırnak).
 
 ## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>JSON örneği: DB2'den Azure Blob depolama alanına veri kopyalama
-Bu örnekte kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Örnek, DB2 veritabanından Blob depolama alanına veri kopyalama işlemini göstermektedir. Ancak, veriler için kopyalanabilir [desteklenen tüm veriler, Havuz türü depolamak](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kullanarak Azure Data Factory kopyalama etkinliği.
+Bu örnekte kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Örnek, DB2 veritabanından Blob depolama alanına veri kopyalama işlemini göstermektedir. Ancak, veriler için kopyalanabilir [desteklenen tüm veriler, Havuz türü depolamak](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kullanarak Azure Data Factory kopyalama etkinliği.
 
 Örnek, aşağıdaki Data Factory varlıklarını sahiptir:
 
@@ -308,8 +308,8 @@ Kopyalama etkinliği verileri DB2 türünden bir .NET türe dönüştürdüğün
 
 | DB2 veritabanı türü | .NET framework türü |
 | --- | --- |
-| Integer |Int16 |
-| Integer |Int32 |
+| Smallint |Int16 |
+| Tamsayı |Int32 |
 | BigInt |Int64 |
 | Real |Single |
 | Double |Double |
@@ -317,25 +317,25 @@ Kopyalama etkinliği verileri DB2 türünden bir .NET türe dönüştürdüğün
 | Ondalık |Decimal |
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
-| Tarih |DateTime |
-| Zaman |TimeSpan |
-| Timestamp |DateTime |
+| Date |Datetime |
+| Time |TimeSpan |
+| Timestamp |Datetime |
 | Xml |Byte[] |
-| Char |String |
-| VarChar |String |
-| LongVarChar |String |
-| DB2DynArray |String |
-| binary |Byte[] |
+| Char |Dize |
+| VarChar |Dize |
+| LongVarChar |Dize |
+| DB2DynArray |Dize |
+| Binary |Byte[] |
 | VarBinary |Byte[] |
 | LongVarBinary |Byte[] |
-| Graphic |String |
-| VarGraphic |String |
-| LongVarGraphic |String |
-| Clob |String |
+| Graphic |Dize |
+| VarGraphic |Dize |
+| LongVarGraphic |Dize |
+| Clob |Dize |
 | Blob |Byte[] |
-| DbClob |String |
+| DbClob |Dize |
 | Integer |Int16 |
-| Integer |Int32 |
+| Tamsayı |Int32 |
 | BigInt |Int64 |
 | Real |Single |
 | Double |Double |
@@ -343,11 +343,11 @@ Kopyalama etkinliği verileri DB2 türünden bir .NET türe dönüştürdüğün
 | Ondalık |Decimal |
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
-| Tarih |DateTime |
-| Zaman |TimeSpan |
-| Timestamp |DateTime |
+| Date |Datetime |
+| Time |TimeSpan |
+| Timestamp |Datetime |
 | Xml |Byte[] |
-| Char |String |
+| Char |Dize |
 
 ## <a name="map-source-to-sink-columns"></a>Sütunları havuz için kaynak eşlemesi
 Kaynak veri kümesindeki sütunları havuz veri kümesi sütunlara eşlemeyle ilgili bilgi edinmek için bkz: [Azure Data factory'de veri kümesi sütunlarını eşleme](data-factory-map-columns.md).

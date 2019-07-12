@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9f15431015e847d882e51b8d88c5b8a8c121d0ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f73ab7b68e56f5303e84d86a2711b53ffc894276
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67115420"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718175"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>ExpressRoute ilişkili sanal ağları Klasikten Resource Manager'a geçiş
 
@@ -41,7 +41,7 @@ Bu makalede, sanal ağları ExpressRoute ilişkili ExpressRoute devreniz taşıd
 * Sanal ağlar, ağ geçitleri ve aynı Abonelikteki bir ExpressRoute bağlantı hattına bağlı sanal ağ içinde ilişkilendirilmiş dağıtımları, kapalı kalma süresi olmadan Resource Manager ortamına geçirilebilir. Sanal ağlar, ağ geçitleri ve sanal ağ içinde dağıtılan sanal makineler gibi kaynakları geçirmek için daha sonra açıklanan adımları takip edebilirsiniz. Geçişiniz yapılmadan önce sanal ağlar doğru şekilde yapılandırıldığından emin olmanız gerekir. 
 * Sanal ağlar, ağ geçitleri ve sanal ağ içinde ExpressRoute bağlantı hattı ile aynı abonelikte değil ilişkilendirilmiş dağıtımları Geçişi tamamlamak için bazı kapalı kalma süresi gerektirir. Belgenin son bölümde kaynakları geçirmek için izlenmesi gereken adımlar açıklanmaktadır.
 * Bir sanal ağda hem ExpressRoute ağ geçidi hem de VPN ağ geçidi geçirilemez.
-* ExpressRoute bağlantı hattı abonelikler arası geçiş desteklenmiyor. Daha fazla bilgi için [taşınamaz Hizmetleri](../azure-resource-manager/resource-group-move-resources.md#services-that-cannot-be-moved).
+* ExpressRoute bağlantı hattı abonelikler arası geçiş desteklenmiyor. Daha fazla bilgi için [Microsoft.Network taşıma desteği](../azure-resource-manager/move-support-resources.md#microsoftnetwork).
 
 ## <a name="move-an-expressroute-circuit-from-classic-to-resource-manager"></a>Bir ExpressRoute bağlantı hattını Klasikten Resource Manager'a taşıma
 ExpressRoute işlem hattına bağlı kaynakları geçirmeyi denemeden önce bir ExpressRoute bağlantı hattı Klasikten Resource Manager ortamına taşımanız gerekir. Bu görevi gerçekleştirmek için aşağıdaki makalelere bakın:

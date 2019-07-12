@@ -9,13 +9,13 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/20/2019
-ms.openlocfilehash: a5cbd2036f92c27709d92d0cf415cc9837645fb8
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.date: 07/11/2019
+ms.openlocfilehash: ddbe517510a3f7d1295c8970c13020baa3efacf0
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485611"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840307"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-c-using-the-net-sdk"></a>Hızlı Başlangıç: Azure Search dizini oluşturma C# .NET SDK kullanarak
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Bu hızlı başlangıçta, aşağıdaki hizmetleri, araçları ve verileri kulla
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), herhangi bir sürümü. Örnek kodu ve yönergeleri ücretsiz Community edition üzerinde test edilmiştir.
 
-+ Bu makalede de örnek dizin ve belgeler olarak sağlanan [Visual Studio çözümü](https://github.com/Azure-Samples/azure-search-dotnet-samples/quickstart) Bu Hızlı Başlangıç için.
++ Bu makalede de örnek dizin ve belgeler olarak sağlanan [Visual Studio çözümü](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) Bu Hızlı Başlangıç için.
 
 + [Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu Hızlı Başlangıç için ücretsiz bir hizmet kullanabilirsiniz.
 
@@ -195,11 +195,14 @@ Burada basit bir alan "HotelName" veya "Description" ve karmaşık alanları oda
     }
     ```
 
-    Alandaki öznitelikler, bir uygulamada nasıl kullanılacağını belirler. Örneğin, `IsSearchable` özniteliği bir tam metin aramasına dahil edilmesi gereken her alanı atanır. .NET SDK'da açıkça etkin olmayan alan davranışları devre dışı bırakmak için varsayılandır.
+    Alandaki öznitelikler, bir uygulamada nasıl kullanılacağını belirler. Örneğin, `IsSearchable` öznitelik, bir tam metin aramasına dahil edilmesi gereken her alana atanmalıdır. 
+    
+    > [!NOTE]
+    > .NET SDK'da alanları açıkça olarak öznitelikli gereken [ `IsSearchable` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issearchable?view=azure-dotnet), [ `IsFilterable` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet), [ `IsSortable` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issortable?view=azure-dotnet), ve [ `IsFacetable` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfacetable?view=azure-dotnet). Bu davranış attribution örtük olarak sağlayan REST API kullanılmasının veri türüne bağlıdır (örneğin, basit dize alanları otomatik olarak aranabilir).
 
     Türündeki dizininizde yalnızca bir alanın `string` olmalıdır *anahtar* her belgenin benzersiz olarak tanımlayan alan. Bu şemada anahtardır `HotelId`.
 
-    Bu dizinde varsayılan standart olarak Lucene çözümleyici geçersiz kılmak istediğiniz zaman belirtilen isteğe bağlı Çözümleyicisi özellik, açıklama alanları kullanın. `description_fr` Alanını Fransızca Lucene çözümleyici kullanarak ([FrLucene](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet)) Fransızca metin depoladığından. `description` İsteğe bağlı Microsoft dil çözümleyicisini kullanarak ([EnMicrosoft](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet)).
+    Bu dizinde isteğe bağlı açıklama alanları kullanın [ `analyzer` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.analyzer?view=azure-dotnet) özelliği, belirtilen varsayılan standart olarak Lucene çözümleyici geçersiz kılmak istediğinizde. `description_fr` Alanını Fransızca Lucene çözümleyici kullanarak ([FrLucene](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet)) Fransızca metin depoladığından. `description` İsteğe bağlı Microsoft dil çözümleyicisini kullanarak ([EnMicrosoft](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet)).
 
 1. Program.cs içinde bir örneğini oluşturmak [ `SearchServiceClient` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) (appsettings.json) uygulamanın yapılandırma dosyasında depolanan değerleri kullanarak hizmetine bağlanmak için sınıf. 
 
@@ -550,13 +553,11 @@ Bu bölüm iki işlev parçalarını ekler: Sorgu mantığının ve sonuçları.
 
 ## <a name="clean-up"></a>Temizleme
 
-Bir dizin ile işiniz bittiğinde ve bunu silmek istediğinizde, çağrı `Indexes.Delete` yöntemi, `SearchServiceClient`.
+Kendi aboneliğinizde çalışırken, oluşturduğunuz kaynakları hala gerekip gerekmediğini belirlemek için iyi bir fikir sonunda, bir proje var. Kaynakları sol çalışan can para maliyeti. Kaynakları tek tek silmek ya da tüm kaynak kümesini silmek için kaynak grubunu silin.
 
-```csharp
-serviceClient.Indexes.Delete("hotels");
-```
+Bulabilir ve Portalı'nda kaynaklarını yönetme kullanarak **tüm kaynakları** veya **kaynak grupları** sol gezinti bölmesindeki bağlantıyı.
 
-Ayrıca arama hizmeti ile işiniz bittiğinde, Azure portalından kaynakları silebilirsiniz.
+Ücretsiz bir hizmet kullanıyorsanız, üç dizin, dizin oluşturucular ve veri kaynağı için sınırlı olduğunu unutmayın. Bireysel öğeleri limiti altında kalmak için portalda silebilirsiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

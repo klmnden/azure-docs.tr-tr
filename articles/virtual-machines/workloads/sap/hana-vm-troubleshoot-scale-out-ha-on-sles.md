@@ -4,7 +4,7 @@ description: Denetleyin ve SAP HANA sistem çoğaltması (HSR) ve Azure sanal ma
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermannd
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 4483a7f53e084be5f245840829f4c9c95648b1af
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b794b045efa4be20a63e9996425d69f0212ae0d7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60477094"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707250"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Doğrulayın ve SLES 12 SP3 üzerinde SAP HANA genişleme yüksek kullanılabilirlik Kurulumu sorunlarını giderme 
 
@@ -94,7 +94,7 @@ SAP HANA ağ önerileri üç alt ağ içinde bir Azure sanal ağı oluşturulur.
 
 Birden çok ağ kullanmaya ilişkin SAP HANA yapılandırma hakkında daha fazla bilgi için bkz. [SAP HANA global.ini](#sap-hana-globalini).
 
-Kümedeki her bir VM alt ağ sayısını için karşılık gelen üç Vnıc'ler sahiptir. [Bir Linux sanal makinesini Azure'da birden çok ağ arabirimi kartları oluşturmak nasıl] [ azure-linux-multiple-nics] olası bir yönlendirme sorunu Azure'daki bir Linux VM dağıtılırken açıklanmaktadır. Bu belirli yönlendirme makale yalnızca çoklu Vnıcs kullanımı için geçerlidir. Sorun, SLES 12 SP3'te varsayılan başına tarafından SUSE çözülür. Daha fazla bilgi için [Multi-NIC ile bulut netconfig EC2 ve Azure'da][suse-cloud-netconfig].
+Kümedeki her bir VM alt ağ sayısını için karşılık gelen üç Vnıc'ler sahiptir. [Bir Linux sanal makinesini Azure'da birden çok ağ arabirimi kartları oluşturmak nasıl][azure-linux-multiple-nics] describes a potential routing issue on Azure when deploying a Linux VM. This specific routing article applies only for use of multiple vNICs. The problem is solved by SUSE per default in SLES 12 SP3. For more information, see [Multi-NIC with cloud-netconfig in EC2 and Azure][suse-cloud-netconfig].
 
 
 SAP HANA birden fazla ağ kullanmak için doğru şekilde yapılandırıldığını doğrulamak için aşağıdaki komutları çalıştırın. İlk işletim sistemi düzeyinde, tüm üç iç IP adreslerini üç alt ağ için etkin olup olmadığını denetleyin. Farklı IP adresi aralıklarını alt ağlarla tanımlanmışsa, komutları uymak zorunda:
@@ -726,7 +726,7 @@ Transition Summary:
 ## <a name="planned-maintenance"></a>Planlı bakım 
 
 Bu planlı bakım için söz konusu olduğunda farklı kullanım örnekleri vardır. Bir soru, yalnızca işletim sistemi düzeyi ve disk yapılandırması veya bir HANA yükseltme değişiklikleri gibi altyapı bakım olup olmadığını ' dir.
-SUSE gibi gelen belgelerde ek bilgiler bulabilirsiniz [doğrultusunda sıfır kapalı kalma süresi] [ sles-zero-downtime-paper] veya [SAP HANA SR performans için iyileştirilmiş senaryo] [ sles-12-for-sap]. Bu belgeleri nasıl birincil el ile geçirmeyi gösteren örnekler de içerir.
+SUSE gibi gelen belgelerde ek bilgiler bulabilirsiniz [doğrultusunda sıfır kapalı kalma süresi][sles-zero-downtime-paper] or [SAP HANA SR Performance Optimized Scenario][sles-12-for-sap]. Bu belgeleri nasıl birincil el ile geçirmeyi gösteren örnekler de içerir.
 
 Altyapı bakım kullanım örneği doğrulamak için yoğun iç testi yapılmadı. Birincil geçirmeye ilgili sorunlardan kaçınmak için her zaman bir küme bakım moduna almadan önce birincil geçirmek verdik. Bu şekilde, önceki durumu hakkında unutursanız küme yapmak ise gerekli değildir: hangi tarafta birincil ve ikincil olduğu.
 

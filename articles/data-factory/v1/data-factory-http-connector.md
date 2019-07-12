@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f7e070788d2fc11addcafc30d9f232f194f44782
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 22d6999b2a69aceb4421cea070d784f693bdf9c4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318487"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839287"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Azure Data Factory kullanarak bir HTTP kaynaktan veri taşıma
 
@@ -45,7 +45,7 @@ Farklı araçlar veya API'leri kullanarak bir HTTP kaynaktan verileri taşımak 
 
 - Bir işlem hattı oluşturmanın en kolay yolu, veri kopyalama Sihirbazı'nı kullanmaktır. Veri Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı kılavuz için bkz. [Öğreticisi: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md).
 
-- Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portalında**, **Visual Studio**, **Azure PowerShell**e **Azure Resource Manager Şablon**, **.NET API**, veya **REST API**. Kopyalama etkinliği içeren işlem hattı oluşturma konusunda adım adım yönergeler için bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). JSON HTTP kaynağı bu kopya verileri Azure Blob Depolama örnekleri için bkz: [JSON örnekler](#json-examples).
+- Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Visual Studio**, **Azure PowerShell**e **Azure Resource Manager şablonu**, **.NET API'si** , veya **REST API**. Kopyalama etkinliği içeren işlem hattı oluşturma konusunda adım adım yönergeler için bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). JSON HTTP kaynağı bu kopya verileri Azure Blob Depolama örnekleri için bkz: [JSON örnekler](#json-examples).
 
 ## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
 
@@ -53,7 +53,7 @@ Aşağıdaki tabloda bağlı HTTP hizmetine özel JSON öğeleri açıklanmışt
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type | **Türü** özelliği ayarlanmalıdır **Http**. | Evet |
+| türü | **Türü** özelliği ayarlanmalıdır **Http**. | Evet |
 | url | Web sunucusuna temel URL'si. | Evet |
 | authenticationType | Kimlik doğrulama türünü belirtir. İzin verilen değerler **anonim**, **temel**, **Özet**, **Windows**, ve **ClientCertificate**. <br><br> Bu makale için daha fazla özellik ve bu kimlik doğrulama türleri için JSON örnekleri sonraki bölümlerine bakın. | Evet |
 | enableServerCertificateValidation | Kaynak bir HTTPS web sunucusu ise sunucu SSL sertifika doğrulamasını etkinleştirilip etkinleştirilmeyeceğini belirtir. HTTPS sunucunuzun otomatik olarak imzalanan bir sertifika kullandığında, bu ayar **false**. | Hayır<br /> (varsayılan değer **true**) |
@@ -160,7 +160,7 @@ Bölümleri ve veri kümeleri tanımlamak için kullanılabilir olan özellikler
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | **Türü** veri kümesini ayarlanmalıdır **Http**. | Evet |
+| türü | **Türü** veri kümesini ayarlanmalıdır **Http**. | Evet |
 | relativeUrl | Verileri içeren kaynak için göreli bir URL. Bağlı hizmet tanımında belirtilen URL yolu belirtilmemiş olduğunda kullanılır. <br><br> Dinamik bir URL oluşturmak için kullanabileceğiniz [Data Factory işlevleri ve sistem değişkenleri](data-factory-functions-variables.md). Örnek: **relativeUrl**: **$$Text.Format ('/ my/rapor? ay = {0: yyyy}-{0:MM} & fmt csv =', SliceStart)** . | Hayır |
 | requestMethod | HTTP yöntemi. İzin verilen değerler **alma** ve **POST**. | Hayır <br />(varsayılan değer **alma**) |
 | additionalHeaders | Ek HTTP isteği üstbilgileri. | Hayır |
@@ -231,7 +231,7 @@ Bkz: [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-sup
 
 ## <a name="json-examples"></a>JSON örnekleri
 
-Aşağıdaki örnekler kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlamak [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Örnekler, bir HTTP kaynağından Azure Blob depolama alanına veri kopyalama işlemini göstermektedir. Ancak, veriler kopyalanabilir *doğrudan* herhangi birinden herhangi birine havuzlarını kaynakları [desteklenen](data-factory-data-movement-activities.md#supported-data-stores-and-formats) Azure veri fabrikasında kopyalama etkinliği kullanarak.
+Aşağıdaki örnekler kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlamak [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Örnekler, bir HTTP kaynağından Azure Blob depolama alanına veri kopyalama işlemini göstermektedir. Ancak, veriler kopyalanabilir *doğrudan* herhangi birinden herhangi birine havuzlarını kaynakları [desteklenen](data-factory-data-movement-activities.md#supported-data-stores-and-formats) Azure veri fabrikasında kopyalama etkinliği kullanarak.
 
 **Örnek: Bir HTTP kaynağından Azure Blob depolama alanına veri kopyalama**
 

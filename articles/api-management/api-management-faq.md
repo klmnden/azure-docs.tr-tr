@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: f7e93dc12b9932fed90c7f9fa3145e56a3488b32
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f4140754afa8de994b227dc187cd73c9ccfa86f9
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448031"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666024"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Yönetimi SSS
 Azure API Management için sık sorulan sorular, desenleri ve en iyi yanıtları alın.
@@ -87,7 +87,7 @@ Bir kullanıcı Administrators grubuna nasıl ekleyebileceğinizi aşağıda ver
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Güncelleştirmek istediğiniz API Management örneği kaynak grubuna gidin.
-3. API Yönetimi'nde atamak **API Management katkıda bulunan** kullanıcı rolü.
+3. API Yönetimi'nde atamak **API Yönetimi Hizmeti Katılımcısı** kullanıcı rolü.
 
 Yeni eklenen katkıda bulunan Azure PowerShell artık [cmdlet'leri](https://docs.microsoft.com/powershell/azure/overview). Yönetici olarak oturum açma şöyledir:
 

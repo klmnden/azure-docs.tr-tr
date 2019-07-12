@@ -2,17 +2,17 @@
 title: Azure Kubernetes Service (AKS) denetleyicisi günlüklerini görüntüle
 description: Azure Kubernetes Service (AKS) için ana düğüm Kubernetes günlükleri görüntülemek ve etkinleştirme hakkında bilgi edinin
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: iainfou
-ms.openlocfilehash: 256101cce5588f56a8094a7a9a98e5fe69e6ec73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: ef77b991461c5d9640cbab9d53f8393540f47c9b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497239"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613917"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Kubernetes Azure Kubernetes Service (AKS) ana düğüm günlüklerini gözden geçirin ve etkinleştirin
 
@@ -20,11 +20,11 @@ Azure Kubernetes Service (AKS) ile ana bileşenleri gibi *kube-apiserver* ve *ku
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makale, Azure hesabınızda çalışan mevcut bir AKS kümesi gerekir. Kullanarak bir AKS kümesi zaten yoksa, oluşturma [Azure CLI] [ cli-quickstart] veya [Azure portalında][portal-quickstart]. Azure İzleyici ile hem RBAC çalışır günlüğe kaydeder ve AKS küme RBAC olmayan etkin.
+Bu makale, Azure hesabınızda çalışan mevcut bir AKS kümesi gerekir. Kullanarak bir AKS kümesi zaten yoksa, oluşturma [Azure CLI][cli-quickstart] or [Azure portal][portal-quickstart]. Azure İzleyici ile hem RBAC çalışır günlüğe kaydeder ve AKS küme RBAC olmayan etkin.
 
 ## <a name="enable-diagnostics-logs"></a>Tanılama günlüklerini etkinleştirme
 
-Azure İzleyici günlüklerini toplamak ve birden çok kaynaktan veri gözden yardımcı olmak için ortamınıza etkilendiğine bir sorgu dili ve analiz altyapısı sağlar. Bir çalışma alanı collate ve verileri analiz etmek için kullanılır ve Application Insights ve Güvenlik Merkezi gibi diğer Azure hizmetleriyle tümleştirebilirsiniz. Bu günlükleri analiz etmek için farklı bir platform kullanmak için bunun yerine bir Azure depolama hesabına veya olay hub'ına tanılama günlükleri göndermek seçebilirsiniz. Daha fazla bilgi için [Azure İzleyici günlüklerine nedir?] [log-analytics-overview].
+Azure İzleyici günlüklerini toplamak ve birden çok kaynaktan veri gözden yardımcı olmak için ortamınıza etkilendiğine bir sorgu dili ve analiz altyapısı sağlar. Bir çalışma alanı collate ve verileri analiz etmek için kullanılır ve Application Insights ve Güvenlik Merkezi gibi diğer Azure hizmetleriyle tümleştirebilirsiniz. Bu günlükleri analiz etmek için farklı bir platform kullanmak için bunun yerine bir Azure depolama hesabına veya olay hub'ına tanılama günlükleri göndermek seçebilirsiniz. Daha fazla bilgi için [Azure İzleyici günlüklerine nedir?][log-analytics-overview].
 
 Azure İzleyici günlüklerine etkinleştirilir ve Azure portalında yönetilir. Kubernetes AKS kümenizde ana bileşenleri için günlük toplamayı etkinleştirmek için Azure portalında bir web tarayıcısında açın ve aşağıdaki adımları tamamlayın:
 
@@ -37,15 +37,15 @@ Azure İzleyici günlüklerine etkinleştirilir ve Azure portalında yönetilir.
 1. Hazır olduğunuzda seçin **Kaydet** seçili günlüklerin toplanmasını etkinleştirmek için.
 
 > [!NOTE]
-> AKS, yalnızca oluşturulan veya aboneliğinizde özellik bayrağı etkinleştirildikten sonra yükseltilen kümeleri için denetim günlüklerini yakalar. Kaydedilecek *AKSAuditLog* özellik bayrağı, kullanın [az özelliği kayıt] [ az-feature-register] komutu aşağıdaki örnekte gösterildiği gibi:
+> AKS, yalnızca oluşturulan veya aboneliğinizde özellik bayrağı etkinleştirildikten sonra yükseltilen kümeleri için denetim günlüklerini yakalar. Kaydedilecek *AKSAuditLog* özellik bayrağı, kullanın [az özelliği kayıt][az-feature-register] komutu aşağıdaki örnekte gösterildiği gibi:
 >
 > `az feature register --name AKSAuditLog --namespace Microsoft.ContainerService`
 >
-> Durumunu göstermesini bekleyin *kayıtlı*. Kayıt kullanarak durumu denetleyebilirsiniz [az özellik listesi] [ az-feature-list] komutu:
+> Durumunu göstermesini bekleyin *kayıtlı*. Kayıt kullanarak durumu denetleyebilirsiniz [az özellik listesi][az-feature-list] komutu:
 >
 > `az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAuditLog')].{Name:name,State:properties.state}"`
 >
-> Hazır olduğunuzda kullanarak AKS kaynak sağlayıcısının kaydını Yenile [az provider register] [ az-provider-register] komutu:
+> Hazır olduğunuzda kullanarak AKS kaynak sağlayıcısının kaydını Yenile [az provider register][az-provider-register] komutu:
 >
 > `az provider register --namespace Microsoft.ContainerService`
 
@@ -77,7 +77,7 @@ spec:
     - containerPort: 80
 ```
 
-Pod ile oluşturma [kubectl oluşturma] [ kubectl-create] komutunu ve aşağıdaki örnekte gösterildiği gibi YAML dosyası belirtin:
+Pod ile oluşturma [kubectl oluşturma][kubectl-create] komutunu ve aşağıdaki örnekte gösterildiği gibi YAML dosyası belirtin:
 
 ```
 $ kubectl create -f nginx.yaml
@@ -133,7 +133,7 @@ Günlük verilerini analiz etmek amacıyla, aşağıdaki tabloda her olay için 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, etkinleştirmek ve Kubernetes AKS kümenizde ana bileşenleri için günlükleri gözden öğrendiniz. İzleme ve daha fazla sorun giderme için ayrıca [Kubelet günlüklerini görüntüleme] [ kubelet-logs] ve [SSH düğümü erişimi etkinleştirmek][aks-ssh].
+Bu makalede, etkinleştirmek ve Kubernetes AKS kümenizde ana bileşenleri için günlükleri gözden öğrendiniz. İzleme ve daha fazla sorun giderme için ayrıca [Kubelet günlüklerini görüntüleme][kubelet-logs] and [enable SSH node access][aks-ssh].
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

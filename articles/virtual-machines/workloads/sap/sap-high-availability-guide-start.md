@@ -4,7 +4,7 @@ description: SAP NetWeaver için Azure sanal makineler üzerinde yüksek kullan�
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7de46a534ea7920bcae4a5b2a3316117f090a7bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5e5493b3688c4de9dab971d58b58f85d00f8003b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60935900"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709024"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure sanal makineleri SAP NetWeaver için yüksek kullanılabilirlik
 
@@ -193,7 +193,7 @@ Bu makale serisi, kapsar:
 * SAP yükleme adımları Azure Resource Manager dağıtım modelini kullanarak yüksek kullanılabilirlik SAP sistemlerini azure'a dağıtmak için.
 
     > [!IMPORTANT]
-    > SAP tesislerinize için Azure Resource Manager dağıtım modeli kullanmanız önerilir. Klasik dağıtım modelinde kullanılabilir olmayan birçok avantaj sunar. Azure hakkında daha fazla bilgi [dağıtım modelleri][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
+    > SAP tesislerinize için Azure Resource Manager dağıtım modeli kullanmanız önerilir. Klasik dağıtım modelinde kullanılabilir olmayan birçok avantaj sunar. Azure [dağıtım modelleri][virtual-machines-azure-resource-manager-architecture-benefits-arm] hakkında daha fazla bilgi edinin.   
     >
 * SAP üzerinde yüksek kullanılabilirlik:
   * ![Windows][Logo_Windows]**Windows**kullanarak **Windows Server Yük devretme kümesi (WSFC)**

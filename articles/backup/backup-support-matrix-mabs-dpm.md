@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 0f99042d91738c88a8b673444bb3d4a40602b012
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 85e65c36a0d636d94a9ef9070c21ab047542d8f4
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204181"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594252"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Microsoft Azure Backup sunucusu veya System Center DPM yedekleme destek matrisi
 
@@ -55,7 +55,7 @@ Daha fazla bilgi için:
 
 **Senaryo** | **Aracı** | **Location**
 --- | --- | ---
-**Şirket içi makineleri/iş yüklerini yedekleme** | DPM/MABS koruma aracısını yedeklemek istediğiniz makineleri çalışır.<br/><br/> DPM/MABS sunucusundaki MARS Aracısı. | Şirket içi DPM/MABS çalıştırılması gerekir.
+**Şirket içi makineleri/iş yüklerini yedekleme** | DPM/MABS koruma aracısını yedeklemek istediğiniz makineleri çalışır.<br/><br/> DPM/MABS sunucusundaki MARS Aracısı.<br/> Microsoft Azure kurtarma Hizmetleri aracısı veya Azure Backup Aracısı, bu özelliği etkinleştirmek için gerekli en düşük sürümü 2.0.8719.0 ' dir.  | Şirket içi DPM/MABS çalıştırılması gerekir.
 **Azure Vm'leri/iş yüklerini yedekleme** | DPM/MABS koruma aracısını korumalı makine.<br/><br/> DPM/MABS sunucusundaki MARS Aracısı. | DPM/MABS, bir Azure sanal makinesinde çalıştırmalıdır.
 
 ## <a name="supported-deployments"></a>Desteklenen dağıtımlar
@@ -152,7 +152,7 @@ DPM 2016/MABS v2'den (Windows Server 2016 çalıştıran) ve daha sonra modern y
 - MB yedeklemeler, dayanıklı dosya sistemi (ReFS) diskte depolanır.
 - MB, ReFS blok kopyalama daha hızlı yedekleme ve depolama alanı daha etkin kullanılması için kullanır.
 - Yerel DPM/MABS depolama havuzuna birimler eklediğinizde, sürücü harfleriyle yapılandırın. Bu gibi durumlarda, iş yükü depolama ardından farklı birimlerde yapılandırabilirsiniz.
-- DPM/MABS için verileri yedeklemek için koruma grupları oluşturduğunuzda, kullanmak istediğiniz sürücüyü seçin. Örneğin, SQL veya başka bir yüksek IOPS yüksek performanslı iş yükleri sürücü için yedeklemeleri depolamak ve daha düşük bir performans sürücüsünde daha az sıklıkla yedeklenen iş yüklerini depolayacak.
+- DPM/MABS için verileri yedeklemek için koruma grupları oluşturduğunuzda, kullanmak istediğiniz sürücüyü seçin. Örneğin, SQL veya diğer yüksek IOPS kullanan iş yüklerinin yüksek performanslı sürücüde yedeklemeleri depolamak ve daha düşük bir performans sürücüsünde daha az sıklıkla yedeklenen iş yüklerini depolayacak.
 
 
 ## <a name="supported-backups-to-mabs"></a>MABS desteklenen yedeklemeler
@@ -206,7 +206,7 @@ Aşağıdaki tabloda, hangi DPM için şirket içi makinelerin ve Azure Vm'leri 
 **VMware Vm'lerini: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 <br/><br/> DPM 2012 R2, System Center Güncelleştirme Paketi 1 gerektirir) <br/><br/>Şirket içi. | VMware sanal makinelerini csv, NFS ve SAN depolama üzerinde yedekleyin.<br/><br/> Tüm VM kurtarma.<br/><br/> Windows/Linux yedekleme.<br/><br/> Klasör/dosya Windows Vm'leri için yalnızca öğe düzeyinde kurtarma.<br/><br/> VMware Vapps'i desteklenmez.<br/><br/> Linux VM'ler için kurtarma için tüm makinedir.
 
 
-- DPM/MABS tarafından yedeklenen kümelenmiş iş yükleri DPM/MABS aynı etki alanında veya alt ve güvenilen bir etki alanında olması gerektiğini unutmayın.
+- DPM/MABS tarafından yedeklenen kümelenmiş iş yükleri, DPM/MABS aynı etki alanında veya alt ve güvenilen bir etki alanında olmalıdır.
 - Güvenilmeyen etki alanlarındaki veya çalışma gruplarındaki verileri yedeklemek için NTLM/sertifika kimlik doğrulaması'nı kullanabilirsiniz.
 
 

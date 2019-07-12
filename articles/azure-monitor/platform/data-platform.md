@@ -5,18 +5,18 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 8883c1e7f2874e1e2e61b8eca122f2ec294c7849
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00c0fea9d8ca7ee299a9a19473917eba90edd675
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60808938"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606984"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure İzleyici, veri platformu
 
@@ -70,9 +70,9 @@ Aşağıdaki tabloda, ölçüm ve günlükleri Azure İzleyici'de karşılaştı
 | Öznitelik  | Ölçümler | Günlükler |
 |:---|:---|:---|
 | Avantajlar | Basit ve uyarı verme gibi neredeyse gerçek zamanlı senaryoları yeteneğine. Sorunları hızlı algılanması için idealdir. | Analiz ile zengin sorgu dili. Ayrıntılı analiz ve kök nedenini belirlemek için idealdir. |
-| Veriler | Yalnızca sayısal değerler | Metin veya sayısal veri |
+| Data | Yalnızca sayısal değerler | Metin veya sayısal veri |
 | Yapı | Standart örnek saati, izlenmekte olan kaynak, sayısal bir değer özellikler kümesidir. Bazı ölçümler daha fazla tanımı için birden çok boyutta içerir. | Günlük türüne bağlı olarak bir özellik kümesi. |
-| Koleksiyon | Düzenli aralıklarla toplanır. | Oluşturulacak Kayıt olaylarını tetiklemek gibi zaman zaman toplanan olabilir. |
+| Collection | Düzenli aralıklarla toplanır. | Oluşturulacak Kayıt olaylarını tetiklemek gibi zaman zaman toplanan olabilir. |
 | Azure portalında görüntüleme | Ölçüm Gezgini | Log Analytics |
 | Veri kaynakları içerir | Platform ölçümleri Azure kaynaklarından toplanan.<br>Application Insights tarafından izlenen uygulamalar.<br>Uygulama veya API tarafından tanımlanan özel. | Uygulama ve tanılama günlükleri.<br>İzleme çözümleri.<br>Aracılar ve VM uzantıları.<br>Uygulama istekleri ve özel durumlar.<br>Azure Güvenlik Merkezi.<br>Veri Toplayıcı API'si |
 

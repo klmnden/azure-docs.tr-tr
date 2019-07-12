@@ -4,7 +4,7 @@ description: Azure CLI ile oluşturma sırasında bir Linux VM'de bir takas dosy
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 626fd4739daf2506854c42f16ac986a361ebab38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: adf03ea912a028c1059683c49350dea3743ee7a6
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60729826"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671709"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Bir Linux VM üzerinde bir takas dosyası yapılandırma için cloud-init kullanma
 Bu makalede nasıl kullanılacağını gösterir [cloud-init](https://cloudinit.readthedocs.io) takas dosyası üzerinde çeşitli Linux dağıtımları yapılandırmak için. Takas dosyası tarafından Linux Aracısı (hangi dağıtımların bir gerekli üzerinde temel WALA) geleneksel olarak yapılandırıldı.  Bu belge, cloud-init kullanarak sağlama süresi sırasında isteğe bağlı takas dosyası oluşturma işlemine özetler.  Cloud-init yerel olarak desteklenen Linux dağıtımları ve Azure ile işleyişi hakkında daha fazla bilgi için bkz. [cloud-init genel bakış](using-cloud-init.md)

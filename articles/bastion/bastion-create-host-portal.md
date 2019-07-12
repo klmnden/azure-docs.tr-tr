@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4a52383e6ab24c6ae1e2be0b67293d65dfa04466
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 65116ebbd6a66241a5b35a39f3dfb8f826a3745f
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477873"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594283"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>Bir Azure Burcu ana bilgisayarı (Önizleme) oluşturma
 
@@ -57,7 +57,7 @@ Bu bölümde, Azure portalından yeni Azure savunma kaynak oluşturmanıza yard�
     * **Alt ağ**: Sanal ağınızda yeni savunma ana kaynak alt dağıtılır. Ad değeri kullanarak bir alt ağ oluşturmanız gerekir **AzureBastionSubnet**. Bu değer, Azure alt ağı için savunma kaynakları dağıtmak için bilmeniz olanak tanır. Bu, bir ağ geçidi alt ağı farklıdır. En az/27 veya daha büyük alt ağı kullanmanız önerilir (/ 27, / 26 vb.). Oluşturma **AzureBastionSubnet** herhangi bir ağ güvenliği grupları olmadan, tablolar veya temsilciler yönlendirebilirsiniz.
     * **Genel IP adresi**: RDP/SSH (bağlantı noktası 443 üzerinden) erişilecek savunma kaynağın genel IP. Yeni bir genel IP oluşturun veya var olanı kullanın. Genel IP adresini, oluşturmakta olduğunuz savunma kaynak ile aynı bölgede olması gerekir.
     * **Genel IP adresi adı**: Genel IP adresi kaynağı adı.
-    * **Genel IP adresi SKU**: Varsayılan olarak önceden doldurulmuş **standart**.
+    * **Genel IP adresi SKU**: Varsayılan olarak önceden doldurulmuş **standart**. Azure savunma kullandığı/yalnızca standart genel IP SKU'su destekler.
     * **Atama**: Varsayılan olarak önceden doldurulmuş **statik**.
 
 1. Ayarları belirttikten tıklayın **gözden geçir + Oluştur**. Bu değerleri doğrular. Doğrulama başarılı olduktan sonra oluşturma işlemine başlayabilirsiniz.

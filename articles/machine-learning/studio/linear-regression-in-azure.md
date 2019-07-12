@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: f6b2f4ef9a4f3f1615081a422a16ea9f2e156571
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7db66f6f4efa5e48f2af9380115de8bcfb75cb86
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861123"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786681"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Analytics, Azure Machine Learning Studio'da Excel'den geçirme
 
@@ -44,9 +44,9 @@ Biz hesaplanan *ortalama mutlak % Error* ve model için performans ölçümü ku
 Bizim deneme Studio'da oluşturmak için aşağıdaki adımları izlenen: 
 
 1. Veri kümesi Studio (çok küçük dosyası) bir csv dosyası olarak karşıya yüklendi
-2. Yeni bir deneme oluşturulur ve kullanılır [kümesindeki sütunları seçme] [ select-columns] modülü Excel'in kullanılan aynı veri özellikleri seçmek için 
-3. Kullanılan [verileri bölme] [ split] Modülü (ile *göreli ifade* modu) verileri Excel'de bitti olarak aynı eğitim kümelerine ayırmak için 
-4. İle deneme [doğrusal regresyon] [ linear-regression] Modülü (yalnızca varsayılan seçenek), belgelenmiş ve Excel regresyon modelimizi sonuçları karşılaştırma
+2. Yeni bir deneme oluşturulur ve kullanılır [kümesindeki sütunları seçme][select-columns] modülü Excel'in kullanılan aynı veri özellikleri seçmek için 
+3. Kullanılan [verileri bölme][split] Modülü (ile *göreli ifade* modu) verileri Excel'de bitti olarak aynı eğitim kümelerine ayırmak için 
+4. İle deneme [doğrusal regresyon][linear-regression] Modülü (yalnızca varsayılan seçenek), belgelenmiş ve Excel regresyon modelimizi sonuçları karşılaştırma
 
 ### <a name="review-initial-results"></a>İlk sonuçlarını gözden geçirin
 İlk başta, Excel modeline açıkça Studio model ayları için: 
@@ -61,7 +61,7 @@ Bizim deneme Studio'da oluşturmak için aşağıdaki adımları izlenen:
 
 Bizim işlemi ve sonuçları veri uzmanları ve geliştiriciler Machine Learning ekibi karşılaştık, bunlar bazı yararlı ipuçları hızla sağlanan. 
 
-* Kullanırken [doğrusal regresyon] [ linear-regression] Studio modülünde iki yöntem sağlanır:
+* Kullanırken [doğrusal regresyon][linear-regression] Studio modülünde iki yöntem sağlanır:
   * Çevrimiçi gradyan düşüşü: Büyük ölçekli sorunları için daha uygun olabilir
   * Sıradan kareler: Çoğu kişi, doğrusal regresyon duyduğunuzda düşünün yöntem budur. Küçük veri kümeleri için sıradan kareler daha iyi bir seçim olabilir.
 * L2 Kurallaştırma ağırlığı parametresi, performansı artırmak için ince ayar yapma göz önünde bulundurun. 0,001 için varsayılan olarak ayarlanmış, ancak bizim küçük veri kümesi için performansı artırmak için 0.005 için ayarladık. 
@@ -109,9 +109,9 @@ Aşağıda gösterildiği gibi çalışma açık mavi parametresi bölüme önce
 ![Şablon Excel çalışma kitabı dağıtılan web hizmetine bağlanma](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
 
 ### <a name="optimization-and-further-experiments"></a>En iyi duruma getirme ve denemeler daha fazla
-Excel modelimizi temel vardı, önceden sunduğumuz Machine Learning doğrusal regresyon modelinin en iyi duruma getirme geçtiğimizi. Modül kullandık [özellik seçimi süzgeç tabanlı] [ filter-based-feature-selection] bizim ilk veri seçimine göre iyileştirmek için öğeleri ve bunu bize bir performans geliştirmesinden %4.6 iyi Yardım Mean Absolute Error. İleride gerçekleştirilecek projeler için bize hafta doğru ortaklık model için kullanılacak özellikler kümesi bulmak için veri öznitelikleri üzerinden yineleme tasarruf bu özelliğini kullanacağız. 
+Excel modelimizi temel vardı, önceden sunduğumuz Machine Learning doğrusal regresyon modelinin en iyi duruma getirme geçtiğimizi. Modül kullandık [özellik seçimi süzgeç tabanlı][filter-based-feature-selection] bizim ilk veri seçimine göre iyileştirmek için öğeleri ve bunu bize bir performans geliştirmesinden %4.6 iyi Yardım Mean Absolute Error. İleride gerçekleştirilecek projeler için bize hafta doğru ortaklık model için kullanılacak özellikler kümesi bulmak için veri öznitelikleri üzerinden yineleme tasarruf bu özelliğini kullanacağız. 
 
-Sonraki gibi ek algoritmaları içer planlıyoruz [Bayes] [ bayesian-linear-regression] veya [artırılmış karar ağaçları] [ boosted-decision-tree-regression] bizim denemede karşılaştırmak için performans. 
+Sonraki gibi ek algoritmaları içer planlıyoruz [Bayes][bayesian-linear-regression] or [Boosted Decision Trees][boosted-decision-tree-regression] bizim denemede performansını karşılaştırmak için. 
 
 Regresyonla denemek istiyorsanız, denemek için iyi bir veri kümesi sayısal öznitelikler çok sayıda olan enerji verimliliğini regresyon örnek veri kümesi var. Veri kümesi Studio'da örnek veri kümelerini bir parçası olarak sağlanır. Öğrenme modülleri çeşitli ısıtma yük veya yük soğutma tahmin etmek için kullanabilirsiniz. Aşağıdaki grafik, enerji verimliliğini veri kümesi hedef değişkeni soğutma yük tahmin karşı farklı regresyon performans karşılaştırması öğrenir şöyledir: 
 
@@ -123,9 +123,9 @@ Regresyonla denemek istiyorsanız, denemek için iyi bir veri kümesi sayısal �
 | Doğrusal regresyon (sıradan kareler) |1.428273 |1.984461 |0.163767 |0.042074 |0.957926 |
 
 ## <a name="key-takeaways"></a>Önemli dersler
-Çok tarafından çalışan Excel regresyon ve Studio denemeleri paralel öğrendik. Temel modeli Excel'de oluşturma ve makine Öğrenimini kullanarak modelleriyle karşılaştırma [doğrusal regresyon] [ linear-regression] Yardım bize Studio öğrenin ve veri seçimi ve model arttırmaya yönelik fırsatlar bulduk performans. 
+Çok tarafından çalışan Excel regresyon ve Studio denemeleri paralel öğrendik. Temel modeli Excel'de oluşturma ve makine Öğrenimini kullanarak modelleriyle karşılaştırma [doğrusal regresyon][linear-regression] Yardım bize Studio öğrenin ve veri seçimi ve model performansı arttırmaya yönelik fırsatlar bulduk. 
 
-Ayrıca kullanmak için önerilir bulduk [özellik seçimi süzgeç tabanlı] [ filter-based-feature-selection] gelecekteki tahmini projeleri hızlandırmak için. Özellik Seçimi verilerinize uygulayarak, daha iyi bir genel performansı ile geliştirilmiş bir model Studio'da oluşturabilirsiniz. 
+Ayrıca kullanmak için önerilir bulduk [özellik seçimi süzgeç tabanlı][filter-based-feature-selection] gelecekteki tahmini projeleri hızlandırmak için. Özellik Seçimi verilerinize uygulayarak, daha iyi bir genel performansı ile geliştirilmiş bir model Studio'da oluşturabilirsiniz. 
 
 Tahmine dayalı analiz Studio'dan Excel'e systemically tahmin taşıma imkanı önemli bir artış sonuçları geniş iş kullanıcının hedef kitlesine için başarılı bir şekilde sağlama olanağı sağlar. 
 
@@ -133,7 +133,7 @@ Tahmine dayalı analiz Studio'dan Excel'e systemically tahmin taşıma imkanı �
 Regresyon ile çalışmanıza yardımcı olacak bazı kaynaklar aşağıda verilmiştir: 
 
 * Excel'de regresyon. Excel'de regresyon hiçbir zaman denediyseniz, Bu öğretici, kolaylaştırır: [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
-* Tahmin regresyon vs. Tyler Chessman serisi iyi bir başlangıç doğrusal regresyon açıklamasını içeren Excel'de tahmini süreyi açıklayan bir blog makalesi yazıldı. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
+* Tahmin regresyon vs. Tyler Chessman serisi iyi bir başlangıç doğrusal regresyon açıklamasını içeren Excel'de tahmini süreyi açıklayan bir blog makalesi yazıldı. [https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts](https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts) 
 * Sıradan az doğrusal regresyon Squares: Açıkları, sorunları ve zorlukları belirlemenizin. Bir giriş ve regresyon hakkında ayrıntılı bilgi için: [https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 <!-- Module References -->

@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: apurvajo;cephalin
+ms.author: cephalin
+ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: 0febb8fadd973b67ed232d6094d85894fb383d14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7768eb29caf66fd8f666a9475ac0787826a47e0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65955717"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618908"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Satın alma ve Azure App Service için SSL sertifikası yapılandırma
 
@@ -51,8 +52,8 @@ Sertifika yapılandırmanıza yardımcı olması için aşağıdaki tabloyu kull
 |-|-|
 | Ad | App Service sertifikanız için bir kolay ad. |
 | Ana bilgisayar adı çıplak etki | Burada kök etki alanı belirtirseniz, güvenlik altına alan bir sertifika almak *hem* kök etki alanı ve `www` alt etki alanı. İçin güvenli bir alt etki alanı yalnızca belirtin alt etki alanı burada tam etki alanı adını (örneğin, `mysubdomain.contoso.com`). |
-| Abonelik | Web uygulamasının barındırıldığı veri merkezi. |
-| Kaynak grubu | Sertifikayı içeren kaynak grubu. App Service uygulamanızı, örneğin aynı kaynak grubunu seçin ya da yeni bir kaynak grubunu kullanın. |
+| Subscription | Web uygulamasının barındırıldığı veri merkezi. |
+| Resource group | Sertifikayı içeren kaynak grubu. App Service uygulamanızı, örneğin aynı kaynak grubunu seçin ya da yeni bir kaynak grubunu kullanın. |
 | Sertifika SKU'su | Standart bir sertifika mı yoksa mı oluşturmak için sertifika türünü belirler [joker sertifikası](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Yasal koşullar | Yasal koşulları kabul onaylamak için tıklayın. Sertifikaları Godaddy'den elde edilir. |
 
@@ -71,7 +72,7 @@ Sertifikayı seçin [App Service sertifikaları](https://portal.azure.com/#blade
 | Ayar | Açıklama |
 |-|-|
 | Ad | Alfasayısal karakterler ve kısa çizgiler için oluşan benzersiz bir ad. |
-| Kaynak grubu | Bir öneri App Service sertifikanızı olarak aynı kaynak grubunu seçin. |
+| Resource group | Bir öneri App Service sertifikanızı olarak aynı kaynak grubunu seçin. |
 | Location | App Service uygulamanızı aynı konumu seçin. |
 | Fiyatlandırma katmanı | Bilgi için [Azure anahtar kasası fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Erişim ilkeleri| Uygulamalar ve izin verilen erişimi kasa kaynaklara tanımlar. Daha sonra bu adımları uygulayarak yapılandırma [çeşitli uygulamalar bir anahtar kasası erişim](../key-vault/key-vault-group-permissions-for-apps.md). |

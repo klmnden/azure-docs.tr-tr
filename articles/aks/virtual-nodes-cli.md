@@ -2,17 +2,17 @@
 title: Azure Kubernetes Hizmetleri (AKS) Azure CLI kullanarak sanal düğümler oluştur
 description: Pod'ları çalıştırmak için sanal düğümü kullanan Azure Kubernetes Hizmetleri (AKS) kümesini oluşturmak için Azure CLI'yı kullanmayı öğrenin.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: b149ba2bccb4bfb6f459b177096afcccbbfc3051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: a6acdd6255278123ff13a8597cadd2a386536bd4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742782"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613791"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Oluşturma ve Azure CLI kullanarak sanal düğümü kullanmak için Azure Kubernetes Hizmetleri (AKS) kümesi yapılandırma
 
@@ -24,7 +24,7 @@ Bu makalede oluşturmak ve AKS kümesi ve sanal ağ kaynaklarını yapılandırm
 
 Sanal düğümler ACI çalıştırma pod'ların ve AKS kümesi arasındaki ağ iletişimini etkinleştirin. Bu iletişim sağlamak için bir sanal ağ alt ağı oluşturulur ve temsilci izinleri atanır. Yalnızca iş ile AKS küme kullanılarak oluşturulan sanal düğümü *Gelişmiş* ağ. Varsayılan olarak, AKS kümeleri ile oluşturulan *temel* ağ. Bu makalede, bir sanal ağ oluşturup alt ağları ve ağ Gelişmiş kullanan bir AKS kümesi dağıtma işlemini göstermektedir.
 
-ACI daha önce kullanmadıysanız, hizmet sağlayıcısı, aboneliğiniz ile kaydedin. ACI sağlayıcı kaydı kullanarak durumu denetleyebilirsiniz [az sağlayıcı listesi] [ az-provider-list] aşağıdaki örnekte gösterildiği gibi komut:
+ACI daha önce kullanmadıysanız, hizmet sağlayıcısı, aboneliğiniz ile kaydedin. ACI sağlayıcı kaydı kullanarak durumu denetleyebilirsiniz [az sağlayıcı listesi][az-provider-list] aşağıdaki örnekte gösterildiği gibi komut:
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -38,7 +38,7 @@ Namespace                    RegistrationState
 Microsoft.ContainerInstance  Registered
 ```
 
-Sağlayıcı olarak gösteriliyorsa *NotRegistered*, kullanarak sağlayıcısını kaydedin [az provider register] [ az-provider-register] aşağıdaki örnekte gösterildiği gibi:
+Sağlayıcı olarak gösteriliyorsa *NotRegistered*, kullanarak sağlayıcısını kaydedin [az provider register][az-provider-register] aşağıdaki örnekte gösterildiği gibi:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -89,7 +89,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
-Kullanarak bir sanal ağ oluşturma [az ağ sanal ağ oluşturma] [ az-network-vnet-create] komutu. Aşağıdaki örnek, bir sanal ağ adı oluşturur *myVnet* bir adres ön eki ile *10.0.0.0/8*ve adlı bir alt ağ *myAKSSubnet*. Varsayılan olarak bu alt ağ adres ön eki *10.240.0.0/16*:
+Kullanarak bir sanal ağ oluşturma [az ağ sanal ağ oluşturma][az-network-vnet-create] komutu. Aşağıdaki örnek, bir sanal ağ adı oluşturur *myVnet* bir adres ön eki ile *10.0.0.0/8*ve adlı bir alt ağ *myAKSSubnet*. Varsayılan olarak bu alt ağ adres ön eki *10.240.0.0/16*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -100,7 +100,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 ```
 
-Şimdi kullanarak sanal düğümler için ek bir alt ağı oluşturmak [az ağ sanal ağ alt ağı oluşturma] [ az-network-vnet-subnet-create] komutu. Aşağıdaki örnekte adlı bir alt ağ oluşturulmaktadır *myVirtualNodeSubnet* adres ön eki ile *10.241.0.0/16*.
+Şimdi kullanarak sanal düğümler için ek bir alt ağı oluşturmak [az ağ sanal ağ alt ağı oluşturma][az-network-vnet-subnet-create] komutu. Aşağıdaki örnekte adlı bir alt ağ oluşturulmaktadır *myVirtualNodeSubnet* adres ön eki ile *10.241.0.0/16*.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -114,7 +114,7 @@ az network vnet subnet create \
 
 Bir AKS kümesinin diğer Azure kaynaklarıyla etkileşime geçmesini sağlamak için bir Azure Active Directory hizmet sorumlusu kullanılır. Bu hizmet sorumlusu Azure CLI veya portal ile otomatik olarak oluşturulabilir veya kendiniz önceden bir tane oluşturup ek izinler atayabilirsiniz.
 
-Kullanarak bir hizmet sorumlusu oluşturma [az ad sp create-for-rbac] [ az-ad-sp-create-for-rbac] komutu. `--skip-assignment` parametresi, ek izinlerin atanmasını engeller.
+[az ad sp create-for-rbac][az-ad-sp-create-for-rbac] komutunu kullanarak bir hizmet sorumlusu oluşturun. `--skip-assignment` parametresi, ek izinlerin atanmasını engeller.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -144,7 +144,7 @@ Kümeniz sanal ağı yönetmek ve kullanmak izin vermek için ağ kaynaklarını
 az network vnet show --resource-group myResourceGroup --name myVnet --query id -o tsv
 ```
 
-Sanal ağ kullanmak AKS kümesi için doğru erişim vermek için kullanarak bir rol ataması oluşturma [az rol ataması oluşturma] [ az-role-assignment-create] komutu. `<appId`> ve `<vnetId>` yerine önceki iki adımda topladığınız değerleri yazın.
+Sanal ağ kullanmak AKS kümesi için doğru erişim vermek için kullanarak bir rol ataması oluşturma [az rol ataması oluşturma][az-role-assignment-create] komutu. `<appId`> ve `<vnetId>` yerine önceki iki adımda topladığınız değerleri yazın.
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
@@ -158,7 +158,7 @@ Bir önceki adımda oluşturduğunuz AKS alt ağa bir AKS kümesi dağıtırsın
 az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
 ```
 
-AKS kümesi oluşturmak için [az aks create][az-aks-create] komutunu kullanın. Aşağıdaki örnekte, bir düğüm ile *myAKSCluster* adlı bir küme oluşturulmuştur. Değiştirin `<subnetId>` önceki adımda elde edilen Kimliğine sahip ve ardından `<appId>` ve `<password>` ile 
+Kullanım [az aks oluşturma][az-aks-create] bir AKS kümesi oluşturmak için komutu. Aşağıdaki örnekte, bir düğüm ile *myAKSCluster* adlı bir küme oluşturulmuştur. Değiştirin `<subnetId>` önceki adımda elde edilen Kimliğine sahip ve ardından `<appId>` ve `<password>` ile 
 
 ```azurecli-interactive
 az aks create \
@@ -178,7 +178,7 @@ Birkaç dakika sonra komut tamamlanır ve küme hakkında JSON tarafından biçi
 
 ## <a name="enable-virtual-nodes-addon"></a>Sanal düğümler eklentisini etkinleştir
 
-Sanal düğümler etkinleştirmek için artık kullanın [az aks enable-addons] [ az-aks-enable-addons] komutu. Aşağıdaki örnekte adlı alt *myVirtualNodeSubnet* bir önceki adımda oluşturduğunuz:
+Sanal düğümler etkinleştirmek için artık kullanın [az aks enable-addons][az-aks-enable-addons] komutu. Aşağıdaki örnekte adlı alt *myVirtualNodeSubnet* bir önceki adımda oluşturduğunuz:
 
 ```azurecli-interactive
 az aks enable-addons \
@@ -190,7 +190,7 @@ az aks enable-addons \
 
 ## <a name="connect-to-the-cluster"></a>Kümeye bağlanma
 
-`kubectl` istemcisini Kubernetes kümenize bağlanacak şekilde yapılandırmak için [az aks get-credentials][az-aks-get-credentials] komutunu kullanın. Bu adım kimlik bilgilerini indirir ve Kubernetes CLI’yi bunları kullanacak şekilde yapılandırır.
+Yapılandırmak için `kubectl` Kubernetes kümenize bağlanmak için [az aks get-credentials][az-aks-get-credentials] komutu. Bu adım kimlik bilgilerini indirir ve Kubernetes CLI’yi bunları kullanacak şekilde yapılandırır.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -214,7 +214,7 @@ aks-agentpool-14693408-0      Ready     agent     32m       v1.11.2
 
 ## <a name="deploy-a-sample-app"></a>Örnek bir uygulama dağıtma
 
-Adlı bir dosya oluşturun `virtual-node.yaml` aşağıdaki YAML'ye kopyalayın. Düğümde, kapsayıcı zamanlamak için bir [nodeSelector] [ node-selector] ve [toleration] [ toleration] tanımlanır.
+Adlı bir dosya oluşturun `virtual-node.yaml` aşağıdaki YAML'ye kopyalayın. Düğümde, kapsayıcı zamanlamak için bir [nodeSelector][node-selector] and [toleration][toleration] tanımlanır.
 
 ```yaml
 apiVersion: apps/v1
@@ -247,13 +247,13 @@ spec:
         effect: NoSchedule
 ```
 
-Uygulamayı çalıştırın [kubectl uygulamak] [ kubectl-apply] komutu.
+Uygulamayı çalıştırın [kubectl uygulamak][kubectl-apply] komutu.
 
 ```console
 kubectl apply -f virtual-node.yaml
 ```
 
-Kullanım [kubectl pod'ları alma] [ kubectl-get] komutunu `-o wide` pod'ların ve zamanlanmış düğüm listesini çıkarmak için bağımsız değişken. Dikkat `aci-helloworld` pod zamanlandı `virtual-node-aci-linux` düğümü.
+Kullanım [kubectl pod'ları alma][kubectl-get] komutunu `-o wide` pod'ların ve zamanlanmış düğüm listesini çıkarmak için bağımsız değişken. Dikkat `aci-helloworld` pod zamanlandı `virtual-node-aci-linux` düğümü.
 
 ```
 $ kubectl get pods -o wide
@@ -303,7 +303,7 @@ Test pod ile terminal oturumunu kapatın `exit`. Oturumunuz sona pod silinmiş o
 
 ## <a name="remove-virtual-nodes"></a>Sanal düğüm kaldırma
 
-Artık sanal düğümü kullanmak istemiyorsanız, bunları devre dışı bırakabilirsiniz kullanarak [az aks devre dışı bırak-addons] [ az aks disable-addons] komutu. 
+Artık sanal düğümü kullanmak istemiyorsanız, bunları devre dışı bırakabilirsiniz kullanarak [az aks devre dışı bırak-addons][az aks disable-addons] komutu. 
 
 İlk olarak sanal düğümü üzerinde çalışan helloworld pod silin:
 

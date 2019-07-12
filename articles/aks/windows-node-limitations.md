@@ -2,17 +2,17 @@
 title: Windows Server düğümü havuzlarını Azure Kubernetes Service (AKS) için kısıtlamalar
 description: Azure Kubernetes Service (AKS) Windows Server düğüm havuzları ve uygulama iş yüklerini çalıştırırken bilinen sınırlamalar hakkında bilgi edinin
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: twhitney
-ms.openlocfilehash: 457a908a70fccd9f4209121d9b99e5e53905500b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: mlearned
+ms.openlocfilehash: 0d79b4d76249bd4a79f8adbd5df0cfa1ae133760
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444096"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613727"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Windows Server düğüm havuzları ve uygulama iş yüklerini Azure Kubernetes Service (AKS) için geçerli sınırlamalar
 

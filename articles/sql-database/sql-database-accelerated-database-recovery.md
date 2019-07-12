@@ -11,16 +11,16 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 77bc33747964a5f4ee1a67aba777dc3ed76b9a51
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d556c82f47868f4ee06694e23092f10029d619d
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073461"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839846"
 ---
 # <a name="accelerated-database-recovery"></a>Hızlandırılmış veritabanı kurtarma
 
-**Veritabanı kurtarma (ADR) hızlandırılmış** özellikle uzun olduğu durumda, veritabanı kullanılabilirlik büyük ölçüde geliştiren yeni bir SQL veritabanı altyapısı özelliği çalıştıran işlem, SQL veritabanı altyapısı kurtarma işlemini yeniden tasarlanmasını tarafından. ADR, tek veritabanlarını havuza alınmış veritabanlarını Azure SQL veritabanı ve Azure SQL veri ambarı veritabanları için şu anda kullanılabilir. ADR başlıca yararları şunlardır:
+**Veritabanı kurtarma (ADR) hızlandırılmış** özellikle uzun olduğu durumda, veritabanı kullanılabilirlik büyük ölçüde geliştiren yeni bir SQL veritabanı altyapısı özelliği çalıştıran işlem, SQL veritabanı altyapısı kurtarma işlemini yeniden tasarlanmasını tarafından. ADR (şu anda genel Önizleme aşamasında) şu anda tek veritabanlarını havuza alınmış veritabanlarını Azure SQL veritabanı ve Azure SQL veri ambarı veritabanları için kullanılabilir. ADR başlıca yararları şunlardır:
 
 - **Hızlı ve tutarlı veritabanı kurtarma**
 

@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: c4e79d166d92a88934e5c5330ca852da8900c6f3
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: aecad4273493cd573935c78cae51bd0f59461e2e
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275557"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806964"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - sık sorulan sorular
 Bu makalede, Azure Backup hizmeti hakkında sık sorulan sorular yanıtlanmaktadır.
@@ -51,37 +51,6 @@ Hayır. Bir kurtarma Hizmetleri kasası, yalnızca depolanan yedeklemelere önce
 - Kullanılacak aracı için bu Azure dosya klasörü yedekleme okuma [SSS](backup-azure-file-folder-backup-faq.md).
 
 
-## <a name="vmware-and-hyper-v-backup"></a>VMware ve Hyper-V yedekleme
-
-### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>VMware vCenter sunucularını Azure'a yedekleyebilir miyim?
-Evet. VMware vCenter Server ve ESXi konaklarının azure'a yedeklemek için Azure Backup Sunucusu'nu kullanabilirsiniz.
-
-- [Daha fazla bilgi edinin](backup-mabs-protection-matrix.md) desteklenen sürümleri hakkında.
-- [Bu adımları](backup-azure-backup-server-vmware.md) bir VMware sunucusunu yedeklemek için.
-
-### <a name="do-i-need-a-separate-license-to-recover-an-full-on-premises-vmwarehyper-v-cluster"></a>Bir tam şirket içi VMware/Hyper-V kümesi kurtarmak için ayrı bir lisans gerekiyor mu?
-Vmware'den/Hyper-V koruması için lisanslama ayrı yoktur.
-
-- System Center müşterisiyseniz, VMware Vm'leri korumak için System Center Data Protection Manager (DPM) kullanın.
-- System Center müşteri değilseniz, VMware Vm'leri korumak için Azure Backup sunucusu (Kullandıkça Öde) kullanabilirsiniz.
-
-## <a name="dpm-and-azure-backup-server-backup"></a>DPM ve Azure Backup sunucusu yedekleme
-
-### <a name="which-dpm-versions-are-supported"></a>DPM hangi sürümleri destekleniyor?
-Desteklenen DPM sürümleri özetlenir [destek matrisi](backup-azure-dpm-introduction.md#prerequisites-and-limitations). En son DPM güncelleştirmelerini yükleme ve çalıştırma öneririz [en son sürümü](https://aka.ms/azurebackup_agent) Azure Backup aracısının DPM sunucusunda.
-
-### <a name="can-i-register-the-server-to-multiple-vaults"></a>Sunucunun birden fazla kasaya kaydedebilir miyim?
-Hayır. Bir DPM veya Azure Backup sunucusu yalnızca bir kasaya kaydedilebilir.
-
-### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Bir fiziksel sunucu için Tam Kurtarma (BMR) yedeklemesi oluşturmak üzere Azure Backup Sunucusu'nu kullanabilir miyim? <br/>
-Evet.
-
-### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Uygulamaları Azure Stack'te yedeklemek için DPM'yi kullanabilir miyim?
-Hayır. Uygulamaları Azure Stack'te yedeklemek için DPM'yi kullanarak Azure Backup desteklemiyor, Azure Stack korumak için Azure Backup'ı kullanabilirsiniz.
-
-### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>Dosya ve klasörlerimi korumak için Azure Backup aracısını yükledim, şirket içi iş yüklerini Azure'a yedeklemek için System Center DPM'yi yükleyebilir miyim?
-Evet. Ancak önce DPM'yi ayarlayın ve ardından Azure Backup aracısını yüklemeniz gerekir.  Bileşenlerinin bu sırada yüklenmesi, Azure Backup aracısının DPM ile çalışmasını sağlar. Aracıyı DPM yüklenmeden önce yüklenmesi önerilmez veya değil.
-
 ## <a name="general-backup"></a>Genel yedekleme
 
 ### <a name="are-there-limits-on-backup-scheduling"></a>Yedekleme Zamanlama sınırları vardır?
@@ -118,7 +87,7 @@ Azure VM Linux yedeklemeleri için Azure yedeklemeyi destekler [Azure tarafında
 Boyutları sınırlamaları aşağıdaki gibidir:
 
 İşletim sistemi/makine | Veri kaynağı boyutu sınırı
---- | --- 
+--- | ---
 Windows 8 veya üzeri | 54.400 GB
 Windows 7 |1700 GB
 Windows Server 2012 veya üzeri | 54.400 GB
@@ -185,7 +154,7 @@ Korumalı bir örnek için en çok 9999 kurtarma noktası oluşturabilirsiniz. K
 - Daha fazla bilgi edinin [yedekleme ve bekletme](./backup-overview.md#backup-and-retention).
 
 
-### <a name="how-many-times-can-i-recovery-data-thats-backed-up-to-azure"></a>Kaç kez kullanabilir miyim Azure'a yedeklenen verileri kurtarma?
+### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>Kaç kez Azure'a yedeklenen verileri kurtarma gerçekleştirebilir miyim?
 Azure Backup ile gerçekleştirilen kurtarma işlemlerinin sayısına yönelik bir sınır yoktur.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>Verileri geri yüklerken Azure'dan çıkış trafiği için ödeme yapacak mıyım?

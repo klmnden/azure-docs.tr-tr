@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: e7395c69d99884a5c662e545a69778ed195aec55
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: e6afd90c4e5a1b0759b3de7789ec37db4c04f2c7
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543083"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827453"
 ---
 # <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Azure FXT Edge dosyalayıcı donanım durumunu izleme
 
@@ -58,7 +58,7 @@ Sol Ön Denetim Masası çeşitli durumu LED Göstergeleri (1) ve çok ışıkl�
 
 Durum göstergeleri sol konumunda düz amber ışık bu sistemdeki bir hata olup olmadığını gösterir. Aşağıdaki tabloda, hatalar için olası nedenler ve çözümler açıklanmaktadır. 
 
-Yine de bu çözümleri denedikten sonra hata varsa, Yardım için desteğe başvurun. 
+Bu çözümler denedikten sonra hala hata varsa [desteğe](fxt-support-ticket.md) Yardım. 
 
 | Simge | Açıklama | Hata koşulu | Olası çözümler |
 |----------------|---------------|--------------------|----------------------|
@@ -79,7 +79,7 @@ Sistem durumu ve sistem kimliği modu ve sistem durumu modu arasında geçiş ya
 |-------------------------------------------|-----------------------------------------------|
 | Düz mavi | Normal işlem: sistemin normal, açık ve sistem kimliği modu etkin değil. <br/>Sistem Kimliği moduna geçmek istiyorsanız sistem durumu ve kimliği düğmesine basın. |
 | Yanıp sönen mavi | Sistem Kimliği modu etkin değil. Sistem durumu moduna geçmek istiyorsanız sistem durumu ve sistem kimliği düğmesine basın. |
-| Düz amber | Sistem emniyet modundadır. Sorun devam ederse Microsoft Müşteri Hizmetleri ve desteği ile iletişime geçin. |
+| Düz amber | Sistem emniyet modundadır. Sorun devam ederse [Microsoft Müşteri Hizmetleri ve Destek'e başvurun](fxt-support-ticket.md). |
 | Amber yakıp söndürme | Sistem hatası. Belirli hata iletileri için sistem olay günlüğünü denetleyin. Sistem bellenimi ve sistem bileşenleri izleme aracıları tarafından oluşturulan olay ve hata iletileri hakkında daha fazla bilgi için qrl.dell.com hata kodunu arama sayfasına bakın. |
 
 

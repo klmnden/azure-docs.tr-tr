@@ -2,21 +2,21 @@
 title: Azure Kubernetes Service (AKS) kümesini Windows Server düğümleri RDP
 description: RDP bağlantısı sorunlarını giderme ve bakım görevleri için Windows Server düğümleri ile Azure Kubernetes Service (AKS) kümesi oluşturmayı öğrenin.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/04/2019
-ms.author: twhitney
-ms.openlocfilehash: 11f6869d4d5a2ee0ef2e986ee8268c7a001ea015
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 0238278b81255d735f8a950ca307d0e05100cfec
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688642"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614571"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Küme Windows Server düğümleri Bakımı veya sorun giderme için Azure Kubernetes Service (AKS) için RDP ile bağlanma
 
-Azure Kubernetes Service (AKS) kümenizi yaşam döngüsü boyunca, bir AKS Windows Server düğümüne erişmek gerekebilir. Bu erişim, bakım, günlük toplama veya diğer sorun giderme işlemleri için olabilir. RDP kullanarak Windows Server AKS düğümleri erişebilirsiniz. Alternatif olarak, küme oluşturma sırasında kullanılan anahtar çiftinin erişiminiz AKS Windows Server düğümlerine erişmek için SSH kullanmak istediğiniz adımları izleyebilirsiniz [Azure Kubernetes Service (AKS) kümesi düğümleri içine SSH] [ssh-steps]. Güvenlik nedenleriyle, AKS düğümleri internet'e açık değildir.
+Azure Kubernetes Service (AKS) kümenizi yaşam döngüsü boyunca, bir AKS Windows Server düğümüne erişmek gerekebilir. Bu erişim, bakım, günlük toplama veya diğer sorun giderme işlemleri için olabilir. RDP kullanarak Windows Server AKS düğümleri erişebilirsiniz. Alternatif olarak, küme oluşturma sırasında kullanılan anahtar çiftinin erişiminiz AKS Windows Server düğümlerine erişmek için SSH kullanmak istediğiniz adımları izleyebilirsiniz [Azure Kubernetes Service (AKS) kümesi düğümleri içine SSH][ssh-steps]. Güvenlik nedenleriyle, AKS düğümleri internet'e açık değildir.
 
 Windows Server düğüm desteği şu anda aks'deki önizlemeye sunulmuştur.
 
@@ -24,7 +24,7 @@ Bu makalede, özel IP adreslerini kullanarak bir AKS düğümü ile RDP bağlant
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalede, bir Windows Server düğüm ile var olan bir AKS kümesi olduğunu varsayar. Bir AKS kümesi gerekirse makaleye bakın [Azure CLI kullanarak bir Windows kapsayıcısı ile bir AKS kümesi oluşturma][aks-windows-cli]. Sorun giderme için istediğiniz Windows Server düğümü için Windows yönetici kullanıcı adı ve parola gerekir. Ayrıca bir RDP istemcisi aşağıdaki gibi ihtiyacınız [Microsoft Uzak Masaüstü][rdp-mac].
+Bu makalede, bir Windows Server düğüm ile var olan bir AKS kümesi olduğunu varsayar. Bir AKS kümesi gerekirse makaleye bakın [Azure CLI kullanarak bir Windows kapsayıcısı ile bir AKS kümesi oluşturma][aks-windows-cli]. You need the Windows administrator username and password for the Windows Server node you want to troubleshoot. You also need an RDP client such as [Microsoft Remote Desktop][rdp-mac].
 
 Ayrıca Azure CLI Sürüm 2.0.61 gerekir veya daha sonra yüklü ve yapılandırılmış. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
 
@@ -66,19 +66,19 @@ Sanal makinenin genel IP adresini kaydedin. Daha sonraki bir adımda bu adresi k
 
 ## <a name="get-the-node-address"></a>Düğüm adresi alın
 
-Bir Kubernetes kümesini yönetmek için kullandığınız [kubectl][kubectl], Kubernetes komut satırı istemcisi. Azure Cloud Shell kullanıyorsanız `kubectl` zaten yüklü. Yüklenecek `kubectl` yerel olarak, [az aks yükleme-cli] [ az-aks-install-cli] komutu:
+Bir Kubernetes kümesini yönetmek için kullandığınız [kubectl][kubectl], Kubernetes komut satırı istemcisi. Azure Cloud Shell kullanıyorsanız `kubectl` zaten yüklü. Yüklenecek `kubectl` yerel olarak, [az aks yükleme-cli][az-aks-install-cli] komutu:
     
 ```azurecli-interactive
 az aks install-cli
 ```
 
-`kubectl` istemcisini Kubernetes kümenize bağlanacak şekilde yapılandırmak için [az aks get-credentials][az-aks-get-credentials] komutunu kullanın. Bu komut, kimlik bilgilerini indirir ve Kubernetes CLI'yi bunları kullanacak şekilde yapılandırır.
+Yapılandırmak için `kubectl` Kubernetes kümenize bağlanmak için [az aks get-credentials][az-aks-get-credentials] komutu. Bu komut, kimlik bilgilerini indirir ve Kubernetes CLI'yi bunları kullanacak şekilde yapılandırır.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-İç IP adresi kullanarak Windows Server düğümlerinin listesinde [kubectl alma] [ kubectl-get] komutu:
+İç IP adresi kullanarak Windows Server düğümlerinin listesinde [kubectl alma][kubectl-get] komutu:
 
 ```console
 kubectl get nodes -o wide
@@ -113,7 +113,7 @@ Artık herhangi bir sorun giderme komutunu çalıştırabilirsiniz *cmd* pencere
 
 ## <a name="remove-rdp-access"></a>RDP erişimini Kaldır
 
-İşiniz bittiğinde, RDP bağlantısı için Windows Server düğümünün çıkmak sonra sanal makineye RDP oturumundan çıkın. Her iki RDP oturumları çıktıktan sonra sanal makineyle Sil [az vm delete] [ az-vm-delete] komutu:
+İşiniz bittiğinde, RDP bağlantısı için Windows Server düğümünün çıkmak sonra sanal makineye RDP oturumundan çıkın. Her iki RDP oturumları çıktıktan sonra sanal makineyle Sil [az vm delete][az-vm-delete] komutu:
 
 ```azurecli-interactive
 az vm delete --resource-group myResourceGroup --name myVM
@@ -121,7 +121,7 @@ az vm delete --resource-group myResourceGroup --name myVM
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ek sorun giderme verilerini gerekiyorsa [Kubernetes ana düğüm günlüklerini görüntüleyin] [ view-master-logs] veya [Azure İzleyici][azure-monitor-containers].
+Ek sorun giderme verilerini gerekiyorsa [Kubernetes ana düğüm günlüklerini görüntüleyin][view-master-logs] or [Azure Monitor][azure-monitor-containers].
 
 <!-- EXTERNAL LINKS -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/

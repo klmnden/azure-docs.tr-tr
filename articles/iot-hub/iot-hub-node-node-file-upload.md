@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: f60236163cd88822c384bd356a1770d616639174
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d52e0e1093668a65e76bd6600329619240aee182
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596615"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612601"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Cihazınızı IOT Hub ile buluta dosyaları karşıya yükleme
 
@@ -22,16 +22,16 @@ ms.locfileid: "65596615"
 
 Bu öğreticide kodda geliştirir [IOT Hub ile bulut buluttan cihaza ileti gönderme](iot-hub-node-node-c2d.md) nasıl kullanılacağını göstermek için öğretici [dosya karşıya yükleme özellikleri IOT Hub'ın](iot-hub-devguide-file-upload.md) bir dosyayı karşıya yüklemek için [Azure blob Depolama](../storage/index.yml). Öğretici şunların nasıl yapıldığını göstermektedir:
 
-- Bir cihaz Azure ile güvenli bir şekilde sağlayan bir dosya karşıya yükleme için URI blob.
-- 
-- IOT hub'ı dosya karşıya yükleme bildirimlerini, uygulama arka ucu dosyasında bir işlem tetiklemek için kullanın.
+* Bir cihaz Azure ile güvenli bir şekilde sağlayan bir dosya karşıya yükleme için URI blob.
 
-[IOT Hub ile çalışmaya başlama](quickstart-send-telemetry-node.md) öğretici, IOT hub'ı temel cihaz-bulut Mesajlaşma işlevlerini gösterir. Ancak, bazı senaryolarda cihazlarınızı IOT hub'ı kabul görece küçük bir CİHAZDAN buluta ileti gönderme verileri kolayca eşlenemiyor. Örneğin:
+* IOT hub'ı dosya karşıya yükleme bildirimlerini, uygulama arka ucu dosyasında bir işlem tetiklemek için kullanın.
 
-*  Görüntüleri içeren büyük dosyaları
-*  Videolar
-*  Titreşim veri yüksek sıklıkta örneklenir
-*  Önceden işlenmiş verilerin bazı formlarıyla.
+[Telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-node.md) hızlı başlangıç, IOT hub'ı temel cihaz-bulut Mesajlaşma işlevlerini gösterir. Ancak, bazı senaryolarda cihazlarınızı IOT hub'ı kabul görece küçük bir CİHAZDAN buluta ileti gönderme verileri kolayca eşlenemiyor. Örneğin:
+
+* Görüntüleri içeren büyük dosyaları
+* Videolar
+* Titreşim veri yüksek sıklıkta örneklenir
+* Önceden işlenmiş verilerin bazı formlarıyla.
 
 Bu dosyalar genellikle toplu işleme gibi araçları kullanarak bulutta olduğu [Azure Data Factory](../data-factory/introduction.md) veya [Hadoop](../hdinsight/index.yml) yığını. Bir CİHAZDAN upland dosyalara ihtiyacınız olduğunda, güvenlik ve güvenilirlik IOT hub'ı kullanmaya devam edebilirsiniz.
 
@@ -216,6 +216,8 @@ Karşıya yüklenen dosya yapılandırdığınız depolama kapsayıcısında gö
 
 Bu öğreticide, cihazlardan karşıya dosya yükleme işlemleri basitleştirmek için dosya karşıya yükleme özellikleri IOT hub'ı kullanmayı öğrendiniz. IOT hub özelliklerini ve aşağıdaki makalelerde senaryolarını keşfetmeye devam edebilirsiniz:
 
-*  [Programlamalı IOT hub oluşturma](iot-hub-rm-template-powershell.md)
-*  [C SDK'ya giriş](iot-hub-device-sdk-c-intro.md)
-*  [Azure IoT SDK’ları](iot-hub-devguide-sdks.md)
+* [Programlamalı IOT hub oluşturma](iot-hub-rm-template-powershell.md)
+
+* [C SDK'ya giriş](iot-hub-device-sdk-c-intro.md)
+
+* [Azure IoT SDK’ları](iot-hub-devguide-sdks.md)

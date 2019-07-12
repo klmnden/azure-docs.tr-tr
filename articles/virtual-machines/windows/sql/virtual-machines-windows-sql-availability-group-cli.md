@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5efbe874bbf3c1c4081eb7a2c76c1be5a3358ec8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5015f00d3c6dfe0e1e5c2466af777cc0f1bc509
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65518972"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607144"
 ---
 # <a name="use-azure-sql-vm-cli-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Azure VM'de SQL Server Always On kullanılabilirlik grubu yapılandırmak için Azure SQL VM CLI'yı kullanın
 Bu makalede nasıl kullanılacağını [Azure SQL VM CLI](/cli/azure/sql/vm?view=azure-cli-latest/) Windows Yük devretme kümesi (WSFC) dağıtın ve SQL Server Vm'leri kümeye eklemek, hem de iç Load Balancer ve Always On kullanılabilirlik grubu dinleyicisi oluşturmak için.  Gerçek dağıtım Always On kullanılabilirlik grubu hala el ile SQL Server Management Studio (SSMS) aracılığıyla gerçekleştirilir. 
@@ -28,7 +28,7 @@ Bu makalede nasıl kullanılacağını [Azure SQL VM CLI](/cli/azure/sql/vm?view
 Azure SQL VM CLI kullanarak bir Always On kullanılabilirlik grubunun Kurulum otomatikleştirmek için aşağıdaki önkoşulları zaten olması gerekir: 
 - Bir [Azure aboneliği](https://azure.microsoft.com/free/).
 - Bir etki alanı denetleyicisi ile bir kaynak grubu. 
-- Bir veya daha fazla etki alanına katılmış [Vm'leri Azure çalışan SQL Server 2016 (veya üzeri) Enterprise Edition'da](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) içinde *aynı kullanılabilirlik kümesine veya farklı kullanılabilirlik bölgelerine* bulunmuş olabilirsiniz [kayıtlı SQL VM kaynak sağlayıcısı ile](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).  
+- Bir veya daha fazla etki alanına katılmış [Vm'leri Azure çalışan SQL Server 2016 (veya üzeri) Enterprise Edition'da](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) içinde *aynı kullanılabilirlik kümesine veya farklı kullanılabilirlik bölgelerine* bulunmuş olabilirsiniz [kayıtlı SQL VM kaynak sağlayıcısı ile](virtual-machines-windows-sql-register-with-resource-provider.md).  
 - [Azure CLI](/cli/azure/install-azure-cli). 
 - (Herhangi bir varlık tarafından kullanılmaz) iki kullanılabilir IP adresleri, bir iç Load Balancer ve kullanılabilirlik Grup dinleyicisinin kullanılabilirlik grubu olarak aynı alt ağ içinde bir. Ardından var olan bir yük dengeleyici kullanılıyorsa yalnızca bir kullanılabilir IP adresi kullanılabilirlik grubu dinleyicisi için gereklidir. 
 

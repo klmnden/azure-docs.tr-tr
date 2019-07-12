@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 12/03/2018
+ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8fd7af7c2a075258e337b51c3aaca3da9e3d497f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 376be43a57783f537df81f0e97f005e2c46a710e
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66692871"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797628"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Bir web hizmeti olarak bir Azure Machine Learning modeli kullanma
 
@@ -491,6 +491,6 @@ Döndürülen sonuçlar için aşağıdaki JSON belgesini benzerdir:
 
 Power BI, verilerinizi Power BI'da Öngörüler ile zenginleştirmek için Azure Machine Learning web Hizmetleri kullanımını destekler. 
 
-Power bı'da tüketim için desteklenen bir web hizmeti oluşturmak için şemayı, Power BI tarafından gereken biçimde desteklemesi gerekir. [Power BI tarafından desteklenen bir şema oluşturmayı](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#Example-script-with-dictionary-input-Support-consumption-from-Power-BI).
+Power bı'da tüketim için desteklenen bir web hizmeti oluşturmak için şemayı, Power BI tarafından gereken biçimde desteklemesi gerekir. [Power BI tarafından desteklenen bir şema oluşturmayı](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-script-with-dictionary-input-support-consumption-from-power-bi).
 
 Web hizmeti dağıtıldıktan sonra Power BI veri akışı tüketilebilir. [Power bı'dan bir Azure Machine Learning web hizmetini kullanma hakkında bilgi edinin](https://docs.microsoft.com/power-bi/service-machine-learning-integration).

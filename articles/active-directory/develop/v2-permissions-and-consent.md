@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73b832002d1c15505e8ae845ac2585548c8e080f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 032cc0edaa140d82124a7369232cb82bf6c00c10
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482153"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702699"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>İzinler ve onay Microsoft kimlik platformu uç noktası
 
@@ -53,7 +53,7 @@ Aynı durum Microsoft kimlik platformu ile tümleştirdik herhangi bir üçünc�
 
 Bu tür izinler tanımlayarak kaynak verilerini ve API işlevselliğini nasıl sunulduğunu üzerinde ayrıntılı denetime sahiptir. Bir üçüncü taraf uygulaması kullanıcılar ve Yöneticiler, bu izinler isteyebilir kimin önce uygulama isteğini onaylaması veri erişebilir veya bir kullanıcı adına hareket. Daha küçük izin kümeleri kaynağın işlevsellik Öbekleme tarafından üçüncü taraf uygulamaları işlevleri gerçekleştirmek için ihtiyaç duydukları belirli izinleri istemek için oluşturulabilir. Tam olarak hangi verilerin uygulama erişimi olan kullanıcıların ve yöneticilerin bilebilirsiniz ve kötü amaçlı bir eyleme davranmayan doğrulayabilirse olabilir. Geliştiriciler için yalnızca işlev uygulamalarına ihtiyaç duydukları izinleri isteyen en az ayrıcalık kavramı tarafından her zaman uymanız.
 
-OAuth 2. 0'da, bu tür izinler adlandırılır *kapsamları*. Bunlar da genellikle olarak adlandırılan *izinleri*. Bir izni Microsoft kimlik platformu, dize değeri olarak temsil edilir. Microsoft Graph örneğiyle devam, her izin için dize değeridir:
+OAuth 2. 0'da, bu tür izinler adlandırılır *kapsamları*. Bunlar ayrıca olarak anılır *izinleri*. Bir izni Microsoft kimlik platformu, dize değeri olarak temsil edilir. Microsoft Graph örneğiyle devam, her izin için dize değeridir:
 
 * Kullanıcının takvim kullanarak okuma `Calendars.Read`
 * Kullanarak bir kullanıcının takvime yazma `Calendars.ReadWrite`
@@ -167,7 +167,8 @@ Yönetici onayı bir kapsam parametresi kabul etmiyor, uygulama kaydında izinle
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>Bir uygulama için statik olarak istenen izinler listesini yapılandırmak için
 
 1. Uygulamanıza gidin [Azure portalında – uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) deneyimi veya [uygulama oluşturma](quickstart-register-app.md) henüz yapmadıysanız.
-2. Bulun **Microsoft Graph izinleri** bölümüne ve ardından uygulamanız için gerekli izinleri ekleyin.
+2. Bulun **API izinleri** bölümünde ve içinde API izinleri Ekle izni.
+3. Seçin **Microsoft Graph** kullanılabilir API'ler listesinden ve uygulamanız için gerekli izinleri ekleyin.
 3. **Kaydet** uygulama kaydı.
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>Önerilen: Kullanıcı, uygulamada oturum açması

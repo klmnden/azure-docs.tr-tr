@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: b48d8d74843947c3e40dc80234560b0147be6eea
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 5471bf4041275d5988414def99dd2130f51fbb80
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542989"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67828030"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Öğretici: Küme bağlama
 
@@ -43,7 +43,7 @@ Hepsini bir kez deneme DNS Yük Dengeleme için kümesi hakkında bilgi edinmek 
 
 Küçük yüklemeleri için daha basit bir yöntem istemci bağlama zaman aralığı boyunca IP adresleri atamak için bir komut dosyası kullanmaktır. 
 
-Diğer Yük Dengeleme yöntemleriyle büyük veya karmaşık sistemleri için uygun olabilir. Microsoft temsilcinize başvurun veya Yardım için bir destek isteği açın. (Şu anda azure Load Balancer *desteklenmiyor* ile Azure FXT Edge dosyalayıcı.)
+Diğer Yük Dengeleme yöntemleriyle büyük veya karmaşık sistemleri için uygun olabilir. Microsoft temsilcinize veya açık başvurun bir [destek isteği](fxt-support-ticket.md) Yardım. (Şu anda azure Load Balancer *desteklenmiyor* ile Azure FXT Edge dosyalayıcı.)
 
 ## <a name="create-the-mount-command"></a>Bağlama komutu oluştur 
 

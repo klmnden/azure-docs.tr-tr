@@ -4,7 +4,7 @@ description: Desteklenen senaryolar ve mimari ayrıntılarının (büyük örnek
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 501c5ffa86f2360e44c187e087f7285bbf4084fd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3699764cbcad2446067daff9f19e801cad299c47
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60477785"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707292"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>HANA büyük örnekler için desteklenen senaryolar
 Bu belgede, HANA büyük örnekleri (HLI) için kendi mimari ayrıntılarıyla birlikte desteklenen senaryolar açıklanmaktadır.

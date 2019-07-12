@@ -14,17 +14,16 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9d273886b3add43818af80915e42b4aa7ca69a89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0f18fc8a18cbcf5d85b68ed40790eda36d653812
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66146875"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836583"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Öğretici: İlk Azure data factory’nizi Azure PowerShell Düzenleyici kullanarak derleme
 > [!div class="op_single_selector"]
 > * [Genel bakış ve önkoşullar](data-factory-build-your-first-pipeline.md)
-> * [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager Şablonu](data-factory-build-your-first-pipeline-using-arm.md)
@@ -164,8 +163,8 @@ Bu adımda, isteğe bağlı HDInsight kümesini data factory’nize bağlarsın�
 
    | Özellik | Açıklama |
    |:--- |:--- |
-   | ClusterSize |HDInsight kümesi boyutunu belirtir. |
-   | TimeToLive |Silinmeden önce HDInsight kümesinin boşta kalma süresini belirtir. |
+   | clusterSize |HDInsight kümesi boyutunu belirtir. |
+   | timeToLive |Silinmeden önce HDInsight kümesinin boşta kalma süresini belirtir. |
    | linkedServiceName |HDInsight tarafından oluşturulan günlükleri depolamak için kullanılan depolama hesabını belirtir |
 
     Aşağıdaki noktalara dikkat edin:
@@ -218,7 +217,7 @@ Bu adımda, Hive işlenmesi için girdi ve çıktı verilerini temsil edecek ver
 
    | Özellik | Açıklama |
    |:--- |:--- |
-   | type |Veriler Azure blob depolamada yer aldığından type özelliği AzureBlob olarak ayarlanmıştır. |
+   | türü |Veriler Azure blob depolamada yer aldığından type özelliği AzureBlob olarak ayarlanmıştır. |
    | linkedServiceName |daha önce oluşturduğunuz StorageLinkedService’e başvurur. |
    | fileName |Bu özellik isteğe bağlıdır. Bu özelliği atarsanız, tüm folderPath dosyaları alınır. Bu durumda, yalnızca input.log işlenir. |
    | type |Günlük dosyaları metin biçiminde olduğundan TextFormat kullanacağız. |

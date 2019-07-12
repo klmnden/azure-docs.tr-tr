@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 09/24/2018
-ms.author: deborahc
-ms.openlocfilehash: b5f79fccf040c893d02ed82a397f361ae9bf3fd2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: dech
+ms.openlocfilehash: d6d3de435537e5e55783f69dfd1dde0fbf8cb26e
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627618"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806451"
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Azure Cosmos DB Node.js örnekleri
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ Azure Cosmos DB kaynaklarında CRUD işlemlerini ve diğer yaygın işlemleri ge
 | [Koşullu ETag denetimiyle öğeyi değiştirme](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/ItemManagement/app.js#L139-L160) |[Item.replace](https://docs.microsoft.com/javascript/api/%40azure/cosmos/item?view=azure-node-latest)<br/>[RequestOptions.accessCondition](https://docs.microsoft.com/javascript/api/%40azure/cosmos/requestoptions?view=azure-node-latest#accesscondition) |
 | [Öğeyi silme](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/ItemManagement/app.js#L162-L164) |[Item.delete](https://docs.microsoft.com/javascript/api/%40azure/cosmos/item?view=azure-node-latest) |
 
-## <a name="indexing-examples"></a>Dizin örnekleri
+## <a name="indexing-examples"></a>Dizin oluşturma örnekleri
 [IndexManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/IndexManagement) projesinin [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/IndexManagement/app.js) dosyasında aşağıdaki görevlerin nasıl gerçekleştirileceği gösterilir.  Aşağıdaki örneği çalıştırmadan önce Azure Cosmos DB'de dizinleme hakkında bilgi edinmek için [dizinleme ilkeleri](index-policy.md), [türlerini dizinleme](index-types.md), ve [dizin yolları](index-paths.md) kavramsal makaleler. 
 
 | Görev | API başvurusu |

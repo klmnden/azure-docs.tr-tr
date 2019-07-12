@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/01/219
+ms.date: 05/01/2019
 ms.author: bwren
-ms.openlocfilehash: 2db6ddf57802f6fcf38cfc3ad7094ed94eaca3d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b1627306f1a8e9d9285c72118bfebdcb53d369b
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234192"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626113"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Azure İzleyici günlük verilerini Power BI'a aktarma
 
@@ -28,12 +28,12 @@ ms.locfileid: "65234192"
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Verileri içe aktarmak için bir [Log Analytics çalışma alanı](manage-access.md) Power bı'a Azure İzleyici'de oluşturduğunuz göre Power bı'da bir veri kümesine bir [günlük sorgusu](../log-query/log-query-overview.md) Azure İzleyici'de.  Sorgu, veri kümesi her yenilendiğinde çalıştırılır.  Ardından, veri kümesindeki verileri kullanan Power BI raporları da oluşturabilirsiniz.  Power BI'da veri kümesini oluşturmak için sorgunuzu Log analytics'ten dışarı [Power Query (M) dil](https://msdn.microsoft.com/library/mt807488.aspx).  Power bı'da bir veri kümesi olarak yayımlayın ve bu Power BI Desktop'ta bir sorgu oluşturmak için kullanın.  Bu işlemin ayrıntıları aşağıda verilmiştir.
+Verileri içe aktarmak için bir [Log Analytics çalışma alanı](manage-access.md) Power bı'a Azure İzleyici'de oluşturduğunuz göre Power bı'da bir veri kümesine bir [günlük sorgusu](../log-query/log-query-overview.md) Azure İzleyici'de.  Sorgu, veri kümesi her yenilendiğinde çalıştırılır.  Ardından, veri kümesindeki verileri kullanan Power BI raporları da oluşturabilirsiniz.  Power BI'da veri kümesini oluşturmak için sorgunuzu Log analytics'ten dışarı [Power Query (M) dil](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification).  Power bı'da bir veri kümesi olarak yayımlayın ve bu Power BI Desktop'ta bir sorgu oluşturmak için kullanın.  Bu işlemin ayrıntıları aşağıda verilmiştir.
 
 ![Log Analytics'e Power BI](media/powerbi/overview.png)
 
 ## <a name="export-query"></a>Sorgu dışarı aktarma
-Oluşturarak başlayın bir [günlük sorgusu](../log-query/log-query-overview.md) Power BI veri kümesine doldurmak için istediğiniz verileri döndürür.  Sorguları dışarı aktar [Power Query (M) dil](https://msdn.microsoft.com/library/mt807488.aspx) Power BI Desktop tarafından kullanılabilir.
+Oluşturarak başlayın bir [günlük sorgusu](../log-query/log-query-overview.md) Power BI veri kümesine doldurmak için istediğiniz verileri döndürür.  Sorguları dışarı aktar [Power Query (M) dil](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification) Power BI Desktop tarafından kullanılabilir.
 
 1. [Log Analytics'te günlük sorgusu oluşturma](../log-query/get-started-portal.md) kümeniz için verileri ayıklamak için.
 2. Seçin **dışarı** > **Power BI sorgu (M)** .  Bu sorgu adlı bir metin dosyasına dışarı aktarır **PowerBIQuery.txt**. 

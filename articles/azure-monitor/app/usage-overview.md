@@ -13,12 +13,12 @@ ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: f2539d5250ff436a720fe10f748f40db29b0ee25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba29688958ee11aa9906a820f7a3d2bf41223743
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60783442"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798173"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights ile kullanım analizi
 
@@ -132,11 +132,11 @@ Bu yöntem için ayrı özellik değerlerini uygulamanızın her sürüm tarafı
 
 Application Insights portalında, filtreleme ve farklı sürümleri karşılaştırmak için özellik değerleri, verilerinizde bölebilirsiniz.
 
-Bunu yapmak için [bir telemetri Başlatıcısı kümesi](../../azure-monitor/app/api-filtering-sampling.md##add-properties-itelemetryinitializer):
+Bunu yapmak için [bir telemetri Başlatıcısı kümesi](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer):
+
+**ASP.NET uygulamaları**
 
 ```csharp
-
-
     // Telemetry initializer class
     public class MyTelemetryInitializer : ITelemetryInitializer
     {
@@ -155,8 +155,24 @@ Web uygulama başlatıcısında Global.asax.cs gibi:
     {
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers
-        .Add(new MyTelemetryInitializer());
+         .Add(new MyTelemetryInitializer());
     }
+```
+
+**ASP.NET Core uygulamaları**
+
+> [!NOTE]
+> Ekleme Başlatıcısı kullanarak `ApplicationInsights.config` veya bu adı kullanıyor `TelemetryConfiguration.Active` ASP.NET Core uygulamaları için geçerli değil. 
+
+İçin [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) uygulamalar, yeni bir ekleme `TelemetryInitializer` aşağıda gösterildiği gibi bağımlılık ekleme kapsayıcısına ekleyerek yapılır. Bu yapılır `ConfigureServices` yöntemi, `Startup.cs` sınıfı.
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+}
 ```
 
 Tüm yeni TelemetryClients belirttiğiniz özellik değeri otomatik olarak ekleyin. Telemetri olaylarını tek tek varsayılan değerleri geçersiz kılabilir.

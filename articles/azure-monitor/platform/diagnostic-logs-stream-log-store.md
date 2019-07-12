@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 13eb1a8fcea2f74cda5921a51b8c2e8816be975f
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: e8e6276a38f06b5c6ebb24c89f3733b9fd7220f7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303703"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612836"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Azure İzleyici'de Log Analytics çalışma alanına Stream Azure tanılama günlükleri
 
@@ -99,6 +99,30 @@ Tanılama günlüğüne olarak geçirilen JSON dizisi sözlükleri ekleyerek ek 
 
 Azure İzleyicisi portalındaki günlükleri dikey penceresinde, günlük yönetimi çözümü AzureDiagnostics tablonun altında bir parçası olarak tanılama günlükleri sorgulayabilir. Ayrıca [Azure kaynakları için çeşitli izleme çözümleri](../../azure-monitor/insights/solutions.md) günlük verileri anında Öngörüler Azure İzleyici ile gönderdiğiniz almak için yükleyebilirsiniz.
 
+### <a name="examples"></a>Örnekler
+
+```Kusto
+// Resources that collect diagnostic logs into this Log Analytics workspace, using Diagnostic Settings
+AzureDiagnostics
+| distinct _ResourceId
+```
+```Kusto
+// Resource providers collecting diagnostic logs into this Log Analytics worksapce, with log volume per category
+AzureDiagnostics
+| summarize count() by ResourceProvider, Category
+```
+```Kusto
+// Resource types collecting diagnostic logs into this Log Analytics workspace, with number of resources onboarded
+AzureDiagnostics
+| summarize ResourcesOnboarded=dcount(_ResourceId) by ResourceType
+```
+```Kusto
+// Operations logged by specific resource provider, in this example - KeyVault
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.KEYVAULT"
+| distinct OperationName
+```
+
 ## <a name="azure-diagnostics-vs-resource-specific"></a>Azure tanılama ve kaynağa özgü  
 Log Analytics hedef Azure tanılama yapılandırması etkinleştirildikten sonra verileri çalışma alanınızda gösterir iki farklı yolu vardır:  
 - **Azure tanılama** -bugün Azure hizmetlerinin büyük bölümü tarafından kullanılan eski yöntem budur. Bu modda, tüm veriler herhangi bir tanılama ayarı belirli bir çalışma alanına işaret içinde sona erecek _AzureDiagnostics_ tablo. 
@@ -109,7 +133,7 @@ Log Analytics hedef Azure tanılama yapılandırması etkinleştirildikten sonra
 
     AzureDiagnostics tabloda bazı örnek verilerle şu şekilde görünür:  
 
-    | ResourceProvider | Kategori | A | B | C | D | E | F | G | H | I |
+    | ResourceProvider | Category | A | B | C | D | E | F | G | H | I |
     | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
     | Microsoft.Resource1 | AuditLogs | x1 | Y1 | z1 |
     | Microsoft.Resource2 | Günlüklerini | | | | q1 | W1 | e1 |
@@ -124,7 +148,7 @@ Log Analytics hedef Azure tanılama yapılandırması etkinleştirildikten sonra
     Yukarıdaki örnekte, bu üç tabloda oluşturulan neden olur: 
     - Tablo _AuditLogs_ gibi:
 
-        | ResourceProvider | Kategori | A | B | C |
+        | ResourceProvider | Category | A | B | C |
         | -- | -- | -- | -- | -- |
         | Microsoft.Resource1 | AuditLogs | x1 | Y1 | z1 |
         | Microsoft.Resource1 | AuditLogs | x5 | Y5 | z5 |
@@ -132,7 +156,7 @@ Log Analytics hedef Azure tanılama yapılandırması etkinleştirildikten sonra
 
     - Tablo _günlüklerini_ gibi:  
 
-        | ResourceProvider | Kategori | D | E | F |
+        | ResourceProvider | Category | D | E | F |
         | -- | -- | -- | -- | -- | 
         | Microsoft.Resource2 | Günlüklerini | q1 | W1 | e1 |
         | Microsoft.Resource2 | Günlüklerini | q2 | w2 | E2 |
@@ -140,7 +164,7 @@ Log Analytics hedef Azure tanılama yapılandırması etkinleştirildikten sonra
 
     - Tablo _DataFlowLogs_ gibi:  
 
-        | ResourceProvider | Kategori | G | H | I |
+        | ResourceProvider | Category | G | H | I |
         | -- | -- | -- | -- | -- | 
         | Microsoft.Resource3 | DataFlowLogs | J1 | K1 | L1|
         | Microsoft.Resource3 | DataFlowLogs | J3 | K3 | L3|

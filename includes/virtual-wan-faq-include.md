@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/07/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9d8482fdf8e914801fb77e2ab1712145fa3ccea0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9cad403e39239ea92aa432ef3234c5388bfa95c7
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077477"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673551"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Azure sanal ağ geçidi (VPN Gateway) ile Azure Sanal WAN vpngateway arasında ne fark vardır?
 
@@ -109,7 +109,7 @@ Evet.
 
 ### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>Sanal WAN, mevcut Azure Sanal Ağ’dan nasıl farklıdır?
 
-Sanal Ağ Geçidi VPN’i 30 tünelle sınırlıdır. Bağlantılar için, büyük ölçekli VPN’lere yönelik Sanal WAN kullanmanız gerekir. Hub'ında Batı Orta bölgesinde dışındaki tüm bölgeler için 2 GB/sn ile 1000 adede kadar dal bağlantıları bağlanabilirsiniz. Orta Batı ABD bölgesinde 20 Gb/sn hızdan faydalanabilirsiniz. 20 Gb/sn desteğini ileride başka bölgelerde de kullanıma sunacağız. Bağlantı şirket içi VPN cihazından sanal hub’a giden bir etkin-etkin tüneldir. 1\. 000'den fazla dalları hub'larında bağlanabilir anlamına gelir, bölge başına tek bir hub olabilir.
+Sanal Ağ Geçidi VPN’i 30 tünelle sınırlıdır. Bağlantılar için, büyük ölçekli VPN’lere yönelik Sanal WAN kullanmanız gerekir. Hub'ında tüm bölgeler için 20 GB/sn ile 1000 adede kadar dal bağlantıları bağlanabilirsiniz. Bağlantı şirket içi VPN cihazından sanal hub’a giden bir etkin-etkin tüneldir. 1\. 000'den fazla dalları hub'larında bağlanabilir anlamına gelir, bölge başına tek bir hub olabilir.
 
 ### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>Nasıl sanal WAN SD-WAN cihazları destekliyor?
 

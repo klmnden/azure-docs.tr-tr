@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: aadfae9a7b74986fd0ac8857669dd3ccaf62af1f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ebc41fc74d24708a177bf554029df8384c49df05
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166026"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657247"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Visual Studio Code için Azure HDInsight araçları kullanma
 
@@ -304,20 +304,20 @@ Bir dosya göndermek, .vscode klasörü otomatik olarak iş klasöre eklenen dik
     | name | description | türü | 
     | :- | :- | :- | 
     | file | Yürütülecek uygulamanın içeren dosya | yol (gerekli) | 
-    | proxyUser | İş çalışırken bürünülecek kullanıcı | string | 
-    | className | Uygulamanın Java/Spark temel sınıfı | string |
+    | proxyUser | İş çalışırken bürünülecek kullanıcı | dize | 
+    | className | Uygulamanın Java/Spark temel sınıfı | dize |
     | args | Uygulama için komut satırı bağımsız değişkenleri | dize listesi | 
     | jars | Bu oturumda kullanılmak üzere jar'lar | Dize listesi | 
     | pyFiles | Bu oturumda kullanılmak üzere Python dosyaları | Dize listesi |
     | files | Bu oturumda kullanılmak üzere dosyaları | Dize listesi |
-    | driverMemory | Sürücü işlemi için kullanılacak bellek miktarını | string |
+    | driverMemory | Sürücü işlemi için kullanılacak bellek miktarını | dize |
     | driverCores | Sürücü işlemi için kullanılacak çekirdek sayısı | int |
-    | executorMemory | Yürütücü işlemi bellek miktarı | string |
+    | executorMemory | Yürütücü işlemi bellek miktarı | dize |
     | executorCores | Her Yürütücü için kullanılacak çekirdek sayısı | int |
     | numExecutors | Bu oturum için başlatmak için Yürütücü sayısı | int |
     | archives | Bu oturumda kullanılmak üzere arşivleri | Dize listesi |
-    | queue | YARN Kuyruğun adı gönderildi | string |
-    | name | Bu oturumun adı | string |
+    | queue | YARN Kuyruğun adı gönderildi | dize |
+    | name | Bu oturumun adı | dize |
     | conf | Spark yapılandırma özellikleri | Harita anahtarı val = |
 
     Yanıt gövdesi   
@@ -326,10 +326,10 @@ Bir dosya göndermek, .vscode klasörü otomatik olarak iş klasöre eklenen dik
     | name | description | türü | 
     | :- | :- | :- | 
     | id | Oturum kimliği | int | 
-    | appId | Bu oturumun uygulama kimliği |  String |
+    | appId | Bu oturumun uygulama kimliği |  Dize |
     | appInfo | Ayrıntılı uygulama bilgileri | Harita anahtarı val = |
     | log | Günlük satırları | dize listesi |
-    | state |   Toplu işlem durumu | string |
+    | state |   Toplu işlem durumu | dize |
 
 >[!NOTE]
 >Atanan livy config çıkış Bölmesi'nde görüntüler zaman betiği gönderin.
@@ -436,7 +436,7 @@ Bir HDInsight kümesine ADLS Gen2 ile iş gönderirken depolama girmeniz istenec
 
 > [!NOTE]
 > 
->Depolama hesabı için erişim anahtarı Azure portalından alabilirsiniz. Bilgi için [erişim anahtarlarını görüntüleme ve kopyalama](https://docs.microsoft.com/azure/storage/common/storage-account-manage#view-and-copy-access-keys).
+>Depolama hesabı için erişim anahtarı Azure portalından alabilirsiniz. Bilgi için [erişim anahtarlarını görüntüleme ve kopyalama](https://docs.microsoft.com/azure/storage/common/storage-account-manage#access-keys).
 
 ## <a name="unlink-cluster"></a>Küme bağlantısını Kaldır
 

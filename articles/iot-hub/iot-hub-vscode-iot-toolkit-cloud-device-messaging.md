@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: f8799fcb06235474bb33cdaf0406300065208024
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 1289e9c8f8cfc9360c9b2325507b43bab3a69028
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543816"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838500"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>IOT Hub ve cihaz arasında ileti göndermek ve almak için Visual Studio Code için Azure IOT araçları kullanın
 
@@ -56,7 +56,7 @@ CİHAZDAN buluta iletileri izlemeye yönelik ve bulut-cihaz iletilerini gönderm
 5. Cihaz listesinde gösterilecek **Azure IOT Hub cihazları** birkaç saniye içinde sekmesi.
 
    > [!Note]
-   > Ayrıca, ayarlamayı tamamlamak için **IoT Hub Bağlantı Dizesini Ayarla**'yı seçebilirsiniz. Açılır pencerede bağlanır IOT Cihazınızı IOT hub'ının bağlantı dizesini girin.
+   > Ayrıca, ayarlamayı tamamlamak için **IoT Hub Bağlantı Dizesini Ayarla**'yı seçebilirsiniz. Girin **iothubowner** İlkesi açılır pencerede bağlanır IOT Cihazınızı IOT hub'ının bağlantı dizesi.
 
 ## <a name="monitor-device-to-cloud-messages"></a>CİHAZDAN buluta iletileri izlemeye
 

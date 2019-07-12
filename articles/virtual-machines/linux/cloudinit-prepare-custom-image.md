@@ -4,7 +4,7 @@ description: Cloud-init ile dağıtımı için önceden var olan bir Azure VM g�
 services: virtual-machines-linux
 documentationcenter: ''
 author: danis
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: danis
-ms.openlocfilehash: a64fb40c905fbe98dc594ab3626666723d1628d0
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 1f9f6042b52c722280a8227754960ffb270e94b8
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357259"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668258"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Cloud-init ile kullanım için var olan bir Linux Azure VM görüntüsü hazırlama
 Bu makalede, mevcut bir Azure sanal makinesini atın ve bilgisayarına ve cloud-init kullanıma hazır olması için hazırlamak üzere nasıl gösterir. Elde edilen görüntü, yeni bir sanal makine veya sanal makine ölçek kümeleri - bunların daha sonra daha fazla cloud-init tarafından dağıtım sırasında garantileyen dağıtmak için kullanılabilir.  Kaynakları Azure tarafından sağlanan sonra ilk önyüklemede bu cloud-init betikleri çalıştırın. Cloud-init yerel olarak desteklenen Linux dağıtımları ve Azure ile işleyişi hakkında daha fazla bilgi için bkz. [cloud-init genel bakış](using-cloud-init.md)

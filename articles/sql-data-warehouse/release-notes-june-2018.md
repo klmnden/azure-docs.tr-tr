@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 07/23/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
-ms.openlocfilehash: 95c59d3e5504058e27cdb4eda311c3917d6c834a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4348a634fd5b2b33f36d8e79f28caf659b82ccf4
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65912237"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626145"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Haziran 2018
 Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Haziran 2018'de sunulan değişiklikler ve yeni özellikleri açıklar. 
@@ -91,7 +91,7 @@ Central Standard Time             -05:00               1
 
 ## <a name="auto-stats-operations-appear-in-sysdmpdwexecrequests-behavior-change"></a>Otomatik İstatistikler operations sys.dm_pdw_exec_requests (davranış değişikliği) görünür.
 
-Sunulmasıyla birlikte [otomatik Create STATISTICS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistics), Azure SQL veri ambarı sorgu yürütme en iyi duruma getirme istatistikleri üretir. İstatistikleri otomatik olarak oluşturulan bir kayıtta ekleyerek, izleme olanağı Haziran 2018'den sürüm ekler [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) herhangi her görüntülemek [CREATE STATISTICS](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql) işlemi yürütülür.
+Sunulmasıyla birlikte [otomatik Create STATISTICS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic), Azure SQL veri ambarı sorgu yürütme en iyi duruma getirme istatistikleri üretir. İstatistikleri otomatik olarak oluşturulan bir kayıtta ekleyerek, izleme olanağı Haziran 2018'den sürüm ekler [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) herhangi her görüntülemek [CREATE STATISTICS](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql) işlemi yürütülür.
 
 ```sql
 SELECT
@@ -111,7 +111,7 @@ start_time                | end_time                | command
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-SQL veri ambarı hakkında biraz bilmek, bilgi nasıl hızlı bir şekilde [SQL veri ambarı oluşturma][create a SQL Data Warehouse]. Azure'da yeniyseniz yeni terimlerle karşılaşabileceğinizi için [Azure sözlüğünü][Azure glossary] yararlı bulabilirsiniz. Alternatif olarak, aşağıdaki diğer SQL Veri Ambarı Kaynakları’na göz atın.  
+SQL veri ambarı hakkında biraz bilmek, bilgi nasıl hızlı bir şekilde [SQL veri ambarı oluşturma][create a SQL Data Warehouse] . If you are new to Azure, you may find the [Azure glossary][Azure glossary] yeni terimlerle karşılaşabileceğinizi yardımcı. Alternatif olarak, aşağıdaki diğer SQL Veri Ambarı Kaynakları’na göz atın.  
 
 * [Müşteri başarı hikayeleri]
 * [Bloglar]

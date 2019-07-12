@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dc72ec9bf2e7e7c5c77685368167357a0108f2d3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a1497211cc42c702537cbbdfea32ff71a400c7c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60335440"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836679"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Gelen Amazon, Redshift Azure Data Factory ile veri taşıma
 > [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
@@ -44,7 +44,7 @@ Farklı araç ve API'leri kullanarak bir Amazon Redshift kaynaktan verileri taş
 
 Bir işlem hattı oluşturmanın en kolay yolu, Azure Data Factory Kopyalama Sihirbazı'nı kullanmaktır. Hızlı bir kılavuz Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hakkında bilgi için bkz: [Öğreticisi: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md).
 
-Ayrıca, Azure portalı, Visual Studio, Azure PowerShell veya diğer araçları kullanarak bir işlem hattı oluşturabilirsiniz. Azure Resource Manager şablonları, .NET API veya REST API işlem hattını oluşturmak için de kullanılabilir. Kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Ayrıca, Visual Studio, Azure PowerShell veya diğer araçları kullanarak bir işlem hattı oluşturabilirsiniz. Azure Resource Manager şablonları, .NET API veya REST API işlem hattını oluşturmak için de kullanılabilir. Kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için bir kaynak veri deposundan veri taşıyan bir işlem hattı oluşturmak için aşağıdaki adımları gerçekleştirin:
 
@@ -336,12 +336,12 @@ Kopyalama etkinliği verileri bir Amazon Redshift türünden bir .NET türe dön
 | DECIMAL |Decimal |
 | REAL |Single |
 | DOUBLE PRECISION |Double |
-| BOOLEAN |String |
-| CHAR |String |
-| VARCHAR |String |
-| DATE |DateTime |
-| TIMESTAMP |DateTime |
-| TEXT |String |
+| BOOLEAN |Dize |
+| CHAR |Dize |
+| VARCHAR |Dize |
+| DATE |Datetime |
+| TIMESTAMP |Datetime |
+| TEXT |Dize |
 
 ## <a name="map-source-to-sink-columns"></a>Sütunları havuz için kaynak eşlemesi
 Kaynak veri kümesindeki sütunları havuz veri kümesi sütunlara eşlemeyle ilgili bilgi edinmek için bkz: [Azure Data factory'de veri kümesi sütunlarını eşleme](data-factory-map-columns.md).

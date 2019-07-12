@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: bbbc2bc5c47821469ecf15a27195b1bf0c12e6e5
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 1ee266d7d9846a357dce613817affdb0cde5bfdc
+ms.sourcegitcommit: e6cb7ca206a125c05acfd431b5a64391a8dcc6b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190617"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569019"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Eşleme veri akışları performansı ve ayarlama Kılavuzu
 
@@ -127,7 +127,18 @@ Bu simgeye tıklayarak sonraki performans profili, veri akışı ve yürütme pl
 * Bu popüler seçeneğini seçerken bunu aklınızda bulundurun. Tek çıkış dosyası bölüme çok büyük kaynak dosyaları birleştiriyorsanız küme düğümünde kaynaklarını dışında çalıştırabilirsiniz.
 * İşlem düğümünde kaynaklarını tüketme önlemek için varsayılan veya açık bir bölümleme düzeni performans için en iyi duruma getirir, ADF içinde tutun ve sonra bir sonraki bölümü tüm birleştiren işlem hattının kopyalama etkinliği için yeni bir tek bir çıkış klasöründeki dosyaları ekleyin. dosya. Esas olarak, bu teknik, dosya birleştirme öğesinden dönüştürme eylemi ayırır ve "çıktıyı tek dosyaya" ayarı olarak aynı sonucu veren.
 
+### <a name="looping-through-file-lists"></a>Dosya listeleri döngü
+
+Çoğu durumda, veri akışları ADF içinde birden çok dosya yinelemek akış veri kaynağı dönüşümü izin veren bir işlem hattından daha iyi yürütülür. Diğer bir deyişle, joker karakterler kullanmak için tercih edilir veya dosya listelerin veri kaynağınızdaki içinde her yinelemede çağrılırken bir yürütme veri akışı ardışık düzeninde ForEach kullanarak dosyaları büyük bir listesi üzerinden yinelemek için akış. Veri akışı işlem, veri akışı içinde gerçekleşmesi döngü sağlayarak daha hızlı yürütülür.
+
+Blob depolama alanındaki bir klasörde işlemek istediğiniz Temmuz 2019 veri dosyaları listesini sahibim, örneğin, daha yüksek performanslı bir yürütme veri akışı etkinliği, ardışık düzen tarafından bir kez çağırmak ve bir joker karakter kaynağınızı şöyle kullanma olurdu :
+
+```DateFiles/*_201907*.txt```
+
+Bu Blob Store sonra bir yürütme veri akışı etkinliği içinde bir ForEach kullanarak tüm eşleşen dosyalar arasında yinelenen bir işlem hattındaki arama daha iyi sonuç verecektir.
+
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Performansla ilgili diğer veri akışı makalelere bakın:
 
 - [Veri akışı için sekmesinde en iyi duruma](concepts-data-flow-optimize-tab.md)

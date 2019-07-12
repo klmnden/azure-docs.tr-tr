@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: mhopkins
 ms.subservice: blobs
-ms.openlocfilehash: c5e9981c6854ff778775631f1d671189830e564b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 70afb39be696b660d3f85ae0c4b2c108bceb318c
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435762"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625670"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-net"></a>Hızlı Başlangıç: .NET için Azure Blob Depolama istemci kitaplığı
 
@@ -179,7 +179,7 @@ Bu kaynaklarla etkileşim kurmak için aşağıdaki .NET sınıfları kullanın:
 * [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount): **CloudStorageAccount** sınıfı, Azure depolama hesabınızın temsil eder. Bu sınıf, hesap erişim anahtarlarınızı kullanarak Blob Depolama erişim yetkisi vermek için kullanın.
 * [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient): **CloudBlobClient** sınıfı kodunuzda Blob hizmetine erişim noktası sağlar.
 * [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer): **CloudBlobContainer** sınıfı, bir blob kapsayıcısı, kodunuzda temsil eder.
-* [CloudBlockBlob](//dotnet/api/microsoft.azure.storage.blob.cloudblockblob): **CloudBlockBlob** nesne kodunuzda bir blok blobu temsil eder. Blok blobları, ayrı ayrı yönetilebilen veri bloklarından oluşur.
+* [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob): **CloudBlockBlob** nesne kodunuzda bir blok blobu temsil eder. Blok blobları, ayrı ayrı yönetilebilen veri bloklarından oluşur.
 
 ## <a name="code-examples"></a>Kod örnekleri
 

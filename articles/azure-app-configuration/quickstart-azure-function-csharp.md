@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: c09cb0f93f05a9574543ebabb398148638092c73
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a4900964fb6feeb4c7cb0f147d3681031cac6a7b
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864786"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798423"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Hızlı Başlangıç: Uygulama yapılandırması ile Azure işlevi oluşturma
 
@@ -39,7 +39,7 @@ Bu hızlı başlangıç yapmak için yükleme [Visual Studio 2019](https://visua
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Seçin **yapılandırması Gezgini** > **+ Oluştur** aşağıdaki anahtar-değer çiftlerini eklemek için:
+6. Seçin **yapılandırması Gezgini** >  **+ Oluştur** aşağıdaki anahtar-değer çiftlerini eklemek için:
 
     | Anahtar | Değer |
     |---|---|
@@ -56,7 +56,7 @@ Bu hızlı başlangıç yapmak için yükleme [Visual Studio 2019](https://visua
 1. Projenize sağ tıklayıp seçin **NuGet paketlerini Yönet**. Üzerinde **Gözat** sekmesinde, arayın ve aşağıdaki NuGet paketlerini projenize ekleyin. Bunları bulamazsanız seçin **ön sürümü dahil et** onay kutusu.
 
     ```
-    Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
+    Microsoft.Extensions.Configuration.AzureAppConfiguration 2.0.0-preview-009200001-1437 or later
     ```
 
 2. Açık *Function1.cs*, .NET Core uygulaması yapılandırma sağlayıcısı bir başvuru ekleyin.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 37d43dbdd8de66a10a94827e313679dc6ffd220d
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: b0c7c38ebabfdd142394152f735d40320a98dced
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490391"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798150"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Kurumsal Anlaşma ayırma maliyetleri ve kullanım bilgilerini alma
 
@@ -119,9 +119,9 @@ Amorti edilmiş maliyet verilerini ve kullanarak bir rezervasyon siparişi için
 Geri ödeme ayırma diğer kuruluşlar için abonelik, kaynak grupları veya etiketleri kullanabilirsiniz. Amorti edilmiş maliyet verilerini parasal değerini bir ayırma'nın kullanımı, aşağıdaki veri türlerini sağlar:
 
 - Kaynakları (örneğin, bir VM)
-- Kaynak grubu
+- Resource group
 - Tags
-- Abonelik
+- Subscription
 
 ### <a name="get-the-blended-rate-for-chargeback"></a>Harmanlanmış oranı geri ödemeye Al
 
@@ -139,13 +139,13 @@ Amortized maliyetleri veri almak ve ayrılmış örnek için verileri filtreleyi
 2. Ayırma maliyetleri alın. Sum _maliyet_ ayrılmış örnek için ücretli parasal değerini almak için değerler. Bu rezervasyon kullanılan ve kullanılmayan maliyetlerini içerir.
 3. Tahmini tasarruf almak için Kullandıkça Öde Tahmini maliyetler ayırma maliyetlerden çıkarın.
 
-## <a name="reservation-purchases-and-amortization-in-azure-cost-analysis"></a>Rezervasyon satın alma ve Azure maliyet analizi itfa
+## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>Rezervasyon satın alma ve maliyet analizi itfa
 
-Ayrılmış örnek maliyeti kullanılabilir [Azure maliyet analizi Önizleme modunu](https://preview.portal.azure.com/?feature.canmodifystamps=true&amp;microsoft_azure_costmanagement=stage2&amp;Microsoft_Azure_CostManagement_arm_canary=true&amp;Microsoft_Azure_CostManagement_apiversion=2019-04-01-preview&amp;Microsoft_Azure_CostManagement_amortizedCost=true#blade/Microsoft_Azure_CostManagement/Menu/costanalysis). Varsayılan olarak, maliyet veri görünümü için gerçek maliyetidir. Amorti edilmiş maliyet geçiş yapabilirsiniz. Bir örnek aşağıda verilmiştir.
+Ayırma maliyetleri kullanılabilir [maliyet analizi](https://aka.ms/costanalysis). Varsayılan olarak, maliyet analizi gösterir **gerçek maliyet**, olduğu maliyetleri faturanızda nasıl gösterilir. Ayrılmış ve kullanılan avantajı kaynaklarla ilişkili rezervasyon satın alma işlemleri görüntülemek için geçiş **amorti edilmiş maliyet**:
 
 ![Amorti edilmiş maliyet maliyet analizi seçmek nereye gösteren örnek](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
-Bir ayırma veya ücret türüne göre ücretlerinizi görmek için filtre uygulayın. Ayırma adı ayırmaları tarafından ayrılmış maliyetleri görmek üzere gruplandırma.
+Kullanım, satın alma ve para iadesi aşağı mola görmek için ücret türüne göre grup; veya bir çözümleme için bir ayırma maliyet ayırma ve isteğe bağlı. Gerçek maliyet ararken göreceğiniz yalnızca ayırma maliyetleri satın alınır, ancak maliyetleri benfit amorti edilmiş maliyet ararken kullanılan kaynakların ayrılacak unutmayın. Ayrıca yeni bir görürsünüz **UnusedReservation** amorti edilmiş maliyet bakarak olduğunda Ücret türü.
 
 ## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 

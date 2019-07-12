@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 06/25/2019
+ms.date: 07/02/2019
 ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
-ms.openlocfilehash: 403e165d7ebe8365ffa0fd2f5f3779d3b4fab68f
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: fbab8502c088c2ae7a4b8e87285d7e4cac1de4c0
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543639"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807396"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Öğretici: Ayıklama, dönüştürme ve kullanarak Azure HDInsight etkileşimli sorgu verileri yükleme
 
@@ -59,6 +59,8 @@ Bir HDInsight kümesiyle ilişkili depolama birimine veri yüklemenin birçok yo
     ```cmd
     scp FILENAME.zip sshuser@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.zip
     ```
+
+    Evet veya Hayır devam etmek için Evet komut istemine yazın girmeniz istenir ve enter tuşuna basın. Siz yazarken metin penceresinde görünür değil.
 
 2. Karşıya yükleme tamamlandıktan sonra SSH kullanarak kümeye bağlanın. Aşağıdaki komutta değiştirerek Düzenle `CLUSTERNAME` ile HDInsight kümesinin adı. Ardından aşağıdaki komutu girin:
 

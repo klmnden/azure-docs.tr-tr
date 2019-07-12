@@ -4,7 +4,7 @@ description: Azure'da Linux VM Azure Linux Aracısı güncelleştirme hakkında 
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: f1f19300-987d-4f29-9393-9aba866f049c
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: roiyz
-ms.openlocfilehash: 5d53f34ea6b0983d0687cdaf6ec6271c703bb055
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd02e414aeff26510981661f49cc914a5ea6592b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60799749"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705861"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Bir VM'de Azure Linux Aracısı güncelleştirme
 
@@ -79,13 +79,13 @@ sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 
 ### <a name="restart-the-waagent-service"></a>Waagent hizmetini yeniden başlatın
 
-#### <a name="restart-agent-for-1404"></a>14\.04 için aracıyı yeniden başlatın
+#### <a name="restart-agent-for-1404"></a>14.04 için aracıyı yeniden başlatın
 
 ```bash
 initctl restart walinuxagent
 ```
 
-#### <a name="restart-agent-for-1604--1704"></a>16\.04 için aracı yeniden / 17.04
+#### <a name="restart-agent-for-1604--1704"></a>16.04 için aracı yeniden / 17.04
 
 ```bash
 systemctl restart walinuxagent.service

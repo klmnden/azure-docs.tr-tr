@@ -4,7 +4,7 @@ description: N serisi NVIDIA GPU sürücülerini yüklemek için Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: 5a184c72da8af0d451902a164c8b71a94a01883f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c15948fd9e9acc1e1efeb536939002f179402d5a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683170"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706708"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Linux için NVIDIA GPU sürücüsünün uzantısı
 
@@ -27,6 +27,8 @@ ms.locfileid: "64683170"
 
 Bu uzantı, Linux N serisi Vm'lerde NVIDIA GPU sürücüleri yükler. VM ailesi bağlı olarak, uzantı CUDA veya kılavuz sürücüleri de yükler. NVIDIA yüklediğinizde bu uzantıyı kullanan sürücüler, kabul etme ve koşullarını kabul etmiş [NVIDIA son kullanıcı lisans sözleşmesi](https://go.microsoft.com/fwlink/?linkid=874330). Yükleme işlemi sırasında sürücü kurulumu tamamlamak için VM yeniden başlatılabilir.
 
+El ile yükleme yönergeleri sürücüleri ve geçerli desteklenen sürümler kullanılabilir [burada](
+https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup).
 Bir uzantı NVIDIA GPU sürücüleri yüklemek de kullanılabilir [Windows N serisi Vm'lerde](hpccompute-gpu-windows.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -74,18 +76,18 @@ Aşağıdaki JSON şema uzantısı gösterir.
 | Ad | Değer / örnek | Veri Türü |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | string |
-| type | NvidiaGpuDriverLinux | string |
+| publisher | Microsoft.HpcCompute | dize |
+| type | NvidiaGpuDriverLinux | dize |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Ayarlar
 
 Tüm ayarlar isteğe bağlıdır. Varsayılan davranış çekirdek güncelleştirmeyi olmasa bile sürücü yükleme için gerekli, en son desteklenen sürücü ve CUDA Araç Seti (uygunsa gibi) yükleyin.
 
-| Ad | Açıklama | Varsayılan Değer | Geçerli Değerler | Veri Türü |
+| Ad | Açıklama | Default Value | Geçerli Değerler | Veri Türü |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Çekirdek sürücüsü yüklemesi için gerekli değildir, güncelleştirme | false | true, false | boolean |
-| driverVersion | NV: Kılavuz sürücü sürümü<br> NC/ND: CUDA Araç Seti sürüm. Seçilen CUDA için en son sürücüleri otomatik olarak yüklenir. | latest | KILAVUZ: "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| driverVersion | NV: Kılavuz sürücü sürümü<br> NC/ND: CUDA Araç Seti sürüm. Seçilen CUDA için en son sürücüleri otomatik olarak yüklenir. | latest | KILAVUZ: "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | dize |
 | installCUDA | CUDA Toolkit'i yükle. NC/ND serisi VM'ler için yalnızca ilgilidir. | true | true, false | boolean |
 
 
@@ -177,7 +179,7 @@ Uzantı yürütme çıkış aşağıdaki dosyasına kaydedilir:
 | Çıkış kodu | Anlamı | Olası eylemi |
 | :---: | --- | --- |
 | 0 | İşlem başarılı |
-| 1 | Uzantı yanlış kullanımı | Yürütme çıktı günlüğüne bakın |
+| 1\. | Uzantı yanlış kullanımı | Yürütme çıktı günlüğüne bakın |
 | 10 | Linux Tümleştirme hizmetleri Hyper-V ve Azure'da kullanılabilir veya yüklü değil | Lspci onay çıktısı |
 | 11 | NVIDIA GPU üzerinde bu VM boyutu bulunamadı. | Kullanım bir [desteklenen VM boyutu ve işletim sistemi](../linux/n-series-driver-setup.md) |
 | 12 | Görüntü teklifi desteklenmiyor |

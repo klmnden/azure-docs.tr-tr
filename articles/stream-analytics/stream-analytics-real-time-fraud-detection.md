@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: cfb7dc8ef41c8829caebed6fff2d881093dbbe4d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c45c42077d6f07ef847d2b95d4c24310f51abca4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076230"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621832"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics'i kullanmaya başlama: Gerçek zamanlı sahtekarlık algılama
 
@@ -75,7 +75,7 @@ Bu yordam, önce bir olay hub'ı ad alanı oluşturun ve ardından bir olay hub'
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
     
  
-7. **Oluştur**’a tıklayın.
+7.           **Oluştur**'a tıklayın.
 
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Olay hub’ına erişim verme ve bir bağlantı dizesi alma
 
@@ -92,7 +92,7 @@ Olay hub'ı, bir işlem, bir olay hub'ına veri göndermeden önce uygun erişim
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  
-4.  **Oluştur**’a tıklayın.
+4.            **Oluştur**'a tıklayın.
 
 5.  İlke dağıtıldıktan sonra paylaşılan erişim ilkeleri listesinde tıklayın.
 
@@ -172,7 +172,7 @@ Arama olaylarından oluşan bir akışa sahip olduğunuza göre bir Stream Analy
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="Create Stream Analytics job in portal" width="300px"/>
 
-3. **Oluştur**’a tıklayın.
+3.           **Oluştur**'a tıklayın.
 
     Bir iş oluşturulur ve portal iş ayrıntılarını görüntüler. Henüz hiçbir şey ancak çalışıyor; işi yeniden başlatılmadan önce yapılandırmanız gerekir.
 
@@ -188,7 +188,7 @@ Arama olaylarından oluşan bir akışa sahip olduğunuza göre bir Stream Analy
    |**Ayar**  |**Önerilen değer**  |**Açıklama**  |
    |---------|---------|---------|
    |Girdi diğer adı  |  CallStream   |  İşin girdisini tanımlamak için bir ad girin.   |
-   |Abonelik   |  \<Aboneliğiniz\> |  Oluşturduğunuz olay Hub'ına Azure aboneliğini seçin.   |
+   |Subscription   |  \<Aboneliğiniz\> |  Oluşturduğunuz olay Hub'ına Azure aboneliğini seçin.   |
    |Olay hub'ı ad alanı  |  asa-eh-ns-demo |  Olay hub'ı ad alanı adını girin.   |
    |Olay Hub'ı adı  | asa-eh-frauddetection-demo | Olay Hub'ınızın adını seçin.   |
    |Olay Hub'ı ilke adı  | asa-ilkeyi-yönetme-demo | Daha önce oluşturduğunuz erişim ilkesi seçin.   |
@@ -197,7 +197,7 @@ Arama olaylarından oluşan bir akışa sahip olduğunuza göre bir Stream Analy
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="Create Stream Analytics input in portal" width="300px"/>
 
 
-4. **Oluştur**’a tıklayın.
+4.           **Oluştur**'a tıklayın.
 
 ## <a name="create-queries-to-transform-real-time-data"></a>Gerçek zamanlı verileri dönüştürmek için sorgular oluşturma
 
@@ -207,7 +207,7 @@ Basit bir sorgu yalnızca gelen tüm verileri okuyabilir. Ancak, genellikle beli
 
 Burada oluşturduğunuz sorguları yalnızca dönüştürülmüş verileri ekranı görüntüler. Bir sonraki bölümde, bir çıkış havuzu ve dönüştürülen verileri yazar, havuz için bir sorgu yapılandıracaksınız.
 
-Dili hakkında daha fazla bilgi için bkz. [Azure Stream Analytics sorgu dili başvurusu](https://msdn.microsoft.com/library/dn834998.aspx).
+Dili hakkında daha fazla bilgi için bkz. [Azure Stream Analytics sorgu dili başvurusu](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
 ### <a name="get-sample-data-for-testing-queries"></a>Sorgu testi için örnek verileri alma
 
@@ -289,11 +289,11 @@ Bu dönüştürme için bir dizi çakışmadığından zamana bağlı windows is
         GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
         ```
 
-    Bu sorgu kullanır `Timestamp By` anahtar sözcüğünü `FROM` yan atlayan pencere tanımlamak için kullanmak giriş akışında hangi zaman damgası alanı belirtin. Bu durumda, veri göre parçalara böler penceresi `CallRecTime` her bir kayıttaki alan. (Her olay Olay hub'ı ulaşan zaman Pencereleme işlem alanı yok belirtilirse kullanır. " "Varış zamanı Vs uygulama zamanı" bölümüne bakın [Stream Analytics sorgu dili başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx). 
+    Bu sorgu kullanır `Timestamp By` anahtar sözcüğünü `FROM` yan atlayan pencere tanımlamak için kullanmak giriş akışında hangi zaman damgası alanı belirtin. Bu durumda, veri göre parçalara böler penceresi `CallRecTime` her bir kayıttaki alan. (Her olay Olay hub'ı ulaşan zaman Pencereleme işlem alanı yok belirtilirse kullanır. " "Varış zamanı Vs uygulama zamanı" bölümüne bakın [Stream Analytics sorgu dili başvurusu](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). 
 
     Projeksiyon içerir `System.Timestamp`, her pencere sonu için bir zaman damgasını döndürür. 
 
-    Bir atlayan pencere kullanmak istediğinizi belirtmek için kullandığınız [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) işlevi `GROUP BY` yan tümcesi. İşlevinde, bir zaman birimi (herhangi bir yere mikrosaniye ölçeğinde bir gün için) ve pencere boyutunu (kaç birimleri) belirtin. Bu nedenle bir sayısı ülke/bölge tarafından çağrıları için her 5 saniyede değerinde karşılaşırsınız Bu örnekte, atlayan pencere 5 saniyelik aralıklarla, oluşur.
+    Bir atlayan pencere kullanmak istediğinizi belirtmek için kullandığınız [TUMBLINGWINDOW](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) işlevi `GROUP BY` yan tümcesi. İşlevinde, bir zaman birimi (herhangi bir yere mikrosaniye ölçeğinde bir gün için) ve pencere boyutunu (kaç birimleri) belirtin. Bu nedenle bir sayısı ülke/bölge tarafından çağrıları için her 5 saniyede değerinde karşılaşırsınız Bu örnekte, atlayan pencere 5 saniyelik aralıklarla, oluşur.
 
 2. Tıklayın **Test** yeniden. Sonuçlarda dikkat zaman damgaları altında **WindowEnd** 5 saniyelik artışlarla olan.
 
@@ -358,7 +358,7 @@ Blob depolama hesabınız varsa, kullanabilirsiniz. Bu öğretici için yeni bir
    |**Ayar**  |**Önerilen değer**  |**Açıklama**  |
    |---------|---------|---------|
    |Çıktı diğer adı  |  CallStream FraudulentCalls   |  İşin çıktısını tanımlamak için bir ad girin.   |
-   |Abonelik   |  \<Aboneliğiniz\> |  Oluşturduğunuz depolama hesabını içeren Azure aboneliğini seçin. Depolama hesabı, aynı veya farklı bir abonelikte olabilir. Bu örnekte, aynı abonelikte depolama hesabı oluşturduğunuz varsayılır. |
+   |Subscription   |  \<Aboneliğiniz\> |  Oluşturduğunuz depolama hesabını içeren Azure aboneliğini seçin. Depolama hesabı, aynı veya farklı bir abonelikte olabilir. Bu örnekte, aynı abonelikte depolama hesabı oluşturduğunuz varsayılır. |
    |Depolama hesabı  |  asaehstorage |  Oluşturduğunuz depolama hesabının adını girin. |
    |Kapsayıcı  | asa-fraudulentcalls-demo | Yeni Oluştur'ı seçin ve bir kapsayıcı adı girin. |
 
@@ -418,5 +418,5 @@ Stream Analytics hakkında daha fazla bilgi için genel olarak, şu makalelere b
 
 * [Azure Stream analytics'e giriş](stream-analytics-introduction.md)
 * [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
-* [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Akış Analizi Sorgu Dili Başvurusu](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Akış Analizi Yönetimi REST API'si Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)

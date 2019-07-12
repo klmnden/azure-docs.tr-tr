@@ -1,17 +1,17 @@
 ---
 title: MariaDB için Azure veritabanı'nda izleme
 description: Bu makalede izleme ve CPU, depolama ve bağlantı istatistikleri de dahil olmak üzere MariaDB için Azure veritabanı için uyarı ölçümleri açıklanır.
-author: andrela
-ms.author: ajlam
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: 8625441f836256028362fc327873383f5b46620c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fb998edffed290bb7bc59945163f0fd48c55cbf5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065738"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612520"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı'nda izleme
 İzleme verilerini sunucularınız hakkında sorun giderme ve iş yükünüz için iyileştirmenize yardımcı olur. MariaDB için Azure veritabanı sunucunuzu davranışını öngörü sunan çeşitli ölçümleri sağlar.
@@ -26,12 +26,12 @@ Bu ölçümler, MariaDB için Azure veritabanı için kullanılabilir:
 
 |Ölçüm|Ölçüm görünen adı|Birim|Açıklama|
 |---|---|---|---|
-|cpu_percent|CPU yüzdesi|Yüzde|CPU yüzdesi kullanılıyor.|
-|memory_percent|Bellek yüzdesi|Yüzde|Kullanılan bellek yüzdesi.|
-|io_consumption_percent|G/ç yüzdesi|Yüzde|G/ç yüzdesi kullanılıyor.|
-|storage_percent|Depolama yüzdesi|Yüzde|En fazla depolama sunucusu dışında kullanılan yüzdesi.|
+|cpu_percent|CPU yüzdesi|Percent|CPU yüzdesi kullanılıyor.|
+|memory_percent|Bellek yüzdesi|Percent|Kullanılan bellek yüzdesi.|
+|io_consumption_percent|G/ç yüzdesi|Percent|G/ç yüzdesi kullanılıyor.|
+|storage_percent|Depolama yüzdesi|Percent|En fazla depolama sunucusu dışında kullanılan yüzdesi.|
 |storage_used|Kullanılan depolama|Bayt|Kullanılan depolama miktarı. Hizmet tarafından kullanılan depolama, veritabanı dosyaları, işlem günlükleri ve sunucu günlüklerini içerebilir.|
-|serverlog_storage_percent|Sunucu günlüğü depolama yüzdesi|Yüzde|Sunucunun en fazla sunucu günlük depolama dışında kullanılan sunucu günlük depolama yüzdesi.|
+|serverlog_storage_percent|Sunucu günlüğü depolama yüzdesi|Percent|Sunucunun en fazla sunucu günlük depolama dışında kullanılan sunucu günlük depolama yüzdesi.|
 |serverlog_storage_usage|Kullanılan sunucu günlük depolama alanı|Bayt|Sunucu günlüğü depolama miktarı.|
 |serverlog_storage_limit|Sunucu günlük depolama sınırı|Bayt|Bu sunucu için en fazla sunucu günlük depolama.|
 |storage_limit|Depolama sınırı|Bayt|Bu sunucu için en fazla depolama alanı.|

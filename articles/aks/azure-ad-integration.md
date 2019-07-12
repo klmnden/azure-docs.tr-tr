@@ -2,17 +2,17 @@
 title: Azure Kubernetes hizmeti ile Azure Active Directory Tümleştirme
 description: Azure Active Directory özellikli Azure Kubernetes Service (AKS) kümeleri oluşturma
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
-ms.author: iainfou
-ms.openlocfilehash: db166c82e39e9184528fde67ff868229cf9b1d57
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 80137023643630e8472a70fcca6cb656aeba7123
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061115"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616384"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Kubernetes hizmeti ile Azure Active Directory Tümleştirme
 
@@ -39,7 +39,7 @@ Openıd Connect hakkında daha fazla bilgi için bkz: [Openıd Connect ile Azure
 
 İçinde bir Kubernetes kümesi, Web kancası belirteci kimlik doğrulaması için kimlik doğrulama belirteçleri kullanılır. Web kancası belirteci kimlik doğrulaması yapılandırılır ve AKS kümesinin bir parçası yönetilir.
 
-Web kancası belirteci kimlik doğrulaması hakkında daha fazla bilgi için bkz: [Web kancası belirteci kimlik doğrulaması] [ kubernetes-webhook] Kubernetes belgeleri bölümünde.
+Web kancası belirteci kimlik doğrulaması hakkında daha fazla bilgi için bkz: [Web kancası belirteci kimlik doğrulaması][kubernetes-webhook] Kubernetes belgeleri bölümünde.
 
 AKS kümesini Azure AD kimlik doğrulamasını sağlamak için iki Azure AD uygulama oluşturulur. İlk kullanıcı kimlik doğrulaması sağlayan bir sunucu bileşeni uygulamasıdır. İkinci kimlik doğrulaması için CLI tarafından istendiğinde kullanılan bir istemci bileşeni uygulamasıdır. Bu istemci uygulaması sunucu uygulaması istemci tarafından sağlanan kimlik bilgilerinin gerçek kimlik doğrulaması için kullanır.
 
@@ -152,13 +152,13 @@ Azure portalından seçin **Azure Active Directory** > **özellikleri** ve Not *
 
 ## <a name="deploy-the-aks-cluster"></a>AKS kümesi dağıtma
 
-Kullanım [az grubu oluşturma] [ az-group-create] AKS kümesi için bir kaynak grubu oluşturmak için komutu.
+Kullanım [az grubu oluşturma][az-group-create] AKS kümesi için bir kaynak grubu oluşturmak için komutu.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Kullanım [az aks oluşturma] [ az-aks-create] AKS kümesi dağıtmak için komutu. Ardından, aşağıdaki örnek komutta değerleri değiştirin. Sunucu uygulama kimliği, uygulama gizli anahtarı, istemci uygulama kimliği ve Kiracı kimliği için Azure AD uygulamaları oluştururken toplanan değerler kullanın
+Kullanım [az aks oluşturma][az-aks-create] AKS kümesi dağıtmak için komutu. Ardından, aşağıdaki örnek komutta değerleri değiştirin. Sunucu uygulama kimliği, uygulama gizli anahtarı, istemci uygulama kimliği ve Kiracı kimliği için Azure AD uygulamaları oluştururken toplanan değerler kullanın
 
 ```azurecli
 az aks create \
@@ -177,7 +177,7 @@ Bir AKS kümesi oluşturmak için birkaç dakika sürer.
 
 Bir Azure Active Directory hesabı ile bir AKS kümesi kullanmadan önce rolü bağlama veya küme rolünü bağlama oluşturmanız gerekir. Rol izinleri tanımlayın ve bağlamaları bunları istediğiniz kullanıcılar için geçerlidir. Bu atamaları, tüm küme üzerinde veya belirtilen bir ad alanı için uygulanabilir. Daha fazla bilgi için [kullanarak RBAC yetkilendirme][rbac-authorization].
 
-İlk olarak, [az aks get-credentials] [ az-aks-get-credentials] komutunu `--admin` yönetici erişimi ile küme oturum açmak için bağımsız değişken.
+İlk olarak, [az aks get-credentials][az-aks-get-credentials] komutunu `--admin` yönetici erişimi ile küme oturum açmak için bağımsız değişken.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
@@ -187,7 +187,7 @@ Ardından, ClusterRoleBinding AKS kümesi erişim vermek istediğiniz bir Azure 
 
 - Kullanıcı için RBAC bağlama aynı Azure AD kiracısında vermek, kullanıcı asıl adına (UPN) dayalı izinleri atayın. Adım ClusterRoleBinding YAML bildirimi oluşturmak için geçin.
 
-- Kullanıcı, başka bir Azure AD Kiracı, sorgulama ve kullanma **objectID** özelliği bunun yerine. Gerekirse, gerekli bir kullanıcı hesabının objectID almak [az ad kullanıcı show] [ az-ad-user-show] komutu. Gerekli hesabının kullanıcı asıl adı (UPN) sağlayın:
+- Kullanıcı, başka bir Azure AD Kiracı, sorgulama ve kullanma **objectID** özelliği bunun yerine. Gerekirse, gerekli bir kullanıcı hesabının objectID almak [az ad kullanıcı show][az-ad-user-show] komutu. Gerekli hesabının kullanıcı asıl adı (UPN) sağlayın:
 
     ```azurecli-interactive
     az ad user show --upn-or-object-id user@contoso.com --query objectId -o tsv
@@ -210,7 +210,7 @@ subjects:
   name: userPrincipalName_or_objectId
 ```
 
-Bağlama kullanarak uygulama [kubectl uygulamak] [ kubectl-apply] komutu aşağıdaki örnekte gösterildiği gibi:
+Bağlama kullanarak uygulama [kubectl uygulamak][kubectl-apply] komutu aşağıdaki örnekte gösterildiği gibi:
 
 ```console
 kubectl apply -f rbac-aad-user.yaml
@@ -235,7 +235,7 @@ subjects:
    name: "894656e1-39f8-4bfe-b16a-510f61af6f41"
 ```
 
-Bağlama kullanarak uygulama [kubectl uygulamak] [ kubectl-apply] komutu aşağıdaki örnekte gösterildiği gibi:
+Bağlama kullanarak uygulama [kubectl uygulamak][kubectl-apply] komutu aşağıdaki örnekte gösterildiği gibi:
 
 ```console
 kubectl apply -f rbac-aad-group.yaml
@@ -245,7 +245,7 @@ RBAC ile bir Kubernetes kümesi güvenliğini sağlama konusunda daha fazla bilg
 
 ## <a name="access-the-cluster-with-azure-ad"></a>Azure AD ile küme erişim
 
-Yönetici olmayan kullanıcı bağlamı kullanarak çekme [az aks get-credentials] [ az-aks-get-credentials] komutu.
+Yönetici olmayan kullanıcı bağlamı kullanarak çekme [az aks get-credentials][az-aks-get-credentials] komutu.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
