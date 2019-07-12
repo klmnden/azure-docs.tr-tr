@@ -43,7 +43,7 @@
       href: hybrid-azuread-join-plan.md
     - name: Hibrit Azure AD’ye katılıma yönelik denetimli doğrulama
       href: hybrid-azuread-join-control.md
-    - name: Cihaz kimliğini yönetme
+    - name: Cihaz kimliklerini yönetme
       href: device-management-azure-portal.md
     - name: Eski cihazları yönetme
       href: manage-stale-devices.md

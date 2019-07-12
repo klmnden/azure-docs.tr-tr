@@ -156,6 +156,8 @@
           maintainContext: true
     - name: Ölçek Kümesi hakkında SSS
       href: virtual-machine-scale-sets-faq.md
+    - name: Güvenlik öznitelikleri
+      href: virtual-machine-scale-sets-security-attributes.md
 - name: Nasıl yapılır
   items:
     - name: Planlama ve tasarım

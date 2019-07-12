@@ -61,6 +61,8 @@
       href: load-balancer-standard-availability-zones.md
     - name: Standard Load Balancer ölçümleri ve tanılamaları
       href: load-balancer-standard-diagnostics.md
+    - name: Güvenlik öznitelikleri
+      href: load-balancer-security-attributes.md
 - name: Nasıl yapılır
   items:
     - name: 'Bölgesel olarak yedekli, genel bir Standard Load Balancer oluşturma'
