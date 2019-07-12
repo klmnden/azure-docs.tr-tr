@@ -4,7 +4,7 @@ description: SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde NFS için
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: ed92be0c1968d8f8a931d59d2dadefbbb12f2100
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93644b9a3487906a27db70bfe82cceccdc7ab45c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925734"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707221"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde NFS için yüksek kullanılabilirlik
 
@@ -52,7 +52,7 @@ ms.locfileid: "64925734"
 [sap-hana-ha]:sap-hana-high-availability.md
 
 Bu makalede, sanal makineleri dağıtmak, sanal makineleri yapılandırma, küme Framework'ü yüklemek ve yüksek oranda kullanılabilir bir SAP sistemine paylaşılan verilerini depolamak için kullanılan yüksek oranda kullanılabilir bir NFS sunucusu yükleme açıklar.
-Bu kılavuz iki SAP sistemlerinin NW1 ve NW2 kullanılan yüksek oranda kullanılabilir bir NFS sunucusunu ayarlama işlemi açıklanmaktadır. Örnekte (örneğin, sanal makineler, sanal ağlar) kaynakların adları, kullandığınız varsayılmıştır [SAP dosya sunucusu şablonu] [ template-file-server] kaynak önekiyle **prod**.
+Bu kılavuz iki SAP sistemlerinin NW1 ve NW2 kullanılan yüksek oranda kullanılabilir bir NFS sunucusunu ayarlama işlemi açıklanmaktadır. Örnekte (örneğin, sanal makineler, sanal ağlar) kaynakların adları, kullandığınız varsayılmıştır [SAP dosya sunucusu şablonu][template-file-server] kaynak önekiyle **prod**.
 
 Önce aşağıdaki SAP notları ve raporları okuma
 
@@ -110,7 +110,7 @@ Sanal makineler de dahil olmak üzere gerekli tüm Azure kaynakları dağıtmak 
 Azure Market görüntü için SUSE Linux Enterprise Server SAP uygulamaları 12 için yeni sanal makineleri dağıtmak için kullanabileceğiniz içerir.
 Tüm gerekli kaynakları dağıtmak için Github'da hızlı başlangıç şablonlarından birini kullanabilirsiniz. Şablonu, sanal makineler, yük dengeleyici, kullanılabilirlik vb. kümesi dağıtır. Şablonu dağıtmak için aşağıdaki adımları izleyin:
 
-1. Açık [SAP dosya sunucusu şablonu] [ template-file-server] Azure portalında   
+1. Açık [SAP dosya sunucusu şablonu][template-file-server] Azure portalında   
 1. Aşağıdaki parametreleri girin
    1. Kaynak ön eki  
       Kullanmak istediğiniz ön eki girin. Değeri, dağıtılan kaynaklar için önek olarak kullanılır.

@@ -4,7 +4,7 @@ description: SAP NetWeaver için Azure sanal makineler üzerinde yüksek kullan�
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eb7919c6f4ff1b3cf2480333273a98f2cca9a223
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cb468a735a9e1f5cca899090df0125013b9b8d4c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204929"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709311"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure sanal makineleri SAP NetWeaver için yüksek kullanılabilirlik
 
@@ -159,7 +159,7 @@ Azure sanal makineleri, bilgi işlem, depolama ve ağ kaynaklarına, mümkün ol
 
 Bu makalede, Azure Resource Manager dağıtım modelini kullanarak yüksek kullanılabilirlik SAP sistemlerini azure'a dağıtmak için uygulayabileceğiniz adımları ele. Biz size, bu önemli görevleri gerçekleştirmeyi açıklamaktadır:
 
-* Doğru SAP notları ve yükleme kılavuzlarını, listede bulmak [kaynakları] [ sap-ha-guide-2] bölümü. Bu makale SAP yükleme belgelerine tamamlar ve yardımcı olabilecek birincil kaynaklardır SAP notları yükleyin ve belirli platformları üzerinde SAP yazılımı dağıtın.
+* Doğru SAP notları ve yükleme kılavuzlarını, listede bulmak [kaynakları][sap-ha-guide-2] bölümü. Bu makale SAP yükleme belgelerine tamamlar ve yardımcı olabilecek birincil kaynaklardır SAP notları yükleyin ve belirli platformları üzerinde SAP yazılımı dağıtın.
 * Azure Resource Manager dağıtım modelini ve Azure Klasik dağıtım modeli arasındaki farkları öğrenin.
 * Azure dağıtımınız için uygun olan model seçebilmeniz için Windows Server Yük Devretme Kümelemesi, çekirdek modu hakkında bilgi edinin.
 * Azure hizmetlerindeki paylaşılan Windows Server Yük Devretme Kümelemesi depolama hakkında bilgi edinin.
@@ -170,7 +170,7 @@ Bu makalede, Azure Resource Manager dağıtım modelini kullanarak yüksek kulla
 Dağıtım ve yapılandırma, bu makaledeki basitleştirmek için SAP üç katmanlı yüksek kullanılabilirlik Resource Manager şablonları kullanıyoruz. Şablonları bir yüksek kullanılabilirlik SAP sistemine gereksinim duyduğunuz tüm altyapının dağıtımını otomatikleştirin. Altyapı, SAP uygulama performans standart (SAP) boyutlandırma SAP sisteminizin da destekler.
 
 ## <a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a> Önkoşullar
-Başlamadan önce aşağıdaki bölümlerde açıklanan önkoşulları karşıladığından emin olun. Ayrıca, listelenen tüm kaynakları denetlediğinizden emin olun [kaynakları] [ sap-ha-guide-2] bölümü.
+Başlamadan önce aşağıdaki bölümlerde açıklanan önkoşulları karşıladığından emin olun. Ayrıca, listelenen tüm kaynakları denetlediğinizden emin olun [kaynakları][sap-ha-guide-2] bölümü.
 
 Bu makalede, Azure Resource Manager şablonları kullanıyoruz [üç katmanlı SAP NetWeaver'ın yönetilen Diskler'i kullanarak](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md/). Şablonları yararlı bir genel bakış için bkz: [SAP Azure Resource Manager şablonları](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
 
@@ -189,7 +189,7 @@ Bu makaleler, azure'da SAP dağıtımları kapsar:
 
 Azure'da SAP konu bu SAP notları ilgili:
 
-| Not numarası | Unvan |
+| Not numarası | Başlık |
 | --- | --- |
 | [1928533] |Azure'da SAP uygulamaları: Desteklenen Ürünler ve boyutlandırma |
 | [2015553] |Microsoft Azure üzerinde SAP: Destek önkoşulları |
@@ -223,7 +223,7 @@ Azure Resource Manager'da birden çok SAP sistem tanımlayıcısı (SID) ASCS/SC
 Azure Klasik dağıtım modelini kullanmak için açıklanan yordamları izleyin [azure'da SAP NetWeaver: SIOS DataKeeper ile azure'da Windows Server Yük Devretme Kümelemesi'ı kullanarak SAP ASCS/SCS örnekleri Kümeleme](https://go.microsoft.com/fwlink/?LinkId=613056).
 
 > [!IMPORTANT]
-> SAP tesislerinize için Azure Resource Manager dağıtım modeli kullanmanız önerilir. Klasik dağıtım modelinde kullanılabilir olmayan birçok avantaj sunar. Azure hakkında daha fazla bilgi [dağıtım modelleri][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
+> SAP tesislerinize için Azure Resource Manager dağıtım modeli kullanmanız önerilir. Klasik dağıtım modelinde kullanılabilir olmayan birçok avantaj sunar. Azure [dağıtım modelleri][virtual-machines-azure-resource-manager-architecture-benefits-arm] hakkında daha fazla bilgi edinin.   
 >
 >
 
@@ -444,7 +444,7 @@ _**Şekil 11:** SAP yüksek kullanılabilirlik Azure Resource Manager parametrel
 >
 
 ### <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Üretimde kullanmak için kurumsal ağ bağlantısı (şirket içi) ile sanal makineleri dağıtma
-Üretim SAP sistemlerini için Azure sanal makineleri dağıtma [kurumsal ağ bağlantısı (şirket içi)] [ planning-guide-2.2] Azure siteden siteye VPN veya Azure ExpressRoute kullanarak.
+Üretim SAP sistemlerini için Azure sanal makineleri dağıtma [kurumsal ağ bağlantısı (şirket içi)][planning-guide-2.2] Azure siteden siteye VPN veya Azure ExpressRoute kullanarak.
 
 > [!NOTE]
 > Azure sanal ağı örneğinizin kullanabilirsiniz. Sanal ağ ve alt ağ zaten oluşturduğunuz hazırlanmış ve.
@@ -514,7 +514,7 @@ Aşağıdaki bölümlerde, şablonlar ve şablonlar, sağlamanız gereken parame
 
 ASCS/SCS şablonu birden fazla ASCS/SCS örneği barındıran bir Windows Server Yük devretme kümesi oluşturmak için kullanabileceğiniz iki sanal makine dağıtır.
 
-ASCS/SCS çoklu SID şablonu, ayarlamak için [ASCS/SCS çoklu SID şablon] [ sap-templates-3-tier-multisid-xscs-marketplace-image] veya [yönetilen Diskler'i kullanarak ASCS/SCS çoklu SID şablon] [ sap-templates-3-tier-multisid-xscs-marketplace-image-md], aşağıdaki parametreler için değerleri girin:
+ASCS/SCS çoklu SID şablonu, ayarlamak için [ASCS/SCS çoklu SID şablon][sap-templates-3-tier-multisid-xscs-marketplace-image] or [ASCS/SCS multi-SID template using Managed Disks][sap-templates-3-tier-multisid-xscs-marketplace-image-md], aşağıdaki parametreler için değerleri girin:
 
   - **Kaynak önek**.  Dağıtım sırasında oluşturulan tüm kaynakları önek olarak eklemek için kullanılan kaynak öneki ayarlayın. Kaynakları tek bir SAP sistemine ait olmadığından kaynak öneki tek SAP sistemine SID'si değil.  Önek arasında olmalıdır **üç ve altı karakter**.
   - **Yığın türü**. SAP sistemine yığın türünü seçin. Yığın türüne bağlı olarak, Azure Load Balancer (ABAP ya da yalnızca Java) veya iki (ABAP + Java) özel IP adresi başına SAP sistemine sahiptir.
@@ -549,7 +549,7 @@ Yük Dengeleyici (burada x Örneğin, 1, 2, 3... SAP sistemine sayısıdır) aş
 
 Veritabanı şablonu, bir veya iki tek SAP sistemine ilişkisel veritabanı yönetim sistemi (RDBMS) yüklemek için kullanabileceğiniz sanal makinelerin dağıtır. Örneğin, beş SAP sistemlerini bir ASCS/SCS şablonu dağıtırsanız, beş kez bu şablonu dağıtmak gerekir.
 
-Veritabanı çoklu SID Şablonu ' ayarlamak için [veritabanı çoklu SID şablonu] [ sap-templates-3-tier-multisid-db-marketplace-image] veya [yönetilen Diskler'i kullanarak veritabanı çoklu SID şablonu] [ sap-templates-3-tier-multisid-db-marketplace-image-md], aşağıdaki parametreler için değerleri girin:
+Veritabanı çoklu SID Şablonu ' ayarlamak için [veritabanı çoklu SID şablonu][sap-templates-3-tier-multisid-db-marketplace-image] or [database multi-SID template using Managed Disks][sap-templates-3-tier-multisid-db-marketplace-image-md], aşağıdaki parametreler için değerleri girin:
 
 - **SAP sistem kimliği**. Yüklemek istediğiniz SAP sistemine SAP sistemi Kimliğini girin. Kimlik ön eki olarak dağıtılan kaynaklar için kullanılır.
 - **İşletim sistemi türü**. Sanal makinelerin işletim sistemi seçin.
@@ -566,7 +566,7 @@ Veritabanı çoklu SID Şablonu ' ayarlamak için [veritabanı çoklu SID şablo
 
 Uygulama sunucuları şablonu iki veya daha fazla SAP uygulama sunucusu örnekleri olarak bir SAP sistemi için kullanılabilir sanal makinelerin dağıtır. Örneğin, beş SAP sistemlerini bir ASCS/SCS şablonu dağıtırsanız, beş kez bu şablonu dağıtmak gerekir.
 
-Uygulama sunucuları çoklu SID Şablonu ' ayarlamak için [uygulama sunucuları çoklu SID şablonu] [ sap-templates-3-tier-multisid-apps-marketplace-image] veya [yönetilen Diskler'ikullanarakuygulamasunucularıçokluSIDşablonu] [ sap-templates-3-tier-multisid-apps-marketplace-image-md], aşağıdaki parametreler için değerleri girin:
+Uygulama sunucuları çoklu SID Şablonu ' ayarlamak için [uygulama sunucuları çoklu SID şablonu][sap-templates-3-tier-multisid-apps-marketplace-image] or [application servers multi-SID template using Managed Disks][sap-templates-3-tier-multisid-apps-marketplace-image-md], aşağıdaki parametreler için değerleri girin:
 
   -  **SAP sistem kimliği**. Yüklemek istediğiniz SAP sistemine SAP sistemi Kimliğini girin. Kimlik ön eki olarak dağıtılan kaynaklar için kullanılır.
   -  **İşletim sistemi türü**. Sanal makinelerin işletim sistemi seçin.
@@ -771,7 +771,7 @@ SAP ASCS/SCS örneği her iki küme düğümlerinde kayıt defteri girdileri ekl
 | --- | --- |
 | Değişken adı |`KeepAliveTime` |
 | Değişken türü |REG_DWORD (ondalık) |
-| Değer |120000 |
+| Value |120000 |
 | Belgelerinin bağlantısı |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 _**Tablo 3:** İlk TCP/IP'yi parametre değiştirme_
@@ -782,7 +782,7 @@ Ardından, bu Windows kayıt defteri girdileri SAP ASCS/SCS için hem Windows K�
 | --- | --- |
 | Değişken adı |`KeepAliveInterval` |
 | Değişken türü |REG_DWORD (ondalık) |
-| Değer |120000 |
+| Value |120000 |
 | Belgelerinin bağlantısı |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 _**Tablo 4:** İkinci TCP/IP'yi parametre değiştirme_

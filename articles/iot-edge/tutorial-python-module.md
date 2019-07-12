@@ -10,12 +10,12 @@ ms.date: 03/24/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6ec429bc7c1598e947b798c30e7992e3d357d00c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: d75e4c3e2b6f28dfbde670406854ac87790dd090
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303823"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850111"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Öğretici: Linux cihazlar için bir Python IOT Edge modülü geliştirme ve dağıtma
 
@@ -67,27 +67,17 @@ Python'da bir IOT Edge modülü geliştirme için geliştirme makinenizde aşağ
 ## <a name="create-a-module-project"></a>Bir modülü projesi oluşturma
 Aşağıdaki adımlar Visual Studio Code ve Azure IOT Araçları'nı kullanarak bir IOT Edge Python modülü oluşturur.
 
-### <a name="create-a-new-project"></a>Yeni bir proje oluşturun
+### <a name="create-a-new-project"></a>Yeni bir proje oluşturma
 
-Üzerine ekleme yapabileceğiniz bir Python çözümü oluşturmak için **cookiecutter** Python paketini kullanın. 
+VS Code, üst kısmındaki oluşturabileceğiniz bir Python çözüm şablonu oluşturmak için kullanın. 
 
 1. Visual Studio Code'da, VS Code ile tümleşik terminali açmak için **Görünüm** > **Terminal**'i seçin.
 
-2. Terminalde yüklemek (veya güncelleştirmek için) aşağıdaki komutu girin **cookiecutter**, IOT Edge çözüm şablonu oluşturmak için kullanın:
+1. VS Code komut paletini açmak için **View (Görünüm)**  > **Command Palette (Komut Paleti)** öğesini seçin. 
 
-    ```cmd/sh
-    pip install --upgrade --user cookiecutter
-    ```
-   >[!Note]
-   >Dizin olun cookiecutter yüklü olduğu bir komut istemi'nden çağrılacak yapabilmeleri için ortamınızın yolunda olduğundan. Dizin yükleme betiği, çıktısını örneğin parçasıdır `C:\Users\{user}\AppData\Roaming\Python\Python{version}\Scripts`.
-   >
-   >Visual Studio Code yolu değişiklikleri alması için yeniden başlatın. 
+1. Komut Paleti'nde girin ve şu komutu çalıştırın **Azure: Oturum** ve Azure hesabınızda oturum açmak için yönergeleri izleyin. Oturumu önceden açtıysanız bu adımı atlayabilirsiniz.
 
-3. VS Code komut paletini açmak için **View (Görünüm)**  > **Command Palette (Komut Paleti)** öğesini seçin. 
-
-4. Komut Paleti'nde girin ve şu komutu çalıştırın **Azure: Oturum** ve Azure hesabınızda oturum açmak için yönergeleri izleyin. Oturumu önceden açtıysanız bu adımı atlayabilirsiniz.
-
-5. Komut Paleti'nde girin ve şu komutu çalıştırın **Azure IOT Edge: Yeni bir IOT Edge çözüm**. Komut istemlerini izleyin ve çözümünüzü oluşturmak için aşağıdaki bilgileri sağlayın:
+1. Komut Paleti'nde girin ve şu komutu çalıştırın **Azure IOT Edge: Yeni bir IOT Edge çözüm**. Komut istemlerini izleyin ve çözümünüzü oluşturmak için aşağıdaki bilgileri sağlayın:
 
    | Alan | Değer |
    | ----- | ----- |

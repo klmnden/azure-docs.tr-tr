@@ -4,7 +4,7 @@ description: Yüksek kullanılabilirlik Kılavuzu SAP NetWeaver için SUSE Linux
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: 44f99ed1af65eb1e487295c11077fd558ce4285c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16f88790d96a1e46f60db368f69155b3ad7afbef
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142964"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797498"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP uygulamaları için SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde SAP NetWeaver için yüksek kullanılabilirlik
 
@@ -54,7 +54,7 @@ ms.locfileid: "65142964"
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 Bu makalede, sanal makineleri dağıtmak, sanal makineleri yapılandırma, küme Framework'ü yüklemek ve yüksek oranda kullanılabilir bir SAP NetWeaver 7.50 sistemi yükleyin açıklar.
-Örnek yapılandırmalarında yükleme komutlarını vs. ASCS örnek numarasını 00, 02 numarası Ağıranlar örnek ve SAP sistemi kimliği NW1 kullanılır. Örnekte (örneğin, sanal makineler, sanal ağlar) kaynakların adları, kullandığınız varsayılmıştır [şablon yakınsanmış] [ template-converged] kaynakları oluşturmak için kimliği NW1 SAP sistemiyle.
+Örnek yapılandırmalarında yükleme komutlarını vs. ASCS örnek numarasını 00, 02 numarası Ağıranlar örnek ve SAP sistemi kimliği NW1 kullanılır. Örnekte (örneğin, sanal makineler, sanal ağlar) kaynakların adları, kullandığınız varsayılmıştır [şablon yakınsanmış][template-converged] kaynakları oluşturmak için kimliği NW1 SAP sistemiyle.
 
 Önce aşağıdaki SAP notları ve raporları okuma
 
@@ -76,7 +76,7 @@ Bu makalede, sanal makineleri dağıtmak, sanal makineleri yapılandırma, küme
 * [Azure sanal makineleri planlama ve uygulama için Linux üzerinde SAP][planning-guide]
 * [Linux'ta SAP için Azure sanal makineler dağıtımı][deployment-guide]
 * [Linux'ta SAP için Azure sanal makineleri DBMS dağıtım][dbms-guide]
-* [SUSE SAP HA en iyi uygulama kılavuzları] [ suse-ha-guide] ve SAP HANA sistem çoğaltması şirket içi kılavuzları Netweaver HA ayarlamak için gerekli tüm bilgileri içerir. Bu kılavuzlar, genel bir temel olarak kullanın. Bunlar çok daha ayrıntılı bilgi sağlar.
+* [SUSE SAP HA en iyi uygulama kılavuzları][suse-ha-guide] ve SAP HANA sistem çoğaltması şirket içi kılavuzları Netweaver HA ayarlamak için gerekli tüm bilgileri içerir. Bu kılavuzlar, genel bir temel olarak kullanın. Bunlar çok daha ayrıntılı bilgi sağlar.
 * [SUSE yüksek kullanılabilirlik uzantısı 12 SP3 sürüm notları][suse-ha-12sp3-relnotes]
 
 ## <a name="overview"></a>Genel Bakış
@@ -125,7 +125,7 @@ NFS sunucusu, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver Ağıranlar v
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>Yüksek oranda kullanılabilir bir NFS sunucusunu ayarlama
 
-SAP NetWeaver taşıma ve profil dizin için paylaşılan depolama gerektirir. Okuma [SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde NFS için yüksek kullanılabilirlik] [ nfs-ha] bir NFS sunucusu için SAP NetWeaver ayarlama konusunda.
+SAP NetWeaver taşıma ve profil dizin için paylaşılan depolama gerektirir. Okuma [SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde NFS için yüksek kullanılabilirlik][nfs-ha] bir NFS sunucusu için SAP NetWeaver ayarlama konusunda.
 
 ## <a name="setting-up-ascs"></a>(A) SCS ayarlama
 
@@ -137,8 +137,8 @@ Azure Market görüntü için SUSE Linux Enterprise Server SAP uygulamaları 12 
 
 Tüm gerekli kaynakları dağıtmak için Github'da hızlı başlangıç şablonlarından birini kullanabilirsiniz. Şablonu, sanal makineler, yük dengeleyici, kullanılabilirlik vb. kümesi dağıtır. Şablonu dağıtmak için aşağıdaki adımları izleyin:
 
-1. Açık [ASCS/SCS çoklu SID şablon] [ template-multisid-xscs] veya [şablon yakınsanmış] [ template-converged] Azure portalında. 
-   Yakınsanmış şablonu ayrıca bir veritabanı (örneğin, Microsoft SQL Server veya SAP HANA) için Yük Dengeleme kuralları oluşturur ancak ASCS/SCS şablon Ağıranlar (yalnızca Linux) örnekleri ve SAP NetWeaver ASCS/SCS için yalnızca Yük Dengeleme kuralları oluşturur. SAP NetWeaver tabanlı sistem yüklemeyi planladığınız ve ayrıca istiyorsanız aynı makinelerde veritabanını yüklemek kullanın [şablon yakınsanmış][template-converged].
+1. Açık [ASCS/SCS çoklu SID şablon][template-multisid-xscs] or the [converged template][template-converged] on the Azure portal. 
+   The ASCS/SCS template only creates the load-balancing rules for the SAP NetWeaver ASCS/SCS and ERS (Linux only) instances whereas the converged template also creates the load-balancing rules for a database (for example Microsoft SQL Server or SAP HANA). If you plan to install an SAP NetWeaver based system and you also want to install the database on the same machines, use the [converged template][template-converged].
 1. Aşağıdaki parametreleri girin
    1. Kaynak ön eki (ASCS/SCS çoklu SID şablonu)  
       Kullanmak istediğiniz ön eki girin. Değeri, dağıtılan kaynaklar için önek olarak kullanılır.
@@ -512,7 +512,7 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
 
 1. **[A]**  Tutmayı yapılandırma
 
-   SAP NetWeaver uygulama sunucusu ve ASCS/SCS arasındaki iletişimi, yazılım yük dengeleyici üzerinden yönlendirilir. Yük Dengeleyici, yapılandırılabilir bir zaman aşımından sonra etkin olmayan bağlantılarını keser. Bunu önlemek için SAP NetWeaver ASCS/SCS profilinde bir parametre ve Linux sistem ayarlarını değiştirmeniz gerekir. Okuma [SAP notu 1410736] [ 1410736] daha fazla bilgi için.
+   SAP NetWeaver uygulama sunucusu ve ASCS/SCS arasındaki iletişimi, yazılım yük dengeleyici üzerinden yönlendirilir. Yük Dengeleyici, yapılandırılabilir bir zaman aşımından sonra etkin olmayan bağlantılarını keser. Bunu önlemek için SAP NetWeaver ASCS/SCS profilinde bir parametre ve Linux sistem ayarlarını değiştirmeniz gerekir. Okuma [SAP notu 1410736][1410736] daha fazla bilgi için.
 
    ASCS/SCS profili parametresi enque/encni/set_so_keepalive, son adımda zaten eklendi.
 
@@ -710,7 +710,7 @@ Adımları aşağıdaki varsayılır uygulama sunucusu ASCS/SCS ve HANA sunucula
 
 ## <a name="install-database"></a>Veritabanı Yükleme
 
-Bu örnekte, SAP HANA'da SAP NetWeaver yüklenir. Bu yükleme için desteklenen her veritabanı kullanabilirsiniz. Azure'da SAP HANA yükleme hakkında daha fazla bilgi için bkz. [SAP HANA, yüksek kullanılabilirlik Azure Virtual Machines'de (VM'ler)][sap-hana-ha]. Desteklenen veritabanlarının bir listesi için bkz. [SAP notu 1928533][1928533].
+Bu örnekte, SAP HANA'da SAP NetWeaver yüklenir. Bu yükleme için desteklenen her veritabanı kullanabilirsiniz. Azure'da SAP HANA yükleme hakkında daha fazla bilgi için bkz. [SAP HANA, yüksek kullanılabilirlik Azure Virtual Machines'de (VM'ler)][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
 
 1. SAP veritabanı örneğini yüklemeyi çalıştırın
 
@@ -887,6 +887,9 @@ En iyi uygulamalar kılavuzları SUSE, test çalışmalarını bir kopyasını t
    # run as root
    # Remove failed actions for the ERS that occurred as part of the migration
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
+   # Remove migration constraints
+   nw1-cl-0:~ # crm resource clear rsc_sap_NW1_ASCS00
+   #INFO: Removed migration constraints for rsc_sap_NW1_ASCS00
    </code></pre>
 
    Kaynak durumu test sonra:
