@@ -7,25 +7,26 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 63aa93e72d76d430fc7e026478d91e496f27eae6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 82c1be335bfd39d641f0203116e68a4cb4c0a674
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055105"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654221"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir Microsoft hesabı ile kaydolma ve oturum açma ayarlama
 
 ## <a name="create-a-microsoft-account-application"></a>Bir Microsoft hesabı uygulaması oluşturun
 
-Bir Microsoft hesabı olarak kullanılacak bir [kimlik sağlayıcısı](active-directory-b2c-reference-oidc.md) Azure Active Directory (Azure AD) B2C'de, temsil ettiği kiracınızda uygulama oluşturmanız gerekir. Bir Microsoft hesabınız yoksa, adresinden edinebilirsiniz [ https://www.live.com/ ](https://www.live.com/).
+Bir Microsoft hesabı olarak kullanılacak bir [kimlik sağlayıcısı](active-directory-b2c-reference-oidc.md) Azure Active Directory (Azure AD) B2C'de, Azure AD kiracısında bir uygulama oluşturmanız gerekir. Azure AD kiracısı, Azure AD B2C kiracısı ile aynı değil. Bir Microsoft hesabınız yoksa, tek tek alabilirsiniz [ https://www.live.com/ ](https://www.live.com/).
 
-1. [Azure Portal](https://portal.azure.com/) oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+1. Azure AD kiracınıza tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve Azure AD kiracınıza içeren dizine seçme.
 1. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **uygulama kayıtları**.
-1. Seçin **yeni kayıt**
+1. Seçin **yeni kayıt**.
 1. Girin bir **adı** uygulamanız için. Örneğin, *MSAapp1*.
 1. Altında **desteklenen hesap türleri**seçin **herhangi bir kuruluş dizinini ve kişisel Microsoft hesapları (örneğin, Skype, Xbox, Outlook.com) hesaplarında**. Bu seçenek, Microsoft kimlikleri geniş kümesini hedefler.
 

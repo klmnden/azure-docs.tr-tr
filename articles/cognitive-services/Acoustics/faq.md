@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 6e979db29f4a223b61580c48101c0d242fdbebbf
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: a18f6b57e203c40c0f667f07e8371348cb738c9b
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616327"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827578"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>Proje akustik sık sorulan sorular
 
@@ -29,7 +29,7 @@ Eklenti projesi akustik paketini ses wave davranışı önce çalışma zamanı 
 
 ## <a name="does-project-acoustics-support-ltxgt-platform"></a>Proje akustik desteklemiyor &lt;x&gt; platform?
 
-Platform desteği geliştikçe akustik müşteri gereksinimlerine göre proje. Lütfen bize ulaşın [proje akustik forumları](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics) desteği hakkında ek platformlar için sorgulamak için.
+Platform desteği geliştikçe akustik müşteri gereksinimlerine göre proje. Lütfen bize ulaşın [proje akustik sorunu forum](https://github.com/microsoft/ProjectAcoustics/issues) desteği hakkında ek platformlar için sorgulamak için.
 
 ## <a name="is-azure-used-at-runtime"></a>Azure, çalışma zamanında kullanılır?
 

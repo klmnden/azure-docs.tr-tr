@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: danlep
-ms.openlocfilehash: 3c1c83bb0c3e46a7eaab519050d9c556e2cc1a7a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2be640c8c7773ebd1fb5c83e67e3f0762d011e85
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563095"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657585"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Azure Container ınstances'da bir gizli birimi
 
@@ -21,11 +21,11 @@ Kullanım bir *gizli* kapsayıcı grubundaki kapsayıcı için hassas bilgileri 
 Tüm *gizli* birimleri tarafından desteklenen [tmpfs][tmpfs], RAM destekli filesystem; içerikleri, hiçbir zaman geçici olmayan depolama alanına yazılır.
 
 > [!NOTE]
-> *Gizli dizi* birimleri Linux kapsayıcıları için şu anda kısıtlı. Hem Windows hem de Linux kapsayıcıları için güvenli bir ortam değişkenlerini geçirin öğrenin [ortam değişkenlerini ayarlama](container-instances-environment-variables.md). Tüm özellikleri Windows kapsayıcılarına getirmek için çalışıyoruz, ancak geçerli platform farklılıklarını içinde bulabilirsiniz [kotaları ve Azure Container Instances için bölge kullanılabilirliği](container-instances-quotas.md).
+> *Gizli dizi* birimleri Linux kapsayıcıları için şu anda kısıtlı. Hem Windows hem de Linux kapsayıcıları için güvenli bir ortam değişkenlerini geçirin öğrenin [ortam değişkenlerini ayarlama](container-instances-environment-variables.md). Tüm özellikleri Windows kapsayıcılarına getirmek için çalışıyoruz, ancak geçerli platform farklılıklarını içinde bulabilirsiniz [genel bakış](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="mount-secret-volume---azure-cli"></a>Gizli birimi - Azure CLI
 
-Azure CLI kullanarak bir veya daha fazla gizli bir kapsayıcıyı dağıtmak için dahil `--secrets` ve `--secrets-mount-path` parametrelerinde [az kapsayıcı oluşturma] [ az-container-create] komutu. Bu örnekte bağlar bir *gizli* adresindeki "mysecret1" ve "mysecret2," olmak üzere iki gizli dizileri içeren toplu `/mnt/secrets`:
+Azure CLI kullanarak bir veya daha fazla gizli bir kapsayıcıyı dağıtmak için dahil `--secrets` ve `--secrets-mount-path` parametrelerinde [az kapsayıcı oluşturma][az-container-create] komutu. Bu örnekte bağlar bir *gizli* adresindeki "mysecret1" ve "mysecret2," olmak üzere iki gizli dizileri içeren toplu `/mnt/secrets`:
 
 ```azurecli-interactive
 az container create \
@@ -36,7 +36,7 @@ az container create \
     --secrets-mount-path /mnt/secrets
 ```
 
-Aşağıdaki [az container exec] [ az-container-exec] çıktısı, içinde çalışmakta olan kapsayıcıyı bir kabuk açarak, gizli birimin içindeki dosyaları listelemenin ve ardından içeriklerini görüntüleme göstermektedir:
+Aşağıdaki [az container exec][az-container-exec] çıktısı, içinde çalışmakta olan kapsayıcıyı bir kabuk açarak, gizli birimin içindeki dosyaları listelemenin ve ardından içeriklerini görüntüleme göstermektedir:
 
 ```console
 $ az container exec --resource-group myResourceGroup --name secret-volume-demo --exec-command "/bin/sh"
@@ -60,7 +60,7 @@ Bir YAML şablonu ile dağıttığınızda, gizli anahtar değerleri olmalıdır
 Aşağıdaki YAML şablonu bağlar bir kapsayıcısını bir kapsayıcı grubu tanımlayan bir *gizli* birim `/mnt/secrets`. İki gizli dizileri, "mysecret1" ve "mysecret2." gizli birimi içeriyor
 
 ```yaml
-apiVersion: '2018-06-01'
+apiVersion: '2018-10-01'
 location: eastus
 name: secret-volume-demo
 properties:
@@ -88,7 +88,7 @@ tags: {}
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-YAML şablonu ile dağıtmak için önceki YAML adlı bir dosyaya kaydedin `deploy-aci.yaml`, ardından yürütme [az kapsayıcı oluşturma] [ az-container-create] komutunu `--file` parametresi:
+YAML şablonu ile dağıtmak için önceki YAML adlı bir dosyaya kaydedin `deploy-aci.yaml`, ardından yürütme [az kapsayıcı oluşturma][az-container-create] komutunu `--file` parametresi:
 
 ```azurecli-interactive
 # Deploy with YAML template
@@ -108,7 +108,7 @@ Aşağıdaki Resource Manager şablonu bağlar bir kapsayıcısını bir kapsay�
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
-Resource Manager şablonu ile dağıtmak için önceki JSON adlı bir dosyaya Kaydet `deploy-aci.json`, ardından yürütme [az grubu dağıtımı oluşturmak] [ az-group-deployment-create] komutunu `--template-file` parametresi:
+Resource Manager şablonu ile dağıtmak için önceki JSON adlı bir dosyaya Kaydet `deploy-aci.json`, ardından yürütme [az grubu dağıtımı oluşturmak][az-group-deployment-create] komutunu `--template-file` parametresi:
 
 ```azurecli-interactive
 # Deploy with Resource Manager template

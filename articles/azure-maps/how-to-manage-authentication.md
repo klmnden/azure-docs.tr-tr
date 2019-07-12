@@ -3,17 +3,17 @@ title: Azure haritalar kimlik doğrulamasını yönetme | Microsoft Docs
 description: Azure haritalar içinde kimlik doğrulamasını yönetmek için Azure portalını kullanabilirsiniz.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 617adbcda70799aa07248945bbc27f9d95aa77a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1dc63a2c2350ad4f1d02d0c1b22050293d7b866c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952559"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67837808"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Azure haritalar kimlik doğrulamasını Yönet
 
@@ -59,7 +59,7 @@ Bir Azure haritalar hesabı oluşturduktan sonra Azure AD kiracınızı Azure ha
 
 ## <a name="grant-rbac-to-azure-maps"></a>Azure haritalar için RBAC izni
 
-Azure haritalar hesabı Azure AD kiracınız ile ilişkilendirdikten sonra kullanıcı veya uygulama için bir veya daha fazla Azure haritalar erişim denetimi rolleri atayarak erişim denetimi izni verebilirsiniz.
+Azure haritalar hesabı Azure AD kiracınız ile ilişkilendirdikten sonra bir kullanıcı, Grup veya uygulama için bir veya daha fazla Azure haritalar erişim denetimi rolleri atayarak erişim denetimi izni verebilirsiniz.
 
 1. Git **erişim denetimi (IAM)** seçin **rol atamaları**ve ardından **rol ataması Ekle**.
 

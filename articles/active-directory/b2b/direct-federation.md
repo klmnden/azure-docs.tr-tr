@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4dadc68e78fbaa979751d5bcd04ef481c3ab886
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 1bc3c1325e8379082134e2cbec1586f7d338ee61
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544354"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797932"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>AD FS ve üçüncü taraf sağlayıcılar için konuk kullanıcılar (Önizleme) ile doğrudan Federasyon
 |     |
@@ -62,7 +62,7 @@ Doğrudan Federasyon yalnızca kimlik doğrulama iş URL'SİNİN etki alanını 
 ### <a name="signing-certificate-renewal"></a>İmzalama sertifikasını yenileme
 Meta veri URL'si kimlik sağlayıcı ayarları belirtirseniz, belirtecin süresi dolduğunda, Azure AD imzalama sertifikasını otomatik olarak yenilenecektir. Ancak, sertifika, geçerlilik sonu zamanından önce herhangi bir nedenle döndürüldüğüne veya meta veri URL'si sağlamıyorsa, Azure AD yenilemek mümkün olmayacaktır. Bu durumda, imzalama sertifikasını el ile güncellemeniz gerekecektir.
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
-### <a name="can-i-set-up-direct-federation-with-an-unmanaged-email-verified-tenant"></a>(E-posta adresi doğrulanan) yönetilmeyen bir kiracı ile doğrudan Federasyon oluşturan ayarlayabilir miyim? 
+### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>(E-posta adresi doğrulanan) yönetilmeyen bir kiracı için bulunduğu bir etki alanı ile doğrudan Federasyon oluşturan ayarlayabilir miyim? 
 Evet. Etki alanını doğruladıysanız taşınmadığından ve Kiracı undergone edilmemiş bir [yönetici devralma işlemini](../users-groups-roles/domains-admin-takeover.md), doğrudan Federasyon ayarlayabilirsiniz. Bir kullanıcı B2B davet redeems ya da şu anda mevcut olmayan bir etki alanı kullanmak için Azure AD Self Servis kayıt gerçekleştirir, yönetilmeyen veya e-posta adresi doğrulanan, kiracılar oluşturulur. Bu etki alanlarıyla doğrudan Federasyon ayarlayabilirsiniz. Bir DNS doğrulanmış etki alanı, Azure portalında veya PowerShell aracılığıyla doğrudan Federasyon kurmak çalışırsanız, bir hata görürsünüz.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Her ikisi de doğrudan Federasyon ve e-posta bir kerelik geçiş kodu kimlik doğrulaması etkinleştirilip etkinleştirilmediğini, hangi yöntemin öncelik kazanır?
 Bir iş ortağı kuruluşla doğrudan Federasyon oluşturulduğunda, bu e-posta bir kerelik geçiş kodu kimlik doğrulaması için söz konusu kuruluştaki yeni Konuk kullanıcıları önceliklidir. Konuk kullanıcı davet doğrudan Federasyon ayarlamadan önce bir kerelik geçiş kodu kimlik doğrulaması kullanarak alınma tarihinden itibaren bir kerelik geçiş kodu kimlik doğrulaması kullanmaya devam edeceğiz. 
@@ -96,7 +96,7 @@ SAML 2.0 Idp'yi yanıttan için gerekli öznitelikler:
 
 IDP tarafından verilen SAML 2.0 belirteç için gerekli talep:
 
-|Öznitelik  |Değer  |
+|Öznitelik  |Value  |
 |---------|---------|
 |Nameıd biçimi     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
@@ -113,7 +113,7 @@ Aşağıdaki tablolar, özel öznitelikler ve üçüncü taraf WS-Federasyon kim
 
 Idp'nin WS-Federasyon iletisinden gerekli öznitelikleri:
  
-|Öznitelik  |Değer  |
+|Öznitelik  |Value  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |Hedef kitle     |`urn:federation:MicrosoftOnline`         |

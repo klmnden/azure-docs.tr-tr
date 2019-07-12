@@ -2,24 +2,25 @@
 title: Azure Güvenlik Merkezi Önizleme IOT aracısı için yapılandırma | Microsoft Docs
 description: Aracıları kullanmak için IOT için Azure Güvenlik Merkezi ile yapılandırmayı öğrenin.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 311a867c863cbd72292d8e34b4f7abdb949b12c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39539bb14877208e5f6af957e735a136b077f16a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198451"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618275"
 ---
 # <a name="tutorial-configure-security-agents"></a>Öğretici: Güvenlik aracılarını yapılandırma
 
@@ -118,22 +119,22 @@ Varsayılan değerler doğru şemasında kullanılabilir [Github](https://aka.ms
 
 ### <a name="supported-security-events"></a>Desteklenen güvenlik olayları
 
-|Olay adı| ÖzellikAdı | Varsayılan Değer| Anlık görüntü olay| Durum ayrıntıları  |
+|Olay adı| ÖzellikAdı | Default Value| Anlık görüntü olay| Durum ayrıntıları  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |Tanılama olayı|eventPriorityDiagnostic| Kapalı| False| Aracı tanılama olayları ilişkili. Bu olay için ayrıntılı günlük kaydını kullanın.| 
 |yapılandırma hatası |eventPriorityConfigurationError |Düşük |False |Aracı yapılandırması ayrıştırılamadı. Şemadaki yapılandırmasını doğrulayın.| 
-|Bırakılan olay istatistikleri |eventPriorityDroppedEventsStatistics |Düşük |True|Olay istatistikleri Aracısı ilgili. |
-|İleti istatistikleri|eventPriorityMessageStatistics |Düşük |True |Aracı ileti istatistikleri ilgili. |
-|Bağlı donanım|eventPriorityConnectedHardware |Düşük |True |Tüm donanım anlık görüntüsünü cihaza bağlı.|
-|Dinleme bağlantı noktaları|eventPriorityListeningPorts |Yüksek |True |Cihazdaki tüm açık dinleme bağlantı noktalarını anlık görüntüsünü.|
+|Bırakılan olay istatistikleri |eventPriorityDroppedEventsStatistics |Düşük |Doğru|Olay istatistikleri Aracısı ilgili. |
+|İleti istatistikleri|eventPriorityMessageStatistics |Düşük |Doğru |Aracı ileti istatistikleri ilgili. |
+|Bağlı donanım|eventPriorityConnectedHardware |Düşük |Doğru |Tüm donanım anlık görüntüsünü cihaza bağlı.|
+|Dinleme bağlantı noktaları|eventPriorityListeningPorts |Yüksek |Doğru |Cihazdaki tüm açık dinleme bağlantı noktalarını anlık görüntüsünü.|
 |İşlem Oluştur |eventPriorityProcessCreate |Düşük |False |Denetimleri oluşturma cihazda işleyin.|
 |İşlemi Sonlandır|eventPriorityProcessTerminate |Düşük |False |Denetimleri cihazda sonlandırma işlemi.| 
-|Sistem bilgileri |eventPrioritySystemInformation |Düşük |True |Sistem bilgileri anlık görüntüsünü (örneğin: İşletim sistemi veya CPU).| 
-|Yerel Kullanıcılar| eventPriorityLocalUsers |Yüksek |True|Kayıtlı yerel kullanıcıların sistemi içinde bir anlık görüntü. |
+|Sistem bilgileri |eventPrioritySystemInformation |Düşük |Doğru |Sistem bilgileri anlık görüntüsünü (örneğin: İşletim sistemi veya CPU).| 
+|Yerel Kullanıcılar| eventPriorityLocalUsers |Yüksek |Doğru|Kayıtlı yerel kullanıcıların sistemi içinde bir anlık görüntü. |
 |Oturum Aç|  eventPriorityLogin |Yüksek|False|Cihaz (yerel ve uzak oturumları) için oturum açma olaylarını denetleyin.|
 |Bağlantı oluşturma |eventPriorityConnectionCreate|Düşük|False|Cihaz için ile oluşturulan TCP bağlantıları denetler. |
-|Güvenlik duvarı yapılandırması| eventPriorityFirewallConfiguration|Düşük|True|Cihaz güvenlik duvarı yapılandırması (güvenlik duvarı kuralları), anlık görüntü. |
-|İşletim sistemi temeli| eventPriorityOSBaseline| Düşük|True|Cihaz işletim sistemi temel anlık görüntüsünü denetleyin.|
+|Güvenlik duvarı yapılandırması| eventPriorityFirewallConfiguration|Düşük|Doğru|Cihaz güvenlik duvarı yapılandırması (güvenlik duvarı kuralları), anlık görüntü. |
+|İşletim sistemi temeli| eventPriorityOSBaseline| Düşük|Doğru|Cihaz işletim sistemi temel anlık görüntüsünü denetleyin.|
  
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -1,41 +1,46 @@
 ---
-title: Azure Red Hat OpenShift kümesinde tek başına Prometheus dağıtma | Microsoft Docs
-description: Uygulamanızın ölçümleri izlemek için bir Azure Red Hat OpenShift kümesinde Prometheus örneği oluşturma işlemini aşağıda verilmiştir.
-author: Makdaam
+title: Azure Red Hat OpenShift kümesinde tek başına bir Prometheus örneğini dağıtma | Microsoft Docs
+description: Uygulamanızın ölçümleri izlemek için bir Azure Red Hat OpenShift kümesinde Prometheus örneği oluşturun.
+author: makdaam
 ms.author: b-lejaku
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: prometheus aro, openshift, ölçümleri, red hat
-ms.openlocfilehash: e66658151361edd43f61d398274c88c047928028
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: a9748932a72106413677b21fe0efd1f69fb02e47
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342864"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827009"
 ---
-# <a name="deploy-a-standalone-prometheus-in-an-azure-red-hat-openshift-cluster"></a>Tek başına Prometheus Azure Red Hat OpenShift kümesinde dağıtma
+# <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Azure Red Hat OpenShift kümesinde tek başına bir Prometheus örneğini dağıtma
 
-Bu kılavuzda bir Azure Red Hat OpenShift kümesindeki hizmet bulma ile tek başına Prometheus yapılandırma anlatmaktadır.  "Müşteri Yönetici" erişimi kümeye gerekli değildir.
+Bu makalede bir Azure Red Hat OpenShift kümesinde hizmet bulma kullanan bir tek başına Prometheus örneği yapılandırma açıklanır.
 
-Hedef Kurulumu aşağıdaki gibidir:
+> [!NOTE]
+> Azure Red Hat OpenShift küme için müşteri yönetici erişimi gerekli değildir.
 
-- Prometheus ve Alertmanager içeren bir proje (prometheus-Proje)
-- uygulamaları izlemek için içeren iki projeleri (uygulama project1 ve uygulama project2)
+Hedef Kurulum:
 
-Bazı Prometheus yapılandırma dosyalarını yerel olarak hazırlarsınız. Bunları depolamak için yeni bir klasör oluşturun.
-Gizli dizi belirteçleri bunlara daha sonra eklenen durumunda bu yapılandırma dosyalarına gizli dizi olarak kümede depolanır.
+- Prometheus ve Alertmanager içeren bir proje (prometheus-Proje).
+- Uygulamaları izlemek için içeren iki proje (uygulama project1 ve uygulama project2).
 
-## <a name="step-1-sign-in-to-the-cluster-using-the-oc-tool"></a>1\. adım: Oturum kullanarak kümeye `oc` aracı
-Bir web tarayıcısı kullanarak kümenize web konsoluna gidin (https://openshift. *rastgele bir kimlik*. *Bölge*. azmosa.io).
-Azure kimlik bilgilerinizle oturum açın.
-Sağ üst kullanıcı adınıza tıklayın ve "Oturum açma komutunu Kopyala"'i seçin. Kullanacağınız terminale yapıştırın.
+Bazı Prometheus yapılandırma dosyaları yerel olarak hazırlarsınız. Bunları depolamak için yeni bir klasör oluşturun. Gizli dizi belirteçleri daha sonra kümeye eklenen durumunda yapılandırma dosyaları gizli dizi olarak kümede depolanır.
 
-Şu cmdlet'le kümeye doğru oturum açmadıysanız, doğrulayabilirsiniz `oc whoami -c` komutu.
+## <a name="sign-in-to-the-cluster-by-using-the-oc-tool"></a>Kümeye OC aracını kullanarak oturum açın
 
-## <a name="step-2-prepare-the-projects"></a>2\. adım: Projeleri hazırlama
+1. Bir web tarayıcısı açın ve sonra kümenizi web konsoluna gidin (https://openshift. *rastgele bir kimlik*. *Bölge*. azmosa.io).
+2. Azure kimlik bilgilerinizle oturum açın.
+3. Sağ üst köşeden kullanıcı adınızı seçin ve ardından **kopyalama oturum açma komutunu**.
+4. Kullanıcı adınızı kullanacağınız terminale yapıştırabilirsiniz.
 
-Projeleri oluşturun.
+> [!NOTE]
+> Doğru kümeye oturum açmadıysanız, görmek için şunu çalıştırın `oc whoami -c` komutu.
+
+## <a name="prepare-the-projects"></a>Projeleri hazırlama
+
+Projeleri oluşturmak için aşağıdaki komutları çalıştırın:
 ```
 oc new-project prometheus-project
 oc new-project app-project1
@@ -44,10 +49,10 @@ oc new-project app-project2
 
 
 > [!NOTE]
-> Kullanabilir `-n` veya `--namespace` ile etkin bir proje seçin veya parametre `oc project` komutu
+> Kullanabilir `-n` veya `--namespace` çalıştırarak etkin bir proje seçin veya parametre `oc project` komutu.
 
-## <a name="step-3-prepare-prometheus-config"></a>3\. adım: Prometheus config hazırlama
-Aşağıdaki içeriğe sahip prometheus.yml adlı bir dosya oluşturun.
+## <a name="prepare-the-prometheus-configuration-file"></a>Prometheus yapılandırma dosyasını hazırlama
+Aşağıdaki içerik girerek bir prometheus.yml dosyası oluşturun:
 ```
 global:
   scrape_interval: 30s
@@ -68,19 +73,18 @@ scrape_configs:
           - app-project1
           - app-project2
 ```
-Yapılandırma ile "prom" adlı bir gizli dizi oluşturun.
+Aşağıdaki yapılandırmayı girerek PROM adlı bir gizli dizi oluşturun:
 ```
 oc create secret generic prom --from-file=prometheus.yml -n prometheus-project
 ```
 
-Yukarıda listelenen dosya yapılandırma temel Prometheus dosyadır.
-Aralıkları ayarlar ve Otomatik bulma üç projenin (prometheus proje, uygulama project1, uygulama project2) yapılandırır.
-Bu örnekte, uç noktaları HTTP üzerinden kimlik doğrulaması olmadan scraped otomatik bulma.
-Uç noktaları değiştirilene daha fazla bilgi için bkz: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config.
+Bir temel Prometheus yapılandırma dosyası prometheus.yml dosyasıdır. Aralıkları ayarlar ve Otomatik bulma üç projenin (prometheus proje, uygulama project1, uygulama project2) yapılandırır. Önceki yapılandırma dosyasında, otomatik olarak keşfedilebilen uç kimlik doğrulaması olmadan HTTP üzerinden scraped.
+
+Uç noktaları değiştirilene hakkında daha fazla bilgi için bkz. [Prometheus çıkış config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config).
 
 
-## <a name="step-4-prepare-alertmanager-config"></a>4\. Adım: Alertmanager config hazırlama
-Aşağıdaki içeriğe sahip alertmanager.yml adlı bir dosya oluşturun.
+## <a name="prepare-the-alertmanager-config-file"></a>Alertmanager yapılandırma dosyasını hazırlama
+Aşağıdaki içerik girerek bir alertmanager.yml dosyası oluşturun:
 ```
 global:
   resolve_timeout: 5m
@@ -98,39 +102,39 @@ receivers:
 - name: default
 - name: deadmansswitch
 ```
-"Prom-uyarıları" yapılandırması ile adlı bir gizli dizi oluşturun.
+Aşağıdaki yapılandırmayı girerek PROM uyarıları adlı bir gizli dizi oluşturun:
 ```
 oc create secret generic prom-alerts --from-file=alertmanager.yml -n prometheus-project
 ```
 
-Yukarıda listelenen dosya uyarı Yöneticisi yapılandırma dosyasıdır.
+Alertmanager.yml uyarı Yöneticisi yapılandırma dosyasıdır.
 
 > [!NOTE]
-> Önceki iki adımı ile doğrulayabilirsiniz. `oc get secret -n prometheus-project`
+> Önceki iki adımı doğrulamak için çalıştırın `oc get secret -n prometheus-project` komutu.
 
-## <a name="step-5-start-prometheus-and-alertmanager"></a>5\. Adım: Prometheus ve Alertmanager Başlat
-İndirme [prometheus standalone.yaml](
-https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml) şablondan [openshift/başlangıç deposunun](https://github.com/openshift/origin/tree/release-3.11/examples/prometheus) ve prometheus projede uygulayın
+## <a name="start-prometheus-and-alertmanager"></a>Prometheus ve Alertmanager Başlat
+Git [openshift/başlangıç deposunun](https://github.com/openshift/origin/tree/release-3.11/examples/prometheus) ve indirme [prometheus standalone.yaml](
+https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml) şablonu. Şablonu aşağıdaki yapılandırma girerek prometheus-proje için geçerlidir:
 ```
 oc process -f https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml | oc apply -f - -n prometheus-project
 ```
-Oauth proxy ve oauth proxy ile güvenliği de Alertmanager örneğini önündeki Prometheus örneği oluşturur bir OpenShift şablonu, prometheus standalone.yaml dosyasıdır.  Bu şablonda oauth proxy "" prometheus-project"ad alanını alabilirsiniz" herhangi bir kullanıcı izin verecek şekilde yapılandırılır (bkz `-openshift-sar` bayrağı).
+OpenShift şablonu prometheus standalone.yaml dosyasıdır. Oauth yetkili ve oauth proxy ile güvenliği de Alertmanager örneğini önündeki ile Prometheus örneği oluşturun. Bu şablonda oauth proxy "prometheus proje ad alanını alabilirsiniz" herhangi bir kullanıcı izin verecek şekilde yapılandırılır (bkz `-openshift-sar` bayrağı).
 
 > [!NOTE]
-> "Prom" StatefulSet eşit olup olmadığını doğrulayabilirsiniz *İSTENEN* ve *geçerli* sayı Çoğaltmalarla `oc get statefulset -n prometheus-project` komutu.
-> İle projedeki tüm kaynakları da kontrol edebilirsiniz `oc get all -n prometheus-project`.
+> ' % S'prom StatefulSet eşit İSTENEN ve çoğaltmaları numarası geçerli olup olmadığını doğrulamak için çalıştırın `oc get statefulset -n prometheus-project` komutu. Projedeki tüm kaynakları denetlemek için çalıştırın `oc get all -n prometheus-project` komutu.
 
-## <a name="step-6-add-permissions-to-allow-service-discovery"></a>6\. Adım: Hizmet bulma izin vermek için izinleri ekleme
-Aşağıdaki içerikle prometheus sdrole.yml oluşturun.
+## <a name="add-permissions-to-allow-service-discovery"></a>Hizmet bulma izin vermek için izinleri ekleme
+
+Aşağıdaki içerik girerek bir prometheus sdrole.yml dosyası oluşturun:
 ```
 apiVersion: template.openshift.io/v1
 kind: Template
 metadata:
   name: prometheus-sdrole
   annotations:
-    "openshift.io/display-name": Prometheus Service Discovery Role
+    "openshift.io/display-name": Prometheus service discovery role
     description: |
-      A role and rolebinding adding permissions required to perform Service Discovery in a given project.
+      Role and rolebinding added permissions required for service discovery in a given project.
     iconClass: fa fa-cogs
     tags: "monitoring,prometheus,alertmanager,time-series"
 parameters:
@@ -166,42 +170,48 @@ objects:
     name: prom
     namespace: ${PROMETHEUS_PROJECT}
 ```
-Şablon, hizmet bulma izin vermek istediğiniz tüm projeler için geçerlidir.
+Hizmet bulma izin vermek istediğiniz tüm projeler için şablonu uygulamak için aşağıdaki komutları çalıştırın:
 ```
 oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project1
 oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project2
 ```
-Çok prometheus proje izinleri uygulamak de kendisinden ölçümleri toplamak için Prometheus esnetmek istiyorsanız unutmayın.
+Kendisinden ölçümleri toplamak için Prometheus sahip izinleri prometheus projesindeki uygulanır.
 
 > [!NOTE]
-> Rol ve RoleBinding doğru şekilde oluşturulmuş, doğrulayabilirsiniz `oc get role` ve `oc get rolebinding` sırasıyla komutları
+> Rol ve RoleBinding doğru oluşturulduğunu doğrulamak için çalıştırın `oc get role` ve `oc get rolebinding` komutları.
 
 ## <a name="optional-deploy-example-application"></a>İsteğe bağlı: Örnek uygulamayı dağıtma
-Her şeyin çalıştığından, ancak ölçüm kaynağı yok. Prometheus URL'ye gidin (https://prom-prometheus-project.apps. *rastgele bir kimlik*. *Bölge*.azmosa.io/), şu komutla bulunabilir.
+
+Her şeyin çalıştığından, ancak ölçüm kaynağı yok. Prometheus URL'ye gidin (https://prom-prometheus-project.apps. *rastgele bir kimlik*. *Bölge*.azmosa.io/). Aşağıdaki komutu kullanarak bulabilirsiniz:
+
 ```
 oc get route prom -n prometheus-project
 ```
-Https:// ile ana bilgisayar adı ön eki unutmayın.
+> [!IMPORTANT]
+> Ana bilgisayar adı başlangıcına https:// ön ekini eklemeyi unutmayın.
 
 **Durumu > hizmet bulma** sayfası 0/0 etkin hedefleri gösterir.
 
-Örnek bir uygulama dağıtmak için hangi kullanıma sunan basit python ölçümleri /metrics uç nokta altında aşağıdaki komutları çalıştırın.
+Temel bir Python ölçümleri /metrics uç nokta altında sunan bir örnek uygulamayı dağıtmak için aşağıdaki komutları çalıştırın:
 ```
 oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=example1 -n app-project1
+
 oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=example2 -n app-project2
 ```
-Yeni uygulamalar varsayılan olarak, dağıtımdan sonra hizmet bulma sayfası 30 saniye içinde geçerli hedef olarak görünür. Daha fazla bilgi almak **durumu > hedefleri** sayfası.
+Yeni uygulamalar, dağıtımdan sonra 30 saniye içinde hizmet bulma sayfasında geçerli hedefleri olarak görünmelidir.
+
+Daha fazla ayrıntı için seçin **durumu** > **hedefleri**.
 
 > [!NOTE]
-> Başarıyla scraped her hedef için "en" ölçümü bir datapoint Prometheus ekler. Tıklayın **Prometheus** sol üst köşe ve "yukarı"'i tıklatın ve ifade girin **yürütme**.
+> Başarıyla scraped her hedef için bir veri noktasının Prometheus yukarı ölçümü ekler. Seçin **Prometheus** girin sol üst köşedeki **yukarı** ifade edin ve ardından **yürütme**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Özel Prometheus izleme uygulamalarınıza ekleyebilirsiniz.
+Özel Prometheus izleme uygulamalarınıza ekleyebilirsiniz. Prometheus ölçümleri hazırlık basitleştiren Prometheus istemci kitaplığı, farklı programlama dili için hazırdır.
 
-Hazırlama Prometheus ölçümleri basitleştiren Prometheus istemci kitaplığı, farklı programlama dili için hazırdır.
+Daha fazla bilgi için aşağıdaki GitHub kitaplıkları bakın:
 
- - Java https://github.com/prometheus/client_java
- - Python https://github.com/prometheus/client_python
- - Git https://github.com/prometheus/client_golang
- - Ruby https://github.com/prometheus/client_ruby
+ - [Java](https://github.com/prometheus/client_java)
+ - [Python](https://github.com/prometheus/client_python)
+ - [Go](https://github.com/prometheus/client_golang)
+ - [Ruby](https://github.com/prometheus/client_ruby)

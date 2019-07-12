@@ -4,7 +4,7 @@ description: Linux sanal makineleriyle Azure İşlem, Depolama ve Ağ hizmetleri
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
 ms.service: virtual-machines-linux
@@ -15,19 +15,19 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: a5203d75e673a7b8206446553414ff933e00b0b6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 9d33b478cb848724d0b3747761a99a1269d58b6e
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60542535"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671051"
 ---
 # <a name="azure-and-linux"></a>Azure ve Linux
 Microsoft Azure; çözümlerinizi barındırmak için ideal olan ve giderek büyüyen bir analiz, sanal makine, veritabanı, mobil kullanım, ağ, depolama ve web dahil tümleşik genel bulut hizmetleri koleksiyonudur.  Microsoft Azure şirket içi donanım için yatırım yapmanıza gerek olmadan istediğiniz zaman yalnızca kullandığınız hizmetler için ödeme yapmanızı sağlayan ölçeklenebilir bir bilgi işlem platformu sunar.  Azure, çözümlerinizin ölçeğini artırmaya hazır olduğunuzda müşterilerinizin ihtiyaçlarını karşılamak için gereken ölçeğe yükseltilmek için hazırdır.
 
 Amazon AWS'nin çeşitli özelliklerini tanıyorsanız, Azure - AWS [tanım eşleme belgesini](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) inceleyebilirsiniz.
 
-## <a name="regions"></a>Bölgeler
+## <a name="regions"></a>Regions
 Microsoft Azure kaynakları, dünyanın farklı yerindeki çeşitli coğrafi bölgelere dağıtılmıştır.  "Bölge", tek bir coğrafi alanda bulunan birden çok veri merkezini temsil eder. Ağustos 2018 itibarıyla Azure, dünyanın her yanında genel olarak kullanılabilen 42 bölgeye (diğer bulut sağlayıcılarından daha fazla küresel bölgeye) sahiptir ve 12 bölgenin daha duyurusu yapılmıştır. Mevcut ve yeni duyurulan bölgelerin güncel bir listesi şu sayfada bulunabilir:
 
 * [Azure Bölgeleri](https://azure.microsoft.com/regions/)

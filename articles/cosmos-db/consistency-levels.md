@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.openlocfilehash: dcd51756a9c5a5a24a082862bb911cc2d2605d61
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9de37c04e5e791445659de0ab667b51f44a4024
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954366"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839832"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB'deki tutarlılık düzeyleri
 
@@ -48,7 +48,7 @@ Beş tutarlılık düzeyi semantiği aşağıda açıklanmıştır:
 
   Sınırlanmış eskime durumu teklifler toplam genel sıra dışında "eskime durumu penceresi içinde." Monoton okuma garantisi, hem Azure içindeki hem eskime durumu penceresi dışında bir bölge içinde mevcut. Güçlü tutarlılık, sınırlanmış eskime durumu tarafından sunulan biri ile aynı semantiğe sahip. Eskime durumu penceresi sıfıra eşittir. Sınırlanmış eskime durumu, doğrusallaştırılabilme zaman Gecikmeli da bilinir. Bir istemci, okuma işlemleri yazma kabul eden bir bölge içinde gerçekleştirdiğinde, sınırlanmış eskime durumu tutarlılık tarafından sağlanan garantileri güçlü tutarlılık tarafından bu garantileri aynıdır.
 
-- **Oturum**: Okuma tutarlı (çoklu "yazan" oturumu varsayılarak) ön ek, monoton okuma, monoton yazma, okuma your-yazma ve yazma yazdıklarınızı okuma garanti etmenin garanti edilir. Oturum tutarlılığı için bir istemci oturumundan kapsamlıdır.
+- **Oturum**:  Tutarlı (çoklu "yazan" oturumu varsayılarak) ön ek, monoton okuma, monoton yazma, okuma your-yazma ve yazma yazdıklarınızı okuma garanti etmenin tek istemci oturumunda okuma garanti edilir. Yazma işlemleri gerçekleştirme oturumu dışında istemciler, son tutarlılık görürsünüz.
 
 - **Tutarlı ön ek**: Tüm güncelleştirmeleri herhangi bir boşluk ile bazı ön döndürülen güncelleştirmeleri içerir. Tutarlı ön ek tutarlılık düzeyi okuma hiçbir sırası yazma gördüğünüzü garanti eder.
 

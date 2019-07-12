@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aac1ed82a01477b081f4bc146f199eba87d97859
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d33172727d4c654614463f69b83f7802cf7fb905
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60309207"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839605"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Salesforce veri taşıma
 > [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
@@ -52,7 +52,7 @@ Farklı araçlar/API'lerini kullanarak Salesforce veri taşıyan kopyalama etkin
 
 Bir işlem hattı oluşturmanın en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [Öğreticisi: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı bir kılavuz.
 
-Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portalında**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**ve  **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
 
 API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için bir kaynak veri deposundan veri taşıyan bir işlem hattı oluşturmak için aşağıdaki adımları gerçekleştirin:
 
@@ -69,7 +69,7 @@ Aşağıdaki tabloda, Salesforce bağlantılı hizmete özgü JSON öğelerinin 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type |Type özelliği ayarlanmalıdır: **Salesforce**. |Evet |
+| türü |Type özelliği ayarlanmalıdır: **Salesforce**. |Evet |
 | environmentUrl | URL, Salesforce örneği belirtin. <br><br> -Varsayılan değer "https:\//login.salesforce.com". <br> Korumalı alan ' veri kopyalamak için belirtin "https://test.salesforce.com". <br> Özel etki alanından veri kopyalamak için örneğin, "https://[domain].my.salesforce.com" belirtin. |Hayır |
 | username |Kullanıcı hesabı için bir kullanıcı adı belirtin. |Evet |
 | password |Kullanıcı hesabı için bir parola belirtin. |Evet |
@@ -98,7 +98,7 @@ Kopya etkinlikteki kaynak türü olduğunda, **RelationalSource** (Salesforce i�
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| query |Verileri okumak için özel sorgu kullanın. |Bir SQL 92 sorgu veya [Salesforce nesne sorgu dili (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) sorgu. Örneğin: `select * from MyTable__c`. |Hayır (varsa **tableName** , **veri kümesi** belirtilir) |
+| query |Verileri okumak için özel sorgu kullanın. |Bir SQL 92 sorgu veya [Salesforce nesne sorgu dili (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) sorgu. Örneğin: `select * from MyTable__c` |Hayır (varsa **tableName** , **veri kümesi** belirtilir) |
 
 > [!IMPORTANT]
 > API adı "__c" bölümü, herhangi özel bir nesne için gereklidir.
@@ -124,7 +124,7 @@ Salesforce Geri Dönüşüm Kutusu'nu geçici silinen kayıtlarını sorgulamak 
 * Tüm mevcut ve Silinen dahil olmak üzere kayıtları sorgulamak için belirtin "seçin * MyTable__c gelen **burada IsDeleted = 0 ya da IsDeleted = 1**"
 
 ## <a name="json-example-copy-data-from-salesforce-to-azure-blob"></a>JSON örneği: Azure Blob Salesforce veri kopyalayın
-Aşağıdaki örnek kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bunlar, verileri Azure Blob depolama alanına Salesforce'tan kopyalamak nasıl gösterir. Ancak, veriler belirtilen havuzlarını birine kopyalanabilir [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopyalama etkinliğini kullanarak Azure Data Factory'de.
+Aşağıdaki örnek kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bunlar, verileri Azure Blob depolama alanına Salesforce'tan kopyalamak nasıl gösterir. Ancak, veriler belirtilen havuzlarını birine kopyalanabilir [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopyalama etkinliğini kullanarak Azure Data Factory'de.
 
 Senaryoyu uygulamak için oluşturmak için ihtiyacınız olan Data Factory yapıtlarının aşağıda verilmiştir. Listenin aşağıdaki bölümlerde bu adımlar hakkında ayrıntılı bilgi sağlar.
 
@@ -286,25 +286,25 @@ Bkz: [RelationalSource türü özellikleri](#copy-activity-properties) Relationa
 
 | Salesforce türü | . AĞ tabanlı türü |
 | --- | --- |
-| Auto Number |String |
-| Checkbox |Boolean |
-| Para birimi |Decimal |
-| Tarih |DateTime |
-| Tarih/Saat |DateTime |
-| Email |String |
-| Kimlik |String |
-| Lookup Relationship |String |
-| Multi-Select Picklist |String |
-| Sayı |Decimal |
-| Yüzde |Decimal |
-| Telefon |String |
-| Picklist |String |
-| Text |String |
-| Text Area |String |
-| Text Area (Long) |String |
-| Text Area (Rich) |String |
-| Text (Encrypted) |String |
-| URL'si |String |
+| Auto Number |Dize |
+| Checkbox |Boole değeri |
+| Currency |Decimal |
+| Date |Datetime |
+| Date/Time |Datetime |
+| Email |Dize |
+| Id |Dize |
+| Lookup Relationship |Dize |
+| Multi-Select Picklist |Dize |
+| Number |Decimal |
+| Percent |Decimal |
+| Phone |Dize |
+| Picklist |Dize |
+| Text |Dize |
+| Text Area |Dize |
+| Text Area (Long) |Dize |
+| Text Area (Rich) |Dize |
+| Text (Encrypted) |Dize |
+| URL |Dize |
 
 > [!NOTE]
 > Kaynak veri kümesindeki sütunları havuz veri kümesi sütunlara eşlemek için bkz: [Azure Data factory'de veri kümesi sütunlarını eşleme](data-factory-map-columns.md).

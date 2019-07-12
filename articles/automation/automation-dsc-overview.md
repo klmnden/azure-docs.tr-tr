@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b486c30827ee67b58cbdc0027c8221cceed02e51
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5d4657f87b0a6cbae0699c5a2f95773ff55f633
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235952"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798445"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Otomasyonu durum yapılandırmasına genel bakış
 
@@ -81,6 +81,10 @@ Azure üzerinde çalışan tüm Linux düğümleri için [Linux için PowerShell
 * Genel URL: *.azure-automation.net
 * ABD Devleti Virginia genel URL: *.azure-automation.us
 * Aracı hizmeti: https://\<Workspaceıd\>.agentsvc.azure-automation.net
+
+Bu, Azure Otomasyonu ile iletişim kurmak yönetilen düğüm için ağ bağlantısı sağlar.
+Gibi düğümler arasında iletişim kuran DSC kaynakları kullanıyorsanız [WAITFOR * kaynakları](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource), düğümler arasında trafiğe izin vermek de gerekir.
+Bu ağ gereksinimleri anlamak her bir DSC kaynak belgelerine bakın.
 
 #### <a name="proxy-support"></a>Proxy desteği
 

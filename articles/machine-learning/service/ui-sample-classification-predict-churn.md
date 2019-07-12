@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 42724f5fcb3101015cef0d218a3d548f349646be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d10d996febd0e31c9085bf5cb82324cce101c80
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785831"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606150"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>5 - sınıflandırma. örnek: Değişim sıklığı, deneyde ve yukarı satış tahmin edin 
 
@@ -37,9 +37,9 @@ Bu deneme için tamamlanan grafiği aşağıda verilmiştir:
 
     ![Denemeyi açın](media/ui-sample-classification-predict-churn/open-sample5.png)
 
-## <a name="data"></a>Veriler
+## <a name="data"></a>Data
 
-Bu deneme için kullandığımız KDD Kupası 2009 ' verilerdir. 50\.000 satırları ve 230 özellik sütunları bir veri kümesine sahiptir. Değişim sıklığı, deneyde ve bu özellikleri kullanan müşteriler için yukarı satış tahmin etmek için bir görevdir. Veri ve görev hakkında daha fazla bilgi için bkz: [KDD Web sitesi](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
+Bu deneme için kullandığımız KDD Kupası 2009 ' verilerdir. 50.000 satırları ve 230 özellik sütunları bir veri kümesine sahiptir. Değişim sıklığı, deneyde ve bu özellikleri kullanan müşteriler için yukarı satış tahmin etmek için bir görevdir. Veri ve görev hakkında daha fazla bilgi için bkz: [KDD Web sitesi](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
 
 ## <a name="experiment-summary"></a>Deneme özeti
 
@@ -79,3 +79,4 @@ Görsel bir arabirim için kullanılabilir diğer örneklerini keşfedin:
 - [2 - regresyon. örnek: Otomobil fiyat tahmini için algoritmalar karşılaştırın](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [3 - sınıflandırma. örnek: Kredi riskini tahmin](ui-sample-classification-predict-credit-risk-basic.md)
 - [4 - sınıflandırma. örnek: (Maliyet hassas) kredi riskini tahmin](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Örnek 6 - sınıflandırma: Uçuş gecikme tahmin edin](ui-sample-classification-predict-flight-delay.md)

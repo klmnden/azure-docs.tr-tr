@@ -11,28 +11,80 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50452dc5a0c2074c452878c890643f7b21591689
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c043b2ed1a626e362d7edd1a83429aa14046f8ac
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65977302"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703069"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Hatalı parola kuruluşunuzdaki ortadan kaldırın
 
-Endüstri liderlerinden aynı parolayı birden fazla yerde karmaşık hale ve/Password123 gibi basit yapmamaya kullanmayı söyleyin. Kuruluşların kullanıcıları kılavuzu takip ettiğiniz nasıl garanti edebilir? Nasıl bunlar kullanıcıların yaygın parolaları veya son veri ihlalleriyle dahil edilecek bilinen parolaları kullanmadığı emin olabilirim?
+Endüstri liderlerinden aynı parolayı birden fazla yerde karmaşık hale ve "/"Password123 gibi basit yapmamaya kullanmayı söyleyin. Kuruluşların kullanıcıları en iyi uygulama kılavuzunu takip ettiğiniz nasıl garanti edebilir? Nasıl bunlar kullanıcılar zayıf parolalarda Zayıf parolalar veya hatta çeşitlemeleri kullanmadığınız emin olabilirim?
+
+Daha güçlü parolaların ilk adımı, kullanıcılarınıza rehberlik sağlamaktır. Bu konu Microsoft'un geçerli yönergeler aşağıdaki bağlantıda bulunabilir:
+
+[Microsoft parolası Kılavuzu](https://www.microsoft.com/research/publication/password-guidance)
+
+Rehber olması önemli, ancak bile ile zayıf parolalarda seçme çok sayıda kullanıcı yine de sonlandırılacak biliyoruz. Azure AD parola koruması kuruluşunuz tarafından algılanıyor ve bilinen Zayıf parolalar ve bunların türevleri engelleme, hem de isteğe bağlı olarak, kuruluşunuza özgü ek zayıf koşullar engelleme korur.
+
+Geçerli güvenlik çalışmaları hakkında daha fazla bilgi için bkz: [Microsoft Güvenlik zekası raporu](https://www.microsoft.com/security/operations/security-intelligence-report).
 
 ## <a name="global-banned-password-list"></a>Genel yasaklı parola listesi
 
-Microsoft, siber suçluların her zaman bir adım önünde olmak için çalışmaktadır. Bu nedenle Azure AD kimlik koruması ekibi için yaygın olarak kullanılan ve güvenliği aşılan parolaları sürekli olarak arayın. Bunlar ardından genel yasaklı parola listesi çağrılma yeri çok yaygın olarak kabul edilen bu parolaları engelleyin. Siber suçlular kendi saldırılarında de benzer stratejiler kullanır, bu nedenle Microsoft, bu listenin içeriği herkese açık şekilde yayımlamaz. Bu güvenlik açığı olan parolaların Microsoft müşterileri için gerçek bir tehdit haline gelmeden önce engellenir. Geçerli güvenlik çalışmaları hakkında daha fazla bilgi için bkz: [Microsoft Güvenlik zekası raporu](https://www.microsoft.com/security/operations/security-intelligence-report).
+Azure AD kimlik koruması ekibi, Azure AD güvenlik telemetri verileri için yaygın olarak kullanılan zayıf ya da güvenliği aşılmış parolaları veya daha açık belirtmek gerekirse, zayıf, temel olarak Zayıf parolalar için sık kullanılan terimler temel sürekli analiz eder. Bu zayıf koşullarını bulunduğunda, bunlar genel yasaklı parola listesine eklenir. Herhangi bir dış veri kaynağı üzerinde genel yasaklı parola listesi içeriğini bağlı değil. Genel yasaklı parola listesi tamamen Azure AD güvenlik telemetri ve analiz devam eden sonuçlarına bağlıdır.
+
+Her yeni bir parola değiştirildi veya herhangi bir kiracıdaki tüm kullanıcılar için Azure AD'de sıfırlama genel yasaklı parola listesi geçerli sürümü parolanın güçlülüğünü doğrularken giriş anahtar kullanılır. Bu doğrulama, tüm Azure AD müşterileri için daha güçlü parolalar sonuçlanır.
+
+> [!NOTE]
+> Siber suçlular, ayrıca kendi saldırılarında benzer stratejiler kullanır. Bu nedenle Microsoft, bu listenin içeriği herkese açık şekilde yayımlamaz.
 
 ## <a name="custom-banned-password-list"></a>Özel parola listesine yasaklandı
 
-Bazı kuruluşlar kendi özelleştirmeleri genel yasaklı parola listesi üzerinde hangi Microsoft özel yasaklı parola listesi çağrıları ekleyerek güvenlik bir adım daha ileri almak isteyebilirsiniz. Kurumsal müşteriler gibi contoso marka adları, şirketinize özgü koşulları veya diğer öğeleri türevleri engellemek seçebilirsiniz.
+Bazı kuruluşlar kendi özelleştirmeleri genel yasaklı parola listesi üzerinde hangi Microsoft özel yasaklı parola listesi çağrıları ekleyerek güvenliği daha da artırmak isteyebilirsiniz. Microsoft, bu listeye eklenmesine koşulları öncelikle kuruluşa özgü koşullarınızda gibi odaklanan olduğunu önerir:
+
+- Marka adları
+- Ürün adları
+- Konum (örneğin, örneğin şirketin merkez)
+- Şirkete özgü iç koşulları
+- Özel bir şirket anlamı olan kısaltmalar.
+
+Koşulları özel yasaklı parola listesine eklendikten sonra bunlar için genel yasaklı parola listesi parolaları doğrularken eklenir.
+
+> [!NOTE]
+> Özel yasaklı parola listesi en fazla 1000 koşulları bulunması sınırlıdır. Bu, son derece büyük listeler parolaların engellemek için tasarlanmamıştır. Tam olarak özel yasaklı parola listesi avantajlarından yararlanmak için önce gözden önerir ve parola değerlendirme algoritması anlama (bkz [de parolaları nasıl değerlendirilir](concept-password-ban-bad.md#how-are-passwords-evaluated)) yeni koşullarını eklemeden önce Özel Engellenenler listesi. Algoritma works verimli bir şekilde algılayın ve çok sayıda Zayıf parolalar ve bunların türevleri engellemek için kuruluşunuz nasıl olanak sağlayacak anlama.
+
+Örneğin: "Contoso" Londra'da temel alır ve "Widget" adlı bir ürün yapar, adlı bir müşterinin göz önünde bulundurun. Böyle bir müşteri için kısıp hem de bu koşulları belirli çeşitleri gibi engelleyecek şekilde denemek için daha az güvenli şekilde olacaktır:
+
+- "Contoso! 1"
+- "Contoso@London"
+- "ContosoWidget"
+- "! Contoso"
+- "LondonHQ"
+- ... etcetera
+
+Bunun yerine, çok daha verimli ve güvenli yalnızca anahtar temel koşulları engellemek için:
+
+- "Contoso"
+- "London"
+- "Widget"
+
+Parola doğrulama algoritması sonra otomatik olarak zayıf çeşitleri ve yukarıdaki birleşimiyle engeller.
 
 Özel parola listesi ve şirket içi Active Directory Tümleştirmesi, Azure portalını kullanarak yönetilen sağlama yeteneği yasaklandı.
 
 ![Özel yasaklı parola listesi kimlik doğrulama yöntemleri altındaki değiştirme](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
+
+## <a name="password-spray-attacks-and-third-party-compromised-password-lists"></a>Parola ilaç saldırıları ve üçüncü taraf gizliliği bozulan parola listeler
+
+Bir Azure AD parola koruma avantajı parola ilaç saldırılarına karşı korumaya yardımcı olmak için anahtardır. Çoğu parola ilaç saldırıları, benzer bir davranış algılama, hesap kilitleme veya başka bir yolla aracılığıyla olasılığını önemli ölçüde artırır. bu yana herhangi bir belirli bireysel hesabı birkaç kereden fazla saldırılara karşı çalışmayın. Parola ilaç saldırıların büyük bölümü, bu nedenle kullanan her biri ile bir kurumsal hesap bilinen Zayıf parolalar yalnızca az sayıda gönderme hakkında. Bu teknik saldırganın bir kolayca tehlikeye giren hesap olası algılama eşikleri önleme aynı anda sırada hızlıca arayın sağlar.
+
+Azure AD parola koruması, Azure AD tarafından görülen gerçek güvenlik telemetri verileri temel parola ilaç saldırıları kullanılma olasığılı olan tüm bilinen zayıf parolalarda verimli bir şekilde engelleyecek biçimde tasarlanmıştır.  Microsoft önceki genel olarak bilinen güvenlik ihlallerini tehlikeye girmiş parolaları milyonlarca listeleme üçüncü taraf Web sitelerinin farkındadır. Bu parolalar milyonlarca karşı deneme yanılma karşılaştırma temel için üçüncü taraf parola doğrulaması ürünleri yaygındır. Microsoft, bu tür teknikler parola ilaç saldırganlar tarafından kullanılan tipik stratejiler verilen genel parola gücünü artırmak için en iyi yolu olmadığını hissettirir.
+
+> [!NOTE]
+> Genel yasaklı parola listesi değil Microsoft, herhangi bir üçüncü taraf veri çubuğunda vermemektedir gizliliği bozulan parola listeleri gibi kaynakları temel.
+
+Microsoft Genel Engellenenler listesi kıyasla bazı üçüncü taraf toplu listeler küçük olsa da, güvenlik etkileri gerçek parola ilaç saldırıların yanı sıra, olgu üzerinde gerçek güvenlik telemetriden alındığından emin olarak yükseltilmiş, Microsoft parola doğrulama algoritması akıllı benzer öğe eşleştirmesi teknikleri kullanır. Son Sonuç verimli bir şekilde algılanır ve milyonlarca en yaygın Zayıf parolalar, kuruluşunuzda kullanılmasını engellemek emin olur. Kuruluşa özgü koşulları özel yasaklı parola listesine eklemek için istemeyen müşterilere aynı algoritmadan avantaj sağlıyor.
 
 ## <a name="on-premises-hybrid-scenarios"></a>Şirket içi karma senaryolar
 
@@ -46,7 +98,7 @@ Bir kullanıcının parolasını yasaklı parola içeriyorsa bile genel parola y
 
 ### <a name="step-1-normalization"></a>1\. adım: Normalleştirme
 
-Yeni bir parola önce bir normalleştirme sürecinden geçer. Bu yasaklı parola küçük bir kümesi için bir çok daha büyük olabilecek zayıf parolalarda kümesine eşlenecek sağlar.
+Yeni bir parola önce bir normalleştirme sürecinden geçer. Bu teknik, potansiyel olarak zayıf parolalarda çok daha büyük bir kümesine eşlenecek yasaklı parola küçük bir kümesi için sağlar.
 
 Normalleştirme iki bölümden oluşur.  İlk, tüm büyük harfleri küçük harfe dönüştürülür.  İkinci, ortak karakter değişimler örneğin gerçekleştirilir:  
 
@@ -69,7 +121,7 @@ Benzer öğe eşleştirmesi normalleştirilmiş parolasını ya da genel üzerin
 
 'abcdeg'    *('f' değiştirildi karakter son 'g 'tuşlarını)* 'abcdefg'   *' (g' sonuna eklenen)* 'abcde'     *(sondaki 'f' sonundan silindi)*
 
-Her yukarıdaki parolaların yasaklı parola "abcdef" özellikle eşleşmiyor. Her örneğin bir düzenleme uzaklık yasaklı belirteci 'abcdef' ın 1 olduğundan, ancak bunlar tüm "abcdef" için bir eşleşme olarak değerlendirilir.
+Her yukarıdaki parolaların yasaklı parola "abcdef" özellikle eşleşmiyor. Her örneğin bir düzenleme uzaklık 'abcdef' yasaklı döneminin 1 olduğundan, ancak bunlar tüm "abcdef" için bir eşleşme olarak değerlendirilir.
 
 #### <a name="substring-matching-on-specific-terms"></a>Alt dize eşleştirme (belirli koşullarda)
 
@@ -83,7 +135,7 @@ Sonraki adım, kullanıcının yeni parolasını normalleştirilmiş yasaklanmı
 
 1. Bir kullanıcının parolasını bulunan her bir yasaklı parola bir nokta verilir.
 2. Geri kalan her benzersiz bir karakteri bir nokta verilir.
-3. En az 5 nokta bunu kabul edilmesi için bir parola olmalıdır.
+3. En az beş (5) noktaları bunu kabul edilmesi için bir parola olmalıdır.
 
 Sonraki iki örnek için Contoso Azure AD parola koruması kullanarak ve "contoso" kendi özel listede olduğunu varsayalım. Ayrıca genel listede "boş" olduğunu varsayalım.
 
@@ -91,13 +143,13 @@ Sonraki iki örnek için Contoso Azure AD parola koruması kullanarak ve "contos
 
 Normalleştirme sonra bu parola, "contosoblank12" olur. Bu parola iki yasaklı parola içeren eşleştirme işlemi bulur: contoso ve boş. Bu parolayı daha sonra bir puan verilmiştir:
 
-[contoso] + [boş] + [1] + [2] = 4 nokta bu parolayı 5 noktaları altında olduğundan, reddedilir.
+[contoso] + [boş] + [1] + [2] = 4 nokta bu parolayı altında beş (5) noktaları gerçekleştiği için reddedilir.
 
 Örnek: bir kullanıcı için parola değişiklikleri "ContoS0Bl@nkf9!".
 
 Normalleştirme sonra bu parola, "contosoblankf9!" olur. Bu parola iki yasaklı parola içeren eşleştirme işlemi bulur: contoso ve boş. Bu parolayı daha sonra bir puan verilmiştir:
 
-[contoso] + [boş] + [f] + [9] + [!] = 5 noktaları bu parola en az 5 nokta olduğu kabul edilir.
+[contoso] + [boş] + [f] + [9] + [!] = 5 noktaları bu parola en az beş (5) noktaları olduğu kabul edilir.
 
    > [!IMPORTANT]
    > Genel liste birlikte yasaklı parola algoritması erişebileceği unutmayın ve azure'da devam eden güvenlik analizi ve araştırma göre dilediğiniz zaman değiştirin. DC Aracısı yazılımını yeniden yüklenir sonra şirket içi DC Aracısı hizmeti için güncelleştirilmiş algoritmalar yalnızca geçerli olacaktır.
@@ -122,5 +174,5 @@ Ne yazık ki parolanızı bir sözcük, tümcecik veya parolanızı kolayca tahm
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Özel yasaklı parola listesi yapılandırma](howto-password-ban-bad.md)
-* [Etkinleştirme Azure AD Parola Koruması Aracısı şirket içi](howto-password-ban-bad-on-premises-deploy.md)
+- [Özel yasaklı parola listesi yapılandırma](howto-password-ban-bad.md)
+- [Etkinleştirme Azure AD Parola Koruması Aracısı şirket içi](howto-password-ban-bad-on-premises-deploy.md)

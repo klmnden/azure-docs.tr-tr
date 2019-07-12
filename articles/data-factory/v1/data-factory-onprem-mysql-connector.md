@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: de1263d68e96a23bd6b5eca4297e74b56ba22e40
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 20dd86a46ac1b50f5ce20da6ecf9dff251a8c0b0
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60823955"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839016"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Gelen MySQL Azure Data Factory ile veri taşıma
 > [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
@@ -51,7 +51,7 @@ Veri Yönetimi MySQL veritabanına bağlanmak ağ geçidi için yüklemeniz gere
 Farklı araçlar/API'lerini kullanarak bir şirket içi Cassandra veri deposundan veri taşıyan kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. 
 
 - Bir işlem hattı oluşturmanın en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [Öğreticisi: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı bir kılavuz. 
-- Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portalında**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**ve  **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
+- Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
 
 API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için bir kaynak veri deposundan veri taşıyan bir işlem hattı oluşturmak için aşağıdaki adımları gerçekleştirin:
 
@@ -68,7 +68,7 @@ Aşağıdaki tabloda, JSON öğeleri MySQL bağlantılı hizmete özgü açıkla
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type |Type özelliği ayarlanmalıdır: **OnPremisesMySql** |Evet |
+| türü |Type özelliği ayarlanmalıdır: **OnPremisesMySql** |Evet |
 | server |MySQL sunucusunun adı. |Evet |
 | database |MySQL veritabanının adı. |Evet |
 | schema |Veritabanı şemasının adı. |Hayır |
@@ -99,7 +99,7 @@ Kopya etkinlikteki kaynak türünde olduğunda **RelationalSource** (MySQL içer
 
 
 ## <a name="json-example-copy-data-from-mysql-to-azure-blob"></a>JSON örneği: MySQL için Azure Blob kopyalama verileri
-Bu örnekte kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md) veya [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bu, bir Azure Blob depolama alanına bir şirket içi MySQL veritabanından veri kopyalamak nasıl gösterir. Ancak, veriler belirtilen havuzlarını birine kopyalanabilir [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopyalama etkinliğini kullanarak Azure Data Factory'de.
+Bu örnekte kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bu, bir Azure Blob depolama alanına bir şirket içi MySQL veritabanından veri kopyalamak nasıl gösterir. Ancak, veriler belirtilen havuzlarını birine kopyalanabilir [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopyalama etkinliğini kullanarak Azure Data Factory'de.
 
 > [!IMPORTANT]
 > Bu örnek JSON parçacıklarını sağlar. Veri Fabrikası oluşturmaya yönelik adım adım yönergeler içermez. Bkz: [Bulut ve şirket içi konumlar arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale adım adım yönergeler için.
@@ -305,40 +305,40 @@ Mysql'e veri taşıma, aşağıdaki eşlemeler MySQL türlerinden .NET türleri 
 | bigint |Int64 |
 | bit |Decimal |
 | blob |Byte[] |
-| bool |Boolean |
-| char |String |
-| date |DateTime |
-| datetime |DateTime |
+| bool |Boole değeri |
+| char |Dize |
+| date |Datetime |
+| datetime |Datetime |
 | decimal |Decimal |
 | çift duyarlık |Double |
 | double |Double |
-| Sabit listesi |String |
+| Sabit listesi |Dize |
 | float |Single |
 | işaretsiz int |Int64 |
 | int |Int32 |
 | işaretsiz tamsayı |Int64 |
 | integer |Int32 |
 | uzun varbinary |Byte[] |
-| uzun varchar |String |
+| uzun varchar |Dize |
 | longblob |Byte[] |
-| LONGTEXT |String |
+| LONGTEXT |Dize |
 | mediumblob |Byte[] |
 | İmzasız mediumint |Int64 |
 | mediumint |Int32 |
-| mediumtext |String |
+| mediumtext |Dize |
 | numeric |Decimal |
 | real |Double |
-| set |String |
+| set |Dize |
 | işaretsiz tamsayı |Int32 |
 | smallint |Int16 |
-| metin |String |
+| text |Dize |
 | time |TimeSpan |
-| timestamp |DateTime |
+| timestamp |Datetime |
 | tinyblob |Byte[] |
 | İmzasız Mini tamsayı |Int16 |
 | tinyint |Int16 |
-| tinytext |String |
-| varchar |String |
+| tinytext |Dize |
+| varchar |Dize |
 | yıl |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Sütunları havuz için kaynak eşlemesi

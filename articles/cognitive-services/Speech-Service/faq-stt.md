@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 73e53e47576b0697c0d09b386bb3e830d976dd04
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: a437927f6ad43f4c3a90433faa5b9fa6f964aa5c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606653"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839243"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Konuşmayı metne dönüştürme hakkında sık sorulan sorular
 
@@ -83,7 +83,12 @@ Uyarlanmış ve temel V1.0 modeliyle dağıtılan, o dağıtım olduğu gibi kal
 
 **A**: REST API istekleri 5 saniye başına 25 sınırlar. Ayrıntılar için sayfalarımızın bulunabilir [Konuşmayı metne dönüştürme](speech-to-text.md).
 
-Daha fazla özel konuşma hizmeti kullanmaları yasaktır Gizlilik sorunları varsa, destek kanallarını başvurun.
+**S: İkili kanal ses için nasıl ücretlendirilirim?**
+
+**A**: Her kanal ayrı olarak gönderirseniz (kendi dosyasında her kanal) her bir dosya süresi ücretlendirilirsiniz. Ardından tek bir dosyayı birlikte multiplexed her kanal ile gönderirseniz, tek dosya süresi için ücretlendirilirsiniz.
+
+> [!IMPORTANT]
+> Daha fazla özel konuşma hizmeti kullanmaları yasaktır Gizlilik sorunları varsa, destek kanallarını başvurun.
 
 ## <a name="importing-data"></a>Verileri içeri aktarma
 

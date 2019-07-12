@@ -2,17 +2,17 @@
 title: Azure Kubernetes Service (AKS) kümesini kimlik bilgilerini Sıfırla
 description: Nasıl güncelleştirme veya sıfırlama hizmet sorumlusunu Azure Kubernetes Service (AKS) kümesi için kimlik bilgileri edinin
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: 189bcf2ddc7d301c8100f74e51374abd217a144f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 5aac941133296d2040d5dd670155b80f5807e1e9
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475490"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614120"
 ---
 # <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>Güncelleştirme veya hizmet sorumlusu Azure Kubernetes Service (AKS) için kimlik bilgilerini döndürme
 
@@ -33,7 +33,7 @@ Hizmet sorumlusu oluşturma ve sonra AKS kümesi güncelleştirmesi, bu bölümd
 
 ### <a name="get-the-service-principal-id"></a>Hizmet sorumlusu Kimliğini alın
 
-Varolan bir hizmet sorumlusunun kimlik bilgilerini güncelleştirmek için küme kullanarak hizmet sorumlusu Kimliğini alın [az aks show] [ az-aks-show] komutu. Aşağıdaki örnekte adlı Küme için kimliği alır *myAKSCluster* içinde *myResourceGroup* kaynak grubu. Hizmet sorumlusu kimliği adlı bir değişken olarak ayarlanmış *SP_ID* kullanılmak üzere ek komutu.
+Varolan bir hizmet sorumlusunun kimlik bilgilerini güncelleştirmek için küme kullanarak hizmet sorumlusu Kimliğini alın [az aks show][az-aks-show] komutu. Aşağıdaki örnekte adlı Küme için kimliği alır *myAKSCluster* içinde *myResourceGroup* kaynak grubu. Hizmet sorumlusu kimliği adlı bir değişken olarak ayarlanmış *SP_ID* kullanılmak üzere ek komutu.
 
 ```azurecli-interactive
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
@@ -54,7 +54,7 @@ SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
 
 Mevcut hizmet sorumlusu kimlik bilgileri önceki bölümde güncelleştirmek isterseniz, bu adımı atlayın. Devam [yeni kimlik bilgileri ile güncelleştirme AKS kümesi](#update-aks-cluster-with-new-credentials).
 
-Bir hizmet sorumlusu oluşturur ve ardından bu yeni kimlik bilgilerini kullanmak için AKS kümesi için kullanın [az ad sp create-for-rbac] [ az-ad-sp-create] komutu. Aşağıdaki örnekte, `--skip-assignment` parametresi, ek varsayılan atamaların atanmasını engellemektedir:
+Bir hizmet sorumlusu oluşturur ve ardından bu yeni kimlik bilgilerini kullanmak için AKS kümesi için kullanın [az ad sp create-for-rbac][az-ad-sp-create] komutu. Aşağıdaki örnekte, `--skip-assignment` parametresi, ek varsayılan atamaların atanmasını engellemektedir:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -71,7 +71,7 @@ az ad sp create-for-rbac --skip-assignment
 }
 ```
 
-Artık çıkışı kendi kullanarak hizmet sorumlusu Kimliğini ve istemci gizli dizi değişkenleri tanımlayın [az ad sp create-for-rbac] [ az-ad-sp-create] , aşağıdaki örnekte gösterildiği gibi komutu. *SP_ID* olduğundan, *AppID*ve *SP_SECRET* olduğundan, *parola*:
+Artık çıkışı kendi kullanarak hizmet sorumlusu Kimliğini ve istemci gizli dizi değişkenleri tanımlayın [az ad sp create-for-rbac][az-ad-sp-create] , aşağıdaki örnekte gösterildiği gibi komutu. *SP_ID* olduğundan, *AppID*ve *SP_SECRET* olduğundan, *parola*:
 
 ```azurecli-interactive
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
@@ -80,7 +80,7 @@ SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 
 ## <a name="update-aks-cluster-with-new-credentials"></a>AKS kümesi yeni kimlik bilgileriyle güncelleştirin
 
-Olup, mevcut bir hizmet sorumlusunun kimlik bilgilerini güncelleştirin veya hizmet sorumlusu oluşturmak seçtiğiniz bağımsız olarak, artık AKS kümesi kullanarak, yeni kimlik bilgileriyle güncelleştirmeniz [az aks güncelleştirme-credentials] [ az-aks-update-credentials] komutu. Değişkenleri *--hizmet sorumlusu* ve *--CLIENT-secret* kullanılır:
+Olup, mevcut bir hizmet sorumlusunun kimlik bilgilerini güncelleştirin veya hizmet sorumlusu oluşturmak seçtiğiniz bağımsız olarak, artık AKS kümesi kullanarak, yeni kimlik bilgileriyle güncelleştirmeniz [az aks güncelleştirme-credentials][az-aks-update-credentials] komutu. Değişkenleri *--hizmet sorumlusu* ve *--CLIENT-secret* kullanılır:
 
 ```azurecli-interactive
 az aks update-credentials \

@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 2dc4994d88fc03c23a6d5722d6018c926e7d6b8c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: fc63c1a0b3b496de8e5ecea58f79f1db9d872e80
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788167"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838436"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share-preview"></a>Öğretici: Kabul edin ve Azure veri paylaşımı Önizlemesi'ni kullanarak veri alma
 
@@ -31,6 +31,8 @@ Bir veri Paylaşım daveti kabul etmeden önce tüm ön koşullar tamamlandı ol
 * Azure aboneliği: Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 * Bir Azure depolama hesabı: Zaten yoksa, oluşturabileceğiniz bir [Azure depolama hesabı](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
 * Bir veri paylaşım Davetiyesi: Microsoft Azure tarafından sağlanan bir davet başlıklı bir konu ile birlikte "Azure veri paylaşımı davetini **<yourdataprovider@domain.com>** ".
+* Rol ataması bulunan depolama hesabı ekleme izni *Microsoft.Authorization/role atamaları/yazma* izni. Bu izne sahip rolü içinde var. 
+* Kaynak Sağlayıcısı kaydı Microsoft.DataShare için. Bkz: [Azure kaynak sağlayıcıları](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) bunun nasıl yapılacağı hakkında daha fazla bilgi için belgelere bakın. 
 
 > [!IMPORTANT]
 > Kabul edin ve Azure veri paylaşımı almak için önce Microsoft.DataShare kaynak sağlayıcısını kaydetmeniz gerekir ve verileri kabul eden depolama hesabının sahibi olmanız gerekir. İçindeki yönergeleri izleyin [Azure veri paylaşma Önizleme sorun giderme](data-share-troubleshoot.md) yanı sıra veri paylaşımı kaynak sağlayıcısını kaydetmek için kendinizi bir depolama hesabı sahibi olarak ekleyin. 

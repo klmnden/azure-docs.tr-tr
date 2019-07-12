@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3bb372c4c3ddb79429df20c24c691c847e927e2a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d8637a2711c0301d9e9f409e169ed04fb3d65783
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60567359"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839539"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Data factory'yi kullanarak Data Lake depolama Gen1 gelen ve giden veri kopyalama
 > [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
@@ -54,7 +54,7 @@ Farklı araçlar/API'lerini kullanarak bir Azure Data Lake Store gönderip bural
 
 Verileri kopyalamak için bir işlem hattı oluşturmanın en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturmaya ilişkin bir öğretici için bkz. [Öğreticisi: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md).
 
-Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portalında**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**ve  **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
 
 API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için bir kaynak veri deposundan veri taşıyan bir işlem hattı oluşturmak için aşağıdaki adımları gerçekleştirin:
 
@@ -208,12 +208,12 @@ Kod içinde kullanılan Data Factory sınıfları hakkında daha fazla bilgi iç
 
 2. En az izni olduğundan emin olun **okuyucu** rolüne kullanıcı veya hizmet sorumlusu data lake hesabı. Bunu yapmak nasıl aşağıda verilmiştir:
 
-    1. Azure Portal gidin -> Data Lake Store hesabınız
+    1. Azure portalına gidin -> Data Lake Store hesabınız
     2. Tıklayın **erişim denetimi (IAM)** Data Lake Store dikey
     3. Tıklayın **rol ataması Ekle**
     4. Ayarlama **rol** olarak **okuyucu**, kullanıcı veya erişim vermek için kopya için kullandığınız hizmet sorumlusu seçin
 
-3. Vermek istemiyorsanız **okuyucu** kullanıcı veya hizmet sorumlusu, alternatif rolüdür için [yürütme konumu açıkça belirtmeniz](data-factory-data-movement-activities.md#global) kopyalama activitywith, Data Lake Store konumu olarak. Örnek:
+3. Vermek istemiyorsanız **okuyucu** kullanıcı veya hizmet sorumlusu, alternatif rolüdür için [yürütme konumu açıkça belirtmeniz](data-factory-data-movement-activities.md#global) kopyalama etkinliği, Data Lake Store konumu ile içinde. Örnek:
 
     ```json
     {
@@ -307,7 +307,7 @@ Bu bölümde, elde edilen davranışını özyinelemeli ve copyBehavior değer f
 Ayrıntılar için bkz [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-supported-file-and-compression-formats.md) makalesi.
 
 ## <a name="json-examples-for-copying-data-to-and-from-data-lake-store"></a>Data Lake Store gelen ve giden veri kopyalamak için JSON örnekleri
-Aşağıdaki örneklerde, örnek JSON tanımları sağlanır. Bu örnek tanımlarını kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Örnekler ve Data Lake Store ve Azure Blob depolama alanından verileri kopyalamak nasıl gösterir. Ancak, veriler kopyalanabilir _doğrudan_ herhangi birinden herhangi birine desteklenen kaynakları başlatır. Daha fazla bilgi için bkz: "desteklenen veri depoları ve biçimler" bölümündeki [kopyalama etkinliğiyle veri taşıma](data-factory-data-movement-activities.md) makalesi.
+Aşağıdaki örneklerde, örnek JSON tanımları sağlanır. Bu örnek tanımlarını kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Örnekler ve Data Lake Store ve Azure Blob depolama alanından verileri kopyalamak nasıl gösterir. Ancak, veriler kopyalanabilir _doğrudan_ herhangi birinden herhangi birine desteklenen kaynakları başlatır. Daha fazla bilgi için bkz: "desteklenen veri depoları ve biçimler" bölümündeki [kopyalama etkinliğiyle veri taşıma](data-factory-data-movement-activities.md) makalesi.
 
 ### <a name="example-copy-data-from-azure-blob-storage-to-azure-data-lake-store"></a>Örnek: Azure Data Lake Store için Azure Blob depolamadan veri kopyalama
 Bu bölümdeki örnek kodu gösterir:

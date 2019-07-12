@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a652e157ec0e7e33c8dce7be2f4af2c240edac9e
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462012"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839922"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>PostgreSQL Azure Data Factory ile verileri taşıma
 > [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
@@ -50,7 +50,6 @@ Farklı araçlar/API'lerini kullanarak bir şirket içi PostgreSQL veri deposund
 
 - Bir işlem hattı oluşturmanın en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [Öğreticisi: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı bir kılavuz.
 - Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz:
-  - Azure portal
   - Visual Studio
   - Azure PowerShell
   - Azure Resource Manager şablonu
@@ -74,7 +73,7 @@ Aşağıdaki tabloda, JSON öğeleri PostgreSQL bağlantılı hizmete özgü aç
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| type |Type özelliği ayarlanmalıdır: **OnPremisesPostgreSql** |Evet |
+| türü |Type özelliği ayarlanmalıdır: **OnPremisesPostgreSql** |Evet |
 | server |PostgreSQL sunucusu adı. |Evet |
 | database |PostgreSQL veritabanı adı. |Evet |
 | schema |Veritabanı şemasının adı. Şema adı büyük/küçük harfe duyarlıdır. |Hayır |
@@ -101,7 +100,7 @@ Kaynak türü olduğunda **RelationalSource** (PostgreSQL içeren), typeProperti
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| query |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `"query": "select * from \"MySchema\".\"MyTable\""`. |Hayır (varsa **tableName** , **veri kümesi** belirtilir) |
+| query |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `"query": "select * from \"MySchema\".\"MyTable\""` |Hayır (varsa **tableName** , **veri kümesi** belirtilir) |
 
 > [!NOTE]
 > Şema ve tablo adları büyük/küçük harfe duyarlıdır. İçine alınmaları `""` (çift tırnak) sorgu.
@@ -111,7 +110,7 @@ Kaynak türü olduğunda **RelationalSource** (PostgreSQL içeren), typeProperti
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
 ## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>JSON örneği: PostgreSQL için Azure Blob kopyalama verileri
-Bu örnekte kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md) veya [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bunlar veri PostgreSQL veritabanı'ndan Azure Blob Depolama'ya kopyalama işlemini göstermektedir. Ancak, veriler belirtilen havuzlarını birine kopyalanabilir [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopyalama etkinliğini kullanarak Azure Data Factory'de.
+Bu örnekte kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bunlar veri PostgreSQL veritabanı'ndan Azure Blob Depolama'ya kopyalama işlemini göstermektedir. Ancak, veriler belirtilen havuzlarını birine kopyalanabilir [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopyalama etkinliğini kullanarak Azure Data Factory'de.
 
 > [!IMPORTANT]
 > Bu örnek JSON parçacıklarını sağlar. Veri Fabrikası oluşturmaya yönelik adım adım yönergeler içermez. Bkz: [Bulut ve şirket içi konumlar arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale adım adım yönergeler için.
@@ -306,46 +305,46 @@ PostgreSQL için veri taşıma, aşağıdaki eşlemeler PostgreSQL türünden .N
 
 | PostgreSQL veritabanı türü | PostgresSQL diğer adları | .NET framework türü |
 | --- | --- | --- |
-| abstime | |DateTime |
+| abstime | |Datetime |
 | bigint |Int8 |Int64 |
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Bayt [], dize |
 | bit değişen [(n)] |varbit |Bayt [], dize |
-| boole |bool |Boolean |
+| boolean |bool |Boole değeri |
 | Kutusu | |Bayt [], dize |
 | bytea | |Bayt [], dize |
-| karakter [(n)] |char [(n)] |String |
-| [(n)] değişen karakter |varchar [(n)] |String |
-| CID | |String |
-| cidr | |String |
+| karakter [(n)] |char [(n)] |Dize |
+| [(n)] değişen karakter |varchar [(n)] |Dize |
+| CID | |Dize |
+| CIDR | |Dize |
 | Daire | |Bayt [], dize |
-| date | |DateTime |
-| daterange | |String |
+| date | |Datetime |
+| daterange | |Dize |
 | çift duyarlık |FLOAT8 |Double |
 | inet | |Bayt [], dize |
-| intarry | |String |
-| int4range | |String |
-| int8range | |String |
+| intarry | |Dize |
+| int4range | |Dize |
+| int8range | |Dize |
 | integer |int, int4 |Int32 |
-| aralığı [alanları] [(p)] | |Timespan |
-| json | |String |
+| aralığı [alanları] [(p)] | |Zaman aralığı |
+| json | |Dize |
 | jsonb | |Byte[] |
-| satır | |Bayt [], dize |
+| Satır | |Bayt [], dize |
 | lseg | |Bayt [], dize |
 | macaddr | |Bayt [], dize |
 | money | |Decimal |
 | sayısal [(p, s)] |ondalık [(p, s)] |Decimal |
-| numrange | |String |
+| numrange | |Dize |
 | oid | |Int32 |
 | path | |Bayt [], dize |
 | pg_lsn | |Int64 |
-| nokta | |Bayt [], dize |
+| Noktası | |Bayt [], dize |
 | Çokgen | |Bayt [], dize |
 | real |float4 |Single |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
-| seri |serial4 |Int32 |
-| metin | |String |
+| Seri |serial4 |Int32 |
+| text | |Dize |
 
 ## <a name="map-source-to-sink-columns"></a>Sütunları havuz için kaynak eşlemesi
 Kaynak veri kümesindeki sütunları havuz veri kümesi için eşleme sütunları hakkında bilgi edinmek için bkz. [Azure Data factory'de veri kümesi sütunlarını eşleme](data-factory-map-columns.md).

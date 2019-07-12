@@ -2,17 +2,17 @@
 title: İşleç en iyi uygulamalar - Gelişmiş Zamanlayıcı Özellikleri Azure Kubernetes Hizmetleri (AKS)
 description: İçin Gelişmiş Zamanlayıcı taints ve tolerations, düğüm seçicileri ve benzeşim veya arası pod benzeşimi ve benzeşim karşıtlığı Azure Kubernetes Service (AKS) kullanarak küme işleci en iyi uygulamaları öğrenin
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: 5affcd5ee1e51ac754d8a9bb81560a6cc3626860
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 4caa4219d2bf7558dbdf71e92e4993722c6e8f6a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055622"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614868"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Gelişmiş Zamanlayıcı Özellikleri Azure Kubernetes Service (AKS) için en iyi uygulamalar
 

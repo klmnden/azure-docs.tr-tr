@@ -4,7 +4,7 @@ description: Otomatik sanal makine dağıtımı ve yapılandırması Microsoft A
 services: virtual-machines-windows
 documentationcenter: ''
 author: diegoviso
-manager: jeconnoc
+manager: gwallace
 tags: azure-service-management,azure-resource-manager
 editor: ''
 ms.assetid: 0b82ca70-89ed-496d-bb49-c04ae59b4523
@@ -13,17 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2017
+ms.date: 07/09/2019
 ms.author: diviso
-ms.openlocfilehash: 9cb7172fb529d8f0cd8650db7c06a78176ef342d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 74b92c277b1d6eaa0984e55a70459bad59c2bf84
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64729543"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719283"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Chef ile Azure sanal makine dağıtımını otomatikleştirme
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef, Otomasyon sunmaya yönelik harika bir araçtır ve istenen durum yapılandırmaları.
 
@@ -55,9 +54,24 @@ Chef, ayrıca "Tarif kitapları" ve etkili bir şekilde ilkeler tanımlayın ve 
 
 İlk olarak, Chef yapılandırma dosyalarını ve tarif kitapları depolamak için bir dizin oluşturarak iş istasyonunuzu hazırlama.
 
-C:\chef adlı bir dizin oluşturun.
+C:\Chef adlı bir dizin oluşturun.
 
-Azure PowerShell indirme [yayımlama ayarları](https://docs.microsoft.com/dynamics-nav/how-to--download-and-import-publish-settings-and-subscription-information).
+En son yükleyip [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) sürüm istasyonunuzu açın.
+
+## <a name="configure-azure-service-principal"></a>Azure hizmet sorumlusunu yapılandırma
+
+İçinde bir hizmet koşulları ve Azure hizmet sorumlusu basit hesabıdır.   Bizim Chef iş istasyonundan Azure kaynaklarını oluşturmanıza yardımcı olmak için size bir hizmet sorumlusu kullanıyor olacaksınız.  Gerekli izinlerle ilgili hizmet sorumlusu oluşturmak için şu PowerShell içinde aşağıdaki komutları çalıştırmanız gerekir:
+ 
+```powershell
+Login-AzureRmAccount
+Get-AzureRmSubscription
+Select-AzureRmSubscription -SubscriptionName "<yourSubscriptionName>"
+$myApplication = New-AzureRmADApplication -DisplayName "automation-app" -HomePage "https://chef-automation-test.com" -IdentifierUris "https://chef-automation-test.com" -Password "#1234p$wdchef19"
+New-AzureRmADServicePrincipal -ApplicationId $myApplication.ApplicationId
+New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $myApplication.ApplicationId
+```
+
+Lütfen bir Subscriptionıd, Tenantıd, ClientID ve istemci gizli anahtarı (yukarıda belirlenen parola) not edin, bu daha sonra ihtiyacınız olacak. 
 
 ## <a name="setup-chef-server"></a>Chef Sunucusu Kurulumu
 
@@ -86,7 +100,7 @@ Kuruluşunuz oluşturulduktan sonra Başlangıç setini indirin.
 
 Bu başlangıç Seti zip dosyası kuruluş yapılandırma dosyalarını ve kullanıcı anahtarı içeren `.chef` dizin.
 
-`organization-validator.pem` Ayrı ayrı, özel anahtarı olduğundan ve özel anahtarları Şef sunucusunda değil depolanmalıdır indirilmelidir. Gelen [Chef yönetme](https://manage.chef.io/) ve "Sıfırlama doğrulama ayrı olarak indirmek dosyayı sağlayan anahtarı"'i seçin. Dosyayı c:\chef için kaydedin.
+`organization-validator.pem` Ayrı ayrı, özel anahtarı olduğundan ve özel anahtarları Şef sunucusunda değil depolanmalıdır indirilmelidir. Gelen [Chef yönetme](https://manage.chef.io/)Yönetim bölümüne gidin ve "Sıfırlama doğrulama ayrı olarak indirmek dosyayı sağlayan anahtarı" seçin. Dosyayı c:\chef için kaydedin.
 
 ### <a name="configuring-your-chef-workstation"></a>Chef istasyonunuzu yapılandırma
 
@@ -138,19 +152,20 @@ validation_client_name   "myorg-validator"
 
 validation_key           "#{current_dir}/myorg.pem"
 
-Ayrıca aşağıdakileri ekleyerek Azure adını yansıtacak şekilde satırı yayımlama ayarları dosyası.
+knife[:azure_tenant_id] =         "0000000-1111-aaaa-bbbb-222222222222"
 
-    knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
+knife[:azure_subscription_id] =   "11111111-bbbbb-cccc-1111-222222222222"
 
-Kaldırarak "cookbook_path" değiştirmek /... / olarak görünecek şekilde yolu:
+knife[:azure_client_id] =         "11111111-bbbbb-cccc-1111-2222222222222"
 
-    cookbook_path  ["#{current_dir}/cookbooks"]
+knife[:azure_client_secret] =     "#1234p$wdchef19"
 
-Bu satırlar Bıçak c:\chef\cookbooks altında tarif kitapları dizine başvurur ve ayrıca Azure işlemleri sırasında bizim Azure yayımlama ayarları dosyasını kullanır sağlayacaktır.
+
+Bu satırlar Bıçak c:\chef\cookbooks altında tarif kitapları dizine başvurur ve ayrıca Azure işlemleri sırasında oluşturulan Azure hizmet sorumlusu kullanan sağlayacaktır.
 
 Knife.rb dosyanız artık aşağıdaki örneğe benzer görünmelidir:
 
-![][6]
+![][14]
 
 <!--- Giant problem with this section: Chef 12 uses a config.rb instead of knife.rb
 // However, the starter kit hasn't been updated
@@ -159,17 +174,19 @@ Knife.rb dosyanız artık aşağıdaki örneğe benzer görünmelidir:
 <!--- update image [6] knife.rb -->
 
 ```rb
-knife.rb
 current_dir = File.dirname(__FILE__)
 log_level                :info
 log_location             STDOUT
-node_name                "mynode"
-client_key               "#{current_dir}/user.pem"
-chef_server_url          "https://api.chef.io/organizations/myorg"
+node_name                "myorg"
+client_key               "#{current_dir}/myorg.pem"
 validation_client_name   "myorg-validator"
-validation_key           ""#{current_dir}/myorg.pem"
-cookbook_path            ["#{current_dir}/cookbooks"]
-knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
+validation_key           "#{current_dir}/myorg-validator.pem"
+chef_server_url          "https://api.chef.io/organizations/myorg"
+cookbook_path            ["#{current_dir}/../cookbooks"]
+knife[:azure_tenant_id] = "0000000-1111-aaaa-bbbb-222222222222"
+knife[:azure_subscription_id] = "11111111-bbbbb-cccc-1111-222222222222"
+knife[:azure_client_id] = "11111111-bbbbb-cccc-1111-2222222222222"
+knife[:azure_client_secret] = "#1234p$wdchef19"
 ```
 
 ## <a name="install-chef-workstation"></a>Chef iş istasyonu yükleyin
@@ -182,13 +199,13 @@ Masaüstünde, bir "FA Chef ürünlerle etkileşime geçmek için gerekir aracı
 `chef --version` şunun gibi döndürülmesi gerekir:
 
 ```
-Chef Workstation: 0.2.29
-  chef-run: 0.2.2
-  Chef Client: 14.6.47x
-  delivery-cli: master (6862f27aba89109a9630f0b6c6798efec56b4efe)
-  berks: 7.0.6
-  test-kitchen: 1.23.2
-  inspec: 3.0.12
+Chef Workstation: 0.4.2
+  chef-run: 0.3.0
+  chef-client: 15.0.300
+  delivery-cli: 0.0.52 (9d07501a3b347cc687c902319d23dc32dd5fa621)
+  berks: 7.0.8
+  test-kitchen: 2.2.5
+  inspec: 4.3.2
 ```
 
 > [!NOTE]
@@ -218,7 +235,7 @@ Bağımlılık sayısı da aynı anda yüklenecek olasıdır.
 
 Her şeyin doğru şekilde yapılandırıldığından emin olmak için aşağıdaki komutu çalıştırın.
 
-    knife azure image list
+    knife azurerm server list
 
 Her şeyin doğru şekilde yapılandırıldıysa, kullanılabilir Azure görüntüleri kaydırın listesini görürsünüz.
 
@@ -273,32 +290,50 @@ Bu adımda, bir kopyasını Kılavuzu, yerel makinede oluşturdunuz ve Chef bar�
 ## <a name="deploy-a-virtual-machine-with-knife-azure"></a>Bıçak Azure ile bir sanal makine dağıtma
 Bir Azure sanal makinesine dağıtın ve IIS web hizmeti ve varsayılan web sayfasını yükleyen "Web sunucusu" kılavuzu uygulayın.
 
-Bunu yapmak için kullanmanız **Bıçak azure sunucusu oluşturma** komutu.
+Bunu yapmak için kullanmanız **Bıçak azurerm sunucusu oluşturma** komutu.
 
 Örnek komut, sonraki görünür.
 
-    knife azure server create --azure-dns-name 'diegotest01' --azure-vm-name 'testserver01' --azure-vm-size 'Small' --azure-storage-account 'portalvhdsxxxx' --bootstrap-protocol 'cloud-api' --azure-source-image 'a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-Datacenter-201411.01-en.us-127GB.vhd' --azure-service-location 'Southeast Asia' --winrm-user azureuser --winrm-password 'myPassword123' --tcp-endpoints 80,3389 --r 'recipe[webserver]'
+    knife azurerm server create `
+    --azure-resource-group-name rg-chefdeployment `
+    --azure-storage-account store `
+    --azure-vm-name chefvm `
+    --azure-vm-size 'Standard_DS2_v2' `
+    --azure-service-location 'westus' `
+    --azure-image-reference-offer 'WindowsServer' `
+    --azure-image-reference-publisher 'MicrosoftWindowsServer' `
+    --azure-image-reference-sku '2016-Datacenter' `
+    --azure-image-reference-version 'latest' `
+    -x myuser -P myPassword123 `
+    --tcp-endpoints '80,3389' `
+    --chef-daemon-interval 1 `
+    -r "recipe[webserver]"
 
-Parametreler büyük/küçük harf açıklamalıdır. Belirli değişkenleri değiştirin ve çalıştırın.
+
+Yukarıdaki örnekte, Batı ABD bölgesinde yüklü Windows Server 2016 ile Standard_DS2_v2 sanal makine oluşturacaksınız. Belirli değişkenleri değiştirin ve çalıştırın.
 
 > [!NOTE]
-> Komut satırı aracılığıyla ben ayrıca uç ağ filtresi kuralları – tcp uç noktaları parametresini kullanarak otomatikleştirme. 80 ve benim bir web sayfası ve RDP oturumu erişim sağlamak için 3389 numaralı bağlantı noktalarını açık.
+> Komut satırı aracılığıyla ben ayrıca uç ağ filtresi kuralları – tcp uç noktaları parametresini kullanarak otomatikleştirme. 80 ve web sayfası ve RDP oturumu erişim sağlamak için 3389 numaralı bağlantı noktalarını açık.
 >
 >
 
 Komutu çalıştırdıktan sonra makinenizin sağlamak başlamak görmek için Azure portalına gidin.
 
-![][13]
+![][15]
 
 Komut istemi görünür.
 
-![][10]
+![][16]
 
-Dağıtım tamamlandıktan sonra Bıçak Azure komutu ile sanal makine sağladığında bağlantı noktasının açık olduğundan, web hizmetine bağlantı noktası 80 üzerinden bağlanabilir olmalıdır. Bu sanal makine yalnızca sanal makineyi bu bulut hizmetinde olduğu gibi bulut hizmeti url ile bağlanabilir.
+Dağıtım tamamlandıktan sonra dağıtım tamamlandığında yeni bir sanal makinenin genel IP adresi görüntülenir, bu kopyalayabilir ve bir web tarayıcısına yapıştırın ve dağıttığınız Web sitesini görüntülemek. Şu sanal makine dağıtılırken dışarıdan kullanılabilir olması, böylece biz 80 numaralı bağlantı noktasını açıldı.   
 
 ![][11]
 
 Bu örnek, creative HTML kodu kullanır.
+
+Ayrıca düğümün durumu görüntüleyebilirsiniz [Chef yönetme](https://manage.chef.io/). 
+
+![][17]
 
 Bağlantı noktası 3389 üzerinden Azure portalından bir RDP oturumu aracılığıyla bağlanabilirsiniz unutmayın.
 
@@ -316,6 +351,10 @@ Teşekkür ederiz! Git ve altyapınızı Azure ile kod yolculuğu olarak bugün 
 [10]: media/chef-automation/10.png
 [11]: media/chef-automation/11.png
 [13]: media/chef-automation/13.png
+[14]: media/chef-automation/14.png
+[15]: media/chef-automation/15.png
+[16]: media/chef-automation/16.png
+[17]: media/chef-automation/17.png
 
 
 <!--Link references-->

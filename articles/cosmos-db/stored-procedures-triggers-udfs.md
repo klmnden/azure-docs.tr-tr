@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 529c536d9ea3b898745f03c80b63702b2af485da
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 53ff318dcc034fb11e2d554f9ad8e8814eb32879
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165571"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672580"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler
 
@@ -37,7 +37,7 @@ Saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler (UDF'ler) Ja
 * **Saklama:** Saklı yordamlar, tek bir yerde mantıksal gruplandırmak için kullanılabilir. Kapsülleme veri öğesinden bağımsız olarak uygulamalarınızı gelişmesi sağlar verileri en üstünde bir soyutlama katmanı ekler. Bu Soyutlama Katmanı, doğrudan uygulamanıza ek mantık ekleme yönetmek zorunda olmadığınız ve şemasız verileri gerektiğinde yararlıdır. Özet, Canlı betikleri erişimden kolaylaştırarak inovasyonu verilerin güvenliğini sağlar.
 
 > [!TIP]
-> Saklı yordamlar en ağır yazma işlemleri için çok uygundur. Saklı yordamları kullanmak karar verirken yazma olası en uzun süreyi Kapsüllenen etrafında iyileştirin. Genel olarak bakıldığında, saklı yordamlar istemciye döndürmek için okuma çok sayıda batch saklı yordamları kullanarak istenen avantajı verecek olmayan çok sayıda okuma işlemleri yapmak için en verimli değildir.
+> Saklı yordamlar, yazma yoğunluklu ve bölüm anahtarı değeri arasında bir işlem gerektiren işlemler için en uygun seçenektir. Saklı yordamlar kullanma karar verirken, yazma olası en uzun süreyi Kapsüllenen etrafında iyileştirin. Genel olarak bakıldığında, saklı yordamlar, çok sayıda okuma veya sorgu işlemleri yapmak için en verimli yol değildir, yordamları okuma istemciye döndürmek için çok sayıda batch istenen avantajı sunulur, bu saklı kullanma biçimde değil. En iyi performans için istemci-tarafı Cosmos SDK'sını kullanarak üzerinde bu okuma yoğunluklu işlemleri yapılması gerekir. 
 
 ## <a name="transactions"></a>İşlemler
 

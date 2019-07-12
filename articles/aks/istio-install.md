@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: c7c234e181e10499e532436bfde05ed89bdc7d28
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 9d973cb2ac210e912d93941a2f81889557379f43
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67465703"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625987"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Yükleme ve Istio Azure Kubernetes Service (AKS) kullanma
 
@@ -152,14 +152,19 @@ Artık sonraki bölüme Taşı [AKS Istio CRD'ler yükleme](#install-the-istio-c
 
 ### <a name="windows"></a>Windows
 
-Istio yüklemek için `istioctl` istemci, ikili bir **Powershell**-Windows, temel Kabuk aşağıdaki komutları kullanın. Bu komutlar kopyalama `istioctl` istemci Istio klasörüne bir ikili ve aracılığıyla kalıcı olarak kullanılabilir hale getirmek, `PATH`. Bu komutları çalıştırmak için yükseltilmiş (Yönetici) ayrıcalıklarına gerekmez.
+Istio yüklemek için `istioctl` istemci, ikili bir **Powershell**-Windows, temel Kabuk aşağıdaki komutları kullanın. Bu komutlar kopyalama `istioctl` istemci Istio klasörüne bir ikili ve ardından hem de hemen (geçerli kabuğu) kullanabilmesi ve kalıcı olarak (boyunca Kabuk yeniden başlatma) aracılığıyla, `PATH`. Bu komutları çalıştırmak için yükseltilmiş (Yönetici) ayrıcalıklarına gerekmez ve kabuğunuzu yeniden başlatmanız gerekmez.
 
 ```powershell
+# Copy istioctl.exe to C:\Istio
 cd istio-$ISTIO_VERSION
 New-Item -ItemType Directory -Force -Path "C:\Istio"
 Copy-Item -Path .\bin\istioctl.exe -Destination "C:\Istio\"
-$PATH = [environment]::GetEnvironmentVariable("PATH", "User")
-[environment]::SetEnvironmentVariable("PATH", $PATH + "; C:\Istio\", "User")
+
+# Add C:\Istio to PATH. 
+# Make the new PATH permanently available for the current User, and also immediately available in the current shell.
+$PATH = [environment]::GetEnvironmentVariable("PATH", "User") + "; C:\Istio\"
+[environment]::SetEnvironmentVariable("PATH", $PATH, "User") 
+[environment]::SetEnvironmentVariable("PATH", $PATH)
 ```
 
 Artık sonraki bölüme Taşı [AKS Istio CRD'ler yükleme](#install-the-istio-crds-on-aks).

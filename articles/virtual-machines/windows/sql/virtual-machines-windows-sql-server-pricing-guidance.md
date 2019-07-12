@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ce07c6c19c19f134cc322309bb338b94ef11ea85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d53c1de9678db497a20788d0cab7ee4f0e6f0c9c
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393849"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607056"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure Vm'leri için fiyatlandırma Kılavuzu
 
@@ -110,7 +110,7 @@ Kendi SQL getirme ile lisans taşınabilirliği lisanslama için önerilir:
 
 - **Bilinen bir yaşam süresi ve ölçeklendirme ile iş yüklerini**. Örneğin, yılın tamamına denk gelen ve hangi Talep tahmini için gerekli bir uygulama.
 
-KLG SQL Server VM ile kullanmak için SQL Server Standard veya Enterprise lisansınız olmalıdır ve [Yazılım Güvencesi](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx#tab=1), bazı toplu lisanslama programları ve diğerleri ile isteğe bağlı bir satın alma yoluyla gerekli bir seçenek olduğu. Toplu Lisanslama programları üzerinden sunulan fiyatlandırma düzeyi, anlaşma ve miktarı veya ve SQL Server için taahhüt türüne göre değişir. Ancak, bir kural karşısında, sürekli üretim iş yükleri için kendi lisansınızı getirmek aşağıdaki faydaları vardır:
+KLG SQL Server VM ile kullanmak için SQL Server Standard veya Enterprise lisansınız olmalıdır ve [Yazılım Güvencesi](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1), bazı toplu lisanslama programları ve diğerleri ile isteğe bağlı bir satın alma yoluyla gerekli bir seçenek olduğu. Toplu Lisanslama programları üzerinden sunulan fiyatlandırma düzeyi, anlaşma ve miktarı veya ve SQL Server için taahhüt türüne göre değişir. Ancak, bir kural karşısında, sürekli üretim iş yükleri için kendi lisansınızı getirmek aşağıdaki faydaları vardır:
 
 | KLG avantajı | Açıklama |
 |-----|-----|
@@ -143,8 +143,8 @@ SQL Server iş yüklerini de belirli türleriyle çalışma yeni makine boyutlar
 
 | VM Boyutu | Vcpu | Bellek | En büyük diskler | En fazla g/ç aktarım hızı | SQL lisanslama maliyetleri | Toplam Maliyet (işlem + lisanslama) |
 |---|---|---|---|---|---|---|
-| **Standard_DS14v2** | 16 | 112 GB | 32 | 51\.200 IOPS veya 768 MB/sn | | |
-| **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51\.200 IOPS veya 768 MB/sn | %75 daha düşük | % 57'daha düşük |
+| **Standard_DS14v2** | 16 | 112 GB | 32 | 51.200 IOPS veya 768 MB/sn | | |
+| **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51.200 IOPS veya 768 MB/sn | %75 daha düşük | % 57'daha düşük |
 
 > [!IMPORTANT]
 > Bu zaman içinde nokta örnektir. En son özellikleri için makine boyutları makalelerini ve fiyatlandırma sayfası için Azure bakın [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) ve [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).

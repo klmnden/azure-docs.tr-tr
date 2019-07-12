@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: eef13c5a4e3757b0eafd77c0915717175c2dbd8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e04dfa4148213e88aa46e464a31cdd9b6125e0bf
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60769109"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705771"
 ---
 # <a name="create-an-external-app-service-environment"></a>Bir dış App Service ortamı oluşturma
 
@@ -33,15 +33,15 @@ Bir App Service Ortamı (ASE) iki şekilde dağıtılabilir:
 - Genellikle Dış ASE olarak adlandırılan durumda, bir dış IP adresi üzerindeki VIP ile.
 - İç uç nokta bir iç yük dengeleyici (ILB) olduğu için iç IP adresi üzerindeki VIP ile genellikle bir ILB ASE olarak adlandırılan.
 
-Bu makalede, dış ASE oluşturma işlemini gösterir. ASE genel bakış için bkz. [App Service ortamı giriş][Intro]. ILB ASE oluşturma hakkında daha fazla bilgi için bkz: [oluşturma ve kullanma ILB ASE][MakeILBASE].
+Bu makalede, dış ASE oluşturma işlemini gösterir. ASE genel bakış için bkz. [App Service ortamı giriş][Intro]. For information on how to create an ILB ASE, see [Create and use an ILB ASE][MakeILBASE].
 
 ## <a name="before-you-create-your-ase"></a>ASE'NİZİN oluşturmadan önce
 
 ASE'yi oluşturduktan sonra aşağıdaki değiştiremezsiniz:
 
 - Location
-- Abonelik
-- Kaynak grubu
+- Subscription
+- Resource group
 - Kullanılan sanal ağ
 - Kullanılan alt ağ
 - Alt ağ boyutu
@@ -72,7 +72,7 @@ Bir App Service planını oluştururken bir ASE oluşturmak için:
 
 2. Aboneliğinizi seçin. Uygulama ve ASE aynı abonelik içinde oluşturulur.
 
-3. Kaynak grubunu seçin veya oluşturun. Kaynak grupları ile ilgili Azure kaynaklarını bir birim olarak yönetebilirsiniz. Kaynak grupları, ayrıca, uygulamalarınız için rol tabanlı erişim denetimi kuralları oluştur olduğunda yararlıdır. Daha fazla bilgi için [Azure Resource Manager'a genel bakış][ARMOverview].
+3. Kaynak grubunu seçin veya oluşturun. Kaynak grupları ile ilgili Azure kaynaklarını bir birim olarak yönetebilirsiniz. Kaynak grupları, ayrıca, uygulamalarınız için rol tabanlı erişim denetimi kuralları oluştur olduğunda yararlıdır. Daha fazla bilgi için bkz. [Azure Resource Manager’a genel bakış][ARMOverview].
 
 4. (Windows, Linux ve Docker) işletim sisteminizi seçin. 
 
@@ -96,7 +96,7 @@ Bir App Service planını oluştururken bir ASE oluşturmak için:
 
     b. Yeni bir alt ağ adı girin.
 
-    c. Alt ağ boyutunu seçin. *Unutmayın, ase'nizin gelecekteki büyümeye uyum sağlamak için büyük bir boyut seçin.* Öneririz `/25`, 128 adres içeren ve bir en büyük boyutlu ASE'yi işleyebilen. Önermemekteyiz `/28`, örneğin, çünkü yalnızca 16 adresleri kullanılabilir. Altyapı en az yedi adresleri ve başka bir 5 Azure ağ kullanır. İçinde bir `/28` alt kaldığını App Service planı, ILB ASE için örnekleri en dış ASE için 4 App Service planı örneği, ölçekleme ve yalnızca 3.
+    c. Alt ağ boyutunu seçin. *Unutmayın, ase'nizin gelecekteki büyümeye uyum sağlamak için büyük bir boyut seçin.* Öneririz `/24`, 128 adres içeren ve bir en büyük boyutlu ASE'yi işleyebilen. Önermemekteyiz `/28`, örneğin, çünkü yalnızca 16 adresleri kullanılabilir. Altyapı en az yedi adresleri ve başka bir 5 Azure ağ kullanır. İçinde bir `/28` alt kaldığını App Service planı, ILB ASE için örnekleri en dış ASE için 4 App Service planı örneği, ölçekleme ve yalnızca 3.
 
     d. Alt ağ IP aralığı seçin.
 
@@ -110,7 +110,7 @@ Bir App Service planını oluştururken bir ASE oluşturmak için:
 
 1. Aboneliğinizi seçin. Uygulama ve ASE aynı abonelik içinde oluşturulur.
 
-1. Kaynak grubunu seçin veya oluşturun. Kaynak grupları ile ilgili Azure kaynaklarını bir birim olarak yönetebilirsiniz. Kaynak grupları, ayrıca, uygulamalarınız için rol tabanlı erişim denetimi kuralları oluştur olduğunda yararlıdır. Daha fazla bilgi için [Azure Resource Manager'a genel bakış][ARMOverview].
+1. Kaynak grubunu seçin veya oluşturun. Kaynak grupları ile ilgili Azure kaynaklarını bir birim olarak yönetebilirsiniz. Kaynak grupları, ayrıca, uygulamalarınız için rol tabanlı erişim denetimi kuralları oluştur olduğunda yararlıdır. Daha fazla bilgi için bkz. [Azure Resource Manager’a genel bakış][ARMOverview].
 
 1. App Service planı seçin ve ardından **Yeni Oluştur**. Linux web uygulamaları ve Windows web uygulamaları aynı App Service planında olamaz, ancak aynı App Service Ortamı'nda olabilir. 
 
@@ -132,7 +132,7 @@ Bir App Service planını oluştururken bir ASE oluşturmak için:
 
     b. Yeni bir alt ağ adı girin.
 
-    c. Alt ağ boyutunu seçin. *Unutmayın, ase'nizin gelecekteki büyümeye uyum sağlamak için büyük bir boyut seçin.* Öneririz `/25`, 128 adres içeren ve bir en büyük boyutlu ASE'yi işleyebilen. Önermemekteyiz `/28`, örneğin, çünkü yalnızca 16 adresleri kullanılabilir. Altyapı en az yedi adresleri ve başka bir 5 Azure ağ kullanır. İçinde bir `/28` alt kaldığını App Service planı, ILB ASE için örnekleri en dış ASE için 4 App Service planı örneği, ölçekleme ve yalnızca 3.
+    c. Alt ağ boyutunu seçin. *Unutmayın, ase'nizin gelecekteki büyümeye uyum sağlamak için büyük bir boyut seçin.* Öneririz `/24`, 128 adres içeren ve bir en büyük boyutlu ASE'yi işleyebilen. Önermemekteyiz `/28`, örneğin, çünkü yalnızca 16 adresleri kullanılabilir. Altyapı en az yedi adresleri ve başka bir 5 Azure ağ kullanır. İçinde bir `/28` alt kaldığını App Service planı, ILB ASE için örnekleri en dış ASE için 4 App Service planı örneği, ölçekleme ve yalnızca 3.
 
     d. Alt ağ IP aralığı seçin.
 
@@ -176,7 +176,7 @@ Bir ASE tek başına oluşturursanız, hiçbir şey var. Boş bir ASE, hala alty
 
 App Service ortamı (ASEv1) ilk sürümü örneklerini yine de oluşturabilirsiniz. İşlemini başlatmak için markette Ara **App Service ortamı v1**. ASE'i ASE tek başına oluşturduğunuz aynı şekilde oluşturun. Tamamlandığında, iki ön uç ve iki çalışan, ASEv1 sahiptir. ASEv1 ile ön uçlar ve çalışanlardan yönetmeniz gerekir. App Service planlarınızda oluşturduğunuzda, bunlar otomatik olarak eklenir. Ön uçlar HTTP/HTTPS uç noktaları olarak davranır ve çalışanlar için trafiği göndermek. Çalışanlar, uygulamaları barındıran rollerdir. ASE'yi oluşturduktan sonra ön uçlar ve çalışanlardan miktarını ayarlayabilirsiniz. 
 
-ASEv1 hakkında daha fazla bilgi için bkz: [App Service ortamı v1 giriş][ASEv1Intro]. Ölçeklendirme hakkında daha fazla bilgi için bkz: yönetme ve ASEv1, izleme [bir App Service ortamını yapılandırma][ConfigureASEv1].
+ASEv1 hakkında daha fazla bilgi için bkz: [App Service ortamı v1 giriş][ASEv1Intro]. For more information on scaling, managing, and monitoring ASEv1, see [How to configure an App Service Environment][ConfigureASEv1].
 
 <!--Image references-->
 [1]: ./media/how_to_create_an_external_app_service_environment/createexternalase-create.png

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/30/2019
-ms.openlocfilehash: 47bf59adb33f3685b31430c652b31880d383833e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80d01a360a2f80749bd7fbe7a9aadb9dda1189c6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65232652"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706984"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Otomatik veritabanı yedeklerini kullanarak bir Azure SQL veritabanını kurtarma
 
@@ -77,7 +77,7 @@ Bir veritabanını daha önceki bir noktaya kurtarma amacıyla genellikle geri. 
 
 - **Veritabanını değiştirme**
 
-  Geri yüklenen veritabanının, özgün veritabanının bir ardılı olarak amaçlanıyorsa orinal veritabanının işlem boyutunu ve Hizmet katmanını belirtmeniz gerekir. Özgün veritabanını yeniden adlandırın ve özgün adı kullanarak geri yüklenen veritabanı vermek [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) T-SQL komutu.
+  Geri yüklenen veritabanının, özgün veritabanının bir ardılı olarak hedeflediyseniz özgün veritabanının işlem boyutunu ve Hizmet katmanını belirtmeniz gerekir. Özgün veritabanını yeniden adlandırın ve özgün adı kullanarak geri yüklenen veritabanı vermek [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) T-SQL komutu.
 
 - **Veri Kurtarma**
 
@@ -124,7 +124,7 @@ Veritabanınızı, barındırma bölgedeki bir olay nedeniyle kullanılamaz duru
 Belirli bir noktaya geri yükleme bir coğrafi-ikincil üzerinde şu anda desteklenmiyor. Belirli bir noktaya geri yükleme, yalnızca birincil veritabanında gerçekleştirilebilir. Kesintiden kurtarma için coğrafi geri yükleme kullanma hakkında ayrıntılı bilgi için bkz: [kesintiden kurtarma](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> Coğrafi geri yükleme, en temel olağanüstü durum kurtarma çözümü SQL veritabanı'nda kullanılabilir olan. Coğrafi olarak çoğaltılmış yedekleme RPO ile otomatik olarak oluşturulan kullanır = 1 saat ve tahmini kurtarma süresi 12 saate kadar. Hedef bölge veritabanlarınız talebin keskin bir artış olasılığı nedeniyle bir bölgesel ourage sonra geri yüklemek için kapasite sahip olacağını garanti etmez. Görece küçük veritabanları olmayan iş kritik bir uygulama için coğrafi geri yükleme bir uygun olağanüstü durum kurtarma çözümüdür. Büyük veritabanları kullanın ve iş sürekliliğinin sağlanması gerekir busniess Kritik uygulamalar için kullanmanız gereken [otomatik yük devretme grupları](sql-database-auto-failover-group.md). Bir çok daha düşük RTO ve RPO sunar ve kapasite her zaman sağlanır. İş sürekliliği seçenekleri hakkında daha fazla bilgi için bkz. [iş sürekliliğine genel bakış](sql-database-business-continuity.md).
+> Coğrafi geri yükleme, en temel olağanüstü durum kurtarma çözümü SQL veritabanı'nda kullanılabilir olan. Coğrafi olarak çoğaltılmış yedekleme RPO ile otomatik olarak oluşturulan kullanır = 1 saat ve tahmini kurtarma süresi 12 saate kadar. Hedef bölge veritabanlarınız talebin keskin bir artış olasılığı nedeniyle bir bölgesel ourage sonra geri yüklemek için kapasite sahip olacağını garanti etmez. Görece küçük veritabanları olmayan iş kritik bir uygulama için coğrafi geri yükleme bir uygun olağanüstü durum kurtarma çözümüdür. Büyük veritabanları kullanın ve iş sürekliliğinin sağlanması gereken iş Kritik uygulamalar için kullanmanız gereken [otomatik yük devretme grupları](sql-database-auto-failover-group.md). Bir çok daha düşük RTO ve RPO sunar ve kapasite her zaman sağlanır. İş sürekliliği seçenekleri hakkında daha fazla bilgi için bkz. [iş sürekliliğine genel bakış](sql-database-business-continuity.md).
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Azure portalını kullanarak coğrafi-geri yükleme
 

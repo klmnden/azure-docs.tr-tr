@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1baf4af41fd5dcb6723b6ee2827ae91b43b072d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a084ceb841ea35bc62d9851f2b6c4821f4acb6fd
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65780959"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807713"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Gelişmiş seçenekleri, Azure Active Directory'de galeri uygulamalar için SAML belirtecinde imzalama sertifikası
 
@@ -57,27 +57,21 @@ Uygulama SAML sertifika imzalama seçenekleri ve sertifika imzalama algoritması
 1. Sol bölmede **Kurumsal uygulamalar**’ı seçin. Hesabınızdaki kurumsal uygulamalar listesi görüntülenir.
 1. Bir uygulama seçin. Uygulama için bir genel bakış sayfası görüntülenir.
 
-   ![Uygulama genel bakış sayfası](./media/certificate-signing-options/application-overview-page.png)
+   ![Örnek: Uygulama genel bakış sayfası](./media/certificate-signing-options/application-overview-page.png)
 
 Ardından, sertifika imzalama seçenekleri bu uygulama için SAML belirtecinde değiştirin:
 
 1. Uygulama genel bakış sayfasının sol bölmesinde seçin **çoklu oturum açma**.
+1. Varsa **yukarı çoklu oturum açma SAML - Preview ile ayarlanmış** sayfası görüntülenirse, 5. adıma gidin.
+1. Varsa **tek bir oturum açma yönteminizi seçmeniz** sayfa görünmüyorsa, seçin **değiştirme tek oturum açma modları** sayfayı görüntülemek için.
+1. İçinde **tek bir oturum açma yönteminizi seçmeniz** sayfasında **SAML** varsa. (Varsa **SAML** değilse kullanılabilir, uygulamanın SAML da desteklemiyor ve bu yordam ve makalenin geri kalanı göz ardı edebilirsiniz.)
+1. İçinde **yukarı çoklu oturum açma SAML - Preview ile ayarlanmış** sayfasında, bulmak **SAML imzalama sertifikası** seçin ve başlık **Düzenle** simgesi (Kalem). **SAML imzalama sertifikası** sayfası görüntülenir.
 
-2. Varsa **yukarı çoklu oturum açma SAML - Preview ile ayarlanmış** sayfası görüntülenirse, 5. adıma gidin.
+   ![Örnek: SAML imzalama sertifikası sayfası](./media/certificate-signing-options/saml-signing-page.png)
 
-3. Varsa **tek bir oturum açma yönteminizi seçmeniz** sayfa görünmüyorsa, seçin **değiştirme tek oturum açma modları** sayfayı görüntülemek için.
-
-4. İçinde **tek bir oturum açma yönteminizi seçmeniz** sayfasında **SAML** varsa. (Varsa **SAML** değilse kullanılabilir, uygulamanın SAML da desteklemiyor ve bu yordam ve makalenin geri kalanı göz ardı edebilirsiniz.)
-
-5. İçinde **yukarı çoklu oturum açma SAML - Preview ile ayarlanmış** sayfasında, bulmak **SAML imzalama sertifikası** seçin ve başlık **Düzenle** simgesi (Kalem). **SAML imzalama sertifikası** sayfası görüntülenir.
-
-   ![SAML imzalama sayfası](./media/certificate-signing-options/saml-signing-page.png)
-
-6. İçinde **imzalama seçeneği** aşağı açılan listesinde **oturum SAML yanıtını**, **oturum SAML onayı**, veya **oturum SAML yanıtını ve onayını**. Bu seçeneklerin açıklamaları görünür bu makalenin önceki kısımlarında [sertifika imzalama seçenekleri](#certificate-signing-options).
-
-7. İçinde **imzalama algoritması** aşağı açılan listesinde **SHA-1** veya **SHA-256'yı**. Bu seçeneklerin açıklamaları görünür bu makalenin önceki kısımlarında [algoritmaları imzalama sertifikası](#certificate-signing-algorithms) bölümü.
-
-8. Seçimlerinizi ile memnun kalırsanız seçin **Kaydet** yeni SAML imzalama sertifikası ayarlarını uygulamak için. Aksi takdirde seçin **X** değişiklikleri atmak için.
+1. İçinde **imzalama seçeneği** aşağı açılan listesinde **oturum SAML yanıtını**, **oturum SAML onayı**, veya **oturum SAML yanıtını ve onayını**. Bu seçeneklerin açıklamaları görünür bu makalenin önceki kısımlarında [sertifika imzalama seçenekleri](#certificate-signing-options).
+1. İçinde **imzalama algoritması** aşağı açılan listesinde **SHA-1** veya **SHA-256'yı**. Bu seçeneklerin açıklamaları görünür bu makalenin önceki kısımlarında [algoritmaları imzalama sertifikası](#certificate-signing-algorithms) bölümü.
+1. Seçimlerinizi ile memnun kalırsanız seçin **Kaydet** yeni SAML imzalama sertifikası ayarlarını uygulamak için. Aksi takdirde seçin **X** değişiklikleri atmak için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

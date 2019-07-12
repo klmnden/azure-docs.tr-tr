@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 140e6c338d12732d1e41ccd9dabef1de7d5cf8d8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ee65aa5753d9967022ca91a66433b11761b73a32
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068839"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835804"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Dinamik şifreleme ile içerik koruma
 
@@ -73,7 +73,7 @@ Bu makalede, kavramlar ve terminoloji content protection ile Media Services anla
   
      Bir oynatıcı kullanarak oluşturabileceğiniz [Azure Media Player API'sine](https://amp.azure.net/libs/amp/latest/docs/). Kullanma [Azure Media Player ProtectionInfo API'sine](https://amp.azure.net/libs/amp/latest/docs/) farklı DRM platformlarda kullanılacak DRM teknolojileri belirtmek için.
 
-     Test AES veya şifrelenmiş CENC (Widevine ve/veya PlayReady) için içerik, kullanabileceğiniz [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). "Gelişmiş Seçenekler" seçeneğini tıklatın ve denetimi, şifreleme seçenekleri emin olun.
+     Test AES veya şifrelenmiş CENC (Widevine ve/veya PlayReady) için içerik, kullanabileceğiniz [Azure Media Player](http://aka.ms/azuremediaplayer). "Gelişmiş Seçenekler" seçeneğini tıklatın ve denetimi, şifreleme seçenekleri emin olun.
 
      FairPlay şifreli içeriği test etmek istediğiniz kullanırsanız [bu test yürütücünün](https://aka.ms/amtest). Player, Widevine, PlayReady, destekler ve benzeri FairPlay DRM ve bunun yanı sıra AES-128 şifresiz anahtar şifrelemesiyle koruyun. 
     
@@ -136,7 +136,7 @@ Kesintisiz Akış Protokolü, şifreleme düzenleri ve aşağıdaki kapsayıcı 
 
 Ortak tarayıcıları aşağıdaki DRM istemcileri destekler:
 
-|Tarayıcı|Şifreleme|
+|Browser|Şifreleme|
 |---|---|
 |Chrome|Widevine|
 |Edge, IE 11|PlayReady|
@@ -203,7 +203,7 @@ Bekleyen veri varlıklarınızı korumanın varlıklar tarafından depolama tara
 
 Alırsanız `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` hata, akış uygun ilkeyi belirttiğinizden emin olun.
 
-İle biten hatalarıyla karşılaşırsanız `_NOT_SPECIFIED_IN_URL`, URL'de şifreleme biçimini belirttiğinizden emin olun. Örneğin, `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Bkz: [akış protokolleri ve şifreleme türlerini](#streaming-protocols-and-encryption-types).
+İle biten hatalarıyla karşılaşırsanız `_NOT_SPECIFIED_IN_URL`, URL'de şifreleme biçimini belirttiğinizden emin olun. Örneğin: `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Bkz: [akış protokolleri ve şifreleme türlerini](#streaming-protocols-and-encryption-types).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Soru sorun, görüşlerinizi, güncelleştirmeleri alın
 

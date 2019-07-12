@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2142fbf03daa6667b20db43f9212a2b5e6d7dd44
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60447977"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657526"
 ---
 # <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Azure Veri Gezgini, Azure Data Factory kullanarak veri kopyalama 
 
@@ -46,11 +46,11 @@ Bu makalede Data Factory-veri kopyalama aracını verileri Amazon S3'ten Azure v
 
     **Ayar**  | **Alan açıklaması**
     |---|---|
-    | **Ad** | Veri fabrikanızın genel olarak benzersiz bir ad girin. Hatasını alırsanız *"veri fabrikası adı \"LoadADXDemo\" kullanılamıyor"* , veri fabrikasının farklı bir ad girin. Data Factory yapıtlarının adlandırma kuralları için bkz: [Data Factory adlandırma kuralları](/azure/data-factory/naming-rules).|
+    | **Name** | Veri fabrikanızın genel olarak benzersiz bir ad girin. Hatasını alırsanız *"veri fabrikası adı \"LoadADXDemo\" kullanılamıyor"* , veri fabrikasının farklı bir ad girin. Data Factory yapıtlarının adlandırma kuralları için bkz: [Data Factory adlandırma kuralları](/azure/data-factory/naming-rules).|
     | **Abonelik** | Veri fabrikasının oluşturulacağı Azure aboneliğini seçin. |
     | **Kaynak Grubu** | Seçin **Yeni Oluştur** ve yeni bir kaynak grubu adını girin. Seçin **var olanı kullan**, mevcut bir kaynak grubu varsa. |
     | **Sürüm** | Seçin **V2** |
-    | **Konum** | Veri fabrikasının konumunu seçin. Açılan listede yalnızca desteklenen konumlar görüntülenir. Veri fabrikası tarafından kullanılan veri depoları, diğer konumlara veya bölgelerde olabilir. |
+    | **Location** | Veri fabrikasının konumunu seçin. Açılan listede yalnızca desteklenen konumlar görüntülenir. Veri fabrikası tarafından kullanılan veri depoları, diğer konumlara veya bölgelerde olabilir. |
     | | |
 
 1. Bildirimleri oluşturma işlemini izlemek için araç çubuğundan seçin. Oluşturma işlemi tamamlandıktan sonra oluşturduğunuz veri fabrikasına gidin. **Data Factory** giriş sayfası açılır.
@@ -141,7 +141,7 @@ Azure Veri Gezgini yeni bağlı hizmet, aşağıda belirtilen verileri Azure Ver
     * Seçin **son** bağlı hizmeti oluşturma işlemini tamamlamak için.
 
     > [!NOTE]
-    > Hizmet sorumlusu, Azure Veri Gezgini hizmete erişmek için Azure Data Factory tarafından kullanılır. Hizmet sorumlusu için [bir Azure Active Directory (Azure AD) hizmet sorumlusu oluşturma](/azure/azure-stack/azure-stack-create-service-principals#manage-service-principal-for-azure-ad). Kullanmayın **Azure anahtar kasası** yöntemi.
+    > Hizmet sorumlusu, Azure Veri Gezgini hizmete erişmek için Azure Data Factory tarafından kullanılır. Hizmet sorumlusu için [bir Azure Active Directory (Azure AD) hizmet sorumlusu oluşturma](/azure-stack/operator/azure-stack-create-service-principals#manage-an-azure-ad-service-principal). Kullanmayın **Azure anahtar kasası** yöntemi.
 
 1. **Hedef veri deposuna** açılır. Azure Veri Gezgini, oluşturduğunuz veri bağlantısı kullanılabilir. Seçin **sonraki** bağlantıyı yapılandırmak için.
 

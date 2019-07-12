@@ -4,7 +4,7 @@ description: Yüksek kullanılabilirlik SAP NetWeaver çoklu SID yapılandırma 
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b27ea761d19eb494895daceff699b2b604eccea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dadbfb138fb9e3e77cee265c008524b9c424a5dd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153860"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709618"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Bir SAP NetWeaver çoklu SID yapılandırması oluştur
 
@@ -447,7 +447,7 @@ ms.locfileid: "66153860"
 
 Eylül 2016'da, Microsoft yönetebileceğiniz birden çok sanal IP adresi kullanarak bir özelliği yayımlanan bir [Azure iç yük dengeleyici][load-balancer-multivip-overview]. Bu işlev Azure dış yük dengeleyicide zaten var.
 
-SAP dağıtımınızı varsa, iç yük dengeleyici SAP ASCS/SCS için bir Windows kümesi yapılandırması oluşturmak için açıklandığı gibi kullanabileceğiniz [Windows vm'lerinde SAP NetWeaver yüksek kullanılabilirlik Kılavuzu] [ sap-ha-guide].
+SAP dağıtımınızı varsa, iç yük dengeleyici SAP ASCS/SCS için bir Windows kümesi yapılandırması oluşturmak için açıklandığı gibi kullanabileceğiniz [Windows vm'lerinde SAP NetWeaver yüksek kullanılabilirlik Kılavuzu][sap-ha-guide].
 
 Bu makale, mevcut bir Windows Server Yük Devretme Kümelemesi (WSFC) kümesine ek SAP ASCS/SCS kümelenmiş örneklerini yükleyerek tek bir ASCS/SCS yüklemesinden bir SAP çoklu SID yapılandırmasına taşıma odaklanır. Bu işlem tamamlandığında, bir SAP çoklu SID küme yapılandırmış olmanız.
 
@@ -457,7 +457,7 @@ Bu makale, mevcut bir Windows Server Yük Devretme Kümelemesi (WSFC) kümesine 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bölümünde açıklandığı gibi bir SAP ASCS/SCS örneği için kullanılan bir WSFC kümesi zaten yapılandırdınız [Windows vm'lerinde SAP NetWeaver yüksek kullanılabilirlik Kılavuzu] [ sap-ha-guide] ve bu diyagramda gösterildiği gibi.
+Bölümünde açıklandığı gibi bir SAP ASCS/SCS örneği için kullanılan bir WSFC kümesi zaten yapılandırdınız [Windows vm'lerinde SAP NetWeaver yüksek kullanılabilirlik Kılavuzu][sap-ha-guide] ve bu diyagramda gösterildiği gibi.
 
 ![Yüksek kullanılabilirlik SAP ASCS/SCS örneği][sap-ha-guide-figure-6001]
 
@@ -489,7 +489,7 @@ Yük Dengeleyici sınırları hakkında daha fazla bilgi için bkz: "Yük Dengel
 ## <a name="prepare-the-infrastructure"></a>Altyapıyı hazırlama
 Altyapınızı hazırlamak için aşağıdaki parametrelerle bir ek SAP ASCS/SCS örneği yükleyebilirsiniz:
 
-| Parametre adı | Değer |
+| Parametre adı | Value |
 | --- | --- |
 | SAP ASCS/SCS SID |pr1 lb ascs |
 | SAP DBMS iç yük dengeleyici | PR5 |
@@ -662,9 +662,9 @@ Bu yordam WSFC küme makinelerde SIOS DataKeeper zaten yüklediğinizi varsayar.
 
 7. [SAP Ağıranlar Windows hizmet örneği başlangıç türünü değiştirme][sap-ha-guide-9.4].
 
-8. [SAP birincil uygulama sunucusu yükleme] [ sap-ha-guide-9.5] yeni VM'nin ayrılmış.
+8. [SAP birincil uygulama sunucusu yükleme][sap-ha-guide-9.5] yeni VM'nin ayrılmış.
 
-9. [SAP ek uygulama sunucusu yükleme] [ sap-ha-guide-9.6] yeni VM'nin ayrılmış.
+9. [SAP ek uygulama sunucusu yükleme][sap-ha-guide-9.6] yeni VM'nin ayrılmış.
 
 10. [SIOS çoğaltma ve SAP ASCS/SCS örneği yük devretme testi][sap-ha-guide-10].
 

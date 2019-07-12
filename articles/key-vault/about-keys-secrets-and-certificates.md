@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b50f98c4abaeda3ac1805b73aa18fe6c29596426
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52a0bc1b07ebf1aed55551e37ecc122ff393c0f7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708693"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703913"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Anahtarlar, parolalar ve sertifikalar hakkında
 
@@ -198,7 +198,7 @@ Ek uygulamaya özgü meta veri etiketleri biçiminde belirtebilirsiniz. Key Vaul
 
 Key Vault tarafından yönetilen anahtarlar için erişim denetimi, anahtar kapsayıcısı olarak davranan bir Key Vault düzeyinde sağlanır. Anahtarlar için erişim denetimi İlkesi aynı Key Vault'ta ' gizli diziler için erişim denetimi ilkesini farklı. Kullanıcılar, anahtarları tutmak için bir veya daha fazla kasalarını oluşturabilir ve senaryoya uygun segmentlere ayırma ve anahtar yönetimi tutmaları zorunludur. Anahtarlar için erişim denetimi, gizli dizileri için erişim denetimi bağımsızdır.  
 
-Aşağıdaki izinleri, üzerinde verilebilecek bir kullanıcı / hizmet sorumlusu aralıklarla bir kasasındaki anahtarları erişim denetim girişi. Bu izinleri bir anahtar nesnesi üzerinde izin verilen işlemleri yakından yansıtabilirsiniz:  
+Aşağıdaki izinleri, üzerinde verilebilecek bir kullanıcı / hizmet sorumlusu aralıklarla bir kasasındaki anahtarları erişim denetim girişi. Bu izinleri bir anahtar nesnesi üzerinde izin verilen işlemleri yakından yansıtır.  Anahtar Kasası'nda asıl hizmetine erişim izni verme tek seferlik bir işlemdir ve tüm Azure abonelikleri için aynı kalır. İstediğiniz sayıda sertifikaları dağıtmak için kullanabilirsiniz. 
 
 - Anahtar yönetimi işlemleri için izinleri
   - *Alma*: Bir anahtar yanı sıra, özniteliklerini ortak bölümünü okuyun
@@ -476,5 +476,4 @@ Daha fazla bilgi için [depolama hesabı anahtar kasası REST API Başvurusu iş
 ## <a name="see-also"></a>Ayrıca Bkz.
 
 - [Kimlik doğrulama istekleri ve yanıtları](authentication-requests-and-responses.md)
-- [Key Vault sürümleri](key-vault-versions.md)
 - [Key Vault Geliştirici Kılavuzu](/azure/key-vault/key-vault-developers-guide)

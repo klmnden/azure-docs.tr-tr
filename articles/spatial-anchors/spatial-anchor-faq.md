@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 73979ec3bd1d667453a186ea1f20bbeddc12db8f
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 435ad986a9f0b96d42c88d450f40e5900ad33b7c
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273305"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653244"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Azure Spatial Anchors hakkında sık sorulan sorular
 
@@ -120,11 +120,11 @@ Kullanmaya başlama [geliştirme burada](index.yml).
 
 **S: Unreal ile işe yarar?**
 
-**C:** Unreal desteği yakında olmasını bekliyoruz.
+**C:** Unreal desteği gelecekte kabul edilir.
 
 **S: Xamarin ile çalışır?**
 
-**C:** Evet. Bir Xamarin SDK'sı de verilmese, geliştiricilerin Azure uzamsal bağlayıcılarını Xamarin uygulamalarında Azure uzamsal bağlayıcılarını API ile tümleştirerek kullanabileceği bekliyoruz.
+**C:** Xamarin desteği gelecekte kabul edilir.
 
 **S: Hangi bağlantı noktalarını ve protokolleri Azure uzamsal bağlayıcılarını kullanıyor?**
 

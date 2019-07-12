@@ -4,19 +4,19 @@ description: Azure DevOps projeleri, Azure'da kullanmaya başlamak kolaylaştır
 author: shizn
 manager: ''
 ms.author: xshi
-ms.date: 01/22/2019
+ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 02977032c5975de4098600ddbebccfcbb9b0fafd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 109a7e327217a342f485dd61b53115569f2346cd
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595503"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722988"
 ---
-# <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Azure DevOps projeleri (Önizleme) ile IOT Edge için CI/CD işlem hattı oluşturma
+# <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects"></a>Azure DevOps projeleri ile IOT Edge için CI/CD işlem hattı oluşturma
 
 DevOps projeleri ile sürekli tümleştirme (CI) ve IOT Edge uygulamanız için sürekli teslim (CD) yapılandırın. DevOps projeleri derleme ve yayın işlem hattı Azure işlem hatları, başlangıç yapılandırmasını basitleştirir.
 
@@ -38,7 +38,7 @@ DevOps projeleri, Azure DevOps bir CI/CD işlem hattı oluşturur. Yeni bir Azur
 
    ![Yeni bir uygulama oluşturmak için dil seçin](./media/how-to-devops-project/select-language.png)
 
-2. Seçin **basit IOT (Önizleme)** uygulama çerçevesi ve ardından olarak **sonraki**.
+2. Seçin **basit IOT** uygulama çerçevesi ve ardından olarak **sonraki**.
 
    ![Basit IOT framework seçin](media/how-to-devops-project/select-iot.png)
 

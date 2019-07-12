@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c188c23f87715b6ba5b90f6015b59f2a347ec0cf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bfb15e717e3cb726aba782d9a9506330d7ea39fe
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486962"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839329"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Kopyalama etkinliği'ni kullanarak veri taşıma
 > [!div class="op_single_selector" title1="Data Factory hizmetinin kullandığınız sürümü seçin:"]
@@ -95,7 +95,7 @@ Hem kaynak hem de havuz veri depolarına bulutta olduğunda, Data Factory hizmet
 
 | Hedef veri depolarını coğrafyası | Hedef veri deposunun bölgesi | Veri taşıma için kullanılan bölge |
 |:--- |:--- |:--- |
-| Amerika Birleşik Devletleri | Doğu ABD | Doğu ABD |
+| Amerika Birleşik Devletleri | East US | East US |
 | &nbsp; | Doğu ABD 2 | Doğu ABD 2 |
 | &nbsp; | Orta ABD | Orta ABD |
 | &nbsp; | Orta Kuzey ABD | Orta Kuzey ABD |
@@ -138,7 +138,7 @@ Ne zaman veri şuraya kopyalanıyor şirket içinde (veya Azure sanal makineler/
 Data Factory Kopyalama Sihirbazı, kopyalama etkinliği ile işlem hattı oluşturmak için yardımcı olur. Bu işlem hattı veri desteklenen kaynaklardan hedeflere kopyalamanıza olanak sağlayan *JSON yazmadan* bağlı hizmetler, veri kümeleri ve işlem hatları için tanımlar. Bkz: [Data Factory Kopyalama Sihirbazı](data-factory-copy-wizard.md) Sihirbazı hakkında daha fazla ayrıntı için.  
 
 ### <a name="by-using-json-scripts"></a>JSON betikleri kullanarak
-(Kopyalama etkinliği kullanarak) bir işlem hattı için bir JSON tanımı oluşturmak için Azure portal, Visual Studio veya Azure PowerShell Data Factory Düzenleyicisi'ni kullanabilirsiniz. Ardından, Data Factory'de işlem hattı oluşturmak için dağıtabilirsiniz. Bkz: [Öğreticisi: Bir Azure Data Factory işlem hattında kopyalama etkinliği kullanmak](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) adım adım yönergeleri içeren öğretici.    
+Data Factory Düzenleyicisi'nde Visual Studio ya da Azure PowerShell (kopyalama etkinliği kullanarak) bir işlem hattı için bir JSON tanımı oluşturmak için kullanabilirsiniz. Ardından, Data Factory'de işlem hattı oluşturmak için dağıtabilirsiniz. Bkz: [Öğreticisi: Bir Azure Data Factory işlem hattında kopyalama etkinliği kullanmak](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) adım adım yönergeleri içeren öğretici.    
 
 JSON özellikleri (örneğin, ad, açıklama, girdi ve çıktı tabloları ve ilkeleri), tüm etkinlik türleri için kullanılabilir. Kullanılabilir özellikler `typeProperties` etkinlik bölümünü her etkinlik türü ile farklılık gösterir.
 
@@ -197,7 +197,7 @@ Bkz: [kopyalama etkinliği performansı ve ayarlama Kılavuzu](data-factory-copy
 ## <a name="fault-tolerance"></a>Hataya dayanıklılık
 Varsayılan olarak, veri ve iadesi başarısız kopyalama kopyalama etkinliği durdurur zaman uyumsuz veri kaynağı ve havuz; arasında karşılaştığınız açıkça atlayıp uyumlu satırları ve yalnızca kopya günlüğünü yapılandırabilirsiniz; ancak bu uyumlu bir veri kopyalamayı yapmak için başarılı oldu. Bkz: [kopyalama etkinliği hataya dayanıklılık](data-factory-copy-activity-fault-tolerance.md) hakkında daha fazla bilgi.
 
-## <a name="security-considerations"></a>Güvenlikle ilgili dikkat edilmesi gerekenler
+## <a name="security-considerations"></a>Güvenlik konuları
 Bkz: [güvenlik konuları](data-factory-data-movement-security-considerations.md), verilerinizin güvenliğini sağlamak için Azure Data factory'deki veri taşıma hizmetleri kullanan bir güvenlik altyapısı açıklar.
 
 ## <a name="scheduling-and-sequential-copy"></a>Zamanlama ve sıralı kopyalama

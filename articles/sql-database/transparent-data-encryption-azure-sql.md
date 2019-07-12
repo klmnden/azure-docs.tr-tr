@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: 7066b600cf50df583fbf8e9e674ef17d77b86183
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dfc48fec948ab0cf3d16a49bb60eb3c274f2864e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061376"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723279"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>SQL veritabanı ve veri ambarı için saydam veri şifrelemesi
 
@@ -33,7 +33,7 @@ Ayrıca bir Azure sanal makinesinde çalışan SQL Server Key vault'tan bir asim
 
 ## <a name="service-managed-transparent-data-encryption"></a>Hizmetle yönetilen şeffaf veri şifreleme
 
-Azure'da varsayılan saydam veri şifrelemesi için veritabanı şifreleme anahtarını bir yerleşik bir sunucu sertifikası tarafından korunduğunu ayardır. Yerleşik bir sunucu sertifikası her sunucu için benzersizdir. Coğrafi çoğaltma ilişkisinde bir veritabanı olduğundan, birincil ve ikincil coğrafi çoğaltmalı veritabanı birincil veritabanının ana sunucu anahtarı tarafından korunur. İki veritabanı aynı sunucuya bağlandıysanız ayrıca yerleşik aynı sertifikayı paylaşırlar. Microsoft otomatik olarak bu sertifikaları iç güvenlik ilkesi ayarlarıyla döndürür ve kök anahtarı Microsoft bir iç gizli dizi deposu tarafından korunur.  Müşteriler, SQL veritabanı uyumluluk bağımsız üçüncü taraf Denetim raporları kullanılabilir iç güvenlik ilkeleri ile kontrol edebilirsiniz [Microsoft Trust Center](https://servicetrust.microsoft.com/).
+Azure'da varsayılan saydam veri şifrelemesi için veritabanı şifreleme anahtarını bir yerleşik bir sunucu sertifikası tarafından korunduğunu ayardır. Yerleşik bir sunucu sertifikası her sunucu için benzersiz olan ve kullanılan şifreleme algoritması AES 256'dır. Coğrafi çoğaltma ilişkisinde bir veritabanı olduğundan, birincil ve ikincil coğrafi çoğaltmalı veritabanı birincil veritabanının ana sunucu anahtarı tarafından korunur. İki veritabanı aynı sunucuya bağlandıysanız ayrıca yerleşik aynı sertifikayı paylaşırlar.  Microsoft otomatik olarak bu sertifikaları iç güvenlik ilkesi ayarlarıyla döndürür ve kök anahtarı Microsoft bir iç gizli dizi deposu tarafından korunur.  Müşteriler, SQL veritabanı uyumluluk bağımsız üçüncü taraf Denetim raporları kullanılabilir iç güvenlik ilkeleri ile kontrol edebilirsiniz [Microsoft Trust Center](https://servicetrust.microsoft.com/).
 
 Microsoft ayrıca sorunsuz bir şekilde taşır ve coğrafi çoğaltma için gerektiği şekilde anahtarları yönetir ve geri yükler.
 

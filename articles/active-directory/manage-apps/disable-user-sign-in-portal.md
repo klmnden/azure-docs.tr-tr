@@ -16,17 +16,19 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90000f34ff247fdd5939dc19971c170aa4b70386
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7256791c0b6bfbc72a26f6093cdd3c39410f702f
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824652"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807599"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Kullanıcı oturum açma işlemleri için kurumsal bir uygulamayı Azure Active Directory'de devre dışı bırak
+
 Hiçbir kullanıcı için Azure Active Directory (Azure AD) oturum açabilmeniz kurumsal bir uygulamanın devre dışı bırakmak kolay bir işlemdir. Kurumsal uygulama Yönetme iznine ihtiyacınız var. Ve dizin için genel yönetici olması gerekir.
 
 ## <a name="how-do-i-disable-user-sign-ins"></a>Kullanıcı oturum açma işlemleri nasıl devre dışı bırakabilirim?
+
 1. Dizin için genel yönetici olan bir hesapla [Azure portalda](https://portal.azure.com) oturum açın.
 1. Seçin **tüm hizmetleri**, girin **Azure Active Directory** metin kutusuna ve ardından **Enter**.
 1. Üzerinde **Azure Active Directory** -  ***directoryname*** bölmesi (diğer bir deyişle, Azure AD dizini yönettiğiniz için), seçin **kurumsal uygulamalar**.
@@ -36,6 +38,7 @@ Hiçbir kullanıcı için Azure Active Directory (Azure AD) oturum açabilmeniz 
 1. Seçin **Kaydet** komutu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * [Tüm Gruplarım bakın](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Kurumsal bir uygulamayı kullanıcı veya grup atama](assign-user-or-group-access-portal.md)
 * [Bir kullanıcı veya grup ataması Kurumsal uygulamadan Kaldır](remove-user-or-group-access-portal.md)

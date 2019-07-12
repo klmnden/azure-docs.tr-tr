@@ -4,15 +4,15 @@ description: Windows sanal masaüstü Önizleme oturumu konakları için otomati
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: e9f500e3ab965b9dbfc5e395a6572497c85f6f8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b98db361a8ec888eb8bf9e1bf3658a7e38111c6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755139"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620411"
 ---
 # <a name="automatically-scale-session-hosts"></a>Oturum ana bilgisayarlarını otomatik olarak ölçeklendirme
 
@@ -75,7 +75,7 @@ Ardından, güvenli şekilde depolanan kimlik bilgileri oluşturmanız gerekir:
     Örneğin, **Set-değişken - adı KeyPath-genel kapsam-değeri "c:\\ölçeklendirme HostPool1"**
 5. Çalıştırma **yeni StoredCredential - KeyPath \$KeyPath** cmdlet'i. İstendiğinde, ana bilgisayar havuzu sorgulamak için gerekli izinlere sahip Windows sanal masaüstü kimlik bilgilerinizi girin (konak havuzu belirtilen **config.xml**).
     - Farklı hizmet sorumluları veya standart hesabı kullanıyorsanız çalıştırın **yeni StoredCredential - KeyPath \$KeyPath** yerel oluşturmak her hesap için depolanan kimlik bilgileri bir kez cmdlet'i.
-6. Çalıştırma **StoredCredentials Get-liste** kimlik bilgilerini başarıyla oluşturulduğunu doğrulamak için.
+6. Çalıştırma **StoredCredential Get-liste** kimlik bilgilerini başarıyla oluşturulduğunu doğrulamak için.
 
 ### <a name="configure-the-configxml-file"></a>Config.cml dosyasını yapılandırın
 
@@ -90,7 +90,7 @@ Ardından, güvenli şekilde depolanan kimlik bilgileri oluşturmanız gerekir:
 | tenantname değeri:                    | Windows sanal masaüstü Kiracı adı                                                    |
 | hostPoolName                  | Windows sanal masaüstü ana makine havuzu adı                                                 |
 | RDBroker                      | Varsayılan değer https WVD Hizmeti'ne URL:\//rdbroker.wvd.microsoft.com             |
-| Kullanıcı adı                      | Hizmet sorumlusu uygulama kimliği (AADApplicationId gibi aynı hizmet sorumlusu olması olası) veya standart kullanıcı multi-Factor authentication olmaksızın |
+| Kullanıcı Adı                      | Hizmet sorumlusu uygulama kimliği (AADApplicationId gibi aynı hizmet sorumlusu olması olası) veya standart kullanıcı multi-Factor authentication olmaksızın |
 | isServicePrincipal            | Kabul edilen değerler **true** veya **false**. İkinci bir dizi kimlik bilgisi kullanılan bir hizmet sorumlusu olup veya standart hesabı gösterir. |
 | BeginPeakTime                 | En yüksek kullanım süresi ne zaman başlar                                                            |
 | EndPeakTime                   | En yüksek kullanım süresi sona erdiğinde                                                              |

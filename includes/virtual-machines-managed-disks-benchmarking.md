@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67188356"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673555"
 ---
 *Önbelleği hazırlanıyor*  
 Salt okunur konak önbelleği disk disk sınırdan daha yüksek IOPS sağlayabilir. Öncelikle bu en yüksek okuma performansı ana bilgisayar önbelleğe almak için bu disk önbelleği sıcak gerekir. Bu aracın Kıyaslama CacheReads birimde artıracak okuma IOs gerçekten ulaştığını önbellek ve diskin değil doğrudan sağlar. Önbellek isabet sayısı sonucu tek önbellekten ek IOPS disk etkin.
@@ -25,7 +25,7 @@ Salt okunur konak önbelleği disk disk sınırdan daha yüksek IOPS sağlayabil
 
 ### <a name="iometer"></a>Iometer
 
-[Iometer Aracı'nı indirme](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) VM üzerinde.
+[Iometer Aracı'nı indirme](https://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) VM üzerinde.
 
 #### <a name="test-file"></a>Test dosyası
 
@@ -68,12 +68,12 @@ En yüksek aktarım göstermek için istek boyutu daha büyük kullanın. 64 K i
    | RandomReads\_1 MB |1 MB |100 |100 |
 1. Aşağıdaki parametrelerle önbellek diski başlatma için Iometer testi çalıştırın. Hedef birim ve 128 sıra derinliği için üç çalışan iş parçacıkları kullanın. Test "çalışma zamanı" süresi 2 olarak ayarlayın "Test" Kurulum"sekmesinde saat.
 
-   | Senaryo | Hedef birim | Ad | Süre |
+   | Senaryo | Hedef birim | Ad | Duration |
    | --- | --- | --- | --- |
    | Önbellek diski başlatın |CacheReads |RandomWrites\_1 MB |2 saat |
 1. Önbellek diski aşağıdaki parametrelerle hazırlanıyor için Iometer testi çalıştırın. Hedef birim ve 128 sıra derinliği için üç çalışan iş parçacıkları kullanın. Test "çalışma zamanı" süresi 2 olarak ayarlayın "Test" Kurulum"sekmesinde saat.
 
-   | Senaryo | Hedef birim | Ad | Süre |
+   | Senaryo | Hedef birim | Ad | Duration |
    | --- | --- | --- | --- |
    | Önbellek diski ısınıyor |CacheReads |RandomReads\_1 MB |2 saat |
 

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: b4bfdd3e9cdf99314dc55907ba163adc6cd39423
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0945b06f78ac34500f0b16a4a419cff12d1a4734
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952892"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812916"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid iletiyi teslim ve yeniden deneyin
 
@@ -43,6 +43,12 @@ Olay süresi belirleyici davranışını ayarlayın ve en yüksek teslimat çal�
 
 Varsayılan olarak, Event Grid, 24 saat içinde teslim olmayan tüm olayların süresi dolar. Yapabilecekleriniz [yeniden deneme ilkesi özelleştirme](manage-event-delivery.md) bir olay aboneliği oluştururken. Yaşam süresi (varsayılan değer 30) teslim denemesi ve olay sayısını sağlar (varsayılan değer 1440 dakika).
 
+## <a name="delayed-delivery"></a>Gecikmeli teslim
+
+Bir uç nokta teslim hataları deneyimleri gibi Event Grid teslim ve yeniden deneme olayların Bu uç noktaya gecikme başlar. Bir uç noktasına yayımlanan ilk on olaylar başarısız olursa, örneğin, Event Grid uç nokta sorun yaşıyor ve tüm sonraki yeniden denemeler geciktirir varsayar *ve yeni* teslimler için birkaç saat kadar bazı durumlarda biraz zaman - .
+
+Event Grid sistem yanı sıra, iyi durumda olmayan uç noktaları korumak için Gecikmeli teslim işlevsel amacı olan. Geri alma ve teslim sağlıksız uç gecikme, Event Grid'ın yeniden deneme ilkesi ve birim özellikleri kolayca bir sistem sık zora sokar.
+
 ## <a name="dead-letter-events"></a>Teslim edilemeyen olayları
 
 Event Grid olay teslim edilemiyor, bir depolama hesabına teslim edilmeyen olay gönderebilirsiniz. Bu işlem, ulaşmayan olarak bilinir. Varsayılan olarak, Event Grid hakkında ulaşmayan kapatmaz. Bunu etkinleştirmek için olay abonelik oluştururken teslim edilmeyen olayları barındıracak bir depolama hesabı belirtmeniz gerekir. Olayları teslim çözmek için bu depolama hesabından çekin.
@@ -63,25 +69,29 @@ Event Grid, olayları alındığını onaylamak için HTTP yanıt kodları kulla
 
 ### <a name="success-codes"></a>Başarılı kodları
 
-Aşağıdaki HTTP yanıt kodları, bir olay için Web kancası başarıyla teslim olduğunu gösterir. Event Grid teslim tam olarak değerlendirir.
+Event Grid göz önünde bulundurur **yalnızca** başarılı teslim olarak aşağıdaki HTTP yanıt kodları. Tüm diğer durum kodları başarısız teslimler olarak kabul edilir ve yeniden denenecek veya deadlettered uygun şekilde. Başarılı durum kodu aldıktan sonra Event Grid teslim tam olarak değerlendirir.
 
 - 200 TAMAM
+- 201 oluşturuldu
 - 202 kabul edildi
+- 203 onaylı olmayan bilgiler
+- 204 No Content
 
 ### <a name="failure-codes"></a>Hata kodları
 
-Aşağıdaki HTTP yanıt kodları olay teslim denemesi başarısız olduğunu gösterir.
+Yukarıdaki kümesi (200-204) değil, diğer tüm kodlar hata olarak kabul edilir ve yeniden denenecek. Bazı belirli yeniden deneme ilkeleri bunları aşağıda ana hatlarıyla belirtilen bağlı olan, diğer tüm standart üstel geri alma modelini izler. Event Grid'ın mimarisi son derece paralel yapısı nedeniyle, yeniden deneme davranışı belirleyici olduğunu aklınızda tutmanız önemlidir. 
 
-- 400 Hatalı istek
-- 401 Yetkisiz
-- 404 Bulunamadı
-- 408 istek zaman aşımı
-- 413 istek varlığı çok büyük
-- 414 URI çok uzun
-- 429 çok fazla istek
-- 500 İç Sunucu Hatası
-- 503 Hizmet Kullanılamıyor
-- 504 Ağ Geçidi Zaman Aşımı
+| Durum kodu | Yeniden deneme davranışı |
+| ------------|----------------|
+| 400 Hatalı istek | 5 dakika veya daha sonra yeniden deneyin (teslim edilemeyen iletiler, hemen teslim edilemeyen iletiler kurulum) |
+| 401 Yetkisiz | 5 dakika veya daha sonra yeniden deneyin. |
+| 403 Yasak | 5 dakika veya daha sonra yeniden deneyin. |
+| 404 Bulunamadı | 5 dakika veya daha sonra yeniden deneyin. |
+| 408 İstek Zaman Aşımı | 2 dakika sonra yeniden deneyin veya daha fazla bilgi |
+| 413 istek varlığı çok büyük | 10 saniye veya daha sonra yeniden deneyin (teslim edilemeyen iletiler, hemen teslim edilemeyen iletiler kurulum) |
+| 503 Hizmet Kullanılamıyor | 30 saniye sonra yeniden deneyin veya daha fazla bilgi |
+| Diğerlerinin tümü | 10 saniye sonra yeniden deneyin veya daha fazla bilgi |
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

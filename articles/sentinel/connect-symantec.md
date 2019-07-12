@@ -1,43 +1,44 @@
 ---
-title: Azure Önizleme Gözcü Symantec ICDX verilere | Microsoft Docs
-description: Azure Gözcü için Symantec ICDX veri bağlanmayı öğreneceksiniz.
+title: Azure Önizleme Gözcü Symantec ICDx verilere | Microsoft Docs
+description: Azure Gözcü için Symantec ICDx veri bağlanmayı öğreneceksiniz.
 services: sentinel
 documentationcenter: na
 author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: d068223f-395e-46d6-bb94-7ca1afd3503c
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2019
+ms.date: 07/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3b21371d6321b208b19ca8b2524308736c3ceca9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 74169b4bd2654fb0ff7ec4cdb2f2b02c0f4cc6e8
+ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244339"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673746"
 ---
-# <a name="connect-your-symantec-icdx-appliance"></a>Symantec ICDX gerecinize bağlanma 
+# <a name="connect-your-symantec-icdx-appliance"></a>Symantec ICDx gerecinize bağlanma 
 
 > [!IMPORTANT]
 > Azure Sentinel şu anda genel Önizleme aşamasındadır.
 > Önizleme sürümü bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Symantec ICDX Bağlayıcısı, Azure panoları görüntülemesine, özel uyarıları oluşturma ve araştırma geliştirmek için Gözcü ile tüm, Symantec güvenlik çözümü günlüklerini kolayca bağlanmanıza olanak sağlar. Bu, kuruluşunuzun ağ daha fazla öngörü sağlar ve güvenlik işlemi yeteneklerinizi geliştirir. REST API'si kullanın Symantec ICDX ve Azure Gözcü arasında tümleştirme sağlar.
+Symantec ICDx Bağlayıcısı, Azure panoları görüntülemesine, özel uyarıları oluşturma ve araştırma geliştirmek için Gözcü ile tüm, Symantec güvenlik çözümü günlüklerini kolayca bağlanmanıza olanak sağlar. Bu, kuruluşunuzun ağ daha fazla öngörü sağlar ve güvenlik işlemi yeteneklerinizi geliştirir. REST API'si kullanın Symantec ICDx ve Azure Gözcü arasında tümleştirme sağlar.
 
 
 > [!NOTE]
 > Veriler Azure Gözcü çalıştırıyorsanız çalışma alanının coğrafi konumda depolanır.
 
-## <a name="configure-and-connect-symantec-icdx"></a>Yapılandırma ve Symantec ICDX bağlanın 
+## <a name="configure-and-connect-symantec-icdx"></a>Yapılandırma ve Symantec ICDx bağlanın 
 
-Symantec ICDX, tümleştirme ve doğrudan Azure Gözcü için günlükleri dışarı aktarabilirsiniz.
+Symantec ICDx, tümleştirme ve doğrudan Azure Gözcü için günlükleri dışarı aktarabilirsiniz.
 
-1. Microsoft Azure (Log Analytics) Gözcü ileticiler eklemek için ICDX Yönetim Konsolu'nu açın.
+1. Microsoft Azure (Log Analytics) Gözcü ileticiler eklemek için ICDx Yönetim Konsolu'nu açın.
 2. ICDx gezinti çubuğunda Koruma'ya tıklayın **yapılandırma**. 
 3. Üst kısmındaki **yapılandırma** ekranında **ileticileri**.
 4. Altında **ileticileri**, Microsoft Azure Gözcü yanındaki (Log Analytics), tıklayın **Ekle**. 
@@ -66,7 +67,7 @@ Symantec ICDX, tümleştirme ve doğrudan Azure Gözcü için günlükleri dış
     - **Özel günlük adı**: Olayları giderek Microsoft Azure portal Log Analytics çalışma alanında, özel günlük adı yazın. SymantecICDx varsayılandır. Bu alan gereklidir.
 8. Tıklayın *Kaydet* ileticisi yapılandırmayı tamamlayın. 
 9. Altında ileticisi'ni başlatmak için **seçenekleri**, tıklayın **daha fazla** ardından **Başlat**.
-10. İlgili şema için Symantec ICDX olayları Log Analytics'te kullanmak için arama **SymantecICDX_CL**.
+10. İlgili şema için Symantec ICDx olayları Log Analytics'te kullanmak için arama **SymantecICDx_CL**.
 
 
 ## <a name="validate-connectivity"></a>Bağlantıyı doğrula
@@ -76,7 +77,7 @@ Symantec ICDX, tümleştirme ve doğrudan Azure Gözcü için günlükleri dış
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu belgede, Azure Gözcü için Symantec ICDX bağlanma hakkında bilgi edindiniz. Azure Gözcü hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
+Bu belgede, Azure Gözcü için Symantec ICDx bağlanma hakkında bilgi edindiniz. Azure Gözcü hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 - Bilgi nasıl [görünürlük almak, veri ve olası tehditleri](quickstart-get-visibility.md).
 - Başlama [Azure Gözcü kullanarak tehditleri algılama](tutorial-detect-threats.md).
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: d850cb222b0028f862cdba302140ce12af8576db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 913140a51603429e003f04f860bca9b4ddb1c214
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66492735"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704876"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Yönetme ve İzleme SQL Server veritabanlarını desteklenir
 
@@ -145,7 +145,7 @@ Bir SQL Server örneği koruma devre dışı bıraktıktan sonra ancak kasayı s
 
 Bazı durumlarda, iş yükü uzantısı VM'de nedenlerinden biri veya diğeri için etkilenen. Bu gibi durumlarda, sanal makinede tetikleyen tüm işlemler başarısız başlar. Ardından, VM uzantısını yeniden kaydetmeniz gerekebilir. **Yeniden kaydolmak** işlemi devam etmek işlemleri için VM üzerinde iş yükü yedekleme uzantısını yükler.  <br>
 
-Bu seçeneği dikkatli önerilir; bir VM'de zaten sağlıklı bir uzantı ile tetiklendiğinde, bu işlem yeniden uzantı neden olur. Bu, başarısız tüm devam eden işler neden olabilir. Lütfen onay için bir veya daha fazla [belirtileri](backup-sql-server-azure-troubleshoot.md#symptoms) yeniden kayıt işlemini tetiklemeden önce.
+Bu seçeneği dikkatli önerilir; bir VM'de zaten sağlıklı bir uzantı ile tetiklendiğinde, bu işlem yeniden uzantı neden olur. Bu, başarısız tüm devam eden işler neden olabilir. Lütfen onay için bir veya daha fazla [belirtileri](backup-sql-server-azure-troubleshoot.md#re-registration-failures) yeniden kayıt işlemini tetiklemeden önce.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

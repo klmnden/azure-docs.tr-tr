@@ -9,20 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/24/2019
+ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: 98e8c0ccd150776341e644f7565696e8fbd63e99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b060e2c8a7353dd8145ced8c6e89d9b666a4212c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65556280"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703888"
 ---
-# <a name="azure-media-services-v3-frequently-asked-questions"></a>Azure Media Services v3 sık sorulan sorular
+# <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 sık sorulan sorular
 
 Bu makalede, Azure Media Services (AMS) v3 sık sorulan sorular için yanıtlar sağlanır.
 
-## <a name="v3-apis"></a>V3 API'ler
+## <a name="general"></a>Genel
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>Hangi Azure rolleri, Azure Media Services kaynaklardaki eylemler gerçekleştirebilir miyim? 
 
@@ -45,6 +45,10 @@ Sayfalandırma kullanırken, sonraki bağlantısını toplamasını ve belirli b
 ### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Hangi özellikleri henüz Azure Media Services v3 sürümünde kullanılamıyor?
 
 Ayrıntılar için bkz [özellik v2 API'leri göre boşlukları](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
+
+### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Media Services hesabı abonelikler arasında taşıma işlemi nedir?  
+
+Ayrıntılar için bkz [Media Services hesabı abonelikler arasında taşıma](media-services-account-concept.md).
 
 ## <a name="live-streaming"></a>Canlı akış 
 

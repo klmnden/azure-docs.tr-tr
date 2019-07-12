@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c0584a69349c2785b5b6bce1d17c023c95b36151
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b6bdc884107a522c81d100c0a05018cbc9d0a70
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66136189"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718274"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Etki alanı ve Azure App Service SSL sertifikası sorunlarını giderme
 
@@ -325,7 +325,6 @@ Bir App Service Web uygulaması olmasa bile, etki alanınız yönetebilirsiniz. 
 
 **Özel bir etki alanı ile bir web uygulaması başka bir aboneliğe veya App Service ortamı v1'den V2'ye taşıyabilirim?**
 
-Evet, web uygulamanızı abonelikler arasında taşıyabilirsiniz. Sunulan yönergeleri [kaynaklar Azure'da nasıl taşırım](../azure-resource-manager/resource-group-move-resources.md). Web uygulaması taşırken bazı sınırlamalar vardır. Daha fazla bilgi için [App Service kaynaklarını taşımak için sınırlamalar](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
-).
+Evet, web uygulamanızı abonelikler arasında taşıyabilirsiniz. Sunulan yönergeleri [kaynaklar Azure'da nasıl taşırım](../azure-resource-manager/resource-group-move-resources.md). Web uygulaması taşırken bazı sınırlamalar vardır. Daha fazla bilgi için [App Service kaynaklarını taşımak için sınırlamalar](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
 Web uygulaması taşıdıktan sonra konak adı bağlamaları ayarlama özel etki alanları içindeki etki alanlarının aynı kalmalıdır. Konak adı bağlamaları yapılandırmak için ek adımlar gerekir.

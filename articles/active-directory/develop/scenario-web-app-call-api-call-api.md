@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd44dda06b2f6fc48538f2fb74c0bf8e04d0362b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3624f4e859081e53ee27b6f8415eb3f9b5a2a5fa
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074643"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785469"
 ---
 # <a name="web-app-that-calls-web-apis---call-a-web-api"></a>Web API - çağıran bir web uygulaması web API'si çağırma
 
@@ -28,7 +28,18 @@ Bir belirteç olduğuna göre korumalı web API'si çağırabilirsiniz.
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
-Basitleştirilmiş bir kod eylemini işte `HomeController`. Bu kod Microsoft Graph'i çağırmaya yönelik bir belirteç alır. REST API olarak Microsoft Graph'i çağırmaya yönelik gösteren bu zaman kod eklendi.
+Basitleştirilmiş bir kod eylemini işte `HomeController`. Bu kod Microsoft Graph'i çağırmaya yönelik bir belirteç alır. REST API olarak Microsoft Graph'i çağırmaya yönelik gösteren bu zaman kod eklendi. Graph API için URL'yi sağlanan `appsettings.json` dosya ve adlı bir değişkende okuma `webOptions`:
+
+```JSon
+{
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    ...
+  },
+  ...
+  "GraphApiUrl": "https://graph.microsoft.com"
+}
+```
 
 ```CSharp
 public async Task<IActionResult> Profile()

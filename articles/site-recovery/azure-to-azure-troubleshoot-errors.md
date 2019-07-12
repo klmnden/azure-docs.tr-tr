@@ -2,18 +2,18 @@
 title: Azure Site Recovery Azure'dan Azure'a çoğaltma sorunlarını ve hataları için sorun giderme | Microsoft Docs
 description: Olağanüstü durum kurtarma için Azure sanal makineleri çoğaltırken hatalarını ve sorunlarını giderme
 services: site-recovery
-author: sujayt
+author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: sujayt
-ms.openlocfilehash: 3c87e159022b6dcf13daf2a2659c88c0529a8f48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: asgang
+ms.openlocfilehash: 1e0450554597d99aa99d6df51f22bfc90c0d92ad
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65796419"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798573"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure'dan Azure'a VM çoğaltmayla sorunları giderme
 
@@ -156,7 +156,7 @@ Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP 
 
 ### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>1 sorunu: Azure sanal makinesi (151195) Site Recovery ile kayıt olamadı </br>
 - **Olası nedeni** </br>
-  - Site recovery uç noktalarına DNS çözümleme hatası nedeniyle bağlantı kurulamıyor.
+  - DNS çözümleme hatası nedeniyle Site Recovery uç noktalarına bağlantı kurulamıyor.
   - Bu daha sık yeniden koruma sırasında sanal makine üzerinde başarısız oldu, ancak DR bölgesindeki DNS sunucusu erişilebilir değil görülür.
 
 - **Çözümleme**
@@ -175,7 +175,7 @@ Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP 
       - Azure Active Directory (AAD) gelecekte yeni adresler eklenir, yeni NSG kuralları oluşturmak gerekir.
 
 > [!NOTE]
-> Sanal makineler arkasında olsa **standart** iç yük dengeleyici sonra O365 IP'ler yani erişimi sahip değil Varsayılan olarak Login.micorsoftonline.com. Olarak değiştirin ya da **temel** iç yük dengeleyici türü veya dışarı bağlanan erişime belirtildiği gibi oluşturma [makale](https://aka.ms/lboutboundrulescli).
+> Sanal makineler arkasında olsa **standart** iç yük dengeleyici sonra O365 IP'ler yani erişimi sahip değil Varsayılan olarak Login.microsoftonline.com. Olarak değiştirin ya da **temel** iç yük dengeleyici türü veya dışarı bağlanan erişime belirtildiği gibi oluşturma [makale](https://aka.ms/lboutboundrulescli).
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>3\. sorun: Site Recovery yapılandırması başarısız oldu (151197)
 - **Olası nedeni** </br>
@@ -187,23 +187,23 @@ Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP 
 
 ### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>4\. sorun: Ağ trafiği şirket içi proxy sunucusu üzerinden (151072) çıktığında A2A çoğaltması başarısız oldu.
 - **Olası nedeni** </br>
-  - Özel ara sunucu ayarlarını geçersiz ve ASR Mobility Hizmeti Aracısı otomatik-IE proxy ayarları algılamadı
+  - Özel ara sunucu ayarlarını geçersiz ve Azure Site Recovery Mobility Hizmeti Aracısı otomatik-IE proxy ayarları algılamadı
 
 
 - **Çözümleme**
   1. Mobility hizmeti aracısı için proxy ayarlarını Windows üzerinde IE ve Linux'ta /etc/environment algılar.
-  2. Ardından yalnızca ASR Mobility hizmeti için proxy ayarlamak isterseniz, konumundaki ProxyInfo.conf proxy ayrıntıları sağlayabilirsiniz:</br>
+  2. Yalnızca Azure Site Recovery Mobility hizmeti için proxy ayarlamak isterseniz, konumundaki ProxyInfo.conf proxy ayrıntıları sağlayabilirsiniz:</br>
      - ``/usr/local/InMage/config/`` üzerinde ***Linux***
      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` üzerinde ***Windows***
   3. ProxyInfo.conf proxy ayarlarını aşağıdaki INI biçiminde olmalıdır.</br>
                 *[proxy]*</br>
                 *Adres =http://1.2.3.4*</br>
                 *Bağlantı noktası 567 =*</br>
-  4. ASR Mobility Hizmeti Aracısı destekler yalnızca ***kimliği doğrulanmamış proxy***.
+  4. Azure Site Recovery Mobility Hizmeti Aracısı destekler yalnızca ***kimliği doğrulanmamış proxy***.
 
 
 ### <a name="fix-the-problem"></a>Sorunu
-Güvenilir listeye eklenecek [gerekli URL'leri](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) veya [gerekli IP aralıkları](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), adımları [ağ rehberi belgesi](site-recovery-azure-to-azure-networking-guidance.md).
+İzin vermek için [gerekli URL'leri](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) veya [gerekli IP aralıkları](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), adımları [ağ rehberi belgesi](site-recovery-azure-to-azure-networking-guidance.md).
 
 ## <a name="disk-not-found-in-the-machine-error-code-150039"></a>Disk (hata kodu 150039) makinede bulunamadı
 
@@ -232,17 +232,42 @@ Diskleri korumak veya sanal Makinenin çoğaltma durumu yeniden sağlam hale get
  ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 2. Uyarıyı kapatmak için. Çoğaltılan öğeler gidin > VM > Genel Bakış bölümünde Kapat uyarıyı tıklatın.
 ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
-## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>Azure VM veya kaynak grubu için "çoğaltmayı etkinleştir" seçimi görülemiyor
 
- **1. neden:  Kaynak grubu ve kaynak sanal makine farklı konumlarda** <br>
-Azure Site Recovery, şu anda kaynak bölge kaynak grubunu ve sanal makineler mandates aynı konumda olmalıdır. Böyle değilse, ardından, koruma süresi sırasında sanal makineyi bulamadı olmaz. Geçici çözüm olarak, Kurtarma Hizmetleri kasası yerine VM'den çoğaltmayı etkinleştirebilirsiniz. Sourece VM gidin > Özellikler > olağanüstü durum kurtarma ve çoğaltmayı etkinleştirin.
 
-**2. neden: Kaynak grubu, seçili abonelik parçası değil** <br>
-Belirtilen abonelik bir parçası değilse, kaynak grubunu koruma süresi bulmak mümkün olmayabilir. Kaynak grubu kullanılıyor aboneliğe ait olduğundan emin olun.
+## <a name="remove-the-virtual-machine-from-the-vault-completed-with-information--error-code-150225"></a>Sanal makineyi (hata kodu 150225) bilgilerle tamamlandı kasasından kaldırın
+Sanal makine korumayı sırasında Azure Site Recovery, kaynak sanal makinede bazı bağlantılar oluşturur. Korumayı kaldırma olarak ya da çoğaltma devre dışı Azure Site Recovery Temizleme işinin bir parçası olarak bu bağlantıları kaldırın. Sanal makine kaynak kilidi olması durumunda iş bilgi ile tamamlandı. Bu, sanal makine, Kurtarma Hizmetleri kasasından kaldırıldı, ancak kaynak makineden bazı eski bağlantılar temizlenemedi söyler.
 
- **3. neden: Eski yapılandırma** <br>
-VM için çoğaltmayı etkinleştirmek istediğiniz görmüyorsanız, Azure sanal makinesinde eski bir Site Recovery yapılandırması nedeniyle kalmayabilir. Eski yapılandırmayı aşağıdaki durumlarda bir Azure sanal makinesinde kalmış olabilir:
+Bu sanal makineyi yeniden gelecekte korumak istiyorsanız, bu uyarıyı yoksayabilirsiniz. Daha sonra bu sanal makineyi korumak varsa, ancak daha sonra bağlantıları aşağıdaki adımlarda belirtildiği gibi temizlemeniz gerekir. 
 
+**Temiz ardından yapmazsanız:**
+
+1.  Kurtarma Hizmetleri kasası çoğaltmayı etkinleştirme olduğu süre boyunca sanal makine listelenmez. 
+2.  Aracılığıyla VM'yi korumayı denerseniz **sanal makine > Ayarlar > olağanüstü durum kurtarma** olacak hatasıyla başarısız oldu "*çoğaltma nedeniyle var olan eski kaynak bağlantılarıVMüzerindeetkinleştirilemez*".
+
+
+### <a name="fix-the-problem"></a>Sorunu
+
+>[!NOTE]
+>
+>Azure Site Recovery, kaynak sanal makineyi silme değil veya aşağıdaki adımları gerçekleştirirken herhangi bir şekilde etkileyebilir.
+>
+
+1. VM veya VM kilidi kaldırmak kaynak grubu. Örneğin: VM adı "MoveDemo" silinmesi gereken kaynak kilidi var.
+
+   ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. Komut dosyası indir [eski Azure Site Recovery yapılandırma Kaldır](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
+3. Bu betiği yürütün *Cleanup-stale-asr-config-Azure-VM.ps1*.
+4. Abonelik kimliği, VM kaynak grubu ve VM adı, parametre olarak sağlayın.
+5. Azure kimlik bilgileri istenirse, lütfen sağlayan ve kodun hatalarını yürütülen denetleyin. 
+
+
+## <a name="replication-cannot-be-enabled-because-of-the-existing-stale-resource-links-on-the-vm-error-code-150226"></a>(Hata kodu 150226) sanal makinesi üzerinde var olan eski kaynak bağlantıları nedeniyle çoğaltma etkinleştirilemez.
+
+**Neden: Sanal makinenin önceki Site Recovery korumadan sol eski yapılandırma var.**
+
+Eski yapılandırmayı aşağıdaki durumlarda bir Azure sanal makinesinde kalmış olabilir:
+
+- Site Recovery kullanarak Azure VM için çoğaltma etkin ve çoğaltmayı devre dışı bırak ancak **VM kaynağı olan bir kaynak kilidi**.
 - Site Recovery kullanarak Azure VM için çoğaltma etkin ve ardından Site Recovery kasası açıkça bir VM üzerinde çoğaltmayı devre dışı bırakmadan silinir.
 - Site Recovery kullanarak Azure VM için çoğaltma etkin ve sonra açıkça bir VM üzerinde çoğaltmayı devre dışı bırakmadan Site Recovery kasasını içeren kaynak grubu silindi.
 
@@ -250,9 +275,52 @@ VM için çoğaltmayı etkinleştirmek istediğiniz görmüyorsanız, Azure sana
 
 >[!NOTE]
 >
->"" AzureRM.Resources"" modülü kullanmadan önce güncelleştirdiğinizden emin olun aşağıdaki betiği.
+>Azure Site Recovery, kaynak sanal makineyi silme değil veya aşağıdaki adımları gerçekleştirirken herhangi bir şekilde etkileyebilir.
 
-Kullanabileceğiniz [kaldırmak eski ASR yapılandırma betiğini](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1) ve Azure sanal makinesinde eski Site Recovery yapılandırmayı kaldırmak. Eski yapılandırmayı kaldırdıktan sonra VM görüyor olması gerekir.
+
+1. VM veya VM kilidi kaldırmak varsa kaynak grubu. *Örneğin:* VM adı "MoveDemo" silinmesi gereken kaynak kilidi var.
+   
+   ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. Komut dosyası indir [eski Azure Site Recovery yapılandırma Kaldır](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
+3. Bu betiği yürütün *Cleanup-stale-asr-config-Azure-VM.ps1*.
+4. Abonelik kimliği, VM kaynak grubu ve VM adı, parametre olarak sağlayın.
+5. Azure kimlik bilgileri istenirse, lütfen sağlayan ve kodun hatalarını yürütülen denetleyin.  
+
+## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>Azure VM veya kaynak grubu için "çoğaltmayı etkinleştir" seçimi görülemiyor
+
+ **1. neden:  Kaynak grubu ve kaynak sanal makine farklı konumlarda**
+ 
+Azure Site Recovery, şu anda kaynak bölge kaynak grubunu ve sanal makineler mandates aynı konumda olmalıdır. Böyle değilse, ardından, koruma süresi sırasında sanal makine veya kaynak grubunu bulamadı olmaz. 
+
+**Geçici çözüm olarak**, Kurtarma Hizmetleri kasası yerine VM'den çoğaltmayı etkinleştirebilirsiniz. Kaynak VM gidin > Özellikler > olağanüstü durum kurtarma ve çoğaltmayı etkinleştirin.
+
+**2. neden: Kaynak grubu, seçili abonelik parçası değil**
+
+Belirtilen abonelik bir parçası değilse, kaynak grubunu koruma süresi bulmak mümkün olmayabilir. Kaynak grubu kullanılıyor aboneliğe ait olduğundan emin olun.
+
+ **3. neden: Eski yapılandırma**
+ 
+VM için çoğaltmayı etkinleştirmek istediğiniz görmüyorsanız, Azure sanal makinesinde eski bir Site Recovery yapılandırması nedeniyle kalmayabilir. Eski yapılandırmayı aşağıdaki durumlarda bir Azure sanal makinesinde kalmış olabilir:
+
+- Site Recovery kullanarak Azure VM için çoğaltma etkin ve ardından Site Recovery kasası açıkça bir VM üzerinde çoğaltmayı devre dışı bırakmadan silinir.
+- Site Recovery kullanarak Azure VM için çoğaltma etkin ve sonra açıkça bir VM üzerinde çoğaltmayı devre dışı bırakmadan Site Recovery kasasını içeren kaynak grubu silindi.
+
+- Site Recovery kullanarak Azure VM için çoğaltma etkin ve çoğaltmayı devre dışı bırak ancak kaynak VM kaynak kilidi vardı.
+
+### <a name="fix-the-problem"></a>Sorunu
+
+> [!NOTE]
+>
+> "" AzureRM.Resources"" modülü kullanmadan önce güncelleştirdiğinizden emin olun aşağıdaki betiği. Azure Site Recovery, kaynak sanal makineyi silme değil veya aşağıdaki adımları gerçekleştirirken herhangi bir şekilde etkileyebilir.
+>
+
+1. VM veya VM kilidi kaldırmak varsa kaynak grubu. *Örneğin:* VM adı "MoveDemo" silinmesi gereken kaynak kilidi var.
+
+   ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. Komut dosyası indir [eski yapılandırma Kaldır](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
+3. Bu betiği yürütün *Cleanup-stale-asr-config-Azure-VM.ps1*.
+4. Abonelik kimliği, VM kaynak grubu ve VM adı, parametre olarak sağlayın.
+5. Azure kimlik bilgileri istenirse, lütfen sağlayan ve kodun hatalarını yürütülen denetleyin.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>Sanal makine koruma için işaretleyin yapılamıyor
  **1. neden:  Sanal makine başarısız veya yanıt vermeyen bir durumda yüklü bazı uzantılı** <br>
@@ -362,8 +430,8 @@ Few examples: </br>
 
 If the LVM device doesn't exist, fix either by creating it or remove the parameter for the same from the GRUB configuration files and then retry the enable protection. </br>
 
-## Site recovery mobility service update completed with warnings ( error code 151083)
-Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  site recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes require a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br>
+## Site Recovery mobility service update completed with warnings ( error code 151083)
+Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  Site Recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes require a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br>
 **Please note** that this is just a warning and existing replication keeps on working even after the new agent update. You can choose to reboot anytime you want to get the benefits of new filter driver but if you don't reboot than also old filter driver keeps on working. Apart from filter driver, **benefits of  any other enhancements and fixes in mobility service get realized without any reboot when the agent gets updated.**  
 
 

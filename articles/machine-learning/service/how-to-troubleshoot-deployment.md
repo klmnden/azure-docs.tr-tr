@@ -1,7 +1,7 @@
 ---
 title: Dağıtım sorunlarını giderme kılavuzu
 titleSuffix: Azure Machine Learning service
-description: Geçici çözüm, çözmek ve AKS ve Azure Machine Learning hizmetini kullanarak ACI ile ortak Docker dağıtım hatalarını giderme hakkında bilgi edinin.
+description: Geçici çözüm, çözmek ve Azure Kubernetes hizmeti ve Azure Machine Learning hizmetini kullanarak Azure Container Instances ile ortak Docker dağıtım hatalarını giderme hakkında bilgi edinin.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: chris-lauren
 ms.author: clauren
 ms.reviewer: jmartens
-ms.date: 05/02/2018
+ms.date: 07/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0fba7c2f5a46e0c5d0e3c5fdd65a03bb77f148d9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0f4b024d717c08df3514df057abf89d55be1dc9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074989"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707032"
 ---
-# <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Azure Machine Learning hizmeti AKS ve ACI dağıtım sorunlarını giderme
+# <a name="troubleshooting-azure-machine-learning-service-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Azure Machine Learning hizmeti Azure Kubernetes hizmeti ve Azure Container Instances dağıtımı sorunlarını giderme
 
 Geçici çözüm veya Azure Container Instances'a (ACI) ve Azure Machine Learning hizmetini kullanarak Azure Kubernetes Service (AKS) ile ortak Docker dağıtım hatalarını çözmek öğrenin.
 
@@ -314,6 +314,214 @@ Azure Kubernetes hizmeti dağıtımları ek yükü desteklemeye eklenecek çoğa
 
 Ayarı hakkında daha fazla bilgi için `autoscale_target_utilization`, `autoscale_max_replicas`, ve `autoscale_min_replicas` için bkz: [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) modül başvurusu.
 
+
+## <a name="advanced-debugging"></a>Gelişmiş hata ayıklama
+
+Bazı durumlarda, etkileşimli olarak da model dağıtımınızda bulunan Python kodunda hata ayıklama gerekebilir. Örneğin, giriş betiği başarısız oluyor ve nedeni tarafından ek günlükler belirlenemiyor. Visual Studio (PTVSD için) Visual Studio Code ve Python Tools kullanarak, Docker kapsayıcısı içinde çalışan kodu ekleyebilirsiniz.
+
+> [!IMPORTANT]
+> Hata ayıklama bu yöntemi kullanırken çalışmaz `Model.deploy()` ve `LocalWebservice.deploy_configuration` modeli yerel olarak dağıtılacak. Bunun yerine, bir görüntüsünü kullanarak oluşturmanız gerekir [ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) sınıfı. 
+>
+> Yerel web hizmeti dağıtımları, çalışan bir yerel sisteminizde Docker yükleme gerektirir. Bir yerel web hizmetini dağıtmadan önce docker çalışıyor olması gerekir. Yükleme ve Docker'ı kullanma hakkında daha fazla bilgi için bkz: [ https://www.docker.com/ ](https://www.docker.com/).
+
+### <a name="configure-development-environment"></a>Geliştirme ortamını yapılandırma
+
+1. Python Tools üzerinde yerel VS Code geliştirme ortamınızı Visual Studio (PTVSD için) yüklemek için aşağıdaki komutu kullanın:
+
+    ```
+    python -m pip install --upgrade ptvsd
+    ```
+
+    PTVSD ile VS Code kullanma hakkında daha fazla bilgi için bkz. [uzaktan hata ayıklama](https://code.visualstudio.com/docs/python/debugging#_remote-debugging).
+
+1. Docker görüntüsü ile iletişim kurmak için VS Code yapılandırmak için yeni bir hata ayıklama yapılandırmasını oluşturun:
+
+    1. VS koddan seçin __hata ayıklama__ menüsünü ve ardından __açın yapılandırmaları__. Adlı bir dosya __launch.json__ açılır.
+
+    1. İçinde __launch.json__ dosya, içeren satırı Bul `"configurations": [`ve sonra aşağıdaki metni ekleyin:
+
+        ```json
+        {
+            "name": "Azure Machine Learning service: Docker Debug",
+            "type": "python",
+            "request": "attach",
+            "port": 5678,
+            "host": "localhost",
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "/var/azureml-app"
+                }
+            ]
+        }
+        ```
+
+        > [!IMPORTANT]
+        > Zaten diğer girişler varsa yapılandırmaları bölümünde, virgül (,), eklediğiniz koddan sonra ekleyin.
+
+        Bu bölümde, bağlantı noktası 5678 kullanarak Docker kapsayıcısı ekler.
+
+    1. Kaydet __launch.json__ dosya.
+
+### <a name="create-an-image-that-includes-ptvsd"></a>PTVSD içeren görüntü oluşturma
+
+1. Dağıtımınız için conda ortam PTVSD içerir şekilde değiştirin. Aşağıdaki örnek, kullanarak eklemeyi gösterir. `pip_packages` parametresi:
+
+    ```python
+    from azureml.core.conda_dependencies import CondaDependencies 
+    
+    # Usually a good idea to choose specific version numbers
+    # so training is made on same packages as scoring
+    myenv = CondaDependencies.create(conda_packages=['numpy==1.15.4',            
+                                'scikit-learn==0.19.1', 'pandas==0.23.4'],
+                                 pip_packages = ['azureml-defaults==1.0.17', 'ptvsd'])
+    
+    with open("myenv.yml","w") as f:
+        f.write(myenv.serialize_to_string())
+    ```
+
+1. PTVSD başlatmak ve hizmeti başlatıldığında bir bağlantı için bekleme için en üst kısmına aşağıdakileri ekleyin, `score.py` dosyası:
+
+    ```python
+    import ptvsd
+    # Allows other computers to attach to ptvsd on this IP address and port.
+    ptvsd.enable_attach(address=('0.0.0.0', 5678), redirect_output = True)
+    # Wait 30 seconds for a debugger to attach. If none attaches, the script continues as normal.
+    ptvsd.wait_for_attach(timeout = 30)
+    print("Debugger attached...")
+    ```
+
+1. Hata ayıklama sırasında görüntü dosyaları yeniden oluşturmak zorunda kalmadan değişiklik yapmak isteyebilirsiniz. Docker görüntüsünü bir metin düzenleyicisi (vim) yüklemek için adlı yeni bir metin dosyası oluşturma `Dockerfile.steps` ve dosyanın içeriğini aşağıdakileri kullanın:
+
+    ```text
+    RUN apt-get update && apt-get -y install vim
+    ```
+
+    Bir metin düzenleyicisi, yeni bir görüntü oluşturmadan değişiklikleri test etmek için docker görüntüsünü içindeki dosyalara değiştirmenizi sağlar.
+
+1. Kullanan bir görüntü oluşturmak için `Dockerfile.steps` dosya, kullanın `docker_file` görüntü oluşturulurken parametre. Aşağıdaki örnek bunun nasıl yapılacağı gösterilmektedir:
+
+    > [!NOTE]
+    > Bu örnek olduğunu varsayar `ws` noktaları, Azure Machine Learning çalışma alanı ve, `model` dağıtılan modeli. `myenv.yml` Dosyası 1. adımda oluşturduğunuz conda bağımlılıklarını içerir.
+
+    ```python
+    from azureml.core.image import Image, ContainerImage
+    image_config = ContainerImage.image_configuration(runtime= "python",
+                                 execution_script="score.py",
+                                 conda_file="myenv.yml",
+                                 docker_file="Dockerfile.steps")
+
+    image = Image.create(name = "myimage",
+                     models = [model],
+                     image_config = image_config, 
+                     workspace = ws)
+    # Print the location of the image in the repository
+    print(image.image_location)
+    ```
+
+Görüntü oluşturulduktan sonra kayıt defterindeki görüntü konum görüntülenir. Konumu aşağıdaki metne benzer:
+
+```text
+myregistry.azurecr.io/myimage:1
+```
+
+Bu metin örneğinde, kayıt defteri addır `myregistry` ve görüntü adlı `myimage`. Görüntü sürümü `1`.
+
+### <a name="download-the-image"></a>Bir görüntü indirin
+
+1. Bir komut istemi, terminal ya da diğer kabuğunu açın ve aşağıdaki [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) komutu, Azure Machine Learning çalışma alanını içeren Azure aboneliğine kimliğini doğrulamak için:
+
+    ```azurecli
+    az login
+    ```
+
+1. Azure kapsayıcı kayıt defteri (içeren görüntü ACR'ye) kimliğini doğrulamak için aşağıdaki komutu kullanın. Değiştirin `myregistry` görüntü kayıtlı bir zaman döndürdü:
+
+    ```azurecli
+    az acr login --name myregistry
+    ```
+
+1. Yerel bir Docker için kullanmak üzere görüntüyü indirmek için aşağıdaki komutu kullanın. Değiştirin `myimagepath` olduğunda döndürülen konum ile görüntü kayıtlı:
+
+    ```bash
+    docker pull myimagepath
+    ```
+
+    Görüntü yolu benzer `myregistry.azurecr.io/myimage:1`. Burada `myregistry` , kayıt defteri `myimage` , görüntü ve `1` görüntü sürümüdür.
+
+    > [!TIP]
+    > Önceki adımdan gelen kimlik doğrulaması her zaman en son değil. Yeterince kimlik doğrulaması ve çekme komutunu arasında bekleyin, kimlik doğrulama hatası alırsınız. Böyle bir durumda yeniden kimlik doğrulamaya zorlayabilir.
+
+    İndirmeyi tamamlamak için gereken süreyi Internet bağlantınızın hızına bağlıdır. İşlem sırasında bir yükleme durumu görüntülenir. İndirme tamamlandıktan sonra kullanabileceğiniz `docker images` indirilip indirilmediğini doğrulamak için komutu.
+
+1. Görüntüyle çalışmaya kolaylaştırmak için bir etiket eklemek için aşağıdaki komutu kullanın. Değiştirin `myimagepath` 2. adımda konum değerine sahip.
+
+    ```bash
+    docker tag myimagepath debug:1
+    ```
+
+    Geri kalan adımları için yerel görüntü olarak başvurabilirsiniz `debug:1` yerine tam görüntü yol değeri.
+
+### <a name="debug-the-service"></a>Hizmet hata ayıklama
+
+> [!TIP]
+> PTVSD bağlantı zaman aşımını ayarlarsanız `score.py` dosya, VS Code hata ayıklama oturumu için zaman aşımı süresi dolmadan önce bağlamalısınız. VS Code'u başlatın, yerel kopyasını açabilir `score.py`, bir kesme noktası ayarlayın ve varsa bu bölümdeki adımları kullanarak önce gönderilmeye hazır.
+>
+> Hata ayıklama ve kesme noktaları ayarlama hakkında daha fazla bilgi için bkz. [hata ayıklama](https://code.visualstudio.com/Docs/editor/debugging).
+
+1. Görüntü kullanarak bir Docker kapsayıcısı başlatmak için aşağıdaki komutu kullanın:
+
+    ```bash
+    docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
+    ```
+
+1. VS Code için PTVSD kapsayıcısının içinde iliştirmek için VS Code açıp anahtar veya select F5 kullanmak __hata ayıklama__. Sorulduğunda, __Azure Machine Learning hizmeti: Docker hata ayıklama__ yapılandırma. Yan çubuğundan debug simgesini de seçebilirsiniz __Azure Machine Learning hizmeti: Docker hata ayıklama__ hata ayıklama açılır menüsünde ve ardından hata ayıklayıcıyı iliştirmek için yeşil ok girişi.
+
+    ![Hata Ayıkla simgesi, hata ayıklama Başlat düğmesi ve yapılandırma Seçicisi](media/how-to-troubleshoot-deployment/start-debugging.png)
+
+Bu noktada, VS Code için PTVSD Docker kapsayıcısı içinde bağlanır ve daha önce ayarladığınız kesme noktasında durur. Çalışırken, kodda adım adım artık değişkenler, vb. görüntüleyin.
+
+Python hata ayıklamak için VS Code kullanma hakkında daha fazla bilgi için bkz. [Python kodunuzdaki hataları ayıklamanıza](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019).
+
+<a id="editfiles"></a>
+### <a name="modify-the-container-files"></a>Kapsayıcı dosyalarını değiştirme
+
+Görüntü dosyalarda değişiklik yapmak için çalışan kapsayıcıya ekleme ve bir bash Kabuğu Yürüt. Burada, dosyalarını düzenlemek için vim kullanabilirsiniz:
+
+1. Çalışan kapsayıcıya bağlanmak ve kapsayıcıdaki bir bash kabuğunu başlatın için aşağıdaki komutu kullanın:
+
+    ```bash
+    docker exec -it debug /bin/bash
+    ```
+
+1. Hizmet tarafından kullanılan dosyaları bulmak için kapsayıcı bash kabuğunda aşağıdaki komutu kullanın:
+
+    ```bash
+    cd /var/azureml-app
+    ```
+
+    Buradan, vim düzenlemek için kullanabileceğiniz `score.py` dosya. Vim kullanma hakkında daha fazla bilgi için bkz. [Vim Düzenleyicisi'ni kullanarak](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html).
+
+1. Normalde bir kapsayıcıya değişiklikler kalıcı değildir. Yaptığınız kabuktan çıkış yapma önce aşağıdaki komutu kullanın. değişiklikleri kaydetmek için Yukarıdaki adımda başlatıldı (diğer bir deyişle, başka bir Kabuğu'nda):
+
+    ```bash
+    docker commit debug debug:2
+    ```
+
+    Bu komut, adlı yeni bir görüntü oluşturur `debug:2` , yaptığınız düzenlemeleri içerir.
+
+    > [!TIP]
+    > Geçerli kapsayıcıda durdurmak ve değişiklikler etkili olmadan önce yeni sürümü kullanmaya başlamak ihtiyacınız olacak.
+
+1. Kapsayıcı dosyalarında VS Code kullanan yerel dosyalarla eşitlenmiş yaptığınız değişiklikleri tutmak emin olun. Aksi takdirde, hata ayıklayıcı deneyimi beklendiği gibi çalışmaz.
+
+### <a name="stop-the-container"></a>Kapsayıcı Durdur
+
+Kapsayıcıyı durdurmak için aşağıdaki komutu kullanın:
+
+```bash
+docker stop debug
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

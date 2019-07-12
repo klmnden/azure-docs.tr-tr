@@ -7,19 +7,19 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: danlep
-ms.openlocfilehash: 70593bffbf30b3a0c0978e56c2af1a856a22f2ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86f8c099061cd3b75b77330c567f34dea2b34928
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563028"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657594"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Azure Container ınstances'da bir gitRepo birimi
 
 Bağlama öğrenin bir *gitRepo* birim kapsayıcı örneklerinizin bir Git deposunu kopyalamak için.
 
 > [!NOTE]
-> Bağlama bir *gitRepo* birim şu anda Linux kapsayıcıları için kısıtlanmış. Tüm özellikleri Windows kapsayıcılarına getirmek için çalışmamız esnasında, geçerli platform farklılıklarını [Azure Kapsayıcı Örnekleri için kotalar ve bölge kullanılabilirliği](container-instances-quotas.md) bölümünde bulabilirsiniz.
+> Bağlama bir *gitRepo* birim şu anda Linux kapsayıcıları için kısıtlanmış. Tüm özellikleri Windows kapsayıcılarına getirmek için çalışıyoruz, ancak geçerli platform farklılıklarını içinde bulabilirsiniz [genel bakış](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="gitrepo-volume"></a>gitRepo birim
 
@@ -35,9 +35,9 @@ Bağlama ne zaman bir *gitRepo* birimi, birim yapılandırmak için üç özelli
 
 ## <a name="mount-gitrepo-volume-azure-cli"></a>Bağlama gitRepo birim: Azure CLI
 
-Container Instances ile dağıttığınızda bir gitRepo birimi bağlamak için [Azure CLI](/cli/azure), sağlar `--gitrepo-url` ve `--gitrepo-mount-path` parametreleri [az kapsayıcı oluşturma] [ az-container-create] komutu. İsteğe bağlı olarak içine kopyalamak için birimin içindeki dizin belirtebilirsiniz (`--gitrepo-dir`) ve düzeltme kopyalamak için işleme Karması (`--gitrepo-revision`).
+Container Instances ile dağıttığınızda bir gitRepo birimi bağlamak için [Azure CLI](/cli/azure), sağlar `--gitrepo-url` ve `--gitrepo-mount-path` parametreleri [az kapsayıcı oluşturma][az-container-create] komutu. İsteğe bağlı olarak içine kopyalamak için birimin içindeki dizin belirtebilirsiniz (`--gitrepo-dir`) ve düzeltme kopyalamak için işleme Karması (`--gitrepo-revision`).
 
-Microsoft bu örnek komut klonlar [aci-helloworld] [ aci-helloworld] örnek uygulamaya `/mnt/aci-helloworld` kapsayıcı örneğinde:
+Microsoft bu örnek komut klonlar [aci-helloworld][aci-helloworld] örnek uygulamaya `/mnt/aci-helloworld` kapsayıcı örneğinde:
 
 ```azurecli-interactive
 az container create \
@@ -50,7 +50,7 @@ az container create \
     --gitrepo-mount-path /mnt/aci-helloworld
 ```
 
-GitRepo birimin takılı doğrulamak için kapsayıcı ile shell'de başlatma [az container exec] [ az-container-exec] ve dizin listesinde:
+GitRepo birimin takılı doğrulamak için kapsayıcı ile shell'de başlatma [az container exec][az-container-exec] ve dizin listesinde:
 
 ```console
 $ az container exec --resource-group myResourceGroup --name hellogitrepo --exec-command /bin/sh

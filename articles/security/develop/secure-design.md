@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b637f547de06d9347a1c74ad7da560be97f16881
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 12b9793cabb261368c437bd2ae2dbb39cf078bef
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144444"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653291"
 ---
 # <a name="design-secure-applications-on-azure"></a>Azure'da güvenli uygulamalar tasarlama
 Bu makalede güvenlik etkinliklerini ve bulut için uygulamalar tasarlarken dikkate alınması gereken denetimler sunar. Kaynakların yanı sıra güvenlik sorularını ve sırasında gereksinimlerini dikkate alın ve Microsoft aşamaları tasarım kavramları eğitim [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) ele alınmaktadır. Etkinlikleri ve daha güvenli bir uygulama tasarlamak için kullanabileceğiniz Azure Hizmetleri tanımlamanıza yardımcı olmaktır.
@@ -39,7 +39,7 @@ Azure ile ilgili en iyi güvenlik uygulamaları ve geliştiricilere sunulan Azur
 
   - [SDK'lar ve Araçlar](https://docs.microsoft.com/azure/index#pivot=sdkstools) Azure'da kullanılabilen araçları açıklar.
 
-  - [Azure DevOps hizmetleriyle](https://docs.microsoft.com/azure/devops/?view=vsts#pivot=index&panel=indexA) geliştirme işbirliği araçları sağlar. Yüksek performanslı işlem hatları, ücretsiz Git depoları, sağlanan yapılandırılabilir Kanban panoları ve kapsamlı otomatik ve bulut tabanlı yük testi araçları içerir.
+  - [Azure DevOps hizmetleriyle](https://docs.microsoft.com/azure/devops/) geliştirme işbirliği araçları sağlar. Yüksek performanslı işlem hatları, ücretsiz Git depoları, sağlanan yapılandırılabilir Kanban panoları ve kapsamlı otomatik ve bulut tabanlı yük testi araçları içerir.
     [DevOps Kaynak Merkezi](https://docs.microsoft.com/azure/devops/learn/) için DevOps uygulamaları, Git sürüm denetimi, çevik yöntemler, nasıl Microsoft'ta DevOps ile çalışıyoruz ve nasıl kendi DevOps ilerleme değerlendirebilirsiniz öğrenme kaynaklarımızın birleştirir.
 
   - [İlk 5 güvenlik öğe üretime göndermeden önce dikkate alınması gereken](https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca) azure'da web uygulamalarınızı güvenli ve uygulamalarınızı en yaygın ve tehlikeli web uygulama saldırılarına karşı korumaya yardımcı olmak nasıl gösterir.
@@ -152,12 +152,12 @@ Uygulama tasarımını modelleme ve numaralandırma [STRIDE](https://docs.google
 
 | Tehdit | Güvenlik özelliği | Olası Azure platformu azaltma |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Kimlik sahtekarlığı               | Kimlik Doğrulaması        | [HTTPS bağlantılarına ihtiyacınız](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
+| Kimlik sahtekarlığı               | Authentication        | [HTTPS bağlantılarına ihtiyacınız](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Kurcalama              | Bütünlük             | SSL/TLS sertifikalarıyla doğrulayın. SSL/TLS kullanan uygulamaları, tam olarak bağlandıkları varlıkları X.509 sertifikaları doğrulamanız gerekir. Azure Key Vault sertifikalarınız [, x509 yönetme sertifikaları](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates). |
 | Red            | İnkar       | Azure'ı etkinleştirme [izleme ve tanılama](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).|
 | Bilgilerin Açığa Çıkması | Gizliliği       | Hassas verileri şifrelemek [bekleyen](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) ve [Aktarımdaki](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit). |
 | Hizmet Reddi      | Kullanılabilirlik          | Hizmet Koşulları olası engelleme için performans ölçümlerini izleyin. Bağlantı filtreleri uygulayın. [Azure DDoS koruması](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview#next-steps), uygulama tasarım en iyi yöntemleri ile birlikte, DDoS saldırılarına karşı koruma sağlar.|
-| Ayrıcalık Yükseltme | Yetkilendirme         | Azure Active Directory kullanan <span class="underline"> </span> [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure).|
+| Ayrıcalık Yükseltme | Authorization         | Azure Active Directory kullanan <span class="underline"> </span> [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure).|
 
 ### <a name="reduce-your-attack-surface"></a>Saldırı yüzeyinizi azaltmak
 

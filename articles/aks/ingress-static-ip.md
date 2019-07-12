@@ -2,23 +2,23 @@
 title: Bir HTTP giriş denetleyicisine statik bir IP adresi Azure Kubernetes Service (AKS) ile oluşturun
 description: Yükleme ve bir NGINX giriş denetleyicisine Azure Kubernetes Service (AKS) kümesini bir statik genel IP adresi ile yapılandırma hakkında bilgi edinin.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.author: iainfou
-ms.openlocfilehash: 94822c37d6f95bacd1aef36a72176c65c350383f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 5a4a46b8384da46a95ef148bc9989749535ec811
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431017"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615327"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Bir statik genel IP adresiyle Azure Kubernetes Service (AKS) giriş denetleyicisini oluşturma
 
 Giriş denetleyicisine ters proxy, yapılandırılabilir bir trafik yönlendirme ve TLS sonlandırma Kubernetes hizmetleri sağlayan bir yazılım parçasıdır. Kubernetes giriş kaynakları, giriş kuralları ve rotaları için her bir Kubernetes hizmeti yapılandırmak için kullanılır. Giriş denetleyicisine ve giriş kuralları kullanarak, tek bir IP adresi için bir Kubernetes kümesinde birden çok hizmet trafiği yönlendirmek için kullanılabilir.
 
-Bu makalede nasıl dağıtılacağı gösterilir [NGINX giriş denetleyicisine] [ nginx-ingress] Azure Kubernetes Service (AKS) kümesi içinde. Giriş denetleyicisine statik bir genel IP adresi ile yapılandırılır. [Sertifika Yöneticisi] [ cert-manager] proje otomatik olarak oluşturmak ve yapılandırmak için kullanılan [şimdi şifrelemek] [ lets-encrypt] sertifikaları. Son olarak, iki uygulama, her biri tek bir IP adresi erişilebilir, bir AKS kümesinde çalıştırılır.
+Bu makalede nasıl dağıtılacağı gösterilir [NGINX giriş denetleyicisine][nginx-ingress] in an Azure Kubernetes Service (AKS) cluster. The ingress controller is configured with a static public IP address. The [cert-manager][cert-manager] proje otomatik olarak oluşturmak ve yapılandırmak için kullanılan [şimdi şifrelemek][sağlar-şifreleme]sertifikaları. Son olarak, iki uygulama, her biri tek bir IP adresi erişilebilir, bir AKS kümesinde çalıştırılır.
 
 Aşağıdakileri de yapabilirsiniz:
 
@@ -29,23 +29,23 @@ Aşağıdakileri de yapabilirsiniz:
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak] [ aks-quickstart-cli] veya [Azure portalını kullanarak][aks-quickstart-portal].
+Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-Bu makalede, NGINX giriş denetleyicisine, Sertifika Yöneticisi ve örnek bir web uygulamasını yüklemek için Helm kullanır. AKS kümenizi içinde başlatılan ve bir hizmet hesabı için Tiller kullanarak Helm olması gerekir. Helm en son sürümünü kullandığınızdan emin olun. Yükseltme yönergeleri için bkz. [Helm yükleme docs][helm-install]. Yapılandırma ve Helm kullanma hakkında daha fazla bilgi için bkz. [Azure Kubernetes Service (AKS) Helm ile uygulamaları yükleme][use-helm].
+Bu makalede, NGINX giriş denetleyicisine, Sertifika Yöneticisi ve örnek bir web uygulamasını yüklemek için Helm kullanır. AKS kümenizi içinde başlatılan ve bir hizmet hesabı için Tiller kullanarak Helm olması gerekir. Helm en son sürümünü kullandığınızdan emin olun. Yükseltme yönergeleri için bkz. [Helm yükleme docs][helm-install]. For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm].
 
-Bu makalede, ayrıca Azure CLI Sürüm 2.0.64 çalıştırdığınız gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
+Bu makalede, ayrıca Azure CLI Sürüm 2.0.64 çalıştırdığınız gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme][azure-cli-install].
 
 ## <a name="create-an-ingress-controller"></a>Bir giriş denetleyicisini oluşturma
 
 Varsayılan olarak, bir NGINX giriş denetleyicisine ile yeni ortak IP adresi ataması oluşturulur. Bu genel IP adresi-ömrü giriş denetleyicisine için yalnızca statik bir değer ve denetleyiciye silinip yeniden oluşturulması durumunda kaybolur. Ortak bir yapılandırma gereksinimi, var olan bir statik genel IP adresini NGINX giriş denetleyicisine sağlamaktır. Giriş denetleyicisine silinirse statik genel IP adresini kalır. Bu yaklaşım, var olan DNS kayıtlarını ve ağ yapılandırmaları uygulamalarınızın yaşam döngüsü boyunca tutarlı bir şekilde kullanmanıza olanak sağlar.
 
-Statik genel IP adresi oluşturmanız gerekiyorsa, ilk kaynak grubu adını kullanarak AKS kümesiyle alın [az aks show] [ az-aks-show] komutu:
+Statik genel IP adresi oluşturmanız gerekiyorsa, ilk kaynak grubu adını kullanarak AKS kümesiyle alın [az aks show][az-aks-show] komutu:
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 ```
 
-Ardından, bir genel IP adresiyle oluşturun *statik* ayırma yöntemiyle [az network public-IP oluşturma] [ az-network-public-ip-create] komutu. Aşağıdaki örnekte adlı bir genel IP adresi oluşturur *myAKSPublicIP* AKS kümesi önceki adımda elde edilen kaynak grubu:
+Ardından, bir genel IP adresiyle oluşturun *statik* ayırma yöntemiyle [az network public-IP oluşturma][az-network-public-ip-create] komutu. Aşağıdaki örnekte adlı bir genel IP adresi oluşturur *myAKSPublicIP* AKS kümesi önceki adımda elde edilen kaynak grubu:
 
 ```azurecli-interactive
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static --query publicIp.ipAddress -o tsv
@@ -59,7 +59,7 @@ Giriş denetleyicisine ayrıca Linux düğümde zamanlanması gerekir. Windows S
 > Aşağıdaki örnek, bir Kubernetes ad alanı adlı giriş kaynakları oluşturur *giriş temel*. Bir ad alanı, kendi ortamınız için gerektiği şekilde belirtin. AKS kümenizi RBAC etkin değilse, ekleme `--set rbac.create=false` Helm komutlar.
 
 > [!TIP]
-> Etkinleştirmek istiyorsanız, [istemci kaynak IP korunması] [ client-source-ip] kümenizde kapsayıcıları istekleri için ekleme `--set controller.service.externalTrafficPolicy=Local` için Helm install komutu. IP istek üst bilgisi altında depolanan istemci kaynak *X-iletilen-için*. Giriş denetleyicisine istemci kaynak IP koruma etkin ile kullanırken SSL doğrudan çalışmaz.
+> Etkinleştirmek istiyorsanız, [istemci kaynak IP korunması][client-source-ip] kümenizde kapsayıcıları istekleri için ekleme `--set controller.service.externalTrafficPolicy=Local` için Helm install komutu. IP istek üst bilgisi altında depolanan istemci kaynak *X-iletilen-için*. Giriş denetleyicisine istemci kaynak IP koruma etkin ile kullanırken SSL doğrudan çalışmaz.
 
 ```console
 # Create a namespace for your ingress resources
@@ -110,7 +110,7 @@ Giriş denetleyicisine şimdi FQDN'si erişilebilir.
 
 ## <a name="install-cert-manager"></a>Sertifika Yöneticisi'ni yükleyin
 
-NGINX giriş denetleyicisine TLS sonlandırma destekler. Almak ve HTTPS için sertifikaları yapılandırmanız için birkaç yolu vardır. Bu makalede kullanmayı gösterir [Sertifika Yöneticisi][cert-manager], otomatik sağlayan [sağlar şifrelemek] [ lets-encrypt] sertifika oluşturma ve Yönetim işlevselliği.
+NGINX giriş denetleyicisine TLS sonlandırma destekler. Almak ve HTTPS için sertifikaları yapılandırmanız için birkaç yolu vardır. Bu makalede kullanmayı gösterir [Sertifika Yöneticisi][cert-manager] , which provides automatic [Lets Encrypt][lets-encrypt] sertifika oluşturma ve yönetim işlevselliği.
 
 > [!NOTE]
 > Bu makalede `staging` şimdi şifrelemek için ortamı. Üretim dağıtımında kullanmak `letsencrypt-prod` ve `https://acme-v02.api.letsencrypt.org/directory` kaynak tanımlarında ve Helm grafiği yüklerken.
@@ -145,7 +145,7 @@ Sertifika Yöneticisi yapılandırma hakkında daha fazla bilgi için bkz. [Sert
 
 ## <a name="create-a-ca-cluster-issuer"></a>Veren CA küme oluşturma
 
-Sertifika Yöneticisi sertifika verilmeden önce gerektiren bir [veren] [ cert-manager-issuer] veya [ClusterIssuer] [ cert-manager-cluster-issuer] kaynak. Bu Kubernetes kaynakları işlevselliği, ancak özdeş `Issuer` tek bir ad alanında çalışır ve `ClusterIssuer` tüm ad alanları geneline çalışır. Daha fazla bilgi için [Sertifika Yöneticisi veren] [ cert-manager-issuer] belgeleri.
+Sertifika Yöneticisi sertifika verilmeden önce gerektiren bir [veren][cert-manager-issuer] or [ClusterIssuer][cert-manager-cluster-issuer] kaynak. Bu Kubernetes kaynakları işlevselliği, ancak özdeş `Issuer` tek bir ad alanında çalışır ve `ClusterIssuer` tüm ad alanları geneline çalışır. Daha fazla bilgi için [Sertifika Yöneticisi veren][cert-manager-issuer] belgeleri.
 
 Bir küme veren gibi oluşturma `cluster-issuer.yaml`, aşağıdaki örnekte bildirimi kullanarak. Kuruluşunuzun geçerli bir adresten e-posta adresiyle güncelleştirme:
 

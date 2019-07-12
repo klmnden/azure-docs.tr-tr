@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 61537a4cb8ca1e6e98f2fa04959861eb03480fe9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0b9b59ec09445a170d1f93181c2b432eafb60bf
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61474881"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839976"
 ---
 # <a name="view-a-maintenance-schedule"></a>Bakım zamanlaması görüntüleyin 
 
@@ -27,7 +27,7 @@ Veri ambarınıza uygulanan bakım zamanlaması görüntülemek için aşağıda
 
 1.  [Azure Portal](https://portal.azure.com/) oturum açın.
 2.  Görüntülemek istediğiniz veri ambarı'nı seçin. 
-3.  Seçili veri ambarı genel bakış dikey penceresinde açılır. Veri ambarı'na uygulanan bakım zamanlaması altında görünen **bakım zamanlaması (Önizleme)** .
+3.  Seçili veri ambarı genel bakış dikey penceresinde açılır. Veri ambarı'na uygulanan bakım zamanlaması altında görünen **bakım zamanlaması**.
 
 ![Genel Bakış dikey penceresi](media/sql-data-warehouse-maintenance-scheduling/clear-overview-blade.PNG)
 

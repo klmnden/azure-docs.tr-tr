@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ca4e343ea4774bbe4ff992ad671575b150b3c045
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8dac6f38052f176c7a3741a664e174d0a66cbc5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65890971"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612692"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>V3 API'ler Media Services ile geliştirme
 
@@ -99,7 +99,6 @@ Media Services, aşağıdaki uzun süre çalışan işlemler bulunur:
 * StreamingEndpoint Başlat
 * StreamingEndpoint Durdur
 * Ölçek StreamingEndpoint
-
 
 ## <a name="sdks"></a>SDK’lar
 

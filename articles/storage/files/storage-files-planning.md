@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6506a93914cfbc10f37980c4b916a93aa9aad75d
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 28487397cbfe70a64b3c403039d7f38270e04dca
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67564413"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827049"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Dosyaları dağıtımı planlama
 
@@ -210,10 +210,20 @@ Standart dosya paylaşımları 5 TiB kadar tüm bölgelerde kullanılabilir. Bel
 |Batı Avrupa     |LRS|Hayır         |
 |Batı ABD 2     |LRS, ZRS|Hayır         |
 
+Yeni bölgeler ve özellikleri belirlememize yardımcı olmak için lütfen bu doldurun [anket](https://aka.ms/azurefilesatscalesurvey).
 
 ### <a name="steps-to-onboard"></a>Adımları eklemek için
 
-Aboneliğinize daha büyük dosya paylaşımları önizlemesi kaydetmek için aşağıdaki PowerShell komutlarını çalıştırın:
+Aboneliğinize daha büyük dosya paylaşımları önizlemesi kaydetmek için Azure PowerShell kullanmanız gerekir. Kullanabilir [Azure Cloud Shell](https://shell.azure.com/) veya yükleme [yerel olarak Azure PowerShell Modülü](https://docs.microsoft.com/powershell/azure/install-Az-ps?view=azps-2.4.0) aşağıdaki PowerShell komutlarını çalıştırmak için:
+
+İlk olarak Önizleme aşamasında kaydetmek istediğiniz aboneliği seçili olduğundan emin olun:
+
+```powershell
+$context = Get-AzSubscription -SubscriptionId ...
+Set-AzContext $context
+```
+
+Ardından, aşağıdaki komutları kullanarak önizlemede kaydetme:
 
 ```powershell
 Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage

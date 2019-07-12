@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2018
+ms.date: 07/09/2019
 ms.author: chackdan
-ms.openlocfilehash: bd76658c939496f27bf3751060c18d17968acd15
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6b11a3ba4fbffe1d35b590f2e5c47f19b6fb028c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60386809"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718125"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric kümesi kapasite planlaması konuları
 Herhangi bir üretim dağıtımı için kapasite planlaması önemli bir adımdır. Bu işlemin bir parçası olarak dikkate almanız gereken öğelerden bazıları aşağıda verilmiştir.
@@ -76,9 +76,9 @@ Dayanıklılık katmanı, sanal makinelerinizin temel Azure altyapısıyla sahip
 
 | Dayanıklılık katmanı  | Gerekli en düşük VM sayısı | Desteklenen VM SKU'ları                                                                  | Sanal makine ölçek kümenize yaptığınız güncelleştirmeler                               | Güncelleştirmeleri ve Azure tarafından başlatılan bakım                                                              | 
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Altın             | 5                              | Tek bir müşteriye (örneğin, L32s GS5, G5, DS15_v2, D15_v2) ayrılmış tam düğümlü SKU'ları | Service Fabric kümesi tarafından onaylanmış kadar ertelendi | Önceki hatalardan kurtarmak çoğaltmaları için ek süre vermek amacıyla UD başına 2 saat için duraklatıldı |
-| Gümüş           | 5                              | Sanal makineleri tek çekirdekli veya üzeri                                                        | Service Fabric kümesi tarafından onaylanmış kadar ertelendi | Önemli bir süre boyunca Gecikmeli                                                    |
-| Bronz           | 1                              | Tümü                                                                                | Service Fabric kümesi tarafından Gecikmeli değil           | Önemli bir süre boyunca Gecikmeli                                                    |
+| Gold             | 5                              | Tek bir müşteriye (örneğin, L32s GS5, G5, DS15_v2, D15_v2) ayrılmış tam düğümlü SKU'ları | Service Fabric kümesi tarafından onaylanmış kadar ertelendi | Önceki hatalardan kurtarmak çoğaltmaları için ek süre vermek amacıyla UD başına 2 saat için duraklatıldı |
+| Silver           | 5                              | Sanal makineleri tek çekirdekli veya üzeri en az 50 GB yerel SSD                      | Service Fabric kümesi tarafından onaylanmış kadar ertelendi | Önemli bir süre boyunca Gecikmeli                                                    |
+| Bronz           | 1\.                              | VM en az 50 GB yerel SSD                                              | Service Fabric kümesi tarafından Gecikmeli değil           | Önemli bir süre boyunca Gecikmeli                                                    |
 
 > [!WARNING]
 > Çalışan Bronz dayanıklılığa sahip düğüm türleri elde _ayrıcalıkların olmadığı_. Bu durum bilgisiz iş yüklerinizi etkileyen altyapı işler değil durduruldu veya kaldırılacak geciktirilmiş, hangi iş yüklerinizi etkileyebilecek anlamına gelir. Yalnızca Bronz yalnızca durum bilgisiz iş yükleri çalıştıran düğümü türleri için kullanın. Üretim iş yükleri çalıştıran Silver veya yukarıda önerilir. 
@@ -108,10 +108,10 @@ Silver veya Gold dayanıklılık beklediğiniz ölçek için durum bilgisi olan 
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Düğümü için işletimsel önerileri için silver veya gold dayanıklılık düzeyi ayarlamak yazın.
 
 - Küme ve uygulamalar her zaman durumunun iyi kalmasını sağlamak ve uygulamalar için tüm yanıt emin [hizmet çoğaltması yaşam döngüsü olaylarını](service-fabric-reliable-services-lifecycle.md) (derleme çoğaltma takılmış gibi) zamanında.
-- Değiştirme (Ölçek artırma/azaltma) bir sanal makine SKU'su yapmak için daha güvenli şekilde benimseme: Bir sanal makine ölçek kümesi sanal makine SKU'su değiştirme, doğası gereği güvenli olmayan bir işlemdir ve bu nedenle, mümkünse kaçınılmalıdır. Sık karşılaşılan sorunları önlemek için izlemeniz gereken süreç şöyledir.
+- Değiştirme (Ölçek artırma/azaltma) bir sanal makine SKU'su yapmak için daha güvenli şekilde benimseme: Bir sanal makine ölçek kümesi sanal makine SKU'su değiştirme adımları ve konuları gerektirir. Sık karşılaşılan sorunları önlemek için izlemeniz gereken süreç şöyledir.
     - **Birincil olmayan düğüm türleri için:** Önerilen yeni sanal makine ölçek kümesi oluşturma, yeni sanal makine ölçek kümesi/düğüm türü eklemek ve ardından sıfır olarak teker teker (Bunu yapmak için olan bir düğümü eski sanal makine ölçek kümesi örnek sayısını azaltmak için hizmet yerleştirme kısıtlamasını değiştirme emin düğümlerin kaldırılması kümenin güvenilirlik etkilemez).
-    - **Birincil düğüm türü:** Birincil düğüm türündeki sanal makine SKU'su değiştirmeyin bizim önerilir. Birincil düğüm türü SKU desteklenmiyor değiştiriliyor. Kapasite yeni SKU sebebi, daha fazla örnek eklenmesi önerilir. Bu mümkün değil, yeni küme oluşturma ve [uygulama durumunu geri yükle](service-fabric-reliable-services-backup-restore.md) (varsa) eski kümenizden. Herhangi bir sistem hizmet durumunu geri yüklemek gerekmez, uygulamalarınızı yeni kümenize dağıttığınızda oluşturulur. Durum bilgisiz uygulamaların kümeniz üzerinde çalıştırıyorsanız, uygulamalarınızı yeni kümeye dağıtın.  Geri yüklemek için hiçbir şey vardır. Desteklenmeyen bir rotayı ve sanal makine SKU'su değiştirmek istediğiniz karar verirseniz, ardından belgelenir sanal makine ölçek kümesi yeni SKU yansıtacak şekilde Model tanımı. Kümenizi yalnızca bir düğüm türü varsa, daha sonra durum bilgisi olan tüm uygulamalarınızı tüm yanıt emin olun [hizmet çoğaltması yaşam döngüsü olaylarını](service-fabric-reliable-services-lifecycle.md) vakitli ve hizmet çoğaltma yeniden (yapı içinde çoğaltma takılmış gibi) beş dakikadan kısa bir süre (Gümüş dayanıklılık düzeyi için) süresidir. 
-    
+    - **Birincil düğüm türü:** Seçtiğiniz sanal makine SKU'su kapasitede ise ve daha büyük bir VM SKU için değiştirmek istediğiniz kılavuzumuzu izleyin [birincil düğüm türü için dikey ölçeklendirme](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-node-type). 
+
 - En az bir etkin Silver veya Gold dayanıklılık düzeyine sahip tüm sanal makine ölçek kümesi için beş düğüm sayısı korur.
 - Silver veya Gold dayanıklılık düzeyi ile her sanal makine ölçek, Service Fabric kümesi içinde kendi düğüm türüne eşlemeniz gerekir. Birden çok sanal makine ölçek kümeleri, tek bir düğüm türü için eşleme, Service Fabric kümesi ve Azure altyapı arasında koordinasyon gereksinimini olabildiğince düzgün çalışmasını engeller.
 - Rastgele VM örneklerini silmek değil, her zaman sanal makine ölçek kümesi ölçek özelliği aşağı kullanın. Rastgele VM örneklerinin silme işlemi, UD ve FD üzerinden yayılan VM örneğinde dengede değil oluşturma bir olasılığına sahiptir. Bu dengesizliği sistemleri düzgün bir şekilde Yük Dengeleme Hizmeti hizmeti örnekleri çoğaltmaları arasından olanağı olumsuz yönde etkileyebilir.
@@ -141,10 +141,10 @@ Güvenilirlik katmanı seçme öneri aşağıdadır.  Çekirdek düğüm sayıs�
 
 | **Küme düğümleri sayısı** | **Güvenilirlik katmanı** |
 | --- | --- |
-| 1 |Güvenilirlik katmanı parametreyi belirtmezseniz, sistem hesaplar |
+| 1\. |Güvenilirlik katmanı parametreyi belirtmezseniz, sistem hesaplar |
 | 3 |Bronz |
-| 5 veya 6|Gümüş |
-| 7 veya 8 |Altın |
+| 5 veya 6|Silver |
+| 7 veya 8 |Gold |
 | 9 ve üstü |Platinum |
 
 ## <a name="primary-node-type---capacity-guidance"></a>Birincil düğüm türü - Kapasite Kılavuzu
@@ -160,11 +160,11 @@ Küme kapasitesi gereksinimlerini belirlenir olduğundan, kümedeki çalıştır
 Üretim iş yükleri için: 
 
 - Kümelerinize ayrılması önerilir ikincil NodeType uygulamanızı dağıtmak için birincil NodeType sistem hizmetleri ve yerleştirme kısıtlamaları kullanın.
-- Önerilen sanal makine SKU'su, standart D3 veya standart D3_V2 veya en az 14 GB'lık yerel SSD eşdeğerini değerdir.
-- En düşük desteklenen sanal makine SKU'su standart D1 veya standart D1_V2 ya da en az 14 GB'lık yerel SSD eşdeğerini kullanılır. 
-- 14 GB yerel SSD en düşük gereksinimdir. Bizim en az 50 GB önerilir. Özellikle Windows kapsayıcıları ne zaman çalışan, iş yükleriniz için daha büyük disklerin gereklidir. 
+- Önerilen sanal makine SKU'su, standart D2_V2 veya en az 50 GB'lık yerel SSD eşdeğerini değil.
+- En düşük desteklenen sanal makine SKU'su standart_d2_v3 veya standart D1_V2 ya da en az 50 GB'lık yerel SSD eşdeğerini kullanılır. 
+- Bizim en az 50 GB önerilir. Özellikle Windows kapsayıcıları ne zaman çalışan, iş yükleriniz için daha büyük disklerin gereklidir. 
 - Kısmi çekirdek gibi standart A0 VM SKU'ları üretim iş yükleri için desteklenmiyor.
-- Standart A1 SKU, performans nedenleriyle üretim iş yükleri için desteklenmiyor.
+- Bir dizi VM SKU'ları, performans nedenleriyle üretim iş yükleri için desteklenmez.
 - Düşük öncelikli VM'ler desteklenmez.
 
 > [!WARNING]
@@ -182,10 +182,10 @@ Bu nedenle, durum bilgisi olan iş yükleri içinde çalıştırıyorsanız, ür
 
 Üretim iş yükleri için 
 
-- Önerilen sanal makine SKU'su, standart D3 veya standart D3_V2 veya en az 14 GB'lık yerel SSD eşdeğerini değerdir.
-- En düşük desteklenen sanal makine SKU'su standart D1 veya standart D1_V2 ya da en az 14 GB'lık yerel SSD eşdeğerini kullanılır. 
+- Önerilen sanal makine SKU'su, standart D2_V2 veya en az 50 GB'lık yerel SSD eşdeğerini değil.
+- En düşük desteklenen sanal makine SKU'su standart_d2_v3 veya standart D1_V2 ya da en az 50 GB'lık yerel SSD eşdeğerini kullanılır. 
 - Kısmi çekirdek gibi standart A0 VM SKU'ları üretim iş yükleri için desteklenmiyor.
-- Standart A1 SKU, performans nedenleriyle üretim iş yükleri için desteklenmiyor.
+- Bir dizi VM SKU'ları, performans nedenleriyle üretim iş yükleri için desteklenmez.
 
 ## <a name="non-primary-node-type---capacity-guidance-for-stateless-workloads"></a>Olmayan birincil düğüm türü - durum bilgisiz iş yükleri için kapasite Kılavuzu
 
@@ -197,10 +197,10 @@ Bu kılavuz, birincil olmayan düğüm türünde çalışan durum bilgisiz iş y
 
 Üretim iş yükleri için 
 
-- Önerilen sanal makine SKU'su, standart D3 veya standart D3_V2 veya eşdeğer değerdir. 
+- Önerilen sanal makine SKU'su, standart D2_V2 veya eşdeğer değil. 
 - En düşük desteklenen sanal makine SKU'su standart D1 veya standart D1_V2 veya eşdeğer kullanılır. 
 - Kısmi çekirdek gibi standart A0 VM SKU'ları üretim iş yükleri için desteklenmiyor.
-- Standart A1 SKU, performans nedenleriyle üretim iş yükleri için desteklenmiyor.
+- Bir dizi VM SKU'ları, performans nedenleriyle üretim iş yükleri için desteklenmez.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 

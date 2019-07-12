@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 06/12/2019
-ms.openlocfilehash: afa575c9015cbb21386d23101b74456822dfa33c
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 07/05/2019
+ms.openlocfilehash: 5a1a5ea39c9c0ed8973e1ecfa46977d2d06f83e7
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275475"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603619"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL veritabanı sunucusuz (Önizleme)
 
@@ -157,7 +157,7 @@ Yeni bir veritabanı oluşturmak veya bir sunucusuz bilgi işlem katmanı varola
 
    |Hizmet hedef adı|Hizmet katmanı|Donanım oluşturma|En yüksek sanal çekirdekler|
    |---|---|---|---|
-   |GP_S_Gen5_1|Genel Amaçlı|Gen5|1|
+   |GP_S_Gen5_1|Genel Amaçlı|Gen5|1\.|
    |GP_S_Gen5_2|Genel Amaçlı|Gen5|2|
    |GP_S_Gen5_4|Genel Amaçlı|Gen5|4|
 
@@ -166,7 +166,7 @@ Yeni bir veritabanı oluşturmak veya bir sunucusuz bilgi işlem katmanı varola
    |Parametre|Değer seçenekleri|Varsayılan değer|
    |---|---|---|---|
    |En düşük Vcore|Herhangi {0,5, 1, 2, 4}, en çok sanal çekirdek değerini aşmayan|0,5 sanal çekirdek|
-   |Autopause gecikmesi|En az: 360 dakika (6 saat)<br>En fazla: süre 10080 dakikadır (7 gün)<br>Artış: 60 dakika<br>Autopause devre dışı bırak: -1|360 dakika|
+   |Autopause gecikmesi|En az: 60 dakika (1 saat)<br>En fazla: süre 10080 dakikadır (7 gün)<br>Artış: 60 dakika<br>Autopause devre dışı bırak: -1|60 dakika|
 
 > [!NOTE]
 > Mevcut bir veritabanı içine sunucusuz taşımak veya işlem boyutunu değiştirmek için T-SQL kullanarak şu anda desteklenmiyor ancak Azure portal veya PowerShell yapılabilir.
@@ -311,7 +311,7 @@ Bu örnekteki işlem faturada daha kesin bir şekilde aşağıdaki gibi hesaplan
 |Zaman aralığı|saniyede kullanılan sanal çekirdekler|Saniyede kullanılan GB|İşlem boyutu faturalandırılır|Sanal çekirdek saniye süre faturalandırılır|
 |---|---|---|---|---|
 |0:00-1:00|4|9|kullanılan sanal çekirdekler|4 sanal çekirdek * 3600 saniye = 14400 sanal çekirdek saniye|
-|1:00-2:00|1|12|Kullanılan bellek|12 GB * 1/3 * 14400 sanal çekirdek saniye = 3600 saniye|
+|1:00-2:00|1\.|12|Kullanılan bellek|12 GB * 1/3 * 14400 sanal çekirdek saniye = 3600 saniye|
 |2:00-8:00|0|0|Sağlanan en düşük bellek|3 GB * 1/3 * 21600 saniye = 21600 sanal çekirdek saniye|
 |8:00-24:00|0|0|Duraklatılmış faturalandırılırken işlem yok|0 sanal çekirdek saniye|
 |Toplam sanal çekirdek saniye içinde 24 saat olarak faturalandırılır||||50400 sanal çekirdek saniye|

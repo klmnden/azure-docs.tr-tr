@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
-ms.openlocfilehash: 25f9d4e02bcb354acf1c771157622f07c5f4bcc1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba7eca6286a7de6a930819d89470fa9e069b8361
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712812"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839690"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure sanal ağına Container Instances'ı dağıtma
 
@@ -72,9 +72,9 @@ Kapsayıcı grubu için kullandığınız alt ağ yalnızca kapsayıcı grubu i�
 
 ### <a name="network-profile"></a>Ağ profili
 
-Azure kaynakları için ağ yapılandırma şablonu ağ profilidir. Bu kaynak, örneğin, içine, dağıtılması alt ağ için bazı ağ özellikleri belirtir. İlk kez kullandığınızda [az kapsayıcı oluşturma] [ az-container-create] bir kapsayıcı grubu bir alt ağ (ve bir sanal ağ böylece) dağıtmak için komut, Azure sizin için bir ağ profili oluşturur. Ardından bu ağ profili alt ağa gelecekteki dağıtımlar için de kullanabilirsiniz. 
+Azure kaynakları için ağ yapılandırma şablonu ağ profilidir. Bu kaynak, örneğin, içine, dağıtılması alt ağ için bazı ağ özellikleri belirtir. İlk kez kullandığınızda [az kapsayıcı oluşturma][az-container-create] bir kapsayıcı grubu bir alt ağ (ve bir sanal ağ böylece) dağıtmak için komut, Azure sizin için bir ağ profili oluşturur. Ardından bu ağ profili alt ağa gelecekteki dağıtımlar için de kullanabilirsiniz. 
 
-Bir alt ağ için bir kapsayıcı grubu dağıtmak için Resource Manager şablonu, YAML dosyası ya da programlı bir yöntem kullanmak için bir ağ profili tam Resource Manager kaynak Kimliğini sağlamanız gerekir. Kullanarak daha önce oluşturduğunuz bir profili kullanabilirsiniz [az kapsayıcı oluşturma][az-container-create], veya bir Resource Manager şablonu kullanarak profil oluşturma (bkz [şablon örneği](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet) ve [başvuru](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles)). Daha önce oluşturulmuş bir profilini Kimliğini almak için kullanın [az ağ profili listesi] [ az-network-profile-list] komutu. 
+Bir alt ağ için bir kapsayıcı grubu dağıtmak için Resource Manager şablonu, YAML dosyası ya da programlı bir yöntem kullanmak için bir ağ profili tam Resource Manager kaynak Kimliğini sağlamanız gerekir. Kullanarak daha önce oluşturduğunuz bir profili kullanabilirsiniz [az kapsayıcı oluşturma][az-container-create], veya bir Resource Manager şablonu kullanarak profil oluşturma (bkz [şablon örneği](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet) ve [başvuru](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles)). Daha önce oluşturulmuş bir profilini Kimliğini almak için kullanın [az ağ profili listesi][az-network-profile-list] komutu. 
 
 Aşağıdaki diyagramda, birkaç kapsayıcı grupları, Azure Container Instances'a temsilci bir alt ağa dağıtıldığı. Bir alt ağ için bir kapsayıcı grubunu dağıttıktan sonra ek kapsayıcı grubu için aynı ağ profili belirterek dağıtabilirsiniz.
 
@@ -82,7 +82,7 @@ Aşağıdaki diyagramda, birkaç kapsayıcı grupları, Azure Container Instance
 
 ## <a name="deployment-scenarios"></a>Dağıtım senaryoları
 
-Kullanabileceğiniz [az kapsayıcı oluşturma] [ az-container-create] yeni bir sanal ağa kapsayıcılı grupları dağıtma ve sizin için gerekli ağ kaynakları oluşturma veya mevcut bir sanal ağa dağıtmak Azure izin vermek için. 
+Kullanabileceğiniz [az kapsayıcı oluşturma][az-container-create] yeni bir sanal ağa kapsayıcılı grupları dağıtma ve sizin için gerekli ağ kaynakları oluşturma veya mevcut bir sanal ağa dağıtmak Azure izin vermek için. 
 
 ### <a name="new-virtual-network"></a>Yeni sanal ağ
 
@@ -102,7 +102,7 @@ Bu yöntemle ilk kapsayıcı grubunuzun dağıttıktan sonra sanal ağ ve alt a�
 Bir sanal ağınız için bir kapsayıcı grubu dağıtmak için:
 
 1. Mevcut sanal ağınızdaki bir alt ağ oluşturun veya var olan bir alt ağdan boş *tüm* diğer kaynaklar
-1. Bir kapsayıcı grubu dağıtma [az kapsayıcı oluşturma] [ az-container-create] ve aşağıdakilerden birini belirtin:
+1. Bir kapsayıcı grubu dağıtma [az kapsayıcı oluşturma][az-container-create] ve aşağıdakilerden birini belirtin:
    * Sanal ağ adını ve alt ağ adı
    * Sanal ağ kaynağı kimliği ve sanal ağdan farklı bir kaynak grubu kullanarak alt ağ kaynak kimliği
    * Ağ profili adını veya Kimliğini kullanarak elde edebilirsiniz [az ağ profili listesi][az-network-profile-list]
@@ -117,7 +117,7 @@ Aşağıdaki bölümlerde, sanal ağ Azure CLI ile kapsayıcı grupları dağıt
 
 İlk olarak, bir kapsayıcı grubuna dağıtın ve yeni sanal ağ ve alt ağ için parametreleri belirtin. Bu parametreleri belirttiğinizde, Azure sanal ağı ve alt ağ oluşturur, alt ağ ile Azure Container Instances temsilcilerini ve ayrıca bir ağ profili oluşturur. Bu kaynaklar oluşturulduktan sonra kapsayıcı grubunuzun alt ağa dağıtılır.
 
-Aşağıdaki komutu çalıştırın [az kapsayıcı oluşturma] [ az-container-create] yeni sanal ağ ve alt ağ ayarlarını belirten komutu. Bir bölgede oluşturulan bir kaynak grubu adı sağlamanız gereken, [destekler](#preview-limitations) kapsayıcı grupları bir sanal ağ içinde. Bu komutu, genel Microsoft dağıtır [aci-helloworld][aci-helloworld] statik bir web sayfasına hizmet veren küçük bir Node.js Web sunucusu çalıştıran bir kapsayıcı. Sonraki bölümde, aynı alt ağa ikinci bir kapsayıcı grubu dağıtın ve iki kapsayıcı örnekleri arasında iletişimi test etme.
+Aşağıdaki komutu çalıştırın [az kapsayıcı oluşturma][az-container-create] yeni sanal ağ ve alt ağ ayarlarını belirten komutu. Bir bölgede oluşturulan bir kaynak grubu adı sağlamanız gereken, [destekler](#preview-limitations) kapsayıcı grupları bir sanal ağ içinde. Bu komutu, genel Microsoft dağıtır [aci-helloworld][aci-helloworld] statik bir web sayfasına hizmet veren küçük bir Node.js Web sunucusu çalıştıran bir kapsayıcı. Sonraki bölümde, aynı alt ağa ikinci bir kapsayıcı grubu dağıtın ve iki kapsayıcı örnekleri arasında iletişimi test etme.
 
 ```azurecli
 az container create \
@@ -190,7 +190,7 @@ Ayrıca, bir YAML dosyası kullanarak bir kapsayıcı grubu mevcut bir sanal ağ
 * `networkProfile`: Bir Azure kaynağı için alt ağ ve sanal ağ gibi ağ ayarlarını belirtir.
   * `id`: Tam Resource Manager kaynak kimliği `networkProfile`.
 
-Kapsayıcı grubu, bir YAML dosyası ile bir sanal ağa dağıtmak için önce ağ profilini Kimliğini almanız gerekir. Yürütme [az ağ profili listesi] [ az-network-profile-list] sanal ağınız ile temsil edilen alt ağ içeren kaynak grubunun adını belirterek komutu.
+Kapsayıcı grubu, bir YAML dosyası ile bir sanal ağa dağıtmak için önce ağ profilini Kimliğini almanız gerekir. Yürütme [az ağ profili listesi][az-network-profile-list] sanal ağınız ile temsil edilen alt ağ içeren kaynak grubunun adını belirterek komutu.
 
 ``` azurecli
 az network profile list --resource-group myResourceGroup --query [0].id --output tsv
@@ -234,13 +234,13 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Kapsayıcı grubu dağıtma [az kapsayıcı oluşturma] [ az-container-create] YAML dosyası adını belirterek komutu `--file` parametresi:
+Kapsayıcı grubu dağıtma [az kapsayıcı oluşturma][az-container-create] YAML dosyası adını belirterek komutu `--file` parametresi:
 
 ```azurecli
 az container create --resource-group myResourceGroup --file vnet-deploy-aci.yaml
 ```
 
-Dağıtım tamamlandıktan sonra Çalıştır [az container show] [ az-container-show] komut durumunu görüntülemek için:
+Dağıtım tamamlandıktan sonra Çalıştır [az container show][az-container-show] komut durumunu görüntülemek için:
 
 ```console
 $ az container show --resource-group myResourceGroup --name appcontaineryaml --output table
@@ -279,20 +279,6 @@ NETWORK_PROFILE_ID=$(az network profile list --resource-group $RES_GROUP --query
 
 # Delete the network profile
 az network profile delete --id $NETWORK_PROFILE_ID -y
-
-# Get the service association link (SAL) ID
-# Replace aci-vnet and aci-subnet with your VNet and subnet names in the following commands
-
-SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name aci-vnet --name aci-subnet --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
-
-# Delete the default SAL ID for the subnet
-az resource delete --ids $SAL_ID --api-version 2018-07-01
-
-# Delete the subnet delegation to Azure Container Instances
-az network vnet subnet update --resource-group $RES_GROUP --vnet-name aci-vnet --name aci-subnet --remove delegations 0
-
-# Delete the subnet
-az network vnet subnet delete --resource-group $RES_GROUP --vnet-name aci-vnet --name aci-subnet
 
 # Delete virtual network
 az network vnet delete --resource-group $RES_GROUP --name aci-vnet

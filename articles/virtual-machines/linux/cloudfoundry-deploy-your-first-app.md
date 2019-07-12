@@ -4,7 +4,7 @@ description: Azure'da Cloud Foundry uygulama dağıtma
 services: virtual-machines-linux
 documentationcenter: ''
 author: seanmck
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 keywords: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 5a43ce3f09ce9695fa5add58b52271a46e2a271a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fe510865e687b6a44538627e4ef9025b41416841
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388514"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668340"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Microsoft Azure üzerinde Cloud Foundry için ilk uygulamanızı dağıtma
 
@@ -31,16 +31,16 @@ ms.locfileid: "60388514"
 
 Azure'da Cloud Foundry ortamı oluşturmak için birkaç seçenek vardır:
 
-- Kullanım [Pivotal Cloud Foundry teklif] [ pcf-azuremarketplace] PCF Ops Manager ve Azure hizmet Aracısı'nı içeren standart bir ortam oluşturmak için Azure Market'te. Bulabilirsiniz [tamamlamak yönergeleri] [ pcf-azuremarketplace-pivotaldocs] Market dağıtmak için Pivotal belgelerinde sunar.
+- Kullanım [Pivotal Cloud Foundry teklif][pcf-azuremarketplace] in the Azure Marketplace to create a standard environment that includes PCF Ops Manager and the Azure Service Broker. You can find [complete instructions][pcf-azuremarketplace-pivotaldocs] Market dağıtmak için Pivotal belgelerinde sunar.
 - Özelleştirilmiş bir ortamı tarafından oluşturma [el ile Pivotal Cloud Foundry dağıtma][pcf-custom].
-- [Açık kaynaklı Cloud Foundry paketlerini doğrudan dağıtma] [ oss-cf-bosh] oluşturarak bir [BOSH](https://bosh.io) Direktörü, Cloud Foundry ortamın dağıtımı koordine eden bir VM.
+- [Açık kaynaklı Cloud Foundry paketlerini doğrudan dağıtma][oss-cf-bosh] oluşturarak bir [BOSH](https://bosh.io) Direktörü, Cloud Foundry ortamın dağıtımı koordine eden bir VM.
 
 > [!IMPORTANT] 
 > Azure Market'ten PCF dağıtıyorsanız, SYSTEMDOMAINURL ve ikisi için de Market Dağıtım Kılavuzu'nda açıklanan Pivotal uygulamaları Yöneticisi'ne erişmek için gereken yönetici kimlik bilgilerini not edin. Bu öğreticiyi tamamlamak için gereklidir. Market dağıtımları için SYSTEMDOMAINURL biçimindedir https://system. *IP adresi*. cf.pcfazure.com.
 
 ## <a name="connect-to-the-cloud-controller"></a>Bulut denetleyiciyi bağlama
 
-Bulutu denetleyicisi, Cloud Foundry ortamına dağıtmak ve uygulamaları yönetmek için birincil giriş noktasıdır. Çekirdek bulut denetleyicisi API (CCAPI) REST API, ancak çeşitli araçlar üzerinden erişilebilir. Bu durumda, biz üzerinden etkileşimde [Cloud Foundry CLI][cf-cli]. Linux, MacOS veya Windows üzerinde CLI'yi yükleyebilirsiniz, ancak bu hiç yüklememeyi tercih ederseniz, önceden yüklenmiş kullanılabilir [Azure Cloud Shell][cloudshell-docs].
+Bulutu denetleyicisi, Cloud Foundry ortamına dağıtmak ve uygulamaları yönetmek için birincil giriş noktasıdır. Çekirdek bulut denetleyicisi API (CCAPI) REST API, ancak çeşitli araçlar üzerinden erişilebilir. Bu durumda, biz üzerinden etkileşimde [Cloud Foundry CLI][cf-cli]. You can install the CLI on Linux, MacOS, or Windows, but if you'd prefer not to install it at all, it is available pre-installed in the [Azure Cloud Shell][cloudshell-docs].
 
 Oturum açmak için önüne ekleyin `api` Market dağıtımından elde ettiğiniz SYSTEMDOMAINURL için. Varsayılan dağıtım otomatik olarak imzalanan bir sertifika kullandığından, aynı zamanda içermelidir `skip-ssl-validation` geçin.
 
@@ -113,7 +113,7 @@ Merhaba spring cloud uygulamayı görmek için belirtilen URL'yi tarayıcınızd
 ![Merhaba Spring bulut için varsayılan kullanıcı Arabirimi][hello-spring-cloud-basic]
 
 > [!NOTE] 
-> Sırasında neler olduğu hakkında daha fazla bilgi edinmek için `cf push`, bkz: [uygulamaları nasıl hazırlanır] [ cf-push-docs] Cloud Foundry belgelerinde.
+> Sırasında neler olduğu hakkında daha fazla bilgi edinmek için `cf push`, bkz: [uygulamaları nasıl hazırlanır][cf-push-docs] Cloud Foundry belgelerinde.
 
 ## <a name="view-application-logs"></a>Uygulama günlüklerini görüntüle
 

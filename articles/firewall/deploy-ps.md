@@ -6,12 +6,13 @@ author: vhorne
 ms.service: firewall
 ms.date: 4/10/2019
 ms.author: victorh
-ms.openlocfilehash: 7c30e0aa0ae9735f5d08e1a2c4d6e6d36d778e27
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.openlocfilehash: 4c6ccce493ffb25d7a2237e0d98a2b71b35c92c1
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410237"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620988"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Dağıtma ve Azure Azure PowerShell kullanarak güvenlik duvarı yapılandırma
 
@@ -38,7 +39,7 @@ Bu makalede şunları öğreneceksiniz:
 > * Test amaçlı ağ ortamı oluşturma
 > * Güvenlik duvarı dağıtma
 > * Varsayılan rota oluşturma
-> * Www.google.com erişmesine izin vermek için bir uygulama kuralı yapılandırma
+> * www.google.com erişmesine izin vermek için bir uygulama kuralı yapılandırma
 > * Dış DNS sunucularına erişime izin vermek için ağ kuralı yapılandırma
 > * Güvenlik duvarını test etme
 
@@ -241,7 +242,7 @@ $NIC | Set-AzNetworkInterface
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   Www.google.com isteklerinin başarılı olması gerekir ve www.microsoft.com istekleri başarısız olması. Bu, güvenlik duvarı kurallarınız beklendiği gibi çalışıp çalışmadığını gösterir.
+   www.google.com isteklerinin başarılı olması gerekir ve www.microsoft.com istekleri başarısız olması. Bu, güvenlik duvarı kurallarınız beklendiği gibi çalışıp çalışmadığını gösterir.
 
 Şimdi güvenlik duvarı kuralları çalıştığını doğruladığınıza göre:
 

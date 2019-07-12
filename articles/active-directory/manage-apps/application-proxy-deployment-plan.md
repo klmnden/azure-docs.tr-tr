@@ -7,7 +7,7 @@ author: barbaraselden
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 24429c5596494082b526b9648a1405bc397b9d2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d40c0604f0947abe8d536eafe87545790476a98
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108478"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625541"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Bir Azure AD uygulama ara sunucusu dağıtımını planlama
 
@@ -70,7 +70,8 @@ Yapılandırma ve Azure AD uygulama proxy'si uygulamak için aşağıdaki temel 
 
 * **Ortak sertifika**: Özel etki alanı adları kullanıyorsanız, Microsoft olmayan güvenilir bir sertifika yetkilisi tarafından verilen bir ortak sertifika tedarik gerekir. Kuruluş gereksinimlerinize bağlı olarak bir sertifika alma biraz zaman alabilir ve işlem mümkün olduğunca erken başlangıç önerilir. Azure uygulama proxy'si standardını destekleyen [joker](application-proxy-wildcard.md), veya SAN tabanlı sertifikalar.
 
-* **Etki alanı gereksinimleri**: Kerberos Kısıtlı temsilci (KCD) kullanarak yayımladığınız uygulamalarda çoklu oturum açma bağlayıcı konak yayımlama olan uygulamalarla aynı AD etki alanına etki alanına katılmış olmasını gerektirir. Konuyla ilgili ayrıntılı bilgi için bkz. [KCD için çoklu oturum açma](application-proxy-configure-single-sign-on-with-kcd.md) uygulama ara sunucusu ile. Bağlayıcı hizmeti, yerel sistem bağlamında çalışır ve özel bir kimlik kullanacak şekilde yapılandırılmamalıdır.
+* **Etki alanı gereksinimleri**: Kerberos Kısıtlı temsilci (KCD) kullanarak yayımladığınız uygulamalarda çoklu oturum açma bağlayıcıyı çalıştıran sunucu ve uygulama çalıştıran sunucunun etki alanına katılan ve aynı etki alanında veya güvenilen etki alanlarını bir parçası olduğunu gerektirir.
+Konuyla ilgili ayrıntılı bilgi için bkz. [KCD için çoklu oturum açma](application-proxy-configure-single-sign-on-with-kcd.md) uygulama ara sunucusu ile. Bağlayıcı hizmeti, yerel sistem bağlamında çalışır ve özel bir kimlik kullanacak şekilde yapılandırılmamalıdır.
 
 * **URL'ler için DNS kayıtları**
 

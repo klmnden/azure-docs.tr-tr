@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/21/2018
+ms.date: 07/08/2019
 ms.author: raynew
-ms.openlocfilehash: f7d97866bb3ae895f83fff248ceec2e83dd60bf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b447290a6910d144703bb796290908d0fc21b924
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688904"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705129"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Kurtarma Hizmetleri kasalarını izleme ve yönetme
 
@@ -101,7 +101,7 @@ Varsayılan olarak, tüm ayrıntıları dışında **son oluşum zamanı**, rapo
 * Yedekleme öğesi
 * Korumalı sunucu
 * Severity
-* Süre
+* Duration
 * Oluşturma zamanı
 * Durum
 * Son oluşum zamanı
@@ -216,7 +216,7 @@ Korumalı örnek yedekleme Yönetim türü öğesi türüdür. Dört tür vardı
 * Azure Storage
 * Azure iş yükü
 
-#### <a name="operation"></a>İşlem
+#### <a name="operation"></a>Çalışma
 
 Tek bir işlem veya tüm işlemleri görüntüleyebilirsiniz. İki veya üç işlem seçemezsiniz. Kullanılabilir işlemler şunlardır:
 
@@ -260,21 +260,6 @@ Azure'da kullanılan depolama alanına ve yedekleme depolama alanı kutucuk Pano
 * Kasayla ilişkili bulut LRS depolama kullanımı
 * Kasayla ilişkili bulut GRS depolama kullanımı
 
-
-## <a name="frequently-asked-questions"></a>Sık sorulan sorular
-
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Azure Yedekleme aracısı iş durumu Portalı'nda yansıtacak şekilde ne kadar sürüyor?
-Azure portalı, Azure Yedekleme aracısı iş durumunu yansıtacak şekilde 15 dakika kadar sürebilir.
-
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Bir yedekleme işi başarısız olduğunda ne kadar uyarı sürer?
-Azure yedekleme hata 20 dakika içinde bir uyarı oluşturulur.
-
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Bildirimler yapılandırıldıysa bir e-posta burada gönderilmez bir servis talebi var mı?
-Evet. Aşağıdaki durumlarda bildirimleri gönderilmez.
-
-* Bildirimleri saatlik yapılandırıldıysa ve bir uyarı oluşturulur ve aynı saat içinde çözülen
-* Ne zaman bir işi iptal edildi
-* İlk yedekleme işi devam ettiğinden, ikinci bir yedekleme işi başarısız olursa
 
 ## <a name="troubleshooting-monitoring-issues"></a>İzleme ile ilgili sorunları giderme
 

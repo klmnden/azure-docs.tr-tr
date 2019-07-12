@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: ed263fec271801ac9c46bbc3125c71ca15b9a330
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8cea4b3fb78f3430fdd92e40552d687501af4be8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153964"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621968"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Azure Depolama için Gelişmiş Tehdit Koruması
 
@@ -111,7 +111,7 @@ Erişmek veya depolama hesapları yararlanmak için sıra dışı ve zararlı ol
 
 ### <a name="anomalous-access-pattern-alerts"></a>Anormal erişim düzeni uyarıları
 
-* **Olağan dışı bir konumdan erişim**: Bir depolama hesabına erişim deseninde değişiklik olduğunda bu uyarı tetiklenir. Örneğin, ne zaman birisi bir depolama hesabı olağan dışı bir coğrafi konumdan eriştiğini.
+* **Olağan dışı bir konumdan erişim**: Bu uyarı, birisi bir depolama hesabı olağan dışı bir coğrafi konumdan eriştiğini durumlarda tetiklenir.
 Olası nedenler:
    * Bir saldırgan, depolama hesabınıza erişme
    * Bir kullanıcının gönderdiğini, depolama hesabınıza yeni bir konumdan eriştiğini
@@ -120,10 +120,16 @@ Olası nedenler:
    * Bir saldırgan, yeni bir uygulama kullanarak depolama hesabınıza eriştiğini.
    * Bir kullanıcının gönderdiğini, depolama hesabınıza erişmek için yeni bir uygulama/tarayıcı kullandı.
 
-* **Anonim erişim**: Bu uyarı, bir depolama hesabına erişim deseninde değişiklik olduğunu belirtir. Örneğin, bu hesap yapıldı (yani herhangi bir kimlik doğrulaması) anonim olarak erişilebilir, beklenmeyen olduğu Bu hesapta en son erişim düzeni ile karşılaştırıldığında.
+* **Anonim erişim**: Bu uyarı, bu hesabı olduğunu belirtir. (yani herhangi bir kimlik doğrulaması) anonim olarak erişilebilir, beklenmeyen olduğu Bu hesapta en son erişim düzeni ile karşılaştırıldığında.
 Olası nedenler:
    * Bir kapsayıcı için genel okuma erişimini saldırgan.
    * Meşru bir kullanıcı veya uygulama bir kapsayıcı için genel okuma erişimini kullandı.
+
+* **Tor Anomali**: Bu uyarı, bu hesap bir Tor (anonymizing proxy) etkin çıkış düğümü olarak bilinen bir IP adresinden başarıyla erişildikten belirtir. Bu uyarının önem derecesini (varsa) kullanılan kimlik doğrulama türü olarak değerlendirir ve olup bu, ilk harf tür erişim.
+Olası nedenler:
+   * Bir saldırgan, Tor kullanarak depolama hesabınıza eriştiğini.
+   * Bir kullanıcının gönderdiğini Tor kullanarak depolama hesabınıza erişme.
+
 
 ### <a name="anomalous-extractupload-alerts"></a>Uyarılar anormal extract/karşıya yükleme
 

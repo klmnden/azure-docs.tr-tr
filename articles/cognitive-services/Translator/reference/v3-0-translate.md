@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: e63670504dedf426829778e154b2d5c2b69d98a0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2b08ddb4241a9af7aee31bb51d75dd82ff8255d2
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435059"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839628"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator metin çevirisi API'si 3.0: Translate
 
@@ -42,7 +42,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
   </tr>
   <tr>
     <td>from</td>
-    <td><em>İsteğe bağlı parametre</em>.<br/>Giriş metninin dilini belirtir. Hangi dillerin bakarak gelen çevirmek kullanılabilir olduğunu bulmak <a href="./v3-0-languages.md">desteklenen diller</a> kullanarak <code>translation</code> kapsam. Varsa <code>from</code> parametresi belirtilmezse, otomatik dil algılama kaynak dili belirlemek için uygulanır.</td>
+    <td><em>İsteğe bağlı parametre</em>.<br/>Giriş metninin dilini belirtir. Hangi dillerin bakarak gelen çevirmek kullanılabilir olduğunu bulmak <a href="./v3-0-languages.md">desteklenen diller</a> kullanarak <code>translation</code> kapsam. Varsa <code>from</code> parametresi belirtilmezse, otomatik dil algılama kaynak dili belirlemek için uygulanır. <br/><br/>Kullanmalısınız <code>from</code> kullanırken intellisense yerine parametre <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dinamik sözlük</a> özelliği.</td>
   </tr>
   <tr>
     <td>-</td>
@@ -101,7 +101,7 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
     <td><em>Gerekli istek üst bilgisi</em>.<br/>Bkz: <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">kimlik doğrulaması için kullanılabilir seçenekler</a>.</td>
   </tr>
   <tr>
-    <td>İçerik türü</td>
+    <td>Content-Type</td>
     <td><em>Gerekli istek üst bilgisi</em>.<br/>Akıştaki içerik türünü belirtir. Olası değerler şunlardır: <code>application/json</code>.</td>
   </tr>
   <tr>
@@ -374,7 +374,7 @@ Kaynak metin küfür varlığını bakılmaksızın çevirisini küfür girmeyi 
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
-  <th>Eylem</th>
+  <th>Action</th>
   <tr>
     <td><code>NoAction</code></td>
     <td>Bu varsayılan davranıştır. Küfür kaynaktan hedefe geçer.<br/><br/>

@@ -4,7 +4,7 @@ description: Linux ve azure'da sanal makineler için güvenlik ve ilkeleri hakk�
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 8e76ab2e0d6dd977ddecfba3fffba6d45c508948
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f884d46db34dda5f3812efb3418bffdf3165941
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61473561"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708321"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Güvenli ve Azure içindeki sanal makinelerde ilkelerini kullanma
 

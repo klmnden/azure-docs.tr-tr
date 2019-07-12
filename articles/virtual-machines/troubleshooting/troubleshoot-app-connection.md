@@ -4,7 +4,7 @@ description: Azure'daki sanal makinelerde çalışan uygulamalara bağlanma soru
 services: virtual-machines
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 keywords: olamaz uygulamasını başlatın, olmaz programını açın, engellenmiş, yüklenemiyor yapılandırılacakları, engellenen bir bağlantı noktası dinleyecek bağlantı noktasını dinleme
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 81535d51617a419174331dbf9b18ea558913dfa9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9bc528cdd098a2e355c542c3ca8f9bcb0287f339
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60922320"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710519"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Azure sanal makinelerinde uygulama bağlantı sorunlarını giderme
 
@@ -37,12 +37,12 @@ Bu makalede herhangi bir noktada daha fazla yardıma ihtiyacınız olursa, üzer
 ## <a name="quick-start-troubleshooting-steps"></a>Hızlı Başlangıç, sorun giderme adımları
 Bir uygulamaya bağlanma konusunda sorunlar varsa, aşağıdaki genel sorun giderme adımlarını deneyin. Her adımdan sonra uygulamanızı yeniden bağlanmayı deneyin:
 
-* Sanal makineyi yeniden başlatın
+* Sanal makineyi yeniden başlatma
 * Uç noktayı yeniden / güvenlik duvarı kurallarını / ağ güvenlik grubu (NSG) kuralları
   * [Resource Manager modeli - ağ güvenlik gruplarını yönetme](../../virtual-network/manage-network-security-group.md)
   * [Klasik model - Cloud Services'ı Yönet uç noktaları](../../cloud-services/cloud-services-enable-communication-role-instances.md)
 * Farklı Azure sanal ağı gibi farklı konumdan bağlanma
-* Sanal makineyi yeniden dağıtın
+* Sanal makineyi yeniden dağıtma
   * [Windows VM yeniden dağıtma](redeploy-to-new-node-windows.md)
   * [Linux VM'yi yeniden dağıtma](redeploy-to-new-node-linux.md)
 * Sanal makine yeniden oluşturun

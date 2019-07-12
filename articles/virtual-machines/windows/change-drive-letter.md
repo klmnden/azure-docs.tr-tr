@@ -4,7 +4,7 @@ description: 'Bir veri sürücüsü olarak D: sürücüsü kullanabilmesi için 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 0867a931-0055-4e31-8403-9b38a3eeb904
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
-ms.openlocfilehash: cfd46d5e9750a81d89ed6d3a79bcc9bffdc3d0dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12986068a761b92611c557a0dfcf08905283b8bd
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60844209"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719245"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Bir Windows VM'de veri sürücüsü olarak D: sürücüsü kullanın.
 Uygulama verilerini depolamak için D sürücüsünü kullanması gerekirse, farklı bir sürücü harfi için geçici diski kullanmak için bu yönergeleri izleyin. Hiçbir zaman çalışır durumda bulundurmanıza gerek verileri depolamak için geçici diski kullanın.

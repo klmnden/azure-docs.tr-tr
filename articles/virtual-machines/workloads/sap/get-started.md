@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/10/2019
+ms.date: 07/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b4ed11b5a0f463afee0dae149820bb546db0c53
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 27e12b5f33f2e3c0024d5caa6a9bee5e9576a45a
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058720"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805822"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Barındırma ve çalıştırma SAP iş yükü senaryoları için Azure'ı kullanın
 
@@ -36,10 +36,12 @@ Azure'da SAP iş yükü senaryoları barındırma kimlik tümleştirmesi ve çok
 
 ## <a name="latest-changes"></a>En son değişiklikleri
 
+- Yayın için yeni kılavuzun [Red Hat Enterprise Server, IBM Db2 HADR](high-availability-guide-rhel-ibm-db2-luw.md)
+- Sürümü [Red Hat Enterprise Linux ile SAP uygulamaları için Azure NetApp dosya çubuğunda SAP NetWeaver için yüksek kullanılabilirlik](high-availability-guide-rhel-netapp-files.md)
 - ExpressRoute hızlı yolu ve Global erişim sunulmasıyla HANA büyük örnekler için [SAP HANA (büyük örnekler) ağ mimarisi](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture) ve ilgili belgeler
 - Sürümü [Azure HANA büyük örnekleri Azure Portalı aracılığıyla denetleme](hana-li-portal.md)
 - Sürümü [SUSE Linux Enterprise Server SAP uygulamaları için Azure NetApp dosya çubuğunda Azure vm'lerinde SAP NetWeaver için yüksek kullanılabilirlik](high-availability-guide-suse-netapp-files.md)
-- Açıklama **Linux işletim sistemi parametresi net.ipv4.tcp_timestamps** ayarları birlikte bir Azure yük dengeleyici
+
 
 
 

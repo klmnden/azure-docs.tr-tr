@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98acc7f6dd5ec7cf3702bbcbe60e2739732512e2
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: c28cf4326593897dcbc90902737fc4846356078d
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67294921"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653394"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk şifrelemesi için Iaas Vm'leri SSS
 
@@ -33,6 +33,10 @@ Azure Disk şifrelemesi ile VM disklerini şifrelemek için bir ücret yoktur, a
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Azure Disk şifrelemesi kullanılarak nasıl başlayabilirsiniz?
 
 Başlamak için okuma [Azure Disk Şifrelemesi'ne genel bakış](azure-security-disk-encryption-overview.md).
+
+## <a name="what-vm-sizes-and-operating-systems-support-azure-disk-encryption"></a>Azure Disk şifrelemesi, hangi sanal makine boyutlarını ve işletim sistemlerini destekler?
+
+[Azure Disk şifrelemesi önkoşulları](azure-security-disk-encryption-prerequisites.md) makale listeleri [VM boyutları](azure-security-disk-encryption-prerequisites.md#supported-vm-sizes) ve [VM işletim sistemleri](azure-security-disk-encryption-prerequisites.md#supported-operating-systems) Azure Disk şifrelemesi desteği.
 
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Ben Azure Disk şifrelemesi ile hem önyükleme hem de veri birimleri şifreleyebilir mi?
 

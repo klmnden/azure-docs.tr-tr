@@ -2,18 +2,18 @@
 title: Azure Kubernetes Hizmeti Tanıtımı
 description: Azure’da kapsayıcı tabanlı uygulamaları dağıtmak ve yönetmek için Azure Kubernetes Hizmetinin özelliklerini ve avantajlarını öğrenin.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: overview
 ms.date: 05/06/2019
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b14e4b452c1dcd92cc3e5447428c28f1d2c5b18e
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5515951a9bde596935f4c603ffd9e088f74dee45
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073825"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615156"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Hizmeti (AKS)
 
@@ -23,7 +23,7 @@ Azure portalda, Azure CLI ile veya Resource Manager şablonları ve Terraform gi
 
 Kubernetes hakkında temel bilgiler hakkında daha fazla bilgi için bkz. [Kubernetes kavramlarını AKS için çekirdek][concepts-clusters-workloads].
 
-Başlamak için, [Azure portalda][aks-portal] veya [ Azure CLI][aks-cli] ile AKS hızlı başlangıcı tamamlayın.
+Başlamak için AKS hızlı başlangıçları tamamlamak [Azure portalında][aks-portal] or [with the Azure CLI][aks-cli].
 
 ## <a name="access-security-and-monitoring"></a>Erişim, güvenlik ve izleme
 
@@ -31,17 +31,17 @@ AKS, gelişmiş güvenlik ve yönetim için, Azure Active Directory ile tümleş
 
 ### <a name="identity-and-security-management"></a>Kimlik ve güvenlik yönetimi
 
-AKS, küme kaynaklarına erişimi sınırlandırmak içi [Kubernetes rol tabanlı erişim denetimini (RBAC)][kubernetes-rbac] desteklemektedir. RBAC, Kubernetes kaynaklarına ve ad alanlarına erişimi ve bu kaynakların izinlerini denetlemenizi sağlar. Bir AKS kümesini Azure Active Directory (AD) ile tümleştirilecek şekilde de yapılandırabilirsiniz. Azure AD tümleştirmesiyle, Kubernetes erişimi var olan kimlik ve grup üyeliklerine göre yapılandırılabilir. Var olan Azure AD kullanıcılarınıza ve gruplarınıza, AKS kaynaklarına erişim hakkı ve tümleşik oturum açma deneyimi sağlanabilir.
+Küme kaynaklarını erişimi sınırlamak için AKS destekler [Kubernetes rol tabanlı erişim denetimi (RBAC)][kubernetes-rbac]. RBAC, Kubernetes kaynaklarına ve ad alanlarına erişimi ve bu kaynakların izinlerini denetlemenizi sağlar. Bir AKS kümesini Azure Active Directory (AD) ile tümleştirilecek şekilde de yapılandırabilirsiniz. Azure AD tümleştirmesiyle, Kubernetes erişimi var olan kimlik ve grup üyeliklerine göre yapılandırılabilir. Var olan Azure AD kullanıcılarınıza ve gruplarınıza, AKS kaynaklarına erişim hakkı ve tümleşik oturum açma deneyimi sağlanabilir.
 
 Kimlik hakkında daha fazla bilgi için bkz. [AKS için erişim ve kimlik seçeneklerini][concepts-identity].
 
-AKS kümelerinizin güvenliğini sağlamak için, bkz. [Azure Active Directory’yi AKS ile Tümleştirme][aks-aad].
+AKS kümelerinizi güvenliğini sağlamak için bkz: [Azure Active Directory Tümleştirme ile AKS][aks-aad].
 
 ### <a name="integrated-logging-and-monitoring"></a>Tümleşik günlüğe kaydetme ve izleme
 
-AKS kümenizin ve dağıtılan uygulamalarınızın nasıl çalıştığını anlamak amacıyla, kapsayıcı sağlık durumunun Azure İzleyici, düğümlerden ve denetleyicilerden bellek ve işlemci ölçümlerini toplar. Kapsayıcı günlükleri kullanıma açıktır ve ayrıca [Kubernetes ana günlüklerini de][aks-master-logs] inceleyebilirsiniz. Bu izleme verileri bir Log Analytics çalışma alanında depolanır ve Azure portalı, Azure CLI veya REST uç noktasından erişilebilir.
+AKS kümenizin ve dağıtılan uygulamalarınızın nasıl çalıştığını anlamak amacıyla, kapsayıcı sağlık durumunun Azure İzleyici, düğümlerden ve denetleyicilerden bellek ve işlemci ölçümlerini toplar. Kapsayıcı günlüklerini kullanılabilir olduğundan ve ayrıca [Kubernetes ana günlüklerini gözden geçirme][aks-master-logs]. Bu izleme verileri bir Log Analytics çalışma alanında depolanır ve Azure portalı, Azure CLI veya REST uç noktasından erişilebilir.
 
-Daha fazla bilgi için bkz. [Azure Kubernetes Hizmeti kapsayıcısı sistem durumunu izleme][container-health].
+Daha fazla bilgi için [Azure Kubernetes hizmeti İzleyici kapsayıcısı durumu][container-health].
 
 ## <a name="clusters-and-nodes"></a>Kümeler ve düğümler
 
@@ -51,19 +51,19 @@ Azure sanal makinelerinde çalışan AKS düğümleri. Depoları düğümlere ve
 
 Kaynaklar için talep değiştikçe, hizmetlerinizi çalıştıran küme düğümleri veya pod’lar otomatik olarak büyüyebilir veya küçülebilir. Yatay pod otomatik ölçeklendiricisini veya küme otomatik ölçeklendiricisini kullanabilirsiniz. Bu ölçeklendirme yaklaşımı AKS kümesinin taleplere otomatik olarak ayarlanmasını ve yalnızca ihtiyaç duyulan kaynakları çalıştırmasını sağlar.
 
-Daha fazla bilgi için bkz.[Azure Kubernetes Service (AKS) kümesini ölçeklendirme][aks-scale].
+Daha fazla bilgi için [Azure Kubernetes Service (AKS) kümesini ölçeklendirme][aks-scale].
 
 ### <a name="cluster-node-upgrades"></a>Küme düğümü yükseltmeleri
 
 Azure Kubernetes Service birden fazla Kubernetes sürümü sunar. Yeni sürümler AKS'de kullanılabilir duruma geldikçe Azure portal veya Azure CLI kullanarak kümenizi yükseltebilirsiniz. Yükseltme işlemi sırasında, çalışan uygulamaların kesintiye uğramasını azaltmak için düğümler dikkatli bir şekilde kordonlanır ve boşaltılır.
 
-Yaşam döngüsü sürümleri hakkında daha fazla bilgi edinmek için, bkz. [AKS’de desteklenen Kubernetes sürümleri][aks-supported versions]. Yükseltmeyle ilgili adımlar için bkz. [Azure Kubernetes Service (AKS) kümesini yükseltme][aks-upgrade].
+Yaşam döngüsü sürümleri hakkında daha fazla bilgi için bkz. [aks'deki Kubernetes desteklenen sürümlerini][aks-supported versions]. For steps on how to upgrade, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
 
 ### <a name="gpu-enabled-nodes"></a>GPU etkin düğümler
 
 AKS, GPU etkin düğüm havuzlarının oluşturulmasını destekler. Azure şu an için tekli veya çoklu GPU etkin VM'ler sunmaktadır. GPU etkin VM'ler işlemci, grafik ve görselleştirme talebi yoğun olan iş yükleri için tasarlanmıştır.
 
-Daha fazla bilgi için bkz. [AKS üzerinde GPU kullanma][aks-gpu].
+Daha fazla bilgi için [AKS üzerinde GPU kullanma][aks-gpu].
 
 ### <a name="storage-volume-support"></a>Depolama birimi desteği
 
@@ -71,7 +71,7 @@ Uygulama iş yüklerini desteklemek isterseniz, kalıcı veriler için depolama 
 
 Daha fazla bilgi için [AKS uygulamalar için Depolama Seçenekleri][concepts-storage].
 
-Kullanarak dinamik kalıcı birimleri ile çalışmaya başlama [Azure diskleri] [ azure-disk] veya [Azure dosyaları][azure-files].
+Kullanarak dinamik kalıcı birimleri ile çalışmaya başlama [Azure diskleri][azure-disk] or [Azure Files][azure-files].
 
 ## <a name="virtual-networks-and-ingress"></a>Sanal ağlar ve giriş
 
@@ -79,29 +79,29 @@ AKS kümesi var olan bir sanal ağa dağıtılabilir. Bu yapılandırmada kümed
 
 Daha fazla bilgi için [kavramları aks'deki uygulamalar için ağ][aks-networking].
 
-Giriş trafiği ile başlamak için, bkz. [HTTP uygulama yönlendirmesi][aks-http-routing].
+Giriş trafiği ile çalışmaya başlamak için bkz. [HTTP uygulama yönlendirme][aks-http-routing].
 
 ### <a name="ingress-with-http-application-routing"></a>HTTP uygulama yönlendirmesiyle giriş
 
 HTTP uygulama yönlendirmesi eklentisi, AKS kümenize dağıtılan uygulamalara daha kolay erişmenizi sağlar. HTTP uygulama yönlendirmesi çözümü etkinleştirildiğinde AKS kümenizde bir giriş denetleyicisi yapılandırır. Uygulamalar dağıtıldığında, genel olarak erişilebilir DNS adları da otomatik olarak yapılandırılır. HTTP uygulama yönlendirmesi, bir DNS bölgesi yapılandırır ve bunu AKS kümesi ile tümleştirilir. Ardından, Kubernetes giriş kaynaklarını normal olarak dağıtabilirsiniz.
 
-Giriş trafiği ile başlamak için, bkz. [HTTP uygulama yönlendirmesi][aks-http-routing].
+Giriş trafiği ile çalışmaya başlamak için bkz. [HTTP uygulama yönlendirme][aks-http-routing].
 
 ## <a name="development-tooling-integration"></a>Geliştirme araçlarıyla tümleştirme
 
 Kubernetes; Helm, Draft ve Visual Studio Code için Kubernetes uzantısı gibi zengin bir geliştirme ve yönetim aracı ekosistemine sahiptir. Bu araçlar, AKS ile sorunsuz bir şekilde çalışır.
 
-Ayrıca Azure Dev Spaces, ekiplere yönelik hızlı ve yinelemeli bir Kubernetes geliştirme deneyimi sunar. Minimum yapılandırma ile AKS içinde kapsayıcıları çalıştırabilir ve kapsayıcıların hatasını ayıklayabilirsiniz. Başlamak için, bkz. [Azure Dev Spaces][azure-dev-spaces].
+Ayrıca Azure Dev Spaces, ekiplere yönelik hızlı ve yinelemeli bir Kubernetes geliştirme deneyimi sunar. Minimum yapılandırma ile AKS içinde kapsayıcıları çalıştırabilir ve kapsayıcıların hatasını ayıklayabilirsiniz. Başlamak için bkz: [Azure geliştirme alanları][azure-dev-spaces].
 
 Azure DevOps projesi, var olan kodunuzu ve Git deponuzu Azure’a taşımanız için kullanımı kolay bir çözüm sunar. DevOps projesi AKS gibi Azure kaynaklarını otomatik olarak oluşturur, CI için derleme işlem hattı içeren bir Azure DevOps Services yayın işlem hattı kurar, CD için yayın işlem hattı oluşturur ve ardından izleme için Azure Application Insights kaynağı oluşturur.
 
-Daha fazla bilgi için bkz. [Azure DevOps projesi][azure-devops].
+Daha fazla bilgi için [Azure DevOps projesi][azure-devops].
 
 ## <a name="docker-image-support-and-private-container-registry"></a>Docker görüntü desteği ve özel kapsayıcı kayıt defteri
 
 AKS, Docker görüntü biçimini destekler. Docker görüntülerinizin özel olarak depolanması için, AKS’yi Azure Container Registry (ACR) ile tümleştirebilirsiniz.
 
-Özel görüntü deposu oluşturmak için, bkz. [Azure Container Registry][acr-docs].
+Özel görüntü deposu oluşturmak için bkz [Azure Container Registry][acr-docs].
 
 ## <a name="kubernetes-certification"></a>Kubernetes sertifikası
 

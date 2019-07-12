@@ -4,16 +4,19 @@ description: Micro odak geliştirme kullanarak IBM z/OS ana iş yüklerinizi yen
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
+ms.author: edprice
 manager: edprice
 editor: edprice
+ms.topic: conceptual
+ms.date: 05/29/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 45d6f8606c665d78783f987c2f2b49a77801639c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de4bdcb14aa1b5aa1f757da7be4db7d93dd13ff0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304597"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620293"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Micro odak Enterprise Server 4.0 ve kurumsal Geliştirici 4.0 Azure'a yükleme
 

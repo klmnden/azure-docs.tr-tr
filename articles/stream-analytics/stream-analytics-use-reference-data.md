@@ -8,16 +8,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: e4a6d169b50eff1b0e166bea098e28e65bad8cab
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: ed50dfd7e3c423c1c26a7dc19ae60dcb319f1850
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329300"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621607"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream analytics'te aramaları için başvuru verilerini kullanma
 
-Başvuru verileri (arama tablosu olarak da bilinir) statik veya yavaş doğası gereği, değişen bir arama gerçekleştirmek için veya veri akışlarınız genişletmek için kullanılan sınırlı bir veri kümesi var. Örneğin, bir IOT senaryosu içinde (Bu genellikle değişmez) algılayıcıları hakkındaki meta verileri içinde başvuru verilerini depolamak ve gerçek zamanlı IOT veri akışları ile katılın. Azure Stream Analytics, düşük gecikme süreli akış işlemesi için bellek başvuru verileri yükler. Yapmak için Azure Stream Analytics işinizi başvuru verilerinde kullanımı, genel olarak kullanacağınız bir [başvuru veri birleştirme](https://msdn.microsoft.com/library/azure/dn949258.aspx) sorgunuzda. 
+Başvuru verileri (arama tablosu olarak da bilinir) statik veya yavaş doğası gereği, değişen bir arama gerçekleştirmek için veya veri akışlarınız genişletmek için kullanılan sınırlı bir veri kümesi var. Örneğin, bir IOT senaryosu içinde (Bu genellikle değişmez) algılayıcıları hakkındaki meta verileri içinde başvuru verilerini depolamak ve gerçek zamanlı IOT veri akışları ile katılın. Azure Stream Analytics, düşük gecikme süreli akış işlemesi için bellek başvuru verileri yükler. Yapmak için Azure Stream Analytics işinizi başvuru verilerinde kullanımı, genel olarak kullanacağınız bir [başvuru veri birleştirme](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) sorgunuzda. 
 
 Stream Analytics Azure Blob Depolama ve Azure SQL veritabanı, başvuru verileri için depolama katmanı olarak destekler. Size ayrıca dönüştürün ve/veya başvuru veri kopyalama Blob depolama alanına kullanmak için Azure Data Factory tarafından [herhangi bir bulut tabanlı sayısı ve şirket içi veri depolarına](../data-factory/copy-activity-overview.md).
 
@@ -72,7 +72,7 @@ Azure Stream Analytics, yenilenmiş bir başvuru veri BLOB için bir dakika aral
 3. Başvuru veri BLOB'ları olan **değil** ancak yalnızca blobun "Son değiştirme" zamana göre sıralı blob'u belirtilen tarih ve saat {date} kullanan adlandırın ve {time} değişimler.
 3. Liste çok sayıda BLOB yapmamaya için çok eski BLOB'ları için artık işlem yapılmayacak silmeden göz önünde bulundurun. Yeniden başlatma gibi bazı senaryolarda küçük bir miktar yeniden işlemek zorunda ASA geçebilir unutmayın.
 
-## <a name="azure-sql-database"></a>Azure SQL Veritabanı
+## <a name="azure-sql-database"></a>Azure SQL Database
 
 Azure SQL veritabanı başvuru verileri, Stream Analytics işi tarafından alınır ve işleme için bellekte bir anlık görüntü olarak depolanır. Başvuru verilerinizin anlık görüntü de yapılandırma ayarlarında belirttiğiniz bir depolama hesabında bir kapsayıcıda depolanır. Kapsayıcı otomatik-iş başlatıldığında oluşturulur. İş durduruldu veya başarısız durumuna girer, iş yeniden başlatıldığında otomatik olarak oluşturulan kapsayıcıları silinir.  
 
@@ -89,10 +89,10 @@ SQL veritabanı başvurusu verilerinizi yapılandırmak için öncelikle oluştu
 |**Özellik adı**|**Açıklama**  |
 |---------|---------|
 |Girdi diğer adı|İşin sorgusunda bu giriş başvurmak için kullanılan bir kolay ad.|
-|Abonelik|Aboneliğinizi seçin|
+|Subscription|Aboneliğinizi seçin|
 |Database|Başvuru verileri Azure SQL veritabanı.|
-|Kullanıcı adı|Azure SQL veritabanı ile ilişkili kullanıcı adı.|
-|Parola|Azure SQL veritabanı ile ilişkili parola.|
+|Kullanıcı Adı|Azure SQL veritabanı ile ilişkili kullanıcı adı.|
+|istemcisiyle yönetilen bir cihaz için)|Azure SQL veritabanı ile ilişkili parola.|
 |Düzenli aralıklarla yenileyin|Bu seçenek, bir yenileme hızını seçmenize olanak tanır. "On" seçme içinde DD:HH:MM yenileme hızı belirtmenize olanak sağlayacak.|
 |Anlık görüntü sorgu|SQL veritabanı'ndan başvuru verilerini alır. varsayılan sorgu seçenek budur.|
 |Delta sorgu|Büyük veri kümeleri ve kısa ile Gelişmiş senaryolar için yenileme hızı, bir delta sorgu eklemek seçin.|
@@ -103,7 +103,7 @@ Stream Analytics, başvuru verileri ile destekler **boyut üst sınırı 300 MB'
 
 |**Akış birimi sayısı**  |**Desteklenen yaklaşık en fazla boyutu (MB)**  |
 |---------|---------|
-|1   |50   |
+|1\.   |50   |
 |3   |150   |
 |6 ve sonraki süreci desteleyen   |300   |
 

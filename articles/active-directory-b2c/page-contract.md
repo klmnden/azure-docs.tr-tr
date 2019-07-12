@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f7098d805b0e3f1527587fc3411cd4c3b234b057
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: c3ee05096b0bfd071ea569105973097ce9727b07
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540382"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604534"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>Özel ilkeleri kullanarak, Azure Active Directory B2C, bir sayfa sözleşme seçin
 
@@ -79,7 +79,7 @@ Sayfa sözleşme paketleri düzenli aralıklarla düzeltmeleri ve geliştirmeler
   - En fazla altı (6) karakter kodu artık yalnızca alır giriş alanı giriş
   - Sayfa 6 rakamlı bir kod girildiğinde, herhangi bir düğmeye tıkladı gerek, girilen kod doğrulamak otomatik olarak çalışacak
   - Kodu daha sonra giriş alanını otomatik olarak temizlenir yanlış ise
-  - Üç (3) denemeden sonra hatalı bir kodu ile bir hata B2C, hizmete geri gönderir.
+  - Üç (3) denemeden sonra hatalı bir kodu ile bir hata B2C, bağlı olan tarafa geri gönderir.
   - Erişilebilirlik düzeltmeleri
   - Varsayılan CSS kaldırıldı
 - Otomatik olarak onaylanan sayfa (selfasserted)

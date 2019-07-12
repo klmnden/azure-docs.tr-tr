@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dc537a631cd083da0f902fb4fcd44d47756eeba
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 9bf8b4d696a3784988a92fc24de1ae6964786e07
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67471765"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836419"
 ---
 # <a name="tutorial-integrate-cisco-webex-with-azure-active-directory"></a>Öğretici: Cisco Webex Azure Active Directory ile tümleştirme
 
@@ -133,13 +133,13 @@ Azure portalında Azure AD SSO'yu etkinleştirmek üzere aşağıdaki adımları
 
 2. Seçin **ayarları** altında **kimlik doğrulaması** bölümünde **Değiştir**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/cisco-spark-tutorial/tutorial_cisco_spark_10.png)
+    ![Çoklu oturum açmayı yapılandırın](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
   
 3. Seçin **3. taraf kimlik sağlayıcısı tümleştirin. (Gelişmiş)**  ve sonraki ekrana gidin.
 
 4. Üzerinde **IDP meta verileri içeri aktarma** sayfasında, ya da sürükle ve bırak sayfaya Azure AD'ye meta veri dosyası veya dosya tarayıcı seçeneğini bulun ve Azure AD meta veri dosyasını karşıya yüklemek için kullanın. Ardından, **meta verileri (daha güvenli) bir sertifika yetkilisi tarafından imzalanmış bir sertifika gerektir** tıklatıp **sonraki**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/cisco-spark-tutorial/tutorial_cisco_spark_11.png)
+    ![Çoklu oturum açmayı yapılandırın](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
 
 5. Seçin **SSO Bağlantıyı Sına**ve yeni bir tarayıcı sekmesi oturum açtığında, oturum açarak Azure AD kimlik doğrulaması.
 
@@ -153,9 +153,9 @@ Bu bölümde, bir test kullanıcısı B.Simon adlı Azure portalında oluşturac
 1. Seçin **yeni kullanıcı** ekranın üstünde.
 1. İçinde **kullanıcı** özellikleri, aşağıdaki adımları izleyin:
    1. **Ad** alanına `B.Simon` girin.  
-   1. İçinde **kullanıcı adı** alanına username@companydomain.extension. Örneğin, `B.Simon@contoso.com`.
+   1. İçinde **kullanıcı adı** alanına username@companydomain.extension. Örneğin: `B.Simon@contoso.com`.
    1. Seçin **Show parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
-   1. **Oluştur**’a tıklayın.
+   1.           **Oluştur**'a tıklayın.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
@@ -182,13 +182,13 @@ Bu bölümde, Britta Simon Cisco Webex adlı bir kullanıcı oluşturun. Bu böl
 
 2. Tıklayın **kullanıcılar** ardından **kullanıcıları yönetme**.
    
-    ![Çoklu oturum açmayı yapılandırın](./media/cisco-spark-tutorial/tutorial_cisco_spark_12.png) 
+    ![Çoklu oturum açmayı yapılandırın](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
 
 3. İçinde **yönetme kullanıcı** penceresinde **el ile eklemek veya kullanıcıları değiştirin** tıklatıp **sonraki**.
 
 4. Seçin **adlarını ve e-posta adresi**. Ardından, metin kutusu aşağıdaki gibi doldurun:
 
-    ![Çoklu oturum açmayı yapılandırın](./media/cisco-spark-tutorial/tutorial_cisco_spark_13.png) 
+    ![Çoklu oturum açmayı yapılandırın](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
 
     a. İçinde **ad** metin adı gibi kullanıcı türü **B**.
 

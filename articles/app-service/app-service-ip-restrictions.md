@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 2b0892fb107827cd9060a36855e9b8bf4416463c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d3c547fbc09aeb034df5b7ed579639e1ff4bc0b4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069427"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705794"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure App Service'e erişim kısıtlamaları #
 
@@ -98,7 +98,7 @@ Uygulama erişimi denetleme olanağına olmaya ek olarak, erişim, uygulamanız 
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Programsal olarak erişim kısıtlama kuralları ##
 
-Şu anda herhangi bir CLI veya PowerShell yeni erişim kısıtlamaları özelliği için olmakla birlikte değerlerini el ile Kaynak Yöneticisi'nde uygulama yapılandırması üzerindeki PUT işlemi sırasında ayarlanabilir. Örneğin, resources.azure.com kullanın ve gerekli JSON eklemek için ipSecurityRestrictions bloğu düzenleyin.
+Şu anda herhangi bir CLI veya PowerShell yeni erişim kısıtlamaları özelliği için olmakla birlikte değerlerini el ile ayarlanabilir bir [Azure REST API'si](https://docs.microsoft.com/rest/api/azure/) Resource Manager'da uygulama yapılandırması üzerindeki PUT işlemi. Örneğin, resources.azure.com kullanın ve gerekli JSON eklemek için ipSecurityRestrictions bloğu düzenleyin.
 
 Bu bilgiler Kaynak Yöneticisi'nde konumudur:
 
@@ -106,15 +106,19 @@ Management.Azure.com/subscriptions/**abonelik kimliği**/resourceGroups/**kaynak
 
 Önceki örnek JSON sözdizimi aşağıdaki gibidir:
 
-    "ipSecurityRestrictions": [
-      {
-        "ipAddress": "131.107.159.0/24",
-        "action": "Allow",
-        "tag": "Default",
-        "priority": 100,
-        "name": "allowed access"
+    {
+      "properties": {
+        "ipSecurityRestrictions": [
+          {
+            "ipAddress": "122.133.144.0/24",
+            "action": "Allow",
+            "tag": "Default",
+            "priority": 100,
+            "name": "IP example rule"
+          }
+        ]
       }
-    ],
+    }
 
 ## <a name="function-app-ip-restrictions"></a>İşlev uygulaması IP kısıtlamaları
 

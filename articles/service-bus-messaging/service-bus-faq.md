@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8461764a3f1f682ffb97420a4efdf2803f518872
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26609e7b21af8804a4b43039c84c04597035721c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707143"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706200"
 ---
 # <a name="service-bus-faq"></a>Hizmet Veri Yolu SSS
 
@@ -86,7 +86,7 @@ Ad alanınız için bölge artıklığı kullanırsanız birkaç ek adımları g
 
 ## <a name="best-practices"></a>En iyi uygulamalar
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Azure Service Bus en iyi yöntemlerden bazıları nelerdir?
-Bkz: [için Service Bus'ı kullanarak performans geliştirme en iyi yöntemler] [ Best practices for performance improvements using Service Bus] – bu makalede, mesaj alışverişleri sırasında performansı iyileştirmek açıklanır.
+Bkz: [için Service Bus'ı kullanarak performans geliştirme en iyi yöntemler][Best practices for performance improvements using Service Bus] – bu makalede, mesaj alışverişleri sırasında performansı iyileştirmek açıklanır.
 
 ### <a name="what-should-i-know-before-creating-entities"></a>Neleri varlık oluşturmadan önce bilmeliyim?
 Bir kuyruk ve konu aşağıdaki özelliklerini sabittir. Varlıklarınızı sağladığınızda yeni değiştirme varlık oluşturmadan bu özellikleri değiştirilemez olarak bu sınırlamayı göz önünde bulundurun.
@@ -134,7 +134,7 @@ Bir abonelikten bir ad alanı sildiğinizde, başka bir Abonelikteki aynı adla 
 Olası Service Bus özel durumları listesi için bkz. [özel durumlar genel bakış][Exceptions overview].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>Bir imza oluşturulurken bir paylaşılan erişim imzası nedir ve hangi dilleri destekliyor?
-Paylaşılan erişim imzaları, SHA-256'yı güvenli karmaları veya URI dayalı bir kimlik doğrulama mekanizmasıdır. Node.js, PHP, Java ve C kendi imzaları üretmek hakkında bilgi için\#, bkz: [paylaşılan erişim imzaları] [ Shared Access Signatures] makalesi.
+Paylaşılan erişim imzaları, SHA-256'yı güvenli karmaları veya URI dayalı bir kimlik doğrulama mekanizmasıdır. Node.js, PHP, Java ve C kendi imzaları üretmek hakkında bilgi için\#, bkz: [paylaşılan erişim imzaları][Shared Access Signatures] makalesi.
 
 ## <a name="subscription-and-namespace-management"></a>Abonelik ve ad alanı yönetimi
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Bir ad alanı için başka bir Azure aboneliğine nasıl geçirebilirim?
@@ -143,7 +143,7 @@ Bir ad alanı bir Azure aboneliğine ait diğerine kullanarak taşıyabilirsiniz
 
 #### <a name="portal"></a>Portal
 
-Service Bus ad alanlarını başka bir aboneliğe geçirme Azure portal'ı kullanmak için yönergeleri izleyin. [burada](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+Service Bus ad alanlarını başka bir aboneliğe geçirme Azure portal'ı kullanmak için yönergeleri izleyin. [burada](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 9a5a2d92f70c411c46ebb4efb35e17e9b0c477ca
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d41b86b902d9a58b144e251e6922fbd95d459031
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67188382"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671187"
 ---
 1. Dapl, rdmacm ibverbs ve mlx4 yükleyin
 
@@ -28,7 +28,7 @@ ms.locfileid: "67188382"
    OS.UpdateRdmaDriver=y
    ```
 
-3. Ekleyebilir veya aşağıdaki /etc/security/limits.conf dosyasında KB bellek ayarlarını değiştirin. Bu dosyayı düzenlemek için kök erişmeniz gerekir. Test amacıyla memlock sınırsız olarak ayarlayabilirsiniz. Örneğin: `<User or group name>   hard    memlock   unlimited`.
+3. Ekleyebilir veya aşağıdaki /etc/security/limits.conf dosyasında KB bellek ayarlarını değiştirin. Bu dosyayı düzenlemek için kök erişmeniz gerekir. Test amacıyla memlock sınırsız olarak ayarlayabilirsiniz. Örneğin: `<User or group name>   hard    memlock   unlimited`
 
    ```
    <User or group name> hard    memlock <memory required for your application in KB>
@@ -44,7 +44,7 @@ ms.locfileid: "67188382"
  
    Yalnızca Intel MPI 5.x çalışma zamanları desteklenir.
  
-   Yükleme adımları için bkz: [Intel MPI kitaplık Yükleme Kılavuzu](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html).
+   Yükleme adımları için bkz: [Intel MPI kitaplık Yükleme Kılavuzu](https://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html).
 
 5. Ptrace (Intel MPI en son sürümleri için gereklidir) kök olmayan hata ayıklayıcı olmayan işlemler için etkinleştirin.
  

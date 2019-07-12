@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9c003ebaed645fcdefb379eb100220ccc2207d82
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 0d9019a6b4a32066480a70f72562bc5a7a9a1e8b
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202972"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797643"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python'da otomatik ML denemeleri yapılandırın
 
@@ -40,7 +40,7 @@ Herhangi bir kod deneyimi tercih ediyorsanız, ayrıca [otomatik, makine öğren
 
 Denemenizi başlamadan önce çözümü machine learning sorun türünü belirlemeniz gerekir. Otomatik machine learning, Sınıflandırma, regresyon ve tahmin görev türlerini destekler.
 
-Otomatik machine learning, otomasyon ve ayarlama işlemi sırasında aşağıdaki algoritmalarını destekler. Bir kullanıcı olarak, algoritma belirtmek gerek yoktur. DNN algoritmaları eğitim sırasında kullanılabilir, ancak otomatik ML DNN modelleri oluşturmaz.
+Otomatik machine learning, otomasyon ve ayarlama işlemi sırasında aşağıdaki algoritmalarını destekler. Bir kullanıcı olarak, algoritma belirtmek gerek yoktur. 
 
 Sınıflandırma | Regresyon | Zaman serilerini tahmin etme
 |-- |-- |--
@@ -372,7 +372,7 @@ Bu 2 kullanmak daha iyi anlamak için ilk adımı, ekrana sığdırılmış mode
 
    Konumlar:
 
-   |Çıktı|Tanım|
+   |Output|Tanım|
    |----|--------|
    |RawFeatureName|Sağlanan dataset adından giriş özelliği/sütun.|
    |TypeDetected|Giriş özellik algılanan veri türü.|

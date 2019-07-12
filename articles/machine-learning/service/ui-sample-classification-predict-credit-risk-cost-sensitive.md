@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: d714756c19b94eafc40cc0dbeffbc07704e8f94e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: efed981b500ff14a66c2355a1d14bd762000622f
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787812"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606155"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>4 - sınıflandırma. örnek: (Maliyet hassas) kredi riskini tahmin
 
@@ -37,7 +37,7 @@ Bu deneme için tamamlanan grafiği aşağıda verilmiştir:
 
     ![Denemeyi açın](media/ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
-## <a name="data"></a>Veriler
+## <a name="data"></a>Data
 
 UC Irvine depodan Almanca kredi kartı veri kümesi kullanıyoruz. Bu veri kümesi 20 özellikleri ve 1 etiket 1.000 örnekleri içerir. Her örnek, bir kişiyi temsil eder. 20 özellikler, sayısal ve kategorik özelliklerini içerir. Bkz: [UCI Web sitesi](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) veri kümesi hakkında daha fazla bilgi. Kredi riski gösterir ve yalnızca iki olası değerler içeren etiket son sütundur: yüksek kredi riski = 2 ve düşük kredi riski = 1.
 
@@ -67,7 +67,7 @@ Ardından, biz eğitim oluşturmak ve riskleri tahmin modeli geliştirmek için 
 Risk küçümsüyor maliyeti yüksek olduğundan, bu gibi misclassification maliyetini ayarlarız:
 
 - Düşük riskli olarak bildireceğinizi yüksek riskli çalışmaları için: 5
-- Yüksek riskli bildireceğinizi düşük riskli çalışmaları için: 1
+- Yüksek riskli bildireceğinizi düşük riskli çalışmaları için: 1.
 
 Bu maliyet işlevi yansıtmak için size yeni bir veri kümesi oluşturur. Yeni veri kümesi, yüksek riskli her örnek beş kez çoğaltılır, ancak düşük riskli örnekleri sayısı değişmez. Eğitim ve test veri kümeleri çoğaltma aynı satırda hem kümelerinde engellemek için önce oturum verileri bölün.
 
@@ -164,3 +164,4 @@ Görsel bir arabirim için kullanılabilir diğer örneklerini keşfedin:
 - [2 - regresyon. örnek: Otomobil fiyat tahmini için algoritmalar karşılaştırın](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [3 - sınıflandırma. örnek: Kredi riskini tahmin](ui-sample-classification-predict-credit-risk-basic.md)
 - [5 - sınıflandırma. örnek: Dalgalanmasını tahmin](ui-sample-classification-predict-churn.md)
+- [Örnek 6 - sınıflandırma: Uçuş gecikme tahmin edin](ui-sample-classification-predict-flight-delay.md)

@@ -6,14 +6,14 @@ manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 1/7/2019
+ms.date: 07/09/2019
 ms.author: v-adgera
-ms.openlocfilehash: 57abb005f70661d23ea90eaf801b8e5407340bb7
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: eca355a51b516311d060df09905c1df769037ec5
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462045"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722846"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Azure dijital İkizlerini API'leri için ortak görevler sorgulama
 
@@ -238,4 +238,4 @@ Bu bölümde Azure dijital İkizlerini kullanıcıları yönetmek için bazı ö
 
 Yönetim API'si ile kimlik doğrulaması yapmayı öğrenmek için [API'leri ile kimlik doğrulaması](./security-authenticating-apis.md).
 
-Tüm API uç noktalarını görmek için okuma [dijital Swagger İkizlerini kullanma](./how-to-use-swagger.md).
+API uç noktalarınızın hakkında daha fazla bilgi edinmek için [dijital Swagger İkizlerini kullanma](./how-to-use-swagger.md).

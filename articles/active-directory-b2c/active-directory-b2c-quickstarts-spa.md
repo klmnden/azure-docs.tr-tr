@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dff1716e8886d1ef72f4d2ad4fbca4bcab86a348
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 47df2cbdf0b083cf672353471d1ef51e03507475
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66509785"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835346"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Hızlı Başlangıç: Azure Active Directory B2C kullanarak bir tek sayfalı uygulama için oturum açma ayarlama
 
@@ -36,7 +36,7 @@ Azure Active Directory (Azure AD) B2C, uygulamanız, işletmeniz ve müşteriler
 
 ## <a name="run-the-application"></a>Uygulamayı çalıştırma
 
-1. Node.js komut isteminde şu komutları çalıştırarak sunucuyu başlatın: 
+1. Node.js komut isteminde şu komutları çalıştırarak sunucuyu başlatın:
 
     ```
     cd active-directory-b2c-javascript-msal-singlepageapp
@@ -50,29 +50,29 @@ Azure Active Directory (Azure AD) B2C, uygulamanız, işletmeniz ve müşteriler
     Listening on port 6420...
     ```
 
-2. Uygulamanın URL'sine göz atın. Örneğin, `http://localhost:6420`.
+2. Uygulamanın URL'sine göz atın. Örneğin: `http://localhost:6420`.
 
 ## <a name="sign-in-using-your-account"></a>Hesabınızı kullanarak oturum açın
 
 1. İş akışını başlatmak için **Oturum aç**'a tıklayın.
 
-    ![Tarayıcıdaki örnek uygulama](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
+    ![Tarayıcıda gösterilen tek sayfalı uygulama örnek uygulaması](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
 
-    Örnek, sosyal kimlik sağlayıcısı kullanma veya bir e-posta adresiyle yerel bir hesap oluşturma da dahil olmak üzere çeşitli kaydolma seçeneklerini destekler. Bu hızlı başlangıç için Facebook’tan, Google’dan, Microsoft’tan veya Twitter’dan bir sosyal kimlik sağlayıcısı hesabı kullanın. 
+    Örnek, sosyal kimlik sağlayıcısı kullanma veya bir e-posta adresiyle yerel bir hesap oluşturma da dahil olmak üzere çeşitli kaydolma seçeneklerini destekler. Bu hızlı başlangıç için Facebook’tan, Google’dan, Microsoft’tan veya Twitter’dan bir sosyal kimlik sağlayıcısı hesabı kullanın.
 
 2. Azure AD B2C, örnek web uygulaması için Wingtip Toys adlı bir kurgusal markaya yönelik özel bir oturum açma sayfası sunar. Sosyal kimlik sağlayıcısı kullanarak kaydolmak için, kullanmak istediğiniz kimlik sağlayıcısının düğmesine tıklayın.
 
-    ![Oturum Açma veya Kaydolma sağlayıcısı](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
+    ![Kimlik sağlayıcısı düğmeleri gösteren oturum açma veya kaydolma sayfası](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
-    Sosyal hesabınızla kimlik bilgileri ve sosyal hesabınızdaki bilgileri okumak için uygulamayı yetkilendirme (oturum açma) kullanarak kimlik doğrulaması. Erişim izni verdiğinizde uygulama sosyal hesabınızdan adınız ve şehriniz gibi profil bilgilerini alabilir. 
+    Sosyal hesabınızla kimlik bilgileri ve sosyal hesabınızdaki bilgileri okumak için uygulamayı yetkilendirme (oturum açma) kullanarak kimlik doğrulaması. Erişim izni verdiğinizde uygulama sosyal hesabınızdan adınız ve şehriniz gibi profil bilgilerini alabilir.
 
 3. Kimlik sağlayıcısına ilişkin oturum açma işlemini tamamlayın.
 
 ## <a name="access-a-protected-api-resource"></a>Korumalı bir API kaynağına erişme
 
-Görünen adınızın Web API’si çağrısından JSON nesnesi olarak döndürülmesi için **Web API’si Çağrısı**'na tıklayın. 
+Görünen adınızın Web API’si çağrısından JSON nesnesi olarak döndürülmesi için **Web API’si Çağrısı**'na tıklayın.
 
-![Web API’si yanıtı](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
+![Tarayıcıda web API yanıtı gösteren örnek uygulaması](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
 
 Örnek tek sayfalı uygulama, korumalı web API’si kaynağına yönelik isteğe bir erişim belirteci ekler.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bd117b79c2d103225e8f1f29b63eb6ae341031d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b4879093ed80a554219b053cc5a2bc895126725
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64917654"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702885"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD parola koruması hakkında sık sorulan sorular şirket içinde
 
@@ -26,7 +26,7 @@ ms.locfileid: "64917654"
 
 Bu konu Microsoft'un geçerli yönergeler aşağıdaki bağlantıda bulunabilir:
 
-[Microsoft parolası Kılavuzu](https://www.microsoft.com/en-us/research/publication/password-guidance)
+[Microsoft parolası Kılavuzu](https://www.microsoft.com/research/publication/password-guidance)
 
 **S: Şirket içi Azure AD parola koruması genel olmayan bulutlarda desteklenir mi?**
 
@@ -43,6 +43,10 @@ Parola kullanıcı yeni bir parola eski parola bilgisine sahip oldukları kanıt
 Yönetici bir hesap parolası ile yeni bir parola, örneğin Active Directory Kullanıcıları ve Bilgisayarları yönetim aracını kullanarak değiştirir (bazen bir parola sıfırlama olarak adlandırılır) bir parola ayarlama andır. Bu işlem bir yüksek düzeydeki ayrıcalıkla (genellikle etki alanı yöneticisi) gerektirir ve genellikle işlemi yapan kişi eski parola bilgilere sahip değildir. Yardım Masası senaryoları genellikle bunu örneği için bir kullanıcı parolasını unutmuş Yardım. Ayrıca, yeni bir kullanıcı hesabı için bir parola ile ilk kez oluşturulduğunda olayları parola ayarlama görürsünüz.
 
 Parola doğrulama ilkesinin bir parola değişikliği veya yapıldığını bağımsız olarak aynı şekilde davranır. Azure AD parola koruması DC Aracı hizmeti bir parola değişikliği olmadığını bildirmek için farklı olayları günlüğe kaydetmez veya set işlemi yapılmadı.  Bkz: [izleme ve günlüğe kaydetme Azure AD parola koruması](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+
+**S: Neden zayıf bir parola ayarlamaya çalışırken oturum yinelenen parola ret olayları Active Directory Kullanıcıları ve Bilgisayarları yönetim ek bileşenini kullanıyor musunuz?**
+
+İlk Active Directory Kullanıcıları ve Bilgisayarları yönetim ek bileşenini Kerberos protokolünü kullanarak yeni parola ayarlamayı deneyecek. Başarısızlık durumunda ek bileşenini (kullanılan belirli protokoller önemli değildir) eski bir (SAM RPC) protokolü kullanarak parolayı ayarlama girişimi ikinci bir hale getirir. Yeni parola Azure AD parola koruması tarafından zayıf kabul ediliyorsa, bu iki parola sıfırlama ret olayların günlüğe kaydedilmesini kümelerinde neden olur.
 
 **S: Azure AD parola koruması parola-filtre tabanlı diğer ürünleri ile yan yana yüklenecek destekleniyor mu?**
 

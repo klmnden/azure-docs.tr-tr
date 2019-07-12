@@ -4,7 +4,7 @@ description: Azure'da genelleştirilmiş VHD yükleme ve yeni sanal makineler Re
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: ee2fe91d915faf7e09dee004891edfc6bef38d6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9846bf7b28f1205f98eb59671553d309fe754d30
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64685411"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707948"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Genelleştirilmiş VHD yükleme ve Azure'da yeni VM'ler oluşturmak için bunu kullanın
 
@@ -109,7 +109,7 @@ Depolama hesabınızı aşağıdaki birini kullanarak bir VHD da karşıya yükl
     İçeri/dışarı aktarma, bir standart depolama hesabına kopyalamak için kullanılabilir. AzCopy gibi bir araç kullanarak standart depolamadan premium depolama hesabına kopyalamak gerekir.
 
 > [!IMPORTANT]
-> VHD'nizi yüklemek için AzCopy kullanıyorsanız ayarladığınızdan emin olun [ **/BlobType:page** ](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) karşıya yükleme betiğinizi çalıştırmadan önce. Hedef blob ise ve bu seçenek belirtilmezse, varsayılan olarak, bir blok blobu AzCopy oluşturur.
+> VHD'nizi yüklemek için AzCopy kullanıyorsanız ayarladığınızdan emin olun [ **/BlobType:page** ](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs#upload-a-file) karşıya yükleme betiğinizi çalıştırmadan önce. Hedef blob ise ve bu seçenek belirtilmezse, varsayılan olarak, bir blok blobu AzCopy oluşturur.
 > 
 > 
 

@@ -5,18 +5,18 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 0203/26/2019
+ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 897f2eef0a52838d6190cb85a6a7f4492250935b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33d7f11842d6f22a86816b590cddd91eaf76ed72
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244848"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607042"
 ---
 # <a name="logs-in-azure-monitor"></a>Azure İzleyici'deki günlükler
 
@@ -76,14 +76,14 @@ Azure İzleyici, çeşitli kaynaklardan hem de azure'daki ve şirket içi kaynak
 
 ### <a name="azure-tenant-and-subscription"></a>Azure kiracısı ve abonelik
 
-| Veriler | Açıklama |
+| Data | Açıklama |
 |:---|:---|
 | Azure Active Directory denetim günlükleri | Her dizin için tanılama ayarları aracılığıyla yapılandırılır. Bkz: [günlükleri Azure İzleyici ile Azure AD tümleştirme günlükleri](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).  |
 | Etkinlik günlükleri | Varsayılan olarak ayrı olarak depolanır ve gerçek zamanlı uyarılar için kullanılabilir. Etkinlik günlüğü analizi çözümü, Log Analytics çalışma alanına yazılacak yükleyin. Bkz: [toplamak ve Log analytics'te Azure etkinlik günlüklerini çözümleme](activity-log-collect.md). |
 
 ### <a name="azure-resources"></a>Azure kaynakları
 
-| Veriler | Açıklama |
+| Data | Açıklama |
 |:---|:---|
 | Kaynak tanılama | Bir Log Analytics çalışma alanı için ölçümler de dahil olmak üzere tanılama verilerini yazmak için tanılama ayarları yapılandırın. Bkz: [Stream Azure tanılama günlükleri Log analytics'e](diagnostic-logs-stream-log-store.md). |
 | İzleme çözümleri | İzleme çözümleri, bunlar toplamak, Log Analytics çalışma alanına veri yazma. Bkz [veri koleksiyonu ayrıntıları Azure yönetim çözümlerine için](../insights/solutions-inventory.md) çözümleri listesi. Bkz: [çözümlerini Azure İzleyici'de izleme](../insights/solutions.md) yükleme ve çözümlerle ilgili ayrıntılar için. |
@@ -92,7 +92,7 @@ Azure İzleyici, çeşitli kaynaklardan hem de azure'daki ve şirket içi kaynak
 
 ### <a name="virtual-machines"></a>Virtual Machines
 
-| Veriler | Açıklama |
+| Data | Açıklama |
 |:---|:---|
 |  Aracı veri kaynakları | Veri kaynakları toplandı [Windows](agent-windows.md) ve [Linux](../learn/quick-collect-linux-computer.md) aracıları, olayları, performans verilerini ve özel günlükler içerir. Bkz: [Azure İzleyici aracı veri kaynaklarında](data-sources.md) listesini veri kaynakları ve yapılandırma hakkında ayrıntılı bilgi için. |
 | İzleme çözümleri | İzleme çözümleri, bunlar aracılarından Log Analytics çalışma alanına toplayabilir veri yazma. Bkz [veri koleksiyonu ayrıntıları Azure yönetim çözümlerine için](../insights/solutions-inventory.md) çözümleri listesi. Bkz: [çözümlerini Azure İzleyici'de izleme](../insights/solutions.md) yükleme ve çözümlerle ilgili ayrıntılar için. |
@@ -101,7 +101,7 @@ Azure İzleyici, çeşitli kaynaklardan hem de azure'daki ve şirket içi kaynak
 
 ### <a name="applications"></a>Uygulamalar
 
-| Veriler | Açıklama |
+| Data | Açıklama |
 |:---|:---|
 | İstekler ve özel durumlar | Uygulama istekleri ve özel durumlar hakkında ayrıntılı veri bulunduğunuz _istekleri_, _pageViews_, ve _özel durumları_ tablolar. Çağrılar [dış bileşenler](../app/asp-net-dependencies.md) bulunan _bağımlılıkları_ tablo. |
 | Kullanım ve performans | Uygulama için performans kullanılabilir _istekleri_, _browserTimings_ ve _performanceCounters_ tablolar. Verileri [özel ölçümler](../app/api-custom-events-metrics.md#trackevent) bulunduğu _customMetrics_ tablo.|
@@ -110,21 +110,21 @@ Azure İzleyici, çeşitli kaynaklardan hem de azure'daki ve şirket içi kaynak
 
 ### <a name="insights"></a>Insights
 
-| Veriler | Açıklama |
+| Data | Açıklama |
 |:---|:---|
 | Kapsayıcılar için Azure İzleyici | Tarafından toplanan Envanter ve performans verileri [kapsayıcılar için Azure İzleyici](../insights/container-insights-overview.md). Bkz: [kapsayıcı veri toplama ayrıntıları](../insights/container-insights-log-search.md#container-records) tabloların listesi. |
 | VM'ler için Azure İzleyici | Tarafından toplanan Haritası ve performans verileri [VM'ler için Azure İzleyici](../insights/vminsights-overview.md). Bkz: [VM'ler için Azure İzleyici günlüklerinden sorgulama](../insights/vminsights-log-search.md) bu verilerin sorgulanması ilişkin ayrıntılar için. |
 
 ### <a name="custom"></a>Özel 
 
-| Veriler | Açıklama |
+| Data | Açıklama |
 |:---|:---|
 | REST API | Veri herhangi bir REST istemcisinden Log Analytics çalışma alanına yazın. Bkz: [gönderme günlük verilerini Azure İzleyici ile HTTP veri toplayıcı API'sini](data-collector-api.md) Ayrıntılar için.
 | Logic App | Bir mantıksal uygulama iş akışı ile bir Log Analytics çalışma alanına herhangi bir veri yazma **Azure Log Analytics Veri Toplayıcı** eylem. |
 
 ### <a name="security"></a>Güvenlik
 
-| Veriler | Açıklama |
+| Data | Açıklama |
 |:---|:---|
 | Azure Güvenlik Merkezi | [Azure Güvenlik Merkezi](/azure/security-center/) burada analiz ile diğer günlük verilerini bir Log Analytics çalışma alanında toplanan verileri depolar. Bkz: [Azure Güvenlik Merkezi'nde veri toplamayı](../../security-center/security-center-enable-data-collection.md) çalışma alanı yapılandırması hakkında ayrıntılı bilgi için. |
 | Azure Sentinel | [Azure Sentinel](/azure/sentinel/) bir Log Analytics çalışma alanına veri kaynaklarından alınan verileri depolar. Bkz: [veri kaynağına bağlanın](/azure/sentinel/connect-data-sources).  |

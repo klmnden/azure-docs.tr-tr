@@ -7,12 +7,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: hrasheed
-ms.openlocfilehash: f381090e663923ec9f45fba03d0688c9879ab173
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd639ae7e05309ab4528eb460ce38550db4cffe1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427393"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670769"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure Data Lake depolama Gen2 Azure HDInsight kümeleri ile kullanma
 
@@ -72,31 +72,40 @@ Yönetilen kimlik için Ata **depolama Blob verileri sahibi** depolama hesabınd
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>Data Lake depolama Gen2 aracılığıyla Azure CLI ile küme oluşturma
 
-Yapabilecekleriniz [örnek şablon dosya indirme](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) ve [örnek parametre dosyasını indirin](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Şablon kullanmadan önce dize değiştirin `<SUBSCRIPTION_ID>` gerçek Azure abonelik kimliğinizi Ayrıca, dize değiştirin `<PASSWORD>` hem kümenize oturum açma için kullanacağınız parola ve SSH parolasını ayarlamak için seçtiğiniz parolayla.
+Yapabilecekleriniz [örnek şablon dosya indirme](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) ve [örnek parametre dosyasını indirin](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Şablon ve aşağıdaki Azure CLI kod parçacığında kullanmadan önce aşağıdaki yer tutucuları doğru değerleriyle değiştirin:
+
+| Yer tutucu | Açıklama |
+|---|---|
+| `<SUBSCRIPTION_ID>` | Azure aboneliğinizin kimliği |
+| `<RESOURCEGROUPNAME>` | Oluşturulan yeni küme ve depolama hesabı istediğiniz kaynak grubu. |
+| `<MANAGEDIDENTITYNAME>` | Azure Data Lake depolama Gen2 hesabınızda izinleri verilecek bir yönetilen kimlik adı. |
+| `<STORAGEACCOUNTNAME>` | Oluşturulacak yeni bir Azure Data Lake depolama Gen2'ye hesabı. |
+| `<CLUSTERNAME>` | HDInsight kümenizin adıdır. |
+| `<PASSWORD>` | Ambari panonun yanı sıra, SSH kullanarak kümeye oturum açmak için seçtiğiniz parola. |
 
 Aşağıdaki kod parçacığı ilk aşağıdakileri yapar:
 
 1. Azure hesabınızda günlükleri.
 1. Etkin aboneliği oluşturma işlemleri burada yapılır ayarlar.
-1. Adlı yeni bir dağıtım etkinlikler için yeni bir kaynak grubu oluşturur `hdinsight-deployment-rg`.
-1. Adlı bir kullanıcı tarafından atanan yönetilen kimliği oluşturan `test-hdinsight-msi`.
+1. Yeni dağıtım etkinlikler için yeni bir kaynak grubu oluşturur. 
+1. Kullanıcı tarafından atanan bir yönetilen kimlik oluşturur.
 1. Data Lake depolama 2. nesil için özellikleri kullanmak için Azure CLI uzantısı ekler.
-1. Adlı yeni bir Data Lake depolama Gen2 hesabı oluşturur `hdinsightadlsgen2`, kullanarak `--hierarchical-namespace true` bayrağı.
+1. Kullanarak yeni bir Data Lake depolama Gen2 hesabı oluşturur `--hierarchical-namespace true` bayrağı. 
 
 ```azurecli
 az login
-az account set --subscription <subscription_id>
+az account set --subscription <SUBSCRIPTION_ID>
 
 # Create resource group
-az group create --name hdinsight-deployment-rg --location eastus
+az group create --name <RESOURCEGROUPNAME> --location eastus
 
 # Create managed identity
-az identity create -g hdinsight-deployment-rg -n test-hdinsight-msi
+az identity create -g <RESOURCEGROUPNAME> -n <MANAGEDIDENTITYNAME>
 
 az extension add --name storage-preview
 
-az storage account create --name hdinsightadlsgen2 \
-    --resource-group hdinsight-deployment-rg \
+az storage account create --name <STORAGEACCOUNTNAME> \
+    --resource-group <RESOURCEGROUPNAME> \
     --location eastus --sku Standard_LRS \
     --kind StorageV2 --hierarchical-namespace true
 ```
@@ -107,7 +116,7 @@ Rolü için kullanıcı tarafından atanan bir yönetilen kimlik atadıktan sonr
 
 ```azurecli
 az group deployment create --name HDInsightADLSGen2Deployment \
-    --resource-group hdinsight-deployment-rg \
+    --resource-group <RESOURCEGROUPNAME> \
     --template-file hdinsight-adls-gen2-template.json \
     --parameters parameters.json
 ```

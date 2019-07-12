@@ -2,17 +2,17 @@
 title: Pod'ların ağ ilkeleri Azure Kubernetes Service (AKS) ile güvenli hale getirme
 description: Azure Kubernetes Service (AKS) Kubernetes ağ ilkeleri kullanarak, pod'ların içine ve dışına akan trafiği güvenli hale getirme hakkında bilgi edinin
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: c9bf2c2c459999813c7fc30f95be653168d270ad
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65229998"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613962"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) ağ ilkeleri kullanılarak pod'ları arasındaki trafiğin güvenliğini sağlama
 
@@ -29,7 +29,7 @@ Azure CLI Sürüm 2.0.61 gerekir veya daha sonra yüklü ve yapılandırılmış
 > 
 > Ağ İlkesi Önizleme sırasında kullanılan mevcut test kümelerini kullanmaya devam etmek istiyorsanız, en son GA sürümü için yeni bir Kubernetes sürümleri kümenizi yükseltmek ve ardından kilitlenen ölçümleri sunucu ve Kubernetes düzeltmek için aşağıdaki YAML bildirimi dağıtın Pano. Bu düzeltmedir yalnızca Calico ağ ilke altyapısı kullanılan kümeleri için gereklidir.
 >
-> Güvenlik açısından en iyisi [bu YAML bildirimin içeriğini gözden geçirin] [ calico-aks-cleanup] AKS kümeye dağıtılan anlamak için.
+> Güvenlik açısından en iyisi [bu YAML bildirimin içeriğini gözden geçirin][calico-aks-cleanup] AKS kümeye dağıtılan anlamak için.
 >
 > `kubectl delete -f https://raw.githubusercontent.com/Azure/aks-engine/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml`
 
@@ -62,9 +62,9 @@ Ağ İlkesi yalnızca Azure CNI (Gelişmiş) seçeneği ile çalışır. Uygulam
 | Desteklenen platformlar                      | Linux                      | Linux                       |
 | Desteklenen ağ seçenekleri             | Azure CNI                  | Azure CNI                   |
 | Kubernetes belirtimi ile uyumluluk | Desteklenen tüm ilke türleri |  Desteklenen tüm ilke türleri |
-| Ek Özellikler                      | None                       | Genel ağ ilkesi, genel ağ ayarlayın ve ana bilgisayar bitiş noktası oluşan ilke modeli genişletilmiş. Kullanma hakkında daha fazla bilgi için `calicoctl` bu özellikler, genişletilmiş yönetmek için CLI bkz [calicoctl kullanıcı başvurusu][calicoctl]. |
+| Ek Özellikler                      | Yok.                       | Genel ağ ilkesi, genel ağ ayarlayın ve ana bilgisayar bitiş noktası oluşan ilke modeli genişletilmiş. Kullanma hakkında daha fazla bilgi için `calicoctl` bu özellikler, genişletilmiş yönetmek için CLI bkz [calicoctl kullanıcı başvurusu][calicoctl]. |
 | Destek                                  | Azure destek ve mühendislik ekibi tarafından desteklenir | Calico topluluk desteği. Ek Ücretli destek hakkında daha fazla bilgi için bkz. [proje Calico destek seçenekleri][calico-support]. |
-| Günlüğe kaydetme                                  | Eklenen / silindi IPTables kurallarını her konak altında oturum */var/log/azure-npm.log* | Daha fazla bilgi için [Calico bileşeni günlükleri][calico-logs] |
+| Günlüğe Kaydetme                                  | Eklenen / silindi IPTables kurallarını her konak altında oturum */var/log/azure-npm.log* | Daha fazla bilgi için [Calico bileşeni günlükleri][calico-logs] |
 
 ## <a name="create-an-aks-cluster-and-enable-network-policy"></a>AKS kümesi oluşturma ve Ağ İlkesi'ni etkinleştirin
 
@@ -76,7 +76,7 @@ Ağ İlkesi yalnızca Azure CNI (Gelişmiş) seçeneği ile çalışır. Uygulam
 
 İlk olarak, Ağ İlkesi'ni destekleyen bir AKS kümesi oluşturalım. Ağ İlkesi özelliği, yalnızca küme oluşturulduğunda etkinleştirilebilir. Ağ İlkesi var olan bir AKS kümesi üzerinde etkinleştirilemiyor.
 
-Ağ İlkesi ile bir AKS kümesi kullanmak için kullanmalısınız [Azure CNI eklenti] [ azure-cni] ve kendi sanal ağ ve alt ağları tanımlayın. Ayrıntılı gerekli bir alt ağ aralıklarını planlama hakkında daha fazla bilgi için bkz. [Gelişmiş Ağ][use-advanced-networking].
+Ağ İlkesi ile bir AKS kümesi kullanmak için kullanmalısınız [Azure CNI eklenti][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking].
 
 Aşağıdaki örnek betik:
 
@@ -138,7 +138,7 @@ az aks create \
     --network-policy azure
 ```
 
-Kümenin oluşturulması birkaç dakika sürer. Küme hazır olduğunda, yapılandırma `kubectl` kullanarak Kubernetes kümenize bağlanmak için [az aks get-credentials] [ az-aks-get-credentials] komutu. Bu komut, kimlik bilgilerini indirir ve Kubernetes CLI'yi bunları kullanacak şekilde yapılandırır:
+Kümenin oluşturulması birkaç dakika sürer. Küme hazır olduğunda, yapılandırma `kubectl` kullanarak Kubernetes kümenize bağlanmak için [az aks get-credentials][az-aks-get-credentials] komutu. Bu komut, kimlik bilgilerini indirir ve Kubernetes CLI'yi bunları kullanacak şekilde yapılandırır:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
@@ -207,7 +207,7 @@ spec:
   ingress: []
 ```
 
-Kullanarak ağ ilkesi uygulamak [kubectl uygulamak] [ kubectl-apply] komut ve YAML bildiriminizi adını belirtin:
+Kullanarak ağ ilkesi uygulamak [kubectl uygulamak][kubectl-apply] komut ve YAML bildiriminizi adını belirtin:
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -265,7 +265,7 @@ spec:
 > [!NOTE]
 > Bu ağ ilkeyi kullanan bir *namespaceSelector* ve *podSelector* giriş kuralı için öğesi. YAML söz dizimi giriş kurallarının olması önemlidir eklenebilir. Bu örnekte, iki öğeyi uygulanması için giriş kuralın eşleşmesi gerekir. Kubernetes sürümlerini öncesinde *1.12* değil Bu öğeleri doğru şekilde yorumlayabilir ve beklediğiniz gibi ağ trafiğini kısıtlayın. Bu davranışı hakkında daha fazla bilgi için bkz. [Seçici gelen ve giden davranışını][policy-rules].
 
-Güncelleştirilmiş Ağ İlkesi kullanarak uygulama [kubectl uygulamak] [ kubectl-apply] komut ve YAML bildiriminizi adını belirtin:
+Güncelleştirilmiş Ağ İlkesi kullanarak uygulama [kubectl uygulamak][kubectl-apply] komut ve YAML bildiriminizi adını belirtin:
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -388,7 +388,7 @@ spec:
 
 Daha karmaşık bir örnekte birden çok giriş kuralları gibi tanımlayabilirsiniz bir *namespaceSelector* ve ardından bir *podSelector*.
 
-Güncelleştirilmiş Ağ İlkesi kullanarak uygulama [kubectl uygulamak] [ kubectl-apply] komut ve YAML bildiriminizi adını belirtin:
+Güncelleştirilmiş Ağ İlkesi kullanarak uygulama [kubectl uygulamak][kubectl-apply] komut ve YAML bildiriminizi adını belirtin:
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -446,7 +446,7 @@ exit
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu makalede oluşturulan iki ad alanları ve ağ ilkesi uygulanır. Bu kaynakları temizlemek için kullanın [kubectl Sil] [ kubectl-delete] komut ve kaynak adlarını belirtin:
+Bu makalede oluşturulan iki ad alanları ve ağ ilkesi uygulanır. Bu kaynakları temizlemek için kullanın [kubectl Sil][kubectl-delete] komut ve kaynak adlarını belirtin:
 
 ```console
 kubectl delete namespace production

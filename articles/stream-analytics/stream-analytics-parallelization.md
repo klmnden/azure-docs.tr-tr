@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 4fd862c2442d2637d799a1f690d5f0a091c80562
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5eba5601a50640261fa1b488d959f606d4514737
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449203"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612215"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream analytics'te sorgu paralelleştirmesinden
 Bu makalede, Azure Stream Analytics'te paralelleştirme yararlanmak işlemini göstermektedir. Giriş bölümlerini yapılandırma ve analytics Sorgu tanımını ayarlayarak Stream Analytics işlerini ölçeklendirmeyi öğrenin.
@@ -258,7 +258,7 @@ Aşağıdaki gözlemlere, durum bilgisi olmayan (doğrudan geçiş) sorgusu, tem
 
 |Alma oranı (olay / saniye) | Akış Birimleri | Çıkış kaynakları  |
 |--------|---------|---------|
-| 1K     |    1    |  2 İŞLEME BİRİMİ   |
+| 1K     |    1\.    |  2 İŞLEME BİRİMİ   |
 | 5K     |    6    |  6 İŞLEME BİRİMİ   |
 | 10.000    |    12   |  10 İŞLEME BİRİMİ  |
 
@@ -312,7 +312,7 @@ Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Stream analytics'e giriş](stream-analytics-introduction.md)
 * [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
-* [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Akış Analizi Sorgu Dili Başvurusu](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Akış Analizi Yönetimi REST API'si Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->

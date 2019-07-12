@@ -6,13 +6,13 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
-ms.author: amitsriva
-ms.openlocfilehash: a8b0ee159b1c4a4072ce5a86f9fb925744a415b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: victorh
+ms.openlocfilehash: 39317c0448168bc2ed8fdd0455a210254887d496
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048705"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655400"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Arka uç sistem durumu, tanılama günlükleri ve ölçümler için Application Gateway
 
@@ -157,7 +157,7 @@ Azure etkinlik günlüğü varsayılan olarak oluşturur. Günlükleri, olay gü
 
 Yalnızca, önceki adımlarda açıklandığı her uygulama ağ geçidi örneğinde etkinleştirdiyseniz erişim günlüğü oluşturulur. Veri günlük kaydı etkinleştirildiğinde, belirtilen depolama hesabında depolanır. Application Gateway her erişim v1 için aşağıdaki örnekte gösterildiği gibi JSON biçiminde kaydedilir:
 
-|Değer  |Açıklama  |
+|Value  |Açıklama  |
 |---------|---------|
 |InstanceId     | Hizmet isteği uygulama ağ geçidi örneği.        |
 |Clientıp     | İsteğin kaynak IP.        |
@@ -197,7 +197,7 @@ Yalnızca, önceki adımlarda açıklandığı her uygulama ağ geçidi örneği
 ```
 Uygulama ağ geçidi ve WAF v2 için biraz daha bilgiye günlüklerde gösterilir:
 
-|Değer  |Açıklama  |
+|Value  |Açıklama  |
 |---------|---------|
 |InstanceId     | Hizmet isteği uygulama ağ geçidi örneği.        |
 |Clientıp     | İsteğin kaynak IP.        |
@@ -237,7 +237,7 @@ Uygulama ağ geçidi ve WAF v2 için biraz daha bilgiye günlüklerde gösterili
         "receivedBytes": 65,
         "sentBytes": 553,
         "timeTaken": 205,
-        "sslEnabled": "off"
+        "sslEnabled": "off",
         "sslCipher": "",
         "sslProtocol": "",
         "serverRouted": "104.41.114.59:80",
@@ -253,7 +253,7 @@ Uygulama ağ geçidi ve WAF v2 için biraz daha bilgiye günlüklerde gösterili
 Önceki adımlarda açıklandığı her uygulama ağ geçidi örneğinde yalnızca etkinleştirdiyseniz, performans günlüğü oluşturulur. Veri günlük kaydı etkinleştirildiğinde, belirtilen depolama hesabında depolanır. Performans günlüğü verilerini 1 dakikalık aralıklar olarak oluşturulur. Aşağıdaki veriler günlüğe kaydedilir:
 
 
-|Değer  |Açıklama  |
+|Value  |Açıklama  |
 |---------|---------|
 |InstanceId     |  Uygulama ağ geçidi örneği performans verileri oluşturulur. Çok örnekli application gateway için örnek başına bir satır var.        |
 |HealthyHostCount     | Arka uç havuzundaki sağlıklı konakların sayısı.        |
@@ -290,7 +290,7 @@ Uygulama ağ geçidi ve WAF v2 için biraz daha bilgiye günlüklerde gösterili
 Önceki adımlarda açıklandığı her uygulama ağ geçidi için yalnızca etkinleştirdiyseniz, güvenlik duvarı günlüğü oluşturulur. Bu günlük, ayrıca bir application gateway üzerinde web uygulaması güvenlik duvarı yapılandırıldığını gerektirir. Veri günlük kaydı etkinleştirildiğinde, belirtilen depolama hesabında depolanır. Aşağıdaki veriler günlüğe kaydedilir:
 
 
-|Değer  |Açıklama  |
+|Value  |Açıklama  |
 |---------|---------|
 |InstanceId     | Uygulama ağ geçidi örneği için hangi güvenlik duvarı veri oluşturuluyor. Çok örnekli application gateway için örnek başına bir satır var.         |
 |Clientıp     |   İsteğin kaynak IP.      |
@@ -300,9 +300,9 @@ Uygulama ağ geçidi ve WAF v2 için biraz daha bilgiye günlüklerde gösterili
 |ruleSetVersion     | Kural kullanılan sürümünü ayarlama. Değerleri 2.2.9 ve 3. 0'ı kullanılabilir.     |
 |RuleId     | Tetikleyici olayın kural kimliği.        |
 |message     | Tetikleyici olay kullanıcı dostu iletisi. Ayrıntılar bölümünde daha ayrıntılı bilgi sağlanır.        |
-|action     |  İstekte gerçekleştirilen eylem. Engellenen ve izin verilen değerleri kullanılabilir.      |
+|Eylem     |  İstekte gerçekleştirilen eylem. Engellenen ve izin verilen değerleri kullanılabilir.      |
 |Site     | Günlük oluşturulduğu site. Genel kurallar olduğundan şu anda yalnızca genel listelenir.|
-|Ayrıntıları     | Olay Ayrıntıları.        |
+|details     | Olay Ayrıntıları.        |
 |details.Message     | Kural açıklaması.        |
 |details.data     | Belirli veri kural eşleşen isteğinde bulundu.         |
 |details.File     | Kural bulunan yapılandırma dosyası.        |

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: b5ff218ce7bc7593d38f496b22d2a03402a00cdc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd35af6ead2d734fa68b85b199aac219daf8dcd9
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514421"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807150"
 ---
-# <a name="status-monitor-v2-api-disable-instrumentationengine-v021-alpha"></a>Durum İzleyicisi'ni v2 API'si: Disable-InstrumentationEngine (v0.2.1-alpha)
+# <a name="status-monitor-v2-api-disable-instrumentationengine-v040-alpha"></a>Durum İzleyicisi'ni v2 API'si: Disable-InstrumentationEngine (v0.4.0-alpha)
 
 Bu makalede bir üyesi olan bir cmdlet [Az.ApplicationMonitor PowerShell Modülü](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -46,7 +46,7 @@ PS C:\> Disable-InstrumentationEngine
 ### <a name="-verbose"></a>-Verbose
 **Ortak parametresi.** Ayrıntılı günlük çıktısını almak için bu anahtarı kullanın.
 
-## <a name="output"></a>Çıktı
+## <a name="output"></a>Output
 
 
 #### <a name="example-output-from-successfully-disabling-the-instrumentation-engine"></a>Örnek çıktı öğesinden başarıyla izleme altyapısı devre dışı bırakma

@@ -4,7 +4,7 @@ description: SAP S/4HANA veya BW/4hana'yı Azure VM üzerinde dağıtın
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: c59fcf43cb4767f1d95d769dfce4d5c8755e45ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 65643352a269796fc5353ff4cd0cb15d5f1502ec
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836884"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707487"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>SAP S/4HANA veya BW/4hana'yı azure'da dağıtın
 Bu makalede, S/4hana'yı Azure üzerindeki SAP Cloud Appliance Library (SAP CAL) 3.0 kullanarak dağıtmayı açıklar. BW/4HANA gibi diğer SAP HANA tabanlı çözümleri dağıtmak için aynı adımları izleyin.

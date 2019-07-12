@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: e4b9f31425c5029cdeb991fbdcdb7ae4a5c749c9
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a78df2d4d84487399da10ca722550639a92e71bf
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704741"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798135"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Proje akustik Unreal/Wwise hızlı başlangıç
 Bu hızlı başlangıçta, tasarım denetimleri Wwise ve Unreal Engine için sağlanan örnek içerik kullanarak proje akustik ile denemeler.
@@ -57,7 +57,9 @@ Ek davranış proje akustik Unreal eklenti gerektirir Wwise Unreal eklentisini A
 ### <a name="open-the-unreal-project"></a>Unreal projeyi açın. 
 Bu modüller yeniden istenir; Evet'e tıklayın.
 
-Derleme hataları üzerinde proje açma başarısız olursa, proje akustik Wwise eklentisi proje akustik örnek projesinde kullanılan Wwise aynı sürümünü yüklediğinizi denetleyin.
+>Derleme hataları üzerinde proje açma başarısız olursa, proje akustik Wwise eklentisi proje akustik örnek projesinde kullanılan Wwise aynı sürümünü yüklediğinizi denetleyin.
+
+>Değil kullanıyorsanız [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6, önce ses örnek projesinde yürütülecek ses bankalar yeniden gerekir.
 
 ## <a name="experiment-with-project-acoustics-design-controls"></a>Proje akustik tasarım denetimleri ile denemeler yapın
 Unreal Düzenleyicisi denetimindeki yürütme düğmesine tıklayarak Sahne nasıl ses için dinleyin. Masaüstünde kullanın W, A, S, D ve fareyi hareket etmek için. Diğer denetimlerin klavye kısayollarını görmek için **F1** tuşuna basın. Denemek için bazı tasarım etkinlikler şunlardır:

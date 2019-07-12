@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 51ca597208b582e95fd305886dcf163744825eee
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: af6fd7b99147396a70fccc7b2b11dfef3def15a8
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509653"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786305"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Azure App Service için Linux Java uygulaması yapılandırma
 
@@ -133,7 +133,7 @@ Tek bir uygulama, App Service planında bir dağıtım yuvası ile çalışan ge
 
 Ne zaman ayar uygulama yığın ayarları, App Service planı bilgilerinizi gözden geçirin ve birden çok uygulama ve dağıtım yuvası dikkate en iyi bellek ayırma bulması gerekir.
 
-Bir JAR uygulama dağıtıyorsanız, adında *app.jar* yerleşik görüntü uygulamanızın doğru şekilde belirleyebilirsiniz. (Maven plugin, bu otomatik olarak yeniden adlandırma işlemi yapar.) Yeniden adlandırmak için JAR istemiyorsanız *app.jar*, jar dosyasını çalıştırmak için komutu ile bir kabuk betiği karşıya yükleyebilirsiniz. Bu komut dosyasında tam yolu yapıştırın [başlangıç dosyası](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#startup-file) metin kutusunda portalının yapılandırma bölümü.
+Bir JAR uygulama dağıtıyorsanız, adında *app.jar* yerleşik görüntü uygulamanızın doğru şekilde belirleyebilirsiniz. (Maven plugin, bu otomatik olarak yeniden adlandırma işlemi yapar.) Yeniden adlandırmak için JAR istemiyorsanız *app.jar*, jar dosyasını çalıştırmak için komutu ile bir kabuk betiği karşıya yükleyebilirsiniz. Bu komut dosyasında tam yolu yapıştırın [başlangıç dosyası](app-service-linux-faq.md#built-in-images) metin kutusunda portalının yapılandırma bölümü.
 
 ### <a name="turn-on-web-sockets"></a>Web yuvaları üzerinde Aç
 
@@ -170,6 +170,10 @@ Alternatif olarak, App Service Maven plugin kullanarak uygulama ayarı yapıland
 ### <a name="adjust-startup-timeout"></a>Başlangıç zaman aşımını ayarlama
 
 Java uygulamanızı özellikle büyük ise, başlama süresi sınırını artırmanız gerekir. Bunu yapmak için bir uygulama ayarı oluşturmak `WEBSITES_CONTAINER_START_TIME_LIMIT` ve App Service, zaman aşımına uğramadan önce beklemesi gereken saniye sayısını ayarlayın. En yüksek değer `1800` saniye.
+
+### <a name="pre-compile-jsp-files"></a>JSP dosyaları önceden derleme
+
+Tomcat uygulama performansını artırmak için App Service'ı dağıtmadan önce JSP dosyalarınızı derleyebilirsiniz. Kullanabileceğiniz [Maven plugin](https://sling.apache.org/components/jspc-maven-plugin/plugin-info.html) Apache Sling veya bunu kullanarak tarafından sağlanan [Ant derleme dosyası](https://tomcat.apache.org/tomcat-9.0-doc/jasper-howto.html#Web_Application_Compilation).
 
 ## <a name="secure-applications"></a>Güvenli uygulamalar
 
@@ -267,7 +271,7 @@ Bu bölüm, Java uygulamaları (APM) platformları NewRelic ve AppDynamics uygul
 
 Varsayılan olarak adlandırılacak şekilde JAR uygulamanızı App Service bekliyor *app.jar*. Bu ada sahip, otomatik olarak çalıştırılır. Maven kullanıcılarına dahil ederek JAR adına ayarlayabilirsiniz `<finalName>app</finalName>` içinde `<build>` bölümünü, *pom.xml*. [Gradle aynı yapabileceğiniz](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) ayarlayarak `archiveFileName` özelliği.
 
-Ayrıca, JAR için farklı bir ad kullanmak istiyorsanız, sağlamalısınız [başlangıç komutu](app-service-linux-faq.md#built-in-images) , JAR dosyasını yürütür. Örneğin, `java -jar my-jar-app.jar`. Portalında, yapılandırması, başlangıç komutu için değer ayarlayabilirsiniz > Genel ayarları veya adlı bir uygulama ayarı ile `STARTUP_COMMAND`.
+Ayrıca, JAR için farklı bir ad kullanmak istiyorsanız, sağlamalısınız [başlangıç komutu](app-service-linux-faq.md#built-in-images) , JAR dosyasını yürütür. Örneğin: `java -jar my-jar-app.jar`. Portalında, yapılandırması, başlangıç komutu için değer ayarlayabilirsiniz > Genel ayarları veya adlı bir uygulama ayarı ile `STARTUP_COMMAND`.
 
 ### <a name="server-port"></a>Sunucu bağlantı noktası
 

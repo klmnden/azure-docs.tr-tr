@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 373ce1d10af87603b1bdd6339c94891187c35d8c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ec881d190de719c2a7dbedcbf28b0b3ea57140d8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332661"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840120"
 ---
 # <a name="recommended-on-premises-encoders"></a>Önerilen şirket içi kodlayıcılar
 Canlı, Azure Media Services ile akış, giriş akışını almak için kanal nasıl istediğinizi belirtebilirsiniz. Canlı kodlama kanal ile bir şirket içi Kodlayıcı kullanmayı seçerseniz, kodlayıcınız çıktı olarak bir yüksek kaliteli tek bit hızında akışa anında iletme. Bir geçiş kanalı üzerinden ile bir şirket içi Kodlayıcı kullanmayı seçerseniz, tüm istenen çıkış kalitelerini çıktı olarak kodlayıcınız Çoklu bit hızında akışa anında. Daha fazla bilgi için [şirket içi kodlayıcılarda Canlı üzerinde akış](media-services-live-streaming-with-onprem-encoders.md).
@@ -54,7 +54,7 @@ Kanal doğrulama geçirin
 4. Yayımlanan bir canlı etkinlik oluştur
 5. Yaklaşık 10 dakika, gerçek zamanlı Kodlayıcı çalıştırın
 6. Canlı etkinliği durdurmak
-7. Oluşturma, bir akış uç noktasını başlatın, aşağıdaki gibi bir oynatıcı kullanın [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) , kayıttan yürütme için tüm kalite düzeylerine görünür hiçbir arızalardan bulunmasını arşivlenmiş varlığı izleyin (veya alternatif olarak izleyin ve önizleme URL ile doğrulamak için 6. adımdan önce Canlı oturumda)
+7. Oluşturma, bir akış uç noktasını başlatın, aşağıdaki gibi bir oynatıcı kullanın [Azure Media Player](http://aka.ms/azuremediaplayer) , kayıttan yürütme için tüm kalite düzeylerine görünür hiçbir arızalardan bulunmasını arşivlenmiş varlığı izleyin (veya alternatif olarak izleyin ve önizleme URL ile doğrulamak için 6. adımdan önce Canlı oturumda)
 8. Canlı Arşiv ve ayarları, Canlı kodlayıcıdan kullanılan sürümü ve akış URL'si yayımlanmış varlık kimliği kaydedin
 9. Her bir örnek oluşturduktan sonra kanal durumu Sıfırla
 10. (İle ve ad sinyal/açıklamalı alt yazılar/hızları kodlama farklı olmadan), kodlayıcı tarafından desteklenen tüm yapılandırmalar için 9 3 adımları yineleyin
@@ -66,7 +66,7 @@ Canlı kodlama kanal doğrulama
 4. Yayımlanan bir canlı etkinlik oluştur
 5. Yaklaşık 10 dakika, gerçek zamanlı Kodlayıcı çalıştırın
 6. Canlı etkinliği durdurmak
-7. Oluşturma, bir akış uç noktasını başlatın, aşağıdaki gibi bir oynatıcı kullanın [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) , kayıttan yürütme için tüm kalite düzeylerine görünür hiçbir arızalardan bulunmasını arşivlenmiş varlığı izleyin (veya alternatif olarak izleyin ve önizleme URL ile doğrulamak için 6. adımdan önce Canlı oturumda)
+7. Oluşturma, bir akış uç noktasını başlatın, aşağıdaki gibi bir oynatıcı kullanın [Azure Media Player](http://aka.ms/azuremediaplayer) , kayıttan yürütme için tüm kalite düzeylerine görünür hiçbir arızalardan bulunmasını arşivlenmiş varlığı izleyin (veya alternatif olarak izleyin ve önizleme URL ile doğrulamak için 6. adımdan önce Canlı oturumda)
 8. Canlı Arşiv ve ayarları, Canlı kodlayıcıdan kullanılan sürümü ve akış URL'si yayımlanmış varlık kimliği kaydedin
 9. Her bir örnek oluşturduktan sonra kanal durumu Sıfırla
 10. (İle ve ad sinyal/açıklamalı alt yazılar/hızları kodlama çeşitli olmadan), kodlayıcı tarafından desteklenen tüm yapılandırmalar için 9 3 adımları yineleyin.
@@ -77,7 +77,7 @@ Dayanıklılık doğrulama
 3. Çoklu bit hızlı canlı akış anında yapmak için kodlayıcınızı yapılandırın.
 4. Yayımlanan bir canlı etkinlik oluştur
 5. Bir hafta veya daha uzun, gerçek zamanlı Kodlayıcı çalıştırın
-6. Gibi bir oynatıcı kullanın [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) Canlı süresi zaman (ya da arşivlenmiş varlığı), kayıttan yürütme sahip hiçbir görünür arızalardan emin olmak için akış izlemek için
+6. Gibi bir oynatıcı kullanın [Azure Media Player](http://aka.ms/azuremediaplayer) Canlı süresi zaman (ya da arşivlenmiş varlığı), kayıttan yürütme sahip hiçbir görünür arızalardan emin olmak için akış izlemek için
 7. Canlı etkinliği durdurmak
 8. Canlı Arşiv ve ayarları, Canlı kodlayıcıdan kullanılan sürümü ve akış URL'si yayımlanmış varlık kimliği kaydedin
 
