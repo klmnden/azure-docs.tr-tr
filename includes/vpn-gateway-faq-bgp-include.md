@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 192a6f4841e9dc3a478da5e4b53594362955ca71
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 7c1f3fc7861f5e1b895423d502218b9b07302c1c
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67188189"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67659929"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>BGP tüm Azure VPN Gateway SKU'larında destekleniyor mu?
 Hayır, BGP Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** ve **HighPerformance** VPN ağ geçitlerinde desteklenir. **Temel** SKU DESTEKLENMEZ.
@@ -85,7 +85,7 @@ Evet, ancak sanal ağ geçitlerinden en az birinin etkin-etkin yapılandırmada 
 Evet. 
 
 ### <a name="what-address-does-azure-vpn-gateway-use-for-bgp-peer-ip"></a>Azure VPN Gateway BGP Eşdeğer IP’si için hangi adresi kullanıyor?
-Azure VPN Gateway sanal ağ için ayrılan GatewaySubnet aralığından tek bir IP adresi ayırır. Varsayılan olarak, aralığın sondan ikinci adresidir. Örneğin, GatewaySubnet'iniz 10.12.255.0/27 olursa, 10.12.255.0 ve 10.12.255.31 arasında sıralanıyorsa, Azure VPN Gateway'deki BGP Eşdeğer IP adresi 10.12.255.30 olacaktır. Azure VPN Gateway bilgilerini listelediğinizde bu bilgileri bulabilirsiniz.
+Azure VPN ağ geçidi etkin bekleme VPN ağ geçitleri için ayrılan GatewaySubnet aralığından ya da iki IP adresi etkin-etkin VPN ağ geçitleri için tek bir IP adresi ayırır. PowerShell (Get-AzVirtualNetworkGateway, "bgpPeeringAddress" özelliği için bir görünüm) kullanarak ya da Azure portalında (altında ağ geçidi yapılandırma sayfasındaki "BGP ASN'sini Yapılandır" özelliği) ayrılan gerçek BGP IP adresi alabilirsiniz.
 
 ### <a name="what-are-the-requirements-for-the-bgp-peer-ip-addresses-on-my-vpn-device"></a>VPN cihazımdaki BGP Eşdeğer IP adreslerinin gereksinimleri nelerdir?
 Şirket içi BGP eşdeğer adresinizin, VPN cihazınızın genel IP adresiyle aynı olmaması **GEREKİR**. BGP Eşdeğer IP’si için VPN cihazında farklı bir IP adresi kullanın. Bu, cihaz üzerindeki geri döngü arabirimine atanmış bir adres olabilir, ancak bir APIPA (169.254.x.x) adresi olamayacağını da hatırlatmak isteriz. Bu adresi, konumu temsil eden ilgili Yerel Ağ Geçidi’nde belirtin.

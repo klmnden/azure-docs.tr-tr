@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: abb2a89f41340e8e2e26fa36cc20b790341618d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f24ad348c681609392f83af894bf774dbee226bc
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60763367"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620851"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream analytics'te gerçek zamanlı Twitter yaklaşım analizi
 
@@ -67,7 +67,7 @@ Bu yordam, önce bir olay hub'ı ad alanı oluşturun ve ardından bir olay hub'
 
     ![Yeni bir olay hub'ı oluşturmak için dikey penceresi](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub.png)
  
-7. **Oluştur**’a tıklayın.
+7.           **Oluştur**'a tıklayın.
 
 
 ### <a name="grant-access-to-the-event-hub"></a>Olay hub'ına erişim verme
@@ -85,7 +85,7 @@ Olay hub'ı, bir işlem, bir olay hub'ına veri göndermeden önce uygun erişim
 
     ![Yeni bir olay hub'ı erişim ilkesini oluşturmak için dikey penceresi](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-shared-access-policy-manage.png)
  
-4.  **Oluştur**’a tıklayın.
+4.            **Oluştur**'a tıklayın.
 
 5.  İlke dağıtıldıktan sonra paylaşılan erişim ilkeleri listesinde tıklayın.
 
@@ -206,7 +206,7 @@ Tweet olayları Twitter gerçek zamanlı akış, bu olaylar gerçek zamanlı ola
 
     ![Yeni bir Stream Analytics işi oluşturma](./media/stream-analytics-twitter-sentiment-analysis-trends/newjob.png)
 
-3. **Oluştur**’a tıklayın.
+3.           **Oluştur**'a tıklayın.
 
     Bir iş oluşturulur ve portal iş ayrıntılarını görüntüler.
 
@@ -227,14 +227,14 @@ Tweet olayları Twitter gerçek zamanlı akış, bu olaylar gerçek zamanlı ola
 
      ![Yeni giriş için akış analizi işi oluşturma](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
-3. **Oluştur**’a tıklayın.
+3.           **Oluştur**'a tıklayın.
 
 
 ## <a name="specify-the-job-query"></a>İş sorgusu belirtin
 
-Stream Analytics, dönüştürmeleri tanımlayan bir basit, bildirim temelli bir sorgu modelini destekler. Dili hakkında daha fazla bilgi için bkz. [Azure Stream Analytics sorgu dili başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx).  Bu öğreticide, yazmak ve test Twitter veriler üzerinde çeşitli sorguları yardımcı olur.
+Stream Analytics, dönüştürmeleri tanımlayan bir basit, bildirim temelli bir sorgu modelini destekler. Dili hakkında daha fazla bilgi için bkz. [Azure Stream Analytics sorgu dili başvurusu](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).  Bu öğreticide, yazmak ve test Twitter veriler üzerinde çeşitli sorguları yardımcı olur.
 
-Konular arasında bahsetmeleri sayısını karşılaştırmak için kullanabileceğiniz bir [atlayan pencere](https://msdn.microsoft.com/library/azure/dn835055.aspx) konuya göre her beş saniyede bahsetmeleri sayısı alınamıyor.
+Konular arasında bahsetmeleri sayısını karşılaştırmak için kullanabileceğiniz bir [atlayan pencere](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) konuya göre her beş saniyede bahsetmeleri sayısı alınamıyor.
 
 1. Kapat **girişleri** henüz yapmadıysanız bir dikey pencere.
 
@@ -266,7 +266,7 @@ Konular arasında bahsetmeleri sayısını karşılaştırmak için kullanabilec
 
     Varsa kullanmadı `TwitterStream` giriş diğer adı, diğer adınız için alternatif `TwitterStream` sorgu.  
 
-    Bu sorgu kullanan **TIMESTAMP BY** zamana bağlı olan hesaplamayı kullanılacak yükünde bir zaman damgası alanı belirtmek için anahtar sözcüğü. Bu alan belirtilmezse, Pencereleme işlemi her olay Olay hub'ı gelen saati kullanılarak gerçekleştirilir. "Geliş saati vs uygulama süresi" bölümünde daha fazla bilgi edinin [Stream Analytics sorgu başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx).
+    Bu sorgu kullanan **TIMESTAMP BY** zamana bağlı olan hesaplamayı kullanılacak yükünde bir zaman damgası alanı belirtmek için anahtar sözcüğü. Bu alan belirtilmezse, Pencereleme işlemi her olay Olay hub'ı gelen saati kullanılarak gerçekleştirilir. "Geliş saati vs uygulama süresi" bölümünde daha fazla bilgi edinin [Stream Analytics sorgu başvurusu](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
     Ayrıca bu sorgu kullanarak her penceresinin bitiş zaman damgası erişir **System.Timestamp** özelliği.
 
@@ -312,7 +312,7 @@ Bu öğreticide, toplanan tweet olayları Azure Blob depolama alanına işi sorg
     
      ![Stream Analytics işi dikey penceresini "Yeni çıktı."](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
     
-4. **Oluştur**’a tıklayın. 
+4.           **Oluştur**'a tıklayın. 
 
     Azure depolama hesabı oluşturur ve bir anahtar otomatik olarak oluşturur. 
 
@@ -348,7 +348,7 @@ Gibi bir araç kullanabilirsiniz [Azure Depolama Gezgini](https://storageexplore
 
 ## <a name="create-another-query-to-identify-trending-topics"></a>Popüler konularını belirlemek için başka bir sorgu oluşturma
 
-Twitter yaklaşımı anlamak için kullanabileceğiniz başka bir sorguya dayalı bir [kayan pencere](https://msdn.microsoft.com/library/azure/dn835051.aspx). Popüler konularını belirlemek için bir eşik değeri için belirtilen bir sürede bahsetmelerini çapraz konuları arayın.
+Twitter yaklaşımı anlamak için kullanabileceğiniz başka bir sorguya dayalı bir [kayan pencere](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics). Popüler konularını belirlemek için bir eşik değeri için belirtilen bir sürede bahsetmelerini çapraz konuları arayın.
 
 Bu öğreticinin amaçları doğrultusunda, 20 kereden fazla son 5 saniye içinde açıklanan konular için denetleyin.
 
@@ -379,5 +379,5 @@ Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https
 * [Azure Stream analytics'e giriş](stream-analytics-introduction.md)
 * [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
 * [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
-* [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Akış Analizi Sorgu Dili Başvurusu](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Akış Analizi Yönetimi REST API'si Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)

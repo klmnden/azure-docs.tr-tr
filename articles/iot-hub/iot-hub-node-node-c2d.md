@@ -9,34 +9,36 @@ services: iot-hub
 ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/16/2017
-ms.openlocfilehash: e2c3c3988193242cd0afe0135b019c7e6f73b59c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35acc1448b662a9b0c08e9d1f91886903444bcb8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596728"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620069"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>IOT hub'ı (Node) ile bulut buluttan cihaza iletileri gönderme
+
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## <a name="introduction"></a>Giriş
-Azure IOT hub'ı yardımcı olan tam olarak yönetilen bir hizmet, milyonlarca cihaz arasında güvenilir ve güvenli çift yönlü iletişimi etkinleştirmek ve bir çözüm arka ucu ' dir. [IOT Hub ile çalışmaya başlama](quickstart-send-telemetry-node.md) öğretici, IOT hub oluşturma, bir cihaz kimliği da sağlamak ve CİHAZDAN buluta iletiler gönderen bir sanal cihaz uygulamasının kodu nasıl gösterir.
+
+Azure IOT hub'ı yardımcı olan tam olarak yönetilen bir hizmet, milyonlarca cihaz arasında güvenilir ve güvenli çift yönlü iletişimi etkinleştirmek ve bir çözüm arka ucu ' dir. [Telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-node.md) hızlı başlangıç, IOT hub oluşturma, bir cihaz kimliği da sağlamak ve CİHAZDAN buluta iletiler gönderen bir sanal cihaz uygulamasının kodu nasıl gösterir.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Bu öğreticide yapılar [IOT Hub ile çalışmaya başlama](quickstart-send-telemetry-node.md). Bunun nasıl yapılacağı anlatılmaktadır için:
+Bu öğreticide yapılar [telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-node.md). Bunun nasıl yapılacağı anlatılmaktadır için:
 
 * Çözüm arka ucunuz, tek bir cihaz IOT hub'ı aracılığıyla bulut-cihaz iletilerini gönderin.
 * Bir cihazda bulut-cihaz iletilerini alır.
-* Çözüm arka ucunuz, teslimat alındısı istek (*geri bildirim*) için bir cihaz IOT Hub'ından gönderilen iletileri.
+* Teslim alındı bildirimi, çözüm arka ucu istek (*geri bildirim*) için bir cihaz IOT Hub'ından gönderilen iletileri.
 
 Bulut-cihaz iletileri hakkında daha fazla bilgi bulabilirsiniz [IOT Hub Geliştirici kılavuzunun](iot-hub-devguide-messaging.md).
 
 Bu öğreticinin sonunda iki Node.js konsol uygulaması çalıştırın:
 
-* **SimulatedDevice**, oluşturulan uygulamayı değiştirilmiş bir sürümünü [IOT Hub ile çalışmaya başlama](quickstart-send-telemetry-node.md), IOT hub'ınıza bağlanır ve bulut-cihaz iletilerini alır.
+* **SimulatedDevice**, oluşturulan uygulamayı değiştirilmiş bir sürümünü [telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-node.md), IOT hub'ınıza bağlanır ve bulut-cihaz iletilerini alır.
 
-* **SendCloudToDeviceMessage**, IOT hub'ı aracılığıyla sanal cihaz uygulaması için bir bulut buluttan cihaza ileti gönderir ve ardından, teslimat alındısı.
+* **SendCloudToDeviceMessage**, IOT hub'ı aracılığıyla sanal cihaz uygulaması için bir bulut buluttan cihaza ileti gönderir ve sonra onun teslim alındı bildirimi alır.
 
 > [!NOTE]
 > IOT Hub SDK desteği birçok cihaz platformlarını ve Azure IOT cihaz SDK'ları aracılığıyla diller (C, Java ve Javascript dahil) sahiptir. Bu öğreticinin koda ve genellikle Azure IOT hub'a Cihazınızı bağlamak hakkında adım adım yönergeler için bkz. [Azure IOT Geliştirici Merkezi](https://azure.microsoft.com/develop/iot).
@@ -49,12 +51,12 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>Sanal cihaz uygulamasında ileti alma
 
-Bu bölümde, oluşturduğunuz sanal cihaz uygulaması değiştirme [IOT Hub ile çalışmaya başlama](quickstart-send-telemetry-node.md) IOT hub'ından bulut-cihaz iletilerini almak için.
+Bu bölümde, oluşturduğunuz sanal cihaz uygulaması değiştirme [telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-node.md) IOT hub'ından bulut-cihaz iletilerini almak için.
 
 1. Bir metin düzenleyicisi kullanarak SimulatedDevice.js dosyasını açın.
 
 2. Değiştirme **connectCallback** IOT hub'dan gönderilen iletileri işlemek için işlev. Bu örnekte, cihazın her zaman çağırır **tam** ileti işlenmemiş olan IOT hub'ı bildirmek için işlevi. Yeni sürümünüzü **connectCallback** işlevi aşağıdaki kod parçacığı gibi görünür:
-   
+
     ```javascript
     var connectCallback = function (err) {
       if (err) {
@@ -85,7 +87,7 @@ Bu bölümde, oluşturduğunuz sanal cihaz uygulaması değiştirme [IOT Hub ile
 
 ## <a name="send-a-cloud-to-device-message"></a>Bulut buluttan cihaza ileti gönderme
 
-Bu bölümde, sanal cihaz uygulaması için bulut-cihaz iletilerini gönderen bir Node.js konsol uygulaması oluşturun. Cihazın kimliği, eklediğiniz ihtiyacınız [IOT Hub ile çalışmaya başlama](quickstart-send-telemetry-node.md) öğretici. IOT Hub bağlantı dizesine, bulabileceğiniz hub'ınız için etmeniz [Azure portalında](https://portal.azure.com).
+Bu bölümde, sanal cihaz uygulaması için bulut-cihaz iletilerini gönderen bir Node.js konsol uygulaması oluşturun. Cihazın kimliği, eklediğiniz ihtiyacınız [telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-node.md) hızlı başlangıç. IOT Hub bağlantı dizesine, bulabileceğiniz hub'ınız için etmeniz [Azure portalında](https://portal.azure.com).
 
 1. Adlı bir boş klasör oluşturun **sendcloudtodevicemessage**. İçinde **sendcloudtodevicemessage** klasöründe komut isteminizde aşağıdaki komutu kullanarak bir package.json dosyası oluşturun. Tüm varsayılanları kabul edin:
 
@@ -94,7 +96,7 @@ Bu bölümde, sanal cihaz uygulaması için bulut-cihaz iletilerini gönderen bi
     ```
 
 2. Komut isteminizde **sendcloudtodevicemessage** klasörü yüklemek için aşağıdaki komutu çalıştırın, **azure-iothub** paket:
-   
+
     ```shell
     npm install azure-iothub --save
     ```
@@ -102,16 +104,16 @@ Bu bölümde, sanal cihaz uygulaması için bulut-cihaz iletilerini gönderen bi
 3. Bir metin düzenleyicisi kullanarak oluşturduğunuz bir **SendCloudToDeviceMessage.js** dosyası **sendcloudtodevicemessage** klasör.
 
 4. Aşağıdaki `require` başlangıcında deyimleri **SendCloudToDeviceMessage.js** dosyası:
-   
+
     ```javascript
     'use strict';
-   
+
     var Client = require('azure-iothub').Client;
     var Message = require('azure-iot-common').Message;
     ```
 
-5. Aşağıdaki kodu ekleyin **SendCloudToDeviceMessage.js** dosya. "{IOT hub bağlantı dizesine}" yer tutucu değerini hub için oluşturduğunuz, IOT Hub bağlantı dizesiyle değiştirin [IOT Hub ile çalışmaya başlama](quickstart-send-telemetry-node.md) öğretici. Eklediğiniz cihazın cihaz kimliği "{cihaz id}" yer tutucusunu değiştirin [IOT Hub ile çalışmaya başlama](quickstart-send-telemetry-node.md) Öğreticisi:
-   
+5. Aşağıdaki kodu ekleyin **SendCloudToDeviceMessage.js** dosya. "{IOT hub bağlantı dizesine}" yer tutucu değerini hub için oluşturduğunuz, IOT Hub bağlantı dizesiyle değiştirin [telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-node.md) hızlı başlangıç. Eklediğiniz cihazın cihaz kimliği "{cihaz id}" yer tutucusunu değiştirin [telemetri gönderir bir CİHAZDAN bir IOT hub'ına](quickstart-send-telemetry-node.md) hızlı başlangıç:
+
     ```javascript
     var connectionString = '{iot hub connection string}';
     var targetDevice = '{device id}';
@@ -120,7 +122,7 @@ Bu bölümde, sanal cihaz uygulaması için bulut-cihaz iletilerini gönderen bi
     ```
 
 6. İşlem sonuçlarını konsola yazdırmak için aşağıdaki işlevi ekleyin:
-   
+
     ```javascript
     function printResultFor(op) {
       return function printResult(err, res) {
@@ -131,7 +133,7 @@ Bu bölümde, sanal cihaz uygulaması için bulut-cihaz iletilerini gönderen bi
     ```
 
 7. Teslim geri bildirim iletileri konsola yazdırmak için aşağıdaki işlevi ekleyin:
-   
+
     ```javascript
     function receiveFeedback(err, receiver){
       receiver.on('message', function (msg) {
@@ -142,7 +144,7 @@ Bu bölümde, sanal cihaz uygulaması için bulut-cihaz iletilerini gönderen bi
     ```
 
 8. Cihazınız için bir ileti gönderin ve cihaz bulut-cihaz iletiyi onayladıktan, geri bildirim iletisini işlemek için aşağıdaki kodu ekleyin:
-   
+
     ```javascript
     serviceClient.open(function (err) {
       if (err) {
@@ -166,28 +168,28 @@ Bu bölümde, sanal cihaz uygulaması için bulut-cihaz iletilerini gönderen bi
 Şimdi uygulamaları çalıştırmaya hazırsınız.
 
 1. Komut isteminde **simulateddevice** klasörü, IOT Hub'ına telemetri göndermeyi ve bulut-cihaz iletileri dinlemek için aşağıdaki komutu çalıştırın:
-   
+
     ```shell
-    node SimulatedDevice.js 
+    node SimulatedDevice.js
     ```
-   
+
     ![Sanal cihaz uygulaması çalıştırma](./media/iot-hub-node-node-c2d/receivec2d.png)
 
 2. Bir komut isteminde **sendcloudtodevicemessage** klasörü, bulut buluttan cihaza ileti göndermek ve bildirim hakkındaki geri bildirimleri beklemek için aşağıdaki komutu çalıştırın:
-   
+
     ```shell
-    node SendCloudToDeviceMessage.js 
+    node SendCloudToDeviceMessage.js
     ```
-   
+
     ![Bulut-cihaz komut göndermek için uygulamayı çalıştırın](./media/iot-hub-node-node-c2d/sendc2d.png)
-   
+
    > [!NOTE]
-   > Basitlik'ın çok için bu öğreticiyi herhangi bir yeniden deneme ilkesi uygulamaz. Üretim kodunda yeniden deneme ilkelerini (üstel geri alma), örneğin makalesinde önerildiği uygulamalıdır [geçici hata işleme](/azure/architecture/best-practices/transient-faults).
+   > Kolaylık olması için bu öğreticiyi herhangi bir yeniden deneme ilkesi uygulamaz. Üretim kodunda yeniden deneme ilkelerini (üstel geri alma), örneğin makalesinde önerildiği uygulamalıdır [geçici hata işleme](/azure/architecture/best-practices/transient-faults).
    >
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bulut-cihaz iletilerini gönderip öğrendiniz. 
+Bu öğreticide, bulut-cihaz iletilerini gönderip öğrendiniz.
 
 IOT hub'ı kullanan tam uçtan uca çözümler örneklerini görmek için bkz: [Azure IOT Uzaktan izleme çözüm Hızlandırıcısını](https://azure.microsoft.com/documentation/suites/iot-suite/).
 

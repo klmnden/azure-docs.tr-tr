@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: ad789a597da759b9a2d58138c7ed441389a12adb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aed716b01fe748be40ee22e3eba5742983c2a523
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61479992"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620923"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Stream Analytics Jeo-uzamsal işlevleri'ne giriş
 
@@ -54,7 +54,7 @@ FROM input
 
  {"type": "LineString", "koordinatları": [[20.2321,-87.33], [10.0, 10.0], [10.5, 10.5]]}
 
-Daha fazla bilgi için ziyaret [CreateLineString](https://msdn.microsoft.com/azure/stream-analytics/reference/createlinestring) başvuru.
+Daha fazla bilgi için ziyaret [CreateLineString](https://docs.microsoft.com/stream-analytics-query/createlinestring) başvuru.
 
 ## <a name="createpoint"></a>CreatePoint
 
@@ -81,7 +81,7 @@ FROM input
   
  {"type": "Nokta", "koordinatları": [20.2321,-87.33]}  
 
-Daha fazla bilgi için ziyaret [CreatePoint](https://msdn.microsoft.com/azure/stream-analytics/reference/createpoint) başvuru.
+Daha fazla bilgi için ziyaret [CreatePoint](https://docs.microsoft.com/stream-analytics-query/createpoint) başvuru.
 
 ## <a name="createpolygon"></a>CreatePolygon
 
@@ -108,7 +108,7 @@ FROM input
  
  {"type": "Çokgen", "koordinatları": [[[20.2321,-87.33], [10.0, 10.0], [10.5, 10.5], [20.2321,-87.33]]]}
 
-Daha fazla bilgi için ziyaret [CreatePolygon](https://msdn.microsoft.com/azure/stream-analytics/reference/createpolygon) başvuru.
+Daha fazla bilgi için ziyaret [CreatePolygon](https://docs.microsoft.com/stream-analytics-query/createpolygon) başvuru.
 
 
 ## <a name="stdistance"></a>ST_DISTANCE
@@ -122,7 +122,7 @@ FROM Cars c
 JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 ```
 
-Daha fazla bilgi için ziyaret [ST_DISTANCE](https://msdn.microsoft.com/azure/stream-analytics/reference/st-distance) başvuru.
+Daha fazla bilgi için ziyaret [ST_DISTANCE](https://docs.microsoft.com/stream-analytics-query/st-distance) başvuru.
 
 ## <a name="stoverlaps"></a>ST_OVERLAPS
 `ST_OVERLAPS` İşlevi iki çokgenler karşılaştırır. İşlev, çokgenler çakışırsa, 1 döndürür. Çokgenler çakışmadığından işlev 0 döndürür. 
@@ -143,7 +143,7 @@ FROM Cars c, Storm s
 JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 ```
 
-Daha fazla bilgi için ziyaret [ST_OVERLAPS](https://msdn.microsoft.com/azure/stream-analytics/reference/st-overlaps) başvuru.
+Daha fazla bilgi için ziyaret [ST_OVERLAPS](https://docs.microsoft.com/stream-analytics-query/st-overlaps) başvuru.
 
 ## <a name="stintersects"></a>ST_INTERSECTS
 `ST_INTERSECTS` İşlevi iki LineString karşılaştırır. INTERSECT LineString, işlev 1 döndürür. LineString kesişen yoksa işlev 0 döndürür.
@@ -169,7 +169,7 @@ FROM input
   
  0  
 
-Daha fazla bilgi için ziyaret [ST_INTERSECTS](https://msdn.microsoft.com/azure/stream-analytics/reference/st-intersects) başvuru.
+Daha fazla bilgi için ziyaret [ST_INTERSECTS](https://docs.microsoft.com/stream-analytics-query/st-intersects) başvuru.
 
 ## <a name="stwithin"></a>ST_WITHIN
 `ST_WITHIN` İşlevi içinde bir Çokgen noktası veya Çokgen olup olmadığını belirler. Çokgen noktası veya Çokgen içeriyorsa, işlev 1 döndürür. Noktası veya Çokgen içinde bildirilen Çokgen bulunduğu değilse işlev 0 döndürür.
@@ -195,12 +195,12 @@ FROM input
   
  1  
 
-Daha fazla bilgi için ziyaret [ST_WITHIN](https://msdn.microsoft.com/azure/stream-analytics/reference/st-within) başvuru.
+Daha fazla bilgi için ziyaret [ST_WITHIN](https://docs.microsoft.com/stream-analytics-query/st-within) başvuru.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Azure Stream analytics'e giriş](stream-analytics-introduction.md)
 * [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
 * [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
-* [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Akış Analizi Sorgu Dili Başvurusu](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Akış Analizi Yönetimi REST API'si Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)

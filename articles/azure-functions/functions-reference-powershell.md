@@ -9,13 +9,14 @@ ms.service: azure-functions
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: tyleonha, glenga
-ms.openlocfilehash: 489c94f37b6c88db001dee437cc6ed89383e6053
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: tyleonha
+ms.reviewer: glenga
+ms.openlocfilehash: a75bdaf0e26193a5b2792b52923c085eff89b83f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442172"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706409"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure işlevleri PowerShell Geliştirici Kılavuzu
 
@@ -81,11 +82,11 @@ param($MyFirstInputBinding, $MySecondInputBinding, $TriggerMetadata)
 $TriggerMetadata.sys
 ```
 
-| Özellik   | Description                                     | Tür     |
+| Özellik   | Description                                     | Type     |
 |------------|-------------------------------------------------|----------|
-| utcNow     | UTC biçiminde işlevi, tetiklendi.        | DateTime |
-| methodName | Tetiklendi işlevin adı     | string   |
-| RandGuid   | Bu işlev yürütmesi için benzersiz bir GUID | string   |
+| utcNow     | UTC biçiminde işlevi, tetiklendi.        | Datetime |
+| methodName | Tetiklendi işlevin adı     | dize   |
+| RandGuid   | Bu işlev yürütmesi için benzersiz bir GUID | dize   |
 
 Her tetikleyici türü meta verileri farklı bir dizi vardır. Örneğin, `$TriggerMetadata` için `QueueTrigger` içeren `InsertionTime`, `Id`, `DequeueCount`, başka şeylerin yanında. Kuyruk tetikleyicinin meta veriler hakkında daha fazla bilgi için Git [Sırası Tetikleyicileri resmi belgelerine](functions-bindings-storage-queue.md#trigger---message-metadata). Belgeleri kontrol [Tetikleyicileri](functions-triggers-bindings.md) tetikleyici meta verileri içinde ne geldiğini görmek için birlikte çalışıyoruz.
 
@@ -133,9 +134,9 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Arama için geçerli Parametreler şunlardır `Push-OutputBinding`:
 
-| Ad | Tür | Konum | Açıklama |
+| Ad | Type | Konum | Açıklama |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | String | 1 | Çıkış bağlaması adını ayarlamak istersiniz. |
+| **`-Name`** | Dize | 1\. | Çıkış bağlaması adını ayarlamak istersiniz. |
 | **`-Value`** | Object | 2 | Çıkış bağlaması değerini ayarlamak ByValue ardışık düzen tarafından kabul edilen istediğiniz. |
 | **`-Clobber`** | SwitchParameter | adlı | (İsteğe bağlı) Bu seçenek belirtildiğinde, bir belirtilen çıkış bağlaması için ayarlanacak değer zorlar. | 
 
@@ -234,7 +235,7 @@ MyQueue                        myData
 
 Joker karakter (*) de desteklenmektedir `Get-OutputBinding`.
 
-## <a name="logging"></a>Günlüğe kaydetme
+## <a name="logging"></a>Günlüğe Kaydetme
 
 PowerShell işlevlerde günlüğü normal PowerShell günlükleri gibi çalışır. Günlüğü cmdlet'leri, her çıkış akımına yazmak için kullanabilirsiniz. Her cmdlet işlevleri tarafından kullanılan bir günlük düzeyine eşler.
 
@@ -242,7 +243,7 @@ PowerShell işlevlerde günlüğü normal PowerShell günlükleri gibi çalış�
 | ------------- | -------------- |
 | Hata | **`Write-Error`** |
 | Uyarı | **`Write-Warning`**  | 
-| Bilgi | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Bilgi | Yazar _bilgi_ düzeyinde günlüğe kaydetme. |
+| Bilgiler | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Bilgiler | Yazar _bilgi_ düzeyinde günlüğe kaydetme. |
 | Hata ayıklama | **`Write-Debug`** |
 | İzleme | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
@@ -283,7 +284,7 @@ Daha fazla bilgi için [host.json başvurusu].
 Tüm tetikleyiciler ve bağlamalar kodda birkaç gerçek veri türleri olarak temsil edilir:
 
 * Hashtable
-* string
+* dize
 * byte[]
 * int
 * double
@@ -302,14 +303,14 @@ HTTP ve Web kancası Tetikleyicileri ve bağlamaları, HTTP iletileri temsil etm
 
 Betiğe geçirilen istek nesnesi türüdür `HttpRequestContext`, aşağıdaki özelliklere sahiptir:
 
-| Özellik  | Description                                                    | Tür                      |
+| Özellik  | Description                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | İstek gövdesini içeren bir nesne. `Body` verilere göre en iyi türü seri hale getirilir. Verileri JSON ise, örneğin, karma tablosu olarak geçirilir. Verileri bir dize ise, bunu bir dize olarak geçirilir. | object |
 | **`Headers`** | İstek üst bilgilerini içeren bir sözlük.                | Sözlük < string, string ><sup>*</sup> |
-| **`Method`** | İsteğin HTTP yöntemi.                                | string                    |
+| **`Method`** | İsteğin HTTP yöntemi.                                | dize                    |
 | **`Params`**  | İstek yönlendirme parametrelerini içeren bir nesne. | Sözlük < string, string ><sup>*</sup> |
 | **`Query`** | Sorgu parametrelerini içeren bir nesne.                  | Sözlük < string, string ><sup>*</sup> |
-| **`Url`** | İsteğin URL'si.                                        | string                    |
+| **`Url`** | İsteğin URL'si.                                        | dize                    |
 
 <sup>*</sup> Tüm `Dictionary<string,string>` anahtarları duyarsızdır.
 
@@ -317,10 +318,10 @@ Betiğe geçirilen istek nesnesi türüdür `HttpRequestContext`, aşağıdaki �
 
 Yanıt nesnesini geri göndermesi gerektiğini türüdür `HttpResponseContext`, aşağıdaki özelliklere sahiptir:
 
-| Özellik      | Description                                                 | Tür                      |
+| Özellik      | Description                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | Yanıtın gövdesini içeren bir nesne.           | object                    |
-| **`ContentType`** | Yanıtın içerik türünü ayarlamak için bir kısa el. | string                    |
+| **`ContentType`** | Yanıtın içerik türünü ayarlamak için bir kısa el. | dize                    |
 | **`Headers`** | Yanıt üst bilgilerini içeren bir nesne.               | Sözlük veya karma tablosu   |
 | **`StatusCode`**  | Yanıtın HTTP durum kodu.                       | dize veya tamsayı             |
 

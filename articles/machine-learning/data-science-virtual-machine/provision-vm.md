@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 64642da88850e9a0a17173bc50ae9e750cab55a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57768fc463f5ea1d2f1ec386f3f0975758220013
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235096"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626396"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Azure'da Windows veri bilimi sanal makinesi sağlama
 
@@ -61,13 +61,13 @@ Veri bilimcileri bu görevler için çeşitli araçlar kullanın. Zaman yazılı
 
 Analiz projenizi DSVM jump-starts. R, Python, SQL ve C# gibi çeşitli dillerde görevler üzerinde çalışabilir. Visual Studio geliştirme ve kodunuzu test etmek için kullanımı kolay tümleşik geliştirme ortamı (IDE) sağlar. Microsoft'un bulut platformu üzerinde çeşitli Hizmetleri kullanarak uygulamalarınızı oluşturmanıza yardımcı olacak Azure SDK'sı sanal Makineye eklenir.
 
-Bu veri bilimi VM görüntüsü için hiçbir yazılım ücreti yoktur. Yalnızca Azure kullanım ücretleri ödeme yaparsınız. Bunlar, sağlamanız sanal makinenin boyutuna bağlıdır. Daha ayrıntılı bilgi işlem ücretleri bulunan **fiyatlandırma ayrıntıları** bölümünde [veri bilimi sanal makinesi](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=PlansAndPrice) sayfası.
+Bu veri bilimi VM görüntüsü için hiçbir yazılım ücreti yoktur. Yalnızca Azure kullanım ücretleri ödeme yaparsınız. Bunlar, sağlamanız sanal makinenin boyutuna bağlıdır. Daha ayrıntılı bilgi işlem ücretleri bulunan **fiyatlandırma ayrıntıları** bölümünde [veri bilimi sanal makinesi](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) sayfası.
 
 ### <a name="other-dsvm-versions"></a>Diğer DSVM sürümleri
 
 * Bir [Ubuntu](dsvm-ubuntu-intro.md) görüntü. Bunun yanı sıra bazı ek derin öğrenme çerçeveleri DSVM'ye benzer birçok araç vardır.
 * A [Linux CentOS](linux-dsvm-intro.md) görüntü.
-* [Windows Server 2012 sürümü](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm) , veri bilimi sanal makinesi. Bazı araçlar, yalnızca Windows Server 2016 sürümünde kullanılabilir. Aksi takdirde, bu makalede, Windows Server 2012 sürümüne de geçerlidir.
+* [Windows Server 2012 sürümü](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) , veri bilimi sanal makinesi. Bazı araçlar, yalnızca Windows Server 2016 sürümünde kullanılabilir. Aksi takdirde, bu makalede, Windows Server 2012 sürümüne de geçerlidir.
 
 ## <a name="prerequisite"></a>Önkoşul
 

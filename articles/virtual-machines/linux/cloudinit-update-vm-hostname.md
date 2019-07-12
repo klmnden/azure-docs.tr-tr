@@ -4,7 +4,7 @@ description: Azure CLI ile oluşturma sırasında bir Linux VM özelleştirmek i
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: da20c4b30e2708bf7754d025cfbd2c269c3b5c7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e437200ec6af22d104f9878e7bdfd20141759fb
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648950"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668196"
 ---
 # <a name="use-cloud-init-to-set-hostname-for-a-linux-vm-in-azure"></a>Azure'da bir Linux sanal makinesi için ana bilgisayar adı ayarlamak için cloud-init kullanma
 Bu makalede nasıl kullanılacağını gösterir [cloud-init](https://cloudinit.readthedocs.io) belirli bir ana bilgisayar adı, bir sanal makine (VM) veya sanal makinede yapılandırmak için ölçek kümeleri (VMSS zaman azure'da sağlama sırasında). Kaynakları Azure tarafından sağlanan sonra ilk önyüklemede bu cloud-init betikleri çalıştırın. Cloud-init yerel olarak desteklenen Linux dağıtımları ve Azure ile işleyişi hakkında daha fazla bilgi için bkz. [cloud-init genel bakış](using-cloud-init.md)

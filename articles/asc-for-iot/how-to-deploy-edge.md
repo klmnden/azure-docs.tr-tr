@@ -2,24 +2,25 @@
 title: Azure Güvenlik Merkezi için IOT Edge modülü dağıtma | Microsoft Docs
 description: IOT Edge üzerinde IOT güvenlik aracısı için bir Azure Güvenlik Merkezi dağıtma hakkında bilgi edinin.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 32a9564d-16fd-4b0d-9618-7d78d614ce76
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/1/2019
 ms.author: mlottner
-ms.openlocfilehash: 85e342f08e5402e50e5b0dfd1fe2df90337f29ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49ed4c6515f8fb63c3331b05e1bb29b13985e6b3
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254302"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618331"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>IOT Edge Cihazınızda güvenlik modül dağıtma
 
@@ -132,7 +133,7 @@ IOT için Azure Güvenlik Merkezi için bir IOT Edge dağıtımı oluşturmak i�
       
 1. **Kaydet**’e tıklayın.
    
-1. **İleri**’ye tıklayın.
+1.           **İleri**'ye tıklayın.
 
 #### <a name="step-2-specify-routes"></a>2\. adım: Rota belirtme 
 

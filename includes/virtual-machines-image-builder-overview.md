@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: 6eedc095f155a77cddf48211dbc4a677bf188112
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 55d73b2602a9a862375ca3e72dee4597c1d6f1d6
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509929"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67659930"
 ---
 Standart sanal makine (VM) görüntülerini kuruluşların buluta taşımayı ve dağıtımlarında tutarlılığı sağlar. Görüntüler genellikle önceden tanımlı güvenlik ve yapılandırma ayarlarını ve gerekli yazılımı da içerir. Kendi görüntü işlem hattı ayarlama süresi, altyapı ve Kurulum gerektirir ancak Azure VM Görüntü Oluşturucu ile yalnızca görüntünüzü açıklayan basit bir yapılandırma sağlayın, hizmete gönderme ve görüntü oluşturulan dağıtılmış ve.
  
@@ -55,7 +55,7 @@ AIB RHEL ISO'YU'ın destekleyeceği için bir kaynak olarak:
 - RHEL 7.4
 - RHEL 7.5
 
-RHEL 7.6, test edilen ancak desteklenmiyor.
+RHEL 7.6 Iso'lar desteklenmez, ancak test edilir.
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 

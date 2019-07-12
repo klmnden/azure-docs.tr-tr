@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/04/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 46ade0ecb0e2e081585803a0b1bc7eab989e21e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 169e25aeb8503a11f768a2a3062022eef51a76b8
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735207"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67659922"
 ---
 **En son Güncelleştirmesi'ni belge**: 4 Haziran 2019 15:00 PST.
 
@@ -21,7 +21,7 @@ Açıklanması bir [CPU güvenlik açıklarından yeni sınıf](https://portal.m
 
 Microsoft, tüm bulut hizmetlerimizin arasında azaltmaları dağıtmıştır. Azure çalışan ve müşteri iş yüklerinin birbirinden yalıtan altyapı korunur. Bu altyapıyı kullanarak olası bir saldırganın bu güvenlik açıklarına kullanarak uygulamanızı saldırı olamaz anlamına gelir.
 
-Azure kullanarak [Bakımı koruma bellek](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-not-requiring-a-reboot) mümkün olduğunda, müşteri etkiyi en aza indirmek ve yeniden başlatma gereksinimini ortadan kaldırmak. Azure ana bilgisayara yükleyebilecek güncelleştirmeler yaparken bu yöntemleri yararlanmaya devam ve müşterilerimizi korumak.
+Azure kullanarak [Bakımı koruma bellek](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot) mümkün olduğunda, müşteri etkiyi en aza indirmek ve yeniden başlatma gereksinimini ortadan kaldırmak. Azure ana bilgisayara yükleyebilecek güncelleştirmeler yaparken bu yöntemleri yararlanmaya devam ve müşterilerimizi korumak.
 
 Güvenlik her yönüyle Azure ile nasıl tümleştirildiği hakkında daha fazla bilgi edinilebilir [Azure güvenlik belgeleri](https://docs.microsoft.com/azure/security/) site. 
 

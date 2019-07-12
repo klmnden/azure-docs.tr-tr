@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2916c9aba7d404ff4ad380d249bd507fadf71ea
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: b0392a40ef948d96e613da9127629f52b02deb97
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310069"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655813"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect önkoşulları
 Bu konu ön koşullar ve Azure AD Connect için donanım gereksinimlerini açıklar.
@@ -49,7 +49,7 @@ Azure AD Connect'i yüklemeden önce gereken birkaç şey vardır.
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect sunucusu
 >[!IMPORTANT]
->Azure AD Connect sunucusu kritik kimlik verilerini içeren ve açıklandığı gibi bir katman 0 bileşeni olarak değerlendirilip [Active Directory Yönetim katmanı modeli](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#ADATM_BM)
+>Azure AD Connect sunucusu kritik kimlik verilerini içeren ve açıklandığı gibi bir katman 0 bileşeni olarak değerlendirilip [Active Directory Yönetim katmanı modeli](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)
 
 * Azure AD Connect yüklenemez Small Business Server veya Windows Server Essentials 2019 önce (Windows Server Essentials 2019 desteklenir). Sunucu Windows Server standard veya daha iyi kullanıyor olmanız gerekir.
 * Azure AD Connect bir etki alanı denetleyicisine yüklemek, güvenlik uygulamaları ve Azure AD Connect doğru bir şekilde yüklenmesini engelleyen daha kısıtlayıcı ayarlar nedeniyle önerilmez.

@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 06bdd21363aee8202ce7178f157f01a5c26e3a52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c22caa4b3da69d46241dfbaa7556d0209130415c
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851584"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626140"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı tabloları tasarlama
 
@@ -42,7 +42,7 @@ SQL veri ambarı'nda tablolar organizasyonu göstermek için tablo adları için
 
 | Wideworldımportersdw tablo  | Tablo türü | SQL Veri Ambarı |
 |:-----|:-----|:------|:-----|
-| Şehir | Boyut | wwi. DimCity |
+| City | Boyut | wwi. DimCity |
 | Sipariş verme | Olgu | wwi.FactOrder |
 
 
@@ -107,7 +107,7 @@ Varsayılan olarak, SQL veri ambarı, bir tablo kümelenmiş bir columnstore diz
 Columnstore özelliklerinin listesi için bkz. [columnstore dizinlerinde yenilikler](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Columnstore dizini performansını artırmak için bkz: [satır grubu kaliteli columnstore dizinleri için en üst düzeye](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 ## <a name="statistics"></a>İstatistikler
-Bir sorgu yürütme planı oluşturduğunda, sütun düzeyindeki istatistikleri sorgu iyileştiricisi kullanır. Sorgu performansını artırmak için tek tek sütunlara, özellikle sorgu birleşimlerde kullanılan sütun istatistikleri olması önemlidir. [İstatistik oluşturma](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistics) otomatik olarak gerçekleşir.  Ancak, istatistikleri güncelleştirmeyi otomatik olarak gerçekleştirilmez. Çok sayıda satır eklenen veya değiştirilen sonra istatistikleri güncelleştirin. Örneğin, bir yükleme sonrası istatistikleri güncelleştirin. Daha fazla bilgi için [istatistikleri Kılavuzu](sql-data-warehouse-tables-statistics.md).
+Bir sorgu yürütme planı oluşturduğunda, sütun düzeyindeki istatistikleri sorgu iyileştiricisi kullanır. Sorgu performansını artırmak için tek tek sütunlara, özellikle sorgu birleşimlerde kullanılan sütun istatistikleri olması önemlidir. [İstatistik oluşturma](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic) otomatik olarak gerçekleşir.  Ancak, istatistikleri güncelleştirmeyi otomatik olarak gerçekleştirilmez. Çok sayıda satır eklenen veya değiştirilen sonra istatistikleri güncelleştirin. Örneğin, bir yükleme sonrası istatistikleri güncelleştirin. Daha fazla bilgi için [istatistikleri Kılavuzu](sql-data-warehouse-tables-statistics.md).
 
 ## <a name="commands-for-creating-tables"></a>Tablo oluşturma için komutları
 Yeni boş tablo olarak bir tablo oluşturabilirsiniz. Ayrıca, oluşturabilir ve bir select deyiminin sonuçları ile bir tabloyu doldurmak. Tablo oluşturma için T-SQL komutlarını verilmiştir.

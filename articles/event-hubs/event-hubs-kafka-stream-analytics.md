@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: b6bba4ed45530ba66a1adde274022a80091cd199
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c4beede2508104fc9af934d3f9a2bbcce791292
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60748135"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626179"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Stream Analytics kullanarak Event Hubs için Apache Kafka olaylarını işleme 
 Bu makalede, veri akışı Kafka özellikli Event Hubs'a ve Azure Stream Analytics ile işlemek gösterilmektedir. Aşağıdaki adımları gösterilmektedir: 
@@ -163,7 +163,7 @@ Stream Analytics işinde sorgu, herhangi bir analiz yapmadan aracılığıyla ve
  
 
 ### <a name="define-a-query"></a>Bir sorgu tanımlama
-Gelen bir veri akışını okumak için bir Stream Analytics işi ayarladıktan sonraki adım, verileri gerçek zamanlı olarak analiz eden bir dönüştürme oluşturmaktır. Dönüştürme sorgusunu [Stream Analytics sorgu dilini](https://msdn.microsoft.com/library/dn834998.aspx) kullanarak tanımlarsınız. Bu izlenecek yolda, herhangi bir dönüştürme gerçekleştirmeden veri aktaran bir sorgu tanımlayabilirsiniz.
+Gelen bir veri akışını okumak için bir Stream Analytics işi ayarladıktan sonraki adım, verileri gerçek zamanlı olarak analiz eden bir dönüştürme oluşturmaktır. Dönüştürme sorgusunu [Stream Analytics sorgu dilini](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) kullanarak tanımlarsınız. Bu izlenecek yolda, herhangi bir dönüştürme gerçekleştirmeden veri aktaran bir sorgu tanımlayabilirsiniz.
 
 1. Seçin **sorgu**.
 2. Sorgu penceresinde değiştirin `[YourOutputAlias]` ile daha önce oluşturduğunuz çıkış diğer adı.

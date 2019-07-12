@@ -8,12 +8,12 @@ ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 9d9d5a7232529989901709013dcfac12f94afad0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2af6d499bafb0e00b31d0379baac6a390bd6ca3f
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812753"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626228"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Azure CLI kullanarak Azure Data Lake Analytics ile çalışmaya başlama
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -108,7 +108,7 @@ az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 Data Lake Analytics ayrıca Azure Blob depolama alanına da erişebilir.  Verileri Azure Blob depolama alanına yüklemek için bkz. [Azure CLI'yı Azure Storage ile kullanma](../storage/common/storage-azure-cli.md).
 
 ## <a name="submit-data-lake-analytics-jobs"></a>Data Lake Analytics işlerini gönderme
-Data Lake Analytics işleri, U-SQL dilinde yazılır. U-SQL hakkında daha fazla bilgi için bkz. [U-SQL dili ile çalışmaya başlama](data-lake-analytics-u-sql-get-started.md) ve [U-SQL dili başvurusu](https://go.microsoft.com/fwlink/?LinkId=691348).
+Data Lake Analytics işleri, U-SQL dilinde yazılır. U-SQL hakkında daha fazla bilgi için bkz. [U-SQL dili ile çalışmaya başlama](data-lake-analytics-u-sql-get-started.md) ve [U-SQL dili başvurusu](https://docs.microsoft.com/u-sql/).
 
 **Data Lake Analytics iş betiği oluşturmak için**
 

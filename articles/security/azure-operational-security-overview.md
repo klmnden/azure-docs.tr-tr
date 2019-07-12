@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: 38054d6ee3799296887726954ef1f096945aeaeb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ca9feb226a077484ba43bef7cd14d962ea95b37a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60586858"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653417"
 ---
 # <a name="azure-operational-security-overview"></a>Azure operasyonel güvenliğine genel bakış
 
@@ -47,7 +47,7 @@ Bir BT operasyon ekibinin, veri merkezi altyapı, uygulamaları ve verileri kara
 
 Azure Backup, indirin ve uygun bilgisayar veya sunucuda veya bulutta dağıtın bileşenleri sunar. Dağıtacağınız bileşen veya aracı, korumak istediğiniz nesnelere göre değişiklik gösterir. Tüm Azure Backup bileşenleri (koruduğunuz veriler şirket içi veya Bulut ortamında) verileri azure'daki bir Azure kurtarma Hizmetleri kasasına yedeklemek için kullanılabilir. 
 
-Daha fazla bilgi için [Azure Backup bileşen tablosuna](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use).
+Daha fazla bilgi için [Azure Backup bileşen tablosuna](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use).
 
 ### <a name="site-recovery"></a>Site Recovery
 

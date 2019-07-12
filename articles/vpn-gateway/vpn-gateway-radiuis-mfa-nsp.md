@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4e11b1bc16f874f892288f9677a71023f483de7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e10151cd117a3400893f94559b2c9892de9f3c7
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60458141"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666209"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Azure VPN ağ geçidi RADIUS kimlik doğrulaması için çok faktörlü kimlik doğrulamasını NPS sunucusu ile tümleştirme 
 
@@ -52,18 +52,18 @@ Mfa'yı etkinleştirmek için kullanıcıların Azure Active ya da şirket için
 ### <a name="step-2-configure-the-nps-for-azure-mfa"></a>2\. adım, Azure MFA için NPS yapılandırma
 
 1. NPS sunucu üzerinde [Azure MFA için NPS uzantısını yükleme](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension).
-2. NSP konsolunu açın, sağ **RADUIS istemcileri**ve ardından **yeni**. Aşağıdaki ayarlar belirterek RADUIS istemci oluşturun:
+2. NPS konsolunu açın, sağ **RADIUS istemcileri**ve ardından **yeni**. RADIUS istemcisi, aşağıdaki ayarları belirterek oluşturun:
 
     - **Kolay ad**: Herhangi bir ad yazın.
     - **Adres (IP veya DNS)** : Adım 1'de oluşturduğunuz ağ geçidi alt ağı girin.
     - **Paylaşılan gizli diziyi**: herhangi bir gizli anahtar yazın ve daha sonra kullanmak üzere unutmayın.
 
-      ![Görüntünün RADUIS istemci ayarları hakkında](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
+      ![RADIUS istemci ayarları hakkında görüntü](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
 
  
 3.  Üzerinde **Gelişmiş** sekmesinde, satıcı adı kümesine **RADIUS standart** emin olun **ek seçenekler** onay kutusu seçilmez.
 
-    ![Görüntünün RADUIS istemci Gelişmiş ayarları hakkında](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client2.png)
+    ![RADIUS istemci Gelişmiş ayarları hakkında görüntü](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client2.png)
 
 4. Git **ilkeleri** > **ağ ilkeleri**, çift **Microsoft Routing ve Uzaktan erişim sunucusuna bağlantılarda** ilkesi seçin  **Erişim ver**ve ardından **Tamam**.
 

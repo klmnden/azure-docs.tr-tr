@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4658de97bc8b8a175934286a5be3f074968ff7bd
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 6b7451371fe1562a6763643cd90e5646bd255018
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485372"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653518"
 ---
 # <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>"Basit" arama söz dizimi kullanarak Azure Search'te sorgu örnekleri
 
@@ -119,7 +119,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E0
 
 ## <a name="example-3-filter-queries"></a>Örnek 3: Sorguları filtreleme
 
-[Filtre söz dizimi](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) ile kullanabileceğiniz bir OData ifade **arama** veya tek başına. Filtre ifadesi ilgi belgeleri tam olarak nitelemek mümkün olduğunda, bir arama parametresi olmadan bir tek başına filtre yararlıdır. Bir sorgu dizesi hiçbir sözlü ya da dilbilimsel analiz yoktur yok (1 olan tüm puanları) Puanlama ve hiçbir sıralaması. Arama dizesi boş olduğuna dikkat edin.
+[Filtre söz dizimi](https://docs.microsoft.com/azure/search/search-query-odata-filter) ile kullanabileceğiniz bir OData ifade **arama** veya tek başına. Filtre ifadesi ilgi belgeleri tam olarak nitelemek mümkün olduğunda, bir arama parametresi olmadan bir tek başına filtre yararlıdır. Bir sorgu dizesi hiçbir sözlü ya da dilbilimsel analiz yoktur yok (1 olan tüm puanları) Puanlama ve hiçbir sıralaması. Arama dizesi boş olduğuna dikkat edin.
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2019-05-06
@@ -147,7 +147,7 @@ Filtre ve arama birleştirmek için başka bir güçlü yollarından biri sayesi
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
 ```
 
-İşlevi hakkında daha fazla bilgi için bkz. ["Filtre örneklerde" search.ismatch](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
+İşlevi hakkında daha fazla bilgi için bkz. ["Filtre örneklerde" search.ismatch](https://docs.microsoft.com/azure/search/search-query-odata-full-text-search-functions#examples).
 
 ## <a name="example-4-range-filters"></a>Örnek 4: Aralık filtresi
 
@@ -198,7 +198,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 ## <a name="example-5-geo-search"></a>Örnek 5: Coğrafi arama
 
-Örnek dizini enlem ve boylam koordinatları geo_location alanıyla içerir. Bu örnekte [geo.distance işlevi](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) filtre uygulayan bir başlangıç noktası çevresi içindeki belgeler üzerinde out sağlayan bir rastgele uzaklık (olan mesafeyi kilometre cinsinden). Son değerini azaltın veya sorguyu'nın yüzey alanını genişletmek için sorgu (4) ayarlayabilirsiniz.
+Örnek dizini enlem ve boylam koordinatları geo_location alanıyla içerir. Bu örnekte [geo.distance işlevi](https://docs.microsoft.com/azure/search/search-query-odata-geo-spatial-functions#examples) filtre uygulayan bir başlangıç noktası çevresi içindeki belgeler üzerinde out sağlayan bir rastgele uzaklık (olan mesafeyi kilometre cinsinden). Son değerini azaltın veya sorguyu'nın yüzey alanını genişletmek için sorgu (4) ayarlayabilirsiniz.
 
 Aşağıdaki örnek, okunabilirlik için POST biçiminde aynıdır:
 

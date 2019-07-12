@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 398efd36e6c8d82a5090b7446c95abb2d1bfbca1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 03c7be9112ed22bb43e259fa72581d382a276163
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428754"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718188"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -105,7 +105,7 @@ Parametreler, ilkeleri oluştururken aynı şekilde çalışır. İlke tanımın
 Bir parametre ilke tanımında kullanılan aşağıdaki özelliklere sahiptir:
 
 - **Ad**: Parametrenin adı. Tarafından kullanılan `parameters` ilke kuralı içinde dağıtım işlevi. Daha fazla bilgi için [bir parametre değeri kullanarak](#using-a-parameter-value).
-- `type`: Parametre olup olmadığını belirleyen bir **dize** veya **dizi**.
+- `type`: Parametre olup olmadığını belirleyen bir **dize**, **dizi**, **nesne**, **Boole**, **tamsayı**, **float**, veya **datetime**.
 - `metadata`: Öncelikli olarak kullanıcı dostu bilgileri görüntülemek için Azure portal tarafından kullanılan alt tanımlar:
   - `description`: Hangi parametre açıklaması için kullanılır. Örnekler, kabul edilebilir değerler sağlamak için kullanılabilir.
   - `displayName`: Parametre için Portalı'nda gösterilen kolay adı.
@@ -304,7 +304,7 @@ Aşağıdaki örnekte, `concat` değerini adlı etiket için etiket alanı arama
 }
 ```
 
-### <a name="value"></a>Değer
+### <a name="value"></a>Value
 
 Koşullar de biçimlendirilmiş kullanarak **değer**. **değer** koşullar karşı denetler [parametreleri](#parameters), [şablon işlevleri desteklenen](#policy-functions), ya da değişmez.
 **değer** desteklenen herhangi biri ile eşleştirilmiş [koşul](#conditions).

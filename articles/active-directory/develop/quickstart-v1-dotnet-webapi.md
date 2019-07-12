@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e2eca253bc5d1495d26506e0e6f8a83762e8bc5
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 83f5b08e5fee17c0ea5577d4d56d4d3208a818e3
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001100"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625302"
 ---
 # <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>Hızlı Başlangıç: .NET web API'si Azure AD kimlik doğrulaması ve yetkilendirme ile tümleşen oluşturma
 
@@ -49,7 +49,7 @@ Başlamak için şu önkoşulları tamamlayın:
 * [Uygulama çatısını indirin](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) veya [tamamlanmış örneği indirin](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Bunların hepsi Visual Studio 2013 çözümüdür.
 * Uygulamanızı kaydedeceğiniz bir Azure AD kiracınız olmalıdır. Henüz kiracınız yoksa, [nasıl alacağınızı öğrenin](quickstart-create-new-tenant.md).
 
-## <a name="step-1-register-an-application-with-azure-ad"></a>1. Adım: Bir uygulamayı Azure AD'ye kaydetme
+## <a name="step-1-register-an-application-with-azure-ad"></a>1\. adım: Bir uygulamayı Azure AD'ye kaydetme
 
 Uygulamanızın güvenliğini sağlamaya yardımcı olmak için, ilk olarak kiracınızda bir uygulama oluşturmalı ve Azure AD'de birkaç önemli bilgi parçası sağlamalısınız.
 
@@ -66,7 +66,7 @@ Altında **desteklenen hesap türleri**seçin **herhangi bir kuruluş dizinini v
 6. Seçin **bir API'yi kullanıma sunmak**, ardından tıklayarak uygulama kimliği URI'si güncelleştirin **ayarlamak**. Kiracıya özel bir tanımlayıcı girin. Örneğin, `https://contoso.onmicrosoft.com/TodoListService` girin.
 7. Yapılandırmayı kaydedin. Portalı açık bırakın, çünkü kısa süre sonra istemcinizi de kaydetmeniz gerekecektir.
 
-## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>2. Adım: OWIN kimlik doğrulaması işlem hattı kullanılacak uygulamasını ayarlama
+## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>2\. adım: OWIN kimlik doğrulaması işlem hattı kullanılacak uygulamasını ayarlama
 
 Gelen istekleri ve belirteçleri doğrulamak için, uygulamanızı Azure AD ile iletişim kuracak şekilde ayarlamanız gerekir.
 
@@ -79,7 +79,7 @@ Gelen istekleri ve belirteçleri doğrulamak için, uygulamanızı Azure AD ile 
 
 2. TodoListService projesine `Startup.cs` adlı bir OWIN Startup sınıfı ekleyin.  Projeye sağ tıklayın, **Ekle > Yeni Öğe**'yi seçin, ardından **OWIN**'i aratın. OWIN ara yazılımı, uygulamanız başlatıldığında `Configuration(…)` yöntemini çağırır.
 
-3. Sınıf bildirimini `public partial class Startup` olarak değiştirin. Başka bir dosyada bu sınıfın bir kısmını sizin için zaten uygulamıştır. `Configuration(…)` yönteminde, web uygulamanızda kimlik doğrulamasını ayarlamak için `ConfgureAuth(…)` çağrısı yapın.
+3. Sınıf bildirimini `public partial class Startup` olarak değiştirin. Başka bir dosyada bu sınıfın bir kısmını sizin için zaten uygulamıştır. `Configuration(…)` yönteminde, web uygulamanızda kimlik doğrulamasını ayarlamak için `ConfigureAuth(…)` çağrısı yapın.
 
     ```csharp
     public partial class Startup
@@ -143,7 +143,7 @@ Gelen istekleri ve belirteçleri doğrulamak için, uygulamanızı Azure AD ile 
     * `ida:Tenant`, Azure AD kiracınızın adıdır (örneğin, contoso.onmicrosoft.com).
     * `ida:Audience`, Azure portalına girdiğiniz uygulamanın Uygulama Kimliği URI'sidir.
 
-## <a name="step-3-configure-a-client-application-and-run-the-service"></a>3. adım: Bir istemci uygulaması yapılandırma ve hizmet çalıştırma
+## <a name="step-3-configure-a-client-application-and-run-the-service"></a>3\. adım: Bir istemci uygulaması yapılandırma ve hizmet çalıştırma
 
 To Do List Service'i iş başında görebilmek için önce To Do List istemcisini Azure AD'den belirteçleri alacak ve hizmete çağrı yapabilecek şekilde yapılandırmanız gerekir.
 

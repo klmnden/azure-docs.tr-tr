@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: 68a5d5278e1181695695647cff187d4b95624b40
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 05723a90725992e6b955524a2d35c82d3378ee3d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537640"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621848"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>SSIS tümleştirme çalışma zamanı paketi yürütme sorunlarını giderme
 
@@ -57,11 +57,33 @@ Pakette kullanılan ADO.NET sağlayıcısının SSIS tümleştirme çalışma za
 
 Bilinen bir sorun SQL Server Management Studio (SSMS) daha eski sürümlerinde bu hataya neden olabilir. Paket dağıtımı yapmak SSMS'yi kullanıldığı makinede yüklü olmayan bir özel bileşene (örneğin, SSIS Azure Feature Pack veya iş ortağı bileşenleri) içeriyorsa, SSMS bileşeni kaldırmak ve hataya neden. Yükseltme [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) sabit sorunu en son sürümü için.
 
+### <a name="error-messagessis-executor-exit-code--1073741819"></a>Hata iletisi: "SSIS Yürütücü çıkış kodu: -1073741819."
+
+* Olası neden & önerilen eylem:
+  * Birden çok Excel kaynakları ve hedefleri paralel olarak birden çok iş parçacığında yürütürken Excel kaynak ve hedef için sınırlama nedeniyle bu hata olabilir. Geçici çözüm tarafından bu sınırlama değiştirme Excel bileşenlerinizi sıralı biçimde yürütmek ya da farklı paketler ve tetikleyici "Paket görevi yürütme" aracılığıyla True olarak ayarlanan ExecuteOutOfProcess özelliği ile ayırarak kullanabilirsiniz.
+
 ### <a name="error-message-there-is-not-enough-space-on-the-disk"></a>Hata iletisi: "Yeterli alanı yok diskte"
 
 Bu hata, yerel disk SSIS Integration runtime düğümü kullanıldığı anlamına gelir. Disk alanı çok fazla paket veya özel kurulum tüketiyor olup olmadığını kontrol edin:
 * Paketiniz tarafından kullanılan disk, paket yürütme sona erdikten sonra yedekleme boşaltılacak.
 * Özel kurulumunuzu tarafından tüketilen disk varsa, SSIS tümleştirme çalışma zamanını durdurmak için kodunuzu değiştirmek ve Integration runtime'ı yeniden başlatın. SSIS Integration runtime düğümü için özel kurulum kopyalanacak için belirttiğiniz tüm Azure blob kapsayıcısı, bu nedenle denetleyin gereksiz içerikler bu kapsayıcı altında olup olmadığını.
+
+### <a name="error-message-failed-to-retrieve-resource-from-master-microsoftsqlserverintegrationservicesscalescaleoutcontractcommonmasterresponsefailedexception-code300004-descriptionload-file--failed"></a>Hata iletisi: "Kaynak Yöneticisi'nden alınamadı. Microsoft.SqlServer.IntegrationServices.Scale.ScaleoutContract.Common.MasterResponseFailedException: Kod: 300004. Dosya açıklaması: Yükle "***" başarısız oldu. "
+
+* Olası neden & önerilen eylem:
+  * SSIS etkinliğini paketin (paket dosyası veya proje dosyası) dosya sisteminden yürütülüyorsa, proje, paketi veya yapılandırma dosyası SSIS etkinliğini sağlanan paket erişim kimlik bilgileri ile erişilebilir değilse bu hata oluşur
+    * Azure dosya kullanıyorsanız:
+      * Dosya yolu ile başlamalıdır \\ \\ \<depolama hesabı adı\>. file.core.windows.net\\\<dosya paylaşımı yolu\>
+      * "Azure" etki alanında olması gerekir
+      * Kullanıcı adı olmalıdır \<depolama hesabı adı\>
+      * Bir parola olmalıdır \<depolama erişim anahtarı\>
+    * Varsa olduğunuz şirket içi dosya kullanarak gözden geçirin, Azure-SSIS Integration runtime şirket içi dosya paylaşımınızı erişebilmesi için sanal ağ, paket erişim kimlik bilgileri ve izni düzgün şekilde yapılandırılıp yapılandırılmadığını
+
+### <a name="error-message-the-file-name--specified-in-the-connection-was-not-valid"></a>Hata iletisi: "Dosya adı '...' Belirtilen bağlantı geçerli değil. "
+
+* Olası neden & önerilen eylem:
+  * Geçersiz dosya adı belirtilmedi
+  * Bağlantı Yöneticisi'nde kısa süre yerine FQDN (tam etki alanı adı) kullandığınızdan emin olun
 
 ### <a name="error-message-cannot-open-file-"></a>Hata iletisi: "Dosyası açılamıyor '...'"
 

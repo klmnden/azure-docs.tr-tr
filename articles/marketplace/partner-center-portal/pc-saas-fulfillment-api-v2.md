@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: ecee1669c29d7b298741f9e5521de03da6dd7e3b
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 476aaacbe6f1bf6d1920df0f12599976bfcc27b7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331630"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701149"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS yerine getirme API'leri, sürüm 2 
 
@@ -87,7 +87,7 @@ Aşağıdaki tabloda ortak parametrelerini ve yerine getirme API'leri tarafında
 | `offerId`                | Her teklif için bir benzersiz dize tanımlayıcı (örneğin: "offer1").  |
 | `planId`                 | Her planı/SKU'yu için bir benzersiz tanımlayıcı (örneğin: "Gümüş"). |
 | `operationId`            | Belirli bir işlem için GUID tanımlayıcısı.  |
-|  `action`                | Bir kaynakta ya da gerçekleştirilmekte olan eylemin `subscribe`, `unsubscribe`, `suspend`, `reinstate`, veya `changePlan`, `changeQuantity`, `transfer`.  |
+|  `action`                | Bir kaynakta ya da gerçekleştirilmekte olan eylemin `unsubscribe`, `suspend`, `reinstate`, veya `changePlan`, `changeQuantity`, `transfer`.  |
 |   |   |
 
 Genel olarak benzersiz tanımlayıcıları ([GUID'leri](https://en.wikipedia.org/wiki/Universally_unique_identifier)) genellikle otomatik olarak oluşturulan 128-bit (32 onaltılık) sayılardır. 
@@ -108,7 +108,7 @@ Bir kalıcı kaynak kimliği için bir Market belirteci çözülemedi yayımcı 
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  İçerik türü      | `application/json` |
+|  Content-Type      | `application/json` |
 |  x-ms-requestid    |  İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
 |  x-ms-bağıntı kimliği |  İstemci üzerinde işlem için benzersiz bir dize değeri. Bu parametre istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 |  authorization     |  [JSON web token (JWT) taşıyıcı belirteci alma](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). |
@@ -172,7 +172,7 @@ Bir yayımcı tüm SaaS abonelikleri listeler.
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-| İçerik türü       |  `application/json`  |
+| Content-Type       |  `application/json`  |
 | x-ms-requestid     |  İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
 | x-ms-bağıntı kimliği |  İstemci üzerinde işlem için benzersiz bir dize değeri. Bu parametre istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 | authorization      |  [JSON web token (JWT) taşıyıcı belirteci alma](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
@@ -199,10 +199,16 @@ Yanıt yükü:<br>
           "purchaser": { // Tenant that purchased the SaaS subscription. These could be different for reseller scenario
               "tenantId": "<guid>"
           },
+            "term": {
+                "startDate": "2019-05-31",
+                "endDate": "2019-06-29",
+                "termUnit": "P1M"
+          },
           "allowedCustomerOperations": [
               "Read" // Possible Values: Read, Update, Delete.
           ], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
+          "isFreeTrial": "true", // true – the customer subscription is currently in free trial, false – the customer subscription is not currently in free trial.
           "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
       }
   ],
@@ -244,7 +250,7 @@ Belirtilen SaaS abonelik alır. Bu çağrı, lisans bilgilerini almak ve planlam
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  İçerik türü      |  `application/json`  |
+|  Content-Type      |  `application/json`  |
 |  x-ms-requestid    |  İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
 |  x-ms-bağıntı kimliği |  İstemci üzerinde işlem için benzersiz bir dize değeri. Bu parametre istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 |  authorization     |  [JSON web token (JWT) taşıyıcı belirteci alma](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). |
@@ -271,7 +277,13 @@ Response Body:
           },
         "allowedCustomerOperations": ["Read"], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
         "sessionMode": "None", // Dry Run indicates all transactions run as Test-Mode in the commerce stack
+        "isFreeTrial": "true", // true – customer subscription is currently in free trial, false – customer subscription is not currently in free trial.
         "status": "Subscribed", // Indicates the status of the operation.
+          "term": { //This gives the free trial term start and end date
+            "startDate": "2019-05-31",
+            "endDate": "2019-06-29",
+            "termUnit": "P1M"
+        },
 }
 ```
 
@@ -308,7 +320,7 @@ Geçerli yayımcı herhangi bir özel veya genel tekliflere olup olmadığını 
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   İçerik türü     |  `application/json` |
+|   Content-Type     |  `application/json` |
 |   x-ms-requestid   |   İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
 |  x-ms-bağıntı kimliği  | İstemci üzerinde işlem için benzersiz bir dize değeri. Bu parametre istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
 |  authorization     |  [JSON web token (JWT) taşıyıcı belirteci alma](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). |
@@ -360,7 +372,7 @@ Kod: 500<br>
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  İçerik türü      | `application/json`  |
+|  Content-Type      | `application/json`  |
 |  x-ms-requestid    | İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 |  x-ms-bağıntı kimliği  | İstemci üzerinde işlem için benzersiz bir dize değeri. Bu dize istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 |  authorization     |  [JSON web token (JWT) taşıyıcı belirteci alma](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). |
@@ -417,7 +429,7 @@ Abonelik planını güncelleştirin.
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  İçerik türü      | `application/json` |
+|  Content-Type      | `application/json` |
 |  x-ms-requestid    |   İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 |  x-ms-bağıntı kimliği  |  İstemci üzerinde işlem için benzersiz bir dize değeri. Bu parametre istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.    |
 | authorization      |  [JSON web token (JWT) taşıyıcı belirteci alma](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
@@ -483,7 +495,7 @@ Abonelik miktarındaki güncelleştirin.
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  İçerik türü      | `application/json` |
+|  Content-Type      | `application/json` |
 |  x-ms-requestid    |   İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 |  x-ms-bağıntı kimliği  |  İstemci üzerinde işlem için benzersiz bir dize değeri. Bu parametre istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.    |
 | authorization      |  [JSON web token (JWT) taşıyıcı belirteci alma](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
@@ -550,7 +562,7 @@ Aboneliği iptal et ve belirtilen abonelik silin.
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   İçerik türü     |  `application/json` |
+|   Content-Type     |  `application/json` |
 |  x-ms-requestid    |   İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.   |
 |  x-ms-bağıntı kimliği  |  İstemci üzerinde işlem için benzersiz bir dize değeri. Bu parametre istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.   |
 |  authorization     |  [JSON web token (JWT) taşıyıcı belirteci alma](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
@@ -603,7 +615,7 @@ Geçerli yayımcı için bekleyen işlemleri listeler.
  
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   İçerik türü     |  `application/json` |
+|   Content-Type     |  `application/json` |
 |  x-ms-requestid    |  İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 |  x-ms-bağıntı kimliği |  İstemci üzerinde işlem için benzersiz bir dize değeri. Bu parametre istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 |  authorization     |  [JSON web token (JWT) taşıyıcı belirteci alma](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
@@ -666,7 +678,7 @@ Belirtilen tetiklenen zaman uyumsuz işlemin durumunu izlemek yayımcı sağlar 
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  İçerik türü      |  `application/json`   |
+|  Content-Type      |  `application/json`   |
 |  x-ms-requestid    |   İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 |  x-ms-bağıntı kimliği |  İstemci üzerinde işlem için benzersiz bir dize değeri. Bu parametre istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan.  |
 |  authorization     |  [JSON web token (JWT) taşıyıcı belirteci alma](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
@@ -730,7 +742,7 @@ Başarı veya başarısızlık sağlanan değerlerle belirtmek için bir işlemi
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|   İçerik türü     | `application/json`   |
+|   Content-Type     | `application/json`   |
 |   x-ms-requestid   |   İstemci, tercihen bir GUID istek izleme için benzersiz bir dize değeri. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
 |  x-ms-bağıntı kimliği |  İstemci üzerinde işlem için benzersiz bir dize değeri. Bu parametre istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer belirtilmezse, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
 |  authorization     |  [JSON web token (JWT) taşıyıcı belirteci alma](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  |
@@ -794,7 +806,6 @@ Yayımcı, Web kancası proaktif olarak kendi hizmetindeki değişiklikler kulla
 }
 ```
 Burada eylemi aşağıdakilerden biri olabilir: 
-- `subscribe` (kaynak ne zaman etkinleştirildi)
 - `unsubscribe` (kaynak ne zaman silinmiş)
 - `changePlan` (değişiklik planı işlemi tamamlandığında)
 - `changeQuantity` (değişiklik miktar işlemi tamamlandığında)

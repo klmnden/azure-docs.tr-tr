@@ -4,7 +4,7 @@ description: Bu makalede kaynakları platform destekli geçiş Klasik modelden A
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: d6f5a877-05b6-4127-a545-3f5bede4e479
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 34dad39e3784dd0bc73e3be108d6b31d4f479a1e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0e21a962fb03a42af4cb32fcdf60cd59746a591d
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60543156"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667375"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Azure CLI kullanarak Iaas kaynaklarını Klasik modelden Azure Resource Manager'a geçiş
 Bu adımları olarak hizmet (Iaas) kaynaklarını Klasik dağıtım modelinden Azure Resource Manager dağıtım modeline altyapı geçirmek için Azure komut satırı arabirimi (CLI) komutlarını kullanmayı gösterir. Makale gerekir [Azure Klasik CLI](../../cli-install-nodejs.md). Azure CLI yalnızca Azure Resource Manager kaynakları için geçerli olduğundan, bu geçiş için kullanılamaz.

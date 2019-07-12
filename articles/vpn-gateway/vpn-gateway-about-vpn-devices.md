@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/05/2019
 ms.author: yushwang
-ms.openlocfilehash: 6535949767999e04b11106ff8a294e912a6d0fb8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8301594f63efaa5c6484a4dfd640aafa96cf15a0
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388862"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666268"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Siteden Siteye VPN Gateway bağlantıları için VPN cihazları ve IPsec/IKE parametreleri hakkında
 
@@ -31,10 +31,6 @@ Bir VPN ağ geçidi kullanılarak Siteden Siteye (S2S) şirketler arası VPN ba�
 
 ## <a name="devicetable"></a>Doğrulanmış VPN cihazları ve cihaz yapılandırma kılavuzları
 
-> [!NOTE]
-> Siteden Siteye bağlantı yapılandırırken, VPN cihazınız için genel kullanıma yönelik bir IPv4 IP adresi gereklidir.
->
-
 Cihaz satıcılarıyla işbirliği yaparak bir grup standart VPN cihazını doğruladık. Aşağıdaki listede bulunan cihaz ailelerinde yer alan tüm cihazlar, VPN ağ geçitleriyle birlikte kullanılabilir. Yapılandırmak istediğiniz VPN Gateway çözümüne yönelik VPN türü kullanımını (PolicyBased veya RouteBased) anlamak için bkz. [VPN Gateway Ayarları Hakkında](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 
 VPN Cihazınızı yapılandırmaya Yardım için uygun cihaz ailesine karşılık gelen bağlantılara bakın. Mümkün olan en iyi yapılandırma yönergeleri verilmiştir. VPN cihazı desteği için lütfen cihaz üreticinize başvurun.
@@ -48,6 +44,7 @@ VPN Cihazınızı yapılandırmaya Yardım için uygun cihaz ailesine karşılı
 | Denetim Noktası |Güvenlik Ağ Geçidi |R80.10 |[Yapılandırma kılavuzu](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Yapılandırma kılavuzu](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |Desteklenen |[Yapılandırma kılavuzu*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |Desteklenen |Desteklenen |
+| Cisco | CSR | RouteBased: IOS-XE 16.10 | | [Yapılandırma betiği](vpn-gateway-download-vpndevicescript.md) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |Desteklenen |Desteklenen |
 | Cisco |Meraki |Yok |Uyumlu değil |Uyumlu değil |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 ve sonraki sürümleri |[Yapılandırma kılavuzu](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Uyumlu değil |
@@ -133,7 +130,7 @@ Aşağıdaki tablolarda:
 | Diffie-Hellman Grubu  |Grup 2 (1024 bit) |Grup 2 (1024 bit) |
 | Kimlik Doğrulama Yöntemi |Önceden Paylaşılan Anahtar     |Önceden Paylaşılan Anahtar     |
 | Şifreleme ve Karma Algoritmaları |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |1. AES256, SHA1<br>2. AES256, SHA256<br>3. AES128, SHA1<br>4. AES128, SHA256<br>5. 3DES, SHA1<br>6. 3DES, SHA256 |
-| SA Yaşam Süresi           |28\.800 saniye     |28\.800 saniye     |
+| SA Yaşam Süresi           |28.800 saniye     |28.800 saniye     |
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>IKE Aşama 2 (Hızlı Mod) parametreleri
 
@@ -141,8 +138,8 @@ Aşağıdaki tablolarda:
 | ---                           | ---           | ---                                         |
 | IKE Sürümü                   |IKEv1          |IKEv2                                        |
 | Şifreleme ve Karma Algoritmaları |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[RouteBased QM SA Teklifleri](#RouteBasedOffers) |
-| SA Yaşam Süresi (Zaman)            |3\.600 saniye  |27\.000 saniye                                |
-| SA Yaşam Süresi (Bayt)           |102\.400.000 KB | -                                           |
+| SA Yaşam Süresi (Zaman)            |3\.600 saniye  |27.000 saniye                                |
+| SA Yaşam Süresi (Bayt)           |102.400.000 KB | -                                           |
 | Kusursuz İletme Gizliliği (PFS) |Hayır             |[RouteBased QM SA Teklifleri](#RouteBasedOffers) |
 | Kullanılmayan Eş Algılama (DPD)     |Desteklenmiyor  |Desteklenen                                    |
 
@@ -157,38 +154,38 @@ Aşağıdaki tabloda IPsec SA (IKE Hızlı Mod) Teklifleri listelenir. Teklifler
 |---| ---          |---               |---          |
 | 1 |GCM AES256    |GCM (AES256)      |None         |
 | 2 |AES256        |SHA1              |None         |
-| 3 |3DES          |SHA1              |None         |
-| 4 |AES256        |SHA256            |None         |
-| 5 |AES128        |SHA1              |None         |
-| 6 |3DES          |SHA256            |None         |
+| 3 |3DES          |SHA1              |Yok.         |
+| 4 |AES256        |SHA256            |Yok.         |
+| 5 |AES128        |SHA1              |Yok.         |
+| 6 |3DES          |SHA256            |Yok.         |
 
 #### <a name="azure-gateway-as-responder"></a>Yanıtlayıcı olarak Azure Gateway
 
 |-  |**Şifreleme**|**Kimlik Doğrulaması**|**PFS Grubu**|
 |---| ---          | ---              |---          |
-| 1 |GCM AES256    |GCM (AES256)      |None         |
+| 1\. |GCM AES256    |GCM (AES256)      |Yok.         |
 | 2 |AES256        |SHA1              |None         |
 | 3 |3DES          |SHA1              |None         |
 | 4 |AES256        |SHA256            |None         |
-| 5 |AES128        |SHA1              |None         |
-| 6 |3DES          |SHA256            |None         |
-| 7 |DES           |SHA1              |None         |
-| 8 |AES256        |SHA1              |1            |
+| 5 |AES128        |SHA1              |Yok.         |
+| 6 |3DES          |SHA256            |Yok.         |
+| 7 |DES           |SHA1              |Yok.         |
+| 8 |AES256        |SHA1              |1\.            |
 | 9 |AES256        |SHA1              |2            |
 | 10|AES256        |SHA1              |14           |
-| 11|AES128        |SHA1              |1            |
+| 11|AES128        |SHA1              |1\.            |
 | 12|AES128        |SHA1              |2            |
 | 13|AES128        |SHA1              |14           |
-| 14|3DES          |SHA1              |1            |
+| 14|3DES          |SHA1              |1\.            |
 | 15|3DES          |SHA1              |2            |
 | 16|3DES          |SHA256            |2            |
-| 17|AES256        |SHA256            |1            |
+| 17|AES256        |SHA256            |1\.            |
 | 18|AES256        |SHA256            |2            |
 | 19|AES256        |SHA256            |14           |
 | 20|AES256        |SHA1              |24           |
 | 21|AES256        |SHA256            |24           |
 | 22|AES128        |SHA256            |None         |
-| 23|AES128        |SHA256            |1            |
+| 23|AES128        |SHA256            |1\.            |
 | 24|AES128        |SHA256            |2            |
 | 25|AES128        |SHA256            |14           |
 | 26|3DES          |SHA1              |14           |

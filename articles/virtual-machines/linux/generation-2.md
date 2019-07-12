@@ -4,7 +4,7 @@ description: 2\. kuşak VM'ler için Azure desteği'ne genel bakış
 services: virtual-machines-linux
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: lahugh
-ms.openlocfilehash: 352df275742c38307065252d2f65bb4253d78e5d
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 653d4baa89e28255f11df1c5e2d813d37535793a
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151270"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667554"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Oluşturma için 2 VM'ler (Önizleme) Azure üzerinde destekler.
 
@@ -40,7 +40,7 @@ BIOS tabanlı mimari nesil 1 VM'ler kullanılan yerine 2. kuşak Vm'lerde yeni �
 * [Dsv2 serisi](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv2-series) ve [Dsv3 serisi](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv3-series-1)
 * [Esv3 serisi](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#esv3-series)
 * [Fsv2 serisi](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-compute#fsv2-series-1)
-* [GS serisi](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#gs-series)
+* [GS serisi](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#gs-series)
 * [Ls serisi](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) ve [Lsv2 serisi](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-storage#lsv2-series)
 * [Mv2 serisi](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#mv2-series)
 

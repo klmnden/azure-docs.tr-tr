@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/29/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 0b8c2b50e00c8e9727b09a454504d214a3060fe4
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 9d4fd798309398dff38081cc66b4071c5dd1f5bf
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502697"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670783"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure dijital İkizlerini Swagger başvuru belgeleri
 
@@ -42,15 +42,15 @@ Otomatik olarak oluşturulan Swagger başvuru malzemesi önemli kavramları, kul
 
 Kısa bir Özet API açıklar.
 
-[![Swagger üst](media/how-to-use-swagger/swagger_management_top.PNG)](media/how-to-use-swagger/swagger_management_top.PNG#lightbox)
+[![Swagger üst](media/how-to-use-swagger/swagger-management-top-img.png)](media/how-to-use-swagger/swagger-management-top-img.png#lightbox)
 
 Yönetim API'si nesne modelini de listelenir.
 
-[![Swagger modelleri](media/how-to-use-swagger/swagger_management_models.PNG)](media/how-to-use-swagger/swagger_management_models.PNG#lightbox)
+[![Swagger modelleri](media/how-to-use-swagger/swagger-management-models-img.png)](media/how-to-use-swagger/swagger-management-models-img.png#lightbox)
 
 Daha ayrıntılı bir özetinin varlıkların önemli özniteliklerinin her listelenen nesne modeli seçebilirsiniz.
 
-[![Swagger modeli](media/how-to-use-swagger/swagger_management_model.PNG)](media/how-to-use-swagger/swagger_management_model.PNG#lightbox)
+[![Swagger modeli](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
 
 Tüm kullanılabilir Azure dijital İkizlerini görmek oluşturulan Swagger nesne modellerini kullanışlıdır [nesneleri ve API'leri](./concepts-objectmodel-spatialgraph.md). Azure üzerinde dijital İkizlerini çözümleri derlediğinizde, geliştiriciler bu kaynak kullanabilir.
 
@@ -64,7 +64,7 @@ Listelenen her endpoint gerekli istek bilgileri gibi de içerir:
 * Gerekli parametre veri türleri.
 * Kaynağa erişmek için HTTP yöntemi.
 
-[![Swagger uç noktaları](media/how-to-use-swagger/swagger_management_endpoints.PNG)](media/how-to-use-swagger/swagger_management_endpoints.PNG#lightbox)
+[![Swagger uç noktaları](media/how-to-use-swagger/swagger-management-endpoints-img.png)](media/how-to-use-swagger/swagger-management-endpoints-img.png#lightbox)
 
 Daha ayrıntılı bir genel bakış için her bir kaynak seçin.
 
@@ -74,11 +74,11 @@ Swagger sağlayan güçlü işlevlerini bir API uç noktası doğrudan belgeleri
 
 Belirli bir uç noktası seçtikten sonra gördüğünüz **denemek**.
 
-[![Swagger deneyin](media/how-to-use-swagger/swagger_management_try.PNG)](media/how-to-use-swagger/swagger_management_try.PNG#lightbox)
+[![Swagger deneyin](media/how-to-use-swagger/swagger-management-try-img.png)](media/how-to-use-swagger/swagger-management-try-img.png#lightbox)
 
 Gerekli ve isteğe bağlı her parametre için giriş alanlarını getirmek için bu bölümü genişletin. Doğru değerleri girin ve seçin **yürütme**.
 
-[![Swagger çalıştı](media/how-to-use-swagger/swagger_management_tried.PNG)](media/how-to-use-swagger/swagger_management_tried.PNG#lightbox)
+[![Swagger çalıştı](media/how-to-use-swagger/swagger-management-tried-img.png)](media/how-to-use-swagger/swagger-management-tried-img.png#lightbox)
 
 Test yürüttükten sonra yanıt verileri doğrulayabilirsiniz.
 
@@ -86,7 +86,7 @@ Test yürüttükten sonra yanıt verileri doğrulayabilirsiniz.
 
 Listelenen her endpoint, geliştirme ve test doğrulamak için yanıt gövdesi verileri de içerir. Bu, durum kodları ve başarılı HTTP istekleri için görmek istediğiniz JSON verilebilir.
 
-[![Swagger yanıt](media/how-to-use-swagger/swagger_management_response.PNG)](media/how-to-use-swagger/swagger_management_response.PNG#lightbox)
+[![Swagger yanıt](media/how-to-use-swagger/swagger-management-response-img.png)](media/how-to-use-swagger/swagger-management-response-img.png#lightbox)
 
 Örnekler de hata ayıklama veya başarısız olan testler geliştirmenize yardımcı olacak hata kodlarını içerir.
 
@@ -120,7 +120,7 @@ Azure Active Directory kaydı tamamladıktan sonra:
 
 1. Ardından kalıcı aşağıdaki başarısı için yönlendirilirsiniz.
 
-    [![Swagger kalıcı yeniden yönlendirme](media/how-to-use-swagger/swagger_auth_redirect.png)](media/how-to-use-swagger/swagger_auth_redirect.png#lightbox)
+    [![Swagger kalıcı yeniden yönlendirme](media/how-to-use-swagger/swagger-auth-redirect-img.png)](media/how-to-use-swagger/swagger-auth-redirect-img.png#lightbox)
 
 OAuth 2.0 tarafından korunan istekleri etkileşimli olarak test etme hakkında daha fazla bilgi için bkz. [resmi belgelerine](https://swagger.io/docs/specification/authentication/oauth2/).
 
