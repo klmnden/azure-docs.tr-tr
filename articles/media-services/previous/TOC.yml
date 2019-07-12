@@ -254,7 +254,7 @@
         - name: Uzun süren işlemlerle başa çıkma
           href: media-services-dotnet-long-operations.md
         - name: Bölünmüş MP4 canlı içe alma belirtimi
-          href: media-services-fmp4-live-ingest-overview.md
+          href: ../media-services-fmp4-live-ingest-overview.md
         - name: Başlarken
           href: media-services-azure-media-clipper-getting-started.md
         - name: Videoları yükleme
@@ -458,11 +458,11 @@
     - name: Belirtimler
       items:
         - name: Canlı Alma - Bölünmüş MP4 canlı alma belirtimi
-          href: media-services-fmp4-live-ingest-overview.md
+          href: ../media-services-fmp4-live-ingest-overview.md
         - name: Canlı Alma - Canlı Akışta Zamanlanmış Meta Verilere Sinyal Gönderme
-          href: media-services-specifications-live-timed-metadata.md
+          href: ../media-services-specifications-live-timed-metadata.md
         - name: Kesintisiz Akış HEVC
-          href: media-services-specifications-ms-sstr-amendment-hevc.md
+          href: ../media-services-specifications-ms-sstr-amendment-hevc.md
 - name: Kaynaklar
   items:
     - name: Azure Media Services topluluğu

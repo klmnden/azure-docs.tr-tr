@@ -4,7 +4,7 @@ description: Azure Disk şifrelemesi, bir sanal makine uzantısı kullanarak bir
 services: virtual-machines-windows
 documentationcenter: ''
 author: ejarvi
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: ff77f9fc017627143b14544af03d0d5e80813db9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9a3e135172f0744c053da816b3c77762dbe783c3
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051702"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706109"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Windows (Microsoft.Azure.Security.AzureDiskEncryption) için Azure Disk şifrelemesi
 
@@ -144,20 +144,20 @@ Kullanarak `AADClientCertificate`:
 | Ad | Değer / örnek | Veri Türü |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Azure.Security | string |
-| türü | AzureDiskEncryptionForLinux | string |
+| publisher | Microsoft.Azure.Security | dize |
+| türü | AzureDiskEncryptionForLinux | dize |
 | typeHandlerVersion | 0.1, 1.1 | int |
-| (0,1 Şeması) Aadclientıd | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (0,1 Şeması) AADClientSecret | password | string |
-| (0,1 Şeması) AADClientCertificate | thumbprint | string |
+| (0,1 Şeması) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
+| (0,1 Şeması) AADClientSecret | password | dize |
+| (0,1 Şeması) AADClientCertificate | thumbprint | dize |
 | DiskFormatQuery | {"dev_path": "", "name": "","file_system": ""} | JSON sözlüğü |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
-| KeyEncryptionAlgorithm | 'OAEP RSA', 'RSA-OAEP-256', 'RSA1_5' | string |
-| KeyEncryptionKeyURL | url | string |
-| KeyVaultURL | url | string |
-| (isteğe bağlı) Parola | password | string | 
-| SequenceVersion | uniqueidentifier | string |
-| VolumeType | İşletim sistemi, veri, tüm | string |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | dize | 
+| KeyEncryptionAlgorithm | 'OAEP RSA', 'RSA-OAEP-256', 'RSA1_5' | dize |
+| KeyEncryptionKeyURL | url | dize |
+| KeyVaultURL | url | dize |
+| (isteğe bağlı) Parola | password | dize | 
+| SequenceVersion | uniqueidentifier | dize |
+| VolumeType | İşletim sistemi, veri, tüm | dize |
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
 Şablonu dağıtım örneği için bkz: [ galeri görüntüsünden yeni şifrelenmiş bir Windows VM oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image).

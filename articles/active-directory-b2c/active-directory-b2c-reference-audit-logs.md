@@ -11,12 +11,12 @@ ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2c1bfd9e2659127ab77e9db661b54fde18a8d25c
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 216f5413ce3dae1f2d040643a30a4d7db4a879b8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205357"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835408"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C erişim denetim günlükleri
 
@@ -33,45 +33,45 @@ Azure Active Directory B2C (Azure AD B2C) verilen belirteçleri ve yönetici eri
 
 |Etkinlik türü |Açıklama  |
 |---------|---------|
-|Yetkilendirme |Yetkilendirme, bir kullanıcının erişim B2C kaynaklara (örneğin, yönetici B2C ilkelerinin bir listesini erişme) ilgili etkinlikleri         |
-|Dizin |Azure portalı kullanarak yönetici kapattığında alınan dizin öznitelikleri ilgili etkinlikleri |
+|Authorization |Yetkilendirme, bir kullanıcının erişim B2C kaynaklara (örneğin, yönetici B2C ilkelerinin bir listesini erişme) ilgili etkinlikleri         |
+|Dizin |Azure portalını kullanarak bir yönetici kapattığında alınan dizin öznitelikleri ilgili etkinlikleri |
 |Uygulama | B2C uygulamaları CRUD işlemleri |
 |Anahtar |B2C anahtar kapsayıcısı içinde depolanan anahtarları CRUD işlemleri |
 |Resource |B2C kaynaklarını (örneğin, ilkeleri ve kimlik sağlayıcıları) CRUD işlemleri
-|Kimlik Doğrulaması |Belirteç verme ile kullanıcı kimlik bilgilerini ve doğrulama|
+|Authentication |Belirteç verme ile kullanıcı kimlik bilgilerini ve doğrulama|
 
 > [!NOTE]
 > Kullanıcı nesnesi CRUD etkinlikleri için başvurmak **çekirdek dizin** kategorisi.
 
 ## <a name="example-activity"></a>Örnek etkinlik
-Aşağıdaki örnek, bir kullanıcı bir dış kimlik sağlayıcısı oturum açtığında yakalanan verilerini gösterir: ![Denetim günlükleri - örnek](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+Aşağıdaki örnek, bir kullanıcı bir dış kimlik sağlayıcısı oturum açtığında yakalanan verilerini gösterir: ![Azure portalında denetim günlüğü Etkinlik Ayrıntıları sayfası örneği](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
 Etkinlik Ayrıntılar paneli aşağıdaki ilgili bilgileri içerir:
 
 |`Section`|Alan|Açıklama|
 |-------|-----|-----------|
 | Etkinlik | Ad | Hangi etkinlik yapıldı. Örneğin, "bir id_token uygulamaya verme" (hangi sonucuna asıl kullanıcı oturum açma). |
-| Başlatan (aktör) | ObjectId | **Nesne kimliği** B2C uygulamasının kullanıcı için oturum açmak için (Bu tanımlayıcıyı Azure portalında görünür değildir ancak örnek Graph API'si ile daha erişilebilir). |
+| Başlatan (aktör) | ObjectId | **Nesne kimliği** B2C uygulamasının kullanıcı için oturum açmak için (Bu tanımlayıcıyı Azure portalında görünür değildir ancak örnek Graph API'si ile erişilebilir durumda). |
 | Başlatan (aktör) | Spn | **Uygulama kimliği** kullanıcı için oturum açmak için B2C uygulaması. |
 | Hedefler | ObjectId | **Nesne kimliği** oturum açmak için kullanıcının. |
 | Ek Ayrıntılar | TenantId | **Kiracı kimliği** Azure AD B2C kiracısının. |
 | Ek Ayrıntılar | `PolicyId` | **İlke kimliği** kullanıcının oturum açmak için kullanılan kullanıcı Akış (ilke). |
 | Ek Ayrıntılar | ApplicationId | **Uygulama kimliği** kullanıcı için oturum açmak için B2C uygulaması. |
 
-## <a name="accessing-audit-logs-through-the-azure-portal"></a>Azure Portal aracılığıyla denetim günlüklerine erişme
+## <a name="accessing-audit-logs-through-the-azure-portal"></a>Azure portalı üzerinden denetim günlüklerine erişme
 1. [Azure Portal](https://portal.azure.com) gidin. B2C dizininizde olduğundan emin olun.
 2. Tıklayarak **Azure Active Directory** soldaki Sık Kullanılanlar çubuğuna
-    
-    ![Denetim günlükleri - AAD düğmesi](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
+
+    ![Azure Active Directory düğmesi portalında sol taraftaki menüde](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
 
 1. Altında **etkinlik**, tıklayarak **denetim günlükleri**
 
-    ![Denetim günlükleri - Logs Bölümü](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
+    ![Etkinlik menüsünün bölümünde denetim günlükleri düğmesi](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
 
 2. İçinde **kategori** dropbox, select **B2C**
 3. Tıklayarak **Uygula**
 
-    ![Denetim günlükleri - kategori](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
+    ![Kategori ve denetim günlüğü Filtresi Uygula düğmesi](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
 
 Son yedi gün günlüğe kaydedilen etkinlikler listesini görürsünüz.
 - Kullanım **etkinlik kaynağı türü** yukarıda özetlenen etkinliği türlerine göre filtre uygulamak için açılır

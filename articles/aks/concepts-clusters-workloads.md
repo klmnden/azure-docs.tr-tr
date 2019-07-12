@@ -2,17 +2,17 @@
 title: Kavramlar - Kubernetes için Azure Kubernetes Hizmetleri (AKS) hakkında temel bilgiler
 description: Temel küme ve iş yükü bileşenlerinin Kubernetes ve özelliklere Azure Kubernetes Service (AKS) birbirleriyle öğrenin
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: iainfou
-ms.openlocfilehash: ab818c0bded71b4566173f4a6a720fce9bc539c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 5f387310e737982b824d0ac9662822d9a74f39e9
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514520"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616012"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes kavramları Azure Kubernetes Service (AKS)
 
@@ -132,7 +132,7 @@ Kubernetes kullanan *pod'ların* uygulamanızın bir örneğini çalıştırmak 
 
 Bir pod oluşturduğunuzda, tanımlayabileceğiniz *kaynak sınırları* belirli miktarda CPU veya bellek kaynakları istemek için. Kubernetes Zamanlayıcı pod'ların bir düğüm isteği karşılamak için kullanılabilir kaynaklar ile çalışacak şekilde zamanlamak çalışır. Belirli bir pod temel alınan düğümünden çok fazla işlem kaynak tüketmesini önlemek en fazla kaynak sınırları da belirtebilirsiniz. Kubernetes Zamanlayıcı hangi kaynakların gerektiği ve izin verilen anlamanıza yardımcı olması tüm pod'ları için kaynak sınırları eklemek iyi bir uygulamadır.
 
-Daha fazla bilgi için [Kubernetes pod'ların] [ kubernetes-pods] ve [Kubernetes pod yaşam döngüsü][kubernetes-pod-lifecycle].
+Daha fazla bilgi için [Kubernetes pod'ların][kubernetes-pods] and [Kubernetes pod lifecycle][kubernetes-pod-lifecycle].
 
 Bir pod mantıksal bir kaynak, ancak kapsayıcı burada uygulama iş yüklerini çalıştırın. Pod'ları genellikle kısa ömürlü, atılabilir kaynaklarıdır ve ayrı ayrı zamanlanmış pod'ların bazı Kubernetes sağladığı yüksek kullanılabilirlik ve yedekleme özellikleri eksik. Bunun yerine, pod'ları genellikle dağıtılır ve Kubernetes tarafından yönetilen *denetleyicileri*, dağıtım denetleyicisi gibi.
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f61396d8fb0f02fe77f5ee35560f45a0c4698a10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87de721f596eb4148939c00bc4b4db270a87c24e
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850776"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724077"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>Azure hesabınız için profil bilgilerini değiştirme
 
@@ -87,10 +87,16 @@ Dışında pazarlama e-postalar almayı kabul etmek için:
 1. Git [istek formunda](https://account.microsoft.com/profile/permissions-link-request) profili e-posta adresinizi kullanarak bir istek göndermek. Tercihlerinizi güncelleştirmek için e-posta ile bağlantı alırsınız.
 2. Bağlantıyı açmak için seçin **iletişim izinleri Yönet** sayfası. Bu sayfa, e-posta adresi için kabul pazarlama iletişimleri türlerini gösterir. Geri Çevir ve ardından istediğiniz herhangi bir konuda Temizle **Kaydet**.
 
-
 ![İletişim izinlerinin yönetilmesi için sayfası örneği](./media/billing-how-to-change-azure-account-profile/manage-communication-permissions.png)
 
 Pazarlama iletişimleri dışında iyileştirilmiş, hesabınıza bağlı hizmet bildirimleri almaya devam.
+
+## <a name="change-the-subscription-name"></a>Abonelik adını değiştirin
+
+1. Oturum [Azure portalında](https://portal.azure.com)seçin **abonelik** sol bölme ve yeniden adlandırmak istediğiniz aboneliği seçin.
+1. Seçin **genel bakış**ve ardından **Yeniden Adlandır** komut çubuğundan.
+    ![Azure aboneliğiniz yeniden adlandırılıyor örneği](./media/billing-how-to-change-azure-account-profile/rename-sub.png)
+1. Adını değiştirdikten sonra seçin **Kaydet**.
 
 ## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
 

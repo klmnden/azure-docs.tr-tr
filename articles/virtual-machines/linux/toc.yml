@@ -137,6 +137,8 @@
           href: infrastructure-example.md
         - name: vCPU kotaları
           href: quotas.md
+    - name: Güvenlik öznitelikleri
+      href: virtual-machines-linux-security-attributes.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: VM oluşturma

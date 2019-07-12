@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
-ms.openlocfilehash: c5b6287757f6b71cfd60687f463673f142db04d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd3875c5c78a02efab1251166ec7113902be3e08
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939304"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723242"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Azure Data Lake depolama Gen2 büyük veri gereksinimleri için kullanma
 
@@ -39,8 +39,8 @@ A *dosya sistemi* klasörler ve dosyalar için bir kapsayıcıdır. En az bir ta
 
 |Aracı | Rehber |
 |---|--|
-|Azure Depolama Gezgini | [Depolama Gezgini'ni kullanarak bir dosya sistemi oluşturun](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-filesystem) |
-|AzCopy | [AzCopyV10 kullanarak dosya paylaşımını veya bir Blob kapsayıcısı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-blob-container-or-file-share)|
+|Azure Depolama Gezgini | [Depolama Gezgini'ni kullanarak bir dosya sistemi oluşturun](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-file-system) |
+|AzCopy | [AzCopyV10 kullanarak dosya paylaşımını veya bir Blob kapsayıcısı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10#transfer-files)|
 |HDInsight ile Hadoop dosya sistemi (HDFS) komut satırı arabirimi (CLI) |[HDInsight ile HDFS kullanarak bir dosya sistemi oluşturun](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
 |Azure Databricks not defteri kodda|[Bir depolama hesabı dosya sistemi (Scala) oluşturun](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br><br> [Bir dosya sistemi oluşturun ve bunu (Python) bağlama](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
 
@@ -54,11 +54,11 @@ Erişim için üç yol vardır:
 
 * Bu rollerden biri, bir kullanıcı, Grup, kullanıcı tarafından yönetilen kimlik veya hizmet sorumlusu atayın:
 
-  [Depolama Blob verileri okuyucu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
+  [Depolama Blob verileri okuyucu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)
 
-  [Depolama Blob verileri katkıda bulunan](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
+  [Depolama Blob verileri katkıda bulunan](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 
-  [Depolama Blob verileri sahibi](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview)
+  [Depolama Blob verileri sahibi](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 * Paylaşılan erişim imzası (SAS) belirteci kullanın.
 
@@ -69,9 +69,9 @@ Bu tablo her bir Azure hizmeti veya aracı için erişimi nasıl gösterir.
 |Aracı | Erişim vermek için | Rehber |
 |---|--|---|
 |Depolama Gezgini| Kullanıcılar ve gruplar için rol atama | [Azure Active Directory ile kullanıcılara yönetici ve yönetici olmayan rol atayın](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) |
-|AzCopy| Kullanıcılar ve gruplar için rol atama <br>**veya**<br> Bir SAS belirteci kullanabilir| [Azure Active Directory ile kullanıcılara yönetici ve yönetici olmayan rol atayın](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)<br><br>[Kolayca Azure depolama – kullanarak bir dosyayı indirmek için SAS oluşturma Azure Depolama Gezgini](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)|
+|AzCopy| Kullanıcılar ve gruplar için rol atama <br>**or**<br> Bir SAS belirteci kullanabilir| [Azure Active Directory ile kullanıcılara yönetici ve yönetici olmayan rol atayın](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)<br><br>[Kolayca Azure depolama – kullanarak bir dosyayı indirmek için SAS oluşturma Azure Depolama Gezgini](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)|
 |Apache DistCp | Kullanıcı tarafından atanan bir yönetilen kimlik rol atama | [Data Lake depolama Gen2'ile bir HDInsight kümesi oluşturma](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
-|Azure Data Factory| Rol atamak için kullanıcı tarafından atanan-yönetilen bir kimlik<br>**veya**<br> Bir hizmet sorumlusuna bir rol atanıyor<br>**veya**<br> Bir depolama hesabı anahtarını kullanın | [Bağlı hizmeti özellikleri](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
+|Azure Data Factory| Rol atamak için kullanıcı tarafından atanan-yönetilen bir kimlik<br>**or**<br> Bir hizmet sorumlusuna bir rol atanıyor<br>**or**<br> Bir depolama hesabı anahtarını kullanın | [Bağlı hizmeti özellikleri](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
 |Azure HDInsight| Kullanıcı tarafından atanan bir yönetilen kimlik rol atama | [Data Lake depolama Gen2'ile bir HDInsight kümesi oluşturma](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)|
 |Azure Databricks| Bir hizmet sorumlusuna bir rol atayın | [Nasıl yapılır: Bir Azure AD uygulaması ve kaynaklara erişebilen hizmet sorumlusu oluşturmak için portalı kullanma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
 
@@ -196,4 +196,4 @@ Data Lake depolama Gen2 ' verileri indirmek için kullanabileceğiniz araçlar l
 |Aracı | Rehber |
 |---|--|
 |Azure Data Factory | [Azure Data Factory’de Kopyalama Etkinliği](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
-|Apache DistCop | [Azure depolama BLOB'ları ile Azure Data Lake depolama Gen2 arasında veri kopyalamak için DistCp kullanma](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
+|Apache DistCp | [Azure depolama BLOB'ları ile Azure Data Lake depolama Gen2 arasında veri kopyalamak için DistCp kullanma](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |

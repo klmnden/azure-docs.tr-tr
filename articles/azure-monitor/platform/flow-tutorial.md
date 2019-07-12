@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: c3732dd2fa87b00eec38f88ab828605b33567235
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 46a4544b86648ee99a751d4793013f6104d1d9df
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60396606"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807045"
 ---
 # <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Bağlayıcısı ile Azure İzleyici günlük işlemlerini otomatikleştirmek için Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) çeşitli hizmetler için Eylemler yüzlerce kullanarak otomatik iş akışları oluşturmanıza olanak sağlar. Bir eylem çıktısını, başka farklı hizmetleri arasında tümleştirme oluşturmanızı sağlayan giriş olarak kullanılabilir.  Azure Log Analytics bağlayıcısını Microsoft Flow için Azure İzleyici'de bir Log Analytics çalışma alanından günlük sorguları tarafından alınan verileri içeren iş akışları oluşturmanıza olanak tanır.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Örneğin, Microsoft Flow, Office 365'ten bir e-posta bildirimi LAzure izleme günlük verilerini kullanın, Azure DevOps bir hata oluşturun veya bir Slack iletisi göndermek için kullanabilirsiniz.  Basit bir zamanlama veya bağlı bir hizmetteki bir posta ya da bir tweet alındığında gibi bazı eylemleri bir iş akışı tetikleyebilirsiniz.  
+Örneğin, bir e-posta bildirimi Office 365'ten Azure İzleyici günlük verilerini kullanın, Azure DevOps bir hata oluşturun veya bir Slack iletisi göndermek için Microsoft Flow kullanabilirsiniz.  Basit bir zamanlama veya bağlı bir hizmetteki bir posta ya da bir tweet alındığında gibi bazı eylemleri bir iş akışı tetikleyebilirsiniz.  
 
 Bu makalede öğreticide otomatik olarak e-posta, Log Analytics Bağlayıcısı'nı Microsoft Flow nasıl kullanabileceğinize bir örnek bir Azure İzleyici günlük sorgusu sonuçlarını gönderen bir akış oluşturma işlemini gösterir. 
 

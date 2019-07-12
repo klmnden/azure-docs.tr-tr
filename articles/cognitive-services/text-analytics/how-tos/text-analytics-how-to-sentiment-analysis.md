@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: f98f16e9996d90b0380f05885e4c2d74e1413f23
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: e17b68dfd63952d0c8c81415b090b047c5808e2e
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657659"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797797"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Örnek: Metin Analizi ile yaklaşımı algılama
 
@@ -139,7 +139,7 @@ Aşağıdaki örnekte, bu makaledeki belge koleksiyonu için yanıt gösterilmek
 > * Yaklaşım analizi v3 istek biçimi ve [veri sınırları](../overview.md#data-limits) önceki sürümü ile aynıdır.
 > * Şu anda, yaklaşım analizi V3: 
 >    * Şu anda yalnızca İngilizce dilini desteklemektedir.  
->    * Aşağıdaki bölgelerde kullanılabilir: `Central US`, `Central Canada`, ` East Asia` 
+>    * Aşağıdaki bölgelerde kullanılabilir: `Central US`, `Central Canada`, `East Asia` 
 
 |Özellik |Açıklama  |
 |---------|---------|

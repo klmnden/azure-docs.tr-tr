@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: c910ed9f1160d30e1d4bda2e85b029eb2ad85b02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd2284211c2fdc5a346c6ffb113f89fe311a358c
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237145"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786510"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapasite için HDInsight kümeleri planlama
 
@@ -82,7 +82,7 @@ Bir kümenin ölçeğini, VM düğümlerinin miktarı tarafından belirlenir. T�
 
 Küme türüne bağlı olarak çalışan düğümlerinin sayısını artırmak (örneğin, daha fazla çekirdeği) ek işlem kapasitesi ekler, ancak toplam bellek içi depolama işlenmekte olan verinin desteklemek tüm küme için gerekli bellek miktarını da ekleyebilirsiniz. Tercih ettiğiniz VM boyutunu ve türünü gibi doğru küme ölçek seçerek genellikle türü, sanal iş yükleri veya kanarya sorguları kullanarak ulaşıldı.
 
-Yoğun yük taleplerini karşılamak ve sonra ölçeği onu tekrar ek düğümleri artık gerekli olmadığında, kümeniz ölçeklendirebilirsiniz. Daha fazla bilgi için [ölçek HDInsight kümeleri](hdinsight-scaling-best-practices.md).
+Yoğun yük taleplerini karşılamak ve sonra ölçeği onu tekrar ek düğümleri artık gerekli olmadığında, kümeniz ölçeklendirebilirsiniz. [Otomatik ölçeklendirme özelliği](hdinsight-autoscale-clusters.md) ölçek kümenize dayalı olarak otomatik olarak tanır önceden ölçümleri ve zamanlamalar. Kümelerinize el ile ölçeklendirme hakkında daha fazla bilgi için bkz. [ölçek HDInsight kümeleri](hdinsight-scaling-best-practices.md).
 
 ### <a name="cluster-lifecycle"></a>Küme yaşam döngüsü
 

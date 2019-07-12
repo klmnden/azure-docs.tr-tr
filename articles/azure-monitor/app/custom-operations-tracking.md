@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: ae6e0e186f5cc0c9e3f0cd02d45d57c079eb3539
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c33c481d96a9edecc6360a9a91c095c2bca220b
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60900898"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798338"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Application Insights .NET SDK ile özel işlemleri izleme
 
@@ -51,7 +51,10 @@ Bu örnekte, şunlara göre izleme bağlamı yayılır [HTTP protokolü için ba
 ```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
 {
-    private readonly TelemetryClient telemetryClient = new TelemetryClient(TelemetryConfiguration.Active);
+    // you may create a new TelemetryConfiguration instance, reuse one you already have
+    // or fetch the instance created by Application Insights SDK.
+    private readonly TelemetryConfiguration telemetryConfiguration = TelemetryConfiguration.CreateDefault();
+    private readonly TelemetryClient telemetryClient = new TelemetryClient(telemetryConfiguration);
     
     public ApplicationInsightsMiddleware(OwinMiddleware next) : base(next) {}
 
@@ -170,7 +173,7 @@ public async Task Enqueue(string payload)
 }
 ```
 
-#### <a name="process"></a>Process
+#### <a name="process"></a>İşlem
 ```csharp
 public async Task Process(BrokeredMessage message)
 {
@@ -207,20 +210,7 @@ public async Task Process(BrokeredMessage message)
 Aşağıdaki örnek nasıl izleneceğini gösteren [Azure depolama kuyruğu](../../storage/queues/storage-dotnet-how-to-use-queues.md) işlemler ve üretici, tüketici ve Azure depolama arasındaki performanstaki telemetri. 
 
 Depolama kuyruğu bir HTTP API'SİNİN vardır. Kuyruğa tüm çağrıları HTTP istekleri için Application Insights bağımlılık toplayıcı tarafından izlenir.
-Olduğundan emin olun `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` içinde `applicationInsights.config`. Sahip değilseniz, programlı olarak açıklandığı gibi ekleyin [filtreleme ve Azure Application Insights SDK'da önişleme](../../azure-monitor/app/api-filtering-sampling.md).
-
-Application Insights'ı el ile yapılandırın, oluşturma ve başlatma emin `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule` benzer şekilde:
- 
-```csharp
-DependencyTrackingTelemetryModule module = new DependencyTrackingTelemetryModule();
-
-// You can prevent correlation header injection to some domains by adding it to the excluded list.
-// Make sure you add a Storage endpoint. Otherwise, you might experience request signature validation issues on the Storage service side.
-module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.windows.net");
-module.Initialize(TelemetryConfiguration.Active);
-
-// Do not forget to dispose of the module during application shutdown.
-```
+Varsayılan olarak ASP.NET ve ASP.NET Core uygulamaları, diğer uygulama türleri ile yapılandırılmış, başvurabilirsiniz [konsol uygulamalarla ilgili belgeler](../../azure-monitor/app/console.md)
 
 Application Insights işlem kimliği depolama istek kimliği ile ilişkilendirmek isteyebilirsiniz Ayarlama ve depolama istek istemci ve sunucu istek kimliği alma hakkında daha fazla bilgi için bkz. [izleme, tanılama ve Azure depolama sorunlarını giderme](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
@@ -335,7 +325,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 }
 ```
 
-#### <a name="process"></a>Process
+#### <a name="process"></a>İşlem
 
 Aşağıdaki örnekte, bir gelen iletiyi bir şekilde benzer şekilde gelen HTTP isteği izlenir:
 

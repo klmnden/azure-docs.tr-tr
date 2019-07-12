@@ -4,7 +4,7 @@ description: Linux sanal makinelerinizi Azure meta veri hizmeti kullanarak olayl
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 0831f08eaa3e8e6f6a0d3f68bc50cd927167b7ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7691bcd6f9f3137f48bdd52722c887c4777a32c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65507920"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706543"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure meta veri hizmeti: Linux VM'ler için zamanlanmış olaylar
 
@@ -51,7 +51,7 @@ Zamanlanmış olaylar, olayları aşağıdaki kullanım örnekleri sağlar:
 - Kullanıcı tarafından başlatılan Bakım (örneğin, bir kullanıcı yeniden başlatır veya bir sanal makine yeniden dağıtır)
 - [Düşük öncelikli VM çıkarma](https://azure.microsoft.com/blog/low-priority-scale-sets) içinde ölçek kümeleri
 
-## <a name="the-basics"></a>Temel bilgileri  
+## <a name="the-basics"></a>Temeller  
 
   Meta veri hizmeti VM içinden erişilebilir bir REST uç noktasını kullanarak Vm'leri çalıştırma hakkında bilgi gösterir. Böylece VM dışında gösterilmez, bilgileri bir nonroutable IP kullanılabilir.
 
@@ -75,7 +75,7 @@ Bir sanal ağdaki bulut Hizmetleri ve klasik VM'ler, varsayılan durumlarda VM o
 ### <a name="version-and-region-availability"></a>Sürümü ve bölge kullanılabilirliği
 Zamanlanmış olaylar olarak tutulan hizmetidir. Sürümleri zorunludur; geçerli sürümü `2017-11-01`.
 
-| Version | Yayın türü | Bölgeler | Sürüm Notları | 
+| Version | Yayın türü | Regions | Sürüm Notları | 
 | - | - | - | - | 
 | 2017-11-01 | Genel Erişilebilirlik | Tümü | <li> Düşük öncelikli VM çıkarma EventType 'Preempt' desteği eklendi<br> | 
 | 2017-08-01 | Genel Erişilebilirlik | Tümü | <li> Iaas Vm'leri için kaynak adları alt çizgi başına kaldırıldı<br><li>Tüm istekler için zorlanan meta veri üst bilgisi gereksinimi | 

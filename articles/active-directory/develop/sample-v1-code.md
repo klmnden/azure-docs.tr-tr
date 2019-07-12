@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 302e8edcf6cad16644a454fd9b56b42ffd1fab61
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: ca03c8d52de1580b755833dd990d1d7671f372ca
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482546"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785709"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory kod örnekleri (v1.0 uç noktası)
 
@@ -58,7 +58,7 @@ Aşağıdaki örnekleri kullanıcılar imzalama Web uygulamaları gösterir. Bu 
  Platform | Yalnızca kullanıcılar oturum açtığında | Çağrıları Microsoft Graph veya AAD Graph| Başka bir ASP.NET veya ASP.NET Core 2.0 Web API'sini çağırır.
  -------- | ------------------- | --------------------- | -------------------------
 ![Bu görüntü logo ASP.NET gösterir](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.0 sürümüne | [DotNet webapp openıdconnect aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [webapp-webapi-multitenant-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) </p>(AAD Graph) | [dotnet-webapp-webapi-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
-![Bu görüntü logo ASP.NET gösterir](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET 4.5 | [webApp openıdconnect dotnet](https://docs.microsoft.com/azure/active-directory/develo/pguidedsetups/active-directory-aspnetwebapp-v1) </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) </p> [dotnet-webapp-webapi-oauth2-useridentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [DotNet webapp multitenant openıdconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)</p> (AAD Graph) |
+![Bu görüntü logo ASP.NET gösterir](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET 4.5 | [webApp openıdconnect dotnet](quickstart-v1-aspnet-webapp.md) </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) </p> [dotnet-webapp-webapi-oauth2-useridentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [DotNet webapp multitenant openıdconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)</p> (AAD Graph) |
 ![Bu görüntü gösterir ve Python logosu](media/sample-v2-code/logo_python.png) | | [Python webapp graphapi](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)  |
 ![Bu görüntü, Java günlük gösterir](media/sample-v2-code/logo_java.png)  | | [java-webapp-openidconnect](https://github.com/azure-samples/active-directory-java-webapp-openidconnect)  |
 ![Bu görüntü PHP logosu gösterir](media/sample-v2-code/logo_php.png) | | [PHP graphapi web](https://github.com/Azure-Samples/active-directory-php-graphapi-web)  |
@@ -82,7 +82,7 @@ Aşağıdaki örnekleri, Microsoft Graph veya bir Web API'sini bir kullanıcı a
 İstemci uygulaması | Platform | Akış/verme | Microsoft Graph çağrıları | Bir ASP.NET veya ASP.NET Core 2.x Web API'si çağıran
 ------------------ | -------- | ---------- | -------------------- | -------------------------
 Masaüstü (WPF)           | ![Bu görüntü .NET gösterir /C# logosu](media/sample-v2-code/logo_NET.png)  | Etkileşimli | Parçası [dotnet yerel multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) | [DotNet yerel Masaüstü](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [DotNet yerel aspnetcore](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore/)</p> [dotnet-webapi-manual-jwt-validation](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
-Mobile (UWP)            | .![Bu görüntü .NET gösterir /C#/UWP](media/sample-v2-code/logo_Windows.png)   | Etkileşimli | [DotNet yerel uwp wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> Bu örnekte [WAM](https://docs.microsoft.com/windows/uw/psecurity/web-account-manager)değil [ADAL.NET](https://aka.ms/adalnet)|  [DotNet windows mağazası](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (tek bir kiracının Web API'sini çağırmak için ADAL.NET kullanarak UWP uygulaması) </p> [DotNet-webapı-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (bir çok kiracılı bir Web API'sini çağırmak için ADAL.NET kullanarak UWP uygulaması)|
+Mobile (UWP)            | .![Bu görüntü .NET gösterir /C#/UWP](media/sample-v2-code/logo_Windows.png)   | Etkileşimli | [DotNet yerel uwp wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> Bu örnekte [WAM](/windows/uwp/security/web-account-manager)değil [ADAL.NET](https://aka.ms/adalnet)|  [DotNet windows mağazası](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (tek bir kiracının Web API'sini çağırmak için ADAL.NET kullanarak UWP uygulaması) </p> [DotNet-webapı-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (bir çok kiracılı bir Web API'sini çağırmak için ADAL.NET kullanarak UWP uygulaması)|
 Mobile (Android, iOS, UWP)   | ![Bu görüntü .NET gösterir /C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | Etkileşimli | [DotNet yerel multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
 Mobile (Android)           | ![Bu görüntü Android logosu gösterir](media/sample-v2-code/logo_Android.png) | Etkileşimli |   [Android](https://github.com/Azure-Samples/active-directory-android) |
 Mobile (iOS)           | ![Bu görüntü iOS gösterir / Objective C ya da Swift'te](media/sample-v2-code/logo_iOS.png) | Etkileşimli |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |

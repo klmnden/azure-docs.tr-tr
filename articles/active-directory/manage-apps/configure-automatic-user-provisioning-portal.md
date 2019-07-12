@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bf265f51f2fea16f90dd0bcf2891bd9bed5cef8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b994078350aec5657659f8835d228eb907606bb8
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963580"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807629"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure portalının kurumsal uygulamalar için sağlama kullanıcı hesabı yönetme
 
@@ -31,14 +31,11 @@ Bu makalede nasıl kullanılacağını [Azure portalında](https://portal.azure.
 Azure Active Directory portalında görüntülemek ve bir dizinde çoklu oturum açma için yapılandırılmış olan tüm uygulamaları yönetmek için kullanın. Kurumsal uygulamalar, dağıtıldığı ve kuruluşunuzda kullanılan uygulamalardır. Kurumsal uygulamalarınızı yönetmek ve görüntülemek için aşağıdaki adımları izleyin:
 
 1. Açık [Azure Active Directory portalında](https://aad.portal.azure.com).
-
 1. Seçin **kurumsal uygulamalar** sol bölmeden. Galeriden eklenen uygulamaları dahil olmak üzere tüm yapılandırılmış uygulamaların bir listesi gösterilir.
-
 1. Raporları görüntülemek ve uygulama ayarlarını yönetme, kaynak bölmesini yüklemek için herhangi bir uygulama seçin.
-
 1. Seçin **sağlama** hazırlama ayarları seçili uygulama için kullanıcı hesabını yönetmek için.
 
-   ![Uygulama kaynağı bölmesi](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
+   ![Kullanıcı hesabı sağlama ayarları yönetmek için ekran sağlama](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>Sağlama modları
 
@@ -68,17 +65,17 @@ Genişletin **eşlemeleri** görüntüleme ve Azure AD arasında akış kullanı
 
 Önceden yapılandırılmış bir Azure AD kullanıcı nesnelerinin ve her SaaS uygulamasının kullanıcı nesneleri arasında eşleme yoktur. Bazı uygulamalar diğer grupların veya kişilerin gibi nesnelerin türlerini yönetin. Bir eşleme burada görüntüleyebilir ve bunları özelleştirme sağa eşleme düzenleyicisini açmak için tablo seçin.
 
-![Uygulama kaynağı bölmesi](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+![Öznitelik eşlemesi ekranı gösterilir](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 
 Desteklenen özelleştirmeleri içerir:
 
 * Etkinleştirme ve SaaS uygulamasının kullanıcı nesnesi Azure AD kullanıcı nesnesini gibi belirli nesneler için eşlemelerini devre dışı bırakma.
 * Uygulamanın kullanıcı nesnesini Azure AD'ye kullanıcı nesneden akış öznitelikleri düzenleme. Öznitelik eşlemesi hakkında daha fazla bilgi için bkz. [öznitelik eşlemesi türlerini anlama](customize-application-attributes.md#understanding-attribute-mapping-types).
-* Azure AD hedeflenen uygulamaya çalışan sağlama eylemleri filtreleme. Azure AD'ye tam eşitleme sahip olmak yerine çalıştırma eylemleri sınırlayabilirsiniz. 
+* Azure AD hedeflenen uygulamaya çalışan sağlama eylemleri filtreleme. Azure AD'ye tam eşitleme sahip olmak yerine çalıştırma eylemleri sınırlayabilirsiniz.
 
   Örneğin, yalnızca belirli **güncelleştirme** ve var olan kullanıcı hesaplarını bir uygulamada, ancak yenilerini oluşturmaz Azure AD'ye yalnızca güncelleştirmeler. Yalnızca belirli **Oluştur** ve Azure, yalnızca yeni kullanıcı hesaplarını oluşturur ancak mevcut olanları güncelleştirmez. Bu özellik, hesap oluşturma için farklı eşlemeler oluşturun ve iş akışları güncelleştirme yöneticileri olanak sağlar.
 
-* Yeni bir öznitelik eşlemesi ekleniyor. Seçin **yeni eşleme Ekle** kısmındaki **eşleme özniteliği** bölmesi. Doldurun **özniteliğini Düzenle** seçin ve form **Tamam** yeni eşleme listesine eklenecek. 
+* Yeni bir öznitelik eşlemesi ekleniyor. Seçin **yeni eşleme Ekle** kısmındaki **eşleme özniteliği** bölmesi. Doldurun **özniteliğini Düzenle** seçin ve form **Tamam** yeni eşleme listesine eklenecek.
 
 ### <a name="settings"></a>Ayarlar
 

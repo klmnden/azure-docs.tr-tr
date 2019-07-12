@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 03cb3f2339dda1bf1dbb510b686882e924a98d74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd34ab7cd899549962663e8cee8ee2121c39c49e
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118693"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840395"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Depolama Gezgini sorun giderme kılavuzu
 
@@ -59,7 +59,7 @@ Herhangi bir yönetim katmanı izinleri verme rol yoksa, Depolama Gezgini, veril
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>Yönetim katmanı izinleri ne alamıyorum my yöneticisinden gerekiyor?
 
-RBAC ile ilgili bir çözüm henüz şu anda yok. Geçici bir çözüm olarak bir SAS URI'si istek [kaynağınıza ekleme](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#attach-a-service-by-using-a-shared-access-signature-sas).
+RBAC ile ilgili bir çözüm henüz şu anda yok. Geçici bir çözüm olarak bir SAS URI'si istek [kaynağınıza ekleme](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Hata: Sertifika zinciri (ve benzer hatalar) otomatik olarak imzalanan sertifika
 
@@ -233,46 +233,76 @@ Yanlışlıkla geçersiz bir SAS URL'si kullanarak bağlı ve ayırma belirleyem
 
 ## <a name="linux-dependencies"></a>Linux bağımlılıkları
 
-Genel olarak, Depolama Gezgini, Linux üzerinde çalıştırmak için aşağıdaki paketler gereklidir:
+<!-- Storage Explorer 1.9.0 and later is available as a snap from the Snap Store. The Storage Explorer snap installs all of its dependencies with no extra hassle.
 
-* [.NET core 2.0 çalışma zamanı](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) Not: Depolama Gezgini sürüm 1.7.0 ve daha önce .NET Core 2.0 gerektirir. Yüklü .NET Core daha yeni bir sürümü varsa, düzeltme eki Depolama Gezgini (aşağıya bakın) gerekir. Depolama Gezgini 1.8.0 veya büyük ardından çalıştırıyorsanız, .NET Core 2.2 için kullanılacak mümkün olması gerekir. 2\.2'den sonraki sürümlerde, şu anda çalışması için doğrulanmadı.
-* `libgnome-keyring-common` ve `libgnome-keyring-dev`
+Storage Explorer requires the use of a password manager, which may need to be connected manually before Storage Explorer will work correctly. You can connect Storage Explorer to your system's password manager with the following command:
+
+```bash
+snap connect storage-explorer:password-manager-service :password-manager-service
+```
+
+You can also download the application .tar.gz file, but you'll have to install dependencies manually. -->
+
+> [!IMPORTANT]
+> Sağlanan Depolama Gezgini. tar.gz indirme yalnızca Ubuntu dağıtımları için desteklenir. Diğer dağıtımları değil doğruladıktan ve farklı veya ek paketleri gerektirebilir.
+
+Bu paketleri, Linux üzerinde Depolama Gezgini için en yaygın gereksinimler verilmiştir:
+
+* [.NET core 2.0 çalışma zamanı](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libgconf-2-4`
+* `libgnome-keyring0` veya `libgnome-keyring-dev`
+* `libgnome-keyring-common`
 
-Dağıtımınızda bağlı olarak, olabilir farklı veya daha fazla paketleri yüklemeniz gerekir.
+> [!NOTE]
+> Depolama Gezgini sürüm 1.7.0 ve daha önce .NET Core 2.0 gerektirir. .NET Core yüklü bir sürüme sahip sonra yapmanız gerekir [Depolama Gezgini düzeltme eki](#patching-storage-explorer-for-newer-versions-of-net-core). Depolama Gezgini 1.8.0 veya büyük ardından çalıştırıyorsanız, .NET Core 2.2 için kullanılacak mümkün olması gerekir. 2\.2'den sonraki sürümlerde, şu anda çalışması için doğrulanmadı.
 
-Depolama Gezgini, 16.04 ve 14.04 gibi Ubuntu 18.04 üzerinde resmi olarak desteklenmektedir. Yükleme adımlarını temiz makineler için aşağıdaki gibidir:
+# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19.04](#tab/1904)
+
+1. Storage Explorer'ı indirin.
+2. Yükleme [.NET Core çalışma zamanı](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
+3. Şu komutu çalıştırın:
+   ```bash
+   sudo apt-get install libgconf-2-4 libgnome-keyring0
+   ```
 
 # <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
 
-1. Depolama Gezgini'ni indirin
-2. .NET Core çalışma zamanı yükleme, en son doğrulanmış sürüme: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-2.0.8) (yeni bir sürümü zaten yüklü değilse, gerekebilir Depolama Gezgini düzeltme eki aşağıya bakın)
-3. `sudo apt-get install libgconf-2-4` öğesini çalıştırın
-4. `sudo apt install libgnome-keyring-common libgnome-keyring-dev` öğesini çalıştırın
+1. Storage Explorer'ı indirin.
+2. Yükleme [.NET Core çalışma zamanı](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
+3. Şu komutu çalıştırın:
+   ```bash
+   sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
+   ```
 
 # <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Depolama Gezgini'ni indirin
-2. .NET Core çalışma zamanı yükleme, en son doğrulanmış sürüme: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-2.0.8) (yeni bir sürümü zaten yüklü değilse, gerekebilir Depolama Gezgini düzeltme eki aşağıya bakın)
-3. `sudo apt install libgnome-keyring-dev` öğesini çalıştırın
+2. Yükleme [.NET Core çalışma zamanı](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
+3. Şu komutu çalıştırın:
+   ```bash
+   sudo apt install libgnome-keyring-dev
+   ```
 
 # <a name="ubuntu-1404tab1404"></a>[Ubuntu 14.04](#tab/1404)
 
 1. Depolama Gezgini'ni indirin
-2. .NET Core çalışma zamanı yükleme, en son doğrulanmış sürüme: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-2.0.8) (yeni bir sürümü zaten yüklü değilse, gerekebilir Depolama Gezgini düzeltme eki aşağıya bakın)
-3. `sudo apt install libgnome-keyring-dev` öğesini çalıştırın
+2. Yükleme [.NET Core çalışma zamanı](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
+3. Şu komutu çalıştırın:
+   ```bash
+   sudo apt install libgnome-keyring-dev
+   ```
 
----
+### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Depolama Gezgini'ni daha yeni sürümleri .NET Core için düzeltme eki uygulama
 
-### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Depolama Gezgini'ni daha yeni sürümleri .NET Core için düzeltme eki uygulama 
-.NET Core 2.0 yüklü ve Depolama Gezgini sürüm 1.7.0 çalışan daha büyük veya daha eski bir sürümü varsa, büyük olasılıkla Depolama Gezgini aşağıdaki adımları izleyerek düzeltme eki gerekir:
+Depolama Gezgini 1.7.0 veya daha eski düzeltme eki sürümü, Depolama Gezgini tarafından kullanılan .NET Core'da gerekebilir.
+
 1. StreamJsonRpc 1.5.43 sürümünü indirin [nuget'ten](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Sayfanın sağ tarafındaki "paketini indirme" bağlantısına bakın.
-2. Paket'ı indirdikten sonra dosya uzantısını değiştirme `.nupkg` için `.zip`
-3. Paketin sıkıştırmasını açın
-4. Şuraya gidin: `streamjsonrpc.1.5.43/lib/netstandard1.1/`
+2. Paket'ı indirdikten sonra dosya uzantısını değiştirme `.nupkg` için `.zip`.
+3. Paketin sıkıştırmasını açın.
+4. Açık `streamjsonrpc.1.5.43/lib/netstandard1.1/` klasör.
 5. Kopyalama `StreamJsonRpc.dll` aşağıdaki konumlara Depolama Gezgini klasör içinde:
-    1. `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
-    2. `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
+   * `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
+   * `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
 ## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Açık olarak Gezgini Azure portalı çalışmıyor
 

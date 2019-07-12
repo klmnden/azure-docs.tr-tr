@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
+ms.author: glenga
+ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 0f2053e978b7c890f4e175515ed54f69694950c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8f4689e7d8d5af1aba2f31aac0359494a3a259f5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60833579"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613374"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure uygulama Hizmeti'nde WebJobs ile arka plan görevleri çalıştırma
 
@@ -89,7 +90,7 @@ when making changes in one don't forget the other two.
    | **Türü** | Sürekli | [WebJob türleri](#webjob-types) bu makalenin önceki bölümlerinde açıklanmıştır. |
    | **Ölçeklendirme** | Çoklu örnek | Yalnızca sürekli WebJobs için kullanılabilir. Bir programı veya betiği tüm çalışıp çalışmayacağını belirler örnek veya yalnızca bir örnek. Birden çok örnek üzerinde çalıştırma seçeneği ücretsiz veya paylaşılan uygulanmaz [fiyatlandırma katmanları](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
 
-4. **Tamam**'ı tıklatın.
+4. **Tamam** düğmesine tıklayın.
 
    Yeni bir WebJob görünür **WebJobs** sayfası.
 
@@ -127,7 +128,7 @@ when making changes in one don't forget the other two.
    | **Türü** | Tetiklenen | [WebJob türleri](#webjob-types) bu makalenin önceki bölümlerinde açıklanmıştır. |
    | **Tetikleyiciler** | Manual | |
 
-4. **Tamam**'ı tıklatın.
+4. **Tamam** düğmesine tıklayın.
 
    Yeni bir WebJob görünür **WebJobs** sayfası.
 
@@ -166,7 +167,7 @@ when making changes in one don't forget the other two.
    | **Tetikleyiciler** | Zamanlanmış | Güvenilir bir şekilde çalışmak üzere zamanlamak için her zaman açık özelliği etkinleştirin. Always On yalnızca temel, standart ve Premium ücretlendirme katmanları için kullanılabilir.|
    | **CRON ifadesi** | 0 0/20 * * * * | [Sıralanmış iş ifadeleri](#cron-expressions) aşağıdaki bölümde açıklanmıştır. |
 
-4. **Tamam** düğmesine tıklayın.
+4. **Tamam**'ı tıklatın.
 
    Yeni bir WebJob görünür **WebJobs** sayfası.
 

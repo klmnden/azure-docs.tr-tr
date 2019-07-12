@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 78ee2c1ce402a29f1a9dfdd29f31daef09134eba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 09fd569ebfe8bc7f287eeb2a0b830399250c3a7a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60611329"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701505"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Pig etkinliği Azure Data Factory kullanarak verileri dönüştürme
 > [!div class="op_single_selector" title1="Dönüştürme etkinlikleri"]
@@ -87,12 +87,12 @@ Data Factory, HDInsight Pig etkinliği [işlem hattı](data-factory-create-pipel
 | --- | --- | --- |
 | name |Etkinliğin adı |Evet |
 | description |Etkinliğin ne için kullanıldığını açıklayan metin |Hayır |
-| type |HDinsightPig |Evet |
+| türü |HDinsightPig |Evet |
 | inputs |Pig etkinlik tarafından kullanılan bir veya daha fazla giriş |Hayır |
 | outputs |Pig etkinliği tarafından üretilen bir veya daha fazla çıkışı |Evet |
 | linkedServiceName |Data Factory öğesinde bağlantılı hizmet olarak kayıtlı HDInsight kümesine başvuru |Evet |
-| script |Pig betiği satır içi belirtin |Hayır |
-| scriptPath |Pig betiği bir Azure blob depolama alanında Store ve dosyanın yolunu belirtin. 'Script' veya 'scriptPath' özelliğini kullanın. Her ikisi de birlikte kullanılamaz. Dosya adı büyük/küçük harfe duyarlıdır. |Hayır |
+| betiğini çalıştırın |Pig betiği satır içi belirtin |Hayır |
+| ScriptPath |Pig betiği bir Azure blob depolama alanında Store ve dosyanın yolunu belirtin. 'Script' veya 'scriptPath' özelliğini kullanın. Her ikisi de birlikte kullanılamaz. Dosya adı büyük/küçük harfe duyarlıdır. |Hayır |
 | defines |Pig betiği içinde başvurmak için anahtar/değer çiftleri parametrelerini belirtin |Hayır |
 
 ## <a name="example"></a>Örnek

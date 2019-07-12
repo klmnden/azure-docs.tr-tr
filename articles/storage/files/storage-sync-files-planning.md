@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a745fefa5ceb0f81cf8d66e7af9e308c0ecb40b9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e9e790ac8ac67478a0e7b5143a5b2f1fdd9c790c
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449862"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798676"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -69,23 +69,10 @@ Bulut katmanlaması olduğundan, sık erişilen dosyaları önbelleğe alınır 
 ## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Azure dosya eşitleme sistem gereksinimleri ve birlikte çalışabilirlik 
 Bu bölümde, Azure dosya eşitleme Aracısı sistem gereksinimleri ve Windows Server özelliklerini ve rollerini ve üçüncü taraf çözümlerle birlikte çalışabilirlik kapsar.
 
-### <a name="evaluation-tool"></a>Değerlendirme Aracı
-Azure dosya eşitleme dağıtmadan önce sisteminizin Azure dosya eşitleme Değerlendirme Aracı'nı kullanma ile uyumlu olduğunu değerlendirmelidir. Bu araç için dosya sistemini ve veri kümesi gibi desteklenmeyen karakterler veya desteklenmeyen bir işletim sistemi sürümü ile ilgili olası sorunları kontrol eden bir Azure PowerShell cmdlet'i kullanılır. Kendi denetimleri en kapsayan Not ancak tüm Aşağıda sözü edilen Özellikler; dağıtımınızın düzgün gider dikkatli bir şekilde sağlamak için bu bölümün geri kalanında okuma öneririz. 
+### <a name="evaluation-cmdlet"></a>Değerlendirme cmdlet'i
+Azure dosya eşitleme'yi dağıtmadan önce Azure dosya eşitleme değerlendirme cmdlet'ini kullanarak sisteminizle uyumlu olduğunu değerlendirmelidir. Bu cmdlet, dosya sistemi ve veri kümesi gibi desteklenmeyen karakterler veya desteklenmeyen bir işletim sistemi sürümü ile ilgili olası sorunları olup olmadığını denetler. Kendi denetimleri en kapsayan Not ancak tüm Aşağıda sözü edilen Özellikler; dağıtımınızın düzgün gider dikkatli bir şekilde sağlamak için bu bölümün geri kalanında okuma öneririz. 
 
-#### <a name="download-instructions"></a>Yükleme yönergeleri
-1. PackageManagement en son sürümüne sahip ve PowerShellGet yüklü olduğundan emin olun (Bu, Önizleme modülleri yüklemenize olanak tanır)
-    
-    ```powershell
-        Install-Module -Name PackageManagement -Repository PSGallery -Force
-        Install-Module -Name PowerShellGet -Repository PSGallery -Force
-    ```
- 
-2. PowerShell yeniden Başlat
-3. Modülleri yükleme
-    
-    ```powershell
-        Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force
-    ```
+Buradaki yönergeleri izleyerek yüklenebilir Az PowerShell modülünü yükleyerek değerlendirme cmdlet yüklenebilir: [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 #### <a name="usage"></a>Kullanım  
 Değerlendirme araç birkaç farklı yollarla çağırabilirsiniz: sistem denetimleri, veri kümesi denetimleri veya her ikisi de gerçekleştirebilirsiniz. Sistem ve veri kümesi denetimleri gerçekleştirmek için: 
@@ -115,11 +102,11 @@ CSV sonuçları görüntülemek için:
 
     | Version | Desteklenen SKU'ları | Desteklenen dağıtım seçenekleri |
     |---------|----------------|------------------------------|
-    | Windows Server 2019 | Datacenter ve Standard | Tam (bir kullanıcı Arabirimi ile sunucu) |
-    | Windows Server 2016 | Datacenter ve Standard | Tam (bir kullanıcı Arabirimi ile sunucu) |
-    | Windows Server 2012 R2 | Datacenter ve Standard | Tam (bir kullanıcı Arabirimi ile sunucu) |
+    | Windows Server 2019 | Datacenter ve Standard | Tam ve çekirdek |
+    | Windows Server 2016 | Datacenter ve Standard | Tam ve çekirdek |
+    | Windows Server 2012 R2 | Datacenter ve Standard | Tam ve çekirdek |
 
-    Windows Server'ın gelecek sürümlerinden yayınlandıkça eklenir. Önceki Windows sürümlerinde, kullanıcı geri bildirimleri temelinde eklenebilir.
+    Windows Server'ın gelecek sürümlerinden yayınlandıkça eklenir.
 
     > [!Important]  
     > Windows Update'ten en son güncelleştirmeleri ile güncel Azure dosya eşitleme ile kullandığınız tüm sunucuları tutulması önerilir. 
@@ -169,8 +156,12 @@ Windows Server Yük Devretme Kümelemesi için "Genel kullanım için dosya sunu
 > Her düğümde düzgün çalışması için bir yük devretme kümesinde eşitleme için Azure dosya eşitleme aracısının yüklenmesi gerekir.
 
 ### <a name="data-deduplication"></a>Yinelenen verileri kaldırma
-**Aracı sürümü 5.0.2.0**   
-Yinelenen verileri kaldırma, Windows Server 2016 ve Windows Server 2019 üzerinde etkin katmanlama bulutla birimlerde desteklenir. Bulut katmanlaması etkin bir birimde yinelenen verileri kaldırma etkinleştirme, daha fazla depolama alanı sağlama olmadan daha fazla dosyaları şirket içi önbellek olanak tanır. Bu birim tasarruf yalnızca şirket içi geçerli olduğunu unutmayın. Verilerinizi Azure dosyaları'nda yinelenenleri kaldırılan değil. 
+**Aracı sürümü 5.0.2.0 ya da daha yeni**   
+Yinelenen verileri kaldırma, Windows Server 2016 ve Windows Server 2019 üzerinde etkin katmanlama bulutla birimlerde desteklenir. Yinelenen verileri kaldırma bir birim üzerinde etkin katmanlama bulutla etkinleştirme, daha fazla depolama alanı sağlama olmadan daha fazla dosyaları şirket içi önbellek olanak tanır. 
+
+Bulut katmanlaması etkin bir birimde yinelenen verileri kaldırma etkinleştirildiğinde, en iyi duruma getirilmiş yinelenenleri kaldırma dosya sunucusu uç nokta konumu içinde benzer şekilde katmanlama İlkesi ayarları bulut tabanlı bir normal dosya katmanlanmış olmaz. Bir kez en iyi duruma getirilmiş dosyaları katmanlı yinelenenleri kaldırma, yinelenen verileri kaldırma atık toplama işi otomatik olarak artık başvurulmayan gereksiz öbekleri kaldırarak, disk alanını boşaltmak için diğer birimlere göre çalıştırır.
+
+Birim tasarruf sunucuda yalnızca geçerli dikkat edin. Verilerinizi Azure dosya paylaşımı, yinelenenleri kaldırılan değil.
 
 **Windows Server 2012 R2 veya daha eski Aracı sürümleri**  
 Bulut katmanlaması etkin olmayan birimler için Windows Server yinelenen verileri birimde etkinleştiriliyor kaldırma Azure dosya eşitleme destekler.
@@ -220,7 +211,7 @@ Bilinen kötü amaçlı kod için dosyaları tarama tarafından virüsten koruma
 Microsoft'un şirket içi virüsten koruma çözümleri, Windows Defender ve System Center Endpoint Protection (SCEP) hem de otomatik olarak ayarlanmış bu özniteliğe sahip okuma dosyaları atla. Biz bunları test ve küçük bir sorun belirledik: var olan bir eşitleme grubuna bir sunucu eklediğinizde, 800 bayt (yeni sunucuda indirilen) çekilir küçük dosyaları. Bu dosyalar yeni sunucuda kalır ve katmanlama boyut gereksinimini karşılamayan beri katmanlanmış olmaz değil (> 64kb).
 
 > [!Note]  
-> Virüsten koruma yazılımı satıcıları, ürün ve [Azure dosya eşitleme virüsten koruma uyumluluğu Test paketi] kullanarak Azure dosya eşitleme uyumluluğu kontrol edebilirsiniz (https://www.microsoft.com/download/details.aspx?id=58322), kullanılabilen Microsoft Download Center indirebilirsiniz.
+> Virüsten koruma yazılımı satıcıları, ürün ve Azure dosya eşitleme kullanarak uyumluluğu kontrol edebilirsiniz [Azure dosya eşitleme virüsten koruma uyumluluğu Test paketi](https://www.microsoft.com/download/details.aspx?id=58322), kullanılabilen Microsoft Download Center indirebilirsiniz.
 
 ### <a name="backup-solutions"></a>Yedekleme çözümleri
 Virüsten koruma çözümleri gibi yedekleme çözümleri, katmanlı dosyalar geri çağırma bildirimi yayımlayabiliriz neden olabilir. Bulut yedekleme çözümü yerine şirket içi yedekleme ürün Azure dosya paylaşımını yedekleme kullanmanızı öneririz.
@@ -263,6 +254,7 @@ Azure dosya eşitleme yalnızca şu bölgelerde kullanılabilir:
 | Doğu Asya | Hong Kong SAR |
 | East US | Virginia |
 | Doğu ABD 2 | Virginia |
+| Fransa Orta | Paris |
 | Kore Orta| Seul |
 | Kore Güney| Busan |
 | Japonya Doğu | Tokyo, Saitama |
@@ -304,6 +296,7 @@ Coğrafi olarak yedekli depolama ve Azure dosya eşitleme arasında yük devretm
 | Doğu Asya           | Güneydoğu Asya     |
 | East US             | Batı ABD            |
 | Doğu ABD 2           | Orta ABD         |
+| Fransa Orta      | Fransa Güney       |
 | Japonya Doğu          | Japonya Batı         |
 | Japonya Batı          | Japonya Doğu         |
 | Kore Orta       | Kore Güney        |

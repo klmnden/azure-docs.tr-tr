@@ -4,15 +4,15 @@ description: Bir kiracı ve oturumu konak sanal makine (VM) bir Windows sanal ma
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: troubleshoot
-ms.date: 04/08/2019
+ms.topic: troubleshooting
+ms.date: 07/10/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 38d59fb20776470cb683f2a2146838bb217addf7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96a9d8fc7495ea473b0a3250b34251afc5f30c13
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64928130"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786720"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Kiracı ve ana bilgisayar havuzu oluşturma
 
@@ -284,6 +284,18 @@ Microsoft Windows 10 işletim sisteminizin ise aşağıdaki yönergeleri ile dev
     ```
 
 16. Cmdlet tamamlanınca yapıyor yan yana yığınına sahip bir VM çalıştıran, yeniden başlatın.
+
+## <a name="remote-licensing-model-is-not-configured"></a>Uzak bir lisanslama modeli yapılandırılmadı
+
+Bir yönetici hesabı kullanarak Windows 10 Enterprise çok oturumuna oturum açarsanız, şunu bir bildirim alabilirsiniz "Uzak Masaüstü lisans modunu yapılandırılmamış, Uzak Masaüstü Hizmetleri, X çalışmayı durdurur gün. Bağlantı Aracısı sunucusunda, Sunucu Yöneticisi Uzak Masaüstü lisanslama modunu belirtmek için kullanın." Bu iletiyi görürseniz anlamına, lisanslama modu için el ile yapılandırmanız gereken **kullanıcı başına**.
+
+Lisanslama modu el ile yapılandırmak için:  
+
+1. Git, **Başlat menüsü** arama kutusuna sonra bulma ve açma **gpedit.msc** yerel Grup İlkesi Düzenleyicisi'ne erişmek için. 
+2. Git **Bilgisayar Yapılandırması** > **Yönetim Şablonları** > **Windows bileşenleri**  >   **Uzak Masaüstü Hizmetleri** > **Uzak Masaüstü oturumu konağı** > **lisanslama**. 
+3. Seçin **Uzak Masaüstü lisans modunu ayarla** ve değiştirmek için **kullanıcı başına**.
+
+Biz şu anda bildirim ve yetkisiz kullanım süresi zaman aşımı sorunlarını bulmak ve gelecek bir güncelleştirmede yönelik planlayın. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

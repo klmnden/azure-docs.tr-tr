@@ -3,16 +3,15 @@ title: Azure veri fabrikası veri akışı şema değişikliklerini eşleme
 description: Esnek şema değişikliklerini ile Azure Data factory'de veri akışları oluşturun
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6fd610afc0a21a97a8544b9e4b173f207f5fb50f
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61262168"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722875"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Veri akışı şema değişikliklerini eşleme
 
@@ -34,7 +33,7 @@ ms.locfileid: "61262168"
 
 * Bu seçeneği seçtiğinizde, tüm gelen alanları her veri akışı yürütme kaynağınızdan okuyun ve havuz için tüm akışı geçirilir.
 
-* Böylece tüm yeni alanlar çekilen yukarı alıp, hedefte geldiğimizi tüm yeni alanlar, havuz dönüşümünde eşlemek için "Otomatik-Map"'ı kullandığınızdan emin olun:
+* Böylece tüm yeni alanlar çekilen yukarı alıp, hedefte geldiğimizi tüm yeni alanlar, havuz dönüşümünde eşlemek için "Otomatik-Map"'ı kullandığınızdan emin olun.
 
 <img src="media/data-flow/automap.png" width="400">
 
