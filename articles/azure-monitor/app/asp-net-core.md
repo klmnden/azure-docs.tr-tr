@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 7fe5a4f5a5d1d254918f1b4f997acfb9cf67a75b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 5ea7ec41ccc721e8eafda56aa7463505ba089845
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272448"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827800"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core uygulamaları için Application Insights
 
@@ -177,7 +177,7 @@ Projenizi içermiyorsa `_Layout.cshtml`, eklemeye devam edebilirsiniz [istemci-t
 Varsayılan yapılandırmayı değiştirmek ASP.NET Core için Application Insights SDK özelleştirebilirsiniz. Kullanıcıları, Application Insights ASP.NET SDK'sını kullanarak yapılandırmasını değiştirme ile ilgili bilgi sahibi olabilir `ApplicationInsights.config` veya değiştirerek `TelemetryConfiguration.Active`. ASP.NET Core için farklı şekilde yapılandırmasını değiştirin. ASP.NET Core SDK'sını uygulamanıza eklemek ve yerleşik ASP.NET Core kullanarak yapılandırma [bağımlılık ekleme](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection). Neredeyse tüm yapılandırma değişiklikleri yapmak `ConfigureServices()` yöntemi, `Startup.cs` sınıf sürece, aksi takdirde yönlendirilirsiniz. Aşağıdaki bölümlerde daha fazla bilgi sunar.
 
 > [!NOTE]
-> ASP.NET Core uygulamalarında değiştirerek yapılandırmasını değiştirme `TelemetryConfiguration.Active` önerilmez.
+> ASP.NET Core uygulamalarında değiştirerek yapılandırmasını değiştirme `TelemetryConfiguration.Active` desteklenmiyor.
 
 ### <a name="using-applicationinsightsserviceoptions"></a>Using ApplicationInsightsServiceOptions
 
@@ -314,6 +314,23 @@ using Microsoft.ApplicationInsights.Channel;
     }
 ```
 
+### <a name="disable-telemetry-dynamically"></a>Telemetri dinamik olarak devre dışı bırak
+
+Telemetri koşullu ve dinamik olarak devre dışı bırakmak istiyorsanız, size çözebilir `TelemetryConfiguration` örneği ile ASP.NET Core bağımlılık ekleme kapsayıcısını kodunuzdaki herhangi bir yere ve ayarlama `DisableTelemetry` bu bayrağı.
+
+```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddApplicationInsightsTelemetry();
+    }
+
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, TelemetryConfiguration configuration)
+    {
+        configuration.DisableTelemetry = true;
+        ...
+    }
+```
+
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
 ### <a name="how-can-i-track-telemetry-thats-not-automatically-collected"></a>Otomatik olarak toplanan telemetri nasıl izleyebilir miyim?
@@ -408,3 +425,4 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 * [Anlık görüntü koleksiyonunu yapılandırma](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) bir özel durum şu anda kaynak kodu ve değişkenleri durumunu görmek için.
 * [API'yi kullanmak](../../azure-monitor/app/api-custom-events-metrics.md) kendi olaylarını ve metriklerini uygulamanızın performansına ve kullanımına ait ayrıntılı bir görünüm için gönderilecek.
 * Kullanım [kullanılabilirlik testleri](../../azure-monitor/app/monitor-web-app-availability.md) uygulamanızdan sürekli olarak dünyanın dört bir yanındaki denetlemek için.
+* [ASP.NET core'da bağımlılık ekleme](https://docs.microsoft.com/aspnet/fundamentals/dependency-injection)

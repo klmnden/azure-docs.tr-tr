@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/05/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e57291292d8957fd323f9be03bb7df0492484ea8
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: da10b70b85e284173abbd1779fb1d39f477ca0cd
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341628"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723211"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>BLOB'lar ve Kuyruklar için erişim için bir uygulamadan Azure Active Directory kimlik doğrulaması
 
@@ -49,16 +49,16 @@ Bir uygulamayı Azure AD'ye kaydetme hakkında daha fazla bilgi için bkz. [uygu
 Ardından, Azure depolama API'leri çağırmak için uygulama izinleri verin. Bu adım, uygulamanızı Azure AD ile Azure Depolama'ya yönelik isteklerin yetkilendirmek etkinleştirir.
 
 1. Üzerinde **genel bakış** kayıtlı uygulamanızda seçin sayfasında **API izinleri görüntüleme**.
-1. İçinde **API izinleri** bölümünden **bir izin eklemek** ve **Kuruluşum kullandığı API'leri**.
-1. Altında **Kuruluşum kullandığı API'leri** bölümünde "Azure Depolama'ya yönelik" arayın ve seçin **Azure depolama** görüntülenecek sonuç listesinden **istek API izinleri** bölme.
+1. İçinde **API izinleri** bölümünden **bir izin eklemek** ve **Microsoft APIs**.
+1. Seçin **Azure depolama** görüntülenecek sonuç listesinden **istek API izinleri** bölmesi.
+1. Altında **ne tür izinler uygulamanızı gerektiriyor mu?** , kullanılabilir izin türü olup olmadığına bakın **temsilci izinleri**. Bu seçenek, varsayılan olarak seçilidir.
+1. İçinde **izinleri seçin** bölümünü **istek API izinleri** bölmesinde yanındaki onay kutusunu işaretleyin **user_impersonation**, ardından **Ekle izinleri**.
 
     ![Depolama için ekran gösterme izinleri](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
-1. Altında **ne tür izinler uygulamanızı gerektiriyor mu?** , kullanılabilir izin türü olup olmadığına bakın **temsilci izinleri**. Bu seçenek, varsayılan olarak seçilidir.
-1. İçinde **izinleri seçin** bölümünü **istek API izinleri** bölmesinde yanındaki onay kutusunu işaretleyin **user_impersonation**, ardından **Ekle izinleri**.
-1. **API izinleri** bölmesi artık gösterir, Azure AD uygulaması hem Microsoft Graph ve Azure depolama erişimi olduğunu. İlk uygulamanızı Azure AD'ye kaydetme izinleri Microsoft Graph için otomatik olarak verilir.
+**API izinleri** bölmesi artık gösterilmektedir, kayıtlı Azure AD uygulaması, hem Microsoft Graph hem de Azure depolama erişimine sahiptir. İlk uygulamanızı Azure AD'ye kaydetme izinleri Microsoft Graph için otomatik olarak verilir.
 
-    ![Uygulama izinleri gösteren ekran görüntüsü kaydetme](media/storage-auth-aad-app/registered-app-permissions-2.png)
+![Uygulama izinleri gösteren ekran görüntüsü kaydetme](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
 ## <a name="create-a-client-secret"></a>İstemci gizli dizi oluşturma
 

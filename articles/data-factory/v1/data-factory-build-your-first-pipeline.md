@@ -14,17 +14,16 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d9d9e68b7e74ba7725e97162d01e1a35314fdd0f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 552c89cd3294567e8203b69f81c1ac24716a8b1b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60564596"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839446"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Öğretici: Hadoop kümesi kullanarak verileri dönüştürmek için ilk işlem hattınızı oluşturma
 > [!div class="op_single_selector"]
 > * [Genel bakış ve önkoşullar](data-factory-build-your-first-pipeline.md)
-> * [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager Şablonu](data-factory-build-your-first-pipeline-using-arm.md)
@@ -36,7 +35,7 @@ ms.locfileid: "60564596"
 
 Bu öğreticide, bir veri işlem hattı ile ilk Azure veri fabrikanızı oluşturun. İşlem hattı, çıkış verileri üretmek üzere bir Azure HDInsight (Hadoop) kümesinde Hive betiği çalıştırarak giriş verilerini dönüştürür.  
 
-Bu makalede, genel bakış ve öğreticisi için Önkoşullar sağlar. Önkoşulları tamamladıktan sonra öğretici aşağıdaki araçlardan/Sdk'lardan birini kullanarak bunu yapabilirsiniz: Azure portal, Visual Studio, PowerShell, REST API Resource Manager şablonu. Başlangıcında (veya) bağlantıları aşağıdaki seçeneklerden birini kullanarak öğreticiyi uygulamak için bu makalenin sonunda açılır listedeki seçeneklerden birini belirleyin.    
+Bu makalede, genel bakış ve öğreticisi için Önkoşullar sağlar. Önkoşulları tamamladıktan sonra öğretici aşağıdaki araçlardan/Sdk'lardan birini kullanarak bunu yapabilirsiniz: Visual Studio, PowerShell, Resource Manager şablonu, REST API. Başlangıcında (veya) bağlantıları aşağıdaki seçeneklerden birini kullanarak öğreticiyi uygulamak için bu makalenin sonunda açılır listedeki seçeneklerden birini belirleyin.    
 
 ## <a name="tutorial-overview"></a>Öğreticiye genel bakış
 Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
@@ -93,13 +92,12 @@ Bu öğreticiye başlamadan önce aşağıdaki önkoşullara sahip olmanız gere
 
 Önkoşulları tamamladıktan sonra aşağıdaki araçlardan/öğreticiyi uygulamak için Sdk'lardan birini seçin: 
 
-- [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager Şablonu](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-Azure portalı ve Visual Studio, veri fabrikaları oluşturma GUI yoludur. PowerShell ve Resource Manager şablonu REST API seçenekleri sağlar ise, veri fabrikaları oluşturmayı komut programlama yolu.
+Visual Studio, veri fabrikaları oluşturmaya bir GUI yöntemi sağlar. PowerShell ve Resource Manager şablonu REST API seçenekleri sağlar ise, veri fabrikaları oluşturmayı komut programlama yolu.
 
 > [!NOTE]
 > Bu öğreticideki veri işlem hattı, çıkış verileri üretmek üzere giriş verilerini dönüştürür. Bir kaynak veri deposundan hedef veri deposuna verileri kopyalamaz. Azure Data Factory kullanarak veri kopyalama hakkında bir öğretici için bkz. [Öğreticisi: Blob depolama alanından SQL veritabanı'na veri kopyalamak](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
