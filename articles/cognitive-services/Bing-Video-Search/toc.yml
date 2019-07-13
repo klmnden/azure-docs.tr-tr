@@ -52,7 +52,8 @@
     - name: Sayfa videoları
       href: paging-videos.md
     - name: Küçük resimleri yeniden boyutlandırma ve kırpma
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: v5’ten v7’ye yükseltme
       href: bing-video-upgrade-guide-v5-to-v7.md
 - name: Kavramlar

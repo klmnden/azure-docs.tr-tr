@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 9b8f3894062c34e743a39f28b5f079a67a285c84
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 8956aff86777e2a2570c6a555a9bd0882f328a77
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357678"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868407"
 ---
 # <a name="translator-text-api-v30"></a>Translator metin çevirisi API'si v3.0
 
@@ -31,10 +31,10 @@ Translator metin çevirisi API'si 3 sürümünü modern bir JSON tabanlı Web AP
 
 ## <a name="base-urls"></a>Temel URL
 
-Microsoft Translator, birden çok veri merkezi konumlarını dışında sunulur. 6'da şu anda bulunan [Azure coğrafyaları](https://azure.microsoft.com/global-infrastructure/regions):
+Microsoft Translator, birden çok veri merkezi konumlarını dışında sunulur. Şu anda 10'da bulunan [Azure coğrafyaları](https://azure.microsoft.com/global-infrastructure/regions):
 
-* **Americas:** Batı ABD 2 ve Batı Orta ABD 
-* **Asya Pasifik:** Güneydoğu Asya ve Kore Güney
+* **Americas:** Doğu ABD, Güney Orta ABD, Batı Orta ABD ve Batı ABD 2 
+* **Asya Pasifik:** Kore Güney, Doğu Japonya, Güneydoğu Asya ve Avustralya Doğu
 * **Avrupa:** Kuzey Avrupa ve Batı Avrupa
 
 Microsoft Translator metin çevirisi API'si için isteğin geldiği için en yakın veri merkezi tarafından işlenen çoğu durumda isteklerdir. Veri merkezinde hata oluşması halinde, istek dışında her Azure coğrafyası yönlendirilebilir.
@@ -49,7 +49,7 @@ Belirli bir Azure coğrafi işlenmek üzere istek zorlamak için istenen bölge 
 |Azure|Asya Pasifik|    api-apc.cognitive.microsofttranslator.com|
 
 
-## <a name="authentication"></a>Kimlik Doğrulaması
+## <a name="authentication"></a>Authentication
 
 Translator metin çevirisi API'si için abone veya [Bilişsel hizmetler çok hizmet](https://azure.microsoft.com/pricing/details/cognitive-services/) Microsoft Bilişsel hizmetler ve aboneliğinizi anahtar (Azure portalında kullanılabilir) kimliğini doğrulamak için kullanın. 
 
@@ -58,7 +58,7 @@ Aboneliğinizi kimliğini doğrulamak için kullanabileceğiniz üç üstbilgile
 |Üst bilgiler|Açıklama|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*Gizli anahtarınızı geçirilirse Bilişsel hizmetler abonelikle kullanın*.<br/>Aboneliğinize Translator metin çevirisi API'si için Azure gizli anahtar değeridir.|
-|Yetkilendirme|*Bir kimlik doğrulama belirteci geçirilirse, Bilişsel hizmetler abonelikle kullanın.*<br/>Taşıyıcı belirteç değerdir: `Bearer <token>`.|
+|Authorization|*Bir kimlik doğrulama belirteci geçirilirse, Bilişsel hizmetler abonelikle kullanın.*<br/>Taşıyıcı belirteç değerdir: `Bearer <token>`.|
 |Ocp-Apim-abonelik-bölge|*Çok hizmet bir gizli anahtar geçirilirse, Bilişsel hizmetler hizmetli abonelikle kullanın.*<br/>Değer, çoklu hizmet aboneliğin bölgedir. Bu değer, çoklu hizmet aboneliğinin kullanılmadığında isteğe bağlıdır.|
 
 ###  <a name="secret-key"></a>Gizli anahtar

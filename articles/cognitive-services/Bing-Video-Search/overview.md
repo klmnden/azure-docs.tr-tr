@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 06/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7b17c03b464ed7ccc13de2221c8e4cb36be05c3f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 64d6613a5bfb9b13500d2263d2f826d342972639
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442701"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867858"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Bing Video Arama API'si nedir?
 
@@ -27,7 +27,7 @@ Bing Video arama API'si, hizmetler ve uygulamalar, video arama özellikleri ekle
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Gerçek zamanlı arama terimleri önerme](concepts/sending-requests.md#suggest-search-terms-with-the-bing-autosuggest-api) | Yazılmaya başladıkları anda önerilen arama terimleri görüntülemek için [Bing Otomatik Öneri API](../bing-autosuggest/get-suggested-search-terms.md)'sini kullanarak uygulama deneyimini iyileştirin. |
 | [Filtre ve video sonuçları kısıtlama](concepts/get-videos.md#filtering-videos)                      | Sorgu parametreleri düzenleyerek döndürülen videoları filtreleyin.                                                                                                       |
-| [Küçük resimleri kırpma, yeniden boyutlandırma ve görüntüleme](resize-and-crop-thumbnails.md)                                                | Düzenle ve küçük resim önizlemeleri için Bing Video arama API'si tarafından döndürülen videoları görüntüleyin.                                                                                      |
+| [Küçük resimleri kırpma, yeniden boyutlandırma ve görüntüleme](../bing-web-search/resize-and-crop-thumbnails.md)                                                | Düzenle ve küçük resim önizlemeleri için Bing Video arama API'si tarafından döndürülen videoları görüntüleyin.                                                                                      |
 | [Popüler videolar Al](trending-videos.md) | Dünyanın dört bir yanındaki popüler videoları arayın.                                                                                                          |
 | [Video Öngörüler elde edin](video-insights.md) | Dünyanın dört bir yanındaki popüler videolar için arama özelleştirin.                                                                                                          |
 

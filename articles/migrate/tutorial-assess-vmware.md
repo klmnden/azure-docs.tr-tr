@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/11/2019
-ms.author: raynew
-ms.openlocfilehash: 5dc1a05e93bf1e82269a4291f147bac6e8ba657a
-ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
+ms.date: 07/12/2019
+ms.author: hamusa
+ms.openlocfilehash: 5f70037b1e6ce284b55ff5ff0ae38eb50c320122
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813000"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868667"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Azure ile VMware sanal makineleri değerlendirme geçirme: Server değerlendirmesi
 
@@ -85,6 +85,7 @@ Azure geçişi: Basit bir VMware VM Gereci Server değerlendirmesi çalıştır�
     - OVA bir şablon dosyasını indirin ve vCenter Server'a aktarın.
     - Aleti oluşturmak ve Azure geçişi Server değerlendirmesi için bağlanıp bağlanamadığını denetleyin.
     - İlk kez Gereci yapılandırın ve Azure geçişi projesi ile kaydedin.
+- Birden çok cihazları tek bir Azure geçişi projesi için ayarlayabilirsiniz. Tüm cihazları arasında en fazla 35.000 VM'lerin bulma desteklenir. Gereç en fazla 10.000 sunucuları bulunabilir.
 
 ### <a name="download-the-ova-template"></a>OVA şablonunu indirme
 
@@ -171,12 +172,24 @@ Aşağıdaki adımları kullanarak gereç ayarlayın.
 Şimdi, Gereci vCenter Server'a bağlanın ve VM bulmayı Başlat.
 
 1. İçinde **vCenter Server ayrıntılarını belirtin**, adını (FQDN) veya vCenter Server'ın IP adresi belirtin. Varsayılan bağlantı noktasını değiştirmeyin veya vCenter Server'ınıza dinlediği bir özel bağlantı noktası belirtin.
-2. İçinde **kullanıcı adı** ve **parola**, Gereci vCenter sunucusundaki Vm'leri bulmak için kullanacağı salt okunur hesabın kimlik bilgilerini belirtin. Hesabı olduğundan emin olun [bulma için gerekli izinler](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions).
+2. İçinde **kullanıcı adı** ve **parola**, Gereci vCenter sunucusundaki Vm'leri bulmak için kullanacağı salt okunur hesabın kimlik bilgilerini belirtin. Hesabı olduğundan emin olun [bulma için gerekli izinler](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Buna göre vCenter hesabına erişimi kısıtlayarak bulma kapsamını belirleyebilirsiniz; bulma kapsamı hakkında daha fazla bilgi [burada](tutorial-assess-vmware.md#scoping-discovery).
 3. Tıklayın **bağlantısını doğrulama** için Gereci vCenter Server'a bağlanabildiğinden emin olun.
 4. Bağlantı kurulduktan sonra tıklayın **kaydedin ve bulmayı Başlat**.
 
-
 Bu bulma başlatır. Portalda görünmesi bulunan VM'ler meta verilerini yaklaşık 15 dakika sürer.
+
+### <a name="scoping-discovery"></a>Bulma kapsamı
+
+Bulma, bulma için kullanılan vCenter hesabının erişimini kısıtlayarak sınırlayabilirsiniz. Kapsam vCenter sunucusu veri merkezleri, kümeleri, kümeleri, konaklar, konak veya tek tek sanal makineleri klasöründe klasörü ayarlayabilirsiniz. 
+
+> [!NOTE]
+> Bugün, Server değerlendirmesi vCenter hesabı vCenter VM klasör düzeyinde verilen erişimi varsa Vm'leri bulmak mümkün değil. VM klasörlere göre bulma kapsamı için arıyorsanız, vCenter sağlayarak hesabı VM düzeyinde atanmış salt okunur erişime sahiptir, bunu yapabilirsiniz.  Bunu yapmak nasıl yönergeler aşağıda verilmiştir:
+>
+> 1. Bulma kapsamı istediğiniz VM klasörlerdeki tüm sanal makineler salt okunur izinler atayın. 
+> 2. Vm'leri barındırıldığı tüm üst nesneleri yalnızca okuma erişimi verin. Tüm üst - host, konaklar, küme, klasör kümelerinin klasörü - veri merkezi kadar hiyerarşideki dahil edilecek nesneleridir. Tüm alt nesneleri için izinleri yayılması gerekmez.
+> 3. Veri merkezi olarak seçerek bulma için kimlik bilgilerini kullan *koleksiyon kapsamı*. Ayarlanan RBAC, karşılık gelen bir vCenter kullanıcı yalnızca kiracıya özgü Vm'leri erişimi olmasını sağlar.
+>
+> Konak bu klasöre dikkat edin ve kümeleri desteklenir.
 
 ### <a name="verify-vms-in-the-portal"></a>VM’lerin portalda olup olmadığını doğrulama
 

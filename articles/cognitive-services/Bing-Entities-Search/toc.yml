@@ -45,7 +45,8 @@
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Küçük resimleri yeniden boyutlandırma ve kırpma
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
 - name: Kavramlar
   items:
     - name: Varlıkları arama

@@ -58,7 +58,8 @@
     - name: Belirteç kullanarak içgörüler edinme
       href: use-insights-token.md
     - name: Küçük resimleri yeniden boyutlandırma ve kırpma
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Görüntü içgörüsü belirteçlerini kullanarak bir görüntüyü arama
       href: tutorial-visual-search-insights-token.md
     - name: Tek sayfalı Web uygulaması oluşturma

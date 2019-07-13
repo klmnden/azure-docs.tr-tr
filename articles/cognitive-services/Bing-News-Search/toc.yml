@@ -51,7 +51,8 @@
     - name: Sayfa haberleri
       href: paging-news.md
     - name: Küçük resimleri yeniden boyutlandırma ve kırpma
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: API sürümünü v5’ten v7’ye yükseltme
       href: bing-news-upgrade-guide-v5-to-v7.md
     - name: Visual Studio ile çalışma

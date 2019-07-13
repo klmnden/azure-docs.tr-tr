@@ -55,7 +55,8 @@
     - name: Görüntüleri sayfalama
       href: paging-images.md
     - name: Küçük resimleri yeniden boyutlandırma ve kırpma
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: v5’ten v7’ye yükseltme
       href: bing-image-upgrade-guide-v5-to-v7.md
 - name: Kavramlar
